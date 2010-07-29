@@ -1,0 +1,30 @@
+About Eagle3D
+=============
+
+Eagle3D is an application to create raytraced visualizations of PCB
+layouts created by Eagle. You can get a free version of Eagle from
+www.cadsoft.de
+
+This package is independent from cadsoft.
+
+How to build Eagle3D
+====================
+
+There are a couple of scripts in the tools directory. Just cd into
+that directory and run the create_eagle_3d.sh shell script and you
+should end up with three archives (.tar.gz, .tar.bz2, .zip).
+
+To get the big overview png with all the macros call the render.sh
+script in the tools/ directory.
+
+Extending Eagle3D?
+==================
+
+There are not much rules when adding code to the ULP or the POVRay
+macros. But please don't use tabs for indention and use four spaces
+for indention. If you find parts of the code where these rules are
+violated please fix it and send a patch.
+
+All other rules (naming, ...) should be clear if you take a look
+at the existing macros.
+

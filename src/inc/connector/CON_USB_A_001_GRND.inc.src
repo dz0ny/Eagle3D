@@ -1,0 +1,120 @@
+USB Connector Type A
+//Macro für USB-Buchse USB-787616 aus der con-amp.lib
+//12.10.2004
+//Designed by hebel23 <hebel(replace with at)hebel23.de> 
+####################################################################################################
+USB:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_USB_A_001(:USB-Buchse(con-amp.lib):USB-Buchse (con-amp.lib)
+####################################################################################################
+CON_USB_A_001_GRND
+()
+####################################################################################################
+CON_USB_A_001()
+()
+####################################################################################################
+####################################################################################################
+union{
+        /* Blechgehäuse  */               
+        difference{
+                box { <-7,2,0>,<7,8,14>} // Außenhülle
+                box { <-6.5, 2.5, -1>, <6.5, 7.5, 14> } // Aussparung in der Mitte
+                box { <-6.5, 0, 12>, <6.5, 7.5, 15> }  // Aussparung hinten
+                difference{                                      // Feder links oben                                      
+                           cone {<-3,8,8> , 1.5 , <-3,8,1> , 1.0}
+                           cone {<-3,8,8> , 1 , <-3,8,2> , 0.5}
+                          }
+                difference{                                      // Feder rechts oben                                      
+                           cone {<3,8,8> , 1.5 , <3,8,1> , 1.0}
+                           cone {<3,8,8> , 1 , <3,8,2> , 0.5}
+                          }
+                difference{                                      // Feder links unten                                     
+                           cone {<-3,2,8> , 1.5 , <-3,2,1> , 1.0}
+                           cone {<-3,2,8> , 1 , <-3,2,2> , 0.5}
+                          }
+                difference{                                      // Feder rechts unten                                      
+                           cone {<3,2,8> , 1.5 , <3,2,1> , 1.0}
+                           cone {<3,2,8> , 1 , <3,2,2> , 0.5}
+                          }
+                difference{                                      // Feder links                                      
+                           cone {<-7,5,8> , 1.5 , <-7,5,1> , 1.0}
+                           cone {<-7,5,8> , 1 , <-7,5,2> , 0.5}
+                          }
+                difference{                                      // Feder rechts                                      
+                           cone {<7,5,8> , 1.5 , <7,5,1> , 1.0}
+                           cone {<7,5,8> , 1 , <7,5,2> , 0.5}
+                          }
+                texture{col_silver}
+                } 
+        union{
+                box { <-7, -2, 9.5>, <-6.5, 3, 11> }            // linke Lötlasche
+                box { <7, -2, 9.5>, <6.5, 3, 11> }              // rechte Lötasche
+                texture{col_silver}
+               }
+        union{       
+                union{TOOLS_RECT_BOGEN(0.5,90,0.5,4,0,0)rotate<90,0,0>translate<6.75,5,-0.5>}
+                union{TOOLS_RECT_BOGEN(0.5,90,0.5,4,0,0)rotate<90,270,0>translate<-6.75,5,-0.5>}
+                union{TOOLS_RECT_BOGEN(0.5,90,0.5,4,0,0)rotate<90,0,90>translate<-3.5,7.75,-0.5>}
+                union{TOOLS_RECT_BOGEN(0.5,90,0.5,4,0,0)rotate<90,0,90>translate<3.5,7.75,-0.5>}
+                union{TOOLS_RECT_BOGEN(0.5,90,0.5,4,0,0)rotate<90,0,270>translate<-3.5,2.25,-0.5>}
+                union{TOOLS_RECT_BOGEN(0.5,90,0.5,4,0,0)rotate<90,0,270>translate<3.5,2.25,-0.5>}
+                texture{col_silver}
+               }
+        /* weißer Kontaktträger */
+        difference{
+                box { <-5,4,1>,<5,6,12>} // Quader in der Mitte
+                union{
+                      box{<-6,5.3,0>,<6,7,5>}
+                      rotate <-10, 0, 0>        // Abflachung oben
+                      }
+                union{
+                      box{<-6,4.3,0>,<6,3.5,5>}
+                      rotate <10, 0, 0>        // Abflachung unten
+                     }
+                 texture{pigment{color White}}
+                }  
+        /* Kontakte */
+        difference{    
+                  union{
+                        box { <-3.8,3.5,3>,<-3,4,8>} // Kontakt 1
+                        box { <-1.8,3.5,3>,<-0.8,4,8>} // Kontakt 2
+                        box { <1.8,3.5,3>,<0.8,4,8>} // Kontakt 3
+                        box { <3.8,3.5,3>,<3,4,8>} // Kontakt 4
+                        texture{col_gold}
+                        }   
+                  union{
+                        box{<-4,4,1>,<4,3.5,5>}
+                        rotate <5, 0, 0> // Abflachung der Kontakte
+                        }
+                }
+        union{
+                box { <-3.8,-2,12.5>,<-3.2,5,13>} // Kontakt 1 hinten
+                box { <-1.3,-2,12.5>,<-0.7,5,13>} // Kontakt 2 hinten
+                box { <0.7,-2,12.5>,<1.3,5,13>} // Kontakt 3 hinten
+                box { <3.2,-2,12.5>,<3.8,5,13>} // Kontakt 4 hinten
+                texture{col_gold}
+             }
+        /* weißer Sockel */
+        union{      
+                difference{
+                        box { <-6,0,2>,<6,2,12>} // Sockel links
+                        box { <-1,0,1>,<1,2,12>} // Sockel rechts
+                        union{
+                                box{<1.5,0,0>,<7,2,12>}
+                                rotate <-10, 0, 0>        // Abflachung links
+                                }
+                         union{
+                                box{<-1.5,0,0>,<-7,2,12>}
+                                rotate <-10, 0, 0>        // Abflachung links
+                                }
+                               }                
+                        difference{
+                        box { <-6.5, 0.5, 12>, <6.5, 7.5, 14> } // Sockel hinten
+                        box { <-6, 2.5, 12.5>, <6, 8, 15> }  // Aussparung für Kontakte
+                        box { <-3.8,-2,12>,<-3.2,5,15> }  // Aussparung für Kontakte
+                        box { <-1.3,-2,12>,<-0.7,5,15> }  // Aussparung für Kontakte
+                        box { <0.7,-2,12>,<1.3,5,15> }  // Aussparung für Kontakte
+                        box { <3.2,-2,12>,<3.8,5,15> }  // Aussparung für Kontakte
+                texture{pigment{color White}}
+                                }
+             }  
+}
+#end

@@ -1,0 +1,73 @@
+Tantalkondensator
+//Tantalkondensator Grundmakro 5mm Pitch
+####################################################################################################
+TT5D4:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CAP_DIS_TT_5MM_4MM5(:Tantal-Ko 5mm Pitch, 4.5mm Durchmesser:
+TT5D6:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CAP_DIS_TT_5MM_6MM(:Tantal-Ko 5mm Pitch, 6mm Durchmesser:Tantal-Ko 5mm Pitch, 6mm  Diameter
+TT5D7:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CAP_DIS_TT_5MM_7MM(:Tantal-Ko 5mm Pitch, 7mm Durchmesser:Tantal-Ko 5mm Pitch, 7mm  Diameter
+TT5D9:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CAP_DIS_TT_5MM_9MM(:Tantal-Ko 5mm Pitch, 9mm Durchmesser:Tantal-Ko 5mm Pitch, 9mm  Diameter
+TT5D10:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CAP_DIS_TT_5MM_10MM(:Tantal-Ko 5mm Pitch, 10mm Durchmesser:Tantal-Ko 5mm Pitch, 10mm  Diameter
+TT5D11:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CAP_DIS_TT_5MM_11MM(:Tantal-Ko 5mm Pitch, 11mm Durchmesser:Tantal-Ko 5mm Pitch, 11mm  Diameter
+NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CAP_DIS_TT_5MM_4MM5(:Tantal-C:
+NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CAP_DIS_TT_5MM_5MM(:Tantal-C:
+NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CAP_DIS_TT_5MM_5MM5(:Tantal-C:
+NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CAP_DIS_TT_5MM_6MM5(:Tantal-C:
+NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CAP_DIS_TT_5MM_8MM(:Tantal-C:
+NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CAP_DIS_TT_5MM_8MM5(:Tantal-C:
+####################################################################################################
+CAP_DIS_TT_5MM_GRND
+(obj_dia,obj_hgt,sca_txt)
+####################################################################################################
+CAP_DIS_TT_5MM_4MM5(value)
+(4.5,8.5,1)
+CAP_DIS_TT_5MM_5MM(value)
+(5,10,1.2)
+CAP_DIS_TT_5MM_5MM5(value)
+(5.5,10.5,1.3)
+CAP_DIS_TT_5MM_6MM(value)
+(6,11.5,1.4)
+CAP_DIS_TT_5MM_6MM5(value)
+(6.5,11.5,1.5)
+CAP_DIS_TT_5MM_7MM(value)
+(7,12,1.6)
+CAP_DIS_TT_5MM_8MM(value)
+(8,13,1.8)
+CAP_DIS_TT_5MM_8MM5(value)
+(8.5,14,1.8)
+CAP_DIS_TT_5MM_9MM(value)
+(9,15,2)
+CAP_DIS_TT_5MM_10MM(value)
+(10,18,2)
+CAP_DIS_TT_5MM_11MM(value)
+(11,18,2)
+####################################################################################################
+####################################################################################################
+union{
+	sphere{<0,0,0>obj_dia/2 scale<1,obj_hgt/obj_dia,1> pigment{CoolCopper}}
+	cylinder{<0,1,0><0,-1,0>0.25 texture{col_silver} translate<-1.25,-((obj_hgt/obj_dia)*obj_dia)/2+1,0>}
+	cylinder{<0,1,0><0,-1,0>0.25 texture{col_silver} translate<1.25,-((obj_hgt/obj_dia)*obj_dia)/2+1,0>}
+	cylinder{<0,0,0><-1.25,-1,0>0.25 texture{col_silver} translate<-1.25,-((obj_hgt/obj_dia)*obj_dia)/2,0>}
+	cylinder{<0,0,0><1.25,-1,0>0.25 texture{col_silver} translate<1.25,-((obj_hgt/obj_dia)*obj_dia)/2,0>}
+	#if(pin_short=off)
+		cylinder{<0,-14,0><0,-2,0>0.25 texture{col_silver} translate<-2.5,-((obj_hgt/obj_dia)*obj_dia)/2+1,0>}
+		cylinder{<0,-12,0><0,-2,0>0.25 texture{col_silver} translate<2.5,-((obj_hgt/obj_dia)*obj_dia)/2+1,0>}
+	#else
+		cylinder{<0,-1*(pcb_height+pin_length)-2.5,0><0,-2,0>0.25 texture{col_silver} translate<-2.5,-((obj_hgt/obj_dia)*obj_dia)/2+1,0>}
+		cylinder{<0,-1*(pcb_height+pin_length)-2.5,0><0,-2,0>0.25 texture{col_silver} translate<2.5,-((obj_hgt/obj_dia)*obj_dia)/2+1,0>}
+	#end
+	sphere{<0,0,0>0.25 texture{col_silver} translate<-2.5,-((obj_hgt/obj_dia)*obj_dia)/2-1,0>}
+	sphere{<0,0,0>0.25 texture{col_silver} translate<2.5,-((obj_hgt/obj_dia)*obj_dia)/2-1,0>}
+	sphere{<0,0,0>0.25 texture{col_silver} translate<-1.25,-((obj_hgt/obj_dia)*obj_dia)/2,0>}
+	sphere{<0,0,0>0.25 texture{col_silver} translate<1.25,-((obj_hgt/obj_dia)*obj_dia)/2,0>}
+	intersection{
+		sphere{<0,0,0>obj_dia/2 scale<1,obj_hgt/obj_dia,1.001> translate<0,0,0>}
+		text {ttf besch_font "+" obj_dia+0.4, 0 rotate<0,0,00> translate<-1.25,-((obj_hgt/obj_dia)*obj_dia)/2+1,-(obj_dia+0.4)/2>}
+	}
+	intersection{
+		sphere{<0,0,0>obj_dia/2 scale<1,obj_hgt/obj_dia,1.001> translate<0,0,0>}
+		text {ttf besch_font value obj_dia+0.4,0  scale<sca_txt,1,1> rotate<0,0,90> translate<0.25,-((obj_hgt/obj_dia)*obj_dia)/2+1.5,-(obj_dia+0.4)/2>}
+	}
+	pigment{Black}
+	translate<0,((obj_hgt/obj_dia)*obj_dia)/2+1.5,0>
+}
+#end
+

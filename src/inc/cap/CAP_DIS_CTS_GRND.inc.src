@@ -1,0 +1,70 @@
+capacitors
+//Macros for axial CTS tantale capacitor
+//Designed by Philippe Boucheny <philippe.boucheny(replace with at)free.fr>
+//Rev. 1.0 du 06/01/06
+// Macro Calling Arguments:  
+//   diam       = diameter of the main circumference
+//   Lg         = length
+//   value      = Eagle "value" (capacitance etc.) - this is printed on the capacitors
+//   r          = Pitch / Pas
+//   lw         = pins length / Longeur des pattes
+//   dw         = pins width / Largeur des pattes
+####################################################################################################
+NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CAP_DIS_CTS_A_15MM(:Axial capacitor CTS case A grid 15mm:
+NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CAP_DIS_CTS_B_20MM(:Axial capacitor CTS case B grid 20mm:
+NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CAP_DIS_CTS_C_25MM(:Axial capacitor CTS case C grid 25mm:
+NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CAP_DIS_CTS_D_30MM(:Axial capacitor CTS case D grid 30mm:
+####################################################################################################
+CAP_DIS_CTS_GRND
+(diam,Lg,Lt,r,lw,dw,value)
+####################################################################################################
+//CTS13 case A 15mm
+CAP_DIS_CTS_A_15MM(value)
+(3.6,8.1,2.1,6*2.54,30,0.5,value)
+//CTS13 case B 20mm
+CAP_DIS_CTS_B_20MM(value)
+(4.9,12.8,2.2,8*2.54,30,0.5,value)
+//CTS13 case C 25mm
+CAP_DIS_CTS_C_25MM(value)
+(7.5,18.2,2.3,10*2.54,30,0.6,value)
+//CTS13 case D 30mm
+CAP_DIS_CTS_D_30MM(value)
+(9.1,20.8,3.2,12*2.54,30,0.6,value)
+####################################################################################################
+####################################################################################################
+union{
+
+#local rr=diam/2*0.7;
+#local rrr=0.8;
+
+    difference{
+        //Body
+        union{
+            //cylinder {<-Lg/2,0,0><+Lg/2,0,0> diam/2  texture{NBglass } } // set this line as comment to speed up render
+            cylinder {<-Lg/2,0,0><+Lg/2,0,0> diam/2-0.1 }
+        }
+        //Plus side
+        union{
+            torus{ rr rrr rotate <90,90,0> translate<-Lg/2,0,0> }
+            cylinder{<-Lg/2-rrr,0,0><-Lg/2+rrr,0,0> rr}
+        }
+        texture{ col_silver }
+    }
+    //Plus pin
+    cylinder {<-Lg/2-Lt+rrr,0,0><-Lg/2+1,0,0> dw*1.5 texture{ Aluminum }}
+    //pins
+	object{TOOLS_WIRE_LEADS(Lg,diam,lw*2,dw,r,global_res_bend_radius,0,"H")}
+    //Text value
+    intersection{
+        cylinder {<-Lg/2,0,0><+Lg/2,0,0> diam/2-0.1 }
+        union{
+                text {ttf global_fontfile_arial "+" 2,0 scale(Lg/20.8)*3  rotate<-90,180,180> translate<-Lg/2.5,diam/2,-(diam/9.1)*1.5 > }
+                text {ttf global_fontfile_arial value 2,0  scale diam/9.1*3 rotate<-90,180,180> translate<-Lg/3.5,diam/2,-(diam/9.1)*1.5> }
+        }
+        pigment{Black}
+        translate +0.01*y
+    }
+    
+    translate diam/2*y
+}
+#end

@@ -1,0 +1,135 @@
+Relay
+//Macros for G2RL relas from OMRON
+//Designed by Philippe Boucheny <philippe.boucheny(replace with at)numericable.fr>
+//Rev. 1.1  23/01/08
+####################################################################################################
+G2RA:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SPC_RELAY_G2RL_1A(:OMRON G2RL Relay:
+G2R:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SPC_RELAY_G2RL_1(:OMRON G2RL Relay:
+G2REA:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SPC_RELAY_G2RL_1A_E(:OMRON G2RL Relay:
+G2RE:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SPC_RELAY_G2RL_1_E(:OMRON G2RL Relay:
+G2R2A:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SPC_RELAY_G2RL_2A(:OMRON G2RL Relay:
+G2R2:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SPC_RELAY_G2RL_2(:OMRON G2RL Relay:
+####################################################################################################
+SPC_RELAY_G2R_GRND
+(value,typ)
+####################################################################################################
+SPC_RELAY_G2RL_1A(value)
+(value,0)
+SPC_RELAY_G2RL_1(value)
+(value,1)
+SPC_RELAY_G2RL_1A_E(value)
+(value,2)
+SPC_RELAY_G2RL_1_E(value)
+(value,3)
+SPC_RELAY_G2RL_2A(value)
+(value,4)
+SPC_RELAY_G2RL_2(value)
+(value,5)
+####################################################################################################
+####################################################################################################
+union{
+    difference{
+        #local L=29; // longueur
+        #local W=12.7; // largeur
+        #local H=16.7; // hauteur+1
+        superellipsoid {<0.02, 0.02> scale <L/2, H/2, W/2>}
+        box{<-1,-1,-W/2><1,1,+W/2> rotate -45*z translate<+L/2,H/2,0>}
+        box{<-L/2-0.1,-H/2+1,-W/2-0.1><+L/2+0.1,-H/2-1,+W/2+0.1>}
+        box{<-1.5,H/2+0.1,-3.5><+1.5,H/2-0.5,+3.5> translate -5*x}
+        translate (H/2-1)*y 
+        pigment {Gray20}
+    }                
+        //box{<-L/2-1,-H/2+1,-W/2-0.1><+L/2+0.1,-H/2-1,+W/2+1>translate (H/2-1)*y pigment {Red}} 
+    cylinder{<-5,H-1,2.25><-5,H/2-1.5,2.25>0.5 pigment {Gray20}}
+    cylinder{<-5,H-1,-2.25><-5,H/2-1.5,-2.25>0.5 pigment {Gray20}}
+
+    union{
+    text {ttf global_fontfile_eagle3d "A" 0.05, 0 scale <1.5,1.5,1> rotate<90,0,0> translate<-L/2+1,H-0.95,+W/2-4>}
+    text {ttf global_fontfile_eagle3d "G" 0.05, 0 scale <3,3,1> rotate<90,0,0> translate<-L/2+4.5,H-0.95,+W/2-4.8>}
+    text {ttf global_fontfile_eagle3d "B" 0.05, 0 scale <3,3,1> rotate<90,0,0> translate<-L/2+4.5,H-0.95,+W/2-8>}
+    text {ttf global_fontfile_arial_bold "OMRON" 0.05, 0 scale <2,2,1> rotate<90,0,0> translate<-2,H-0.95,+W/2-2.4>}
+    text {ttf global_fontfile_arial_bold "JAPAN" 0.05, 0 scale <1.5,1.5,1> rotate<90,0,0> translate<+7,H-0.95,+W/2-2.4>}
+    text {ttf global_fontfile_arial value 0.05, 0  scale <3,3.5,1> rotate<90,0,0> translate<-2.5,H-0.95,+W/2-7.7>}
+    text {ttf global_fontfile_arial_bold "2817Y1" 0.05, 0 scale <1.5,1.5,1> rotate<90,0,0> translate<-2.5,H-0.95,+W/2-9.3>}
+    text {ttf global_fontfile_arial_bold "16A / 250V~ / AC1" 0.05, 0 scale <1.5,1.5,1> rotate<90,0,0> translate<-2.5,H-0.95,+W/2-11.1>}
+    text {ttf global_fontfile_arial_bold "°" 0.05, 0 scale <3,3,1> rotate<90,0,0> translate<-L/2+1.5,H-0.95,+W/2-13>}
+
+    box{<-L/2+1,H-0.95,-0.05><-7,H-1,+0.05> translate +1.3*z}
+    box{<+7,H-0.95,-0.05><+L/2-2,H-1,+0.05> translate +0.8*z}
+    box{<+7,H-0.95,-0.05><+8.5,H-1,+0.05> translate -0.3*z}
+    box{<+9,H-0.95,-0.05><+10.5,H-1,+0.05> translate -0.3*z}
+    box{<+11,H-0.95,-0.05><+12.5,H-1,+0.05> translate -0.3*z}
+    union{
+        box{<-1,H-0.95,-0.05><+1,H-1,+0.05> translate +0.5*z}
+        box{<-1,H-0.95,-0.05><+1,H-1,+0.05> translate -0.5*z}
+        box{<-0.05,H-0.95,-0.5><+0.05,H-1,+0.5> translate +1*x}
+        box{<-0.05,H-0.95,-0.5><+0.05,H-1,+0.5> translate -1*x}
+        box{<-0.05,H-0.95,-0.5><+0.05,H-1,-2.5> }
+        box{<-0.05,H-0.95,+0.5><+0.05,H-1,+2.5> }
+        translate <-L/2+3,0,-1.5>
+    }
+    pigment {Gray50}
+    }
+
+
+    box{<+0.4,0,-0.25><-0.4,-4,+0.25> translate<-12.5,0,-3.5> texture{col_silver}}        
+    box{<+0.4,0,-0.25><-0.4,-4,+0.25> translate<-12.5,0,+3.5> texture{col_silver}}        
+
+
+    #switch (typ)
+      #case (0)
+        text {ttf global_fontfile_arial "G2RL-1A" 0.05, 0  pigment {Gray50} scale <2,2,1> rotate<90,0,0> translate<-2.5,H-0.95,+W/2-4.5>}
+        box{<+0.4,0,-0.25><-0.4,-4,+0.25> translate<-12.5+23.5,0,-3.25> texture{col_silver}}        
+        box{<+0.4,0,-0.25><-0.4,-4,+0.25> translate<-12.5+20,0,+3.25> texture{col_silver}}        
+      #break //First case ends
+      #case (1)
+        text {ttf global_fontfile_arial "G2RL-1" 0.05, 0  pigment {Gray50} scale <2,2,1> rotate<90,0,0> translate<-2.5,H-0.95,+W/2-4.5>}
+        box{<+0.4,0,-0.25><-0.4,-4,+0.25> translate<-12.5+23.5,0,-3.25> texture{col_silver}}        
+        box{<+0.4,0,-0.25><-0.4,-4,+0.25> translate<-12.5+20,0,+3.25> texture{col_silver}}        
+        box{<+0.4,0,-0.25><-0.4,-4,+0.25> translate<-12.5+16.5,0,-3.25> texture{col_silver}}        
+      #break //Second case ends
+      #case (2)
+        text {ttf global_fontfile_arial "G2RL-1A-E" 0.05, 0  pigment {Gray50} scale <2,2,1> rotate<90,0,0> translate<-2.5,H-0.95,+W/2-4.5>}
+        box{<+0.4,0,-0.25><-0.4,-4,+0.25> translate<-12.5+20,0,+3.25> texture{col_silver}}        
+        box{<+0.4,0,-0.25><-0.4,-4,+0.25> translate<-12.5+20,0,-3.25> texture{col_silver}}        
+        box{<+0.4,0,-0.25><-0.4,-4,+0.25> translate<-12.5+25,0,+3.25> texture{col_silver}}        
+        box{<+0.4,0,-0.25><-0.4,-4,+0.25> translate<-12.5+25,0,-3.25> texture{col_silver}}        
+      #break //Third case ends
+      #case (3)
+        text {ttf global_fontfile_arial "G2RL-1-E" 0.05, 0  pigment {Gray50} scale <2,2,1> rotate<90,0,0> translate<-2.5,H-0.95,+W/2-4.5>}
+        box{<+0.4,0,-0.25><-0.4,-4,+0.25> translate<-12.5+20,0,+3.25> texture{col_silver}}        
+        box{<+0.4,0,-0.25><-0.4,-4,+0.25> translate<-12.5+20,0,-3.25> texture{col_silver}}        
+        box{<+0.4,0,-0.25><-0.4,-4,+0.25> translate<-12.5+25,0,+3.25> texture{col_silver}}        
+        box{<+0.4,0,-0.25><-0.4,-4,+0.25> translate<-12.5+25,0,-3.25> texture{col_silver}}        
+        box{<+0.4,0,-0.25><-0.4,-4,+0.25> translate<-12.5+15,0,+3.25> texture{col_silver}}        
+        box{<+0.4,0,-0.25><-0.4,-4,+0.25> translate<-12.5+15,0,-3.25> texture{col_silver}}        
+      #break //Fourth case ends
+      #case (4)
+        text {ttf global_fontfile_arial "G2RL-2A" 0.05, 0  pigment {Gray50} scale <2,2,1> rotate<90,0,0> translate<-2.5,H-0.95,+W/2-4.5>}
+        box{<+0.4,0,-0.25><-0.4,-4,+0.25> translate<-12.5+20,0,+3.25> texture{col_silver}}        
+        box{<+0.4,0,-0.25><-0.4,-4,+0.25> translate<-12.5+20,0,-3.25> texture{col_silver}}        
+        box{<+0.4,0,-0.25><-0.4,-4,+0.25> translate<-12.5+25,0,+3.25> texture{col_silver}}        
+        box{<+0.4,0,-0.25><-0.4,-4,+0.25> translate<-12.5+25,0,-3.25> texture{col_silver}}        
+      #break //Fourth case ends
+      #case (5)
+        text {ttf global_fontfile_arial "G2RL-2" 0.05, 0  pigment {Gray50} scale <2,2,1> rotate<90,0,0> translate<-2.5,H-0.95,+W/2-4.5>}
+        box{<+0.4,0,-0.25><-0.4,-4,+0.25> translate<-12.5+20,0,+3.25> texture{col_silver}}        
+        box{<+0.4,0,-0.25><-0.4,-4,+0.25> translate<-12.5+20,0,-3.25> texture{col_silver}}        
+        box{<+0.4,0,-0.25><-0.4,-4,+0.25> translate<-12.5+25,0,+3.25> texture{col_silver}}        
+        box{<+0.4,0,-0.25><-0.4,-4,+0.25> translate<-12.5+25,0,-3.25> texture{col_silver}}        
+        box{<+0.4,0,-0.25><-0.4,-4,+0.25> translate<-12.5+15,0,+3.25> texture{col_silver}}        
+        box{<+0.4,0,-0.25><-0.4,-4,+0.25> translate<-12.5+15,0,-3.25> texture{col_silver}}        
+      #break //Fourth case ends
+      #else
+        text {ttf global_fontfile_arial "G2RL" 0.05, 0  pigment {Gray50} scale <2,2,1> rotate<90,0,0> translate<-2.5,H-0.95,+W/2-4.5>}
+     #end // End of conditional part
+    
+    #if(typ=0)              //because origine offset in the footprint
+    #local tl=10.16-1.27;
+    #else
+    #local tl=10.16;
+    #end
+    
+    translate <tl,0,0>
+}
+#end

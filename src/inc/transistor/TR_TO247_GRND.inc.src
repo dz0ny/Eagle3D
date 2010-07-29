@@ -1,0 +1,115 @@
+TO247
+//Macros for TO247 
+//Designed by Philippe Boucheny <philippe.boucheny(at)numericable.fr>
+//Rev. 1.0  26/10/07
+####################################################################################################
+TO247BV:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:TR_TO247_V(:vertical TO247:
+TO247BH:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:TR_TO247_H(:horizontal TO247:
+NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:TR_TO247_2V(:vertical TO247:
+NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:TR_TO247_2H(:horizontal TO247:
+####################################################################################################
+TR_TO247_GRND
+(value,pindir,Lh,pinsnb,cutpins,pRot,pTra)
+####################################################################################################
+TR_TO247_H(value)
+(value,1,3,3,on,0,0)
+TR_TO247_2H(value)
+(value,1,3,2,on,0,0)
+TR_TO247_V(value)
+(value,3,10,3,on,-90*x,9*y)
+TR_TO247_2V(value)
+(value,3,10,2,on,-90*x,9*y)
+####################################################################################################
+####################################################################################################
+#macro TO247_BENDED_PIN (pindir,Lt,Lh,xp,yp,cutpins,xxp)
+//pin dirrection 0=up 1=down 3= straight; Lt pin length; Lh horizontal part length without rounded part
+//xpin = pin Width; yp = thinckness
+//Lt = Lh + (pi/2)r + Lv
+//cutpins 1=enable short pins cutting 0=disable it
+#if(cutpins=0)
+#local cutpins = 0;
+#else
+#local cutpins = pin_short;
+#end
+
+#local r=0.6;         
+#local Lv=Lt-Lh-1.57*r;
+union{
+    #if (pindir=3) //straight pin
+        #if(cutpins=off)
+            box{<-xp/2,+yp/2,-yp/2><+xp/2,-yp/2,-yp/2-Lh-1>} //horizontal part
+        #else
+            box{<-xp/2,+yp/2,-yp/2-Lh+(pcb_height+pin_length)+3><+xp/2,-yp/2,-yp/2-Lh-1>}//shorted horizontal part
+        #end    
+    #else
+        difference{
+            #if(cutpins=off)
+                box{<-xp/2,-r+yp/2,-yp/2><xp/2,-r+yp/2-Lv,+yp/2>} //vertical part
+                box{<0,0,-1><1,1,1> rotate<0,0,-25> translate<0.45-0.375,-r+yp/2-Lv,0>} //terminal V shape
+                box{<0,0,-1><-1,1,1> rotate<0,0,25> translate<0.30-0.375,-r+yp/2-Lv,0> }
+            #else
+                box{<-xp/2,-r+yp/2,-yp/2><xp/2,-2.5-(pcb_height+pin_length),+yp/2>}//shorted vertical part
+            #end
+        }
+        difference{ //curved part
+            cylinder{<-xp/2,-r+yp/2,-r+yp/2><xp/2,-r+yp/2,-r+yp/2>r}
+            box{<-xp/2-0.1,-yp/2,-yp/2><+xp/2+0.1,-yp/2-1,-yp/2-1>}
+        }
+        box{<-xp/2,+yp/2,-yp/2><+xp/2,-yp/2,-yp/2-Lh-1>}//short horizontal part next case
+    #end
+        
+    //box{<-xxp/2,+yp/2,-yp/2-Lh-1.0><+xxp/2,-yp/2,-yp/2-Lh+1.7>}//large horizontal part next case
+    
+    prism {linear_sweep linear_spline +yp/2, -yp/2,5,
+    < -xxp/2, -yp/2-Lh-1.0>, < +xxp/2, -yp/2-Lh-1.0>, < +xxp/2, -yp/2-Lh+1.7>, < 0, -yp/2-Lh+1.7+1>,  < -xxp/2, -yp/2-Lh+1.7> 
+    }
+
+
+    //box{<-0.90,+yp/2,-yp/2-Lh+0.7><+0.90,-yp/2,-yp/2-Lh+1.7>}//extra large horizontal part next case
+    rotate 180*y
+    #if (pindir=0) // up/down pins
+        rotate 180*z
+    #end
+    translate <0,2.75,-Lh-yp/2> // offset to mid thickness case and change zero to fixation hole
+}
+#end
+
+
+union{
+    difference{
+        union{
+            
+            difference{ //plastic case
+                box{<-7.75,0,-6.35><7.75,5,+13.65>} //main part
+                box{<-7.8,-3,-5.5><7.8,6,-8> rotate<-6,0,0> translate<0,2,0>} //pins side bevel
+                box{<-7.8,-3,-5.5><7.8,6,-8> rotate<+6,0,0> translate<0,2,0>} //pins side bevel
+                box{<-7.8,-3,+14><7.8,6,+18> rotate<-6,0,0> translate<0,2,0>} //top side bevel
+                box{<-7.8,-3,+14><7.8,6,+18> rotate<+6,0,0> translate<0,2,0>} //top side bevel
+                box{<-7.5,-3,-7><-10,6,+15> rotate<0,0,+6> translate<0,2,0> } //right side bevel
+                box{<-7.5,-3,-7><-10,6,+15> rotate<0,0,-6> translate<0,2,0> } //right side bevel
+                box{<+7.5,-3,-7><+10,6,+15> rotate<0,0,+6> translate<0,2,0> } //left side bevel
+                box{<+7.5,-3,-7><+10,6,+15> rotate<0,0,-6> translate<0,2,0> } //left side bevel
+                cone{<+7.75,2,+8.15>,2.25,<+7.75,5.1,+8.15> 2.75}
+                cone{<-7.75,2,+8.15>,2.25,<-7.75,5.1,+8.15> 2.75}
+
+                pigment{Gray30}
+            }
+            text{ttf global_fontfile_arial value 0.5,0 pigment{White} scale<2,2.5,2> rotate 90*x translate<-5,5.05,0>}//3 character code
+            box{<-6.75,-0.01,-4><+6.75,+0.5,+13.5>}//heatsink under case
+        }
+        cylinder{<0,-10,+8.15><0,+10,+8.15>3.6/2}//Hole
+
+    }
+    union{
+        object{TO247_BENDED_PIN(pindir,14.5,Lh,1.2,0.5,cutpins,2.2) translate<-5.45,0,-6.3>} //left pin
+        #if(pinsnb=3)
+            object{TO247_BENDED_PIN(pindir,14.5,Lh,1.2,0.5,cutpins,3.2) translate<0,0,-6.3>}//center pin
+        #end
+        object{TO247_BENDED_PIN(pindir,14.5,Lh,1.2,0.5,cutpins,2.2) translate<+5.45,0,-6.3>} //right pin   
+        
+    }
+    texture{col_silver}
+    //translate -8.15*z
+}
+#end
+

@@ -1,0 +1,177 @@
+Buchsenleiste
+//Grundmakro fuer Buchsenleisten abgewinkelt ,     con-lsta.lib,    Joerg Bredendiek <sprut(replace with at)sprut.de>   
+// 2.54mm  Pinabstand
+//
+// pin = pins pro Reihe
+// row = Reihen (1 oder 2)
+####################################################################################################
+FE05W:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_BLW_1X5(:Buchsenleiste gewinkelt 5Pin 1Reihe (con-lsta.lib):Female Header  5Pin 1Row (con-lsta.lib) 
+FE06W:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_BLW_1X6(:Buchsenleiste gewinkelt 6Pin 1Reihe (con-lsta.lib):Female Header  6Pin 1Row (con-lsta.lib) 
+FE07W:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_BLW_1X7(:Buchsenleiste gewinkelt 7Pin 1Reihe (con-lsta.lib):Female Header  7Pin 1Row (con-lsta.lib) 
+FE08W:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_BLW_1X8(:Buchsenleiste gewinkelt 8Pin 1Reihe (con-lsta.lib):Female Header  8Pin 1Row (con-lsta.lib) 
+FE09W:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_BLW_1X9(:Buchsenleiste gewinkelt 9Pin 1Reihe (con-lsta.lib):Female Header  9Pin 1Row (con-lsta.lib) 
+FE10W:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_BLW_1X10(:Buchsenleiste gewinkelt 10Pin 1Reihe (con-lsta.lib):Female Header  10Pin 1Row (con-lsta.lib) 
+FE12W:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_BLW_1X12(:Buchsenleiste gewinkelt 12Pin 1Reihe (con-lsta.lib):Female Header  12Pin 1Row (con-lsta.lib) 
+FE13W:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_BLW_1X13(:Buchsenleiste gewinkelt 13Pin 1Reihe (con-lsta.lib):Female Header  13Pin 1Row (con-lsta.lib) 
+FE20W:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_BLW_1X20(:Buchsenleiste gewinkelt 20Pin 1Reihe (con-lsta.lib):Female Header  20Pin 1Row (con-lsta.lib) 
+FE05-2W:0:0:0:0:0:0:0:0:0:0:0:0:0:180:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_BLW_2X5(:Buchsenleiste gewinkelt 5Pin x 2Reihen (con-lsta.lib):Female Header  5Pin x 2Row (con-lsta.lib) 
+FE06-2W:0:0:0:0:0:0:0:0:0:0:0:0:0:180:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_BLW_2X6(:Buchsenleiste gewinkelt 6Pin x 2Reihen (con-lsta.lib):Female Header  6Pin x 2Row (con-lsta.lib) 
+FE07-2W:0:0:0:0:0:0:0:0:0:0:0:0:0:180:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_BLW_2X7(:Buchsenleiste gewinkelt 7Pin x 2Reihen (con-lsta.lib):Female Header  7Pin x 2Row (con-lsta.lib) 
+FE08-2W:0:0:0:0:0:0:0:0:0:0:0:0:0:180:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_BLW_2X8(:Buchsenleiste gewinkelt 8Pin x 2Reihen (con-lsta.lib):Female Header  8Pin x 2Row (con-lsta.lib) 
+FE09-2W:0:0:0:0:0:0:0:0:0:0:0:0:0:180:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_BLW_2X9(:Buchsenleiste gewinkelt 9Pin x 2Reihen (con-lsta.lib):Female Header  9Pin x 2Row (con-lsta.lib) 
+FE10-2W:0:0:0:0:0:0:0:0:0:0:0:0:0:180:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_BLW_2X10(:Buchsenleiste gewinkelt 10Pin x 2Reihen (con-lsta.lib):Female Header  10Pin x 2Row (con-lsta.lib) 
+FE12-2W:0:0:0:0:0:0:0:0:0:0:0:0:0:180:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_BLW_2X12(:Buchsenleiste gewinkelt 12Pin x 2Reihen (con-lsta.lib):Female Header  12Pin x 2Row (con-lsta.lib) 
+FE13-2W:0:0:0:0:0:0:0:0:0:0:0:0:0:180:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_BLW_2X13(:Buchsenleiste gewinkelt 13Pin x 2Reihen (con-lsta.lib):Female Header  13Pin x 2Row (con-lsta.lib) 
+FE17-2W:0:0:0:0:0:0:0:0:0:0:0:0:0:180:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_BLW_2X17(:Buchsenleiste gewinkelt 17Pin x 2Reihen (con-lsta.lib):Female Header  17Pin x 2Row (con-lsta.lib) 
+FE18-2W:0:0:0:0:0:0:0:0:0:0:0:0:0:180:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_BLW_2X18(:Buchsenleiste gewinkelt 18Pin x 2Reihen (con-lsta.lib):Female Header  18Pin x 2Row (con-lsta.lib) 
+FE20-2W:0:0:0:0:0:0:0:0:0:0:0:0:0:180:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_BLW_2X20(:Buchsenleiste gewinkelt 20Pin x 2Reihen (con-lsta.lib):Female Header  20Pin x 2Row (con-lsta.lib) 
+####################################################################################################
+CON_BLW_GRND
+(pin,row)
+####################################################################################################
+CON_BLW_1X2()
+(2,1)
+CON_BLW_1X5()
+(5,1)
+CON_BLW_1X6()
+(6,1)
+CON_BLW_1X7()
+(7,1)
+CON_BLW_1X8()
+(8,1)
+CON_BLW_1X9()
+(9,1)
+CON_BLW_1X10()
+(10,1)
+CON_BLW_1X12()
+(12,1)
+CON_BLW_1X13()
+(13,1)
+CON_BLW_1X15()
+(15,1)
+CON_BLW_1X17()
+(17,1)
+CON_BLW_1X18()
+(18,1)
+CON_BLW_1X20()
+(20,1)
+CON_BLW_2X5()
+(5,2)
+CON_BLW_2X6()
+(6,2)
+CON_BLW_2X7()
+(7,2)
+CON_BLW_2X8()
+(8,2)
+CON_BLW_2X9()
+(9,2)
+CON_BLW_2X10()
+(10,2)
+CON_BLW_2X12()
+(12,2)
+CON_BLW_2X13()
+(13,2)
+CON_BLW_2X15()
+(15,2)
+CON_BLW_2X17()
+(17,2)
+CON_BLW_2X18()
+(18,2)
+CON_BLW_2X20()
+(20,2)
+####################################################################################################
+####################################################################################################
+//Pin fuer 1- & 2-reihige Buchsenleiste abgewinkelt obere Reihe  ,     con-lsta.lib,    Joerg Bredendiek <sprut(replace with at)sprut.de>  
+// 
+// a=0 untere Reihe
+// a=1 obere  Reihe
+#macro CON_BLW_PIN(a)
+#local ii = a*2.54;
+union{
+union{
+	//PIN Loetseite 4mm, etwas angespitzt
+	difference{
+		box{<0,0,0><0.4,4.1+ii,0.4> texture{col_silver} translate<-0.2,0,-0.2>}
+		box{<0,0,-0.5><0.5,0.5,0.5> texture{col_silver} rotate<0,0,-30> translate<0.1,0,0>}
+		box{<0,0,-0.5><-0.5,0.5,0.5> texture{col_silver} rotate<0,0,30> translate<-0.1,0,0>}
+		box{<-0.5,0,0><0.5,0.5,0.5> texture{col_silver} rotate<30,0,0> translate<0,0,0.1>}
+		box{<-0.5,0,0><0.5,0.5,-0.5> texture{col_silver} rotate<-30,0,0> translate<0,0,-0.1>}
+		translate<0,-3.22,0>
+	}
+	//PIN vom Bogen zum Plastik
+	#if(ii>0)
+		box{<0,0,0><0.4,5,0.4> texture{col_silver} translate<-0.2,0,-0.2> rotate<0,0,-90> translate<0.4,3.81,0> }
+	#end
+
+	//PIN Bogen 
+	//innenkurve
+	difference{
+		box{<0,0,0><0.4,0.4,0.4> texture{col_silver} translate<0,0.0,0.0>}
+		cylinder{<-0.1,0,0><0.8,0,0>0.2 texture{col_silver} translate<0,0.0,0.0>}
+		rotate<0,-90,0> translate<0.5,0.77+ii,-0.2>
+		translate<-0.1,0.1,0> 
+	}
+	//aussenkurve
+	difference{
+		cylinder{<0,0,0><0.4,0,0>0.6 texture{col_silver} translate<0,0,0> }
+		box{<0,0,0><2,2.2,-2> texture{col_silver} translate<-0.1,0,-0.1>}
+		box{<0,0,0><2,2.2,-2> texture{col_silver} translate<-0.1,-1.8,0.4>}
+		rotate<0,-90,0> translate<0.5,0.77+ii,-0.2>
+		translate<-0.1,0.1,0> 
+	} 
+	rotate<0,-90,0>
+}
+union{
+	//schwarzes plastik mit loch 8mm lang   
+	// wird vertikal gebaut                        
+	difference{
+		difference{
+			box{<-1.27,0,-1.27><1.27,8,1.27>}
+			box{<-1.27,-0.1,-1.27><1.27,8.1,1.27> rotate<0,45,0> translate<-1.95,0,-1.95> }
+			box{<-1.27,-0.1,-1.27><1.27,8.1,1.27> rotate<0,45,0> translate< 1.95,0,-1.95> }
+			box{<-1.27,-0.1,-1.27><1.27,8.1,1.27> rotate<0,45,0> translate<-1.95,0, 1.95> }
+			box{<-1.27,-0.1,-1.27><1.27,8.1,1.27> rotate<0,45,0> translate< 1.95,0, 1.95> }
+		}
+		cylinder{<0,1,0><0,8.1,0>1.0}
+	}
+	//rundes buchsenloch versilbert
+	difference{
+		cylinder{<0,7.5,0><0,8.03,0>1.0}
+		cylinder{<0,6.9,0><0,8.2,0>0.9}	
+		texture{col_silver}
+	}
+	//vergoldeter Kontakt im siblernen Buchsenloch
+	difference{
+		cylinder{<0,0.5,0><0,7.55,0>0.9}
+		cylinder{<0,0.4,0><0,7.6,0>0.7}	
+		texture{col_gold}
+	}
+	pigment{Gray30}
+	rotate<90,0,0>		//in die horizontale drehen
+	translate<0,1.27,0>	//auf die platine legen
+
+	#if(ii>0)
+		translate<0,2.54,2.54>	//in 2. ebene und um 1 Raster noch von schieben
+	#end
+}
+}
+#end
+
+union{
+	#local i=0;
+	#while(i<pin)
+		object{CON_BLW_PIN(0) translate<i*2.54,0,0>}
+		#local i=i+1;
+	#end
+	#if(row=2)
+		#local i=0;
+		#while(i<pin)
+			object{CON_BLW_PIN(1) translate<i*2.54,0,-2.54>}
+			#local i=i+1;
+		#end
+		translate<0,0,1.27>
+	#end
+	translate<pin*-1.27+1.27,0,0>}
+#end
+
+

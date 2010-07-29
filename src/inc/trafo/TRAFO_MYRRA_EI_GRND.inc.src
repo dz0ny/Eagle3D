@@ -1,0 +1,148 @@
+Printtransformator
+//Macros for EI Transformer
+//Designed by Philippe Boucheny <philippe.boucheny(replace with at)free.fr>
+//Rev. 1.0 du 29/12/05
+####################################################################################################
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:TRAFO_MYRRA_EI_30_1_005(:IE30-5 Transformer 1 secondary wiring:
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:TRAFO_MYRRA_EI_30_2_005(:IE30-5 Transformer 2 secondary wirings:
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:TRAFO_MYRRA_EI_30_1_105(:IE30-10.5 Transformer 1 secondary wiring:
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:TRAFO_MYRRA_EI_30_2_105(:IE30-10.5 Transformer 2 secondary wirings:
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:TRAFO_MYRRA_EI_30_1_125(:IE30-12.5 Transformer 1 secondary wiring:
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:TRAFO_MYRRA_EI_30_2_125(:IE30-12.5 Transformer 2 secondary wirings:
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:TRAFO_MYRRA_EI_30_1_155(:IE30-15.5 Transformer 1 secondary wiring:
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:TRAFO_MYRRA_EI_30_2_155(:IE30-15.5 Transformer 2 secondary wirings:
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:TRAFO_MYRRA_EI_30_1_180(:IE30-18 Transformer 1 secondary wiring:
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:TRAFO_MYRRA_EI_30_2(:IE30-18 Transformer 1 secondary wiring:
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:TRAFO_MYRRA_EI_66_2(:IE30-18 Transformer 2 secondary wirings:
+EI30-1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:TRAFO_MYRRA_EI_30_1_125(:IE30-12.5 Transformer 1 secondary wiring:
+EI30-2:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:TRAFO_MYRRA_EI_30_2_125(:IE30-12.5 Transformer 2 secondary wirings:
+EI38-1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:TRAFO_MYRRA_EI_38_1(:IE38-13.6 Transformer 1 secondary wiring:
+EI38-2:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:TRAFO_MYRRA_EI_38_2(:IE38-13.6 Transformer 2 secondary wirings:
+EI42-1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:TRAFO_MYRRA_EI_42_1(:IE42-14.8 Transformer 1 secondary wiring:
+EI42-2:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:TRAFO_MYRRA_EI_42_2(:IE42-14.8 Transformer 2 secondary wirings:
+EI48-1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:TRAFO_MYRRA_EI_48_1(:IE48-16.8 Transformer 1 secondary wiring:
+EI48-2:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:TRAFO_MYRRA_EI_48_2(:IE48-16.8 Transformer 2 secondary wirings:
+EI54-1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:TRAFO_MYRRA_EI_54_1(:IE54-18.8 Transformer 1 secondary wiring:
+EI54-2:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:TRAFO_MYRRA_EI_54_2(:IE54-18.8 Transformer 2 secondary wirings:
+EI60-1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:TRAFO_MYRRA_EI_60_1(:IE60-21 Transformer 1 secondary wiring:
+EI60-2:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:TRAFO_MYRRA_EI_60_2(:IE60-21 Transformer 2 secondary wirings:
+EI66-1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:TRAFO_MYRRA_EI_66_1(:IE66-23 Transformer 1 secondary wiring:
+EI66-2:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:TRAFO_MYRRA_EI_60_2(:IE66-23 Transformer 2 secondary wirings:
+####################################################################################################
+TRAFO_MYRRA_EI_GRND
+(L,W,H,L1,W1,H1,Lp,Wp,D,Sw,Fx,Pl,Lh)
+####################################################################################################
+TRAFO_MYRRA_EI_30_1_005()
+(32.6,27.6,15.8,0,0,11.5,20,20,0,1,0,4.5,0)
+TRAFO_MYRRA_EI_30_2_005()
+(32.6,27.6,15.8,0,0,11.5,20,20,0,2,0,4.5,0)
+TRAFO_MYRRA_EI_30_1_105()
+(32.6,27.6,22.2,0,0,18.4,20,20,0,1,0,4.5,0)
+TRAFO_MYRRA_EI_30_2_105()
+(32.6,27.6,22.2,0,0,18.4,20,20,0,2,0,4.5,0)
+TRAFO_MYRRA_EI_30_1_125()
+(32.6,27.6,24.5,0,0,20.5,20,20,0,1,0,4.5,0)
+TRAFO_MYRRA_EI_30_2_125()
+(32.6,27.6,24.5,0,0,20.5,20,20,0,2,0,4.5,0)
+TRAFO_MYRRA_EI_30_1_155()
+(32.6,27.6,27.3,0,0,23.5,20,20,0,1,0,4.5,0)
+TRAFO_MYRRA_EI_30_2_155()
+(32.6,27.6,27.3,0,0,23.5,20,20,0,2,0,4.5,0)
+TRAFO_MYRRA_EI_30_1_180()
+(32.6,27.6,29.8,0,0,26.0,20,20,0,1,0,4.5,0)
+TRAFO_MYRRA_EI_30_2()
+(32.6,27.6,29.8,0,0,26.0,20,20,0,2,0,4.5,0)
+TRAFO_MYRRA_EI_38_1()
+(41.0,35.0,28.0,30.5,25.7,23.0,20,25,0,1,0,4,0)
+TRAFO_MYRRA_EI_38_2()
+(41.0,35.0,28.0,30.5,25.7,23.0,20,25,0,2,0,4,0)
+TRAFO_MYRRA_EI_42_1()
+(44.25,37.0,32.25,32.25,27.70,26.0,25,25,0,1,0,4,0)
+TRAFO_MYRRA_EI_42_2()
+(44.25,37.0,32.25,32.25,27.70,26.0,25,25,0,2,0,4,0)
+TRAFO_MYRRA_EI_48_1()
+(50.50,42.5,34.75,33.60,25.6,0,25,27.5,2.5,1,0,3.5,40)
+TRAFO_MYRRA_EI_48_2()
+(50.50,42.5,34.75,33.60,25.6,0,25,27.5,2.5,2,0,3.5,40)
+TRAFO_MYRRA_EI_54_1()
+(56.50,47.25,38.75,37.50,29.25,33,30,30,2.5,1,0,4,45)
+TRAFO_MYRRA_EI_54_2()
+(56.50,47.25,38.75,37.50,29.25,33,30,30,2.5,2,0,4,45)
+TRAFO_MYRRA_EI_60_1()
+(63.5,53.5,45.5,0,0,36.5,30,32.5,2.5,1,0,4,50)
+TRAFO_MYRRA_EI_60_2()
+(63.5,53.5,45.5,0,0,36.5,30,32.5,2.5,2,0,4,50)
+TRAFO_MYRRA_EI_66_1()
+(70,59,48.75,0,0,0,35,35,2.5,1,0,4.5,55)
+TRAFO_MYRRA_EI_66_2()
+(70,59,48.75,0,0,0,35,35,2.5,2,0,4.5,55)
+####################################################################################################
+####################################################################################################
+
+#local MyrraBrown = color red 0.7 green 0.3 blue 0.164706;
+#local r = 0.4;     //pin ray
+#if(L1=0)
+    #local L1=L/1.2;  //20% if unknown
+#end
+#if(W1=0)
+    #local W1=W/1.2;  //20% if unknown
+#end
+#if(H1=0)
+    #local H1=H/1.2;  //20% if unknown
+#end
+union{
+    difference{
+        union{
+            difference{
+                superellipsoid { <0.06, 0.06> scale <L/2, H1/2+2,W/2> translate <0, H1/2-2, 0>}
+                box{<-L/2-1,-4.5,-W/2-1><+L/2+1,0,+W/2+1>}
+            }
+            superellipsoid { <0.06, 0.06> scale <L1/2,H/2,W1/2> translate <0, H/2, 0> }  
+            pigment{MyrraBrown }
+        }
+        union{
+            cylinder{<-Lh/2,-1,0><-Lh/2,10,0> D/2}
+            cylinder{<+Lh/2,-1,0><+Lh/2,10,0> D/2}
+            pigment{Gray50}
+        }      
+    }
+    //Pins #1 & 5
+    cylinder{<-Lp/2,0,-Wp/2><-Lp/2,-Pl,-Wp/2> r texture { pigment{Silver} } }        
+    cylinder{<+Lp/2,0,-Wp/2><+Lp/2,-Pl,-Wp/2> r texture { pigment{Silver} } }        
+    //Pins #7 & 9
+    cylinder{<-Lp/2+5,0,+Wp/2><-Lp/2+5,-Pl,+Wp/2> r texture { pigment{Silver} } }        
+    cylinder{<+Lp/2-5,0,+Wp/2><+Lp/2-5,-Pl,+Wp/2> r texture { pigment{Silver} } }        
+    #if (Sw = 2)
+        //Pins #6 & 10        
+        cylinder{<-Lp/2,0,+Wp/2><-Lp/2,-Pl,+Wp/2> r texture { pigment{Silver} } }        
+        cylinder{<+Lp/2,0,+Wp/2><+Lp/2,-Pl,+Wp/2> r texture { pigment{Silver} } }        
+    #end 
+    
+    // Top marking
+    union{
+    box{<-12,H,+2><+8,H+0.01,+8> pigment{White}}
+    box{<-12+0.3,H+0.01,+2+0.3><+8-0.3,H+0.02,+8-0.3> pigment{MyrraBrown}}
+    text {ttf global_fontfile_arial "myrra" 0.05, 0 pigment{White} scale 5 rotate<90,0,0> translate<-10.5,H+0.05,4>}  // Marking
+    //disc {<-10, H+0.02, -8> y,2,1.8 pigment{White}}
+    //disc {<-5, H+0.02, -8> y,2,1.8 pigment{White}}
+    //disc {<-0, H+0.02, -8> y,2,1.8 pigment{White}}
+    //disc {<+5, H+0.02, -8> y,2,1.8 pigment{White}}
+    //text {ttf global_fontfile_arial "FI" 0.05, 0 pigment{White} scale 3 rotate<90,0,0> translate<-11,H+0.05,-9>}      // Marking
+    text {ttf global_fontfile_eagle3d "O" 0.05, 0 pigment{White} scale 4.5 rotate<90,0,0> translate<-12,H+0.05,-10>}      // Marking
+    //text {ttf global_fontfile_arial "S" 0.05, 0 pigment{White} scale 3 rotate<90,0,0> translate<-11+5.2,H+0.05,-9>}   // Marking
+    text {ttf global_fontfile_eagle3d "P" 0.05, 0 pigment{White} scale 4.5 rotate<90,0,0> translate<-12+5.1,H+0.05,-10>}      // Marking
+    //text {ttf global_fontfile_arial "N" 0.05, 0 pigment{White} scale 3 rotate<90,0,0> translate<-11+10.1,H+0.05,-9>}  // Marking
+    text {ttf global_fontfile_eagle3d "Q" 0.05, 0 pigment{White} scale 4.5 rotate<90,0,0> translate<-12+10.4,H+0.05,-10>}      // Marking
+    //text {ttf global_fontfile_arial "D" 0.05, 0 pigment{White} scale 3 rotate<90,0,0> translate<-11+15.3,H+0.05,-9>}  // Marking
+    text {ttf global_fontfile_eagle3d "N" 0.05, 0 pigment{White} scale 4.5 rotate<90,0,0> translate<-12+15.6,H+0.05,-10>}      // Marking
+    text {ttf global_fontfile_eagle3d "I" 0.05, 0 pigment{White} scale 5 rotate<90,0,0> translate<+2,H+0.08,-4>}       // RU Marking
+    text {ttf global_fontfile_eagle3d "B" 0.05, 0 pigment{White} scale 5 rotate<90,0,0> translate<-4.5,H+0.08,-4>}       // DVE Marking
+    text {ttf global_fontfile_eagle3d "E" 0.05, 0 pigment{White} scale 6 rotate<90,0,0> translate<-13,H+0.08,-4.5>}    // CE Marking
+    text {ttf global_fontfile_eagle3d "H" 0.05, 0 pigment{White} scale 6 rotate<90,0,0> translate<+3,H+0.08,+2.3>}     // MYRRA LOGO Marking 
+    translate 2*x
+    scale <L1/33,0,L1/33>
+    }
+
+    rotate 90*y     
+}
+#end

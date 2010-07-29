@@ -1,0 +1,120 @@
+LED PLCC2
+//LED PLCC2
+####################################################################################################
+NOEAGLEPAC:0:0:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:DIODE_SMD_LED_PLCC2(:SMD-LED im PLCC2:
+NOEAGLEPAC:0:0:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:DIODE_SMD_LED_MINITOPLED(:SMD-LED im Mini TopLED (Osram):
+KA3528:0:0:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:DIODE_SMD_LED_MINITOPLED(:SMD-LED:
+####################################################################################################
+DIODE_SMD_LED_PLCC2_GRND
+(typeOfCase)
+####################################################################################################
+DIODE_SMD_LED_PLCC2()
+("PLCC2")
+DIODE_SMD_LED_MINITOPLED()
+("MiniTopled")
+####################################################################################################
+####################################################################################################
+union{
+
+	//default to PLCC2
+	#local L = 3.7;
+	#local W = 3.0;
+	#local H = 2.0;
+	#local LT = 3.3;
+	#local WT = 2.6;
+	#local HT = 1.6;
+	#local P = 2;
+	
+	#if(strcmp(typeOfCase,"PLCC2")=0.0)
+
+		#local L = 3.7;
+		#local W = 3.0;
+		#local H = 2.0;
+		#local LT = 3.3;
+		#local WT = 2.6;
+		#local HT = 1.6;
+		#local P = 2;
+		
+	#end
+
+	#if(strcmp(typeOfCase,"MiniTopled")=0.0)
+
+		#local L = 2.3;
+		#local W = 1.5;
+		#local H = 1.4;
+		#local LT = 2.1;
+		#local WT = 1.3;
+		#local HT = 1.2;
+		#local P = 2;
+		
+	#end
+		
+	difference{
+		
+		object{Round_Box(<0,0,0>, <LT,H,W>, 0.1, no) translate<-LT/2,(L-LT)/2,-W/2>}
+		cylinder{<0,H+(L-LT)/2-0.4,0> <0,H+(L-LT)/2+0.1,0>W/3.5}
+		cone{ <0,H+(L-LT)/2-0.4,0> W/2.9 <0,H+(L-LT)/2+0.1,0>W/2.2}
+	        pigment{White}
+	}
+	
+	box{<-0.2,H+(L-LT)/2-0.4,-0.2><0.2,H+(L-LT)/2-0.3,0.2> pigment{Gray80}}
+	
+	//rechter Anschluss
+	difference{
+		box{<0,0,0><-P,HT,WT>}
+		box{<0,(L-LT)/2,-0.002><-P-0.002,HT-(L-LT)/2,WT+0.002> translate<-(L-LT)/2,0,0>}
+		cylinder{<0,HT,-0.002><0,HT,WT+0.002>(L-LT)/2}
+		cylinder{<0,0,-0.002><0,0,WT+0.002>(L-LT)/2}
+		texture{col_silver} 
+		translate<LT/2+(L-LT)/2+0.02,0,-WT/2>
+	}
+	//rechter Anschlus
+	difference{
+		cylinder{<-(L-LT)/2,HT-(L-LT)/2,><-(L-LT)/2,HT-(L-LT)/2,WT>(L-LT)/2}
+		cylinder{<-3*(L-LT)/4,HT-3*(L-LT)/4,-0.04><-3*(L-LT)/4,HT-3*(L-LT)/4,WT+0.002>(L-LT)/4}
+		box{<-(L-LT)/2,HT-3*(L-LT)/4,-0.04><-(L-LT),HT-5,WT+0.002>}
+		box{<-3*(L-LT)/4,HT-(L-LT)/2,-0.04><-(L-LT),HT-5,WT+0.002>}
+		texture{col_silver}
+		translate<LT/2+(L-LT)/2+0.02,0,-WT/2>
+	}
+	//rechter Anschlus
+	difference{
+		cylinder{<-(L-LT)/2,(L-LT)/2,0><-(L-LT)/2,(L-LT)/2,WT>(L-LT)/2}
+		cylinder{<-3*(L-LT)/4,3*(L-LT)/4,-0.04><-3*(L-LT)/4,3*(L-LT)/4,WT+0.002>(L-LT)/4}
+		box{<(-L-LT)/2,3*(L-LT)/4,-0.04><-(L-LT),5,WT+0.002>}
+		box{<0,0,-0.04><(L-LT)/2,(L-LT)/2,WT+0.002> translate<-(L-LT),0.75*(L-LT),0>}
+		box{<(L-LT)/2,(L-LT)/2,-0.04><(L-LT),L-LT,WT+0.002> translate<-1.75*(L-LT),0,0>}
+		texture{col_silver}
+		translate<LT/2+(L-LT)/2+0.02,0,-WT/2>
+	}
+	//linker (positiver) Anschlus
+	difference{
+		box{<0,0,0><P,HT,WT>}
+		box{<(L-LT)/2,(L-LT)/2,-0.002><P+0.002,HT-(L-LT)/2,WT+0.002>}
+		cylinder{<0,HT,-0.002><0,HT,WT+0.002>(L-LT)/2}
+		cylinder{<0,0,-0.002><0,0,WT+0.002>(L-LT)/2}
+		box{<-0.002,HT/2,0><P+0.002,HT+0.002,WT*0.3> translate<0,0,WT*0.35>}
+		texture{col_silver}
+		translate<-L/2-0.02,0,-WT/2>
+	}
+	//linker (positiver) Anschlus
+	difference{
+		cylinder{<(L-LT)/2,HT-(L-LT)/2,-0.002><(L-LT)/2,HT-(L-LT)/2,WT+0.002>(L-LT)/2}
+		cylinder{<3*(L-LT)/4,HT-3*(L-LT)/4,-0.04><3*(L-LT)/4,HT-3*(L-LT)/4,WT+0.002>(L-LT)/4}
+		box{<(L-LT)/2,HT-3*(L-LT)/4,-0.04><L-LT,HT-5,WT+0.002>}
+		box{<3*(L-LT)/4,HT-(L-LT)/2,-0.04><L-LT,HT-5,WT+0.002>}
+		box{<-0.002,HT/2,0><P+0.002,HT+0.002,WT*0.3> translate<0,0,WT*0.35>}
+		texture{col_silver}
+		translate<-L/2-0.02,0,-WT/2>
+	}
+	//linker (positiver) Anschlus
+	difference{
+		cylinder{<(L-LT)/2,(L-LT)/2,-0.002><(L-LT)/2,(L-LT)/2,WT+0.002>(L-LT)/2}
+		cylinder{<3*(L-LT)/4,3*(L-LT)/4,-0.04><3*(L-LT)/4,HT-3*(L-LT)/4,WT+0.002>(L-LT)/4}
+		box{<(L-LT)/2,3*(L-LT)/4,-0.04><L-LT,5,WT+0.002>}
+		box{<3*(L-LT)/4,(L-LT)/2,-0.04><L-LT,L-LT,WT+0.002>}
+		texture{col_silver} 
+		translate<-L/2-0.02,0,-WT/2>
+	}
+}
+#end   

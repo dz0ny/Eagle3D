@@ -1,0 +1,28 @@
+Phoenix - Kontakt Winkel   
+//Macros fuer Phoenix Mini-Combicon 3.81mm Klemmen und Gegenstecker
+//Designed by Friedrich Bleikamp, Lenord, Bauer & Co. Gmbh <fbleikamp@lenord.de> 
+//Privat: <fbleikamp@web.de>
+//Phoenix - Kontakt Winkel   
+####################################################################################################v
+####################################################################################################
+CON_PHOENIX_381_PHPINW
+()
+####################################################################################################
+####################################################################################################
+####################################################################################################
+difference{
+	//#macro RECT_BOGEN(i_radius,winkel,dicke,breite,laenge1,laenge2)
+	object {TOOLS_RECT_BOGEN(0.1,90,0.7,0.7,6,7)}
+	//laenge1 anspitzen
+	box{<0,0,-0.7><0.7,0.7,0.7> rotate<0,0,30> translate<0.4,7,0>}
+	box{<0,0,-0.7><-0.7,0.7,0.7> rotate<0,0,-30> translate<-0.4,7,0>}
+	box{<-0.7,0,0><0.7,0.7,0.7> rotate<-30,0,0> translate<0,7,0.4>}
+	box{<-0.7,0,0><0.7,0.7,-0.7> rotate<30,0,0> translate<0,7,-0.4>}
+	//laenge2 anspitzen
+	box{<0,0,-0.7><0.7,0.7,0.7> rotate<0,0,-30> translate<6,0.4,0>}
+	box{<0,0,-0.7><0.7,-0.7,0.7> rotate<0,0,30> translate<6,-0.4,0>}
+	box{<0,-0.7,0><0.7,0.7,0.7> rotate<0,30,0> translate<6,0,0.4>}
+	box{<0,-0.7,0><0.7,0.7,-0.7> rotate<0,-30,0> translate<6,0,-0.4>}
+	texture{col_silver} rotate<0,0,-90> translate<0,3.0,0>
+}
+#end

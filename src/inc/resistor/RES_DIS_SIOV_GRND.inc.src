@@ -1,0 +1,141 @@
+Diskreter Widerstand
+//Macros for SIOV EPCOS Standard Series
+//Designed by Philippe Boucheny <philippe.boucheny(at)free.fr>
+//Rev. 1.0  14/01/06
+//e,a,b,s,h,l,d parameters, see epcos datasheet: Dimensions
+//To add a missing SIOV, just duplicate, rename a macro and copy parameters from EPCOS datasheet. They are in the same order.
+####################################################################################################
+NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:RES_DIS_SIOV_05_11(:SIOV diameter 7mm :SIOV diameter 7mm
+NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:RES_DIS_SIOV_05_14(:SIOV diameter 7mm :SIOV diameter 7mm
+NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:RES_DIS_SIOV_05_75(:SIOV diameter 7mm :SIOV diameter 7mm
+NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:RES_DIS_SIOV_07_14(:SIOV diameter 9mm :SIOV diameter 9mm
+NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:RES_DIS_SIOV_07_20(:SIOV diameter 9mm :SIOV diameter 9mm
+NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:RES_DIS_SIOV_07_30(:SIOV diameter 9mm :SIOV diameter 9mm
+NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:RES_DIS_SIOV_07_60(:SIOV diameter 9mm :SIOV diameter 9mm
+NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:RES_DIS_SIOV_07_75(:SIOV diameter 9mm :SIOV diameter 9mm
+NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:RES_DIS_SIOV_07_95(:SIOV diameter 9mm :SIOV diameter 9mm
+NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:RES_DIS_SIOV_07_250(:SIOV diameter 9mm :SIOV diameter 9mm
+NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:RES_DIS_SIOV_07_275(:SIOV diameter 9mm :SIOV diameter 9mm
+NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:RES_DIS_SIOV_10_11(:SIOV diameter 12mm :SIOV diameter 12mm
+NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:RES_DIS_SIOV_10_20(:SIOV diameter 12mm :SIOV diameter 12mm
+NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:RES_DIS_SIOV_10_75(:SIOV diameter 12mm :SIOV diameter 12mm
+NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:RES_DIS_SIOV_10_275(:SIOV diameter 12mm :SIOV diameter 12mm
+NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:RES_DIS_SIOV_14_11(:SIOV diameter 15.5mm :SIOV diameter 15.5mm
+NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:RES_DIS_SIOV_14_14(:SIOV diameter 15.5mm :SIOV diameter 15.5mm
+NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:RES_DIS_SIOV_14_20(:SIOV diameter 15.5mm :SIOV diameter 15.5mm
+NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:RES_DIS_SIOV_14_25(:SIOV diameter 15.5mm :SIOV diameter 15.5mm
+NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:RES_DIS_SIOV_14_30(:SIOV diameter 15.5mm :SIOV diameter 15.5mm
+NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:RES_DIS_SIOV_14_60(:SIOV diameter 15.5mm :SIOV diameter 15.5mm
+NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:RES_DIS_SIOV_14_250(:SIOV diameter 15.5mm :SIOV diameter 15.5mm
+NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:RES_DIS_SIOV_20_20(:SIOV diameter 21.5mm :SIOV diameter 21.5mm
+NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:RES_DIS_SIOV_20_75(:SIOV diameter 21.5mm :SIOV diameter 21.5mm
+NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:RES_DIS_SIOV_20_275(:SIOV diameter 21.5mm :SIOV diameter 21.5mm
+NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:RES_DIS_SIOV_20_1000(:SIOV diameter 21.5mm :SIOV diameter 21.5mm
+####################################################################################################
+RES_DIS_SIOV_GRND
+(value,e,a,b,s,h,l,d)
+####################################################################################################
+RES_DIS_SIOV_05_11(value)
+(value,5,1.2,7,3.3,8.5,30,0.6)
+RES_DIS_SIOV_05_14(value)
+(value,5,1.3,7,3.4,8.5,30,0.6)
+RES_DIS_SIOV_05_75(value)
+(value,5,1.3,7,3.4,8.5,30,0.6)
+RES_DIS_SIOV_07_14(value)
+(value,5,1.3,9,3.5,11,30,0.6)
+RES_DIS_SIOV_07_20(value)
+(value,5,1.2,9,3.6,11,30,0.6)
+RES_DIS_SIOV_07_30(value)
+(value,5,1.5,9,3.7,11,30,0.6)
+RES_DIS_SIOV_07_60(value)
+(value,5,1.2,9,3.3,11,30,0.6)
+RES_DIS_SIOV_07_75(value)
+(value,5,1.3,9,3.6,11,30,0.6)
+RES_DIS_SIOV_07_95(value)
+(value,5,1.3,9,3.4,11,30,0.6)
+RES_DIS_SIOV_07_250(value)
+(value,5,1.8,9,4.2,11,30,0.6)
+RES_DIS_SIOV_07_275(value)
+(value,5,2,9,4.4,11,30,0.6)
+RES_DIS_SIOV_10_11(value)
+(value,7.5,1.4,12,4,14.5,30,0.8)
+RES_DIS_SIOV_10_20(value)
+(value,7.5,1.8,12,4.5,14.5,30,0.8)
+RES_DIS_SIOV_10_75(value)
+(value,7.5,1.5,12,4.2,14.5,30,0.8)
+RES_DIS_SIOV_10_275(value)
+(value,7.5,2.2,12,5,14.5,30,0.8)
+RES_DIS_SIOV_14_11(value)
+(value,7.5,1.4,15.5,4,18.5,30,0.8)
+RES_DIS_SIOV_14_14(value)
+(value,7.5,1.5,15.5,4.2,18.5,30,0.8)
+RES_DIS_SIOV_14_20(value)
+(value,7.5,1.9,15.5,4.6,18.5,30,0.8)
+RES_DIS_SIOV_14_25(value)
+(value,7.5,1.7,15.5,4.2,18.5,30,0.8)
+RES_DIS_SIOV_14_30(value)
+(value,7.5,1.8,15.5,4.4,18.5,30,0.8)
+RES_DIS_SIOV_14_60(value)
+(value,7.5,1.5,15.5,4,18.5,30,0.8)
+RES_DIS_SIOV_14_250(value)
+(value,7.5,2,15.5,4.8,18.5,30,0.8)
+RES_DIS_SIOV_20_20(value)
+(value,10,2.1,21.5,5.1,25.5,30,1)
+RES_DIS_SIOV_20_75(value)
+(value,10,1.6,21.5,4.6,25.5,30,1)
+RES_DIS_SIOV_20_275(value)
+(value,10,2.3,21.5,5.4,25.5,30,1)
+RES_DIS_SIOV_20_1000(value)
+(value,10,6.9,21.5,11.4,28.5,30,1)
+####################################################################################################
+####################################################################################################
+    #local Siov = texture{
+        pigment{color red 0.17 green 0.24 blue 0.88}
+        finish {
+             ambient (0.3 * global_ambient_mul)
+            diffuse 0.7
+            specular 0.4
+        }
+    }
+    union{
+        union{
+            superellipsoid {<1.0, 0.6> scale <b/2,b/2,s/2> }
+            intersection{
+                superellipsoid {<1.0, 0.6> scale <b/2,b/2,s/2+0.01> }
+                union{
+                    text {ttf global_fontfile_arial value 1, 0 scale 1 rotate<0,0,0> translate<-2,+1,-s/2>}
+                    text {ttf global_fontfile_eagle3d ">" 1, 0 scale 2 rotate<0,0,0> translate<-3,-1.5,-s/2>}
+                    text {ttf global_fontfile_eagle3d "AG" 1, 0 scale 1 rotate<0,0,0> translate<0.5,-1,-s/2>}
+                    text {ttf global_fontfile_arial "9235" 1, 0 scale 1 rotate<0,0,0> translate<-1,-2.5,-s/2>}
+                    scale<b/9,b/9,1>
+                    
+                }            
+                pigment{White} 
+            }
+            sphere{<+e/2,+b/2-h+d/2,-a/2> (s/2-a/2)/2}
+            sphere{<-e/2,+b/2-h+d/2,+a/2> (s/2-a/2)/2}
+            //cone{<+e/2,-b/4,-a/2> (s/2-a/2) <+e/2,+b/2-h+d/2,-a/2> (s/2-a/2)/2}
+            //cone{<-e/2,-b/4,+a/2> (s/2-a/2) <-e/2,+b/2-h+d/2,+a/2> (s/2-a/2)/2}
+            #if(b=7)
+                cone{<+e/3,-b/4,-a/3> (s/2-a/2) <+e/2,+b/2-h+d/2,-a/2> (s/2-a/2)/2}
+                cone{<-e/3,-b/4,+a/3> (s/2-a/2) <-e/2,+b/2-h+d/2,+a/2> (s/2-a/2)/2}
+            #else
+                sphere{<+e/2,-b/4,-a/3> (s/2-a/2)}
+                cone{<+e/2,-b/4,-a/3> (s/2-a/2) <+e/2,+b/2-h+d/2,-a/2> (s/2-a/2)/2}
+                sphere{<-e/2,-b/4,+a/3> (s/2-a/2)}
+                cone{<-e/2,-b/4,+a/3> (s/2-a/2) <-e/2,+b/2-h+d/2,+a/2> (s/2-a/2)/2}
+            #end
+            texture{Siov}
+        }
+    	#if(pin_short=off)
+            cylinder{<+e/2,+b/2-h+d/2,-a/2><+e/2,+b/2-h-l,-a/2> d/2 texture{col_silver}}
+            cylinder{<-e/2,+b/2-h+d/2,+a/2><-e/2,+b/2-h-l,+a/2> d/2 texture{col_silver}}
+    	#else
+            cylinder{<+e/2,+b/2-h+d/2,-a/2><+e/2,+b/2-h-1*(pcb_height+pin_length)-0.2,-a/2> d/2 texture{col_silver}}
+            cylinder{<-e/2,+b/2-h+d/2,+a/2><-e/2,+b/2-h-1*(pcb_height+pin_length)-0.2,+a/2> d/2 texture{col_silver}}
+    	#end
+        
+    translate<0,h-b/2,0>
+    }
+
+#end

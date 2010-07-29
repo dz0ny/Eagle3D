@@ -1,0 +1,233 @@
+Wimakondenstoren
+//Wimakondenstor Grundmakro
+//by Andreas Rebmann <A.Rebmann-Elektrotechnik@t-online.de>
+//Grundmacro - Breite=B , Tiefe = T, Hoehe = H, Raster = Ra
+####################################################################################################
+C2.5-2:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CAP_DIS_WIMA_25_025_046_075(:WIMA-Kondensator Raster 2.54 (capacitator-wima.lib):WIMA-Capacitor Grid 2.54 (capacitator-wima.lib)
+C2.5-3:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CAP_DIS_WIMA_25_030_046_075(:WIMA-Kondensator Raster 2.54 (capacitator-wima.lib):WIMA-Capacitor Grid 2.54 (capacitator-wima.lib)
+C2.5-4:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CAP_DIS_WIMA_25_040_046_090(:WIMA-Kondensator Raster 2.54 (capacitator-wima.lib):WIMA-Capacitor Grid 2.54 (capacitator-wima.lib)
+C2.5-5:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CAP_DIS_WIMA_25_050_046_100(:WIMA-Kondensator Raster 2.54 (capacitator-wima.lib):WIMA-Capacitor Grid 2.54 (capacitator-wima.lib)
+C2.5-6:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CAP_DIS_WIMA_25_060_046_100(:WIMA-Kondensator Raster 2.54 (capacitator-wima.lib):WIMA-Capacitor Grid 2.54 (capacitator-wima.lib)
+C5B2.5:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CAP_DIS_WIMA_5_025_072_065(:WIMA-Kondensator Raster 5.08 (capacitator-wima.lib):WIMA-Capacitor Grid 5.08 (capacitator-wima.lib)
+C5B3:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CAP_DIS_WIMA_5_030_072_075(:WIMA-Kondensator Raster 5.08 (capacitator-wima.lib):WIMA-Capacitor Grid 5.08 (capacitator-wima.lib)
+C5B3.5:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CAP_DIS_WIMA_5_035_072_085(:WIMA-Kondensator Raster 5.08 (capacitator-wima.lib):WIMA-Capacitor Grid 5.08 (capacitator-wima.lib)
+C5B4.5:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CAP_DIS_WIMA_5_045_072_095(:WIMA-Kondensator Raster 5.08 (capacitator-wima.lib):WIMA-Capacitor Grid 5.08 (capacitator-wima.lib)
+C5B5:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CAP_DIS_WIMA_5_050_072_100(:WIMA-Kondensator Raster 5.08 (capacitator-wima.lib):WIMA-Capacitor Grid 5.08 (capacitator-wima.lib)
+C5B5.5:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CAP_DIS_WIMA_5_055_072_115(:WIMA-Kondensator Raster 5.08 (capacitator-wima.lib):WIMA-Capacitor Grid 5.08 (capacitator-wima.lib)
+C5B7.2:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CAP_DIS_WIMA_5_072_072_130(:WIMA-Kondensator Raster 5.08 (capacitator-wima.lib):WIMA-Capacitor Grid 5.08 (capacitator-wima.lib)
+C5B8.5:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CAP_DIS_WIMA_5_085_072_140(:WIMA-Kondensator Raster 5.08 (capacitator-wima.lib):WIMA-Capacitor Grid 5.08 (capacitator-wima.lib)
+C7.5B3:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CAP_DIS_WIMA_75_030_100_085(:WIMA-Kondensator Raster 7.5 (capacitator-wima.lib):WIMA-Capacitor Grid 7.5 (capacitator-wima.lib)
+C7.5B4:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CAP_DIS_WIMA_75_040_100_090(:WIMA-Kondensator Raster 7.5 (capacitator-wima.lib):WIMA-Capacitor Grid 7.5 (capacitator-wima.lib)
+C7.5B5:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CAP_DIS_WIMA_75_050_103_105(:WIMA-Kondensator Raster 7.5 (capacitator-wima.lib):WIMA-Capacitor Grid 7.5 (capacitator-wima.lib)
+C7.5B6:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CAP_DIS_WIMA_75_057_100_125(:WIMA-Kondensator Raster 7.5 (capacitator-wima.lib):WIMA-Capacitor Grid 7.5 (capacitator-wima.lib)
+C10B4:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CAP_DIS_WIMA_100_040_130_095(:WIMA-Kondensator Raster 10 (capacitator-wima.lib):WIMA-Capacitor Grid 10 (capacitator-wima.lib)
+C10B5:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CAP_DIS_WIMA_100_050_130_110(:WIMA-Kondensator Raster 10 (capacitator-wima.lib):WIMA-Capacitor Grid 10 (capacitator-wima.lib)
+C10B6:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CAP_DIS_WIMA_100_060_130_120(:WIMA-Kondensator Raster 10 (capacitator-wima.lib):WIMA-Capacitor Grid 10 (capacitator-wima.lib)
+C15B5:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CAP_DIS_WIMA_150_050_180_110(:WIMA-Kondensator Raster 15 (capacitator-wima.lib):WIMA-Capacitor Grid 15 (capacitator-wima.lib)
+C15B6:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CAP_DIS_WIMA_150_060_180_125(:WIMA-Kondensator Raster 15 (capacitator-wima.lib):WIMA-Capacitor Grid 15 (capacitator-wima.lib)
+C15B7:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CAP_DIS_WIMA_150_070_180_140(:WIMA-Kondensator Raster 15 (capacitator-wima.lib):WIMA-Capacitor Grid 15 (capacitator-wima.lib)
+C15B8:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CAP_DIS_WIMA_150_080_180_150(:WIMA-Kondensator Raster 15 (capacitator-wima.lib):WIMA-Capacitor Grid 15 (capacitator-wima.lib)
+C15B9:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CAP_DIS_WIMA_150_090_180_160(:WIMA-Kondensator Raster 15 (capacitator-wima.lib):WIMA-Capacitor Grid 15 (capacitator-wima.lib)
+C22.5B6:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CAP_DIS_WIMA_225_060_265_150(:WIMA-Kondensator Raster 22.5 (capacitator-wima.lib):WIMA-Capacitor Grid 22.5 (capacitator-wima.lib)
+C22.5B7:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CAP_DIS_WIMA_225_070_265_165(:WIMA-Kondensator Raster 22.5 (capacitator-wima.lib):WIMA-Capacitor Grid 22.5 (capacitator-wima.lib)
+C22.5B8:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CAP_DIS_WIMA_225_085_265_185(:WIMA-Kondensator Raster 22.5 (capacitator-wima.lib):WIMA-Capacitor Grid 22.5 (capacitator-wima.lib)
+C22.5B10:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CAP_DIS_WIMA_225_105_265_190(:WIMA-Kondensator Raster 22.5 (capacitator-wima.lib):WIMA-Capacitor Grid 22.5 (capacitator-wima.lib)
+C22.5B11:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CAP_DIS_WIMA_225_110_265_210(:WIMA-Kondensator Raster 22.5 (capacitator-wima.lib):WIMA-Capacitor Grid 22.5 (capacitator-wima.lib)
+C27.5B9:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CAP_DIS_WIMA_275_090_315_210(:WIMA-Kondensator Raster 27.5 (capacitator-wima.lib):WIMA-Capacitor Grid 27.5 (capacitator-wima.lib)
+C27.5B11:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CAP_DIS_WIMA_275_110_315_210(:WIMA-Kondensator Raster 27.5 (capacitator-wima.lib):WIMA-Capacitor Grid 27.5 (capacitator-wima.lib)
+C27.5B13:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CAP_DIS_WIMA_275_130_315_240(:WIMA-Kondensator Raster 27.5 (capacitator-wima.lib):WIMA-Capacitor Grid 27.5 (capacitator-wima.lib)
+C27.5B15:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CAP_DIS_WIMA_275_150_315_260(:WIMA-Kondensator Raster 27.5 (capacitator-wima.lib):WIMA-Capacitor Grid 27.5 (capacitator-wima.lib)
+C27.5B17:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CAP_DIS_WIMA_275_170_315_345(:WIMA-Kondensator Raster 27.5 (capacitator-wima.lib):WIMA-Capacitor Grid 27.5 (capacitator-wima.lib)
+C27.5B20:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CAP_DIS_WIMA_275_200_315_395(:WIMA-Kondensator Raster 27.5 (capacitator-wima.lib):WIMA-Capacitor Grid 27.5 (capacitator-wima.lib)
+C37.5B15:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CAP_DIS_WIMA_375_150_415_260(:WIMA-Kondensator Raster 37.5 (capacitator-wima.lib):WIMA-Capacitor Grid 37.5 (capacitator-wima.lib)
+C37.5B19:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CAP_DIS_WIMA_375_190_415_320(:WIMA-Kondensator Raster 37.5 (capacitator-wima.lib):WIMA-Capacitor Grid 37.5 (capacitator-wima.lib)
+C37.5B20:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CAP_DIS_WIMA_375_200_415_395(:WIMA-Kondensator Raster 37.5 (capacitator-wima.lib):WIMA-Capacitor Grid 37.5 (capacitator-wima.lib)
+####################################################################################################
+CAP_DIS_WIMA_GRND
+(B,T,H,Ra)
+####################################################################################################
+// Raster 2.54
+CAP_DIS_WIMA_25_025_046_075(value)
+(4.6,2.5,7.5,2.54,)
+CAP_DIS_WIMA_25_030_046_075(value)
+(4.6,3.0,7.5,2.54,)
+CAP_DIS_WIMA_25_040_046_090(value)
+(4.6,4.6,9.0,2.54,)
+CAP_DIS_WIMA_25_050_046_100(value)
+(4.6,5.5,10.0,2.54,)
+CAP_DIS_WIMA_25_060_046_100(value)
+(4.6,6.5,10.0,2.54,)
+//Raster 5.08
+CAP_DIS_WIMA_5_025_072_065(value)
+(7.2,2.5,6.5,5.08,)
+CAP_DIS_WIMA_5_030_072_075(value)
+(7.2,3.0,7.5,5.08,)
+CAP_DIS_WIMA_5_035_072_085(value)
+(7.2,3.5,8.5,5.08,)
+CAP_DIS_WIMA_5_045_072_095(value)
+(7.2,4.5,9.5,5.08)
+CAP_DIS_WIMA_5_050_072_100(value)
+(7.2,5.0,10.0,5.08)
+CAP_DIS_WIMA_5_055_072_115(value)
+(7.2,5.5,11.5,5.08)
+CAP_DIS_WIMA_5_072_072_130(value)
+(7.2,7.2,13.0,5.08)
+CAP_DIS_WIMA_5_085_072_140(value)
+(7.2,8.5,14.0,5.08)
+//Raster 7.5
+CAP_DIS_WIMA_75_030_100_085(value)
+(10.0,3.0,8.5,7.5)
+CAP_DIS_WIMA_75_040_100_090(value)
+(10.0,4.0,9.0,7.5)
+CAP_DIS_WIMA_75_050_103_105(value)
+(10.3,5.0,10.5,7.5)
+CAP_DIS_WIMA_75_057_100_125(value)
+(10.3,5.7,12.5,7.5)
+//Raster 10
+CAP_DIS_WIMA_100_040_130_095(value)
+(13.0,4.0,9.5,10.0)
+CAP_DIS_WIMA_100_050_130_110(value)
+(13.0,5.0,11.0,10.0)
+CAP_DIS_WIMA_100_060_130_120(value)
+(13.0,6.0,12.0,10.0)
+//Raster 15
+CAP_DIS_WIMA_150_050_180_110(value)
+(18.0,5.0,11.0,15.0)
+CAP_DIS_WIMA_150_060_180_125(value)
+(18.0,6.0,12.5,15.0)
+CAP_DIS_WIMA_150_070_180_140(value)
+(18.0,7.0,14.0,15.0)
+CAP_DIS_WIMA_150_080_180_150(value)
+(18.0,8.0,15.0,15.0)
+CAP_DIS_WIMA_150_090_180_160(value)
+(18.0,9.0,16.0,15.0)
+//Raster 22.5
+CAP_DIS_WIMA_225_060_265_150(value)
+(26.5,6.0,15.0,22.5)
+CAP_DIS_WIMA_225_070_265_165(value)
+(26.5,7.0,16.5,22.5)
+CAP_DIS_WIMA_225_085_265_185(value)
+(26.5,8.5,18.5,22.5)
+CAP_DIS_WIMA_225_105_265_190(value)
+(26.5,10.5,19.0,22.5)
+CAP_DIS_WIMA_225_110_265_210(value)
+(26.5,11.0,21.0,22.5)
+//Raster 27.5
+CAP_DIS_WIMA_275_090_315_210(value)
+(31.5,9.0,21.0,27.5)
+CAP_DIS_WIMA_275_110_315_210(value)
+(31.5,11.0,21.0,27.5)
+CAP_DIS_WIMA_275_130_315_240(value)
+(31.5,13.0,24.0,27.5)
+CAP_DIS_WIMA_275_150_315_260(value)
+(31.5,15.0,26.0,27.5)
+CAP_DIS_WIMA_275_170_315_345(value)
+(31.5,17.0,34.5,27.5)
+CAP_DIS_WIMA_275_200_315_395(value)
+(31.5,20.0,39.5,27.5)
+//Raster 37.5
+CAP_DIS_WIMA_375_150_415_260(value)
+(41.5,15.0,26.0,37.5)
+CAP_DIS_WIMA_375_190_415_320(value)
+(41.5,19.0,32.0,37.5)
+CAP_DIS_WIMA_375_200_415_395(value)
+(41.5,20.0,39.5,37.5)
+####################################################################################################
+####################################################################################################
+union{
+
+box{<-B/2+0.2, 0,     T/2>     <B/2-0.2,H-0.2,-T/2>      rotate<0,0,0> translate<0,0,0>} //Grundkörper
+box{<-B/2,     0,    -T/2+0.2> <B/2,    H-0.2, T/2-0.2>  rotate<0,0,0> translate<0,0,0>} //Kleine Box innen
+box{<-B/2+0.2, H-0.2,-T/2+0.2> <B/2-0.2,H    , T/2-0.2>  rotate<0,0,0> translate<0,0,0>} //Kleine Box oben
+
+cylinder{<-B/2+0.2,0,0> <-B/2+0.2, H-0.2> 0.20  rotate<0,0,0> translate <0, 0,  T/2-0.2>} //Rundungen rechts
+cylinder{<-B/2+0.2,0,0> <-B/2+0.2, H-0.2> 0.20  rotate<0,0,0> translate <0, 0,-T/2+0.2>} //Rundungen rechts
+cylinder{< B/2-0.2,0,0> < B/2-0.2, H-0.2> 0.20  rotate<0,0,0> translate <0, 0,  T/2-0.2>} //Rundungen links
+cylinder{< B/2-0.2,0,0> < B/2-0.2, H-0.2> 0.20  rotate<0,0,0> translate <0, 0, -T/2+0.2>} //Rundungen links
+
+sphere{< B/2-0.2, H-0.2, T/2-0.2> 0.2 scale <1,1,1>  translate<0,0,0>}  //Rundungen oben
+sphere{< B/2-0.2, H-0.2,-T/2+0.2> 0.2 scale <1,1,1>  translate<0,0,0>}  //Rundungen oben
+sphere{<-B/2+0.2, H-0.2, T/2-0.2> 0.2 scale <1,1,1>  translate<0,0,0>}  //Rundungen oben
+sphere{<-B/2+0.2, H-0.2,-T/2+0.2> 0.2 scale <1,1,1>  translate<0,0,0>}  //Rundungen oben
+
+cylinder{<-B/2+0.2,  H-0.2> < B/2-0.2, H-0.2> 0.20 rotate<0,0,0> translate <0, 0, T/2-0.2>}   //Rundungen vorne
+cylinder{<-B/2+0.2,  H-0.2> < B/2-0.2, H-0.2> 0.20 rotate<0,0,0> translate <0, 0,-T/2+0.2>}   //Rundungen hinten
+cylinder{<-T/2+0.2,  H-0.2> < 0, H-0.2> 0.20 rotate<0, 90,0> translate <-B/2+0.2, 0, 0>}  //Rundungen rechts kurz
+cylinder{<-T/2+0.2,  H-0.2> < 0, H-0.2> 0.20 rotate<0,-90,0> translate <-B/2+0.2, 0, 0>}  //Rundungen rechts kurz
+cylinder{<-T/2+0.2,  H-0.2> < 0, H-0.2> 0.20 rotate<0, 90,0> translate < B/2-0.2, 0, 0>}  //Rundungen links kurz
+cylinder{<-T/2+0.2,  H-0.2> < 0, H-0.2> 0.20 rotate<0,-90,0> translate < B/2-0.2, 0, 0>}  //Rundungen links kurz
+
+//Drahtdurchmesser und Beschriftung an die Kondensatorgröße anpassen
+
+#if(pin_short=on)
+#local wima_pin_length = -1*(pin_length+pcb_height);
+#else
+#local wima_pin_length = -5;
+#end
+
+#if (Ra=2.54)    //d=0.4mm
+cylinder{<-Ra/2 ,0> <-Ra/2,wima_pin_length,0> 0.20 texture{col_silver}}   // Draht rechts senkrecht
+cylinder{< Ra/2 ,0> < Ra/2,wima_pin_length,0> 0.20 texture{col_silver}}   // Draht links senkrecht
+text {ttf besch_font  value   0.1, 0 scale<1.0,1.0,1.0> pigment {Black} rotate<0,180,0> translate<B/2-0.6, H-4.3, T/2+0.1> rotate<0,0,0>} //Beschriftung Value
+text {ttf besch_font "WIMA"   0.1, 0 scale<1.4,1.4,1.4> pigment {Black} rotate<0,180,0> translate<B/2-0.6, H-2.8, T/2+0.1> rotate<0,0,0>} //Beschriftung WIMA
+#else
+#end
+
+#if (Ra=5.08)    //d=0.5mm
+cylinder{<-Ra/2 ,0> <-Ra/2,wima_pin_length,0> 0.25 texture{col_silver}}   // Draht rechts senkrecht
+cylinder{< Ra/2 ,0> < Ra/2,wima_pin_length,0> 0.25 texture{col_silver}}   // Draht links senkrecht
+text {ttf besch_font  value   0.1, 0 scale<1.4,1.4,1.4> pigment {Black} rotate<0,180,0> translate<B/2-1.2, H-4.3, T/2+0.1> rotate<0,0,0>} //Beschriftung Value
+text {ttf besch_font "WIMA"   0.1, 0 scale<2.0,2.0,2.0> pigment {Black} rotate<0,180,0> translate<B/2-1.2, H-2.8, T/2+0.1> rotate<0,0,0>} //Beschriftung WIMA
+#else
+#end
+
+#if (Ra=7.50)    //d=0.7mm
+cylinder{<-Ra/2 ,0> <-Ra/2,wima_pin_length,0> 0.35 texture{col_silver}}   // Draht rechts senkrecht
+cylinder{< Ra/2 ,0> < Ra/2,wima_pin_length,0> 0.35 texture{col_silver}}   // Draht links senkrecht
+text {ttf besch_font  value   0.1, 0 scale<2.0,2.0,2.0> pigment {Black} rotate<0,180,0> translate<B/2-1.8, H-5.5, T/2+0.1> rotate<0,0,0>} //Beschriftung Value
+text {ttf besch_font "WIMA"   0.1, 0 scale<2.7,2.7,2.7> pigment {Black} rotate<0,180,0> translate<B/2-1.8, H-3.3, T/2+0.1> rotate<0,0,0>} //Beschriftung WIMA
+#else
+#end
+
+#if (Ra=10.0)    //d=0.7mm
+cylinder{<-Ra/2 ,0> <-Ra/2,wima_pin_length,0> 0.35 texture{col_silver}}   // Draht rechts senkrecht
+cylinder{< Ra/2 ,0> < Ra/2,wima_pin_length,0> 0.35 texture{col_silver}}   // Draht links senkrecht
+text {ttf besch_font  value   0.1, 0 scale<2.4,2.4,2.4> pigment {Black} rotate<0,180,0> translate<B/2-2.5, H-6.0, T/2+0.1> rotate<0,0,0>} //Beschriftung Value
+text {ttf besch_font "WIMA"   0.1, 0 scale<3.1,3.1,3.1> pigment {Black} rotate<0,180,0> translate<B/2-2.5, H-3.5, T/2+0.1> rotate<0,0,0>} //Beschriftung WIMA
+#else
+#end
+
+#if (Ra=15.0)    //d=0.8mm
+cylinder{<-Ra/2 ,0> <-Ra/2,wima_pin_length,0> 0.40 texture{col_silver}}   // Draht rechts senkrecht
+cylinder{< Ra/2 ,0> < Ra/2,wima_pin_length,0> 0.40 texture{col_silver}}   // Draht links senkrecht
+text {ttf besch_font  value   0.1, 0 scale<3.0,3.0,3.0> pigment {Black} rotate<0,180,0> translate<B/2-4.0, H-7.0, T/2+0.1> rotate<0,0,0>} //Beschriftung Value
+text {ttf besch_font "WIMA"   0.1, 0 scale<3.7,3.7,3.7> pigment {Black} rotate<0,180,0> translate<B/2-4.0, H-4.0, T/2+0.1> rotate<0,0,0>} //Beschriftung WIMA
+#else
+#end
+
+#if (Ra=22.5)    //d=0.8mm
+cylinder{<-Ra/2 ,0> <-Ra/2,wima_pin_length,0> 0.40 texture{col_silver}}   // Draht rechts senkrecht
+cylinder{< Ra/2 ,0> < Ra/2,wima_pin_length,0> 0.40 texture{col_silver}}   // Draht links senkrecht
+text {ttf besch_font  value   0.1, 0 scale<3.5,3.5,3.5> pigment {Black} rotate<0,180,0> translate<B/2-6.5, H-9.0, T/2+0.1> rotate<0,0,0>} //Beschriftung Value
+text {ttf besch_font "WIMA"   0.1, 0 scale<4.2,4.2,4.2> pigment {Black} rotate<0,180,0> translate<B/2-6.5, H-6.0, T/2+0.1> rotate<0,0,0>} //Beschriftung WIMA
+#else
+#end
+
+#if (Ra=27.5)    //d=1.0mm
+cylinder{<-Ra/2 ,0> <-Ra/2,wima_pin_length,0> 0.50 texture{col_silver}}   // Draht rechts senkrecht
+cylinder{< Ra/2 ,0> < Ra/2,wima_pin_length,0> 0.50 texture{col_silver}}   // Draht links senkrecht
+text {ttf besch_font  value   0.1, 0 scale<4.0,4.0,4.0> pigment {Black} rotate<0,180,0> translate<B/2-10.0, H-12.0, T/2+0.1> rotate<0,0,0>} //Beschriftung Value
+text {ttf besch_font "WIMA"   0.1, 0 scale<4.7,4.7,4.7> pigment {Black} rotate<0,180,0> translate<B/2-10.0, H- 8.0, T/2+0.1> rotate<0,0,0>} //Beschriftung WIMA
+#else
+#end
+
+#if (Ra=37.5)    //d=1.0mm
+cylinder{<-Ra/2 ,0> <-Ra/2,wima_pin_length,0> 0.50 texture{col_silver}}   // Draht rechts senkrecht
+cylinder{< Ra/2 ,0> < Ra/2,wima_pin_length,0> 0.50 texture{col_silver}}   // Draht links senkrecht
+text {ttf besch_font  value   0.1, 0 scale<4.5,4.5,4.5> pigment {Black} rotate<0,180,0> translate<B/2-15.0, H-15.0, T/2+0.1> rotate<0,0,0>} //Beschriftung Value
+text {ttf besch_font "WIMA"   0.1, 0 scale<5.2,5.2,5.2> pigment {Black} rotate<0,180,0> translate<B/2-15.0, H-10.0, T/2+0.1> rotate<0,0,0>} //Beschriftung WIMA
+#else
+#end
+
+pigment {Red}}
+#end

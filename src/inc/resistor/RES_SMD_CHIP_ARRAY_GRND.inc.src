@@ -1,0 +1,65 @@
+Chip Widerstands array
+//SR(Tiefe, Breite, Hoehe, Breite Loetflaechen, Abstand Pin zu Pin, Anzahl Widerstände, Schriftzug)
+####################################################################################################
+NOEAGLEPAC:0:0:0:1:0:0:0:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:RES_SMD_CHIP_ARRAY_4X0603_0612(:SMD Widerstands array 4x0603 0612:
+####################################################################################################
+RES_SMD_CHIP_ARRAY_GRND
+(b,l,h,blf,pitch,n,value)
+####################################################################################################
+RES_SMD_CHIP_ARRAY_4X0603_0612(value)
+(1.60,3.20,0.8,0.4,0.8,4,value)
+####################################################################################################
+####################################################################################################
+union{
+	
+	//White body
+	object{
+		Round_Box_Union(<0,0.05,0>, <l,h-0.05,b>, min(b,l,h)/6)
+		translate<-l/2,0,-b/2>
+		pigment{White}	
+	}
+	
+	//Black top
+	object{
+		Round_Box_Union(<0.01,h-0.1,0.01>, <l-0.01,h-0.03,b-0.01>, min(b,l,h)/10)
+		translate<-l/2,0,-b/2>
+		texture{
+			pigment{Gray10}	
+			finish{phong 0.2 reflection 0.1 ambient (0.1 * global_ambient_mul)}
+		}
+	}
+	
+	#local topText = text {ttf besch_font value 0.1, 0
+		pigment{White} rotate<90,0,0> scale<l/8,1,b/1.5>}
+		
+	object{topText Center_Trans(topText, x+z) translate<0,h+0.02,0>}
+	
+	//Pins
+	#local i = 0;
+	#local x_pos = -(n-1)/2*pitch;
+		
+	union{
+	
+	#while(i<n)
+		#if (i=0)
+		box{<-blf/2,0,b/2+0.3><blf/2,h,b/2-b/10> translate<x_pos-0.2,0,0>}
+		box{<-blf/2,0,-b/2-0.3><blf/2,h,-b/2+b/10> translate<x_pos-0.2,0,0>}		
+		#end
+
+		#if (i=n-1)
+		box{<-blf/2,0,b/2+0.3><blf/2,h,b/2-b/10> translate<x_pos+0.2,0,0>}
+		box{<-blf/2,0,-b/2-0.3><blf/2,h,-b/2+b/10> translate<x_pos+0.2,0,0>}		
+		#end		
+		
+		box{<-blf/2,0,b/2+0.3><blf/2,h,b/2-b/10> translate<x_pos,0,0>}
+		box{<-blf/2,0,-b/2-0.3><blf/2,h,-b/2+b/10> translate<x_pos,0,0>}
+	        
+	        #local i = i+1;
+	        #local x_pos = x_pos + pitch;
+		
+	#end
+	texture{col_silver}
+	}	
+}
+#end
+

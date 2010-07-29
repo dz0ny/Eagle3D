@@ -1,0 +1,152 @@
+SDCARD
+// SD- / MMC-Karten Slot YAMAICHI FPS-Series
+// card = 0 - Keine Karte im Slot, 1 - Karte im Slot, 2 - Karte Vor dem Slot
+####################################################################################################
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:90:-9.38:0:-13:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_SD_CONNECTOR_YAMAICHI_FPS_NO_CARD(:SD-Karten Slot:SD card slot
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:90:-9.38:0:-13:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_SD_CONNECTOR_YAMAICHI_FPS_CARD(:SD-Karten Slot:SD card slot with card inserted
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:90:-9.38:0:-13:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_SD_CONNECTOR_YAMAICHI_FPS_CARD_EXTERNAL(:SD-Karten Slot:SD card slot with card in front of it
+####################################################################################################
+CON_SD_CONNECTOR_YAMAICHI_FPS_GRND
+(card)
+####################################################################################################
+CON_SD_CONNECTOR_YAMAICHI_FPS_CARD_EXTERNAL()
+(2)
+CON_SD_CONNECTOR_YAMAICHI_FPS_CARD()
+(1)
+CON_SD_CONNECTOR_YAMAICHI_FPS_NO_CARD()
+(0)
+####################################################################################################
+####################################################################################################
+#local ua = 0.01;
+#local h = 2.8;
+#local bl_d = 0.2;
+
+        #macro PIN_AUSSCHNITT(b)
+                box{ <-b/2, 0.5, -ua> < b/2, 1.9, 7.0> }
+        #end
+
+        #macro CON_MS_SMD_PIN( l, l1, h, b, s, col)
+        #local ua = 0.001;
+        #local rf = 0.3;
+        #local r1 = s*(rf+1);
+        #local r2 = s*rf;
+
+                #macro SMD_PIN_AUSSCHNITT()
+                merge{
+                        cylinder{ < r2, r2, -ua> < r2, r2, b+ua> r2 }
+                        prism{ -ua, b+ua, 6 < r2, 0>, < r1+r2+ua, 0>, < r1+r2+ua, -r1-r2-ua>, < 0, -r1-r2-ua>, < 0, -r2>, < r2, 0> 
+                                rotate< 90, 0, 0> 
+                        }
+                }
+                #end
+
+        union{
+                difference{
+                        merge{
+                                box{ < 0, 0, 0> < l1-r1, s, b>}
+                                cylinder{ < l1-r1, r1, 0> < l1-r1, r1, b> r1}
+                                box{ < l1-s, r1, 0> < l1, h-r1, b>}
+                                cylinder{ < l1+r2, h-r1, 0> < l1+r2, h-r1, b> r1}
+                                box{ < l1+r2, h-s, 0> < l, h, b>} 
+                        }
+                        object{ SMD_PIN_AUSSCHNITT() rotate< 0, 0, 90> translate< l1-s-ua, s+ua, 0> }
+                        object{ SMD_PIN_AUSSCHNITT() rotate< 0, 0,-90> translate< l1+ua, h-s-ua, 0> }
+                }
+                translate< 0, 0, -b/2>
+                texture{ col }
+        }
+        #end
+
+
+union{
+        // Metallkörper
+//        box{ <-4.98, 0, 0> < 23.02, h, 29.0> }
+        difference{
+                prism{ 0, h, 25
+                        <-4.98, 1.0>, <-3.98, 1.0>, <-3.98, 0>, <-1.5, 0>, <-1.5, 0.5>, < 5.5, 0.5>, < 5.5, 2.0>, < 7.5, 2.0>,
+                        < 7.5, 0.5>, < 10.0, 0.5>, < 10.0, 2.0>, < 12.0, 2.0>, < 12.0, 0.5>, < 15.0, 0.5>, < 15.0, 2.0>,
+                        < 17.0, 2.0>, < 17.0, 0.5>, < 23.02, 0.5>, < 23.02, 29.0>, < 21.32, 29.0>, < 19.02, 25.0>, <-0.98, 25.0>,
+                        < -3.18, 29.00>, <-4.98, 29.0>, <-4.98, 1.0>
+                }          
+                box{ <-4.98+bl_d, -ua, -ua> < 23.02-bl_d, h-bl_d, 29.0+ua> }
+                box{ < 22.52, 1.7, 2.2> < 23.2+ua, h+ua, 5.8> }
+                box{ < 22.52, 0.3, 7.3> < 23.2+ua, h+ua, 11.8> }
+                box{ < 22.52, 0.3, 12.9> < 23.2+ua, h+ua, 19.3> }
+                prism{ -ua, h+ua, 20
+                        <-2.63, 12.7>, < 20.67, 12.7>, < 20.67, 22.13>, 
+                        < 20.47, 22.13>, < 20.47, 14.2>, < 20.27, 14.0>, < 19.07, 14.0>, < 18.87, 14.2>, < 18.87, 17.3>, < 17.07, 22.13>,
+                        <-0.93, 22.13>, <-1.53, 18.63>, <-0.73, 18.63>, <-0.73, 17.6>, <-0.93, 17.4>, <-2.23, 17.4>, <-2.43, 17.6>, <-2.43, 22.13>,
+                        <-2.63, 22.13>, <-2.63, 12.7> 
+                }
+                texture{ col_silver finish { phong 1  ambient (0.1 * global_ambient_mul)} }
+        }
+        
+        // Kunststoffkörper
+        difference{
+                merge{
+                        prism{ 0, h-bl_d-ua, 9
+                                <-4.98+bl_d+ua, 0>, < 23.02-bl_d-ua, 0>, < 23.02-bl_d-ua, 29.0>, < 20.72, 29.0>, < 20.72, 25.2>, <-1.78, 25.2>, <-1.78, 29.0>,
+                                <-4.98+bl_d+ua, 29.0>, <-4.98+bl_d+ua, 0>
+                        }
+                        cylinder{ < 21.48, -0.6, 23.5> < 21.48, ua, 23.5> 0.7 }
+                        cylinder{ < -2.72, -0.6, 23.5> < -2.72, ua, 23.5> 0.7 }
+                }          
+                box{ < -4.98-ua, -ua, 25.0> < 23.02-ua, bl_d, 29.0+ua> }
+                // SD-Karte
+                prism{ h-bl_d-2.3, h, 6
+                        < 1.38, 2.0>, < 21.38, 2.0>, < 21.38, 34.0>, <-2.62, 34.0>, <-2.62, 6.0>, < 1.38, 2.0>
+                }
+                // Ausschnitt im Boden
+                merge{
+                        #local r = 0.5;
+                        prism{ -ua, h+ua, 9
+                                < 0.08, 10.5>, < 18.18, 10.5>, < 18.68, 11.0>, < 18.68, 20.2>, < 18.18, 20.7>, < 0.08, 20.7>, <-0.42, 20.2>,
+                                <-0.42, 11.0>, < 0.08, 10.5>
+                        }
+                        cylinder{ < 0.08, -ua, 11.0> < 0.08, h+ua, 11.0> r }
+                        cylinder{ < 18.18, -ua, 11.0> < 18.18, h+ua, 11.0> r }
+                        cylinder{ < 18.18, -ua, 20.2> < 18.18, h+ua, 20.2> r }
+                        cylinder{ < 0.08, -ua, 20.2> < 0.08, h+ua, 20.2> r }
+                }
+                object{PIN_AUSSCHNITT(1.2) translate< -3.78, 0, 0> }
+                object{PIN_AUSSCHNITT(5.8) translate< 1.0, 0, 0> }
+                object{PIN_AUSSCHNITT(1) translate< 5.0, 0, 0> }
+                object{PIN_AUSSCHNITT(1) translate< 7.5, 0, 0> }
+                object{PIN_AUSSCHNITT(1) translate< 10.0, 0, 0> }
+                object{PIN_AUSSCHNITT(1) translate< 12.5, 0, 0> }
+                object{PIN_AUSSCHNITT(1) translate< 15.0, 0, 0> }
+                object{PIN_AUSSCHNITT(1) translate< 17.43, 0, 0> }
+                object{PIN_AUSSCHNITT(1) translate< 19.12, 0, 0> }
+                object{PIN_AUSSCHNITT(1) translate< 21.12, 0, 0> }
+                pigment{ Gray10 }
+        }
+        
+        // Pins und Pads
+        #local col = texture{ col_silver finish { phong 1  ambient (0.1 * global_ambient_mul)} };
+        object{CON_MS_SMD_PIN( 2.5, 1.1, 0.7, 0.5, 0.2, col) rotate< 0, -90, 0> translate< -3.78, 0, -1.5> }
+        object{CON_MS_SMD_PIN( 2.5, 1.1, 0.7, 0.45, 0.2, col) rotate< 0, -90, 0> translate< 0, 0, -1.5> }
+        object{CON_MS_SMD_PIN( 2.5, 1.1, 0.7, 0.45, 0.2, col) rotate< 0, -90, 0> translate< 2.5, 0, -1.5> }
+        object{CON_MS_SMD_PIN( 2.5, 1.1, 0.7, 0.45, 0.2, col) rotate< 0, -90, 0> translate< 5.0, 0, -1.5> }
+        object{CON_MS_SMD_PIN( 2.5, 1.1, 0.7, 0.45, 0.2, col) rotate< 0, -90, 0> translate< 7.5, 0, -1.5> }
+        object{CON_MS_SMD_PIN( 2.5, 1.1, 0.7, 0.45, 0.2, col) rotate< 0, -90, 0> translate< 10.0, 0, -1.5> }
+        object{CON_MS_SMD_PIN( 2.5, 1.1, 0.7, 0.45, 0.2, col) rotate< 0, -90, 0> translate< 12.5, 0, -1.5> }
+        object{CON_MS_SMD_PIN( 2.5, 1.1, 0.7, 0.45, 0.2, col) rotate< 0, -90, 0> translate< 15.0, 0, -1.5> }
+        object{CON_MS_SMD_PIN( 2.5, 1.1, 0.7, 0.45, 0.2, col) rotate< 0, -90, 0> translate< 17.43, 0, -1.5> }
+        object{CON_MS_SMD_PIN( 2.5, 1.1, 0.7, 0.45, 0.2, col) rotate< 0, -90, 0> translate< 19.12, 0, -1.5> }
+        object{CON_MS_SMD_PIN( 2.5, 1.1, 0.7, 0.35, 0.2, col) rotate< 0, -90, 0> translate< 20.62, 0, -1.5> }
+        object{CON_MS_SMD_PIN( 2.5, 1.1, 0.7, 0.35, 0.2, col) rotate< 0, -90, 0> translate< 21.62, 0, -1.5> }
+
+        box{ < 19.7, 0, 25.7> < 21.85, bl_d-ua, 29.1> texture{ col } }
+        box{ < -3.0, 0, 25.7> < -0.75, bl_d-ua, 29.1> texture{ col } }
+        
+        #if (card>0)
+                #if (card=1)
+                        object{CON_SD_CARD_GRND(rgb< 0.0, 0.0, 0.2>)  rotate < 0,180, 180> translate<9.38, h-bl_d-0.1, 36.0> }
+                #else
+                        object{CON_SD_CARD_GRND(rgb< 0.0, 0.0, 0.2>)  rotate < 0,200, 180> translate< -2, h-bl_d-0.1, 65.0> }
+                #end
+        #end 
+
+}
+#end
+

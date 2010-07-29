@@ -1,0 +1,11 @@
+#fopen f "partSize.dat" append
+#write(f,macroname," ",min_extent(obj),max_extent(obj),"\n")
+#fclose f
+
+plane{-y,-10000 pigment{Black}}
+
+light_source { <100, 50, -100> White}
+light_source { <-100, 50, -100> White }
+light_source { <-100, 50, 100> White }
+light_source { <100, 50, 100> White }
+background{White}

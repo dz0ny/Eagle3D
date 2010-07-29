@@ -1,0 +1,40 @@
+MiniMelf
+//neu von Walter Mücke                                                                                             
+####################################################################################################
+MINIMELF:0:1:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:DIODE_SMD_MINIMELF(:SMD-Diode im MINIMELF-Gehaeuse:SMD-Diode MINIMELF-Outline
+MELF-MLL34:0:1:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:DIODE_SMD_MINIMELF(:SMD-Diode im MINIMELF-Gehaeuse:SMD-Diode MINIMELF-Outline
+NOEAGLEPAC:0:1:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:DIODE_SMD_MICROMELF(:SMD-Diode im MICROMELF-Gehaeuse:SMD-Diode MICROMELF-Outline
+####################################################################################################
+DIODE_SMD_MINIMELF_GRND
+(value, s)
+####################################################################################################
+DIODE_SMD_MINIMELF(value)
+(value, <1.0,1.0,1.0>)
+DIODE_SMD_MICROMELF(value)
+(value, <0.52,0.7,0.7>)
+####################################################################################################
+####################################################################################################
+union{                                                                                                             
+/*cylinder{<1,0,0><-0.9,0,0>0.8}                                                                                   
+torus{0.6,0.2 rotate<90,90,0> translate<1,0,0>}                                                                    
+torus{0.6,0.2 rotate<90,90,0> translate<-0.9,0,0>}                                                                 
+cylinder{<1.2,0,0><1.7,0,0>0.8 COL_SILVER()}                                                                       
+cylinder{<-1.25,0,0><-1.7,0,0>0.8 COL_SILVER()}*/                                                                  
+object{Round_Cylinder_Union(<-1.1,0,0><1.2,0,0>0.8,0.2)}                                                           
+cylinder{<-1.6,0,0><1.6,0,0>0.32 texture{col_silver}}                                                              
+object{Round_Cylinder_Union(<1.25,0,0><1.7,0,0>0.8,0.2) texture{col_silver}}                                       
+object{Round_Cylinder_Union(<-1.7,0,0><-1.25,0,0>0.8,0.2) texture{col_silver}}                                     
+cylinder{<-0.95,0,0><-.350,0,0>0.8001 pigment{Gray20} finish{F_MetalC ambient (0.1 * global_ambient_mul)}}    //Markierung                            
+intersection{                                                                                                      
+  cylinder{<1.8,0,0><-1.6,0,0>0.8002 pigment{White}}                                                               
+  union{                                                                                                           
+    text {ttf besch_font value 0.5, 0 scale<0.3,0.3,0.3> translate<-0.45,-0.2,-0.9> rotate<0,0,0> pigment{White}}  
+    text {ttf besch_font value 0.5, 0 scale<0.3,0.3,0.3> translate<-0.45,-0.2,-0.9> rotate<90,0,0> pigment{White}} 
+    text {ttf besch_font value 0.5, 0 scale<0.3,0.3,0.5> translate<-0.45,-0.2,-0.9> rotate<180,0,0> pigment{White}}
+    }                                                                                                              
+  }                                                                                                                
+pigment{P_Copper4} finish{F_MetalC ambient (0.1 * global_ambient_mul)}                                                                                
+translate<0,0.8,0>                                                                                               
+scale s
+}                                                                                                                  
+#end                                                                                                               

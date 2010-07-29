@@ -1,0 +1,128 @@
+POWER RESISTORS
+// Auth: Joseph Zeglinski
+// POWER RESISTORS:   DALE COMPONENTS INC. RH-Series / CLAROSTAT MFGG. CO CMC-Series - ALUMINUM HOUSED WIREWOUND RESISTORS
+// PARAMETERS: (value, raster WATTS, A, B, C, D, E, F, G, H, J, K, L, M, N)   // Standard industry dimensions A - N (mm)
+####################################################################################################
+NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:RES_DIS_ALUMINIUM_POWER_RH5_304MM(:resistor:
+NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:RES_DIS_ALUMINIUM_POWER_RH10_355MM(:resistor:
+NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:RES_DIS_ALUMINIUM_POWER_RH25_508MM(:resistor:
+NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:RES_DIS_ALUMINIUM_POWER_RH50_711MM(:resistor:
+NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:RES_DIS_ALUMINIUM_POWER_RH75_939MM(:resistor:
+NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:RES_DIS_ALUMINIUM_POWER_RH100_863MM(:resistor:
+NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:RES_DIS_ALUMINIUM_POWER_RH100X_1397MM(:resistor:
+NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:RES_DIS_ALUMINIUM_POWER_RH250_1778MM(:resistor:
+####################################################################################################
+RES_DIS_ALUMINUM_POWER_GRND
+(value, raster, WATTS, A, B, C, D, E, F, G, H, J, K, L, M, N)
+####################################################################################################
+RES_DIS_ALUMINIUM_POWER_RH5_304MM(value)
+(value,  30.48,   5,  11.28, 12.45,  15.24,  28.58,  8.48, 16.41,  8.13, 1.65, 3.56, 1.98, 2.36, 1.98, 1.27)
+RES_DIS_ALUMINIUM_POWER_RH10_355MM(value)
+(value,  35.56,  10,  14.27, 15.88,  19.10,  34.93, 10.92, 20.30, 10.20, 1.91, 4.83, 2.40, 2.40, 2.59, 2.18)
+RES_DIS_ALUMINIUM_POWER_RH25_508MM(value)
+(value,  50.80,  25,  18.26, 19.84,  26.97,  49.23, 13.46, 27.43, 14.22, 2.16, 6.60, 4.37, 3.18, 2.92, 2.18)
+RES_DIS_ALUMINIUM_POWER_RH50_711MM(value)
+(value,  71.12,  50,  39.70, 21.44,  49.99,  70.64, 15.62, 28.96, 15.62, 2.16, 7.62, 4.97, 3.18, 2.71, 2.18)
+RES_DIS_ALUMINIUM_POWER_RH75_939MM(value)
+(value,  93.98,  75,  39.70, 21.44,  72.40,  93.00, 15.62, 28.96, 15.62, 2.16, 7.62, 4.97, 3.18, 2.71, 2.18)
+RES_DIS_ALUMINIUM_POWER_RH100_863MM(value)
+(value,  86.36, 100,  35.00, 37.00,  65.50,  85.90, 26.70, 46.70, 24.40, 3.50, 7.62, 4.97, 4.40, 2.71, 2.18)
+RES_DIS_ALUMINIUM_POWER_RH100X_1397MM(value)
+(value, 139.70, 100,  69.85, 57.15,  88.90, 139.14, 46.00, 71.42, 44.45, 4.78, 7.62, 4.97, 4.78, 2.71, 2.18)
+RES_DIS_ALUMINIUM_POWER_RH250_1778MM(value)
+(value, 177.80, 250,  98.42, 63.50, 114.30, 177.80, 53.98, 76.20, 55.58, 6.35, 7.62, 4.97, 4.78, 2.71, 2.18)
+####################################################################################################
+####################################################################################################
+union{
+
+#local Wirethickness = 1.024;      // AWG-18 (1.024 mm) is standard for all Aluminum-Housed Wirewound Resistors.
+
+#if (raster < C+5.08)                        // Make sure wires leave the resistor body ends, by at least 2.54 per side.
+    #local raster = ceil( (C+5.08)/2.54 ) * 2.54;  // Calculate the nearest multiple of 2.54 mm (10 mils) raster.
+#end
+
+// Build HIGH POWER RESISTOR (Vertically)
+#local T = (G-H-E/4)/6;
+#local Bodycolor = pigment {P_Brass4};
+#local Bend_Radius = global_res_bend_radius;  // wire bending radius for ALL resistors - set globally
+
+
+    difference{
+    // Make the main body (make it slightly brighter than slots)
+        prism{0, C, 6, <0,0> <0,G-E/4> <E/4,G> <0.75*E,G> <E,G-E/4> <E,0>   pigment{Bodycolor} finish {diffuse 0.8 ambient (0.1 * global_ambient_mul)} }
+
+        union{
+    // Slots: make them a bit darker than main body
+            box{ <-1,-1,H>     <T/2,C+1,  H+T>}
+            box{ <-1,-1,H+2*T> <T/2,C+1,H+3*T>}
+            box{ <-1,-1,H+4*T> <T/2,C+1,H+5*T>}
+
+            box{ <E+1,-1,H>     <E-T/2,C+1,  H+T>}
+            box{ <E+1,-1,H+2*T> <E-T/2,C+1,H+3*T>}
+            box{ <E+1,-1,H+4*T> <E-T/2,C+1,H+5*T>}
+            pigment{Bodycolor}  finish {diffuse 0.7 ambient (0.1 * global_ambient_mul)}
+        }
+
+    // Wire lead, end-caps
+        cylinder{ <E/2,C-0.1,J> <E/2,C+0.01,J> E/3 pigment{Black} }
+        cylinder{ <E/2,-0.01,J> <E/2,0.1,J> E/3 pigment{Black} }
+
+        translate <-E/2,-C/2,-J> rotate<-90,90,0>
+           }
+
+    // Make screw-mount tabs
+        difference{
+        union{
+                box{ <0,0,0> <2*K,H, (B-E)/2> }                // the solid tab
+                cylinder{<K,0,(B-E)/2> <K,H,(B-E)/2> K }
+             }
+                cylinder{<K,-0.01,(B-E)/2> <K,H+0.01,(B-E)/2> L/2 }  // the hole
+                  translate <C/2-2*K,-J ,E/2>  // stick it on the body
+                  pigment{Bodycolor}  
+                  finish {diffuse 0.8 ambient (0.1 * global_ambient_mul)}        
+        }
+
+        difference{
+            union{
+                box{ <0,0,0> <2*K,H, (B-E)/2> }
+                cylinder{<K,0(B-E)/2> <K,H,(B-E)/2> K }
+             }
+                cylinder{<K,-0.01,(B-E)/2> <K,H+0.01,(B-E)/2> L/2 }
+                rotate <180,0,0> 
+                translate <-2*K-(C/2-2*K),-J+H ,-E/2> 
+                pigment{Bodycolor}  
+                finish {diffuse 0.8 ambient (0.1 * global_ambient_mul)}
+        }
+
+
+//
+// Print IDENT (value) on TOP surface:
+
+#local Pwr = concat( value,  str(WATTS,3,0), "W" );
+#local S = 2;  // Scale the letter size upto 2 mm., and print
+
+ // ID: XZ Top surface
+        text {ttf besch_font Pwr 0.01, 0 scale<S,S,S> rotate<90,0,0> translate<-6,(G-J)+0.01,-S/4 >  pigment{Black}}
+
+
+// Go build the wires
+//
+
+
+//     macro TOOLS_WIRE_LEADS(Length, Width, Wirelength, Wirewidth,  raster,  WireBendRadius, Seperation, H_V)
+
+     object{ TOOLS_WIRE_LEADS( C, (2*J), (D-C), Wirethickness,  raster,  Bend_Radius, 0.0, "H")  }
+
+     // Position the resistor on surface of PCB
+     translate< 0,J,0>
+
+
+
+   } // Unioned Resistor and it's pins
+
+// ALL DONE: Vertical RESISTOR is positioned.
+
+pigment{Gray50}
+finish { phong 1  ambient (0.1 * global_ambient_mul) }
+
+#end

@@ -1,0 +1,49 @@
+Diskreter Widerstand
+//Macros for MURATA NFE61P EMI FILTERS
+//Designed by Philippe Boucheny <philippe.boucheny(at)free.fr>
+//Rev. 1.0  13/01/06
+####################################################################################################
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SPC_MURATA_NFE61P(:MURATA EMI FILTER:MURATA EMI FILTER
+####################################################################################################
+SPC_MURATA_CSTCC_G_A_GRND
+(value)
+####################################################################################################
+SPC_MURATA_CSTCC_G_A(value)
+(value)
+####################################################################################################
+####################################################################################################
+union{
+    difference{
+        union{
+            superellipsoid { <0.09, 0.09> scale <3.6,0.25,1.5> translate <0,0.25,0> }
+            intersection{
+                superellipsoid { <0.09, 0.09> scale <3.6,0.25,1.5> translate <0,0.25,0> }
+                union{
+                    box{<-4,-0.1,-1.6><-3.1,1,+1.6>}
+                    box{<-1.9,-0.1,-1.6><-0.7,1,+1.6>}
+                    box{<+0.7,-0.1,-1.6><+1.9,1,+1.6>}
+                    box{<+4,-0.1,-1.6><+3.1,1,+1.6>}
+                }
+                pigment{color red 0.85 green 0.85 blue 0.71}
+            }     
+        }
+        union{
+            cylinder{<-2.5,0,-1.5><-2.5,0.6,-1.5> 0.23 }
+            cylinder{<+2.5,0,-1.5><+2.5,0.6,-1.5> 0.23 }
+            cylinder{<0,0,-1.5><0,0.6,-1.5> 0.23 }
+            cylinder{<-2.5,0,+1.5><-2.5,0.6,+1.5> 0.23 }
+            cylinder{<+2.5,0,+1.5><+2.5,0.6,+1.5> 0.23 }
+            cylinder{<0,0,+1.5><0,0.6,+1.5> 0.23 }
+        }
+        texture{col_silver}
+    }
+    difference{
+        superellipsoid { <0.2, 0.2> scale <3.3,1.55,1.05> translate <0,0,0>  }
+        union{
+            box{<-3.4,0,-1.6><+3.4,-2,+1.6> texture{col_silver}}
+            text {ttf global_fontfile_arial value 0.08, 0 scale 1 rotate<90,0,0> translate<-2,1.6,-0.45>}     // Ref Marking
+        }
+        texture{col_silver}
+    }
+}
+#end

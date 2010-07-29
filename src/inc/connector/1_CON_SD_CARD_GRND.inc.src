@@ -1,0 +1,157 @@
+SDCARD
+// Model einer SD-Karte
+// col = Farbe der Karte (Kunststoff)
+// everyone1@freenet.de
+####################################################################################################
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_SD_CARD_RED(:SD-Karte:SD card
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_SD_CARD_BLACK(:SD-Karte:SD card
+####################################################################################################
+CON_SD_CARD_GRND
+(col)
+####################################################################################################
+CON_SD_CARD_RED()
+(rgb< 1.0, 0.0, 0.0>)
+CON_SD_CARD_BLACK()
+(rgb< 0.1, 0.1, 0.1>)
+####################################################################################################
+####################################################################################################
+#local b  = 24.0;       // Breite        
+#local b1 = 22.5;       // Breite dicker Teil
+#local l  = 32.0;       // Länge
+#local h  = 2.1;        // Höhe
+#local h1 = 1.4;        // Höhe dünner Teil
+#local s  = 4.0;        // Schräge
+#local s1 = s+b1-b;     // Schräge dicker Teil
+#local r1 = 1.0;        // Radius
+#local r2 = 0.5;        // Radius
+#local k1 = sin(pi/4)*r1;
+#local k2 = sin(pi/4)*r2;
+
+#local labs_z = 1.0;
+#local labs_l = 15.2;
+#local labs_b = 0.6;
+#local labs_t = 0.2;
+#local labl_z = 2.2;
+#local labl_l = 21.0;
+#local labl_b = 13.8;
+#local labl_r = 1.5;
+
+#local pin_h = 1.4;     // Höhe der Pins
+#local pin_a = 2.5;     // Pin Abstand
+#local pin_l = 6.05;    // Pinposition
+#local pin_s = 0.6;     // Steg zwischen den Pins
+#local pin_b = pin_a-pin_s;                       
+
+#local sw_b = (b-b1)/2; // Schalter Breite
+#local sw_l = 6.7/2-0.1;
+#local sw_r = 0.3;
+
+#macro SD_CARD_AUSSCHNITT(l,b,h)
+#local r3 = 0.3;        // Radius
+difference{
+        prism{ -1, h+1, 9
+                < 0,-l/2>, < b-r3,-l/2>, < b,-l/2-r3>, < b+1,-l/2-r3>, < b+1, l/2+r3>, < b, l/2+r3>, < b-r3, l/2>, < 0, l/2>, < 0,-l/2>
+        }
+        cylinder{ < b-r3, -1,-l/2-r3> < b-r3, h+1.01,-l/2-r3> r3 }
+        cylinder{ < b-r3, -1, l/2+r3> < b-r3, h+1.01, l/2+r3> r3 }
+}
+#end 
+
+union{
+        // Kunststoffkörper
+        difference{
+                merge{
+                        prism{ 0, h1 11
+                                < -b/2+r1, 0>, < b/2-r1, 0>, < b/2, r1>, < b/2, l-r1>, < b/2-r1, l>,
+                                < -b/2+s, l>, <-b/2+s-k1, l-r1+k1>, < -b/2+r1-k1, l-s+k1>, < -b/2, l-s>,
+                                < -b/2, r1>, < -b/2+r1, 0>
+                        }
+                        cylinder{ < -b/2+r1, 0, r1> < -b/2+r1, h1, r1> r1 }
+                        cylinder{ <  b/2-r1, 0, r1> <  b/2-r1, h1, r1> r1 }
+                        cylinder{ <  b/2-r1, 0, l-r1> <  b/2-r1, h1, l-r1> r1 }
+                        cylinder{ < -b/2+s, 0, l-r1> <  -b/2+s, h1, l-r1> r1}
+                        cylinder{ < -b/2+r1, 0, l-s> < -b/2+r1, h1, l-s> r1 }
+
+                        prism{ h1-0.001, h 11
+                                < -b1/2+r2, 0>, < b1/2-r2, 0>, < b1/2, r2>, < b1/2, l-r2>, < b1/2-r2, l>,
+                                < -b1/2+s1, l>, <-b1/2+s1-k2, l-r2+k2>, < -b1/2+r2-k2, l-s1+k2>, < -b1/2, l-s1>,
+                                < -b1/2, r2>, < -b1/2+r2, 0>
+                        }
+                        cylinder{ < -b1/2+r2, 0, r2>   < -b1/2+r2, h, r2> r2 }
+                        cylinder{ <  b1/2-r2, 0, r2>   <  b1/2-r2, h, r2> r2 }
+                        cylinder{ <  b1/2-r2, 0, l-r2> <  b1/2-r2, h, l-r2> r2 }
+                        cylinder{ < -b1/2+s1, 0, l-r2> < -b1/2+s1, h, l-r2> r2 }
+                        cylinder{ < -b1/2+r2, 0, l-s1> < -b1/2+r2, h, l-s1> r2 }
+                }
+        
+                // Seitlichen Ausschnitte
+                object{ SD_CARD_AUSSCHNITT( 6.7, (b-b1)/2,h) translate< b1/2, 0, 20.85> }
+                object{ SD_CARD_AUSSCHNITT( 1.5, (b-b1)/2,h) rotate< 0, 180, 0> translate<-b1/2, 0, 21.25> }
+        
+                // Schlitz Labelseite
+                merge{
+                        box{ < -labs_l/2+labs_b/2, 0, -labs_b/2> < labs_l/2-labs_b/2, -h, labs_b/2> }
+                        cylinder{ < -labs_l/2+labs_b/2, 0, 0> < -labs_l/2+labs_b/2, -h, 0> labs_b/2 } 
+                        cylinder{ <  labs_l/2-labs_b/2, 0, 0> <  labs_l/2-labs_b/2, -h, 0> labs_b/2 } 
+                        translate< 0, labs_t, labs_z>
+                }
+
+                // Labelfläche
+                merge{
+                        prism{ 0, -h, 9
+                                < -labl_l/2+labl_r, 0>, < labl_l/2-labl_r, 0>, < labl_l/2, labl_r>, < labl_l/2, labl_b-labl_r>,
+                                < labl_l/2-labl_r, labl_b>, < -labl_l/2+labl_r, labl_b>, < -labl_l/2, labl_b-labl_r>, < -labl_l/2, labl_r>,
+                                < -labl_l/2+labl_r, 0>
+                        }
+                        cylinder{ < -labl_l/2+labl_r, 0, labl_r> < -labl_l/2+labl_r, -h, labl_r> labl_r } 
+                        cylinder{ < labl_l/2-labl_r, 0, labl_r> < labl_l/2-labl_r, -h, labl_r> labl_r } 
+                        cylinder{ < -labl_l/2+labl_r, 0, labl_b-labl_r> < -labl_l/2+labl_r, -h, labl_b-labl_r> labl_r } 
+                        cylinder{ < labl_l/2-labl_r, 0, labl_b-labl_r> < labl_l/2-labl_r, -h, labl_b-labl_r> labl_r } 
+                        translate< 0, labs_t, labl_z>
+                }
+        
+                // Pin Ausschnitte
+                #local i = 0;
+                #local pin_x = -10.275; // Position Pin 1
+                box{ < pin_x, pin_h, l-8.1> < pin_x+pin_b, h+1, l+1>}
+                #local pin_x = pin_x + pin_a;
+                #while (i<6)
+                        box{ < pin_x, pin_h, l-pin_l> < pin_x+pin_b, h+1, l+1>}
+                        #local pin_x = pin_x + pin_a;
+                        #local i = i + 1;
+                #end
+                box{ < pin_x, pin_h, l-pin_l> < pin_x+3.6, h+1, l+1>}
+                
+                pigment{ color col }
+                normal { bumps 2.0 scale 0.01 }
+                finish { ambient (1 * global_ambient_mul) diffuse 0.2 phong 0.01 phong_size 50 reflection 0.01}
+        }
+
+        // Pads
+        union{
+                #local i = 0;
+                #local pin_x = -10.3; // Position Pin 1
+                box{ < pin_x, pin_h+0.001, l-7.8> < pin_x+pin_b-0.05, pin_h+0.035, l-3.3>}
+                #local pin_x = pin_x + pin_a;
+                #while (i<7)
+                        box{ < pin_x, pin_h+0.001, l-5.75> < pin_x+pin_b-0.05, pin_h+0.035, l-1.25>}
+                        #local pin_x = pin_x + pin_a;
+                        #local i = i + 1;
+                #end
+                #local pin_x = pin_x - pin_s+0.2;
+                box{ < pin_x, pin_h+0.001, l-5.75> < pin_x+1.475, pin_h+0.035, l-1.25>}
+                
+                texture{ Gold_Metal }
+        }
+        
+        // Lock-Schalter
+        prism{ 0, h1, 7
+                < 0, -sw_l/2>, < sw_b-sw_r, -sw_l/2>, < sw_b, -sw_l/2+sw_r>,
+                < sw_b, sw_l/2-sw_r>, < sw_b-sw_r, sw_l/2>, < 0, sw_l/2>, < 0, -sw_l/2>
+                translate< b1/2, 0, l-9.475>
+                pigment{ rgb< 1.0, 0.8, 0> }
+        }
+
+}
+#end
+

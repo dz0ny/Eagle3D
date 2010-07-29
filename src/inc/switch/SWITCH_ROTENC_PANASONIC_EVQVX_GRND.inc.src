@@ -1,0 +1,112 @@
+Rotary encoder EVQVX from Panasonic
+//Rotary encoder EVQVX from Panasonic
+####################################################################################################
+####################################################################################################
+SWITCH_ROTENC_PANASONIC_EVQVX_GRND
+(height)
+####################################################################################################
+SWITCH_ROTENC_PANASONIC_EVQVX_9MM()
+(9.0)
+SWITCH_ROTENC_PANASONIC_EVQVX_11MM()
+(11.0)
+####################################################################################################
+####################################################################################################
+union{
+	//Anschlusspins
+	union{                                      
+		box{<-0.4,-3.5,-0.15><0.4,0,0.15>}
+		box{<-0.4,-3.5,-0.15><0.4,0,0.15> translate<-2.5,0,0>}
+		box{<-0.4,-3.5,-0.15><0.4,0,0.15> translate< 2.5,0,0>}
+		
+		box{<-0.6,0,-0.15><0.6,height-5,0.15>}
+		box{<-0.6,0,-0.15><0.6,height-5,0.15> translate<-2.5,0,0>}
+		box{<-0.6,0,-0.15><0.6,height-5,0.15> translate< 2.5,0,0>}
+		
+		box{<-0.7,height-4,-0.15><0.7,height-5,0.15>}
+		box{<-0.7,height-4,-0.15><0.7,height-5,0.15> translate<-2.5,0,0>}
+		box{<-0.7,height-4,-0.15><0.7,height-5,0.15> translate< 2.5,0,0>}
+		
+		//Vorderseite		
+		difference{
+			box{<-0.15,-3.5,-1.0><0.15,height-1,1.0> translate<-10/2,0,2>}
+			box{<-0.16,height-5,0.7><0.16,height,1.1> translate<-10/2,0,2>}
+		}
+		
+		difference{
+			box{<-0.15,-3.5,-1.0><0.15,height-1,1.0> translate< 10/2,0,2>}
+			box{<-0.16,height-5,0.7><0.16,height,1.1> translate< 10/2,0,2>}
+		}
+		
+		difference{
+			union{
+				box{<-3,0,2.5><3,height+2,2.8>}
+				difference{
+					cylinder{<0,height-2,2.5><0,height-2,2.8>10.0/2}
+					box{<-9.5,height+2,2.4><9.5,-5,2.9>}	
+				}
+			}
+			
+			box{<-2,0,2.4><0,6,2.9> translate<-2.3,-1,0> rotate<0,0,10>}
+			box{<0,0,2.4><2,6,2.9> translate<2.3,-1,0> rotate<0,0,-10>}
+			cylinder{<0,height,2.4><0,height,2.9>1.5}
+		}
+		
+		box{<-5.15,height-4,2.5><5.15,height-2,2.8>}
+				
+		box{<-2,height-1,2.5><-5.15,height+1,2.8>}
+		box{<2,height-1,2.5><5.15,height+1,2.8>}
+		
+		//Seitenteile
+		box{<-0.15,height-1,-1.0><0.15,height+1,0.1> translate< 10/2,0,2>}
+		box{<-0.15,height-1,-1.0><0.15,height+1,0.1> translate<-10/2,0,2>}
+		
+		box{<-0.15,height,-1.0><0.15,height+1,0.7> translate< 10/2,0,2>}
+		box{<-0.15,height,-1.0><0.15,height+1,0.7> translate<-10/2,0,2>}
+		
+		
+		box{<-0.15,2,2.0><0.15,4,6> translate< 10/2,0,0> }
+		box{<-0.15,2,2.0><0.15,4,6> translate<-10/2,0,0>}
+				
+		box{<-0.15,0,4.0><0.15,2,6> translate< 10/2,0,0>}
+		box{<-0.15,0,4.0><0.15,2,6> translate<-10/2,0,0>}
+		
+		box{<-0.15,height-2,1><0.15,height-4,-0.5> translate< 10/2,0,0> }
+		box{<-0.15,height-2,1><0.15,height-4,-0.5> translate<-10/2,0,0> }
+		                                                              								
+		//Rueckseite
+		box{<-5.15,height-2,-0.2><5.15,height-4,-0.5>}		
+		
+		difference{
+			union{
+				box{<-3,0,-0.2><3,height+2,-0.5>}
+				difference{
+					cylinder{<0,height-2,-0.1><0,height-2,-0.6>10.0/2}
+					box{<-9.5,height+2,0><9.5,-5,-0.7>}	
+				}
+			}
+						
+			cylinder{<0,height,0><0,height,-0.7>1.5}
+		}
+		
+		
+		//pigment{Red}
+		texture{col_silver}
+	}
+	                                   
+	difference{	                                   
+		union{
+			box{<-9.8/2,height-5,-0.2><9.8/2,height+2,2.5>}
+			difference{
+				cylinder{<0,height-2,-0.2><0,height-2,2.5>12.8/2}
+				box{<-9.5,height+2,-0.3><9.5,-5,2.6>}	
+			}
+		}	
+		cylinder{<0,height,-0.3><0,height,2.6>1.5}		
+	}
+
+	pigment{Gray30}
+	
+	//rotate<0,180-45,0>
+
+}
+#end

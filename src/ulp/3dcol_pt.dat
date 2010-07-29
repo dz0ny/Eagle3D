@@ -1,0 +1,2 @@
+White:Red:Green:Blue:Yellow:Gray10:Gray30:Gray50:Gray70:Gray90:Black:Silver:Gold:Copper:ForestGreen:DarkGreen:
+pigment{White}:pigment{Red}:pigment{Green}:pigment{Blue}:pigment{Yellow}:pigment{Gray10}:pigment{Gray30}:pigment{Gray50}:pigment{Gray70}:pigment{Gray90}:pigment{Black}:T_Silver_5A:T_Gold_5E:T_Copper_1A:pigment{ForestGreen}:pigment{DarkGreen}:

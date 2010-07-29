@@ -1,0 +1,42 @@
+Loetoese
+//Macros for 6.35 Faston terminal
+//Designed by Philippe Boucheny <philippe.boucheny(replace with at)free.fr>
+//Rev. 1.1 du 09/01/06
+####################################################################################################
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_FASTON_V(:Faston vertical 6.35 terminal:
+####################################################################################################
+CON_FASTON_GRND 
+()
+####################################################################################################
+CON_FASTON_V()
+()
+####################################################################################################
+####################################################################################################
+union{
+    difference{
+        union{
+            box{<-0.4,0,-3.175><+0.4,+15.8,+3.175>  rotate<0,0,0> translate<0,0,0> } 
+            box{<-0.4,0,-3.75><+0.4,+6.8,+3.75>     rotate<0,0,0> translate<0,0,0> }
+        }
+        
+        union{  
+            box{<-1,-1,-3.2><+1,+1,+3.2>    rotate<0,0,45> translate<-1.5,16,0> }
+            box{<-1,-1,-3.2><+1,+1,+3.2>    rotate<0,0,45> translate<+1.5,16,0> }
+            box{<-1,-1,-1><+1,+1,+1>        rotate<45,0,0> translate<0,16,3.8> }
+            box{<-1,-1,-1><+1,+1,+1>        rotate<45,0,0> translate<0,16,-3.8> }
+            
+            box{<-1,-1,-1><+1,+1,+1>        rotate<45,0,0> translate<0,6.9,4.6> }
+            box{<-1,-1,-1><+1,+1,+1>        rotate<45,0,0> translate<0,6.9,-4.6> }
+            box{<-0.8,-0.1,-2><+0.8,+3,+2>  rotate<0,0,0>  translate<0,0,0> } 
+            box{<-0.8,-0.1,-4><+0.8,+3,-3>  rotate<0,0,0>  translate<0,0,0> } 
+            box{<-0.8,-0.1,+4><+0.8,+3,+3>  rotate<0,0,0>  translate<0,0,0> } 
+            cylinder { -2*x, +2*x, 1  translate <0, 12, 0> }
+            text {ttf global_fontfile_arial_bold "AMP" 0.1, 0  scale 1.5 scale <1,0.6,1> rotate<180,+90,0> translate<0.45,4.8,1.55>}  // Marking
+            text {ttf global_fontfile_arial_bold "AMP" 0.1, 0  pigment{Silver} scale 1.5 scale <1,0.6,1> rotate<180,-90,0> translate<-0.45,4.8,-1.55>}  // Marking
+        }
+    }
+    texture{ col_silver }
+    translate -3*y
+    rotate 90*y
+}
+#end

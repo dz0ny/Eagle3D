@@ -1,0 +1,471 @@
+SO
+//Makro fuer SMD-IC's die Pins nur auf 2-Seiten haben(SO, TSOP, TSSOP usw.)
+//ueberarbeitet von Tilmann Reh <tilmann.reh(replace with at)autometer.de>
+//erweitert fuer DPAK Friedrich Bleikamp <fbleikamp(replace with at)web.de>
+//LK      = Laenge des Kunststoff(Seite der Pins)
+//BK      = Breite des Kunststoff(Seite ohne Pins)
+//HK      = Hoehe des Kunststoff
+//B       = Laenge der Seite ohne Pins ueber alles
+//pin_u   = Pins auf der "unteren" Seite
+//pin_o   = Pins auf der "oberen" Seite
+//ptch_u  = Pitch der Pins auf der "unteren" Seite
+//ptch_o  = Pitch der Pins auf der "oberen" Seite
+//pinb_u  = Breite der Pins auf der "unteren" Seite
+//pinb_o  = Breite der Pins auf der  "oberen" Seite
+//pin_s   = Staerke des Pinmaterials
+//di_pcb  = Abstand des Kunststoff zur Platine
+//kor_w   = Korrekturwinkel
+//pin0_m  = Pin-1-Markierung: 0 = keine, 1 = Farbklecks, 2 = Kerbe wie bei DIP, 3 = PowerSO, 4 = DPAK
+//pin0_45 = Wenn != 0 wird an der unteren Seite ein Winkel am Koerper von 45° statt 10° verwendet (SO)
+//pin0_a  = Abstand des Pin0-Kennzeichners vom Rand
+//besch_s = Scalefaktor der Beschriftung
+//besch_w = Wenn != 0 wird Beschriftung gedreht
+//logo  = Name of the logo
+####################################################################################################
+TSOP6:0:1:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:1:0:0:0:0:0:0:0:0:0:0:IC_SMD_TSOP6(:TSOP6 Package:
+SO08:0:1:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:1:0:0:0:0:0:0:0:0:0:0:IC_SMD_SO8(:SMD IC SO8 Package:
+SO-08M:0:1:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:1:0:0:0:0:0:0:0:0:0:0:IC_SMD_SO8(:SMD IC SO8 Package (microchip.lib):
+SO-08:0:1:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:1:0:0:0:0:0:0:0:0:0:0:IC_SMD_SO8(:SMD IC SO8 Package (microchip.lib):
+SO8:0:1:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:1:0:0:0:0:0:0:0:0:0:0:IC_SMD_SO8(:SMD IC SO8 Package:
+SOIC8:0:1:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:1:0:0:0:0:0:0:0:0:0:0:IC_SMD_SO8(:SMD IC SO8 Package:
+SOIC14:0:1:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:1:0:0:0:0:0:0:0:0:0:0:IC_SMD_SO14(:SMD IC SO14 Package:
+SO14:0:1:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:1:0:0:0:0:0:0:0:0:0:0:IC_SMD_SO14(:SMD IC SO14 Package:
+SOIC16:0:1:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:1:0:0:0:0:0:0:0:0:0:0:IC_SMD_SO16(:SMD IC SO16 Package:
+SO16:0:1:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:1:0:0:0:0:0:0:0:0:0:0:IC_SMD_SO16(:SMD IC SO16 Package:
+SO16W:0:1:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:1:0:0:0:0:0:0:0:0:0:0:IC_SMD_SO16W(:SMD IC SO16-Wide Package:
+SO16L:0:1:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:1:0:0:0:0:0:0:0:0:0:0:IC_SMD_SO16W(:SMD IC SO16-Wide Package:
+SOIC16N:0:1:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:1:0:0:0:0:0:0:0:0:0:0:IC_SMD_SO16W(:SMD IC SO16-Wide Package:
+SO16-1:0:1:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:1:0:0:0:0:0:0:0:0:0:0:IC_SMD_SO16W(:SMD IC SO16-Wide Package:
+SO-18W:0:1:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:1:0:0:0:0:0:0:0:0:0:0:IC_SMD_SO18W(:SMD IC SO18-Wide Package:
+SO-18DW:0:1:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:1:0:0:0:0:0:0:0:0:0:0:IC_SMD_SO18W(:SMD IC SO18-Wide Package:
+SO18L:0:1:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:1:0:0:0:0:0:0:0:0:0:0:IC_SMD_SO18W(:SMD IC SO18-Wide Package:
+SO18:0:1:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:1:0:0:0:0:0:0:0:0:0:0:IC_SMD_SO18W(:SMD IC SO18-Wide Package:
+SO20W:0:1:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:1:0:0:0:0:0:0:0:0:0:0:IC_SMD_SO20W(:SMD IC SO20-Wide Package:
+SO20:0:1:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:1:0:0:0:0:0:0:0:0:0:0:IC_SMD_SO20W(:SMD IC SO20-Wide Package:
+SO20L:0:1:0:1:0:0:0:0:0:0:0:0:0:0:0.635:0:-0.3175:0:0:1:0:0:0:0:0:0:0:0:0:0:IC_SMD_SO20W(:SMD IC SO20-Wide Package:
+SOIC20S:0:1:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:1:0:0:0:0:0:0:0:0:0:0:IC_SMD_SO20W(:SMD IC SO20-Wide Package:
+SO24W:0:1:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:1:0:0:0:0:0:0:0:0:0:0:IC_SMD_SO24W(:SMD IC SO24-Wide Package:
+SO24L:0:1:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:1:0:0:0:0:0:0:0:0:0:0:IC_SMD_SO24W(:SMD IC SO24-Wide Package:
+SO28W:0:1:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:1:0:0:0:0:0:0:0:0:0:0:IC_SMD_SO28W(:SMD IC SO28-Wide Package:
+SO-28W:0:1:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:1:0:0:0:0:0:0:0:0:0:0:IC_SMD_SO28W(:SMD IC SO28-Wide Package:
+SO28L:0:1:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:1:0:0:0:0:0:0:0:0:0:0:IC_SMD_SO28W(:SMD IC SO28-Wide Package:
+SO28-3:0:1:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:1:0:0:0:0:0:0:0:0:0:0:IC_SMD_SO28W(:SMD IC SO28-Wide Package:
+SO28:0:1:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:1:0:0:0:0:0:0:0:0:0:0:IC_SMD_SO28W(:SMD IC SO28-Wide Package:
+SO28X:0:1:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:1:0:0:0:0:0:0:0:0:0:0:IC_SMD_SO28W(:SMD IC SO28-Wide Package:
+SOJ32/4:0:1:0:1:0:0:0:0:0:0:0:0:0:0:0.508:0:0:0:0:1:0:0:0:0:0:0:0:0:0:0:IC_SMD_SO32_400(:SMD IC SO32 400mil:
+SOP32:0:1:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:1:0:0:0:0:0:0:0:0:0:0:IC_SMD_SO32_525(:SMD IC SO32 525mil:
+SOIC28:0:1:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:1:0:0:0:0:0:0:0:0:0:0:IC_SMD_SO28W(:SMD IC SO28-Wide Package:
+TSOP28_13MM:0:1:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:1:0:0:0:0:0:0:0:0:0:0:IC_SMD_TSOP28_13MM(:TSOPII28x13MM:
+TSOP32_13MM:0:1:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:1:0:0:0:0:0:0:0:0:0:0:IC_SMD_TSOP32_13MM(:TSOPII32x13MM:
+TSOP32:0:1:0:1:0:0:0:0:0:0:0:0:0:90:0:0:0:0:0:1:0:0:0:0:0:0:0:0:0:0:IC_SMD_TSOP32(:SMD IC TSOP32x20MM:
+TSOP32L:0:1:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:1:0:0:0:0:0:0:0:0:0:0:IC_SMD_TSOP32(:SMD IC TSOP32x20MM:
+TSOP48:0:1:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:1:0:0:0:0:0:0:0:0:0:0:IC_SMD_TSOP48(:TSOPII48x20MM:
+TSOP48L:0:1:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:1:0:0:0:0:0:0:0:0:0:0:IC_SMD_TSOP48(:TSOPII48x20MM:
+TSOP56:0:1:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:1:0:0:0:0:0:0:0:0:0:0:IC_SMD_TSOP56(:TSOP56x20MM:
+TSOP56L:0:1:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:1:0:0:0:0:0:0:0:0:0:0:IC_SMD_TSOP56(:TSOP56x20MM:
+TSSOP8:0:1:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:1:0:0:0:0:0:0:0:0:0:0:IC_SMD_TSSOP8(:TSSOP8:
+TSSOP14:0:1:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:1:0:0:0:0:0:0:0:0:0:0:IC_SMD_TSSOP14(:TSSOP14:
+TSSOP16:0:1:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:1:0:0:0:0:0:0:0:0:0:0:IC_SMD_TSSOP16(:TSSOP16:
+TSSOP20:0:1:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:1:0:0:0:0:0:0:0:0:0:0:IC_SMD_TSSOP20(:TSSOP20:
+TSSOP24:0:1:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:1:0:0:0:0:0:0:0:0:0:0:IC_SMD_TSSOP24(:TSSOP24:
+TSSOP28:0:1:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:1:0:0:0:0:0:0:0:0:0:0:IC_SMD_TSSOP28(:TSSOP28:
+TSSOP38:0:1:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:1:0:0:0:0:0:0:0:0:0:0:IC_SMD_TSSOP38(:TSSOP38:
+TSSOP48:0:1:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:1:0:0:0:0:0:0:0:0:0:0:IC_SMD_TSSOP48(:TSSOP48:
+TSSOP56:0:1:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:1:0:0:0:0:0:0:0:0:0:0:IC_SMD_TSSOP56(:TSSOP566:
+TSSOP64:0:1:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:1:0:0:0:0:0:0:0:0:0:0:IC_SMD_TSSOP64(:TSSOP64:
+TSSOP024:0:1:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:1:0:0:0:0:0:0:0:0:0:0:IC_SMD_TSSOP24(:TSSOP24:
+P-TSSOP28-1:0:1:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:1:0:0:0:0:0:0:0:0:0:0:IC_SMD_TSSOP28(:TSSOP28:
+QSOP16:0:1:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:1:0:0:0:0:0:0:0:0:0:0:IC_SMD_QSOP16(:QSOP16:
+QSOP20:0:1:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:1:0:0:0:0:0:0:0:0:0:0:IC_SMD_QSOP20(:QSOP20:
+QSOP24:0:1:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:1:0:0:0:0:0:0:0:0:0:0:IC_SMD_QSOP24(:QSOP24:
+QSOP28:0:1:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:1:0:0:0:0:0:0:0:0:0:0:IC_SMD_QSOP28(:QSOP28:
+SSOP14:0:1:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:1:0:0:0:0:0:0:0:0:0:0:IC_SMD_SSOP14(:SSOP14:
+SSOP16:0:1:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:1:0:0:0:0:0:0:0:0:0:0:IC_SMD_SSOP16(:SSOP16:
+SSOP20:0:1:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:1:0:0:0:0:0:0:0:0:0:0:IC_SMD_SSOP20(:SSOP20:
+SSOP24:0:1:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:1:0:0:0:0:0:0:0:0:0:0:IC_SMD_SSOP24(:SSOP24:
+SSOP28:0:1:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:1:0:0:0:0:0:0:0:0:0:0:IC_SMD_SSOP28(:SSOP28:
+SSOP-28:0:1:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:1:0:0:0:0:0:0:0:0:0:0:IC_SMD_SSOP28(:SSOP28:
+SSOP48:0:1:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:1:0:0:0:0:0:0:0:0:0:0:IC_SMD_SSOP48(:SSOP48:
+SSOP56:0:1:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:1:0:0:0:0:0:0:0:0:0:0:IC_SMD_SSOP56(:SSOP56:
+SSOP56DL:0:1:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:1:0:0:0:0:0:0:0:0:0:0:IC_SMD_SSOP56DL(:SSOP56DL:
+TSOPII28:0:1:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:1:0:0:0:0:0:0:0:0:0:0:IC_SMD_TSOPII28(:TSOPII28:
+TSOPII32:0:1:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:1:0:0:0:0:0:0:0:0:0:0:IC_SMD_TSOPII32(:TSOPII32:
+TSOPII44:0:1:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:1:0:0:0:0:0:0:0:0:0:0:IC_SMD_TSOPII44(:TSOPII44:
+TSOPII50:0:1:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:1:0:0:0:0:0:0:0:0:0:0:IC_SMD_TSOPII50(:TSOPII50:
+TSOPII54:0:1:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:1:0:0:0:0:0:0:0:0:0:0:IC_SMD_TSOPII54(:TSOPII54:
+TSOPII86:0:1:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:1:0:0:0:0:0:0:0:0:0:0:IC_SMD_TSOPII86(:TSOPII86:
+UMAX8:0:1:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:1:0:0:0:0:0:0:0:0:0:0:IC_SMD_UMAX8(:UMAX8 (maxim.lbr):
+UMAX10:0:1:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:1:0:0:0:0:0:0:0:0:0:0:IC_SMD_UMAX10(:UMAX10 (maxim.lbr):
+SOT223:0:1:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:1:0:0:0:0:0:0:0:0:0:0:IC_SMD_SOT223(:SOT223:
+SOT23-5:0:1:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:2:0:0:0:0:0:0:0:0:0:0:IC_SMD_SOT23_5(:SOT23-5:
+SOT23/5:0:1:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:2:0:0:0:0:0:0:0:0:0:0:IC_SMD_SOT23_5(:SOT23-5:
+SOT23-5L:0:1:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:2:0:0:0:0:0:0:0:0:0:0:IC_SMD_SOT23_5(:SOT23-5:
+SOT23-6:0:1:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:2:0:0:0:0:0:0:0:0:0:0:IC_SMD_SOT23_6(:SOT23-6:
+SOT23-6L:0:1:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:2:0:0:0:0:0:0:0:0:0:0:IC_SMD_SOT23_6(:SOT23-6:
+SOT23:0:1:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:2:0:0:0:0:0:0:0:0:0:0:IC_SMD_SOT23(:SOT23:
+SOT23-BCE:0:1:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:2:0:0:0:0:0:0:0:0:0:0:IC_SMD_SOT23(:SOT23:
+SOT23-BEC:0:1:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:2:0:0:0:0:0:0:0:0:0:0:IC_SMD_SOT23(:SOT23:
+SOT23-EBC:0:1:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:2:0:0:0:0:0:0:0:0:0:0:IC_SMD_SOT23(:SOT23:
+SOT23B-3:0:1:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:2:0:0:0:0:0:0:0:0:0:0:IC_SMD_SOT23(:SOT23:
+SOT23C:0:1:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:2:0:0:0:0:0:0:0:0:0:0:IC_SMD_SOT23(:SOT23:
+SOT23W:0:1:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:2:0:0:0:0:0:0:0:0:0:0:IC_SMD_SOT23(:SOT23:
+TO252:0:1:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:1:0:0:0:0:0:0:0:0:0:0:TR_TO252(:TO252:
+NOEAGLEPAC:0:1:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:1:0:0:0:0:0:0:0:0:0:0:IC_SMD_VSO40(:VSO40:
+NOEAGLEPAC:0:1:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:1:0:0:0:0:0:0:0:0:0:0:IC_SMD_VSO56(:VSO56:
+NOEAGLEPAC:0:1:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:1:0:0:0:0:0:0:0:0:0:0:IC_SMD_PSO20(:PSO20:
+NOEAGLEPAC:0:1:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:1:0:0:0:0:0:0:0:0:0:0:IC_SMD_PSO36(:PSO36:
+NOEAGLEPAC:0:1:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:1:0:0:0:0:0:0:0:0:0:0:IC_SMD_MSOP10(:MSOP10:
+NOEAGLEPAC:0:1:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:1:0:0:0:0:0:0:0:0:0:0:IC_SMD_SOT363(:SOT363:
+NOEAGLEPAC:0:1:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:1:0:0:0:0:0:0:0:0:0:0:IC_SMD_SSOP30(:SSOP30:
+DPAK:0:1:0:1:0:0:0:0:0:0:0:0:0:0:0:0:-0.5:0:0:1:0:0:0:0:0:0:0:0:0:0:IC_SMD_DPAK_369C(:DPAK CASE 369C:
+DPAK_1:0:1:0:1:0:0:0:0:0:0:0:0:0:0:0:0:-0.5:0:0:1:0:0:0:0:0:0:0:0:0:0:IC_SMD_DPAK_369C(:DPAK CASE 369C:
+DPAK_2:0:1:0:1:0:0:0:0:0:0:0:0:0:0:0:0:-0.5:0:0:1:0:0:0:0:0:0:0:0:0:0:IC_SMD_DPAK_369C(:DPAK CASE 369C:
+DPAK_3:0:1:0:1:0:0:0:0:0:0:0:0:0:0:0:0:-0.5:0:0:1:0:0:0:0:0:0:0:0:0:0:IC_SMD_DPAK_369C(:DPAK CASE 369C:
+DPAK_4:0:1:0:1:0:0:0:0:0:0:0:0:0:0:0:0:-0.5:0:0:1:0:0:0:0:0:0:0:0:0:0:IC_SMD_DPAK_369C(:DPAK CASE 369C:
+DPAK_5:0:1:0:1:0:0:0:0:0:0:0:0:0:0:0:0:-0.5:0:0:1:0:0:0:0:0:0:0:0:0:0:IC_SMD_DPAK_369C(:DPAK CASE 369C:
+DPAK_6:0:1:0:1:0:0:0:0:0:0:0:0:0:0:0:0:-0.5:0:0:1:0:0:0:0:0:0:0:0:0:0:IC_SMD_DPAK_369C(:DPAK CASE 369C:
+TO263:0:1:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:1:0:0:0:0:0:0:0:0:0:0:TR_TO263(:TO263:
+TO263-3:0:1:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:1:0:0:0:0:0:0:0:0:0:0:TR_TO263(:TO263:
+TS-005:0:1:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:1:0:0:0:0:0:0:0:0:0:0:TR_TO263(:TO263:
+NOEAGLEPAC:0:1:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:1:0:0:0:0:0:0:0:0:0:0:TR_SOT23(:SOT23:
+TSOP86:0:1:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:1:0:0:0:0:0:0:0:0:0:0:IC_SMD_TSOP86(:TSOP86:
+####################################################################################################
+IC_SMD_GRND
+(LK,BK,HK,B,pin_u,pin_o,ptch_u,ptch_o,pinb_u,pinb_o,pin_s,di_pcb,kor_w,pin0_m,pin0_45,pin0_a,besch_s,besch_w,logo)
+####################################################################################################
+// JEDEC MO-193AA
+IC_SMD_TSOP6(value,logo)  
+(2.9,1.6,0.9, 2.8, 3,3, 0.95,0.95, 0.4,0.4,0.2, 0.1,0, 1,0,0.3,0.6,0,logo)
+IC_SMD_SO8(value,logo)
+(4.9,3.9,1.35,6,4,4,1.27,1.27,0.4,0.4,0.22,0.18,0,1,1,3.9/5,3.9/5,0,logo)
+IC_SMD_SO14(value,logo)
+(8.65,3.9,1.35,6,7,7,1.27,1.27,0.4,0.4,0.22,0.18,0,1,1,3.9/5,3.9/4,0,logo)
+IC_SMD_SO16(value,logo)
+(9.9,3.9,1.35,6,8,8,1.27,1.27,0.4,0.4,0.22,0.18,0,1,1,3.9/5,3.9/4,0,logo)
+IC_SMD_SO16W(value,logo)
+(10.3,7.5,2.35,10.3,8,8,1.27,1.27,0.4,0.4,0.27,0.2,0,1,1,7.5/6,7.5/5,0,logo)
+IC_SMD_UMAX10(value,logo)
+(3,3,0.8,4.9,5,5,0.5,0.5,0.22,0.22,0.13,0.1,0,1,0,0.4,0.7,0,logo)
+IC_SMD_UMAX8(value,logo)
+(3,3,0.8,4.9,4,4,0.65,0.65,0.3,0.3,0.13,0.1,0,1,0,0.4,0.7,0,logo)
+//Rudi Hofer <rudi.hofer@t-online.de>
+IC_SMD_SO18W(value,logo)
+(11.6,7.5,2.35,10.3,9,9,1.27,1.27,0.4,0.4,0.27,0.2,0,1,1,7.5/6,7.5/5,0,logo)
+IC_SMD_SO20W(value,logo)
+(12.8,7.5,2.35,10.3,10,10,1.27,1.27,0.4,0.4,0.27,0.2,0,1,1,7.5/6,7.5/5,0,logo)
+IC_SMD_SO24W(value,logo)
+(15.4,7.5,2.35,10.3,12,12,1.27,1.27,0.4,0.4,0.27,0.2,0,1,1,7.5/6,7.5/5,0,logo)
+IC_SMD_SO28W(value,logo)
+(17.9,7.5,2.35,10.3,14,14,1.27,1.27,0.4,0.4,0.27,0.2,0,1,1,7.5/6,7.5/5,0,logo)
+IC_SMD_SO32_400(value,logo)
+(20.5,7.5,2.35,10.3,16,16,1.27,1.27,0.4,0.4,0.27,0.2,0,1,1,7.5/6,7.5/5,0,logo)
+IC_SMD_SO32_525(value,logo)
+(20.5,11.43,2.74,14.12,16,16,1.27,1.27,0.4,0.4,0.2,0.05,0,1,1,7.5/5,7.5/5,0,logo)
+IC_SMD_TSSOP8(value,logo)
+(2.9,4.4,1,6.4,4,4,0.65,0.65,0.22,0.22,0.15,0.1,0,1,0,0.5,0.6,1,logo)
+IC_SMD_TSSOP14(value,logo)
+(5,4.4,1.1,6.375,7,7,0.65,0.65,0.22,0.22,0.15,0.1,0,1,0,0.5,0.8,0,logo)
+IC_SMD_TSSOP16(value,logo)
+(5.2,4.4,1.1,6.375,8,8,0.65,0.65,0.22,0.22,0.15,0.1,0,1,0,0.5,0.8,0,logo)
+IC_SMD_TSSOP20(value,logo)
+(6.5,4.4,1.1,6.375,10,10,0.65,0.65,0.22,0.22,0.15,0.1,0,1,0,0.5,1.0,0,logo)
+IC_SMD_TSSOP24(value,logo)
+(7.8,4.4,1.1,6.375,12,12,0.65,0.65,0.22,0.22,0.15,0.1,0,1,0,0.5,1.1,0,logo)
+IC_SMD_TSSOP28(value,logo)
+(9.7,4.4,1.1,6.375,14,14,0.65,0.65,0.22,0.22,0.15,0.1,0,1,0,0.5,1.1,0,logo)
+IC_SMD_TSSOP38(value,logo)
+(9.7,4.4,1.1,6.4,19,19,0.5,0.5,0.22,0.22,0.15,0.1,0,1,0,0.5,1.1,0,logo)
+IC_SMD_TSSOP48(value,logo)
+(12.5,6.1,0.95,8.1,24,24,0.5,0.5,0.22,0.22,0.15,0.1,0,1,0,0.5,1.1,0,logo)
+IC_SMD_TSSOP56(value,logo)
+(14,6.1,0.95,8.1,28,28,0.5,0.5,0.22,0.22,0.15,0.1,0,1,0,0.5,1.1,0,logo)
+IC_SMD_TSSOP64(value,logo)
+(17,6.1,0.95,8.1,32,32,0.5,0.5,0.22,0.22,0.15,0.1,0,1,0,0.5,1.1,0,logo)
+IC_SMD_QSOP16(value,logo)
+(4.9,3.9,1.45,6,8,8,0.635,0.635,0.25,0.25,0.225,0.15,0,1,1,0.7,0.7,0,logo)
+IC_SMD_QSOP20(value,logo)
+(8.65,3.9,1.45,6,10,10,0.635,0.635,0.25,0.25,0.225,0.15,0,1,1,0.7,1.1,0,logo)
+IC_SMD_QSOP24(value,logo)
+(8.65,3.9,1.45,6,12,12,0.635,0.635,0.25,0.25,0.225,0.15,0,1,1,0.7,1.1,0,logo)
+IC_SMD_QSOP28(value,logo)
+(9.9,3.9,1.45,6,14,14,0.635,0.635,0.25,0.25,0.225,0.15,0,1,1,0.7,1.1,0,logo)
+IC_SMD_SSOP14(value,logo)
+(6.2,5.3,1.7,7.7,7,7,0.65,0.65,0.32,0.32,0.15,0.15,0,1,0,0.5,0.85,0,logo)
+IC_SMD_SSOP16(value,logo)
+(6.2,5.3,1.7,7.7,8,8,0.65,0.65,0.32,0.32,0.15,0.15,0,1,0,0.5,0.85,0,logo)
+IC_SMD_SSOP20(value,logo)
+(7.2,5.3,1.7,7.7,10,10,0.65,0.65,0.32,0.32,0.15,0.15,0,1,0,0.5,0.95,0,logo)
+IC_SMD_SSOP24(value,logo)
+(8.2,5.3,1.7,7.7,12,12,0.65,0.65,0.32,0.32,0.15,0.15,0,1,0,0.5,0.95,0,logo)
+IC_SMD_SSOP28(value,logo)
+(10.2,5.3,1.7,7.7,14,14,0.65,0.65,0.32,0.32,0.15,0.15,0,1,0,0.5,0.95,0,logo)
+IC_SMD_SSOP30(value,logo)
+(10.2,6.1,1.2,8.1,15,15,0.65,0.65,0.24,0.24,0.15,0.1,0,1,0,0.5,0.95,0,logo)
+IC_SMD_SSOP48(value,logo)
+(15.8,7.5,2.25,10.2,24,24,0.635,0.635,0.25,0.25,0.15,0.3,0,1,0,0.5,1.1,0,logo)
+//Joseph Zeglinski
+IC_SMD_SSOP56DL(value,logo)
+(18.4,7.5,2.25,10.2,28,28,0.635,0.635,0.25,0.25,0.15,0.3,0,1,0,0.5,1.1,0,logo)
+IC_SMD_SSOP56(value,logo)
+(23.7,13.3,2.25,10.2,28,28,0.635,0.635,0.25,0.25,0.15,0.3,0,1,0,0.5,1.1,0,logo)
+IC_SMD_TSOPII28(value,logo)
+(18.4,10.1,1,11.7,14,14,1.27,1.27,0.4,0.4,0.15,0.1,0,1,0,0.5,1.5,0,logo)
+IC_SMD_TSOPII32(value,logo)
+(20.95,10.1,1,11.7,16,16,1.27,1.27,0.4,0.4,0.15,0.1,0,1,0,0.5,1.5,0,logo)
+IC_SMD_TSOPII44(value,logo)
+(18.3,10.1,1,11.7,22,22,0.8,0.8,0.375,0.375,0.15,0.1,0,1,0,0.5,1.5,0,logo)
+IC_SMD_TSOPII50(value,logo)
+(20.95,10.1,1,11.7,25,25,0.8,0.8,0.375,0.375,0.15,0.1,0,1,0,0.5,1.5,0,logo)
+IC_SMD_TSOPII54(value,logo)
+(22.22,10.1,1,11.7,27,27,0.8,0.8,0.375,0.375,0.15,0.1,0,1,0,0.5,1.5,0,logo)
+IC_SMD_TSOPII86(value,logo)
+(22.22,10.1,1,11.7,43,43,0.5,0.5,0.22,0.22,0.15,0.1,0,1,0,0.5,1.5,0,logo)
+IC_SMD_TSOP28_13MM(value,logo)
+(8,11.8,1,13.4,14,14,0.55,0.55,0.22,0.22,0.13,0.1,90,1,0,0.5,1.1,1,logo)
+IC_SMD_TSOP32_13MM(value,logo)
+(8,11.8,1,13.4,16,16,0.5,0.5,0.22,0.22,0.13,0.1,90,1,0,0.5,1.1,1,logo)
+IC_SMD_TSOP32(value,logo)
+(8,18.4,1.1,20,16,16,0.5,0.5,0.22,0.22,0.13,0.1,90,1,0,0.5,1.1,1,logo)
+IC_SMD_TSOP48(value,logo)
+(12,18.4,1.1,20,24,24,0.5,0.5,0.22,0.22,0.13,0.1,90,1,0,0.5,1.1,1,logo)
+IC_SMD_TSOP56(value,logo)
+(14,18.4,1.1,20,28,28,0.5,0.5,0.22,0.22,0.13,0.1,90,1,0,0.5,1.1,1,logo)
+//Tilmann Reh <tilmann.reh@autometer.de>
+IC_SMD_VSO40(value,logo)
+(15.4,7.55,2.35,12.05,20,20,0.762,0.762,0.36,0.36,0.18,0.2,0,2,0,7.5/6,7.5/5,0,logo)
+IC_SMD_VSO56(value,logo)
+(21.7,11.05,2.9,15.5,28,28,0.75,0.75,0.36,0.36,0.18,0.2,0,2,0,11/6,11/5,0,logo)
+IC_SMD_PSO20(value,logo)
+(15.9,11,3.3,14.2,10,10,1.27,1.27,0.47,0.47,0.28,0.2,0,3,0,7.5/6,7.5/5,0,logo)
+IC_SMD_PSO36(value,logo)
+(15.9,11,3.3,14.2,18,18,0.65,0.65,0.3,0.3,0.28,0.2,0,3,0,7.5/6,7.5/5,0,logo)
+IC_SMD_MSOP10(value,logo)
+(3,3,0.85,4.9,5,5,0.5,0.5,0.25,0.25,0.15,0.1,0,1,0,0.5,0.65,0,logo)
+IC_SMD_SOT23(value,logo)
+(2.9,1.3,1,2.8,2,1,1.9,1.9,0.45,0.45,0.13,0.1,0,0,0,1.5,0.7,0,logo)
+IC_SMD_SOT23_5(value,logo)
+(2.9,1.6,1,2.8,3,2,0.95,1.90,0.35,0.35,0.13,0.1,0,0,0,1.5,0.7,0,logo)
+IC_SMD_SOT23_6(value,logo)
+(2.9,1.6,1,2.8,3,3,0.95,0.95,0.35,0.35,0.13,0.1,0,1,0,0.3,0.7,0,logo)
+IC_SMD_SOT223(value,logo)
+(6.5,3.5,1.6,7,3,1,2.3,2.3,0.75,3,0.2,0.2,0,0,0,0,1.0,0,logo)
+IC_SMD_SOT363(value,logo)
+(2.0,1.25,1.0,2.1,3,3,0.65,0.65,0.25,0.25,0.15,0.1,0,1,0,0,0.5,0,logo)
+//SMD-Transistoren aus SIC_GRND abgeleitet
+TR_SOT23(value,logo)
+(2.9,1.3,1,2.8,2,1,1.9,1.9,0.45,0.45,0.13,0.1,0,0,0,1.5,0.7,0,logo)
+TR_TO252(value,logo)
+(6.1,6.5,2.2,10,2,1,4.5,1.9,0.9,5.3,0.5,0.1,0,0,0,1.5,1.0,0,logo)
+TR_TO263(value,logo)
+(10.2,8.7,4.2,15.2,2,1,5.1,1.9,1.4,10.2,0.5,0.1,0,0,0,1.5,1.0,0,logo)
+// Friedrich Bleikamp
+IC_SMD_DPAK_369C(value,logo)
+(6.1,6.5,2.2,11,2,0,4.5,0,0.8,0,0.5,0.1,0,4,0,1.5,1.0,0,logo)
+IC_SMD_TSOP86(value,logo)
+(22.22,10.16,1.2,11.76,43,43,0.5,0.5,0.2,0.2,0.12,0.1,0,2,0,3.9/5,3.9/5,0,logo)
+####################################################################################################
+####################################################################################################
+union{
+    difference{
+        box{<LK/2,di_pcb,BK/2><-LK/2,di_pcb+HK,-BK/2>}
+        box{<LK/2+0.01,0,0><-LK/2-0.1,-HK,1>  rotate<10,0,0> translate<0,(di_pcb+HK)/2-pin_s/2,BK/2>}
+        box{<LK/2+0.01,0,0><-LK/2-0.1,-HK,-1>  rotate<-10,0,0> translate<0,(di_pcb+HK)/2-pin_s/2,-BK/2>}
+        box{<LK/2+0.01,0,0><-LK/2-0.1,HK,1>  rotate<-10,0,0> translate<0,(di_pcb+HK)/2+pin_s/2,BK/2>}
+        box{<LK/2+0.01,0,0><-LK/2-0.1,HK,-1>  rotate<10,0,0> translate<0,(di_pcb+HK)/2+pin_s/2,-BK/2>}
+        #if(pin0_45!=0)
+            box{<LK/2+0.01,0,0><-LK/2-0.1,HK,-1>  rotate<45,0,0> translate<0,(di_pcb+HK)/2+pin_s/2+pin_s*1.5,-BK/2>}
+        #end
+        box{<0,0,-BK/2-0.1><1,HK,BK/2+0.1>  rotate<0,0,10> translate<LK/2,(di_pcb+HK)/2+pin_s/2,0>}
+        box{<0,0,-BK/2-0.1><-1,HK,BK/2+0.1>  rotate<0,0,-10> translate<-LK/2,(di_pcb+HK)/2+pin_s/2,0>}
+        box{<0,0,-BK/2-0.1><1,-HK,BK/2+0.1>  rotate<0,0,-10> translate<LK/2,(di_pcb+HK)/2-pin_s/2,0>}
+        box{<0,0,-BK/2-0.1><-1,-HK,BK/2+0.1>  rotate<0,0,10> translate<-LK/2,(di_pcb+HK)/2-pin_s/2,0>}
+        #if(pin0_m = 0) 
+            #local TextX = -LK/2+0.1*LK; 
+        #end // ohne Pin-1-Markierung
+        #if(pin0_m = 1)  // SO-Farbmarkierung
+            #local TextX = -LK/2+0.1*LK;
+            #if((((pin_u-1)/2*ptch_u)+0.3)>LK/2) 
+                #local i = -(pin_u-1)/2*ptch_u+0.3;
+            #else 
+                #local i = -(pin_u-1)/2*ptch_u; 
+            #end
+            sphere{<i,HK+di_pcb+0.1,-BK/2+pin0_a>0.15 pigment{White}}
+        #end
+        #if(pin0_m = 2)  // VSO-Kerbe
+            #local TextX = -LK/2+0.15*LK;
+            cylinder{<-LK/2,di_pcb+0.7*HK,0><-LK/2,di_pcb+HK+0.1,0> 1}
+        #end
+        #if(pin0_m = 3)  // PSO-Kerben und Fase (vereinfacht rechteckig)
+            #local TextX = -LK/2+0.25*LK;
+            box{<3,di_pcb-0.1,-3> <-3,HK+di_pcb+0.1,0> rotate<0,45,0> translate<1-LK/2,0,1-BK/2>}
+            box{<0,di_pcb-0.1,-1.45> <-2,HK+di_pcb+0.1,1.45> translate<1.45-LK/2,0,0>}
+            box{<0,di_pcb-0.1,-1.45> <2,HK+di_pcb+0.1,1.45> translate<-1.45+LK/2,0,0>}
+        #end
+        
+        #if(pin0_m = 4) // fuer DPAK ohne Pin-1-Markierung
+            #local TextX = -LK/2+0.15*LK; 
+        #end 
+    }
+    #if(pin0_m = 3)  // PSO-Metallboden (vereinfacht, da der Rest sowieso unsichtbar bleibt)
+        box{<-LK/2,0,-1.5> <LK/2,1,1.5> texture{col_silver}}
+    #end
+
+    #if(pin0_m = 4)  // DPAK-SEATING PLANE & BLIND PIN
+            box{<-pinb_u/2,(HK+di_pcb)/2+pin_s/2,-(BK/2+1)> <pinb_u/2,(HK+di_pcb)/2-pin_s/2,-(BK/2-0.1)> texture{col_silver}}
+            box{<-0.57,0,-5.25> <0.57,0.5,-4.5> translate<ptch_u/2,0,0> texture{col_silver}} 
+            box{<-0.57,0,-5.25> <0.57,0.5,-4.5> translate<-ptch_u/2,0,0> texture{col_silver}} 
+            difference{
+                box{<-2.5,0,-0.85> <2.5,0.55,4.5>} 
+                box{<-0.5,-0.1,-0.5> <0.5,1.1,0.5> rotate <0,45,0> translate<-2.5,0,4.5>}
+                box{<-0.5,-0.1,-0.5> <0.5,0.6,0.5> rotate <0,45,0> translate<2.5,0,4.5>}
+                texture{col_silver}
+                }
+    #end
+        
+    #local i=0;
+    #while(i<(pin_u/2))
+        #if((pin_u/2)=div(pin_u,2))
+            object{IC_SMD_PIN((HK+di_pcb)/2+pin_s/2,(B-BK)/2,pinb_u,pin_s) rotate<0,90,0> translate<ptch_u*i+ptch_u/2,0,-BK/2>}
+            object{IC_SMD_PIN((HK+di_pcb)/2+pin_s/2,(B-BK)/2,pinb_u,pin_s) rotate<0,90,0> translate<-ptch_u*i-ptch_u/2,0,-BK/2>}
+        #else
+            object{IC_SMD_PIN((HK+di_pcb)/2+pin_s/2,(B-BK)/2,pinb_u,pin_s) rotate<0,90,0> translate<ptch_u*i,0,-BK/2>}
+            object{IC_SMD_PIN((HK+di_pcb)/2+pin_s/2,(B-BK)/2,pinb_u,pin_s) rotate<0,90,0> translate<-ptch_u*i,0,-BK/2>}
+        #end
+        #local i=i+1;
+    #end
+    
+    #local i=0;
+    #while(i<(pin_o/2))
+        #if((pin_o/2)=div(pin_o,2))
+            object{IC_SMD_PIN((HK+di_pcb)/2+pin_s/2,(B-BK)/2,pinb_o,pin_s) rotate<0,-90,0> translate<ptch_o*i+ptch_o/2,0,BK/2>}
+            object{IC_SMD_PIN((HK+di_pcb)/2+pin_s/2,(B-BK)/2,pinb_o,pin_s) rotate<0,-90,0> translate<-ptch_o*i-ptch_o/2,0,BK/2>}
+        #else
+            object{IC_SMD_PIN((HK+di_pcb)/2+pin_s/2,(B-BK)/2,pinb_o,pin_s) rotate<0,-90,0> translate<ptch_o*i,0,BK/2>}
+            object{IC_SMD_PIN((HK+di_pcb)/2+pin_s/2,(B-BK)/2,pinb_o,pin_s) rotate<0,-90,0> translate<-ptch_o*i,0,BK/2>}
+        #end
+    #local i=i+1;
+    #end
+        
+    #local value_arial_size_min = 0.0;
+    #local value_arial_size_max = 0.0;
+    #local value_arial_size = 0.0;
+    #local value_courier_size_min = 0.0;
+    #local value_courier_size_max = 0.0;
+    #local value_courier_size = 0.0;
+    #local value_arial_bold =  text{ttf global_fontfile_arial_bold value 0.2,0 rotate<90,-90,0> pigment{White}}
+    #local value_courier_bold = text{ttf global_fontfile_courier_bold value 0.2,0 rotate<90,-90,0> pigment{White}}
+    Extents(value_arial_bold, value_arial_size_min, value_arial_size_max)
+    Extents(value_courier_bold, value_courier_size_min, value_courier_size_max)
+    #local value_arial_size = value_arial_size_max - value_arial_size_min; 
+    #local value_courier_size = value_courier_size_max - value_courier_size_min;    
+    #local value_scale_factor_arial = LK/value_arial_size.z * 0.5;
+    #local value_scale_factor_courier = LK/value_courier_size.z * 0.5;    
+    
+    #if(value_arial_size.x*value_scale_factor_arial > LK/6.0) 
+                #local value_scale_factor_arial = LK/6.0 / value_arial_size.x;    
+    #end
+    #if(value_courier_size.x*value_scale_factor_courier > LK/6.0) 
+                #local value_scale_factor_courier = LK/6.0 / value_courier_size.x;
+    #end
+        
+    #local value_arial_size = value_arial_size * value_scale_factor_arial; 
+    #local value_courier_size = value_courier_size * value_scale_factor_courier;
+    //a random datecode string
+    #local value_datecode_arial_size_min = 0.0;
+    #local value_datecode_arial_size_max = 0.0;
+    #local value_datecode_arial_size = 0.0;
+    #local value_datecode_courier_size_min = 0.0;
+    #local value_datecode_courier_size_max = 0.0;
+    #local value_datecode_courier_size = 0.0;
+    #local value_datecode_string = concat(str(rand(global_seed)*52.9, -2, 0),str(rand(global_seed)*3.9+2, -2, 0));    
+    #local value_datecode_arial_bold = text{ttf global_fontfile_arial_bold value_datecode_string 0.2,0 rotate<90,-90,0> pigment{White}}
+    #local value_datecode_courier_bold = text{ttf global_fontfile_arial_bold value_datecode_string 0.2,0 rotate<90,-90,0> pigment{White}}
+    Extents(value_datecode_arial_bold, value_datecode_arial_size_min, value_datecode_arial_size_max)
+    Extents(value_datecode_courier_bold, value_courier_size_min, value_courier_size_max)
+    #local value_datecode_arial_size = value_datecode_arial_size_max - value_datecode_arial_size_min; 
+    #local value_datecode_courier_size = value_courier_size_max - value_courier_size_min;    
+    #local value_datecode_scale_factor_arial = value_scale_factor_arial;
+    #local value_datecode_scale_factor_courier = value_scale_factor_courier;
+    #local value_datecode_arial_size = value_datecode_arial_size * value_scale_factor_arial; 
+    #local value_datecode_courier_size = value_datecode_courier_size * value_scale_factor_courier;
+    
+    // added logos. now with Atmel, FTDI, Microchip, Philips, and ST
+    // by xocas
+        
+    #local logo_assigned = 0;
+        
+    #if(strcmp(logo,"PHILIPS")=0.0)
+            #local logo_assigned = 1;
+            #local label = union{
+                text{ttf global_fontfile_eagle3d "p" 0.2,0 scale<besch_s*2,besch_s*2,1> rotate<90,0,0> translate<-LK/3,0,0>}        
+                text{ttf global_fontfile_arial value 0.2,0 rotate<90,0,0> scale<value_scale_factor_arial,1,value_scale_factor_arial> translate<-value_arial_size.z/2,0,-value_arial_size.x/2-BK/6>}
+                translate<0,HK+di_pcb+0.001,0>
+                pigment{Gray60}
+            }
+    #end
+        
+    #if(strcmp(logo,"MICROCHIP")=0.0)
+        #local logo_assigned = 1;
+        #local label = union{
+            text{ttf global_fontfile_eagle3d "m" 0.2,0 scale<besch_s*2,besch_s*2,1> rotate<90,0,0> translate<-LK/3,0,0>}        
+            text{ttf global_fontfile_arial value 0.2,0 rotate<90,0,0> scale<value_scale_factor_arial,1,value_scale_factor_arial> translate<-value_arial_size.z/2,0,-value_arial_size.x/2-BK/6>}
+            translate<0,HK+di_pcb+0.001,0>
+            pigment{Gray60}
+        }
+     #end    
+     #if(strcmp(logo,"ST")=0.0)
+        #local logo_assigned = 1;
+        #local label = union{
+            text{ttf global_fontfile_eagle3d "s" 0.2,0 scale<besch_s*2,besch_s*2,1> rotate<90,0,0> translate<-LK/2.5,0,-BK/3>}        
+            text{ttf global_fontfile_arial value 0.2,0 rotate<90,0,0> scale<value_scale_factor_arial,1,value_scale_factor_arial> translate<-value_arial_size.z/2,0,value_arial_size.x/2>}
+            translate<0,HK+di_pcb+0.001,0>
+            pigment{Gray60}
+        }
+    #end
+    
+    #if(strcmp(logo,"ATMEL")=0.0)
+        #local logo_assigned = 1;
+        #local label = union{
+            text{ttf global_fontfile_eagle3d "a" 0.2,0 scale<besch_s*2,besch_s*2,1> rotate<90,0,0> translate<-LK/3,0,0>}        
+            text{ttf global_fontfile_arial value 0.2,0 rotate<90,0,0> scale<value_scale_factor_arial,1,value_scale_factor_arial> translate<-value_arial_size.z/2,0,-value_arial_size.x/2-BK/6>}
+            translate<0,HK+di_pcb+0.001,0>
+            pigment{Gray60}
+        }
+    #end
+     
+    #if(strcmp(logo,"FTDI")=0.0)
+        #local logo_assigned = 1;
+        #local label = union{
+            text{ttf global_fontfile_eagle3d "f" 0.2,0 scale<besch_s*2,besch_s*2,1> rotate<90,0,0> translate<-LK/3,0,0>}        
+            text{ttf global_fontfile_arial value 0.2,0 rotate<90,0,0> scale<value_scale_factor_arial,1,value_scale_factor_arial> translate<-value_arial_size.z/2,0,-value_arial_size.x/2-BK/6>}
+            translate<0,HK+di_pcb+0.001,0>
+            pigment{Gray60}
+        }
+    #end
+    
+    #if(strcmp(logo,"TEXAS")=0.0)
+        #local logo_assigned = 1;
+        #local label = union{
+            text{ttf global_fontfile_eagle3d "t" 0.2,0 scale<besch_s*2,besch_s*2,1> rotate<90,0,0> translate<-LK/3,0,0>}		
+            text{ttf global_fontfile_arial value 0.2,0 rotate<90,0,0> scale<value_scale_factor_arial,1,value_scale_factor_arial> translate<-value_arial_size.z/2,0,-value_arial_size.x/2-BK/6>}
+            translate<0,HK+di_pcb+0.001,0>
+            pigment{Gray60}
+        }
+    #end
+    
+    #if(logo_assigned < 0.5)
+        #local label = text{ttf besch_font value 0.2,0 rotate<90,0,0> scale<besch_s,1,besch_s> translate<TextX,HK+di_pcb+0.01,-besch_s/2> pigment{Gray60} }
+    #end
+    
+    #if(besch_w=0)
+        //text{ttf besch_font value 0.2,0 rotate<90,0,0> scale<besch_s,1,besch_s> translate<TextX,HK+di_pcb+0.01,-besch_s/2> pigment{Gray60} }
+        object{label}
+    #else
+        //text{ttf besch_font value 0.2,0 rotate<90,270,0> scale<besch_s,1,besch_s> translate<0,HK+di_pcb+0.01,-BK/2+BK/15> pigment{Gray60} }
+        object{label rotate<0,270,0>}
+    #end
+    rotate<0,kor_w,0>
+    pigment{Gray20}
+    finish {ambient (0.1 * global_ambient_mul)}
+}
+#end

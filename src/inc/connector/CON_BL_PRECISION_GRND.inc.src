@@ -1,0 +1,127 @@
+Buchsenleisten
+//Macro fuer Präzisions Buchsenleisten
+//franz.riedmueller@web.de
+####################################################################################################
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_BL_PRECISION_1X1(:Buchsenleiste 1Reihe 1Pin:Female Header 1Row 1Pin
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_BL_PRECISION_1X2(:Buchsenleiste 1Reihe 2Pin:Female Header 1Row 2Pin
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_BL_PRECISION_1X3(:Buchsenleiste 1Reihe 3Pin:Female Header 1Row 3Pin
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_BL_PRECISION_1X4(:Buchsenleiste 1Reihe 4Pin:Female Header 1Row 4Pin
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_BL_PRECISION_1X5(:Buchsenleiste 1Reihe 5Pin:Female Header 1Row 5Pin
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_BL_PRECISION_1X6(:Buchsenleiste 1Reihe 6Pin:Female Header 1Row 6Pin
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_BL_PRECISION_1X7(:Buchsenleiste 1Reihe 7Pin:Female Header 1Row 7Pin
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_BL_PRECISION_1X8(:Buchsenleiste 1Reihe 8Pin:Female Header 1Row 8Pin
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_BL_PRECISION_1X9(:Buchsenleiste 1Reihe 9Pin:Female Header 1Row 9Pin
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_BL_PRECISION_1X10(:Buchsenleiste 1Reihe 10Pin:Female Header 1Row 10Pin
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_BL_PRECISION_1X11(:Buchsenleiste 1Reihe 11Pin:Female Header 1Row 11Pin
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_BL_PRECISION_1X12(:Buchsenleiste 1Reihe 12Pin:Female Header 1Row 12Pin
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_BL_PRECISION_2X2(:Buchsenleiste 2Reihe 2Pin:Female Header 2Row 2Pin
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_BL_PRECISION_2X3(:Buchsenleiste 2Reihe 3Pin:Female Header 2Row 3Pin
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_BL_PRECISION_2X4(:Buchsenleiste 2Reihe 4Pin:Female Header 2Row 4Pin
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_BL_PRECISION_2X5(:Buchsenleiste 2Reihe 5Pin:Female Header 2Row 5Pin
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_BL_PRECISION_2X6(:Buchsenleiste 2Reihe 6Pin:Female Header 2Row 6Pin
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_BL_PRECISION_2X7(:Buchsenleiste 2Reihe 7Pin:Female Header 2Row 7Pin
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_BL_PRECISION_2X8(:Buchsenleiste 2Reihe 8Pin:Female Header 2Row 8Pin
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_BL_PRECISION_2X9(:Buchsenleiste 2Reihe 9Pin:Female Header 2Row 9Pin
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_BL_PRECISION_2X10(:Buchsenleiste 2Reihe 10Pin:Female Header 2Row 10Pin
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_BL_PRECISION_2X11(:Buchsenleiste 2Reihe 11Pin:Female Header 2Row 11Pin
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_BL_PRECISION_2X12(:Buchsenleiste 2Reihe 12Pin:Female Header 2Row 12Pin
+####################################################################################################
+CON_BL_PRECISION_GRND
+(pin,row)
+####################################################################################################
+CON_BL_PRECISION_1X1()
+(1,1)
+CON_BL_PRECISION_1X2()
+(2,1)
+CON_BL_PRECISION_1X3()
+(3,1)
+CON_BL_PRECISION_1X4()
+(4,1)
+CON_BL_PRECISION_1X5()
+(5,1)
+CON_BL_PRECISION_1X6()
+(6,1)
+CON_BL_PRECISION_1X7()
+(7,1)
+CON_BL_PRECISION_1X8()
+(8,1)
+CON_BL_PRECISION_1X9()
+(9,1)
+CON_BL_PRECISION_1X10()
+(10,1)
+CON_BL_PRECISION_1X11()
+(11,1)
+CON_BL_PRECISION_1X12()
+(12,1)
+CON_BL_PRECISION_1X13()
+(13,1)
+CON_BL_PRECISION_2X2()
+(2,2)
+CON_BL_PRECISION_2X3()
+(3,2)
+CON_BL_PRECISION_2X4()
+(4,2)
+CON_BL_PRECISION_2X5()
+(5,2)
+CON_BL_PRECISION_2X6()
+(6,2)
+CON_BL_PRECISION_2X7()
+(7,2)
+CON_BL_PRECISION_2X8()
+(8,2)
+CON_BL_PRECISION_2X9()
+(9,2)
+CON_BL_PRECISION_2X10()
+(10,2)
+CON_BL_PRECISION_2X11()
+(11,2)
+CON_BL_PRECISION_2X12()
+(12,2)
+CON_BL_PRECISION_2X13()
+(13,2)
+####################################################################################################
+####################################################################################################
+//Single Pin
+#macro CON_BL_PRECISION_PIN()
+union{
+  difference{
+             box{<0,0,0><2.54,2,2.54> pigment{Gray10} translate<-1.27,0,-1.27>}
+             box{<0,-0.5,0><1,2.5,1> pigment{Gray10} rotate<0,45,0> translate<0.635,0,1.27>}
+             box{<0,-0.5,0><1,2.5,1> pigment{Gray10} rotate<0,-45,0> translate<-1.27,0,0.635>}
+             box{<0,-0.5,0><1,2.5,1> pigment{Gray10} rotate<0,45,0> translate<0.635,0,-1.27>}
+             box{<0,-0.5,0><1,2.5,1> pigment{Gray10} rotate<0,-135,0> translate<-0.635,0,-1.27>} 
+             cylinder{<0,-0.5,0> <0,2.5,0> 0.7 pigment{Gray10} finish {ambient (0.1 * global_ambient_mul)}}
+  translate<0,5.10,0>
+  }
+  
+ difference{
+  union{
+        cylinder{<0,0,0><0,2.95,0>0.25}
+        sphere{<0,0,0>0.25}
+        cone{<0,2.95,0>0.25<0,3.45,0>0.6}
+        cylinder{<0,3.45,0><0,7.15,0>0.6}
+        cylinder{<0,6.4,0><0,7.15,0>0.85}}
+        cylinder{<0,4,0><0,7.16,0>0.5}
+        texture{col_silver}
+  }
+  translate<0,-2.95,0>
+ } 
+#end
+
+union{
+	#local i=0;
+	#while(i<pin)
+		object{CON_BL_PRECISION_PIN() translate<i*2.54,0,0>}
+		#local i=i+1;
+	#end
+	
+	#if(row=2)
+		#local i=0;
+		#while(i<pin)
+			object{CON_BL_PRECISION_PIN() translate<i*2.54,0,-2.54>}
+		#local i=i+1;
+		#end
+		translate<0,0,1.27>
+	#end
+	translate<pin*-1.27+1.27,0,0>}
+#end

@@ -1,0 +1,181 @@
+DIP Socket
+// The following is a modified module section by Joseph Zeglinski   Aug. 20, 2003
+
+// This macro now produces either a fully pin populated DIL SOCKET,  or a DIL SOCKET with fewer "quads" of pins.
+// Example: Some IC's, FET's, Optoisolators and Crystal Oscillators - (8, 14, 16, or 24) pin body, with only 4, 6 or 12 outer pins.
+// The " a= Available Pins" parameter is how many pins (modulo 4), are present on the intended DIL SOCKET.
+
+
+//Grundmakro für DIL SOCKETS
+//pin=Pincount of a full DIL
+//a=Count of available pin positions, ( less than or equal to "pin" )
+//breite=breite (in Raster)
+####################################################################################################
+DIL_SOCKET6:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SOCKET_DIP6(:IC-Sockel 8Pin:IC-Socket 8Pin
+DIL_SOCKET8:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SOCKET_DIP8(:IC-Sockel 8Pin:IC-Socket 8Pin
+DIL_SOCKET14:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SOCKET_DIP14(:IC-Sockel 14Pin:IC-Socket 14Pin
+DIL_SOCKET16:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SOCKET_DIP16(:IC-Sockel 16Pin:IC-Socket 16Pin
+DIL_SOCKET18:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SOCKET_DIP18(:IC-Sockel 18Pin:IC-Socket 18Pin
+DIL_SOCKET20:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SOCKET_DIP20(:IC-Sockel 20Pin:IC-Socket 20Pin
+DIL_SOCKET22:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SOCKET_DIP22(:IC-Sockel 22Pin:IC-Socket 22Pin
+DIL_SOCKET24:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SOCKET_DIP24(:IC-Sockel 24Pin:IC-Socket 24Pin
+DIL_SOCKET28:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SOCKET_DIP28(:IC-Sockel 28Pin:IC-Socket 28Pin
+DIL_SOCKET24W:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SOCKET_DIP24W(:IC-Sockel 24Pin 600mil:IC-Socket 24Pin 600mil
+DIL_SOCKET28W:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SOCKET_DIP28W(:IC-Sockel 28Pin 600mil:IC-Socket 28Pin 600mil
+DIL_SOCKET32W:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SOCKET_DIP32W(:IC-Sockel 32Pin 600mil:IC-Socket 32Pin 600mil
+DIL_SOCKET36W:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SOCKET_DIP36W(:IC-Sockel 36Pin 600mil:IC-Socket 36Pin 600mil
+DIL_SOCKET40W:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SOCKET_DIP40W(:IC-Sockel 40Pin 600mil:IC-Socket 40Pin 600mil
+DIL_SOCKET42W:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SOCKET_DIP42W(:IC-Sockel 42Pin 600mil:IC-Socket 42Pin 600mil
+DIL_SOCKET48W:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SOCKET_DIP48W(:IC-Sockel 48Pin 600mil:IC-Socket 48Pin 600mil
+DIL_SOCKET8A4:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SOCKET_DIP8A4(:IC-Sockel 4 auf 8Pin:IC-Socket 4 of 8Pin
+DIL_SOCKET14A4:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SOCKET_DIP14A4(:IC-Sockel 4 auf 14Pin:IC-Socket 4 of 14Pin
+DIL_SOCKET14A8:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SOCKET_DIP14A8(:IC-Sockel 8 auf 14Pin:IC-Socket 8 of 14Pin
+DIL_SOCKET16A4:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SOCKET_DIP16A4(:IC-Sockel 4 auf 16Pin:IC-Socket 4 of 16Pin
+DIL_SOCKET16A8:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SOCKET_DIP16A8(:IC-Sockel 8 auf 16Pin:IC-Socket 8 of 16Pin
+DIL_SOCKET24A12:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SOCKET_DIP24A12(:IC-Sockel 12 auf 24Pin:IC-Socket 12 of 24Pin
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SOCKET_DIP2(:IC-Sockel 2 Pin:IC socket 2 pin
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SOCKET_DIP4(:IC-Sockel 4 Pin:IC socket 4 pin
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SOCKET_DIP6_4(:IC-Sockel 6 Pin:IC socket 6 pin
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SOCKET_DIP22_4(:IC-Sockel 22 400mil Pin:IC socket 22 400mil pin
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SOCKET_DIP24_4(:IC-Sockel 24 400mil Pin:IC socket 24 400mil pin
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SOCKET_DIP24_9(:IC-Sockel 24 900mil Pin:IC socket 24 900mil pin
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SOCKET_DIP28_4(:IC-Sockel 28 400mil Pin:IC socket 28 400mil pin
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SOCKET_DIP32_3(:IC-Sockel 32 300mil Pin:IC socket 32 300mil pin
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SOCKET_DIP52W(:IC-Sockel 52 Pin:IC socket 52 pin
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SOCKET_DIP64_9(:IC-Sockel 64 900mil Pin:IC socket 64 900mil pin
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SOCKET_DIP68_9(:IC-Sockel 68 900mil Pin:IC socket 68 900mil pin
+####################################################################################################
+SOCKET_DIP_GRND
+(pin,a,breite)
+####################################################################################################
+//DIP8 with 4 corner pin sockets
+SOCKET_DIP8A4()
+(8,4,7.62)
+//DIP14 with 4 corner pin sockets
+SOCKET_DIP14A4()
+(14,4,7.62)
+//DIP14 with 8 corner pin sockets
+SOCKET_DIP14A8()
+(14,8,7.62)
+//DIP16 with 4 corner pin sockets
+SOCKET_DIP16A4()
+(16,4,7.62)
+//DIP16 with 8 corner pin sockets
+SOCKET_DIP16A8()
+(16,8,7.62)
+//DIP24 with 12 corner pin sockets
+SOCKET_DIP24A12()
+(24,12,7.62)
+SOCKET_DIP2()
+(2,2,7.62)
+SOCKET_DIP4()
+(4,4,7.62)
+SOCKET_DIP6()
+(6,6,7.62)
+SOCKET_DIP6_4()
+(6,6,10.16)
+SOCKET_DIP8()
+(8,8,7.62)
+SOCKET_DIP14()
+(14,14,7.62)
+SOCKET_DIP16()
+(16,16,7.62)
+SOCKET_DIP18()
+(18,18,7.62)
+SOCKET_DIP20()
+(20,20,7.62)
+SOCKET_DIP22()
+(22,22,7.62)
+SOCKET_DIP22_4()
+(22,22,10.16)
+SOCKET_DIP24()
+(24,24,7.62)
+SOCKET_DIP24_4()
+(24,24,10.16)
+SOCKET_DIP24W()
+(24,24,15.24)
+SOCKET_DIP24_9()
+(24,24,22.86)
+SOCKET_DIP28()
+(28,28,7.62)
+SOCKET_DIP28_4()
+(28,28,10.16)
+SOCKET_DIP28W()
+(28,28,15.24)
+SOCKET_DIP32_3()
+(32,32,7.62)
+SOCKET_DIP32W()
+(32,32,15.24)
+SOCKET_DIP36W()
+(36,36,15.24)
+SOCKET_DIP40W()
+(40,40,15.24)
+SOCKET_DIP42W()
+(42,42,15.24)
+SOCKET_DIP48W()
+(48,48,15.24)
+SOCKET_DIP52W()
+(52,52,15.24)
+SOCKET_DIP64_9()
+(64,64,22.86)
+SOCKET_DIP68_9()
+(68,68,22.86)
+####################################################################################################
+####################################################################################################
+union{
+	difference{
+		union{
+			box{<-pin/4*2.54,0,breite/2+1.2><pin/4*2.54,2.8,breite/2-1.2>}
+			box{<-pin/4*2.54,0,-breite/2-1.2><pin/4*2.54,2.8,-breite/2+1.2>}
+		}
+		#local i=0;
+		#while(i<(a/4))
+			#if((pin/4)=div(pin,4))
+    			#local k = div(pin,4)-i-1;
+				cylinder{<0,-0.1,0><0,8,0>0.51 translate<k*2.54+1.27,-7.15+2.9,breite/2>}
+				cylinder{<0,-0.1,0><0,8,0>0.51 translate<-k*2.54-1.27,-7.15+2.9,breite/2>}
+				cylinder{<0,-0.1,0><0,8,0>0.51 translate<k*2.54+1.27,-7.15+2.9,-breite/2>}
+				cylinder{<0,-0.1,0><0,8,0>0.51 translate<-k*2.54-1.27,-7.15+2.9,-breite/2>}
+			#else
+				#local k = div(pin,4)-i;
+				cylinder{<0,-0.1,0><0,8,0>0.51 translate<k*2.54,-7.15+2.9,breite/2>}
+				cylinder{<0,-0.1,0><0,8,0>0.51 translate<-k*2.54,-7.15+2.9,breite/2>}
+				cylinder{<0,-0.1,0><0,8,0>0.51 translate<k*2.54,-7.15+2.9,-breite/2>}
+				cylinder{<0,-0.1,0><0,8,0>0.51 translate<-k*2.54,-7.15+2.9,-breite/2>}
+			#end
+			#local i=i+1;
+		#end
+	}
+	#local i=0;
+	#while(i<(a/4))
+		#if((pin/4)=div(pin,4))
+			#local k = div(pin,4)-i-1;
+			object{SOCKET_DIP_PIN() translate<k*2.54+1.27,-7.15+2.9,breite/2>}
+			object{SOCKET_DIP_PIN() translate<-k*2.54-1.27,-7.15+2.9,breite/2>}
+			object{SOCKET_DIP_PIN() translate<k*2.54+1.27,-7.15+2.9,-breite/2>}
+			object{SOCKET_DIP_PIN() translate<-k*2.54-1.27,-7.15+2.9,-breite/2>}
+		#else
+			#local k = div(pin,4)-i;
+			object{SOCKET_DIP_PIN() translate<k*2.54,-7.15+2.9,breite/2>}
+			object{SOCKET_DIP_PIN() translate<-k*2.54,-7.15+2.9,breite/2>}
+			object{SOCKET_DIP_PIN() translate<k*2.54,-7.15+2.9,-breite/2>}
+			object{SOCKET_DIP_PIN() translate<-k*2.54,-7.15+2.9,-breite/2>}
+		#end
+		#local i=i+1;
+	#end
+	difference{
+		box{<-pin/4*2.54,0,breite/2-1.2><-pin/4*2.54+2,2,-breite/2+1.2>}
+		cylinder{<0,-0.1,0><0,3,0>1 translate<-pin/4*2.54-0.4,0,0>}
+	}
+	box{<pin/4*2.54,0,breite/2-1.2><pin/4*2.54-2,2,-breite/2+1.2>}
+	#if((pin>19)&(pin<33))
+		box{<-1,0,breite/2-1.2><1,2,-breite/2+1.2>}
+	#end
+	#if(pin>32)
+		box{<-pin/12*2.54+1,0,breite/2-1.2><-pin/12*2.54-1,2,-breite/2+1.2>}
+		box{<pin/12*2.54+1,0,breite/2-1.2><pin/12*2.54-1,2,-breite/2+1.2>}
+	#end
+	translate<0,0.1,0> 
+	pigment{Gray10}
+}
+#end

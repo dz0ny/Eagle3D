@@ -1,0 +1,829 @@
+Hirschmann MAx-XX
+// Wolfgang Moser <womo (a) d81.de>
+// DIN-Buchse(n) Hirschmann MAx-XX
+// 10.02.2006 ... 21.02.2006
+####################################################################################################
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_DIN_MAB_3S(:Hirschmann DIN-Buchse MAB_3S, Frontplattenmontage, Anschluss über Kabel:
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_DIN_MAB_4(:Hirschmann DIN-Buchse MAB_4, Frontplattenmontage, Anschluss über Kabel:
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_DIN_MAB_5(:Hirschmann DIN-Buchse MAB_5, Frontplattenmontage, Anschluss über Kabel:
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_DIN_MAB_5S(:Hirschmann DIN-Buchse MAB_5S, Frontplattenmontage, Anschluss über Kabel:
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_DIN_MAB_6(:Hirschmann DIN-Buchse MAB_6, Frontplattenmontage, Anschluss über Kabel:
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_DIN_MAB_7S(:Hirschmann DIN-Buchse MAB_7S, Frontplattenmontage, Anschluss über Kabel:
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_DIN_MAB_8S(:Hirschmann DIN-Buchse MAB_8S, Frontplattenmontage, Anschluss über Kabel:
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_DIN_MAB_8SN(:Hirschmann DIN-Buchse MAB_8SN, Frontplattenmontage, Anschluss über Kabel:
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_DIN_MAB_5SV(:Hirschmann DIN-Buchse MAB_5SV, unvollständig, Anschlussösen statt Pins:
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_DIN_MAB_6V(:Hirschmann DIN-Buchse MAB_6V, unvollständig, Anschlussösen statt Pins:
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_DIN_MAB_7SV(:Hirschmann DIN-Buchse MAB_7SV, unvollständig, Anschlussösen statt Pins:
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_DIN_MAB_8SV(:Hirschmann DIN-Buchse MAB_8SV, unvollständig, Anschlussösen statt Pins:
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_DIN_MAB_8SNV(:Hirschmann DIN-Buchse MAB_8SNV, unvollständig, Anschlussösen statt Pins:
+####################################################################################################
+CON_DIN_MA_XX_GRND
+(MA_Typ, MA_Subtyp)
+####################################################################################################
+CON_DIN_MAB_3S()
+(30, 0)
+CON_DIN_MAB_4()
+(40, 0)
+CON_DIN_MAB_5()
+(52, 0)
+CON_DIN_MAB_5S()
+(51, 0)
+CON_DIN_MAB_6()
+(61, 0)
+CON_DIN_MAB_7S()
+(72, 0)
+CON_DIN_MAB_8S()
+(81, 0)
+CON_DIN_MAB_8SN()
+(82, 0)
+// (noch) keine richtigen Pinanschlüsse
+CON_DIN_MAB_5SV()	
+(51, 1)
+// (noch) keine richtigen Pinanschlüsse
+CON_DIN_MAB_6V()		
+(62, 1)
+// (noch) keine richtigen Pinanschlüsse
+CON_DIN_MAB_7SV()	
+(72, 1)
+// (noch) keine richtigen Pinanschlüsse
+CON_DIN_MAB_8SV()	
+(81, 1)
+// (noch) keine richtigen Pinanschlüsse
+CON_DIN_MAB_8SNV()
+(82, 1)
+####################################################################################################
+####################################################################################################
+
+#macro CON_DIN_MA_Inlet_Kontaktfeder(Oesenlaenge, Verschraenkungsart, VSchraenkungwinkel)
+	// Oesenlaenge:        Laenge der Kontaktoese oder des Kontaktpins,
+	//                     bei Buchsen mit direktem Drahtanschluss
+	// Verschraenkungsart: Art der "Verriegelung" der Kontaktfeder in
+	//                     der Buchse. Ende gedreht oder abgewinkelt
+	// VSchraenkungwinkel: Drehwinkel der Verschraenkung für beide
+	//                     Arten
+
+union{
+
+	#local Federdicke=0.5;
+		// Hauptteil der Kontaktfeder
+	union{
+		difference{
+				// Basis: box
+			box { <1.7,Federdicke/2,0>, <-1.7,-Federdicke/2,8.4> }
+				// Ausschnitt: box 45 Grad gedreht, Einführung für Stift vom Stecker
+ 			box { <1,Federdicke/2+0.01,1>, <-1,-(Federdicke/2+0.01),-1> rotate<0,45,0>}
+				// Ausschnitt: Freihaltung Innenbereich, Abrundung
+			cylinder { <0,Federdicke/2+0.01,2.5> <0,-(Federdicke/2+0.01),2.5> 0.75 }
+				// Ausschnitt: Freihaltung für Stift vom Stecker, Innenbereich
+			box { <0.75,Federdicke/2+0.01,2.5>, <-0.75,-(Federdicke/2+0.01),7>}
+				// Ausschnitt: Freihaltung Innenbereich, Abrundung
+			cylinder { <0,Federdicke/2+0.01,7> <0,-(Federdicke/2+0.01),7> 0.75 }
+				// Ausschnitt: Freihaltung für Stift vom Stecker im Kontaktbereich
+			box { <0.5,Federdicke/2+0.01,0>, <-0.5,-(Federdicke/2+0.01),2.5>}
+			}
+			// Ergänzung: box, Führung der Kontaktfeder im Durchsteckbereich
+		box { <1.15,Federdicke/2,8.0>, <-1.15,-Federdicke/2,10.5> }
+			// Ergänzung: box, Stummel des Oesenanschlusses im Durchsteckbereich
+		box { <0.35,Federdicke/2,8.0>, <-0.35,-Federdicke/2,11.85> }
+		}
+
+		// Endstück der Kontaktfeder
+
+	difference{
+		union{
+				// Ergänzung: box, Weiterführung des Stummels (ohne Überschneidung!)
+			box { <0.35,Federdicke/2,0>, <-0.35,-Federdicke/2,1.15> }
+				// Ergänzung: box, Körper der Öse, variable Länge
+			box { <1.15,Federdicke/2,1.15>, <-1.15,-Federdicke/2,2.15+Oesenlaenge> }
+				// Ergänzung: cylinder, Abschluss der Öse, variable Position
+			cylinder { <0,Federdicke/2,2.15+Oesenlaenge> <0,-Federdicke/2,2.15+Oesenlaenge> 1.15 }
+			}
+				// Ausschnitt: Freihaltung Innenbereich Öse, Abrundung
+		cylinder { <0,Federdicke/2+0.01,2.15> <0,-(Federdicke/2+0.01),2.15> 0.5 }
+				// Ausschnitt: Freihaltung für Ösenanschluss, Innenbereich
+		box { <0.5,Federdicke/2+0.01,2.15>, <-0.5,-(Federdicke/2+0.01),2.15+Oesenlaenge>}
+				// Ausschnitt: Freihaltung Innenbereich Öse, Abrundung
+		cylinder { <0,Federdicke/2+0.01,2.15+Oesenlaenge> <0,-(Federdicke/2+0.01),2.15+Oesenlaenge> 0.5 }
+
+
+		#switch(Verschraenkungsart)                                                         
+			#case(0)	// Verdrehung (Schraube)
+				translate<0,0, 11.85>
+				rotate <0,0,VSchraenkungwinkel>
+			#break
+			#case(4)	// sowohl Abwinkelung als auch zusätzlich zweifache Verdrehung
+				rotate <-VSchraenkungwinkel,0,0>
+				rotate <0,0,2*VSchraenkungwinkel>
+				translate<0,0, 11.85>
+			#break
+			#case(3)	// sowohl Abwinkelung als auch zusätzlich Verdrehung (invers)
+				rotate <-VSchraenkungwinkel,0,0>
+				rotate <0,0,-VSchraenkungwinkel>
+				translate<0,0, 11.85>
+			#break
+			#case(2)	// sowohl Abwinkelung als auch zusätzlich Verdrehung
+				rotate <-VSchraenkungwinkel,0,0>
+				rotate <0,0,VSchraenkungwinkel>
+				translate<0,0, 11.85>
+			#break
+			#case(1)	// Abwinkelung
+				rotate <-VSchraenkungwinkel,0,0>
+				// translate<0,0, 11.85>
+			// #break	// fall through and execute the  #else  following
+			#else
+				translate<0,0, 11.85>
+		#end
+		}
+
+	#switch(Verschraenkungsart)                                                         
+		#range(1, 4)	// Abwinkelung (nicht perfekt bei cases 2 und 3)
+				// bei Abwinkelung noch zusätzlich Abrundung und Auffüllen des "Biegeloches"
+			cylinder { <0.35,0,11.85> <-0.35,0,11.85> Federdicke/2 }
+		#break
+	#end
+
+	translate <0,0,1.0>
+	#ifdef(CON_DIN_MA_Debug_Viewmode)
+		pigment{Yellow}
+	#else
+		texture {col_silver}
+	#end
+	}
+#end
+
+#macro CON_DIN_MA_Inlet_Basebody(Einsatzart)
+		// Einsatzart: Ausprägung des "Wulstes" am Ende zwecks Befestigung
+		//             in einem Metallbecher oder zwei Metallhalbschalen
+		//             einer Kupplung
+#local Gesamtlaenge=13;
+difference{
+	union{
+		cylinder { <0,0,0>  <0,0,Gesamtlaenge> 5.85 }
+
+		#switch(Einsatzart)
+			#case(0)	// Scheibenwulst für Metallbechermontage
+				cylinder { <0,0,Gesamtlaenge-3>  <0,0,Gesamtlaenge-2> 7 }
+					// Stützwulst in Durchführung von Metallbecher
+				cylinder { <0,0,Gesamtlaenge-2.001>  <0,0,Gesamtlaenge> 6.15 }
+			#break
+			#case(1)	// unterteilter Wulst für Metallhalbschalenmontage
+						// in Kupplungen (wie auch Steckern)
+					// "dünner" Stützwulst
+				cylinder { <0,0,Gesamtlaenge-4>  <0,0,Gesamtlaenge> 6 }
+
+				difference{
+						// "dickerer" Haltewulst
+					cylinder { <0,0,Gesamtlaenge-3>  <0,0,Gesamtlaenge-1> 6.55 }
+
+						// "gerade" Begrenzug des Wulstes für abnehmbare Metallabschirmung
+					box      { < 5.5, 2.5,Gesamtlaenge-3.001>, <    7,-4,Gesamtlaenge-0.999>}
+					box      { <-5.5, 2.5,Gesamtlaenge-3.001>, <   -7,-4,Gesamtlaenge-0.999>}
+
+						// "abgeschrägte" Begrenzug des Wulstes für die nicht abnehmbare
+						// Metallabschirmung mit der aufgenieteten Massekontaktzunge
+					box      { <0.75,   0,Gesamtlaenge-3.001>, <-0.75,-3,Gesamtlaenge-0.999>
+						translate< -6.25,0,0>
+						rotate   < 0,0,-30>
+						}
+					box      { <0.75,   0,Gesamtlaenge-3.001>, <-0.75,-3,Gesamtlaenge-0.999>
+						translate<  6.25,0,0>
+						rotate   < 0,0, 30>
+						}
+					}
+			#break
+			#else		// keine Veränderung
+					// Dummy: dünner Stützwulst für Metallhalbschalenmontage
+				cylinder { <0,0,Gesamtlaenge-4>  <0,0,Gesamtlaenge> 6 }
+		#end
+		}
+
+	#switch(Einsatzart)
+		#case(0)
+				// Ausschnitt für Massefederkontakt (etwas kürzer)
+			box { <1.3,3.4,-0.01>, <-1.3,7.001,Gesamtlaenge-1.998> }
+					// Breiterer Ausschnitt für Befestigung des
+					// Massefederkontaktes am Metallbecher
+			box { <2.1,3.45,Gesamtlaenge-1.999>, <-2.1,6.201,Gesamtlaenge+0.01> }
+		#break
+		#else
+				// Ausschnitt für Massefederkontakt
+			box { <1.3,3.4,-0.01>, <-1.3,7.001,Gesamtlaenge+0.01> }
+	#end
+
+	#ifdef(CON_DIN_MA_Debug_Viewmode)
+		texture {col_Kerko}
+	#else
+		texture {pigment{Gray15} finish{F_MetalB  ambient (0.1 * global_ambient_mul)}}
+	#end
+	}
+#end
+
+#macro CON_DIN_MA_Inlet_Millbody()
+#local Gesamtlaenge=13;
+#local Stanzlochbreite=3.9;
+union{
+		// Basisbox bis 3mm vor Grund
+	box { <Stanzlochbreite/2,0.4,-0.001>, <-Stanzlochbreite/2,-0.4,Gesamtlaenge-3> }
+		// Röhre für Pin vom Stecker
+	cylinder { <  0,  0,-0.001>  <   0,   0,Gesamtlaenge-3> 0.8 }
+		// Durchbruch für Pinanschluss
+	box { <1.25,0.4,Gesamtlaenge-3.001>, <-1.25,-0.4,Gesamtlaenge+0.001> }
+
+	#ifdef(CON_DIN_MA_Debug_Viewmode)
+		texture {col_Kerko}
+	#else
+		texture {pigment{Gray15} finish{F_MetalB  ambient (0.1 * global_ambient_mul)}}
+	#end
+	}
+#end
+
+#macro TIEFZIEH_ABRUNDUNG_VIERTELTORTORUS(Major Minor, Dicke, Quadrant)
+	// Parametrisierung ähnlich zu der eines Torus
+	// Major:    Radius des Ringes zur gedachten Mittellinie des zu
+	//           einem Viertel aufgeschnittenen Ringtoruses
+	// Minor:    Radius zur Außenkante des zu einem Viertel
+	//           aufgeschnittenen Torusringes
+	// Dicke:    Die Blechdicke bestimmt abhängig vom Minor-Außenradius
+	//           in der Folge den Innenradius des zu einem Viertel
+	//           aufgeschnittenen Torusringes. Dicke sollte im Bereich
+	//           0<=Dicke<=Minor  liegen.
+	//           Ist  Dicke<0  oder  Dicke>2*Minor, dann wird kein
+	//           Torus dargestellt, weil die Schnittmenge leer wird.
+	// Quadrant: Wahl des Viertels des Torusringes (1, 2, 3, 4)
+
+#local SelectioningCylinder1 = cylinder { <0,0,0>   <0,Minor+0.001,0> Major+Minor+0.001 }
+#local SelectioningCylinder2 = cylinder { <0,Minor+0.001,0>  <0,-(Minor+0.001),0> Major }
+#if(Quadrant=3)
+	object{
+#else
+	intersection{
+#end
+		difference{
+			torus{Major, Minor}
+			torus{Major, Minor-Dicke}
+
+			#if(Quadrant=4 | Quadrant=3)
+				SelectioningCylinder1
+			#end
+			#if(Quadrant=2 | Quadrant=3)
+				SelectioningCylinder2
+			#end
+			}
+
+		#if(Quadrant=1 | Quadrant=2)
+			SelectioningCylinder1
+		#end
+		#if(Quadrant=1 | Quadrant=4)
+			SelectioningCylinder2
+		#end
+		}
+#end
+
+#macro CON_DIN_MA_Outlet_BecherBase()
+#local Gesamtlaenge=13;
+union{
+		// Hauptteil des Metallbechers, aufgebaut aus
+		// ausgeschnittenen Ringtori und Zylinderringen
+	difference{
+		union{
+			cylinder { <0,1,0>  <0,Gesamtlaenge-2,0> 7.4 }
+			cylinder { <0,Gesamtlaenge-1.4,0>  <0,Gesamtlaenge-1,0> 6.4 }
+			}
+		cylinder { <0, 0.999,0>  <0,Gesamtlaenge-1.999,0> 7.0 }
+		cylinder { <0,Gesamtlaenge-1.4001,0>  <0,Gesamtlaenge-0.999,0> 6.2 }
+		}
+
+	object{ TIEFZIEH_ABRUNDUNG_VIERTELTORTORUS(8.0, 1.0, 0.4, 4) translate<0,1,0> }
+	object{ TIEFZIEH_ABRUNDUNG_VIERTELTORTORUS(6.4, 1.0, 0.4, 2) translate<0,Gesamtlaenge-2,0> }
+
+		// Winkelstück zur Befestigung der Massekontakzunge
+	union{
+			// Viertelrohr als Biegeradius des Winkelstückes
+		intersection{
+			cylinder { <2,0.5,-0.5>  <-2,0.5,-0.5> 0.5 }
+			cylinder { <2.001,0.5,-0.5>  <-2.001,0.5,-0.5> 0.1 inverse}
+			box{<2.001,-0.001,-0.001>, <-2.001,0.5,-0.5>}
+			}
+
+			// Anschluss an den Metallbecher inklusive radialer Begrenzung
+		intersection{
+			box{<2,0,-0.5>, <-2,0.4,-2.5> }
+			cylinder { <0,-0.001,0>  <0,0.401,0> 6.201 translate<0,0,4.0> }
+			}
+
+			// Kombination der Konstruktion von abgewinkeltem Anschlussstück
+			// und der Massekontaktzunge in einer difference/union-Sektion,
+			// was ein paar Anweisungen spart, die ganze Beschreibung
+			// allerdings etwas unübersichtlich macht.
+		difference{
+			union{
+					// Haltezunge für Niet
+				box{<2,3.5,-0.4>, <-2,0.5,0>}
+
+					// Kontaktzunge für Massekontaktierung als Cubic-Spline
+				prism {
+					linear_sweep cubic_spline
+					-1.15, 1.15, 14, // the number of points making up the shape ...
+					<2.45-Gesamtlaenge,-4.0>, < 2.45-Gesamtlaenge,0.5>,
+					
+					<5.4-Gesamtlaenge,-1.65>,
+
+					<11.4-Gesamtlaenge,-0.02>, <12.4-Gesamtlaenge,0.2>, <13.4-Gesamtlaenge,0.2>, <16.4-Gesamtlaenge,0.175>,
+					<16.4-Gesamtlaenge, 0.025>, <13.4-Gesamtlaenge,0.0>, <12.4-Gesamtlaenge,0.0>, <11.4-Gesamtlaenge,-0.22>,
+
+					<5.4-Gesamtlaenge,-1.85>,
+					
+					< 2.45-Gesamtlaenge,0.5>, <6.95-Gesamtlaenge,0.5>
+					rotate<0,0,90>
+					}
+					// Ergänzung des Cubic-Spline am hinteren Ende
+				box  { <-1.15,13.30-(Gesamtlaenge),0.2>, <1.15,19.65-Gesamtlaenge,0> }
+				cylinder { <0,19.65-(Gesamtlaenge),0.2>     <0,19.65-Gesamtlaenge,0> 1.15 }
+	#ifdef(CON_DIN_MA_Debug_Viewmode)
+		pigment{White}
+	#end		
+				}
+
+				// Abschrägen der Haltezunge
+			box{< 2.05,-0.501,0.001>, < 3.0,3.075,-0.401> rotate <0,0, 15> }
+			box{<-2.05,-0.501,0.001>, <-3.0,3.075,-0.401> rotate <0,0,-15> }
+
+				// Ausschneiden des Langloches in der Massekontaktzunge			
+			box   { <-0.5,18.15-Gesamtlaenge,0.201>, <0.5,19.65-Gesamtlaenge,-0.001> }
+			cylinder { <0,19.65-Gesamtlaenge,0.201>  <0,  19.65-Gesamtlaenge,-0.001> 0.5 }
+			cylinder { <0,18.15-Gesamtlaenge,0.201>  <0,  18.15-Gesamtlaenge,-0.001> 0.5 }
+	#ifdef(CON_DIN_MA_Debug_Viewmode)
+		pigment{Red}
+	#end		
+			}
+
+			// Messingniet zur Verbindung von Haltezunge und Massekontaktzunge
+		cylinder { <0,2,0.25>  <0,2,-0.45> 0.875 texture {T_Gold_5E}} 	// Messing!
+
+		translate<0,Gesamtlaenge-1.4,-4.0>
+		}
+	}
+#end
+
+#macro CON_DIN_MA_Outlet_FrontHlpr1(Winkel, Bauteil)
+	#local ZielLaenge = (2*(Winkel>=0)-1)*9.138 ;
+	#local ZielWinkel = Winkel+(2*(Winkel>=0)-1)*34.58078 ;
+	#switch(Bauteil)
+		#case(0)	// Boxen für "difference" der Viertel-Torusse, allerdings
+					// nur oberhalb Blechdicke, nicht (mehr) komplett
+			box {
+				<0, -0.001,  -5.0   >, <ZielLaenge,1.001,0.001>
+				#ifdef(CON_DIN_MA_Debug_Viewmode)
+					pigment{Green}
+				#end		
+		#break
+
+			// Teile zur Konstruktion der geraden Randbögen vom Tiefziehen
+			// intersection{ 1 object{2 inverse} 3 }
+		#case(1)	// Zylinder als Blechkante für Montageflügel
+			cylinder{
+				<0,1,-1>, <ZielLaenge,1,  -1  > 1.0
+				#ifdef(CON_DIN_MA_Debug_Viewmode)
+					pigment{Red}
+				#end		
+		#break
+		#case(2)	// Innenzylinder für "intersection" mit Modifizierer
+					// "inverse", Radius weniger Blechdicke (0.4)
+					//
+					// Realisierung der Überstände für "difference" (aka
+					// inverse intersection) hier nicht absolut (+/- 0.001),
+					// sondern relativ:  +/- FinLen * 0.001
+			cylinder{
+				<-ZielLaenge*0.001,1,-1>, <ZielLaenge*1.001,1,-1> 0.6
+				#ifdef(CON_DIN_MA_Debug_Viewmode)
+					pigment{Yellow}
+				#end		
+		#break
+		#case(3)	// Box für "intersection" zum Freischneiden des richtigen Viertels
+					// inklusive Überstände für Nicht-Schnittflächen
+			box {
+				<-0.001,0,  -1.001  >, <ZielLaenge+0.001,1.001,  0  >
+				#ifdef(CON_DIN_MA_Debug_Viewmode)
+					pigment{Pink}
+				#end		
+		#break
+
+		#else
+		// #case(4)	// Box zum Ausfüllen mit Blechdicke bis zur Biegekante
+			box {
+				<0,0,-7.5>, <ZielLaenge,0.4,-1>
+	#end
+
+				translate <0,0,   9.5  >
+				rotate <0,ZielWinkel,0>
+				}
+#end
+
+#macro CON_DIN_MA_Outlet_FrontHlpr2(Winkel)
+intersection{
+	CON_DIN_MA_Outlet_FrontHlpr1(Winkel, 1)
+	object{ CON_DIN_MA_Outlet_FrontHlpr1(Winkel, 2) inverse }
+	CON_DIN_MA_Outlet_FrontHlpr1(Winkel, 3)
+	}
+#end
+
+#macro CON_DIN_MA_Outlet_FrontFlansch()
+	// Dazu kommt die Frontplatte mit den beiden Flansch"ohren", welche
+	// wiederum die beiden Befestigungslöcher enthalten
+difference{
+	union{
+			// Der vorne überstehende Ring
+		cylinder { <0,0,0>  <0,0.4,0> 8.5 }
+
+			// Das Freischneiden der Ringtori an den Übergängen zu
+			// den geraden Randstücken kann "schlierenfrei" nur
+			// durch eine weitere explizite difference/union-
+			// Beschreibung durchgeführt werden
+		difference{
+			union{
+					// Der vorne überstehende Torus am Ring
+				object{TIEFZIEH_ABRUNDUNG_VIERTELTORTORUS(8.5, 1.0, 0.4, 3) translate<0,1,0> }
+			
+					// Die Flanschohren
+				object{ TIEFZIEH_ABRUNDUNG_VIERTELTORTORUS(2.2, 1.0, 0.4, 3) translate< 11.1,1,0> }
+				object{ TIEFZIEH_ABRUNDUNG_VIERTELTORTORUS(2.2, 1.0, 0.4, 3) translate<-11.1,1,0> }
+				}
+
+				// Abschneiden der Tori an den Übergängen
+				// zu den geraden Kantenverbindern
+			CON_DIN_MA_Outlet_FrontHlpr1(   0, 0)
+			CON_DIN_MA_Outlet_FrontHlpr1( 180, 0)
+			CON_DIN_MA_Outlet_FrontHlpr1(-180, 0)
+			CON_DIN_MA_Outlet_FrontHlpr1(-360, 0)
+			#ifdef(CON_DIN_MA_Debug_Viewmode)
+				pigment{Magenta}
+			#end		
+			}
+
+			// Ausfüllung der Ohrentori
+		object{ cylinder { <0,0,0>  <0,0.4,0> 2.2 } translate< 11.1,0,0> }
+		object{ cylinder { <0,0,0>  <0,0.4,0> 2.2 } translate<-11.1,0,0> }
+
+			// Die gebogenen Ränder zu den Ohren hin
+		CON_DIN_MA_Outlet_FrontHlpr2(   0)
+		CON_DIN_MA_Outlet_FrontHlpr2( 180)
+		CON_DIN_MA_Outlet_FrontHlpr2(-180)
+		CON_DIN_MA_Outlet_FrontHlpr2(-360)
+		
+			// Verlängerung der gebogenen Ränder zu den Ohren mit Blech
+		CON_DIN_MA_Outlet_FrontHlpr1(   0, 4)
+		CON_DIN_MA_Outlet_FrontHlpr1( 180, 4)
+		CON_DIN_MA_Outlet_FrontHlpr1(-180, 4)
+		CON_DIN_MA_Outlet_FrontHlpr1(-360, 4)
+		#ifdef(CON_DIN_MA_Debug_Viewmode)
+			pigment{Cyan}
+		#end		
+		}
+
+		// Ausschneiden des großen Loches in der Mitte
+	cylinder { <0,-0.001,0>  <0,0.401,0> 8.0 }
+
+		// Ausschneiden der beiden kleinen Befestigungsbohrlöcher in den Ohren
+	object{ cylinder { <0,-0.001,0>  <0,0.401,0> 1.6 } translate< 11.1,0,0> }
+	object{ cylinder { <0,-0.001,0>  <0,0.401,0> 1.6 } translate<-11.1,0,0> }
+	}
+#end
+
+#macro CON_DIN_MA_Outlet_Becher(Flansch)
+	// Flansch: on/off
+
+#if(Flansch=on)
+	union{
+			// Hauptbecher
+		CON_DIN_MA_Outlet_BecherBase()
+			// Frontflansch
+		CON_DIN_MA_Outlet_FrontFlansch()
+#else
+	object{
+		CON_DIN_MA_Outlet_BecherBase()
+#end
+	
+			// Hier lediglich noch Positionierarbeiten
+		rotate<90,0,0>
+	
+		#ifdef(CON_DIN_MA_Debug_Viewmode)
+			// pigment{Green}
+			texture {col_gold}
+		#else
+			texture {col_silver}
+		#end
+		}
+#end
+
+/*##########################################################################*/
+/*##########################################################################*/
+/*# Ende der Bauteildefinitionen, Anwendung durch Gruppierungen und Muster #*/
+/*##########################################################################*/
+/*##########################################################################*/
+
+#macro CON_DIN_MA_InletAction(Typ, LochRotWinkel, LochPosWinkel)
+	// Typ:           Art der Bearbeitung, derzeit definiert sind:
+	//                0 - Fräsen bzw. Ausstanzen des kontaktfederloches
+	//                1 - Kontaktfedereinsatz, Anschluss gebogen, Öse lang
+	//                2 - Kontaktfedereinsatz, Anschluss gedreht, Öse lang
+	//                3 - Kontaktfedereinsatz, Anschluss gedreht, Öse kurz
+	//                4 - Kontaktfedereinsatz, Anschluss gebogen und
+	//                    gedreht, Öse lang
+	//                5 - Kontaktfedereinsatz, Anschluss gebogen und
+	//                    invers gedreht, Öse lang
+	//                6 - Kontaktfedereinsatz, Anschluss gebogen und
+	//                    zweifach gedreht (60° statt 30°), Öse lang
+	//
+	// LochRotWinkel: Rotation des Stanzloches um die eigene Achse
+	//                (dieser wird gegen "LochPosWinkel" kompensiert
+	// LochPosWinkel: Rotation des Loches auf einem Radius von 3.5
+	//                innerhalb des Buchseninlets
+	//
+	// Spezialfall: Wenn  LochPosWinkel=180  dann wird das Stanzloch
+	// Mitelloch    genau in der Mitte des Inlets positioniert. Da
+	//              das Loch ansonsten im Ausschnitt für den
+	//              Massekontakt zu liegen käme, ist das "Fehlen" des
+	//              180'er Winkels daher nicht tragisch.
+	//
+#local PositionRadius=3.5;
+object{
+	#switch(Typ)
+		#case(6)	// Anschluss gebogen und zweifach verdreht, Öse lang
+			CON_DIN_MA_Inlet_Kontaktfeder(3, 4, 30)
+		#break
+		#case(5)	// Anschluss gebogen und invers verdreht, Öse lang
+			CON_DIN_MA_Inlet_Kontaktfeder(3, 3, 30)
+		#break
+		#case(4)	// Anschluss gebogen und verdreht, Öse lang
+			CON_DIN_MA_Inlet_Kontaktfeder(3, 2, 30)
+		#break
+		#case(1)	// Anschluss gebogen, Öse lang
+			CON_DIN_MA_Inlet_Kontaktfeder(3, 1, 30)
+		#break
+		#case(2)	// Anschluss gedreht, Öse lang
+			CON_DIN_MA_Inlet_Kontaktfeder(3, 0,-30)
+		#break
+		#case(3)	// Anschluss gedreht, Öse kurz
+			CON_DIN_MA_Inlet_Kontaktfeder(1, 0,-30)
+		#break
+		#else		// wie #case(0), Fräsen bzw. Ausstanzen der Löcher
+			CON_DIN_MA_Inlet_Millbody()
+	#end
+
+ 	rotate<0,0,90+LochRotWinkel-LochPosWinkel>
+	#if(LochPosWinkel!=180)
+	 	translate<0,-3.5,0>
+	 	rotate<0,0,LochPosWinkel>
+	#end
+	}
+#end
+
+#macro CON_DIN_MA_InletPinComposition(MA_Typ, PinAction, MidPinAct)
+	// MA_Typ:    Selektion der Buchsenart, Anzahl der Pins,
+	//            Winkelstellung der Pins usw. über Typcodes.
+	//
+	//		Derzeit definitiert:
+	//			30 - Anordnung wie bei:				MAB_3_S
+	//			40 - Anordnung wie bei:				MAB_4
+	//			51 - Anordnung wie bei:				MAB_5_S
+	//			52 - Anordnung wie bei:				MAB_5
+	//			53 - Anordnung wie bei:	(kreuzförmig, nicht Hirschmann)
+	//			61 - Anordnung wie bei:				MAB_6
+	//			62 - Anordnung wie bei (exklusiv):	MAB_6_V
+	//			63 - Anordnung wie bei (exklusiv):	MAB_6_H
+	//			71 - Anordnung wie bei (exklusiv):	MAB_7_SH
+	//			72 - Anordnung wie bei:				MAB_7_S
+	//			81 - Anordnung wie bei:				MAB_8_S
+	//			82 - Anordnung wie bei:				MAB_8_SN
+	//
+	//			39 - Für rekursive Aufrufe benötigt
+	//			58 - Für rekursive Aufrufe benötigt
+	//			59 - Für rekursive Aufrufe benötigt
+	//
+	//		"Vererbungshierarchien":
+	//				30 <|-- 51 <|-- 81
+	//				59 <|-- 72 <|-- 82
+	//				39 <|-- 58 <|-- 61
+	//				ohne: 40, 52, 53, 62, 63, 71
+	//
+	// PinAction: Art der Bearbeitung, derzeit definiert sind:
+	//            0 - Fräsen bzw. Ausstanzen des Kontaktfederloches
+	//            1 - Kontaktfedereinsatz, Anschluss gebogen, Öse lang
+	//            2 - Kontaktfedereinsatz, Anschluss gedreht, Öse lang
+	//            3 - Kontaktfedereinsatz, Anschluss gedreht, Öse kurz
+	//
+	// MidPinAct: Gesondert definierbare Bearbeitungsart für das Mittelloch
+	//
+	// ACHTUNG: Der äußere aufrufende Kontext sollte diesem Makro eine
+	//          klammernde Struktur umstellen, wie z.B.:  union{}
+	//
+
+	#switch(MA_Typ)
+		#case(81)
+				// Mittelloch ausstanzen, exzentrisch (0.9 mm) positioniert
+			object{CON_DIN_MA_InletAction(MidPinAct, 0,180) translate<0,0.9,0>}
+				// Die beiden speziell ausgerichteten Kontaktbohrungen unten
+			object{CON_DIN_MA_InletAction((PinAction!=1?PinAction:4), -45,-135) translate<-1, 0.5, 0>}
+			object{CON_DIN_MA_InletAction((PinAction!=1?PinAction:5),-135, 135) translate< 1, 0.5, 0>}
+			// fall through to next case, adding more pins
+		#case(51)
+				// 45° links
+			CON_DIN_MA_InletAction((PinAction!=1?PinAction:4), -45,-45)
+				// 45° rechts
+			CON_DIN_MA_InletAction((PinAction!=1?PinAction:5),-135, 45)
+		#case(30)
+				// 90° links
+			CON_DIN_MA_InletAction((PinAction!=1?PinAction:4), -45,-90)
+				// 90° rechts
+			CON_DIN_MA_InletAction((PinAction!=1?PinAction:5),-135, 90)
+				// center
+			CON_DIN_MA_InletAction((PinAction!=1?PinAction:6),   0,  0)
+		#break;
+		//############################################
+
+		#case(82)
+				// Mittelloch ausstanzen, exzentrisch (0.7 mm) positioniert
+			object{CON_DIN_MA_InletAction(MidPinAct, 0,180) translate<0,0.7,0>}
+
+		#case(72)
+				// Kontakte 6 und 7 unten ergänzen
+			CON_DIN_MA_InletAction((PinAction!=1?PinAction:6),-135,-135)
+			CON_DIN_MA_InletAction((PinAction!=1?PinAction:4), 135, 135)
+
+		#case(59)
+				// virtuelle 5'er Buchse, da nicht nach Norm
+			#local Rotator=-90;
+			#while (Rotator<=90)
+				CON_DIN_MA_InletAction((PinAction!=1?PinAction:6), Rotator, Rotator)
+				#local Rotator=Rotator+45;
+			#end
+		#break;
+		//############################################
+
+		#case(61)
+				// Loch rechts unten ausstanzen und befüllen
+			CON_DIN_MA_InletAction(PinAction, 300,-120)
+		#case(58)
+				// Mittelloch ausstanzen (6'er Buchse)
+			CON_DIN_MA_InletAction(MidPinAct,  60, 180)
+				// Loch rechts unten ausstanzen und befüllen
+			CON_DIN_MA_InletAction(PinAction, 240, 120)
+		#case(39)
+				// 3 Löcher mit 60°-"Abständen" ausstanzen (für 6'er Buchse)
+			#local Rotator=-60;
+			#while (Rotator<=60)
+				CON_DIN_MA_InletAction(PinAction, Rotator+120, Rotator)
+				#local Rotator=Rotator+60;
+			#end
+		#break;
+		//############################################
+
+		#case(40)
+				// Loch links unten ausstanzen und befüllen
+			CON_DIN_MA_InletAction(PinAction, -18,-108)
+				// Links oben
+			CON_DIN_MA_InletAction(PinAction,  72, -36)
+				// Rechts oben
+			CON_DIN_MA_InletAction(PinAction, 108,  36)
+				// Loch rechts unten ausstanzen und befüllen
+			CON_DIN_MA_InletAction(PinAction, 198, 108)
+		#break;
+		//############################################
+
+		#case(52)
+				// rekursives "Holen" der 3'er Basis
+			CON_DIN_MA_InletPinComposition(39, (PinAction!=1?PinAction:5), MidPinAct)
+				// Loch rechts unten ausstanzen und befüllen
+				//   diese Ausrichtung (nach Spec!!!) kann so nicht
+				//   sein (Überschneidungen), müsste eigentlich einer
+				//   62'er ohne Mittelpin entsprechen, bzw. der Anw.:
+				//     CON_DIN_MA_InletAction(PinAction, 240, 120)
+			CON_DIN_MA_InletAction((PinAction!=1?PinAction:6), 120, 120)
+				// Loch links unten ausstanzen und befüllen
+			CON_DIN_MA_InletAction((PinAction!=1?PinAction:5),   0,-120)
+		#break;
+		//############################################
+
+		#case(53)
+				// Mittelloch ausstanzen (5'er Kreuz-Buchse)
+			CON_DIN_MA_InletAction(MidPinAct,  0, 180)
+				// 2 Löcher oben mit 90°-"Abstand" ausstanzen
+			CON_DIN_MA_InletAction((PinAction!=1?PinAction:4), -45, -45)
+			CON_DIN_MA_InletAction((PinAction!=1?PinAction:5),-135,  45)
+				// 2 Löcher unten mit 90°-"Abstand" ausstanzen
+			CON_DIN_MA_InletAction((PinAction!=1?PinAction:4),-82.5,-135)
+			CON_DIN_MA_InletAction((PinAction!=1?PinAction:5),-97.5, 135)
+		#break;
+		//############################################
+
+		#case(62)
+				// rekursives "Holen" der 5'er Basis
+			CON_DIN_MA_InletPinComposition(58, PinAction, MidPinAct)
+				// Loch links unten ausstanzen und befüllen
+			CON_DIN_MA_InletAction(PinAction, 0,-120)
+		#break;
+		//############################################
+
+		#case(63)
+				// Mittelloch ausstanzen (6'er Buchse)
+			CON_DIN_MA_InletAction(MidPinAct,  90, 180)
+
+
+				// 5 Löcher mit 60°-"Abständen" ausstanzen (für 6'er Buchse)
+			CON_DIN_MA_InletAction(PinAction,   0, -120)
+			CON_DIN_MA_InletAction(PinAction, 120,   60)
+			CON_DIN_MA_InletAction(PinAction, 180,  120)
+
+				// bei Abwinkelung zusätzlich Verdrehung
+			CON_DIN_MA_InletAction((PinAction!=1?PinAction:6),   0,    0)
+				// bei Abwinkelung zusätzlich inverse Verdrehung
+			CON_DIN_MA_InletAction((PinAction!=1?PinAction:5),  60,  -60)
+		#break;
+		//############################################
+
+		#case(71)
+				// rekursives "Holen" der 5'er Basis
+			CON_DIN_MA_InletPinComposition(59, PinAction, MidPinAct)
+				// Ergänzen der beiden Pins 6 und 7
+			CON_DIN_MA_InletAction((PinAction!=1?PinAction:4),-90,-135)
+			CON_DIN_MA_InletAction((PinAction!=1?PinAction:5),-90, 135)
+		#break;
+		//############################################
+	#end
+#end
+
+	// MA_Typ:    Selektion der Buchsenart, Anzahl der Pins,
+	//            Winkelstellung der Pins usw. über Typcodes.
+	//            Die Typcodes sind derzeit noch nicht mit dem
+	//            DIN-Standard abgestimmt
+	//
+	// MA_Subtyp: Selektion der weiteren Ausprägung, derzeit definiert:
+	//            0 - Buchse im Metallbecher mit Flansch
+	//                 (es fehlt noch der Masseanschluss)
+	//            1 - Buchse im Metallbecher ohne Flansch
+	//                (nicht fertiggestellt, Ösen statt Pins)
+	//            2 - Kupplung (nicht fertiggestellt, Metallabschirmung
+	//                [Becher] und Ummantelung fehlen noch komplett)
+
+union{
+	#local AllParts=3;
+	#switch(MA_Subtyp)
+		#case(1)
+			#if(AllParts>=3)
+				CON_DIN_MA_Outlet_Becher(off)
+				#end
+
+			#local Wulst=0;		// Metallbechermontage
+
+				// die folgenden Definitionen verlangen eigentlich
+				// einen Pin. Leider ist anhand der Specs nicht
+				// ersichtlich, wie die Verankerung im Gehäuse
+				// stattfindet, noch wie groß der Offset des
+				// Anschlusspins vom Mittelpunkt ist.
+				// Daher zunächst Verwendung langer Ösen mit
+				// Verriegelung durch Verdrehen.
+			#local PinEnde=2;		// Öse lang, verdreht
+			#local MLPEnde=2;		// Öse lang, verdreht
+		#break
+		#case(2)
+			// Makro für Kupplungs-/Steckergehäuse fehlt (noch)
+			#if(AllParts>=3)
+				#end
+
+			#local Wulst=1;		// Halbschalenmontage
+			#local PinEnde=3;		// Öse kurz, verdreht
+			#local MLPEnde=2;		// Öse lang, verdreht
+		#break
+		#else	// selbe wie case(0)
+			#if(AllParts>=3)
+				CON_DIN_MA_Outlet_Becher(on)
+				#end
+
+			#local Wulst=0;		// Metallbechermontage
+			#local PinEnde=1;		// Öse lang, abgebogen
+			#local MLPEnde=2;		// Öse lang, verdreht
+		#end
+
+		// noch eine extra union, damit nur ein Objekt
+		// "translationiert" (verschoben) werden braucht
+	union{
+		#if(AllParts>=2)
+			difference{
+				CON_DIN_MA_Inlet_Basebody(Wulst)
+					// Ausfräsungen für die Kontaktfedern: 0,0
+				CON_DIN_MA_InletPinComposition(MA_Typ, 0, 0)
+				}
+			#end
+
+		#if(AllParts>=1)
+				// Einbringen der Kontaktfedern
+			CON_DIN_MA_InletPinComposition(MA_Typ, PinEnde, MLPEnde)
+			#end
+
+			// Gesamtlänge über alles ohne Pins laut Hirschmann-Spec: 13.6
+			// Body ist aber nur 13.0, wobei jenes Inlet aber etwas im
+			// Gehäuse (Becher) versenkt ist. Daher Positionierung desselben
+		translate<0,0,0.6>
+		}
+	}
+#end

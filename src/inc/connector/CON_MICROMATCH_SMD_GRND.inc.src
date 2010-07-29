@@ -1,0 +1,86 @@
+MicroMatch
+// Makro fuer AMP-tyco MicroMatch-Federleiste SMD-Ausführung
+// pin  - Anzahl Kontakte
+####################################################################################################
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_MICROMATCH_SMD_4(:SMD MicroMatch 4:
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_MICROMATCH_SMD_6(:SMD MicroMatch 6:
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_MICROMATCH_SMD_8(:SMD MicroMatch 8:
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_MICROMATCH_SMD_10(:SMD MicroMatch 10:
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_MICROMATCH_SMD_12(:SMD MicroMatch 12:
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_MICROMATCH_SMD_14(:SMD MicroMatch 14:
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_MICROMATCH_SMD_16(:SMD MicroMatch 16:
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_MICROMATCH_SMD_18(:SMD MicroMatch 18:
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_MICROMATCH_SMD_20(:SMD MicroMatch 20:
+####################################################################################################
+CON_MICROMATCH_SMD_GRND
+(pin)
+####################################################################################################
+CON_MICROMATCH_SMD_4()
+(4)
+CON_MICROMATCH_SMD_6()
+(6)
+CON_MICROMATCH_SMD_8()
+(8)
+CON_MICROMATCH_SMD_10()
+(10)
+CON_MICROMATCH_SMD_12()
+(12)
+CON_MICROMATCH_SMD_14()
+(14)
+CON_MICROMATCH_SMD_16()
+(16)
+CON_MICROMATCH_SMD_18()
+(16)
+CON_MICROMATCH_SMD_20()
+(20)
+####################################################################################################
+####################################################################################################
+#local CON_MMTCH_PLASTIC_TEXTURE = texture {pigment{Red*0.6} finish{ambient (0.1 * global_ambient_mul)}};
+#local pitch=1.27;
+#local plastic_z=5;
+#local plastic_x=pitch*pin+2; // formula is a good match to the table in the datasheet
+
+union   {
+        difference{
+                union   {
+                        box{<-plastic_x/2+0.5,0,-plastic_z/2+0.5><plastic_x/2-0.5,5.3,plastic_z/2-0.5>}
+                        difference {
+                                box{<-plastic_x/2,1.9,-plastic_z/2>      <plastic_x/2    ,3.3,plastic_z/2>}
+                                #local i=0;
+                                #while(i<(pin/2))
+                                        box{<-0.5,2.4,0><0.5,3.5,5> translate<-(pin/2-0.5)*pitch+pitch*i*2,0,0>}
+                                        box{<-0.5,2.4,-5><0.5,3.5,0> translate<-(pin/2-1.5)*pitch+pitch*i*2,0,0>}
+                                        #local i=i+1;
+                                #end
+                                box{<0,0,-plastic_z/4><plastic_x+1,5,plastic_z/4>}
+                                }
+                        }
+                #local i=0;
+                #while(i<(pin/2))
+                        box{<-0.18,-1,-5><0.18,1.8,5> translate<-(pin/2-0.5)*pitch+pitch*i*2,0,0>}
+                        box{<-0.18,-1,-5><0.18,1.8,5> translate<-(pin/2-1.5)*pitch+pitch*i*2,0,0>}
+                        #local i=i+1;
+                #end
+                #local i=0;
+                #while(i<(pin/2))
+                        box{<-0.2,-1,0><0.2,6,1.5> translate<-(pin/2-0.5)*pitch+pitch*i*2,0,0>}
+                        box{<-0.35,-1,0.5><0.35,6,1> translate<-(pin/2-0.5)*pitch+pitch*i*2,0,0>}
+                        box{<-0.4,-1,-0.4><0.4,6,-0.9> translate<-(pin/2-0.5)*pitch+pitch*i*2,0,0>}
+                        cylinder{<0,-1,-1.4><0,6,-1.4> 0.2 translate<-(pin/2-0.5)*pitch+pitch*i*2,0,0>}
+                        box{<-0.2,-1,0><0.2,6,-1.5> translate<-(pin/2-1.5)*pitch+pitch*i*2,0,0>}
+                        box{<-0.35,-1,-0.5><0.35,6,-1> translate<-(pin/2-1.5)*pitch+pitch*i*2,0,0>}
+                        box{<-0.4,-1,0.4><0.4,6,0.9> translate<-(pin/2-1.5)*pitch+pitch*i*2,0,0>}
+                        cylinder{<0,-1,1.4><0,6,1.4> 0.2 translate<-(pin/2-1.5)*pitch+pitch*i*2,0,0>}
+                        #local i=i+1;
+                #end
+                texture{CON_MMTCH_PLASTIC_TEXTURE}
+                }
+        #local i=0;
+        #while(i<(pin/2))
+                object{TOOLS_PCB_SMD(1,6,0.25,8) translate<0.5,-0.125,0.5> rotate<0,0,90> translate<-(pin/2-0.5)*pitch+pitch*i*2,0,0> texture{col_silver}}
+                object{TOOLS_PCB_SMD(1,6,0.25,8) translate<-0.5,-0.125,-0.5> rotate<0,0,-90> translate<-(pin/2-1.5)*pitch+pitch*i*2,0,0> texture{col_silver}}        
+                #local i=i+1;
+        #end
+        }
+        
+#end

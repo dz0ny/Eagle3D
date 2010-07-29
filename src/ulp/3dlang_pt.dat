@@ -1,0 +1,167 @@
+Eagle3D (v###VERSIONDUMMY###)
+(c)2002,2003 Matthias Weißer
+matthias@matwei.de
+Instructions and License please see Eagle3D_e.pdf
+This Converter runs only in a Board
+Eagle3D (v###VERSIONDUMMY###) Input Parameters
+Global
+Renderizar
+Componentes
+Poligonos
+Fios
+Furos (real)
+Pads e SMD
+Furos (Modo rápido)
+Exportar dados OBJ
+Componentes desconhecidos
+Nomear modelos desconhecidos
+Placa
+Pinos pequenos
+Placa Rectangular
+Silk Screen
+Envolvente
+Em testes. Por favor reporte
+para matthias@matwei.de
+Atenção!
+Furos reais consome muitos recursos do
+CPU e demora muito tempo 
+(Demora 10 vezes do que em Furos (modo rápido)
+Ficheiro de destino
+Escolher
+Ficheiro de destino
+Placa
+Dimensões
+PCB-Board Densidade (in mm)
+PCB-Cobre Densidade (in mm)
+[[[[]]]]
+Camera
+Posição
+Posição da Camera:
+Alvo da Camera:
+Angulo do cone da lente:
+Activar
+Spot Côr:
+Spot Posição:
+Spot Alvo:
+Spotlight
+Raio:
+Falloff:
+Sem sombras
+Cores
+Selecção manual
+Placa
+Fios
+Pads e SMD
+Furos
+Plano de fundo
+Silk Screen
+Nova Côr
+Vermelho
+Verde
+Azul
+Nome
+Côr
+Adicionar
+Cancelar
+Nome do ficheiro não selecionado
+POVRay-Ficheiro criado por
+Placa
+Pads e SMD/Comps
+Pads/Vias
+Sinais
+Polignos
+Furos(real)/Comps
+Furos(real)/Vias
+Furos(real)/Placa
+Furos(rápido)/Comps
+Furos(rápido)/Vias
+Furos(rápido)/Placas
+Silk Screen
+Componentes
+Componentes sem macro (ex. SMD Solderjumper)
+Escolher côr
+Transparente?
+Escolher altura
+Altura standard HC49: 3mm
+Altura standard HC18: 12mm
+Nomear componente
+Nomear como componente desconhecido
+Luz
+Angulo de rotação da placa
+Socket
+Com socket
+Sem socket
+Multicamadas
+Movimento da camada
+actual
+Nomear sem modelo
+Nomear a partir de brdname.mpd
+Poligonos com menos de 0.1mm! Isto pode causar
+ficheiros POVRay muito grandes. Isto demora muito
+a fazer a renderização.
+Tem de usar Eagle v4.08 ou superior
+Furos reais desde (mm)
+//translates the camera that <0,0,0> is over the Eagle <0,0>
+Throug holes
+Côr predefenida
+Escolher côr predefenida
+Defenida pelo utilizador
+FR4 com Solder Mask
+Muito colorido
+Criar POV-File
+Escolher directório de saída
+FR4 com Solder Mask (Muecke)
+O ficheiro
+existe. Substituir?
+Sim
+Não
+Todos c/ socket
+Todos s/ socket
+PCB normal
+PCB redondo
+Exteriores cortados
+Solder Mask sobre VIA's até (mm)
+Criar POV-File e Sair
+Erro ao criar POV-File
+Comentários
+Procurar pacote
+Procurar POVRay-macro
+Procurar comentário
+Intensidade
+POVRay-Ficheiro criado com sucesso
+Cancelar as nomeações de modelos
+Selecionar o directório do projecto
+Estas camadas são usadas para Silk Screen
+Fios do pacote
+Fios da placa
+Texto do pacote
+Texto da placa
+Jumper´s nos pinos
+sem Jumper´s
+Jumper´s abertos
+Jumper´s fechados
+Todos sem Jumper´s
+Todos Jumper´s abertos
+Todos Jumper´s fechados
+Sem imagem disponivel
+Mostrar imagem
+anheben um:
+Diversos
+Dados da animação
+Sem/poucos dados para a animação (min. 3 pontos)
+Numero de quadros
+Caminho de vôo
+Ver caminho
+Camadas de criação de pacotes
+Without soldermask
+Logo on IC
+No logo
+No board outline found. Generated POVRay file may contain errors.
+All without logo
+Create .svg file
+Pads \& SMD Bottom
+Path to POVRay
+Path to system fonts
+Resolution
+Use anti aliasing
+Call POVRay and render image

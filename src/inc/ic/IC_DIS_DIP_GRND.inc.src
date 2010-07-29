@@ -1,0 +1,256 @@
+DIP
+// The following is a modified module section by Joseph Zeglinski   Aug. 20, 2003
+
+// This macro now produces either a fully pin populated DIL,  or a DIL with fewer "quads" of pins.
+// Example: Some IC's, FET's, Optoisolators and Crystal Oscillators - (8, 14, 16, or 24) pin body, with only 4, 8 or 12 outer pins.
+// The " a= Available Pins" parameter is how many pins (modulo 4), are present on the intended DIP.
+
+//Grundmakro für DIP's
+//p=Pincount of a full DIL
+//a=Count of available pins, ( less than or equal to "p" )
+//b=breite (in Raster)
+//h=höhe
+//n=Beschriftung
+####################################################################################################
+DIL02:0:1:0:0:0:1:0:0:0:SOCKET_DIP2(:30:IC-Sockel 2Pin:0:0:0:0:0:0:0:1:0:0:0:0:0:0:0:0:0:0:IC_DIS_DIP2(:DIP2:
+DIL04:0:1:0:0:0:1:0:0:0:SOCKET_DIP4(:30:IC-Sockel 4Pin:0:0:0:0:0:0:0:1:0:0:0:0:0:0:0:0:0:0:IC_DIS_DIP4(:DIP4:
+DIL-04:0:1:0:0:0:1:0:0:0:SOCKET_DIP4(:30:IC-Sockel 4Pin:0:0:0:0:0:0:0:1:0:0:0:0:0:0:0:0:0:0:IC_DIS_DIP4(:DIP4:
+DIL06:0:1:0:0:0:1:0:0:0:SOCKET_DIP6(:30:IC-Sockel 6Pin:0:0:0:0:0:0:0:1:0:0:0:0:0:0:0:0:0:0:IC_DIS_DIP6(:DIP6:
+DIL06-4:0:1:0:0:0:1:0:0:0:SOCKET_DIP6_4(:30:IC-Sockel 6Pin:0:0:0:0:0:0:0:1:0:0:0:0:0:0:0:0:0:0:IC_DIS_DIP6_4(:DIP6-4:
+DIP08;DIL08;DIL08-OPTO:0:1:0:0:0:1:0:0:0:SOCKET_DIP8(:30:IC-Sockel 8Pin:0:0:0:0:0:0:0:1:0:0:0:0:0:0:0:0:0:0:IC_DIS_DIP8(:DIP8:
+DIL14:0:1:0:0:0:1:0:0:0:SOCKET_DIP14(:30:IC-Sockel 14Pin:0:0:0:0:0:0:0:1:0:0:0:0:0:0:0:0:0:0:IC_DIS_DIP14(:DIP14:
+DIL16;DIL-16:0:1:0:0:0:1:0:0:0:SOCKET_DIP16(:30:IC-Sockel 16Pin:0:0:0:0:0:0:0:1:0:0:0:0:0:0:0:0:0:0:IC_DIS_DIP16(:DIP16:
+DIL18:0:1:0:0:0:1:0:0:0:SOCKET_DIP18(:30:IC-Sockel 18Pin:0:0:0:0:0:0:0:1:0:0:0:0:0:0:0:0:0:0:IC_DIS_DIP18(:DIP18:
+DIL20:0:1:0:0:0:1:0:0:0:SOCKET_DIP20(:30:IC-Sockel 20Pin:0:0:0:0:0:0:0:1:0:0:0:0:0:0:0:0:0:0:IC_DIS_DIP20(:DIP20:
+DIL22-3:0:1:0:0:0:1:0:0:0:SOCKET_DIP22(:30:IC-Sockel 22Pin:0:0:0:0:0:0:0:1:0:0:0:0:0:0:0:0:0:0:IC_DIS_DIP22(:DIP22:
+DIL22S:0:1:0:0:0:1:0:0:0:SOCKET_DIP22(:30:IC-Sockel 22Pin:0:0:0:0:0:0:0:1:0:0:0:0:0:0:0:0:0:0:IC_DIS_DIP22(:DIP22:
+DIL22:0:1:0:0:0:1:0:0:0:SOCKET_DIP22_4(:30:IC-Sockel 22Pin:0:0:0:0:0:0:0:1:0:0:0:0:0:0:0:0:0:0:IC_DIS_DIP22_4(:DIP22-4:
+DIL22-4:0:1:0:0:0:1:0:0:0:SOCKET_DIP22_4(:30:IC-Sockel 22Pin:0:0:0:0:0:0:0:1:0:0:0:0:0:0:0:0:0:0:IC_DIS_DIP22_4(:DIP22-4:
+DIL24-3:0:1:0:0:0:1:0:0:0:SOCKET_DIP24(:30:IC-Sockel 24Pin:0:0:0:0:0:0:0:1:0:0:0:0:0:0:0:0:0:0:IC_DIS_DIP24(:DIP24 300mil:
+DIL24S:0:1:0:0:0:1:0:0:0:SOCKET_DIP24(:30:IC-Sockel 24Pin:0:0:0:0:0:0:0:1:0:0:0:0:0:0:0:0:0:0:IC_DIS_DIP24(:DIP24 300mil:
+DIL24:0:1:0:0:0:1:0:0:0:SOCKET_DIP24W(:30:IC-Sockel 24Pin 600mil:0:0:0:0:0:0:0:1:0:0:0:0:0:0:0:0:0:0:IC_DIS_DIP24_W(:DIP24 600mil:
+DIL24-4:0:1:0:0:0:1:0:0:0:SOCKET_DIP24_4(:30:IC-Sockel 24Pin:0:0:0:0:0:0:0:1:0:0:0:0:0:0:0:0:0:0:IC_DIS_DIP24_4(:DIP24 400mil:
+DIL24-6:0:1:0:0:0:1:0:0:0:SOCKET_DIP24W(:30:IC-Sockel 24Pin 600mil:0:0:0:0:0:0:0:1:0:0:0:0:0:0:0:0:0:0:IC_DIS_DIP24_W(:DIP24 600mil:
+DIL24-9:0:1:0:0:0:1:0:0:0:SOCKET_DIP24_9(:30:IC-Sockel 24Pin 900mil:0:0:0:0:0:0:0:1:0:0:0:0:0:0:0:0:0:0:IC_DIS_DIP24_9(:DIP24 900mil:
+DIL28-3:0:1:0:0:0:1:0:0:0:SOCKET_DIP28(:30:IC-Sockel 28Pin:0:0:0:0:0:0:0:1:0:0:0:0:0:0:0:0:0:0:IC_DIS_DIP28(:DIP28 300mil:
+DIL28-4:0:1:0:0:0:1:0:0:0:SOCKET_DIP28_4(:30:IC-Sockel 28Pin 400mil:0:0:0:0:0:0:0:1:0:0:0:0:0:0:0:0:0:0:IC_DIS_DIP28_4(:DIP28 400mil:
+DIL28-6;DIL28:0:1:0:0:0:1:0:0:0:SOCKET_DIP28W(:30:IC-Sockel 28Pin 600mil:0:0:0:0:0:0:0:1:0:0:0:0:0:0:0:0:0:0:IC_DIS_DIP28_W(:DIP28 600mil:
+DIL32-3:0:1:0:0:0:1:0:0:0:SOCKET_DIP32_3(:30:IC-Sockel 32Pin 300mil:0:0:0:0:0:0:0:1:0:0:0:0:0:0:0:0:0:0:IC_DIS_DIP32_3(:DIP32 300mil:
+DIL32:0:1:0:0:0:1:0:0:0:SOCKET_DIP32W(:30:IC-Sockel 32Pin 600mil:0:0:0:0:0:0:0:1:0:0:0:0:0:0:0:0:0:0:IC_DIS_DIP32_W(:DIP32:
+DIL36:0:1:0:0:0:1:0:0:0:SOCKET_DIP36W(:30:IC-Sockel 36Pin 600mil:0:0:0:0:0:0:0:1:0:0:0:0:0:0:0:0:0:0:IC_DIS_DIP36_W(:DIP36:
+DIL40:0:1:0:0:0:1:0:0:0:SOCKET_DIP40W(:30:IC-Sockel 40Pin 600mil:0:0:0:0:0:0:0:1:0:0:0:0:0:0:0:0:0:0:IC_DIS_DIP40_W(:DIP40:
+DIL42:0:1:0:0:0:1:0:0:0:SOCKET_DIP42W(:30:IC-Sockel 42Pin 600mil:0:0:0:0:0:0:0:1:0:0:0:0:0:0:0:0:0:0:IC_DIS_DIP42_W(:DIP42:
+DIL48:0:1:0:0:0:1:0:0:0:SOCKET_DIP48W(:30:IC-Sockel 48Pin 600mil:0:0:0:0:0:0:0:1:0:0:0:0:0:0:0:0:0:0:IC_DIS_DIP48_W(:DIP48:
+DIL52:0:1:0:0:0:1:0:0:0:SOCKET_DIP52W(:30:IC-Sockel 52Pin 600mil:0:0:0:0:0:0:0:1:0:0:0:0:0:0:0:0:0:0:IC_DIS_DIP52_W(:DIP48:
+DIL64:0:1:0:0:0:1:0:0:0:SOCKET_DIP64_9(:30:IC-Sockel 64Pin 900mil:0:0:0:0:0:0:0:1:0:0:0:0:0:0:0:0:0:0:IC_DIS_DIP64_9(:DIP64:
+DIL68:0:1:0:0:0:1:0:0:0:SOCKET_DIP68_9(:30:IC-Sockel 68Pin 900mil:0:0:0:0:0:0:0:1:0:0:0:0:0:0:0:0:0:0:IC_DIS_DIP68_9(:DIP68:
+DIL08/4:0:1:0:0:0:1:0:0:0:SOCKET_DIP8A4(:30:IC-Sockel 4 of 8Pin:0:0:0:0:0:0:0:1:0:0:0:0:0:0:0:0:0:0:IC_DIS_DIP8A4(:DIP8 body with 4 pins:
+DIL14/4:0:1:0:0:0:1:0:0:0:SOCKET_DIP14A4(:30:IC-Sockel 4 of 14Pin:0:0:0:0:0:0:0:1:0:0:0:0:0:0:0:0:0:0:IC_DIS_DIP14A4(:DIP14 body with 4 pins:
+DIL-14/4:0:1:0:0:0:1:0:0:0:SOCKET_DIP14A4(:30:IC-Sockel 4 of 14Pin:0:0:0:0:0:0:0:1:0:0:0:0:0:0:0:0:0:0:IC_DIS_DIP14A4(:DIP14 body with 4 pins:
+DIL14/8:0:1:0:0:0:1:0:0:0:SOCKET_DIP14A8(:30:IC-Sockel 8 of 14Pin:0:0:0:0:0:0:0:1:0:0:0:0:0:0:0:0:0:0:IC_DIS_DIP14A8(:DIP14 body with 8 pins:
+DIL-14/8:0:1:0:0:0:1:0:0:0:SOCKET_DIP14A8(:30:IC-Sockel 8 of 14Pin:0:0:0:0:0:0:0:1:0:0:0:0:0:0:0:0:0:0:IC_DIS_DIP14A8(:DIP14 body with 8 pins:
+DIL16/4:0:1:0:0:0:1:0:0:0:SOCKET_DIP16A4(:30:IC-Sockel 4 of 14Pin:0:0:0:0:0:0:0:1:0:0:0:0:0:0:0:0:0:0:IC_DIS_DIP16A4(:DIP14 body with 4 pins:
+DIL16/8:0:1:0:0:0:1:0:0:0:SOCKET_DIP16A8(:30:IC-Sockel 8 of 14Pin:0:0:0:0:0:0:0:1:0:0:0:0:0:0:0:0:0:0:IC_DIS_DIP16A8(:DIP14 body with 8 pins:
+DIL24-3/12:0:1:0:0:0:1:0:0:0:SOCKET_DIP24A12(:30:IC-Sockel 12 of 24Pin:0:0:0:0:0:0:0:1:0:0:0:0:0:0:0:0:0:0:IC_DIS_DIP24A12(:DIP24 body with 12 pins:
+DIL24/12:0:1:0:0:0:1:0:0:0:SOCKET_DIP24A12(:30:IC-Sockel 12 of 24Pin:0:0:0:0:0:0:0:1:0:0:0:0:0:0:0:0:0:0:IC_DIS_DIP24A12(:DIP24 body with 12 pins:
+####################################################################################################
+IC_DIS_DIP_GRND
+(p,a,b,h,n,logo)
+####################################################################################################
+//DIP8 with 4 corner pins
+IC_DIS_DIP8A4(name,logo)
+(8,4,3,3.2,name,logo)
+//DIP14 with 4 corner pins
+IC_DIS_DIP14A4(name,logo)
+(14,4,3,3.2,name,logo)
+//DIP14 with 8 corner pins
+IC_DIS_DIP14A8(name,logo)
+(14,8,3,3.2,name,logo)
+//DIP16 with 4 corner pins
+IC_DIS_DIP16A4(name,logo)
+(16,4,3,3.2,name,logo)
+//DIP16 with 8 corner pins
+IC_DIS_DIP16A8(name,logo)
+(16,8,3,3.2,name,logo)
+//DIP24 with 12 corner pins
+IC_DIS_DIP24A12(name,logo) 
+(24,12,3,3.2,name,logo)
+//DIP2
+IC_DIS_DIP2(name,logo)
+(2,2,3,3.2,name,logo)
+//DIP4
+IC_DIS_DIP4(name,logo)    
+(4,4,3,3.2,name,logo)
+//DIP6
+IC_DIS_DIP6(name,logo)    
+(6,6,3,3.2,name,logo)
+//DIP6-4
+IC_DIS_DIP6_4(name,logo)
+(6,6,4,3.2,name,logo)
+//DIP8
+IC_DIS_DIP8(name,logo)
+(8,8,3,3.2,name,logo)
+//DIP14
+IC_DIS_DIP14(name,logo)    
+(14,14,3,3.2,name,logo)
+//DIP16
+IC_DIS_DIP16(name,logo)    
+(16,16,3,3.2,name,logo)
+//DIP18
+IC_DIS_DIP18(name,logo)    
+(18,18,3,3.2,name,logo)
+//DIP20
+IC_DIS_DIP20(name,logo)    
+(20,20,3,3.2,name,logo)
+//DIP22
+IC_DIS_DIP22(name,logo)    
+(22,22,3,3.2,name,logo)
+//DIP22-4
+IC_DIS_DIP22_4(name,logo)    
+(22,22,4,3.2,name,logo)
+//DIP24
+IC_DIS_DIP24(name,logo)    
+(24,24,3,3.2,name,logo)
+//DIP24-4
+IC_DIS_DIP24_4(name,logo)    
+(24,24,4,3.2,name,logo)
+IC_DIS_DIP24_9(name,logo)    
+(24,24,9,3.2,name,logo)
+//DIP28
+IC_DIS_DIP28(name,logo)    
+(28,28,3,3.2,name,logo)
+//DIP24 600mil
+IC_DIS_DIP24_W(name,logo)    
+(24,24,6,3.2,name,logo)
+//DIP28 400mil
+IC_DIS_DIP28_4(name,logo)    
+(28,28,4,3.2,name,logo)
+//DIP28 600mil
+IC_DIS_DIP28_W(name,logo)    
+(28,28,6,3.2,name,logo)
+//DIP32 300mil
+IC_DIS_DIP32_3(name,logo)    
+(32,32,3,3.2,name,logo)
+//DIP32 600mil
+IC_DIS_DIP32_W(name,logo)    
+(32,32,6,3.2,name,logo)
+//DIP36 600mil
+IC_DIS_DIP36_W(name,logo)
+(36,36,6,3.2,name,logo)
+//DIP40 600mil
+IC_DIS_DIP40_W(name,logo)    
+(40,40,6,3.2,name,logo)
+//DIP42 600mil
+IC_DIS_DIP42_W(name,logo)    
+(42,42,6,3.2,name,logo)
+//DIP48 600mil
+IC_DIS_DIP48_W(name,logo)    
+(48,48,6,3.2,name,logo)
+//DIP52 600mil
+IC_DIS_DIP52_W(name,logo)    
+(52,52,6,3.2,name,logo)
+//DIP64 900mil
+IC_DIS_DIP64_9(name,logo)    
+(64,64,9,3.2,name,logo)
+//DIP68 900mil
+IC_DIS_DIP68_9(name,logo)    
+(68,68,9,3.2,name,logo)
+####################################################################################################
+####################################################################################################
+union{
+    difference{
+        box{<0,0,0><(p/2)*2.54-0.2,h,b*2.54-1>}
+        box{<-0.1,0,0><(p/2)*2.54+2,-2,-2> rotate<-15,0,0> translate<0,h/2-0.3,0>}
+        box{<-0.1,0,0><(p/2)*2.54+2,2,-2> rotate<15,0,0> translate<0,h/2+0.3,0>}
+        box{<-0.1,0,0><(p/2)*2.54+2,-2,2> rotate<15,0,0> translate<0,h/2-0.3,b*2.54-1>}
+        box{<-0.1,0,0><(p/2)*2.54+2,2,2> rotate<-15,0,0> translate<0,h/2+0.3,b*2.54-1>}
+        box{<0,0,b*2.54><-2,-2,-b*2> rotate<0,0,15> translate<0,h/2-0.3,0>}
+        box{<0,0,b*2.54><-2,2,-b*2> rotate<0,0,-15> translate<0,h/2+0.3,0>}
+        box{<0,0,b*2.54><2,-2,-b*2> rotate<0,0,-15> translate<p/2*2.54-0.2,h/2-0.3,0>}
+        box{<0,0,b*2.54><2,2,-b*2> rotate<0,0,15> translate<p/2*2.54-0.2,h/2+0.3,0>}
+        cylinder{<0,h-0.3,(b*2.54-1)/2><0,h+0.3,(b*2.54-1)/2>1}
+        translate<-(p/2*2.54-0.2)/2,0,-(b*2.54-1)/2>
+    }
+    union{
+        
+        #local i=0;
+        #while(i<(p/2))
+
+            // Check for special  "Partial Pin Population" DIL condition
+            #if( (p>a) & (i=a/4) ) 
+                #local i=i+(p-a)/2; 
+            #end  
+
+            object{IC_DIS_PIN() rotate<0,180,0> translate<i*2.54,-3.75,b*2.54/2>}
+            object{IC_DIS_PIN() translate<i*2.54,-3.75,-b*2.54/2>}
+            #local i=i+1;
+        #end
+        translate<-p/2*1.27+1.27,0,0>
+    }
+
+    // ADAPTIVE print scaling for small IC's 
+    // Check if printing will fall off the end of the DIP surface
+    // Automatically size the X-scaling factor for the value (n) to fit the DIP IC surface:
+    // DIP4 - because it is so short, printing will be "rotated to fit" the width (b) of this IC
+
+    // create a TrueType text shape
+    #local astring = text {ttf besch_font,n,0.2,0 pigment { Khaki*0.85 }}
+    #local L=(max_extent(astring).x); // MM width of text string (n)
+    #local astrscale = ( (p=4) ? (b*2-1.0)/L : ((p/2)*2.54-0.2 -2.5 )/L );  //scale to width for tiny DIP4
+    #if(p=4)
+        #local astrscale = (astrscale<1.5 ? astrscale : 1.5);    // Leave normal scaling, if a short label will fit
+        object{astring rotate<90,-90,0,>  scale <1.5,1,astrscale>  translate<0.3,h+0.01,-L*astrscale/2>  }
+    #else 
+        #if(astrscale < 1.5) // For DP6 & DIP8 check if a normal scale label will still fit
+            object{astring rotate<90,0,0,>  scale <astrscale,1,1.5>  translate<-(p/4)*2.54+1.5,h+0.01,-0.3> } //No - shrink in X-direction      
+        #else
+        text{ttf global_fontfile_arial_bold n 0.2, 0 pigment { Gray60 } rotate <90,0,0> scale<b/2,1,b/2> translate<-b,h+0.01,0.6>}
+        #end
+    #end
+    
+    #if(p>12)
+        #if(strcmp(logo,"MICROCHIP")=0.0)
+            text{ttf global_fontfile_eagle3d "m" 0.2,0 pigment { Gray60} scale<b+1,b+1,b+1> rotate<90,0,0> translate<-(p/5)*2.54+0.5,h+0.01,-b/1.8>}                        
+            text{ttf besch_font "Microchip" 0.2,0 pigment{Gray60} rotate<90,0,0> scale<b/1.5,b/1.5,b/1.5> translate<-b,h+0.01,-b/2> }
+            #if(p>14)
+                text{ttf besch_font "Microchip" 0.2,0 pigment{Gray60} rotate<90,0,0> scale<b/1.5,b/1.5,b/1.5> translate<-b,h+0.01,-b/2> }
+            #end
+        #end
+                
+        #if(strcmp(logo,"PHILIPS")=0.0)
+            text{ttf global_fontfile_eagle3d "p" 0.2,0 pigment { Gray60} scale<b*1.5,b*1.5,b*1.5> rotate<90,0,0> translate<-(p/5)*2.54+1.5,h+0.01,-b/1.5>}                        
+        #end
+
+        #if(strcmp(logo,"MAXIM")=0.0)
+            text{ttf global_fontfile_eagle3d "-" 0.2,0 pigment { Gray60} scale<b/2.5,b/2.5,b/2.5> rotate<90,0,0> translate<-(p/5)*2.54,h+0.01,-b/2.2>}                        
+        #end
+
+        #if(strcmp(logo,"ST")=0.0)
+            text{ttf global_fontfile_eagle3d "s" 0.2,0 pigment { Gray60} scale<b,b,b> rotate<90,0,0> translate<-(p/5)*2.54+0.5,h+0.01,-b/2.2>}                        
+        #end
+
+        #if(strcmp(logo,"TEXAS")=0.0)
+            text{ttf global_fontfile_eagle3d "t" 0.2,0 pigment { Gray60} scale<b*0.9,b*0.9,b*0.9> rotate<90,0,0> translate<-(p/5)*2.54,h+0.01,-b/2.2>}                        
+        #end    
+    #end                            
+    
+    translate<0,0.25,0>
+    
+    texture{
+        pigment{Gray30}
+        finish {ambient (0.1 * global_ambient_mul)}
+    }
+}
+#end
+
+
+
+
+
+
+
+
+
+
+
+

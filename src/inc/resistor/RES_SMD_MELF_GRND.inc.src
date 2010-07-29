@@ -1,0 +1,37 @@
+//MiniMelf-Widerstand
+//basiert auf Makro von Walter Mücke
+####################################################################################################
+MINI_MELF-0102R:0:0:1:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:RES_SMD_0102_MLF(:SMD Widerstand MICROMELF:SMD Resistor MICROMELF
+MINI_MELF-0102W:0:0:1:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:RES_SMD_0102_MLF(:SMD Widerstand MICROMELF:SMD Resistor MICROMELF
+MINI_MELF-0204R:0:0:1:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:RES_SMD_0204_MLF(:SMD Widerstand MiniMELF:SMD Resistor MiniMELF
+MINI_MELF-0204W:0:0:1:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:RES_SMD_0204_MLF(:SMD Widerstand MiniMELF:SMD Resistor MiniMELF
+MINI_MELF-0207R:0:0:1:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:RES_SMD_0207_MLF(:SMD Widerstand MELF:SMD Resistor MELF
+MINI_MELF-0207W:0:0:1:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:RES_SMD_0207_MLF(:SMD Widerstand MELF:SMD Resistor MELF
+####################################################################################################
+RES_SMD_MELF_GRND
+(c1,c2,c3,c4)
+####################################################################################################
+//Widerstand MICROMELF
+RES_SMD_0102_MLF(c1,c2,c3,c4)
+(c1,c2,c3,c4) scale<0.6143,0.786,0.786> translate<0,0.55,0>
+//Widerstand MiniMELF
+RES_SMD_0204_MLF(c1,c2,c3,c4)
+(c1,c2,c3,c4) scale<1,1,1> translate<0,0.7,0>
+//Widerstand MELF
+RES_SMD_0207_MLF(c1,c2,c3,c4)
+(c1,c2,c3,c4) scale<1.614,1.5715,1.5715> translate<0,1.1,0>
+####################################################################################################
+####################################################################################################
+union { 
+	object{Round_Cylinder_Union (<-1.75,0,0><-0.9,0>0.7,0.2)texture{col_silver}}
+	object{Round_Cylinder_Union (<0.9,0><1.75,0,0>0.7,0.2)texture{col_silver}}
+	cylinder{<-1.2,0,0><1.2,0,0>0.69 pigment{rgb<0.36,0.42,0.42>} finish{phong 0.5 ambient (0.1 * global_ambient_mul)}}
+	union{
+        torus{0.69,0.01 texture{c1} scale<1,12,1> rotate<90,90,0> translate<0.8,0,0>}
+    	torus{0.69,0.01 texture{c2} scale<1,12,1> rotate<90,90,0> translate<0.35,0,0>}
+    	torus{0.69,0.01 texture{c3} scale<1,12,1> rotate<90,90,0> translate<-0.1,0,0>}
+    	torus{0.685,0.01 texture{c4} scale<1,18,1> rotate<90,90,0> translate<-0.7,0,0>}
+        finish{phong 1.0 ambient (0.1 * global_ambient_mul)}
+    }
+}
+#end

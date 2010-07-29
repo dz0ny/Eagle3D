@@ -1,0 +1,184 @@
+Textool Sockel
+// Eagle3D-Makro fuer TEXTOOL-Sockel,   keine eagle-library,         Joerg Bredendiek <sprut(replace with at)sprut.de>   
+
+// basierend auf SOCKET_DIP_GRND von Joseph Zeglinski
+// TEXTOOL-Sockel mit 15.24mm Reihenabstand erhalten automatisch breite Kontaktfedern
+
+//Grundmakro fuer TEXTOOL SOCKETS
+//pin=Pinanzahl des Sockels
+//breite= Pinreihenabstand in mm
+####################################################################################################
+TEXTOOL40:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SOCKET_TEX40W(:IC-Sockel 40Pin 600mil:IC-Socket 40Pin 600mil
+TEXTOOL32:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SOCKET_TEX32W(:IC-Sockel 32Pin 600mil:IC-Socket 32Pin 600mil   
+TEXTOOL28:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SOCKET_TEX28W(:IC-Sockel 28Pin 600mil:IC-Socket 28Pin 600mil   
+TEXTOOL24:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SOCKET_TEX24(:IC-Sockel 24Pin 300mil:IC-Socket 24Pin 300mil   
+TEXTOOL20:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SOCKET_TEX20(:IC-Sockel 20Pin 300mil:IC-Socket 20Pin 300mil
+TEXTOOL18:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SOCKET_TEX18(:IC-Sockel 18Pin 300mil:IC-Socket 18Pin 300mil
+TEXTOOL16:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SOCKET_TEX16(:IC-Sockel 16Pin 300mil:IC-Socket 16Pin 300mil
+####################################################################################################
+SOCKET_TEX_GRND
+(pin,breite)
+####################################################################################################
+SOCKET_TEX16()
+(16,7.62)
+SOCKET_TEX18()
+(18,7.62)
+SOCKET_TEX20()
+(20,7.62)
+SOCKET_TEX24()
+(24,7.62)
+SOCKET_TEX24W()
+(24,15.24)
+SOCKET_TEX28()
+(28,7.62)
+SOCKET_TEX28W()
+(28,15.24)
+SOCKET_TEX32W()
+(32,15.24)
+SOCKET_TEX40W()
+(40,15.24)
+####################################################################################################
+####################################################################################################
+/********************************************************************************************************************************************
+//Kreuzschraube fuer Textool-Sockel
+********************************************************************************************************************************************/
+#macro TEXSOCKET_SCREWHEAD_CROSS()
+#local w = RRand(0,89,1);
+difference{
+	superellipsoid{<1,0.1> rotate<90,0,0> scale<1.4,0.5,1.4> translate<0,0,0>}
+	box{<0.25,0,-1><-0.25,1,1>rotate<0, w,   0> translate<0,0,0>}
+	box{<0.25,0,-1><-0.25,1,1>rotate<0, w+90,0> translate<0,0,0>}
+	texture{col_silver}
+}
+#end
+/********************************************************************************************************************************************
+//Textool-Sockel Pin
+********************************************************************************************************************************************/
+#macro TEXSOCKET_DIP_PIN()
+box{<-0.2,0,-0.45><0.2,7,0.45> texture{col_silver}}
+#end
+/********************************************************************************************************************************************
+//Textool-Sockel Kontaktfeder
+********************************************************************************************************************************************/
+#macro TEXSOCKET_CONT()
+union{
+	box{<-0.0,5,-breite/4.4><0.1,10,breite/4.4>}
+	box{< 0.2,5,-breite/4.4><0.3,10,breite/4.4>}
+	texture{col_silver}
+}
+#end
+/********************************************************************************************************************************************
+
+********************************************************************************************************************************************/
+
+#local texcolor = color red 0.15 green 0.5 blue 0.4;	//gruener farbton fuer plastikkörper
+union{
+	#local links=-pin/4*2.54-8.73;	//linker gehaeuserand (mit hebel)  10.5mm vom pin  10-1.27=8.73
+	#local rechts=pin/4*2.54+5.73;	//rechter gehaeuserand 7 mm vom pin 7-1.27=5.73
+	#local a=pin;
+	difference{
+		union{
+			// der gruene grundkoerper
+			// Länge: 2.54*pin/4 + 14.63
+			// Breite:  15.00=7.62+2x3.7   22.75=15.24+2x3.7
+			// Hoehe:   11.50
+//			box{<links, 0, -breite/2-3.7><rechts, 11.8 ,breite/2+3.7>}	//einfachversion mit ecken
+
+			box{<links+1, 0, -breite/2-3.7>  <rechts-1, 11.8 ,breite/2+3.7>}
+			box{<links,   0, -breite/2-3.7+1>  <rechts, 11.8 ,breite/2+3.7-1>}
+			cylinder{<0,0,0><0,11.8,0>1 translate<links+1 , 0,  breite/2+3.7-1>}
+			cylinder{<0,0,0><0,   7,0>1 translate<links+1 , 0, -breite/2-3.7+1>}
+			cylinder{<0,0,0><0,11.8,0>1 translate<rechts-1, 0,  breite/2+3.7-1>}
+			cylinder{<0,0,0><0,11.8,0>1 translate<rechts-1, 0, -breite/2-3.7+1>}
+		}
+		#local ii=0;
+		#if(breite>10) 
+			#local ii=2;
+		#end
+		// die Ausspartung fuer den Hebel
+		box{<links-1, 5, -breite/2-3.7+2><links+6, 12 ,-breite/2-3.7-2>}
+		// Vertiefungen
+		box{<-pin/4*2.54, 2, -breite/4><pin/4*2.54, 3, breite/4> translate<0, 9,  breite/2-ii>} 
+		box{<-pin/4*2.54, 2, -breite/4><pin/4*2.54, 3, breite/4> translate<0, 9, -breite/2+ii>} 
+		//loecher fuer die schrauben
+		cylinder{<0,0,0><0,13,0>1.6 translate<links +2,0,0>}
+		cylinder{<0,0,0><0,13,0>1.6 translate<rechts-2,0,0>}
+		// fuer jedes Pin ein schlitz im Grundkoerper
+		// Breite 1.4mm, Laenge 7mm=15,24/2.2 oder 3.5mm=7,62/2,2
+		// Verschiebung breiter schlitze ist 2mm geringer
+		#local i=0;
+		#while(i<(a/4))
+			#if((pin/4)=div(pin,4))	// pinzahl durch 4 teilbar
+    			#local k = div(pin,4)-i-1;
+				box{<-0.7,-0,-breite/4.4><0.7,15,breite/4.4> translate< k*2.54+1.27,-7.15+2.9+9, breite/2-ii>}
+				box{<-0.7,-0,-breite/4.4><0.7,15,breite/4.4> translate<-k*2.54-1.27,-7.15+2.9+9, breite/2-ii>}
+				box{<-0.7,-0,-breite/4.4><0.7,15,breite/4.4> translate< k*2.54+1.27,-7.15+2.9+9,-breite/2+ii>}
+				box{<-0.7,-0,-breite/4.4><0.7,15,breite/4.4> translate<-k*2.54-1.27,-7.15+2.9+9,-breite/2+ii>}
+			#else			// pinzahl nicht durch 4 teilbar
+				#local k = div(pin,4)-i;
+				box{<-0.7,-0,-breite/4.4><0.7,15,breite/4.4> translate< k*2.54,-7.15+2.9+9, breite/2-ii>}
+				box{<-0.7,-0,-breite/4.4><0.7,15,breite/4.4> translate<-k*2.54,-7.15+2.9+9, breite/2-ii>}
+				box{<-0.7,-0,-breite/4.4><0.7,15,breite/4.4> translate< k*2.54,-7.15+2.9+9,-breite/2+ii>}
+				box{<-0.7,-0,-breite/4.4><0.7,15,breite/4.4> translate<-k*2.54,-7.15+2.9+9,-breite/2+ii>}
+			#end
+			#local i=i+1;
+		#end
+		pigment{texcolor}
+	} //difference fuer den gruenen plastik-koerper endet hier
+
+	// der Hebel
+	union{
+		cylinder{<  0,0,0><  0,0,3>0.8 texture{col_silver}} 
+		sphere{<    0,0,0>0.8 texture{col_silver}} 
+		cylinder{<  0,0,0><-14,0,0>0.8 texture{col_silver}} 
+		cylinder{<-14,0,0><-16.5,0,0>2.4 pigment{texcolor}}
+		sphere{<-14,0,0>2.4 pigment{texcolor}} 
+		sphere{<-16.5,0,0>2.4 pigment{texcolor}} 
+		translate<links+5, 7, -breite/2-3.7+1>
+	}
+
+	//schrauben  Durchmesser 3mm, kreuz mit 2mm
+	object{TEXSOCKET_SCREWHEAD_CROSS() translate<links+2 , 11,0>}
+	object{TEXSOCKET_SCREWHEAD_CROSS() translate<rechts-2, 11,0>}
+
+	//kontaktfedern
+	#local i=0;
+	#while(i<(a/4))
+		#if((pin/4)=div(pin,4))	// pinzahl durch 4 teilbar
+   			#local k = div(pin,4)-i-1;
+			object{TEXSOCKET_CONT() translate< k*2.54+1.27, 0 ,breite/2-ii>}
+			object{TEXSOCKET_CONT() translate<-k*2.54-1.27, 0, breite/2-ii>}
+			object{TEXSOCKET_CONT() translate< k*2.54+1.27, 0,-breite/2+ii>}
+			object{TEXSOCKET_CONT() translate<-k*2.54-1.27, 0,-breite/2+ii>}
+		#else			// pinzahl nicht durch 4 teilbar
+			#local k = div(pin,4)-i;
+			object{TEXSOCKET_CONT() translate< k*2.54, 0 ,breite/2-ii>}
+			object{TEXSOCKET_CONT() translate<-k*2.54, 0, breite/2-ii>}
+			object{TEXSOCKET_CONT() translate< k*2.54, 0,-breite/2+ii>}
+			object{TEXSOCKET_CONT() translate<-k*2.54, 0,-breite/2+ii>}
+		#end
+		#local i=i+1;
+	#end
+
+	// nun die pins, in Form flacher Blechstreifen
+	#local i=0;
+	#while(i<(a/4))
+		#if((pin/4)=div(pin,4))
+			#local k = div(pin,4)-i-1;
+			object{TEXSOCKET_DIP_PIN() translate<k*2.54+1.27,-7.15+2.9,breite/2>}
+			object{TEXSOCKET_DIP_PIN() translate<-k*2.54-1.27,-7.15+2.9,breite/2>}
+			object{TEXSOCKET_DIP_PIN() translate<k*2.54+1.27,-7.15+2.9,-breite/2>}
+			object{TEXSOCKET_DIP_PIN() translate<-k*2.54-1.27,-7.15+2.9,-breite/2>}
+		#else
+			#local k = div(pin,4)-i;
+			object{TEXSOCKET_DIP_PIN() translate<k*2.54,-7.15+2.9,breite/2>}
+			object{TEXSOCKET_DIP_PIN() translate<-k*2.54,-7.15+2.9,breite/2>}
+			object{TEXSOCKET_DIP_PIN() translate<k*2.54,-7.15+2.9,-breite/2>}
+			object{TEXSOCKET_DIP_PIN() translate<-k*2.54,-7.15+2.9,-breite/2>}
+		#end
+		#local i=i+1;
+	#end
+	translate<0,0.1,0> 
+}
+#end
+

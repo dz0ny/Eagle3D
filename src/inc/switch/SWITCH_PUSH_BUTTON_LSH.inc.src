@@ -1,0 +1,74 @@
+LSH-Taster
+// Makro für LSH-Taster von Schurter (http://www.schurter.de/)
+// Erstellt von Oliver Saal (osaal@gmx.de) 22.09.2003
+// height  = Höhe des Tasters (von der Platine aus gemessen)
+// dia_top = Durchmesser des Tasters am oberen Ende
+// Benutzt Makro "IC_SMD_PIN" aus "ic.inc"
+####################################################################################################
+LSH43:0:0:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SWITCH_PUSH_BUTTON_LSH43(:Taster Schurter Typ LSH 1301.9314 Höhe 4.3 mm:Switch Schurter Typ LSH 1301.9314 height 4.3 mm
+LSH50:0:0:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SWITCH_PUSH_BUTTON_LSH50(:Taster Schurter Typ LSH 1301.9315 Höhe 5.0 mm:Switch Schurter Typ LSH 1301.9315 height 5.0 mm
+LSH70:0:0:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SWITCH_PUSH_BUTTON_LSH70(:Taster Schurter Typ LSH 1301.9316 Höhe 7.0 mm:Switch Schurter Typ LSH 1301.9316 height 7.0 mm
+LSH80:0:0:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SWITCH_PUSH_BUTTON_LSH80(:Taster Schurter Typ LSH 1301.9318 Höhe 8.0 mm:Switch Schurter Typ LSH 1301.9318 height 8.0 mm
+LSH95:0:0:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SWITCH_PUSH_BUTTON_LSH95(:Taster Schurter Typ LSH 1301.9319 Höhe 9.5 mm:Switch Schurter Typ LSH 1301.9319 height 9.5 mm
+LSH125:0:0:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SWITCH_PUSH_BUTTON_LSH125(:Taster Schurter Typ LSH 1301.9320 Höhe 12.5 mm:switch Schurter Typ LSH 1301.9320 height 12.5 mm
+####################################################################################################
+SWITCH_PUSH_BUTTON_LSH
+(height,dia_top)
+####################################################################################################
+// Schurter-Best-Nr. LSH 1301.9314, Reichelt-Best.Nr.: Taster 9314 Höhe 4,3mm
+SWITCH_PUSH_BUTTON_LSH43()
+(4.3, 3.4)
+// Schurter-Best-Nr. LSH 1301.9315, Reichelt-Best.Nr.: Taster 9315 Höhe 5,0mm
+SWITCH_PUSH_BUTTON_LSH50()
+(5.0, 3.4)
+// Schurter-Best-Nr. LSH 1301.9316, Reichelt-Best.Nr.: Taster 9316 Höhe 7,0mm
+SWITCH_PUSH_BUTTON_LSH70()
+(7.0, 3.2)
+// Schurter-Best-Nr. LSH 1301.9318, Reichelt-Best.Nr.: Taster 9318 Höhe 8,0mm
+SWITCH_PUSH_BUTTON_LSH80()
+(8.0, 3.2)
+// Schurter-Best-Nr. LSH 1301.9319, Reichelt-Best.Nr.: Taster 9319 Höhe 9,5mm
+SWITCH_PUSH_BUTTON_LSH95()
+(9.5, 3.0)
+// Schurter-Best-Nr. LSH 1301.9320, Reichelt-Best.Nr.: Taster 9320 Höhe 12,5mm
+SWITCH_PUSH_BUTTON_LSH125()
+(12.5, 3.0)
+####################################################################################################
+####################################################################################################
+// Makro für LSH-Grundkörper (Quader mit abgerundeten senkrechten Kanten)
+// Erstellt von Oliver Saal (osaal@gmx.de) 22.09.2003
+// size_x = Länge
+// size_z = Breite
+// height = Höhe
+// r      = Radius der Rundung
+#macro SWITCH_PUSH_BUTTON_LSH_BOX(size_x,size_z,height,r)
+union
+{
+	cylinder {<0,0,0><0,height,0> 0.2 translate<size_x/2-r,0,size_z/2-r>}
+	cylinder {<0,0,0><0,height,0> 0.2 translate<size_x/2-r,0,-(size_z/2-r)>}
+	cylinder {<0,0,0><0,height,0> 0.2 translate<-(size_x/2-r),0,size_z/2-r>}
+	cylinder {<0,0,0><0,height,0> 0.2 translate<-(size_x/2-r),0,-(size_z/2-r)>}
+	box {<-size_x/2,0,-size_z/2+r><size_x/2,height,size_z/2-r>}
+	box {<-size_x/2+r,0,-size_z/2><size_z/2-r,height,size_z/2>}
+}
+#end
+
+union
+{
+	object {SWITCH_PUSH_BUTTON_LSH_BOX(6,6,3,0.2)}
+	object {SWITCH_PUSH_BUTTON_LSH_BOX(6,6,0.6,0.2) translate<0,3,0> texture{col_silver}}
+	cylinder {<0,0,0><0,0.2,0>0.3 translate<-2,3.6,-2>}
+	cylinder {<0,0,0><0,0.2,0>0.3 translate<-2,3.6,2>}
+	cylinder {<0,0,0><0,0.2,0>0.3 translate<2,3.6,-2>}
+	cylinder {<0,0,0><0,0.2,0>0.3 translate<2,3.6,2>}
+	
+	cone {<0,3.6,0> 1.7 <0,height-0.2,0> dia_top/2 }
+	torus {dia_top/2-0.2, 0.2 translate<0,height-0.2,0>}
+	cylinder {<0, height-0.2,0><0, height,0>,dia_top/2-0.2}
+	object {IC_SMD_PIN(1.5,2.0,0.7,0.3) translate<3,0,2.25>}
+	object {IC_SMD_PIN(1.5,2.0,0.7,0.3) translate<3,0,-2.25>}
+	object {IC_SMD_PIN(1.5,2.0,0.7,0.3) rotate<0,180,0> translate<-3,0,-2.25>}
+	object {IC_SMD_PIN(1.5,2.0,0.7,0.3) rotate<0,180,0> translate<-3,0,2.25>}
+	pigment{Gray30}
+}
+#end

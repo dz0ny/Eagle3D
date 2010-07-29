@@ -1,0 +1,84 @@
+Disk style capacitors
+// Auth: David Harris
+//
+// Disk syle capacitors
+// Macro Calling Arguments:  
+//   diam1      = diameter of the main circumference
+//   value      = Eagle "value" (capacitance etc.) - this is printed on the capacitors
+//   leadspc    = lead spacing
+//   bcolour    = body colour
+//   tcolour    = text colour
+####################################################################################################
+NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CAP_DIS_CERAMIC_DISK_64MM_50MM(:disc capacitator:
+NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CAP_DIS_CERAMIC_DISK_64MM_65MM(:disc capacitator:
+NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CAP_DIS_CERAMIC_DISK_64MM_74MM(:disc capacitator:
+NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CAP_DIS_CERAMIC_DISK_64MM_100MM(:disc capacitator:
+NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CAP_DIS_CERAMIC_DISK_64MM_120MM(:disc capacitator:
+NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CAP_DIS_CERAMIC_DISK_05MM_06MM(:disc capacitator:
+NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CAP_DIS_CERAMIC_DISK_05MM_08MM(:disc capacitator:
+NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CAP_DIS_CERAMIC_DISK_05MM_10MM(:disc capacitator:
+NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CAP_DIS_CERAMIC_DISK_05MM_13MM(:disc capacitator:
+NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CAP_DIS_CERAMIC_DISK_10MM_13MM(:disc capacitator:
+NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CAP_DIS_CERAMIC_DISK_10MM_18MM(:disc capacitator:
+NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CAP_DIS_CERAMIC_DISK_10MM_25MM(:disc capacitator:
+####################################################################################################
+CAP_DIS_CERAMIC_DISK_GRND
+(diam1,value,leadspc,bcolour,tcolour)
+####################################################################################################
+//6,4mm leadpsacing 5mm diameter
+CAP_DIS_CERAMIC_DISK_64MM_50MM(value)
+(5.0,value,6.35,Brown,Black)
+//6,4mm leadpsacing 6,5mm diameter
+CAP_DIS_CERAMIC_DISK_64MM_65MM(value)
+(6.5,value,6.35,Red,Black)
+//6,4mm leadpsacing 7,4mm diameter
+CAP_DIS_CERAMIC_DISK_64MM_74MM(value)
+(7.37,value,6.35,Orange,Black)
+//6,4mm leadpsacing 10mm diameter
+CAP_DIS_CERAMIC_DISK_64MM_100MM(value)
+(10.01,value,6.35,Yellow,Black)
+//6,4mm leadpsacing 12mm diameter
+CAP_DIS_CERAMIC_DISK_64MM_120MM(value)
+(11.99,value,6.35,Green,Black)
+//5mm leadpsacing 6mm diameter
+CAP_DIS_CERAMIC_DISK_05MM_06MM(value)
+(6,value,5.08,Brown,Black)
+//5mm leadpsacing 8mm diameter
+CAP_DIS_CERAMIC_DISK_05MM_08MM(value)
+(8,value,5.08,Red,Black)
+//5mm leadpsacing 10mm diameter
+CAP_DIS_CERAMIC_DISK_05MM_10MM(value)
+(10,value,5.08,Orange,Black)
+//5mm leadpsacing 13mm diameter
+CAP_DIS_CERAMIC_DISK_05MM_13MM(value)
+(13,value,5.08,Yellow,Black)
+//10mm leadpsacing 13mm diameter
+CAP_DIS_CERAMIC_DISK_10MM_13MM(value)
+(13.5,value,10.16,Green,Black)
+//10mm leadpsacing 18mm diameter
+CAP_DIS_CERAMIC_DISK_10MM_18MM(value)
+(18,value,10.16,Blue,Black)
+//10mm leadpsacing 25mm diameter
+CAP_DIS_CERAMIC_DISK_10MM_25MM(value)
+(25,value,10.16,Gray,Blue)
+####################################################################################################
+####################################################################################################
+#local diam = diam1/2;
+	#local cap = object {superellipsoid{<1, 1>scale<diam,diam*0.25,diam>rotate <-90,-7.5,0>translate<0,diam*1.1,0>} } 
+	#local txt = text{ ttf besch_font ,value,40,0 scale<diam/3,diam/3,diam/3> translate<-diam/1.5,diam,-20>} 
+	#local leg = object{ cylinder {  <0,diam*0.2,0>,<0,-10.0>,0.25 texture{col_silver}}}  
+	#local ls2 = leadspc/2 ;
+	union{ 
+		object{ intersection{ object{txt} object{cap} } translate <0,0,-0.05> pigment{tcolour} }
+		object {cap pigment{bcolour}}
+		difference{
+			torus { leadspc/2, 0.25 rotate -90*x  pigment{bcolour} }
+			box { <-leadspc,0,0.5>, <leadspc,-leadspc,-0.5> }
+			translate <0,diam*0.2,0>  
+		} 
+		object{ leg translate<-ls2,0,0> }
+		object{ leg translate< ls2,0,0> }
+		translate <0,0,0> 
+		pigment{bcolour}
+	} 
+#end

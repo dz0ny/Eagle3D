@@ -1,0 +1,57 @@
+Phoenix Mini-Combicon 3.81mm Klemmen MCV 1,5/xx-G-381 (vertical)
+//Macros fuer Phoenix Mini-Combicon 3.81mm Klemmen und Gegenstecker
+//Designed by Friedrich Bleikamp, Lenord, Bauer & Co. Gmbh <fbleikamp@lenord.de> 
+//Privat: <fbleikamp@web.de>
+//Grundmacro fuer Phoenix Mini-Combicon 3.81mm Klemmen MCV 1,5/xx-G-381 (vertical)
+####################################################################################################v
+MCV2:0:0:0:0:0:0:0:0:0:0:0:0:0:180:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_PHOENIX_381_MCV_2(:Phoenix MCV 1,5/2-G-381 vertikal 2pol. (con-phoenix-381.lib):Screw Terminal conn. 2Pin (con-phoenix-381.lib)
+MCV3:0:0:0:0:0:0:0:0:0:0:0:0:0:180:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_PHOENIX_381_MCV_3(:Phoenix MCV 1,5/3-G-381 vertikal 3pol. (con-phoenix-381.lib):Screw Terminal conn. 3Pin (con-phoenix-381.lib)
+MCV4:0:0:0:0:0:0:0:0:0:0:0:0:0:180:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_PHOENIX_381_MCV_4(:Phoenix MCV 1,5/4-G-381 vertikal 4pol. (con-phoenix-381.lib):Screw Terminal conn. 4Pin (con-phoenix-381.lib)
+MCV5:0:0:0:0:0:0:0:0:0:0:0:0:0:180:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_PHOENIX_381_MCV_5(:Phoenix MCV 1,5/5-G-381 vertikal 5pol. (con-phoenix-381.lib):Screw Terminal conn. 5Pin (con-phoenix-381.lib)
+MCV6:0:0:0:0:0:0:0:0:0:0:0:0:0:180:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_PHOENIX_381_MCV_6(:Phoenix MCV 1,5/6-G-381 vertikal 6pol. (con-phoenix-381.lib):Screw Terminal conn. 6Pin (con-phoenix-381.lib)
+MCV7:0:0:0:0:0:0:0:0:0:0:0:0:0:180:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_PHOENIX_381_MCV_7(:Phoenix MCV 1,5/7-G-381 vertikal 7pol. (con-phoenix-381.lib):Screw Terminal conn. 7Pin (con-phoenix-381.lib)
+MCV8:0:0:0:0:0:0:0:0:0:0:0:0:0:180:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_PHOENIX_381_MCV_8(:Phoenix MCV 1,5/8-G-381 vertikal 8pol. (con-phoenix-381.lib):Screw Terminal conn. 8Pin (con-phoenix-381.lib)
+MCV9:0:0:0:0:0:0:0:0:0:0:0:0:0:180:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_PHOENIX_381_MCV_9(:Phoenix MCV 1,5/9-G-381 vertikal 9pol. (con-phoenix-381.lib):Screw Terminal conn. 9Pin (con-phoenix-381.lib)
+MCV10:0:0:0:0:0:0:0:0:0:0:0:0:0:180:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_PHOENIX_381_MCV_10(:Phoenix MCV 1,5/10-G-381 vertikal 10pol. (con-phoenix-381.lib):Screw Terminal conn. 10Pin (con-phoenix-381.lib)
+MCV11:0:0:0:0:0:0:0:0:0:0:0:0:0:180:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_PHOENIX_381_MCV_11(:Phoenix MCV 1,5/11-G-381 vertikal 11pol. (con-phoenix-381.lib):Screw Terminal conn. 11Pin (con-phoenix-381.lib)
+####################################################################################################
+CON_PHOENIX_381_PHGGH
+(j)
+####################################################################################################
+CON_PHOENIX_381_MCV_2()
+(2)
+CON_PHOENIX_381_MCV_3()
+(3)
+CON_PHOENIX_381_MCV_4()
+(4)
+CON_PHOENIX_381_MCV_5()
+(5)
+CON_PHOENIX_381_MCV_6()
+(6)
+CON_PHOENIX_381_MCV_7()
+(7)
+CON_PHOENIX_381_MCV_8()
+(8)
+CON_PHOENIX_381_MCV_9()
+(9)
+CON_PHOENIX_381_MCV_10()
+(10)
+CON_PHOENIX_381_MCV_11()
+(11)
+CON_PHOENIX_381_MCV_12()
+(12)
+CON_PHOENIX_381_MCV_13()
+(13)
+####################################################################################################
+####################################################################################################
+union{
+	#local i = 0;
+	#while(i<j)   
+		object {CON_PHOENIX_381_PHPIN() translate<0,0,i*3.81>}
+		object {CON_PHOENIX_381_PHGH()rotate<0,0,90> translate<3,0,i*3.81>}
+		#local i=i+1;
+	#end    
+	translate<0,1,-j*1.905+1.905> 
+	rotate<0,90,0>
+}
+#end

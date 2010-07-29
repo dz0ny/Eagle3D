@@ -1,0 +1,171 @@
+Diskreter Widerstand
+//Macros for 1W 2W and 3W metal film resistors PR01 PR02 PR03 series
+//Designed by Philippe Boucheny <philippe.boucheny(replace with at)free.fr>
+//Rev. 1.1 01/01/06
+//-------------------------------------------------------------------------------------------------
+//l:Length d:Diameter r:Pitch lw:pins length dw:pins width op:extra height
+####################################################################################################
+NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:RES_DIS_PR_01_12MM(:1W Res D2.5 x L8.5:
+NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:RES_DIS_PR_01_15MM(:1W Res D2.5 x L8.5:
+NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:RES_DIS_PR_01_17MM(:1W Res D2.5 x L8.5:
+NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:RES_DIS_PR_01_20MM(:1W Res D2.5 x L8.5:
+NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:RES_DIS_PR_02_12MM(:2W Res D3.9 x L12:
+NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:RES_DIS_PR_02_15MM(:2W Res D3.9 x L12:
+NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:RES_DIS_PR_02_17MM(:2W Res D3.9 x L12:
+NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:RES_DIS_PR_02_20MM(:2W Res D3.9 x L12:
+NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:RES_DIS_PR_02_22MM(:2W Res D3.9 x L12:
+NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:RES_DIS_PR_02_25MM(:2W Res D3.9 x L12:
+NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:RES_DIS_PR_03_22MM(:3W Res D5.2 x L19.5:
+NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:RES_DIS_PR_03_25MM(:3W Res D5.2 x L19.5:
+NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:RES_DIS_PR_03_28MM(:3W Res D5.2 x L19.5:
+NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:RES_DIS_PR_03_30MM(:3W Res D5.2 x L19.5:
+NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:RES_DIS_PR_01_12MM_H(:1W Res D2.5 x L8.5 / H8:
+NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:RES_DIS_PR_01_15MM_H(:1W Res D2.5 x L8.5 / H8:
+NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:RES_DIS_PR_01_17MM_H(:1W Res D2.5 x L8.5 / H8:
+NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:RES_DIS_PR_01_20MM_H(:1W Res D2.5 x L8.5 / H8:
+NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:RES_DIS_PR_02_12MM_H(:2W Res D3.9 x L12 / H8:
+NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:RES_DIS_PR_02_15MM_H(:2W Res D3.9 x L12 / H8:
+NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:RES_DIS_PR_02_17MM_H(:2W Res D3.9 x L12 / H8:
+NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:RES_DIS_PR_02_20MM_H(:2W Res D3.9 x L12 / H8:
+NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:RES_DIS_PR_02_22MM_H(:2W Res D3.9 x L12 / H8:
+NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:RES_DIS_PR_02_25MM_H(:2W Res D3.9 x L12 / H8:
+NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:RES_DIS_PR_03_22MM_H(:3W Res D5.2 x L19.5 / H8:
+NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:RES_DIS_PR_03_25MM_H(:3W Res D5.2 x L19.5 / H8:
+NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:RES_DIS_PR_03_28MM_H(:3W Res D5.2 x L19.5 / H8:
+NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:RES_DIS_PR_03_30MM_H(:3W Res D5.2 x L19.5 / H8:
+####################################################################################################
+RES_DIS_PR_GRND
+(Value,l,d,r,lw,dw,op)
+####################################################################################################
+//PR01 12.50mm
+RES_DIS_PR_01_12MM(value)
+(value,6.5,2.5,5*2.54,20,0.8,0) 
+//PR01 15mm
+RES_DIS_PR_01_15MM(value)
+(value,6.5,2.5,6*2.54,20,0.8,0) 
+//PR01 17mm
+RES_DIS_PR_01_17MM(value)
+(value,6.5,2.5,7*2.54,20,0.8,0) 
+//PR01 20mm
+RES_DIS_PR_01_20MM(value)
+(value,6.5,2.5,8*2.54,20,0.8,0) 
+//PR02 12mm
+RES_DIS_PR_02_12MM(value)
+(value,10,3.9,5*2.54,20,0.8,0) 
+//PR02 15mm
+RES_DIS_PR_02_15MM(value)
+(value,10,3.9,6*2.54,20,0.8,0) 
+//PR02 17mm
+RES_DIS_PR_02_17MM(value)
+(value,10,3.9,7*2.54,20,0.8,0) 
+//PR02 20mm
+RES_DIS_PR_02_20MM(value)
+(value,10,3.9,8*2.54,20,0.8,0) 
+//PR02 22mm
+RES_DIS_PR_02_22MM(value)
+(value,10,3.9,9*2.54,20,0.8,0) 
+//PR02 25mm
+RES_DIS_PR_02_25MM(value)
+(value,10,3.9,10*2.54,20,0.8,0) 
+//PR03 22mm
+RES_DIS_PR_03_22MM(value)
+(value,16.7,5.2,9*2.54,20,0.8,0) 
+//PR03 25mm
+RES_DIS_PR_03_25MM(value)
+(value,16.7,5.2,10*2.54,20,0.8,0) 
+//PR03 28mm
+RES_DIS_PR_03_28MM(value)
+(value,16.7,5.2,11*2.54,20,0.8,0) 
+//PR03 30mm
+RES_DIS_PR_03_30MM(value)
+(value,16.7,5.2,12*2.54,20,0.8,0) 
+//PR01 12.50mm
+RES_DIS_PR_01_12MM_H(value)
+(value,6.5,2.5,5*2.54,20,0.8,8) 
+//PR01 15mm
+RES_DIS_PR_01_15MM_H(value)
+(value,6.5,2.5,6*2.54,20,0.8,8) 
+//PR01 17mm
+RES_DIS_PR_01_17MM_H(value)
+(value,6.5,2.5,7*2.54,20,0.8,8) 
+//PR01 20mm
+RES_DIS_PR_01_20MM_H(value)
+(value,6.5,2.5,8*2.54,20,0.8,8) 
+//PR02 12mm
+RES_DIS_PR_02_12MM_H(value)
+(value,10,3.9,5*2.54,20,0.8,8) 
+//PR02 15mm
+RES_DIS_PR_02_15MM_H(value)
+(value,10,3.9,6*2.54,20,0.8,8) 
+//PR02 17mm
+RES_DIS_PR_02_17MM_H(value)
+(value,10,3.9,7*2.54,20,0.8,8) 
+//PR02 20mm
+RES_DIS_PR_02_20MM_H(value)
+(value,10,3.9,8*2.54,20,0.8,8) 
+//PR02 22mm
+RES_DIS_PR_02_22MM_H(value)
+(value,10,3.9,9*2.54,20,0.8,8) 
+//PR02 25mm
+RES_DIS_PR_02_25MM_H(value)
+(value,10,3.9,10*2.54,20,0.8,8) 
+//PR03 22mm
+RES_DIS_PR_03_22MM_H(value)
+(value,16.7,5.2,9*2.54,20,0.8,8) 
+//PR03 25mm
+RES_DIS_PR_03_25MM_H(value)
+(value,16.7,5.2,10*2.54,20,0.8,8) 
+//PR03 28mm
+RES_DIS_PR_03_28MM_H(value)
+(value,16.7,5.2,11*2.54,20,0.8,8) 
+//PR03 30mm
+RES_DIS_PR_03_30MM_H(value)
+(value,16.7,5.2,12*2.54,20,0.8,8) 
+####################################################################################################
+####################################################################################################
+#local PR0DarkBrown = color red 0.233 green 0.130 blue 0.094;
+union{
+
+    #if (op=0)
+        #local space = 1.5 ; 
+    #else
+    	#local space = 0.0 ;
+    #end	
+
+    union{
+    	superellipsoid {<1.0, 0.25>   scale <1,1,1/2> rotate <0,90,0> translate <-2,0,0>}
+    	superellipsoid {<1.0, 0.25>   scale <1,1,1/2> rotate <0,90,0> translate <+2,0,0>} 
+    	cylinder {<-(2),0,0> <(2),0,0>,0.9}
+        intersection{
+        	cylinder {<-2,0,0> <2,0,0>,0.9}
+            text {ttf global_fontfile_arial value 2, 0  scale 1 rotate<-90,180,180> translate<-1,1.5,-0.4>}  // Marking      
+            pigment{Black}
+            translate 0.01*y
+        }
+    	cone{<-2.5,0,0>, 0.8,<-3,0,0>,0}
+    	cone{<+2.5,0,0>, 0.8,<+3,0,0>,0}
+    	scale<2,2,2>					
+    	scale<l/2/5,d/2/2,d/2/2>		
+        texture {
+            pigment {PR0DarkBrown }
+            finish { ambient 1  ambient (0.1 * global_ambient_mul)}
+        }
+    }
+    
+   	object{TOOLS_WIRE_LEADS(l,d,lw*2,dw,r,global_res_bend_radius,op+space,"H")}
+	#if (op>0) 
+	    difference{  
+	        union{
+        	    cylinder {<0,-0.5,0> <0,-op-d/2,0> 1.3 translate <-r/2,0,0> pigment {Gray95}}
+        	    cylinder {<0,-0.5,0> <0,-op-d/2,0> 1.3 translate <+r/2,0,0> pigment {Gray95}} 
+        	}
+        	union{
+        	    cylinder {<0,0.5,0> <0,-op-d/2-1,0> 0.5 translate <-r/2,0,0> pigment {Gray95}}
+        	    cylinder {<0,0.5,0> <0,-op-d/2-1,0> 0.5 translate <+r/2,0,0> pigment {Gray95}} 
+        	}
+	    }
+	#end
+	translate<0,d/2+0.1+op,0>
+}
+translate<0,space,0>
+#end

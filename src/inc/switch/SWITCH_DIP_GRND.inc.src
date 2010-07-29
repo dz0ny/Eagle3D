@@ -1,0 +1,93 @@
+Dipswitch
+//Nigel Eke <nigel@eke.name>
+//Dipswitch
+####################################################################################################
+DS-01:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SWITCH_DIP01(:Dip switch:
+DS-02:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SWITCH_DIP02(:Dip switch:
+DS-03:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SWITCH_DIP03(:Dip switch:
+DS-04:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SWITCH_DIP04(:Dip switch:
+DS-05:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SWITCH_DIP05(:Dip switch:
+DS-06:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SWITCH_DIP06(:Dip switch:
+DS-07:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SWITCH_DIP07(:Dip switch:
+DS-08:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SWITCH_DIP08(:Dip switch:
+DS-09:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SWITCH_DIP09(:Dip switch:
+DS-10:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SWITCH_DIP10(:Dip switch:
+DS-12:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SWITCH_DIP12(:Dip switch:
+####################################################################################################
+SWITCH_DIP_GRND
+(nrSwitches)
+####################################################################################################
+SWITCH_DIP01()
+(1)
+SWITCH_DIP02()
+(2)
+SWITCH_DIP03()
+(3)
+SWITCH_DIP04()
+(4)
+SWITCH_DIP05()
+(5)
+SWITCH_DIP06()
+(6)
+SWITCH_DIP07()
+(7)
+SWITCH_DIP08()
+(8)
+SWITCH_DIP09()
+(9)
+SWITCH_DIP10()
+(10)
+SWITCH_DIP12()
+(12)
+####################################################################################################
+####################################################################################################
+  #local pin   = cylinder { <0,-3,0> <0,0,0> .25 texture {T_Gold_5E} }
+  #local well  = box { <0,3.7,2> <1,3.91,6> pigment { MediumWood } }
+  #local housing = difference { box { <0,0,0> <2*nrSwitches+1,3.9,7.8> }
+                                box { <0,3.7,2> <.3,3.91,6> }
+                                pigment { color red 0.7 green 0.15 blue 0.15 } } //SteelBlue
+  #local offSwitch = union { box { <0.1,3.71,2.01> <.9,3.71,5.9> }
+                             box { <0.1,3.71,2.01> <.9,4.5,3> }
+                             pigment { NewTan }}
+  #local onSwitch = union { box { <0.1,3.71,2.01> <.9,3.71,5.9> }
+                            box { <0.1,3.71,5> <.9,4.5,5.9> }
+                            pigment { NewTan }}
+  union {
+    difference {
+      object { housing }
+
+      #local wellNr = 0;
+      #while (wellNr < nrSwitches)
+        object { well translate<wellNr*2+1,0,0> }
+        #local wellNr = wellNr + 1;
+      #end
+    }
+    #local switchNr = 0;
+    #while (switchNr < nrSwitches)
+      #local xShift = (switchNr*2)+1;
+      object { pin translate<xShift+0.5,0,1> }
+      object { pin translate<xShift+0.5,0,7> }
+      #local onOff = SRand(1);
+      #if (onOff < 0)
+        object { offSwitch translate<xShift,0,0> }
+      #else
+        object { onSwitch translate<xShift,0,0> }
+      #end
+      text {
+        ttf besch_font str(switchNr+1,2,0) .01, 0
+        pigment { NewTan }
+        scale 1.5
+        rotate<90,0,0>
+        translate<xShift-.2,3.91,.5>
+      }
+      #local switchNr = switchNr + 1;
+    #end
+    text {
+      ttf besch_font "ON" .01, 0
+      pigment { NewTan }
+      scale 1.5
+      rotate<90,0,0>
+      translate<0.5,3.91,6.3>}
+    translate<-nrSwitches-.5,0,-3.9>
+    scale 2.54/2}
+#end

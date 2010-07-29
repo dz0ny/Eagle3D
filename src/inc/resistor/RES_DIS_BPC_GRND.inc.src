@@ -1,0 +1,99 @@
+resistor
+//Macros for BPC series power ceramic resistor from BI Technologies
+//Designed by Philippe Boucheny <philippe.boucheny(at)numericable.fr>
+//Rev. 1.0  12/05/06
+####################################################################################################
+NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:RES_DIS_BPC3V(:3W ceramic resistor:
+NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:RES_DIS_BPC5V(:5W ceramic resistor:
+NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:RES_DIS_BPC7V(:7W ceramic resistor:
+NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:RES_DIS_BPC10V(:10W ceramic resistor:
+NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:RES_DIS_BPC3H(:3W ceramic resistor:
+NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:RES_DIS_BPC5H(:5W ceramic resistor:
+NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:RES_DIS_BPC7H(:7W ceramic resistor:
+NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:RES_DIS_BPC10H(:10W ceramic resistor:
+####################################################################################################
+RES_DIS_BPC_GRND
+(value,A,B,positionH,pRot,pTra)
+####################################################################################################
+RES_DIS_BPC3V(value)
+(value,10.16,5.08,off,0,0)
+RES_DIS_BPC5V(value)
+(value,12.70,5.08,off,0,0)
+RES_DIS_BPC7V(value)
+(value,19.05,12.70,off,0,0)
+RES_DIS_BPC10V(value)
+(value,25.40,20.32,off,0,0)
+RES_DIS_BPC3H(value)
+(value,10.16,5.08,on,90*x,-1.27*z)
+RES_DIS_BPC5H(value)
+(value,12.70,5.08,on,90*x,-1.27*z)
+RES_DIS_BPC7H(value)
+(value,19.05,12.70,on,90*x,-1.27*z)
+RES_DIS_BPC10H(value)
+(value,25.40,20.32,on,90*x,-1.27*z)
+####################################################################################################
+####################################################################################################
+#local jc=6;
+#local GreenBPC = color red 0.55 green 0.53 blue 0.30;
+union{
+    box{<-A/2,2.2,-0.127><+A/2,27.686,-0.727> pigment{Gray90}}
+
+    box{<-A/2*0.9,jc,0><-A/2*0.9+2,27.6,-0.73> pigment{GreenBPC}}
+    box{<+A/2*0.9,jc,0><+A/2*0.9-2,27.6,-0.73> pigment{GreenBPC}}
+    box{<-A/2*0.9,25,0><+A/2*0.9,27.6,-0.73> pigment{GreenBPC}}
+    
+    //box{<-A/2*0.9,1.5,0><-A/2*0.9+2,5.1,-0.73> rotate +49*z translate<+2,5.9,0> pigment{GreenBPC}}
+    //box{<+A/2*0.9,1.5,0><+A/2*0.9-2,5.1,-0.73> rotate -49*z translate<-2,5.9,0> pigment{GreenBPC}}
+    // extrude a closed 2-D shape along an axis
+    
+    prism {linear_sweep linear_spline 0.72, 0.73, 4, <+A/2*0.9,jc>, <+A/2*0.9-2,jc>, <+B/2-1,4>, <+B/2+1,4> pigment{GreenBPC} rotate -90*x}
+    prism {linear_sweep linear_spline 0.72, 0.73, 4, <-A/2*0.9,jc>, <-A/2*0.9+2,jc>, <-B/2+1,4>, <-B/2-1,4> pigment{GreenBPC} rotate -90*x}
+
+   
+    box{<-B/2+1,2.5,0><-B/2-1,4,-0.73> pigment{GreenBPC}}
+    box{<+B/2-1,2.5,0><+B/2+1,4,-0.73> pigment{GreenBPC}}
+
+    box{<-A/2*0.75,12.4,0><+A/2*0.75,26.6,-0.74> pigment{DarkGreen}}    
+
+    text{ttf global_fontfile_arial_bold value 0.5,0 pigment{Black} scale<1.5,1.5,0.1> rotate 0*x translate<-2,7,-0.73>}
+    text{ttf global_fontfile_eagle3d "b" 0.5,0 pigment{Black} scale<2,2,0.1> rotate 0*x translate<-1.5,10.5,-0.73>}
+    #if(A=10.16)
+    text{ttf global_fontfile_arial_bold "BPC 3" 0.5,0 pigment{Black} scale<1.5,2,0.1> rotate 0*x translate<-2,8.5,-0.73>}
+    #end
+    #if(A=12.7)
+    text{ttf global_fontfile_arial_bold "BPC 5" 0.5,0 pigment{Black} scale<2,2,0.1> rotate 0*x translate<-3,8.5,-0.73>}
+    #end
+    #if(A=19.05)
+    text{ttf global_fontfile_arial_bold "BPC 7" 0.5,0 pigment{Black} scale<2,2,0.1> rotate 0*x translate<-3,8.5,-0.73>}
+    #end
+    #if(A=25.40)
+    text{ttf global_fontfile_arial_bold "BPC 10" 0.5,0 pigment{Black} scale<2,2,0.1> rotate 0*x translate<-3,8.5,-0.73>}
+    #end
+    union{
+        #if(positionH=off)
+        box{<-B/2-0.25,-3.175,-0.127><-B/2+0.25,4,+0.127>}
+        box{<+B/2+0.25,-3.175,-0.127><+B/2-0.25,4,+0.127>}
+        #end
+        
+        difference{
+            box{<-B/2-0.7,0,-0.127><-B/2+0.7,4,+0.127>}
+            box{<-0.5,-1,-1><+0.5,+1,+1> rotate +30*z translate<-B/2-0.83,-0,0>}
+            box{<-0.5,-1,-1><+0.5,+1,+1> rotate -30*z translate<-B/2+0.83,-0,0>}
+        }
+        
+        difference{
+            box{<+B/2+0.7,0,-0.127><+B/2-0.7,4,+0.127>}
+            box{<-0.5,-1,-1><+0.5,+1,+1> rotate -30*z translate<+B/2-0.83,-0,0>}
+            box{<-0.5,-1,-1><+0.5,+1,+1> rotate +30*z translate<+B/2+0.83,-0,0>}
+        }
+        
+        box{<-B/2-0.7,2.2-0.254,-0.127-0.6-0.254><-B/2+0.7,4,+0.127-0.6-0.254>}
+        box{<+B/2+0.7,2.2-0.254,-0.127-0.6-0.254><+B/2-0.7,4,+0.127-0.6-0.254>}
+        box{<-B/2-0.7,2.2,-0.127-0.6-0.254><-B/2+0.7,2.2-0.254,0>}
+        texture{col_silver}
+    }
+    
+    rotate pRot 
+    translate pTra
+}
+#end

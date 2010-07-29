@@ -1,0 +1,46 @@
+Relay
+//Omron Relais G6D by Anderas Fecht
+####################################################################################################
+NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SPC_RELAY_G6D(:Omron Relais G6D:Omron Relais G6D
+####################################################################################################
+SPC_RELAY_G6D_GRND
+(value)
+####################################################################################################
+SPC_RELAY_G6D(value)
+(value)
+####################################################################################################
+####################################################################################################
+
+union
+{
+ difference
+ {
+  box{<-8.75,0.5,-3.25><8.75,12,3.25>}     // Body
+  box{<-8,11.8,-2.5><-7,12.5,2.5>}         // Pin 1 Makierung
+  cylinder{< 0,11.7,0>  < 0 12.5,0> 0.8}   //Angusszapfenloch
+  
+ }
+ cylinder{< 0,11.5,0>  < 0 12.1,0> 0.3}   //Angusszapfen     
+ 
+ difference { box{<-9.25,0.5,-1.5><-7,3,1.5>} box{<-9.3,1,-1.0><-7,3.1,1.0>} }        // Snapin
+ difference { box{<9.25,0.5,-1.5><7,3,1.5>} box{<9.3,1,-1.0><7,3.1,1.0>} }        // Snapin
+ 
+ box{<-0.25,0.5,-0.125><0.25,-min(4.1,(pin_length+pcb_height)),0.125 > texture{col_silver} translate<-7.62,0,-2.54> } //     
+ box{<-0.25,0.5,-0.125><0.25,-min(4.1,(pin_length+pcb_height)),0.125 > texture{col_silver} translate< 7.62,0,-2.54> } //     
+ box{<-0.25,0.5,-0.125><0.25,-min(4.1,(pin_length+pcb_height)),0.125 > texture{col_silver} translate< 2.54,0,-2.54> } //     
+ box{<-0.25,0.5,-0.125><0.25,-min(4.1,(pin_length+pcb_height)),0.125 > texture{col_silver} translate<-5.08,0, 2.54> } //     
+ 
+// box{<-0.25,0.5,-0.125><0.25,-min(4.1,(pin_length+pcb_height)),0.125 > texture{col_silver} translate<-5.21,0,1.75> } // 
+// box{<-0.25,0.5,-0.125><0.25,-min(4.1,(pin_length+pcb_height)),0.125 > texture{col_silver} translate<-0.13,0,1.75> } // 
+// box{<-0.25,0.5,-0.125><0.25,-min(4.1,(pin_length+pcb_height)),0.125 > texture{col_silver} translate<2.41,0,1.75>  }
+
+ 
+ text {ttf besch_font "OMRON" 0.1, 0 pigment{White} scale 1.5 rotate<90,0,0> translate<-6,12.01,1.2>}  // Value on top surface
+ text {ttf besch_font value 0.1, 0   pigment{White} scale 1.5 rotate<90,0,0> translate<-6,12.01,-2.2>}  // Value on top surface
+ text {ttf besch_font "OMRON" 0.1, 0 pigment{White} scale 1.75 translate<-7,9,-3.26>}               // Markings on vertical front face
+ text {ttf besch_font value 0.1, 0   pigment{White} scale 1.75 translate<-7,6,-3.26>}                 // Markings on vertical front face
+ 
+ pigment{Gray20}  
+ rotate<0,-90,0>
+}
+#end

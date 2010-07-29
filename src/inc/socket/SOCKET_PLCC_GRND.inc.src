@@ -1,0 +1,289 @@
+//L    = Länge (x-Achse)
+//B    = Breite (Z-Achse)
+//pin_l= Pins auf einer L-Seite
+//pin_b= Pins auf einer B-Seite
+//Li   = Länge innen
+//Bi   = Breite innen
+//totalPins= Anzahl der Pins komplett
+//pincL= Korrektur für Pinausrichtung auf L-Seite
+//pincB= Korrektur für Pinausrichtung auf L-Seite
+//chip = Der Chip für den Sockel
+####################################################################################################
+PLCCS20:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SOCKET_PLCC20(:Diskreter Sockel fuer PLCC20:Discrete Socket for  PLCC20
+PLCCS28:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SOCKET_PLCC28(:Diskreter Sockel fuer PLCC28:Discrete Socket for  PLCC28
+PLCCS32:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SOCKET_PLCC32(:Diskreter Sockel fuer PLCC32:Discrete Socket for  PLCC32
+PLCCS44:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SOCKET_PLCC44(:Diskreter Sockel fuer PLCC44:Discrete Socket for  PLCC44
+PLCCS52:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SOCKET_PLCC52(:Diskreter Sockel fuer PLCC52:Discrete Socket for  PLCC52
+PLCCS68:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SOCKET_PLCC68(:Diskreter Sockel fuer PLCC68:Discrete Socket for  PLCC68
+PLCCS84:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SOCKET_PLCC84(:Diskreter Sockel fuer PLCC84:Discrete Socket for  PLCC84
+PLCC-S20:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SOCKET_PLCC20(:Diskreter Sockel fuer PLCC20:Discrete Socket for  PLCC20
+PLCC-S28:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SOCKET_PLCC28(:Diskreter Sockel fuer PLCC28:Discrete Socket for  PLCC28
+PLCC-S32:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SOCKET_PLCC32(:Diskreter Sockel fuer PLCC32:Discrete Socket for  PLCC32
+PLCC-S44:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SOCKET_PLCC44(:Diskreter Sockel fuer PLCC44:Discrete Socket for  PLCC44
+PLCC-S52:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SOCKET_PLCC52(:Diskreter Sockel fuer PLCC52:Discrete Socket for  PLCC52
+PLCC-S68:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SOCKET_PLCC68(:Diskreter Sockel fuer PLCC68:Discrete Socket for  PLCC68
+PLCC-S84:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SOCKET_PLCC84(:Diskreter Sockel fuer PLCC84:Discrete Socket for  PLCC84
+S20:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SOCKET_PLCC20(:Diskreter Sockel fuer PLCC20:Discrete Socket for  PLCC20
+S28:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SOCKET_PLCC28(:Diskreter Sockel fuer PLCC28:Discrete Socket for  PLCC28
+S32:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SOCKET_PLCC32(:Diskreter Sockel fuer PLCC32:Discrete Socket for  PLCC32
+S44:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SOCKET_PLCC44(:Diskreter Sockel fuer PLCC44:Discrete Socket for  PLCC44
+S52:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SOCKET_PLCC52(:Diskreter Sockel fuer PLCC52:Discrete Socket for  PLCC52
+S68:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SOCKET_PLCC68(:Diskreter Sockel fuer PLCC68:Discrete Socket for  PLCC68
+S84:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SOCKET_PLCC84(:Diskreter Sockel fuer PLCC84:Discrete Socket for  PLCC84
+####################################################################################################
+SOCKET_PLCC_GRND
+(L,B,pin_l,pin_b,Li,Bi,totalPins,pincL,pincB,chip)
+####################################################################################################
+SOCKET_PLCC20(value)
+(15.5,15.5,5,5,9,9,20,0,0,IC_SMD_PLCC20(value))
+SOCKET_PLCC28(value)
+(18,18,7,7,11.5,11.5,28,-1.27,-1.27,IC_SMD_PLCC28(value))
+SOCKET_PLCC32(value)
+(18,22.34,7,9,11.5,14,32,-1.27,0,IC_SMD_PLCC32(value))
+SOCKET_PLCC44(value)
+(23.6,23.6,11,11,16.5,16.4,44,-1.27,-1.27,IC_SMD_PLCC44(value))
+SOCKET_PLCC52(value)
+(25.9,25.9,13,13,19.2,19.2,52,0,0,IC_SMD_PLCC52(value))
+SOCKET_PLCC68(value)
+(31.8,31.8,16,16,24.1,24.1,68,0,0,IC_SMD_PLCC68(value))
+SOCKET_PLCC84(value)
+(36.7,36.7,21,21,29.3,29.3,84,0,0,IC_SMD_PLCC84(value))
+####################################################################################################
+####################################################################################################
+
+#local plcc20_pina = array[13][13]
+{
+        {0,0,0,0,0,0,0,0,0,0,0,0,0}
+        {0,0,0,0,0,0,0,0,0,0,0,0,0}
+        {0,0,0,0,0,0,0,0,0,0,0,0,0}
+        {0,0,0,0,0,0,0,0,0,0,0,0,0}
+        {0,0,0,0,2,1,1,1,2,0,0,0,0}
+        {0,0,0,0,1,1,1,1,1,0,0,0,0}
+        {0,0,0,0,1,1,0,1,1,0,0,0,0}
+        {0,0,0,0,1,1,1,1,1,0,0,0,0}
+        {0,0,0,0,2,1,1,1,2,0,0,0,0}
+        {0,0,0,0,0,0,0,0,0,0,0,0,0}
+        {0,0,0,0,0,0,0,0,0,0,0,0,0}
+        {0,0,0,0,0,0,0,0,0,0,0,0,0}
+        {0,0,0,0,0,0,0,0,0,0,0,0,0}
+}
+
+#local plcc28_pina = array[13][13]
+{
+        {0,0,0,0,0,0,0,0,0,0,0,0,0}
+        {0,0,0,0,0,0,0,0,0,0,0,0,0}
+        {0,0,0,0,0,0,0,0,0,0,0,0,0}
+        {0,0,0,0,0,0,0,0,0,0,0,0,0}
+        {0,0,0,0,2,1,1,1,1,2,0,0,0}
+        {0,0,0,0,1,1,1,1,1,1,0,0,0}
+        {0,0,0,0,1,1,0,0,1,1,0,0,0}
+        {0,0,0,0,1,1,0,0,1,1,0,0,0}
+        {0,0,0,0,1,1,1,1,1,1,0,0,0}
+        {0,0,0,0,2,1,1,1,1,2,0,0,0}
+        {0,0,0,0,0,0,0,0,0,0,0,0,0}
+        {0,0,0,0,0,0,0,0,0,0,0,0,0}
+        {0,0,0,0,0,0,0,0,0,0,0,0,0}
+}//Korrektur -1.27,-1.27
+
+#local plcc32_pina = array[13][13]
+{
+        {0,0,0,0,0,0,0,0,0,0,0,0,0}
+        {0,0,0,0,0,0,0,0,0,0,0,0,0}
+        {0,0,0,0,0,0,0,0,0,0,0,0,0}
+        {0,0,0,0,2,1,1,1,1,2,0,0,0}
+        {0,0,0,0,1,1,1,1,1,1,0,0,0}
+        {0,0,0,0,1,1,0,0,1,1,0,0,0}
+        {0,0,0,0,1,1,0,0,1,1,0,0,0}
+        {0,0,0,0,1,1,0,0,1,1,0,0,0}
+        {0,0,0,0,1,1,1,1,1,1,0,0,0}
+        {0,0,0,0,2,1,1,1,1,2,0,0,0}
+        {0,0,0,0,0,0,0,0,0,0,0,0,0}
+        {0,0,0,0,0,0,0,0,0,0,0,0,0}
+        {0,0,0,0,0,0,0,0,0,0,0,0,0}
+}//Korrektur -1.27,0
+
+#local plcc44_pina = array[13][13]
+{
+        {0,0,0,0,0,0,0,0,0,0,0,0,0}
+        {0,0,0,0,0,0,0,0,0,0,0,0,0}
+        {0,0,0,0,0,0,0,0,0,0,0,0,0}
+        {0,0,0,2,1,1,1,1,1,1,2,0,0}
+        {0,0,0,1,1,1,1,1,1,1,1,0,0}
+        {0,0,0,1,1,0,0,0,0,1,1,0,0}
+        {0,0,0,1,1,0,0,0,0,1,1,0,0}
+        {0,0,0,1,1,0,0,0,0,1,1,0,0}
+        {0,0,0,1,1,0,0,0,0,1,1,0,0}
+        {0,0,0,1,1,1,1,1,1,1,1,0,0}
+        {0,0,0,2,1,1,1,1,1,1,2,0,0}
+        {0,0,0,0,0,0,0,0,0,0,0,0,0}
+        {0,0,0,0,0,0,0,0,0,0,0,0,0}
+}//Korrektur -1.27,-1.27
+
+#local plcc52_pina = array[13][13]
+{
+        {0,0,0,0,0,0,0,0,0,0,0,0,0}
+        {0,0,0,0,0,0,0,0,0,0,0,0,0}
+        {0,0,2,1,1,1,1,1,1,1,2,0,0}
+        {0,0,1,1,1,1,1,1,1,1,1,0,0}
+        {0,0,1,1,0,0,0,0,0,1,1,0,0}
+        {0,0,1,1,0,0,0,0,0,1,1,0,0}
+        {0,0,1,1,0,0,0,0,0,1,1,0,0}
+        {0,0,1,1,0,0,0,0,0,1,1,0,0}
+        {0,0,1,1,0,0,0,0,0,1,1,0,0}
+        {0,0,1,1,1,1,1,1,1,1,1,0,0}
+        {0,0,2,1,1,1,1,1,1,1,2,0,0}
+        {0,0,0,0,0,0,0,0,0,0,0,0,0}
+        {0,0,0,0,0,0,0,0,0,0,0,0,0}
+}
+
+#local plcc68_pina = array[13][13]
+{
+        {0,0,0,0,0,0,0,0,0,0,0,0,0}
+        {0,2,1,1,1,1,1,1,1,1,1,2,0}
+        {0,1,1,1,1,1,1,1,1,1,1,1,0}
+        {0,1,1,0,0,0,0,0,0,0,1,1,0}
+        {0,1,1,0,0,0,0,0,0,0,1,1,0}
+        {0,1,1,0,0,0,0,0,0,0,1,1,0}
+        {0,1,1,0,0,0,0,0,0,0,1,1,0}
+        {0,1,1,0,0,0,0,0,0,0,1,1,0}
+        {0,1,1,0,0,0,0,0,0,0,1,1,0}
+        {0,1,1,0,0,0,0,0,0,0,1,1,0}
+        {0,1,1,1,1,1,1,1,1,1,1,1,0}
+        {0,2,1,1,1,1,1,1,1,1,1,2,0}
+        {0,0,0,0,0,0,0,0,0,0,0,0,0}
+}
+
+#local plcc84_pina = array[13][13]
+{
+        {2,1,1,1,1,1,1,1,1,1,1,1,2}
+        {1,1,1,1,1,1,1,1,1,1,1,1,1}
+        {1,1,0,0,0,0,0,0,0,0,0,1,1}
+        {1,1,0,0,0,0,0,0,0,0,0,1,1}
+        {1,1,0,0,0,0,0,0,0,0,0,1,1}
+        {1,1,0,0,0,0,0,0,0,0,0,1,1}
+        {1,1,0,0,0,0,0,0,0,0,0,1,1}
+        {1,1,0,0,0,0,0,0,0,0,0,1,1}
+        {1,1,0,0,0,0,0,0,0,0,0,1,1}
+        {1,1,0,0,0,0,0,0,0,0,0,1,1}
+        {1,1,0,0,0,0,0,0,0,0,0,1,1}
+        {1,1,1,1,1,1,1,1,1,1,1,1,1}
+        {2,1,1,1,1,1,1,1,1,1,1,1,2}
+}
+
+#switch(totalPins)
+  #case (20)
+    #local pinar = plcc20_pina;
+  #break
+  #case (28)
+    #local pinar = plcc28_pina;
+  #break
+  #case (32)
+    #local pinar = plcc32_pina;
+  #break
+  #case (44)
+    #local pinar = plcc44_pina;
+  #break
+  #case (52)
+    #local pinar = plcc52_pina;
+  #break
+  #case (68)
+    #local pinar = plcc68_pina;
+  #break
+  #case (84)
+    #local pinar = plcc84_pina;
+  #break  
+  #else
+    #local pinar = plcc20_pina;
+#end
+
+union{
+	difference{
+		union{
+			box{<-L/2,0.6,-B/2+2><L/2,7.5,B/2-2>}
+			box{<-L/2+2,0.6,-B/2><L/2-2,7.5,B/2>}
+			cylinder{<-L/2+2,0.6,-B/2+2><-L/2+2,7.5,-B/2+2>,2}
+			cylinder{<L/2-2,0.6,-B/2+2><L/2-2,7.5,-B/2+2>,2}
+			cylinder{<-L/2+2,0.6,B/2-2><-L/2+2,7.5,B/2-2>,2}
+			cylinder{<L/2-2,0.6,B/2-2><L/2-2,7.5,B/2-2>,2}
+		}
+		box{<-Li/2,2.6,-Bi/2><Li/2,7.6,Bi/2>}
+		box{<sqrt(pow(L,2)+pow(B,2))/2-2.5,2.61,-0.8><-sqrt(pow(L,2)+pow(B,2))/2+2.5,7.6,0.8> rotate<0,-45,0>}
+		
+		#local i=0;
+		#while (i<pin_l)
+			box{<-0.3,2.61,0><0.3,7.6,-3> translate<1.27*i/2,0,Bi/2+2>}
+			#if(i!=0) 
+				box{<-0.3,2.61,0><0.3,7.6,-3> translate<-1.27*i/2,0,Bi/2+2>} 
+			#end
+			box{<-0.3,2.61,0><0.3,7.6,3> translate<1.27*i/2,0,-Bi/2-2>}
+			#if(i!=0) 
+				box{<-0.3,2.61,0><0.3,7.6,3> translate<-1.27*i/2,0,-Bi/2-2>} 
+			#end
+			#local i=i+2;
+		#end
+		
+		#local i=0;
+		#while (i<pin_b)
+			box{<-3,2.61,0.3><0,7.6,-0.3> translate<Li/2+2,0,1.27*i/2>}
+			#if(i!=0)
+				box{<-3,2.61,0.3><0,7.6,-0.3> translate<Li/2+2,0,-1.27*i/2>} 
+			#end
+			box{<3,2.61,0.3><0,7.6,-0.3> translate<-Li/2-2,0,1.27*i/2>}
+			#if(i!=0) 
+				box{<3,2.61,0.3><0,7.6,-0.3> translate<-Li/2-2,0,-1.27*i/2>} 
+			#end
+			#local i=i+2;
+		#end
+		cylinder{<0,0,0><0,4,0>1.5}
+		box{<-3,0,0><3,7.6,3> rotate<0,-45,0> translate<-L/2+1,0,B/2-1>}
+		box{<-1,2.61,-1><1,7.6,1> rotate<0,-45,0> translate<-L/2+2.5,0,B/2-2.5>}
+		box{<-1,2.61,-1><1,7.6,1> rotate<0,-45,0> translate<L/2-2,0,-B/2+2>}
+	}
+	box{<-1,1.5,0><1,7.5,1> rotate<0,-45,0> translate<-Li/2+0.5,0,Bi/2-0.5>}
+	//Innere Kontaktfedern
+	#local i=0;
+	#while (i<pin_l)
+		cylinder{<-0.25,5.5,Bi/2+1><0.25,5.5,Bi/2+1>0.8 texture{col_silver} translate<1.27*i/2,0,0>}
+		#if(i!=0) 
+			cylinder{<-0.25,5.5,Bi/2+1><0.25,5.5,Bi/2+1>0.8 texture{col_silver} translate<-1.27*i/2,0,0>} 
+		#end
+		cylinder{<-0.25,5.5,-Bi/2-1><0.25,5.5,-Bi/2-1>0.8 texture{col_silver} translate<1.27*i/2,0,0>}
+		#if(i!=0) 
+			cylinder{<-0.25,5.5,-Bi/2-1><0.25,5.5,-Bi/2-1>0.8 texture{col_silver} translate<-1.27*i/2,0,0>} 
+		#end
+		#local i=i+2;
+	#end
+	#local i=0;
+	#while (i<pin_b)
+		cylinder{<Li/2+1,5.5,-0.25><Li/2+1,5.5,0.25>0.8 texture{col_silver} translate<0,0,1.27*i/2>}
+		#if(i!=0)
+			cylinder{<Li/2+1,5.5,-0.25><Li/2+1,5.5,0.25>0.8 texture{col_silver} translate<0,0,-1.27*i/2>} 
+		#end
+		cylinder{<-Li/2-1,5.5,-0.25><-Li/2-1,5.5,0.25>0.8 texture{col_silver} translate<0,0,1.27*i/2>}
+		#if(i!=0) 
+			cylinder{<-Li/2-1,5.5,-0.25><-Li/2-1,5.5,0.25>0.8 texture{col_silver} translate<0,0,-1.27*i/2>} 
+		#end
+	#local i=i+2;
+	#end
+	//Pinplatzierung per Arrays
+	union{
+		#local i=-6;
+		#while(i<7)
+        	#local j=-6;
+        	#while(j<7)
+        		#if (pinar[i+6][j+6]=1)
+        			box{<-0.25,0.6,-0.1><0.25,-3,0.1> texture{col_silver} translate<j*2.54,0,i*2.54>}
+        		#end
+        		#if (pinar[i+6][j+6]=2)
+        			cylinder{<0,0.05,0><0,0.6,0>1 translate<j*2.54,0,i*2.54>}
+        		#end
+        	#local j=j+1;
+        	#end
+		#local i=i+1;
+		#end
+	object{chip translate<0,3.5,0> translate<-pincL,0,-pincB>}
+	translate<pincL,0,pincB>}
+	pigment{Gray40}
+}
+#end
+

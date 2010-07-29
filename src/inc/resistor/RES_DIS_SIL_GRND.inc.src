@@ -1,0 +1,75 @@
+SIL-Netzwerk
+//SIL-Netzwerk
+####################################################################################################
+RN-5:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:RES_DIS_SIL_5(:SIL-Netzwerk 5Pin 4R:SIL-Network 5Pin 4R
+RN-6:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:RES_DIS_SIL_6(:SIL-Netzwerk 6Pin 5R:SIL-Network 6Pin 5R
+RN-7:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:RES_DIS_SIL_7(:SIL-Netzwerk 7Pin 6R:SIL-Network 7Pin 6R
+RN-8:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:RES_DIS_SIL_8(:SIL-Netzwerk 8Pin 7R:SIL-Network 8Pin 7R
+RN-9:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:RES_DIS_SIL_9(:SIL-Netzwerk 9Pin 8R:SIL-Network 9Pin 8R
+RN-10:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:RES_DIS_SIL_10(:SIL-Netzwerk 10Pin 9R:SIL-Network 10Pin 9R
+RN-11:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:RES_DIS_SIL_11(:SIL-Netzwerk 11Pin 10R:SIL-Network 11Pin 10R
+SIL4:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:RES_DIS_SIL_4(:SIL-Netzwerk 4Pin:SIL-Network 5Pin 4R
+SIL5:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:RES_DIS_SIL_5(:SIL-Netzwerk 5Pin:SIL-Network 6Pin 5R
+SIL6:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:RES_DIS_SIL_6(:SIL-Netzwerk 6Pin:SIL-Network 7Pin 6R
+SIL7:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:RES_DIS_SIL_7(:SIL-Netzwerk 7Pin:SIL-Network 8Pin 7R
+SIL8:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:RES_DIS_SIL_8(:SIL-Netzwerk 8Pin:SIL-Network 9Pin 8R
+SIL9:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:RES_DIS_SIL_9(:SIL-Netzwerk 9Pin:SIL-Network 10Pin 9R
+SIL10:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:RES_DIS_SIL_10(:SIL-Netzwerk 10Pin:SIL-Network 11Pin 10R
+SIL11:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:RES_DIS_SIL_11(:SIL-Netzwerk 11Pin:SIL-Network 12Pin 11R
+SIL12:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:RES_DIS_SIL_12(:SIL-Netzwerk 12Pin:SIL-Network 13Pin 12R
+SIL13:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:RES_DIS_SIL_13(:SIL-Netzwerk 13Pin:SIL-Network 14Pin 13R
+SIL14:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:RES_DIS_SIL_14(:SIL-Netzwerk 14Pin:SIL-Network 15Pin 14R
+####################################################################################################
+RES_DIS_SIL_GRND
+(pin)
+####################################################################################################
+RES_DIS_SIL_4(value)
+(4)
+RES_DIS_SIL_5(value)
+(5)
+RES_DIS_SIL_6(value)
+(6)
+RES_DIS_SIL_7(value)
+(7)
+RES_DIS_SIL_8(value)
+(8)
+RES_DIS_SIL_9(value)
+(9)
+RES_DIS_SIL_10(value)
+(10)
+RES_DIS_SIL_11(value)
+(11)
+RES_DIS_SIL_12(value)
+(12)
+RES_DIS_SIL_13(value)
+(13)
+RES_DIS_SIL_14(value)
+(14)
+####################################################################################################
+####################################################################################################
+union{
+    box{<-pin*1.27+0.5,0.5,-0.5><pin*1.27-0.5,3,0.5> pigment{rgb<1,0.83,0.61>}}
+    sphere_sweep{
+      linear_spline,5,
+      <-pin*1.27+0.5,0.5,0>, 0.5
+      <-pin*1.27+0.5,3,0>, 0.5
+      <pin*1.27-0.5,3,0>, 0.5
+      <pin*1.27-0.5,0.5,0>, 0.5
+      <-pin*1.27+0.5,0.5,0>, 0.5
+      pigment{rgb<1,0.83,0.61>}}
+  union{
+    #local i = 0;
+    #while(i<pin)
+      box{<-0.2,-4,-0.1><0.2,-1,0.1> translate<2.54*i,0,0>}
+      box{<-0.3,-1,-0.1><0.3,0,0.1> translate<2.54*i,0,0>}
+      #local i = i+1;
+    #end
+    translate<-(pin-1)/2*2.54,0,0>}
+    intersection{
+        box{<-pin*1.27+0.5,0.5,-0.501><pin*1.27-0.5,3,0.501>}
+        union{
+                text{ttf besch_font value 0.8, 0 scale<2,2,1> translate<-pin/2*2.54+2.5,1.2,-0.7>}
+                cylinder{<0,0,0><0,0,-2>0.4 translate<-(pin-1)*1.27,1.2,0>}}
+        pigment{Black}}
+  texture{col_silver} translate<0,1.2,0>}
+#end

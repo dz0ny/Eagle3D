@@ -1,0 +1,67 @@
+Rotary-DIP
+//Nigel Eke <nigel@eke.name>
+//Rotary-DIP
+####################################################################################################
+A1353BCD:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SWITCH_ROTARYDIP10(:Rotary-Dip BCD switch:
+A1353HEX:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SWITCH_ROTARYDIP16(:Rotary-Dip HEX switch:
+####################################################################################################
+SWITCH_ROTARYDIP_GRND
+(nrPositions)
+####################################################################################################
+SWITCH_ROTARYDIP10()
+(10)
+SWITCH_ROTARYDIP16()
+(16)
+####################################################################################################
+####################################################################################################
+  #local pin   = cylinder { <0,-3,0> <0,0,0> .25 texture{col_gold} }
+  #local dial  = cylinder { <0,3.75,0> <0,3.91,0> 1.5 pigment { NewTan } }
+  #local arrow = union { box { <-.25,3.76,-1> <.25,4,.75> }
+                         box { <-.35,3.76,-.35> <.35,4,.35> rotate<0,45,0> translate<0,0,.75> }
+                         pigment { MediumWood } }
+  #local housing = difference { box { <-3.9,0,-3.9> <3.9,3.9,3.9> }
+                                box { <-3.91,-.01,3.65> <-3.65,3.91,3.91> }
+                                pigment { SteelBlue } }
+  #local notch = cylinder { <0,0,0> <0,3.91,0> .2 pigment { NewTan } }
+
+  union {
+    difference {
+      object { housing }
+      object { dial }
+    }
+    difference {
+      object { dial }
+      object { arrow }
+    }
+    object { notch translate<-3.4,0,3.4> }
+
+    #local pinNr = 0;
+    #while (pinNr < 3)
+      object { pin translate<-3,0,(pinNr-1)*2>}
+      #if (pinNr != 1)
+        object { pin translate<3,0,(pinNr-1)*2>}
+      #end
+      #local pinNr = pinNr + 1;
+    #end
+
+
+    #local chars = "0123456789ABCDEF";
+    #local charNr = 0;
+    #while (charNr < nrPositions)
+      text {
+        ttf besch_font substr(chars, charNr+1, 1) .01, 0
+        pigment { NewTan }
+        scale 1.5
+        rotate<90,0,0>
+        translate<-.5,0,0>
+        translate<0,0,2.2>
+        rotate<0,charNr*360/nrPositions,0>
+        translate<0,3.91,0>
+      }
+      #local charNr = charNr + 1;
+    #end
+
+    rotate<0,180,0>
+    scale 2.54/2
+  }
+#end

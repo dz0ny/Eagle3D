@@ -1,0 +1,207 @@
+Gleichrichter
+//  Base macro for AC/DC converter.
+//  Designed by Thomas Wirtgen.
+//  Revision History:
+//    - 29.10.2006   V1.0   Thomas Wirtgen
+//  Macro Arguments:
+//    - value1 : text (value from Eagle)
+//    - value2 : second text line
+//    - outer1 : outer dimensions x,y,z - left,bottom,back
+//    - outer2 : outer dimensions x,y,z - right,top,front
+//    - rad    : radius of rounded edges
+//    - tri    : triangle length in x- and y-direction, can also be 0
+//    - t1x    : x-coodinate of terminal 1 ("+")
+//    - t2x    : x-coodinate of terminal 2 ("~1")
+//    - t3x    : x-coodinate of terminal 3 ("~2")
+//    - t4x    : x-coodinate of terminal 4 ("-")
+####################################################################################################
+FB100:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:DIODE_REC_FB100(:Gleichrichter:AC/DC-Converter
+####################################################################################################
+DIODE_REC_FB100_GRND
+(value1, value2, outer1, outer2, rad, tri, t1x, t2x, t3x, t4x)
+####################################################################################################
+DIODE_REC_FB100(value)
+(value, "B40 C 5000/3300", <-6, +3, -3>, <+30, +20, +3>,   1, 5,   00.0000, 10.0076, 17.3656, 24.9836) 
+####################################################################################################
+####################################################################################################
+#local inner1 = outer1 + <rad, rad, rad>;
+  #local inner2 = outer2 - <rad, rad, rad>;
+  #local outer_size = outer2 - outer1;
+  #local outer_center = (outer1 + outer2) / 2;
+  #local epsilon = 0.001;
+
+  // terminals
+  union {
+    cylinder { <0, 0, 0> <0, outer_center.y, 0> 0.24*2
+      texture { pigment { color Silver } }
+      translate <t1x, 0, 0>
+    }
+    cylinder { <0, 0, 0> <0, outer_center.y, 0> 0.24*2
+      texture { pigment { color Silver } }
+      translate <t2x, 0, 0>
+    }
+    cylinder { <0, 0, 0> <0, outer_center.y, 0> 0.24*2
+      texture { pigment { color Silver } }
+      translate <t3x, 0, 0>
+    }
+    cylinder { <0, 0, 0> <0, outer_center.y, 0> 0.24*2
+      texture { pigment { color Silver } }
+      translate <t4x, 0, 0>
+    }
+
+  #if (global_fast_mode)
+
+    // simple box
+    box { outer1 outer2
+//    pigment { color rgbt <0.8, 0.6, 0.6, 0.45>/*Red*/ }
+      pigment { color rgb 0.30 }   // pretty dark
+//    translate <0.12, 13.9, 0>
+//    rotate <0, -90, 0>
+    }
+
+  #else // if (global_fast_mode)
+
+    #macro frame(z1, tri, rad)
+      merge {
+        cylinder { <inner1.x    , outer1.y    , z1> <inner1.x    , inner2.y    , z1> rad }   // l--: left
+
+       #if (tri)   // if we have a triangle
+        cylinder { <inner2.x    , outer1.y    , z1> <inner2.x    , inner2.y-tri, z1> rad }   // r--: rght
+        cylinder { <inner1.x    , inner2.y    , z1> <inner2.x-tri, inner2.y    , z1> rad }   // -t-: top
+
+        cylinder { <inner2.x-tri, inner2.y    , z1> <inner2.x    , inner2.y-tri, z1> rad }   // diagonal
+        sphere   { <inner2.x-tri, inner2.y    , z1> rad }                                    // rght top
+        sphere   { <inner2.x    , inner2.y-tri, z1> rad }                                    // rght top
+       #else   // no triangle
+        cylinder { <inner2.x    , outer1.y    , z1> <inner2.x    , inner2.y    , z1> rad }   // r-b: rght back
+        cylinder { <inner1.x    , inner2.y    , z1> <inner2.x    , inner2.y    , z1> rad }   // -tb: top back
+        sphere   { <inner2.x    , inner2.y    , z1> rad }                                    // rght top
+       #end
+
+        sphere   { <inner1.x    , inner2.y    , z1> rad }                                    // left top
+      }
+    #end
+
+    object {
+      difference {
+        merge {
+#if (1)
+          frame(inner1.z, tri, rad)   //  back-frame made of cylinders and spheres, rough shape is similar to a small "n"
+          frame(inner2.z, tri, rad)   // front-frame made of cylinders and spheres, rough shape is similar to a small "n"
+#end
+
+#if (1)
+         // solid prism (without rounded edges)
+         #if (tri)   // if we have to cut out a triangle on one side
+          cylinder { <inner1.x    , inner2.y    , inner1.z> <inner1.x    , inner2.y    , inner2.z> rad }   // lt-: top left
+          cylinder { <inner2.x-tri, inner2.y    , inner1.z> <inner2.x-tri, inner2.y    , inner2.z> rad }   // rt-: top rght
+          cylinder { <inner2.x    , inner2.y-tri, inner1.z> <inner2.x    , inner2.y-tri, inner2.z> rad }   // rt-: top rght
+          #local dx1 = rad/sqrt(2);
+          #local dy1 = dx1;
+          prism {
+            linear_sweep linear_spline
+            inner1.z, inner2.z, 8+1
+            <outer1.x        , outer1.y>
+            <outer1.x        , inner2.y>
+            <inner1.x        , outer2.y>
+            <inner2.x-tri    , outer2.y>
+            <inner2.x-tri+dx1, inner2.y+dy1>
+            <inner2.x    +dx1, inner2.y-tri+dy1>
+            <outer2.x        , inner2.y-tri>
+            <outer2.x        , outer1.y>
+            <outer1.x        , outer1.y>   // closing the prism
+            rotate <-90, 0, 0>
+          }
+          prism {
+            linear_sweep linear_spline
+            outer1.z, outer2.z, 5+1
+            <inner1.x    , outer1.y>
+            <inner1.x    , inner2.y>
+            <inner2.x-tri, inner2.y>
+            <inner2.x    , inner2.y-tri>
+            <inner2.x    , outer1.y>
+            <inner1.x    , outer1.y>   // closing the prism
+            rotate <-90, 0, 0>
+          }
+         #else   // otherwise the object is just a rouded box
+          cylinder { <inner1.x, inner2.y, inner1.z> <inner1.x, inner2.y, inner2.z> rad }   // lt-: top left
+          cylinder { <inner2.x, inner2.y, inner1.z> <inner2.x, inner2.y, inner2.z> rad }   // rt-: top rght
+          box      { <inner1.x, outer1.y, inner1.z> <inner2.x, outer2.y, inner2.z> }
+          box      { <inner1.x, outer1.y, outer1.z> <inner2.x, inner2.y, outer2.z> }
+          box      { <outer1.x, outer1.y, inner1.z> <outer2.x, inner2.y, inner2.z> }
+         #end
+#end
+
+#if (0)
+        merge {
+          cylinder { <outer1.x+3*rad, + outer1.y,     outer1.z-epsilon> <outer1.x+3*rad, + outer1.y,     outer2.z+epsilon> rad }
+          cylinder { <outer2.x-3*rad, + outer1.y,     outer1.z-epsilon> <outer2.x-3*rad, + outer1.y,     outer2.z+epsilon> rad }
+          box      { <outer1.x+3*rad, + outer1.y-rad, outer1.z-epsilon> <outer2.x-3*rad, + outer1.y+rad, outer2.z+epsilon> }
+        }
+#end
+        } // end merge
+        // bottom cut-out
+#if (1)
+        merge {
+          cylinder { <outer1.x+3*rad, + outer1.y,     outer1.z-epsilon> <outer1.x+3*rad, + outer1.y,     outer2.z+epsilon> rad }
+          cylinder { <outer2.x-3*rad, + outer1.y,     outer1.z-epsilon> <outer2.x-3*rad, + outer1.y,     outer2.z+epsilon> rad }
+          box      { <outer1.x+3*rad, + outer1.y-rad, outer1.z-epsilon> <outer2.x-3*rad, + outer1.y+rad, outer2.z+epsilon> }
+        }
+#end
+        cutaway_textures
+      } // end difference
+      #if (0)
+        // just for testing, reddish surface with light-transmitting effect
+        pigment { color rgbt <0.8, 0.6, 0.6, 0.45> }
+      #else
+        // real texture
+        texture {
+          pigment { color rgb /*<0.8, 0.2, 0.1>*/0.30 }   // pretty dark
+          normal { bumps 0.2 scale 0.15 }   // { bumps 0.2 scale 0.3 }
+          finish { ambient 0.1 diffuse 0.6 brilliance 1.0  ambient (0.1 * global_ambient_mul)}
+        }
+      #end
+    } // end object
+
+//  #local large_font_size = outer_size.x / 36 * 4;
+//  #local small_font_size = outer_size.x / 36 * 3;
+
+    #local large_font_size = 2 + outer_size.x / 36 * 2;
+    #local small_font_size = 2 + outer_size.x / 36 * 1;
+
+    #local large_font_line = large_font_size * 5/4;
+    #local small_font_line = small_font_size * 4/3;
+
+    #if (0)
+      // this generates text on top of the part, not used here
+      text {
+        ttf besch_font value1 0.1, 0
+        pigment { color rgb 0.95 }   // not quite white
+        scale <large_font_size, large_font_size, 1>
+        rotate <90, 0, 0>
+        translate <0, outer2.y+epsilon, -1.5>
+      }
+    #end
+    #if (1)
+      #local t0x = inner1.x + rad * 1.5;
+      #local t1y = outer2.y - rad * 1.0 - small_font_size * 1.25;
+      #local t3y = outer1.y + rad * 1.0 + large_font_size * 0.25;
+      #local t2y = (t1y+t3y) / 2;
+      // this generates text on the side of the part
+      union {
+        text { ttf besch_font value1 0.1, 0 scale <small_font_size, small_font_size, 1> translate <t0x, t1y, outer1.z-epsilon> }
+        text { ttf besch_font value2 0.1, 0 scale <small_font_size, small_font_size, 1> translate <t0x, t2y, outer1.z-epsilon> }
+        text { ttf besch_font "+"    0.1, 0 scale <large_font_size, large_font_size, 1> translate <t1x, t3y, outer1.z-epsilon> }
+        text { ttf besch_font "~"    0.1, 0 scale <large_font_size, large_font_size, 1> translate <t2x, t3y, outer1.z-epsilon> }
+        text { ttf besch_font "~"    0.1, 0 scale <large_font_size, large_font_size, 1> translate <t3x, t3y, outer1.z-epsilon> }
+        text { ttf besch_font "-"    0.1, 0 scale <large_font_size, large_font_size, 1> translate <t4x, t3y, outer1.z-epsilon> }
+        pigment { color rgb 0.95 }   // not quite white
+      } // end union
+    #end
+
+  #end // if (global_fast_mode)
+
+//  translate <0, 0, 0>
+//  rotate <0, 0, 0>
+  } // end union
+#end

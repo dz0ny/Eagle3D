@@ -1,0 +1,4 @@
+Eagle3D ###VERSIONDUMMY###
+
+Eine aktuelle Dokumentation ist auf http://www.matwei.de/doku.php?id=de:eagle3d:dokumentation
+zu finden.

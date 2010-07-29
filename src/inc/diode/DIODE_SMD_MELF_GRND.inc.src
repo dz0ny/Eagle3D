@@ -1,0 +1,32 @@
+Melf
+//MELF
+####################################################################################################
+MELF-MLL41:0:1:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:DIODE_SMD_MELF(:SMD-Diode im MELF-Gehaeuse:SMD-Diode MELF-Outline
+####################################################################################################
+DIODE_SMD_MELF_GRND
+(value)
+####################################################################################################
+DIODE_SMD_MELF(value)
+(value)
+####################################################################################################
+####################################################################################################
+union{                                                                                                               
+cylinder{<1.7,0,0><-1.6,0,0>1.25}                                                                                    
+torus{1.05,0.2 rotate<90,90,0> translate<1.7,0,0>}                                                                   
+torus{1.05,0.2 rotate<90,90,0> translate<-1.6,0,0>}                                                                  
+cylinder{<2,0,0><-2,0,0>1.05}                                                                                        
+cylinder{<2,0,0><2.5,0,0>1.25 texture{col_silver} finish{F_MetalC ambient (0.1 * global_ambient_mul)}}                                                  
+cylinder{<-2,0,0><-2.5,0,0>1.25 texture{col_silver} finish{F_MetalC ambient (0.1 * global_ambient_mul)}}                                                
+cylinder{<-1.4,0,0><-0.6,0,0>1.2501 pigment{Gray20} finish{F_MetalB ambient (0.1 * global_ambient_mul)}}                                                
+intersection{                                                                                                        
+  cylinder{<1.8,0,0><-1.6,0,0>1.2502 pigment{White}}                                                                 
+    union{                                                                                                           
+    text {ttf besch_font value 0.5, 0 scale<0.5,0.5,0.5> translate<-0.9,-0.2,-1.2501> rotate<0,0,0> pigment{White}}  
+    text {ttf besch_font value 0.5, 0 scale<0.5,0.5,0.5> translate<-0.9,-0.2,-1.2501> rotate<90,0,0> pigment{White}} 
+    text {ttf besch_font value 0.5, 0 scale<0.5,0.5,0.5> translate<-0.9,-0.2,-1.2501> rotate<180,0,0> pigment{White}}
+    }                                                                                                                
+  }                                                                                                                  
+pigment{P_Copper4} finish{F_MetalC ambient (0.1 * global_ambient_mul)}                                                                                  
+translate<0,1.25,0>                                                                                                  
+}                                                                                                                    
+#end                                                                                                                 

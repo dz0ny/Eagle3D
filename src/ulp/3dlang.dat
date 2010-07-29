@@ -1,0 +1,167 @@
+Eagle3D (v###VERSIONDUMMY###)
+(c)2002,2003 Matthias Weißer
+matthias@matwei.de
+Bedienung und Lizenz siehe Eagle3D.pdf
+ULP kann nur im Board ausgeführt werden
+Eagle3D (v###VERSIONDUMMY###) Parameter eingeben
+Allgemein
+Rendern
+Bauteile
+Polygone
+Leiterbahnen
+Bohrungen (real)
+Pads \& SMD Top
+Bohrungen (schnell)
+OBJ Daten exportieren
+Unbekannte Bauteile
+Manuelle Zuordnung v. Bauteilen
+Platine
+Gekürzte Pins
+Rechteckige Platine
+Bestückungsdruck
+Umgebung
+Z.z. noch experimentell. Bitte um Rückmeldungen
+an matthias@matwei.de
+Achtung!
+Reale Bohrungen sind sehr aufwendig
+und brauchen eine Menge Renderzeit
+Zeitaufwand steigt um mehr als Faktor 10
+Ausgabedatei
+Durchsuchen
+Ausgabedatei
+Platine
+Maße
+PCB-Materialstärke (in mm)
+PCB-Kupferstärke (in mm)
+[[[[]]]]
+Kamera
+Position
+Kameraposition:
+Kamerablickpunkt:
+Kameraöffnungswinkel:
+aktivieren
+Lichtfarbe
+Lichtposition:
+Lichtzielpunkt:
+Spotlight
+Radius:
+Falloff:
+Keine Schatten
+Farben
+Manuelle Auswahl
+Platine
+Leiterbahnen
+Lötaugen & SMD
+Bohrungen
+Hintergrund
+Bestückungsdruck
+Neue Farbe
+Rot
+Grün
+Blau
+Bezeichnung
+Farbe
+hinzufügen
+Abbrechen
+Kein Dateiname angegeben
+POVRay-Datei erstellt mit
+Platine
+Lötaugen&SMD/Bauteile
+Lötaugen/Durchkontaktierungen
+Signale
+Polygone
+Bohrungen(real)/Bauteile
+Bohrungen(real)/Durchkontaktierungen
+Bohrungen(real)/Platine
+Bohrungen(schnell)/Bauteile
+Bohrungen(schnell)/Durchkontaktierungen
+Bohrungen(schnell)/Platine
+Bestückungsdruck
+Bauteile
+Bauteile ohne Makro (z.B. SMD-Lötjumper)
+Farbe auswählen
+Transparent?
+Höhe eingeben
+Standardhöhe HC49: 3mm
+Standardhöhe HC18: 12mm
+Bauteil zuordnen
+Als unbekanntes Bauteil selbst zugeordnet
+Licht
+Drehwinkel Platine
+Sockel
+Gesockelt
+Direkt eingelötet
+Multilayer
+Layerverschiebung
+Aktualisieren
+Kein Modell zuordnen
+Zuordnung aus brdname.mpd nutzen
+Polygonwidth ist z.T. kleiner als 0,1mm. Dadurch können
+bei Verwendung von Polygonen extrem große POVRay-Dateien
+entstehen, die enorm viel Renderzeit benötigen.
+Sie benötigen Eagle v4.08 oder höher
+Durchmesser für reale Bohrung ab (mm)
+//versetzt die Kamera, sodass <0,0,0> über dem Eagle-Nullpunkt ist
+Durchkontaktierungen
+Farbpreset
+Farbpreset auswählen
+Benutzer definiert
+FR4 mit Lötstop
+sehr bunt
+POV-Datei schreiben
+Ausgabeverzeichnis wählen
+FR4 mit Lötstop (Muecke)
+Die Datei
+existiert. Überschreiben?
+Ja
+Nein
+Alle sockeln
+Alle ungesockelt
+Normale Platine
+Runde Platine
+Durchbrüche
+VIA's überlackieren bis (mm)
+POV-Datei schreiben und Ende
+Fehler beim schreiben der POV-Datei
+Kommentar
+Package durchsuchen
+POVRay-Macro durchsuchen
+Kommentar durchsuchen
+Intensität
+POVRay-Datei erfolgreich geschrieben
+Manuelle Zuordnung abbrechen
+Board-Pfad setzen
+Diese Layer werden für den Bestückungsdruck genutzt
+Wire aus Package
+Wire aus Board
+Text aus Package
+Text aus Board
+Jumper auf Stiftleiste
+ohne Jumper
+Jumper offen
+Jumper geschlossen
+alle ohne Jumper
+alle Jumper offen
+alle Jumper geschlossen
+Kein Bild vorhanden
+Bild anzeigen
+anheben um:
+Diverses
+Animationsdaten
+Keine/zu wenig Animationsdaten vorhanden (mind. 3 Punkte)
+Anzahl Bilder
+Flugpfad
+Blickpunktpfad
+Layer zur Gehäusegenerierung
+Ohne Lötstopp
+Logo auf IC
+Kein Logo
+Kein Bordumriss gefunden. POVRay-Datei wird unter Umständen nicht korrekt erzeugt.
+Logozuordnung abbrechen
+.svg Datei erzeugen
+Pads \& SMD Bottom
+Pfad zu POVRay
+Pfad zu Systemschriften
+Auflösung
+Antialiasing verwenden
+POVRay aufrufen und Bild rendern

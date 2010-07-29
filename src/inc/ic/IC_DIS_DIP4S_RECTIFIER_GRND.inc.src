@@ -1,0 +1,35 @@
+B-DIL rectifier aus rectifier.lib
+//Designed by Friedrich Bleikamp, fbleikamp@web.de>
+//Macro fuer B-DIL rectifier aus rectifier.lib
+//benutzt Macro DIC_PIN() aus ic.inc
+####################################################################################################
+B-DIL:0:1:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:IC_DIS_DIP4S_RECTIFIER(:DIL-4S fuer Brueckengleichrichter B-DIL (rectifier.lib):DIL-4S for rectifier B-DIL (rectifier.lib)
+####################################################################################################
+IC_DIS_DIP4S_RECTIFIER_GRND
+(value)
+####################################################################################################
+IC_DIS_DIP4S_RECTIFIER(value)
+(value)
+####################################################################################################
+####################################################################################################
+union{
+	difference{
+		box{<0,0,0><9.4,3.2,6.0>}
+		box{<-0.1,0,0><12,2,-2> rotate<5,0,0> translate<0,2,0>}
+		box{<-0.1,0,0><12.2,2,2> rotate<-5,0,0> translate<0,2,6.6>}
+		box{<0,0,6.7><-2,2,0> rotate<0,0,-35> translate<0,2,0>}
+		translate<-4.7,0,-3.0>
+	}
+	union{
+		object{IC_DIS_PIN() rotate<0,180,0> translate<2.54,-3.75,3.81>}
+		object{IC_DIS_PIN() rotate<0,180,0> translate<-2.54,-3.75,3.81>}
+		object{IC_DIS_PIN() translate<-2.54,-3.75,-3.81>}
+		object{IC_DIS_PIN() translate<2.54,-3.75,-3.81>}
+	}
+	text {ttf besch_font value 0.2, 0 pigment { Gray60 } rotate <90,0,0> scale<1.5,1,1.5> translate<-3.1,3.21,-0.3>}
+	text {ttf besch_font "~     ~" 0.2, 0 pigment { Gray60 } rotate <90,0,0> scale<1.5,1,1.5> translate<-3.0,3.21,1.8>}
+	text {ttf besch_font "+     -" 0.2, 0 pigment { Gray60 } rotate <90,0,0> scale<1.5,1,1.5> translate<-3.0,3.21,-2.5>}
+	translate<0,0.25,0>
+	pigment{Gray30}
+}
+#end

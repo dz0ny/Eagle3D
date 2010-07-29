@@ -1,0 +1,45 @@
+Threads for SMA
+//Threads for SMA
+//Duane Clark <dclark@akamail.com>
+####################################################################################################
+####################################################################################################
+SMA_THREADS
+(od,id,pitch,len)
+####################################################################################################
+####################################################################################################
+####################################################################################################
+difference
+{
+  #local ParAMin = id/2;
+  #local ParAMax = od/2;
+  #local ParBMin = 0;
+  #local ParBMax = 2*pi;
+  #local ParCMin = 0;
+  #local ParCMax = 1;
+  #local td = ParAMax-ParAMin; // thread depth
+  #local threads = len/pitch;
+
+  union
+  {
+    #local i = 0;
+    #while(i<threads)
+      cone{<0,0,i*pitch> id/2 <0,0,(i+0.5)*pitch> od/2}
+      cone{<0,0,(i+0.5)*pitch> od/2 <0,0,(i+1)*pitch> id/2}
+      #local i = i+1;
+    #end
+  }
+  
+  // trim the left end
+  difference
+  {
+    cylinder{<0,0,-1.1*pitch><0,0,td*0.99> 1.1*od/2}
+    cone{<0,0,0> id/2 <0,0,td> id/1.99+td}
+  }
+  // trim the right end
+  difference
+  {
+    cylinder{<0,0,len-0.99*td><0,0,len+pitch*2> 1.1*od/2}
+    cone{<0,0,len-td> id/1.99+td <0,0,len> id/2}
+  }
+}
+#end

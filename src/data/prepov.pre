@@ -1,0 +1,66 @@
+/*
+ * Copyright 2005-2010 Matthias Weisser <matthias@matwei.de>
+ *
+ * This file is part of Eagle3D
+ *
+ * Eagle3D is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation; version 2 of the License.
+ *
+ * Eagle3D is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ */
+
+//Eagle3D Test-File
+#version 3.5;
+
+#declare global_res_shape = 1;
+#declare global_res_colselect = 0;
+#declare global_res_col = 1;
+
+#declare global_ambient_mul = 1;
+#declare global_use_radiosity = off;
+
+#declare global_show_screws = on;
+#declare global_show_washers = on;
+#declare global_show_nuts = on;
+#declare global_fast_mode = off;
+
+#declare global_diode_bend_radius = 1;
+#declare global_res_bend_radius = 1;
+
+#declare pin_length = 2.5;
+
+#declare col_preset = 1;
+#declare pin_short = off;
+
+#declare global_seed=seed(441);
+
+#declare pcb_height = 1.500000;
+#declare pcb_cuheight = 0.035000;
+#declare pcb_layer1_used = 1;
+#declare pcb_layer16_used = 1;
+#declare inc_testmode=off;
+
+#include "tools.inc"
+#include "resistor.inc"
+#include "transistor.inc"
+#include "ic.inc"
+#include "connector.inc"
+#include "cap.inc"
+#include "diode.inc"
+#include "special.inc"
+#include "capwima.inc"
+#include "socket.inc"
+#include "qfp.inc"
+#include "switch.inc"
+#include "user.inc"
+
+#declare cam_x = -2;
+#declare cam_y = 7;
+#declare cam_z = -10;

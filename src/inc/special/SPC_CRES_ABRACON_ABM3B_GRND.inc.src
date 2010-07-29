@@ -1,0 +1,38 @@
+Ceramic Resonator
+// Ceramic Resonator
+// Producer: Abracon
+// Web: www.abracon.com
+// Part: ABM3B
+// Carsten Koegler <koegler(replace with at)ftz-leipzig.de>
+####################################################################################################
+NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SPC_CRES_ABRACON_ABM3B_GRND(:SMD Ceramic Resonator:
+####################################################################################################
+SPC_CRES_ABRACON_ABM3B_GRND
+(value)
+####################################################################################################
+SPC_CRES_ABRACON_ABM3B(value)
+(value)
+####################################################################################################
+####################################################################################################
+#local SPC_CRES_METAL_TEXTURE = texture { T_Chrome_5B } ;
+#local SPC_CRES_TEXT_PIGMENT = pigment { White*0.5 } ;
+
+union{
+	//Grundkoerper
+	union{
+        Round_Box_Union(<-2.5,0.03,-1.6>,<2.5,0.9, 1.6>, 0.05 ) pigment{White*0.1}
+        }
+	
+	//Anschlusspads
+	box{<-0.5,0,-0.45><0.5,0.3,0.45> texture{col_gold} translate<-2.05,0, 1.1>}
+	box{<-0.5,0,-0.45><0.5,0.3,0.45> texture{col_gold} translate<-2.05,0,-1.1>}
+	box{<-0.5,0,-0.45><0.5,0.3,0.45> texture{col_gold} translate< 2.05,0, 1.1>}
+	box{<-0.5,0,-0.45><0.5,0.3,0.45> texture{col_gold} translate< 2.05,0,-1.1>}
+
+        Round_Box_Union(<-2.5,0.85,-1.6>, <2.5,1.0, 1.6>, 0.05 )
+        Round_Box_Union(<-2.5+0.5,0.5,-1.6+0.5>,<2.5-0.5,1.1, 1.6-0.5>, 0.05 )
+        text {ttf besch_font value 0.02, 0 pigment{SPC_CRES_TEXT_PIGMENT} rotate<90,0,0> scale 1.0 translate<-1.5, 1.11,-0.1>}
+
+        texture {SPC_CRES_METAL_TEXTURE}	
+}
+#end

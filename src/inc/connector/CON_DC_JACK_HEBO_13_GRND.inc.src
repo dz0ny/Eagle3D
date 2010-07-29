@@ -1,0 +1,93 @@
+Hohlstecker-Printeinbau
+//Macro für Hohlstecker-Printeinbau (HEBO 13 - Reichelt.de)
+//franz.riedmueller@web.de
+####################################################################################################
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_DC_JACK_HEBO_13(:Hohlstecker-Printeinbaubuchse, gewinkelt (Reichelt.de HEBO 13):DC-Jack, Print (Reichelt.de HEBO 13)
+####################################################################################################
+CON_DC_JACK_HEBO_13_GRND
+()
+####################################################################################################
+CON_DC_JACK_HEBO_13()
+()
+####################################################################################################
+####################################################################################################
+union{ 
+ //Stift 
+ union{
+       cylinder{<0, 4.5, 0><5.5, 4.5, 0> 0.65}
+       cylinder{<0, 4.5, 0><0.2, 4.5, 0> 0.9} 
+       sphere {<5.5, 4.5, 0> 0.65}
+       texture{col_silver}
+       translate<-0.7, 0, 0>
+ } 
+ //Gehäuse
+ difference{
+        union{
+        box{<-5.75,0,-2.5><5.75,4.5,2.5>}
+        cylinder{<-5.75, 4.5, 0><5.75, 4.5, 0> 2.5}
+  }
+  box{<-5.25,2.5,-10><-10, 20, 10>}
+  box{<-0.75,2.5,-10><10, 20, 10>}
+ } 
+ //PIN
+ union{
+       box{<0,0,0.9><3.6-0.9, 0.3,-0.9>}
+       cylinder{<3.6-0.9, 0,0><3.6-0.9, 0.3,0> 0.9}
+       rotate<0,0,-90>
+       translate<-1.05,0,0>
+       texture{col_silver}
+ }
+ //PIN
+ union{
+       box{<0,0,0.9><3.6-0.9, 0.3,-0.9>}
+       cylinder{<3.6-0.9, 0,0><3.6-0.9, 0.3,0> 0.9}
+       rotate<0,0,-90>
+       translate<-5.75,0,0>
+       texture{col_silver}
+ }
+ //PIN
+ union{
+       box{<0,0,0.9><3.6-0.9, 0.3,-0.9>}
+       cylinder{<3.6-0.9, 0,0><3.6-0.9, 0.3,0> 0.9}
+       rotate<-90,0,-90>
+       translate<-3.2,0,3.25>
+       texture{col_silver}
+ } 
+ difference{
+            cylinder{<0,0,0><1.8,0,0>0.75}
+            cylinder{<-1,0,0><2.8,0,0>0.45} 
+            box{<-10,0,-10><10,-10,10>}
+            box{<-10,-10,0><10,10,-10>}
+            texture{col_silver}
+            translate<-4.1,0,2.5>
+ }
+ //Feder
+ union{ 
+       difference{
+                  cylinder{<0,0,0><2.6,0,0>0.75}
+                  cylinder{<-1,0,0><3.6,0,0>0.45} 
+                  box{<-10,0,-10><10,-10,10>}
+                  box{<-10,-10,0><10,10,-10>}
+       }
+       box{<2.6,0,0.45><0,-3,0.75>}
+       box{<0,0.45,0><2.6,0.75,-3>}
+       texture{col_silver}
+       rotate<0,90,45>
+       translate<2.5,3,1.3>
+ }
+ //Heckplatte
+ difference{
+           union{
+                 cylinder{<0,0,0><0,0.3,0>1.5}
+                 cylinder{<0,0,0><0,0.4,0>0.75}
+                 box{<0,0,-1.5><2.5,0.3,1.5>}
+                 texture{col_silver}
+           }
+           cylinder{<0,-1,0><0,1,0>0.3}
+           rotate<0,180,90>
+           translate<-5.45,4.5,0>
+ }
+ //translate<0,3.6,0>
+ translate<0,0.2,0>
+}
+#end

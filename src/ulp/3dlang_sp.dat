@@ -1,0 +1,167 @@
+Eagle3D (v1.05)
+(c)2002... 2008 Matthias Weißer - Traducción al español por Juan Enrique Castillo & cdr - updated Apr03-2008
+matthias@matwei.de
+Instrucciones y Licencia, por favor ver Eagle3D_e.pdf
+Este programa se ejecuta solo en el Circuito Impreso (.brd)
+Eagle3D (v1.05-2006) - Entrada de Parámetros
+General
+Renderizar solo las siguientes partes:
+Componentes
+Polígonos [ Top/Bottom layer(1/2)]
+Pistas Top/Bottom
+Perforaciones de Sopore, PADs, Vias. (Hueco real)
+PADs,SMD, Vias
+Perforaciones de Sopore, PADs, Vias. (Modo rápido)
+Exportar datos OBJ
+Asociar componentes desconocidos
+Usar modelos asignados
+Circuito Impreso (Baquelita)
+Pines cortos del lado de la soldadura
+Acomodar borde del Circuito Impreso a Rectangular
+Pantalla artificial: [Siluetas, Huellas, Textos, Fig(Rec, Cir...)]
+Fondo (paisajismo)
+Under test. Por favor reporte
+a matthias@matwei.de
+¡Atención!
+Taladros reales consumen
+potencia de CPU y tiempo de renderización
+(Tarda más de 10 veces más que el modo rápido)
+Destino del archivo renderizado (*.POV) se debe crear en .../eagle3d/povray
+Buscar
+Destino de archivo
+Circuito Impreso
+Dimensiones
+Grosor lamina de PCB-Board (en mm)
+Grosor lamina cobre PCB (en mm)
+[[[[]]]]
+Camara
+Posición
+Posición de Camara:
+Objetivo Camera:
+Angulo lente cónica:
+Activar
+Spot Color:
+Spot Posición:
+Spot Objetivo:
+Luz lunar
+Radio:
+Caída:
+Sin sombras
+Colores
+Selección manual (sola para: Definido por el usuario)
+Circuito Impreso (Baquelita) Color:
+[Top/Bot : Pistas, Wire, Text, Cir, Arc, Polig ] Def Color : Cobre c/s esmaltar
+[Top/Bot : Rect ] Def Color : Cobre c/s esmaltar
+Perforaciones. Default Color: Black
+Fondo (paisajismo). Default Color: White
+[Top/Bot : Siluetas, Huellas, TextL21, DocL51 ] Pantalla artificial Default Color: White
+Nuevo Color
+Rojo
+Verde
+Azul
+Etiqueta
+Añadir
+Color
+Cerrar ventana
+Archivo no seleccionado
+Archivo POVRay creado por
+Circuito Impreso
+Pads&SMD/Componentes
+Pads/Vias
+Señales
+Polígonos
+Taladros(real)/Componentes
+Taladros(real)/Vias
+Taladros(real)/Circuito Impreso
+Taladros(rápido)/Componentes
+Taladros(rápido)/Vias
+Taladros(rápido)/Circuito Impreso
+Pantalla artificial
+Componentes
+Componentes sin Macro (Ej. SMD Jumper soldadura)
+Opciones del paquete:
+transparente?       brillo =
+Seleccionar altura del XTAL
+Altura estándar del CRYSTALHC49* y SM49: 3  [mm]
+Altura estándar del CRYSTALHC18U-V:      12 [mm]        
+Asignar paquete
+Asignar como paquete desconocido ?
+Luz
+Angulo de rotación de PCB
+Incluir Zócalo al paquete:
+Si
+Sin zócalo este paquete
+Multi-capa
+Movimiento de capa
+actual
+No asignar modelo
+Usar asignación de comp del archivo (?.mpd) ? = actual (*.brd) name.
+¡Polígono con anchura menor a 0.1mm! Esto causa
+archivos POVRay muy grandes. Esto consume
+mucho tiempo de renderización.
+Tú tienes que usar Eagle v4.08 o superior www.cadsoftusa.com
+Taladros reales desde [mm]
+//translates the camera that <0,0,0> is over the Eagle <0,0>
+Taladros metalizados Pads, SMD, vias con soldadura. Default Color: Gold
+Configurar color
+Utilizar color para la PCB
+Definido por el usuario
+Con capa de barniz clara
+Muy coloreado
+Crear archivo (*.POV) y NO cerrar
+El archivo (*.POV) se debe crear en ...\eagle3d\povray
+Con capa de barniz (FR4 Muecke)
+El archivo  
+ existe.    ¿Actualizarlo?
+Si
+No
+.....    Todos los demas con zócalo    .....
+.....    Todos los demas sin zócalo    .....
+Normal PCB
+Ronda PCB
+Límites
+Mascara de soldadura VIA's hasta (mm)
+Crear archivo (*.POV) y cerrar
+Error mientras se escribía archivo (*.POV)
+Comentario
+Buscar paquete
+Buscar macro POVRay
+Buscar comentario
+Intensidad
+Archivo PovRay creado correctamente, Abralo ahora con POV-RAY
+Cancelar asignación de modelos de usuario
+!cambiar la carpeta del actual brd
+Capas Pantalla artificial [Place: top=21, bot=22] [Name: top=25, bot=26] [Value: top=27, bot=28] [Docu: top=51 , bot=52]
+Objetos del Paquete [T/B place(FootPrint/Poli), Docu(Text/Figure)] 21 22 {51 52}
+Objetos en la PCB: [T/B Place(Fig=Wire,Rec,Cir,Arc), Docu(Fig=EQ) ] 21 22 51 52
+Objetos del Paq: [T/B >Name(Prefix), >Value, Docu(Text/Figure)] 25 26 27 28 51 52
+Objetos en la PCB: [T/B Place(text), Docu(Text)] 21 22 51 52
+Jumper on pinheader
+Sin Jumper
+Jumper abierto
+Jumper cerrado
+Todos sin Jumper
+Todos con Jumper abierto
+Todos con Jumper cerrado
+Imagen no disponible
+mostrar imagen
+Altura [mm] de los pines del LED = 
+Varios
+Datos de animación
+No/not enough Animation Data available (min. 3 puntos)
+Numero de Imágenes
+Flight path
+Ver carpeta
+Creación de paquete de capas
+Sin capa de barniz
+Escoja Logo del paquete:
+Sin logo este paquete
+No board outline found. Generated POVRay file may contain errors.
+All without logo
+Create .svg file
+Pads \& SMD Bottom
+Path to POVRay
+Path to system fonts
+Resolution
+Use anti aliasing
+Call POVRay and render image

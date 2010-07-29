@@ -1,0 +1,230 @@
+CENTRONICS
+//Makro fuer CENTRONICS_Steckverbinder, female, Printmontage,    con-amp-champ.lib,      Joerg Bredendiek <sprut(replace with at)sprut.de>         
+// eine male-Version fuer Printmontage existiert nicht
+//         
+// pinraster 2,159 mm                                                               
+// Nullpunkt linke Ecke des auesseren Plastikkoerpers
+// Plastikkoerperbreite = ps + 29
+// Dshellbreite = ps+10
+//
+//basiert auf DSUB von Andreas Fecht <info(replace with at)vetter-und-fecht.de>
+//modifiziert und erweitert von Duane Clark <dclark(replace with at)akamail.com>
+####################################################################################################
+14H:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_CENTRONICS_F14(:Centronics 14polig 90 Grad weiblich:Centronics 14 Pins 90deg female (con-amp-champ.lib)
+14HP:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_CENTRONICS_F14(:Centronics 14polig 90 Grad weiblich:Centronics 14 Pins 90deg female (con-amp-champ.lib)
+24H:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_CENTRONICS_F24(:Centronics 24polig 90 Grad weiblich:Centronics 24 Pins 90deg female (con-amp-champ.lib)
+24HP:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_CENTRONICS_F24(:Centronics 24polig 90 Grad weiblich:Centronics 24 Pins 90deg female (con-amp-champ.lib)  
+36H:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_CENTRONICS_F36(:Centronics 36polig 90 Grad weiblich:Centronics 36 Pins 90deg female (con-amp-champ.lib)
+36HP:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_CENTRONICS_F36(:Centronics 36polig 90 Grad weiblich:Centronics 36 Pins 90deg female (con-amp-champ.lib)
+50H:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_CENTRONICS_F50(:Centronics 50polig 90 Grad weiblich:Centronics 50 Pins 90deg female (con-amp-champ.lib)
+50HP:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_CENTRONICS_F50(:Centronics 50polig 90 Grad weiblich:Centronics 50 Pins 90deg female (con-amp-champ.lib)
+####################################################################################################
+CON_CENTRONICS_GRND
+(pin, female)
+####################################################################################################
+CON_CENTRONICS_F14()
+(14, true)
+CON_CENTRONICS_F24()
+(24, true)
+CON_CENTRONICS_F36()
+(36, true)
+CON_CENTRONICS_F50()
+(50, true)
+####################################################################################################
+####################################################################################################
+  #local centcolor = color red 0.24 green 0.41 blue 0.81;	//blauer farbton fuer plastikkoerper  
+                 
+  #local j  = pin/2;      // number of pins in bottom row
+  #local hs = 2.159;      // horizontal pin spacing
+  #local hc = 9.525;      // horizontal centerline
+  #local vs = 2*hs;       // vertical pin spacing
+  #local vc = 7.5;        // vertical centerline
+  #local ps = (j-1)*hs;   // total pin spacing
+  #local bo = 31.3;       // body offset = body size - ps   
+  #local po = bo/2;       // offset to first pin 
+  #local so = 4.064;      // screwlock offset from body sides
+    
+
+#macro DSHELL(ps, vc)
+  // 
+  #local do = 12.5;       // dshell offset,   the dshell offset is (body size - dshell size)/2 + radius
+  #local ds = do+6.3;     // do + dshell size - ps - (radius*2)     12.5 + ps+12.3 -ps -6
+  union
+  {
+    cylinder{<do,     vc+3, 0> <do,     vc+3, -9> 3 }	//oben  links
+    cylinder{<ds+ps,  vc+3, 0> <ds+ps,  vc+3, -9> 3 }	//oben  rechts
+    cylinder{<do+1,   vc-3, 0> <do+1,   vc-3, -9> 3 }	//unten links
+    cylinder{<ds+ps-1,vc-3, 0> <ds+ps-1,vc-3, -9> 3 }	//unten rechts
+
+    box{<do,  vc-0.1  ,  0> <ds+ps,  vc+6, -9>}									// oben
+    box{<do+1,vc  ,  0> <ds+ps-1,vc-6, -9>}									// unten
+    box{<-2,   vc+3, 0> <3.5,    vc-3, -9> rotate<0,0,-9.62> translate<ds+ps-2.20,0,0> }	// links
+    box{<-2,   vc+3, 0> <3.5,    vc-3, -9> rotate<0,0, 9.62> translate<do+0.65,   0,0> }	// rechts
+  }
+#end 
+                                        
+                                        
+//Metalloese in Frontplatte fuer den Buegel        
+#macro OESE(ho,vo)
+  difference{
+        cylinder{<ho,vo-1.5,-1><ho,vo+1.5,-1>1.8 texture{col_silver} }
+        cylinder{<ho,vo-1.6,-1><ho,vo+1.6,-1>1.2 texture{col_silver} }       
+        texture{T_Chrome_5B} 
+  }          
+#end      
+                     
+
+//Buegel an Frontplatte                     
+#macro BUEGEL() 
+    #local bends=array[15] {
+    // <angle, radius, 0> or <0, distance, 0> for straight pipe
+    // negative angles bend left, positive bend right.
+    <0, 3, 0>,  <-90, 1, 0>,  <0,10,0>,  <-45,1,0>,  <0, 6, 0>,  <90, 1, 0>, <0,9,0>, <90, 1, 0>, <0,9,0>,<90, 1, 0>, <0,6,0>, <-45,1,0>, <0,10,0>, <-90,1,0>, <0,3,0>
+    }
+    // this pipe has a radius of 0.4, starts at the origin, and initially goes in the x direction
+    TOOLS_BENTPIPE( 0.4, <0,0,0>, y, bends )
+#end
+    
+
+//los gehts    
+union
+{                 
+      // the D shaped shell
+      difference
+      {
+                object
+                {
+                        DSHELL(ps, vc)
+                        translate<-0.5,-0.25,0>
+                        scale<1.04-(0.0015*j),1.04,1>
+                        texture{T_Chrome_5B}
+                }
+
+                object
+                {
+                        DSHELL(ps, vc)
+                        scale<1,1,1.1>
+                        texture{T_Chrome_5B}
+                }
+        }
+
+        #if (female)
+        // gefuellt mit blauer plastik
+	        difference{
+		        DSHELL(ps, vc)               
+		        box{<po-2.5, vc-vs/2, -2> <po+ps+2.5, vc+vs/2, -9.2>pigment{centcolor} }   //mit einem 5 mm breitem schacht in der Mitte, 5mm breiter als pinspacing     
+		        // loecher ueber/unter den Pins 
+                        #local i = 0;
+                        #while(i<j)   
+                                box{<po+hs*i-0.5, vc+vs/2+0.5, -2><po+hs*i+0.5, vc+vs/2+1.5, -9.2>}
+                                box{<po+hs*i-0.5, vc-vs/2-0.5, -2><po+hs*i+0.5, vc-vs/2-1.5, -9.2>}
+                                #local i = i+1;
+                        #end   		        		        
+                        pigment{centcolor} 
+	        }
+                // buchsenpins
+                #local i = 0;
+                #while(i<j)
+                        cylinder{<po+hs*i, vc+vs/2, -2> <po+hs*i, vc+vs/2    , -7.5> 0.5 texture{col_gold} }   
+                        sphere{                         <po+hs*i, vc+vs/2    , -7.5> 0.5 texture{col_gold} }
+                        sphere{                         <po+hs*i, vc+vs/2+0.5, -8  > 0.5 texture{col_gold} }
+                        cylinder{<po+hs*i, vc-vs/2, -2> <po+hs*i, vc-vs/2    , -7.5> 0.5 texture{col_gold} }  
+                        sphere{                         <po+hs*i, vc-vs/2    , -7.5> 0.5 texture{col_gold} }  
+                        sphere{                         <po+hs*i, vc-vs/2-0.5, -8  > 0.5 texture{col_gold} }                        
+                        #local i = i+1;
+                #end 
+        #else
+        // dshell pins male   
+                box{<po-1.5, vc-vs/2, -0.5> <po+ps+1.5, vc+vs/2, -7>}   // 4 mm breiter Steg in der Mitte , 3mm breiter asl pinspacing
+                pigment{centcolor}
+
+                union
+                {
+                        #local i = 0;
+                        #while(i<j)
+                        cylinder{<po+hs*i,vc+vs/2,-0.5> <po+hs*i, vc+vs/2, -7> 0.5 texture{col_gold} } 
+                        sphere{                         <po+hs*i, vc+vs/2, -7> 0.5 texture{col_gold} }
+                        cylinder{<po+hs*i,vc-vs/2,-0.5> <po+hs*i, vc-vs/2, -7> 0.5 texture{col_gold} } 
+                        sphere{                         <po+hs*i, vc-vs/2, -7> 0.5 texture{col_gold} }                         
+                        #local i = i+1;
+                        #end
+                }
+      #end
+
+      // board pins
+      union
+      {
+        #local i = 0;
+        #while(i<j)
+        cylinder{<po+hs*i,0,hc+vs/2><po+hs*i,-3,hc+vs/2> 0.3 texture{col_gold} }
+        cylinder{<po+hs*i,0,hc-vs/2><po+hs*i,-3,hc-vs/2> 0.3 texture{col_gold} }
+        #local i = i+1;
+    #end
+  }
+
+  // screwlock backplates
+  box{<bo+ps-so+2.5,3,4><bo+ps-so+2.5,9.5,4.5> texture{T_Chrome_5B} }
+  box{<so-2.5,3,4><so+2.5,9.5,4.5> texture{T_Chrome_5B} }
+  // lower plates
+  box{<bo+ps-so-1.5,3,4><bo+ps-so+1.5,3.25,hc+0.5> texture{T_Chrome_5B} }
+  box{<so-1.5,3,4><so+1.5,3.25,hc+0.5> texture{T_Chrome_5B} }
+  // mounting tabs
+  box{<bo+ps-so-1.5,-4,hc-0.5><bo+ps-so-0.5,3.25,hc+0.5> texture{col_silver} }
+  box{<so-1.5,-4,hc-0.5><so-0.5,3.25,hc+0.5> texture{col_silver} }
+
+  box{<bo+ps-so+1.5,-4,hc-0.5><bo+ps-so+0.5,3.25,hc+0.5> texture{col_silver} }
+  box{<so+1.5,-4,hc-0.5><so+0.5,3.25,hc+0.5> texture{col_silver} }
+                            
+                            
+  // the main plastic body
+  difference
+  {
+    box{< 0,      0, 0> <bo+ps,    13.5, 15>}                 //alles          
+    box{<bo-7+ps, 3, 4> <bo+0.1+ps,13.6, 15.1>}               // 1. ecke ab
+    box{<-0.1,    3, 4> <7,        13.6, 15.1>}               // 2. ecke ab 
+    cylinder{<bo-7+ps, 13, 4>  <bo-7+ps, 13, 15.1> 1}         // seitliche obere kanten ausbohren
+    cylinder{<7,       13, 4>  <7,       13, 15.1> 1}    
+    
+    cylinder{<bo-so+ps, 3.1,  hc> <bo-so+ps, -0.1, hc>   1.7}     // vertikale 3.4 mm Loecher fuer Platinenbefestigung
+    cylinder{<so,       3.1,  hc> <so,       -0.1, hc>   1.7}
+  }                                          
+
+  // seitliche obere ausgebohrte Kanten abrunden
+  cylinder{<bo-8+ps,12.5,4><bo-8+ps,12.5,15> 1} 
+  cylinder{<8,12.5,4><8,12.5,15> 1}
+
+  // duenne plastik-Lage hinter Frontplatte  oberhalb des main body, mit runden ecken, 2mm dick
+  box{<1.5,13,0><bo+ps-1.5,15,2>}
+  cylinder{<bo-1.5+ps,13.5,0><bo-1.5+ps,13.5,2> 1.5}
+  cylinder{<1.5,13.5,0><1.5,13.5,2> 1.5}
+
+  // Blech hinter der D shell , 1 mm dick, Rundungsradius 1,5 mm an allen ecken
+  box{<0,1.5,0><bo+ps,13.5,-1>  texture{T_Chrome_5B} }
+  box{<1.5,13.5,0><bo+ps-1.5,15,-1> texture{T_Chrome_5B} }
+  cylinder{<bo+ps-1.5,13.5,0><bo+ps-1.5,13.5,-1> 1.5 texture{T_Chrome_5B} }
+  cylinder{<1.5,13.5,0><1.5,13.5,-1> 1.5 texture{T_Chrome_5B} }
+  box{<1.5,0,0><bo+ps-1.5,1.5,-1> texture{T_Chrome_5B} }
+  cylinder{<bo+ps-1.5,1.5,0><bo+ps-1.5,1.5,-1> 1.5 texture{T_Chrome_5B} }
+  cylinder{<1.5,1.5,0><1.5,1.5,-1> 1.5 texture{T_Chrome_5B} }
+                                        
+  //Schrauben                  
+  object{TOOLS_SCREW (2.5,7,1,centcolor) rotate<-90,0,0> translate<so      ,vc,-1> texture{col_silver} }
+  object{TOOLS_SCREW (2.5,7,1,centcolor) rotate<-90,0,0> translate<bo+ps-so,vc,-1> texture{col_silver} }          
+  
+  //Oesen 
+  object{OESE(so+2      , vc-4.5) texture{T_Chrome_5B} }  
+  object{OESE(so+2      , vc+4.5) texture{T_Chrome_5B} }
+  object{OESE(bo+ps-so-2, vc-4.5) texture{T_Chrome_5B} }
+  object{OESE(bo+ps-so-2, vc+4.5) texture{T_Chrome_5B} }  
+  
+  //Buegel
+  object{BUEGEL() rotate<0,-30,0> translate<so+2      , vc-6.5,-1.5> texture{T_Chrome_5B} }  
+  object{BUEGEL() rotate<0,210,0> translate<bo+ps-so-2, vc-6.5,-1.5> texture{T_Chrome_5B} } 
+                     
+  translate<0-po-ps/2,0,0-hc>
+  rotate<0,180,0>
+  pigment{centcolor} 
+}
+#end
+
+

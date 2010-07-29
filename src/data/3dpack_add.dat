@@ -1,0 +1,40 @@
+1210:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:1:0:0:0:0:0:0:0:0:0:0:0:0:NOMACRO:Nicht benutzen!!!! Spezial:Do not use!!!! special
+1206:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:1:0:0:0:0:0:0:0:0:0:0:0:0:NOMACRO:Nicht benutzen!!!! Spezial:Do not use!!!! special
+0805:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:1:0:0:0:0:0:0:0:0:0:0:0:0:NOMACRO:Nicht benutzen!!!! Spezial:Do not use!!!! special
+0603:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:1:0:0:0:0:0:0:0:0:0:0:0:0:NOMACRO:Nicht benutzen!!!! Spezial:Do not use!!!! special
+0402:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:1:0:0:0:0:0:0:0:0:0:0:0:0:NOMACRO:Nicht benutzen!!!! Spezial:Do not use!!!! special
+SJ:0:0:0:0:0:0:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:NOMACRO:SMD-Loetjumper:SMD-Solder Jumper
+SJW:0:0:0:0:0:0:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:NOMACRO:SMD-Loetjumper:SMD-Solder Jumper
+SJ_2:0:0:0:0:0:0:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:NOMACRO:SMD-Loetjumper:SMD-Solder Jumper
+SJ_2W:0:0:0:0:0:0:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:NOMACRO:SMD-Loetjumper:SMD-Solder Jumper
+B1,27:0:0:0:0:0:0:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:NOMACRO:Testpunkt:Test point
+B2,54:0:0:0:0:0:0:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:NOMACRO:Testpunkt:Test point
+TP06R:0:0:0:0:0:0:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:NOMACRO:Testpunkt:Test point
+TP06SQ:0:0:0:0:0:0:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:NOMACRO:Testpunkt:Test point
+TP07R:0:0:0:0:0:0:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:NOMACRO:Testpunkt:Test point
+TP07SQ:0:0:0:0:0:0:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:NOMACRO:Testpunkt:Test point
+TP08R:0:0:0:0:0:0:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:NOMACRO:Testpunkt:Test point
+TP08SQ:0:0:0:0:0:0:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:NOMACRO:Testpunkt:Test point
+TP09R:0:0:0:0:0:0:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:NOMACRO:Testpunkt:Test point
+TP09SQ:0:0:0:0:0:0:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:NOMACRO:Testpunkt:Test point
+TP10R:0:0:0:0:0:0:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:NOMACRO:Testpunkt:Test point
+TP10SQ:0:0:0:0:0:0:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:NOMACRO:Testpunkt:Test point
+TP11R:0:0:0:0:0:0:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:NOMACRO:Testpunkt:Test point
+TP11SQ:0:0:0:0:0:0:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:NOMACRO:Testpunkt:Test point
+TP12R:0:0:0:0:0:0:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:NOMACRO:Testpunkt:Test point
+TP12SQ:0:0:0:0:0:0:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:NOMACRO:Testpunkt:Test point
+TP13R:0:0:0:0:0:0:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:NOMACRO:Testpunkt:Test point
+TP13SQ:0:0:0:0:0:0:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:NOMACRO:Testpunkt:Test point
+TP14R:0:0:0:0:0:0:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:NOMACRO:Testpunkt:Test point
+TP14SQ:0:0:0:0:0:0:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:NOMACRO:Testpunkt:Test point
+TP15R:0:0:0:0:0:0:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:NOMACRO:Testpunkt:Test point
+TP15SQ:0:0:0:0:0:0:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:NOMACRO:Testpunkt:Test point
+TP16R:0:0:0:0:0:0:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:NOMACRO:Testpunkt:Test point
+TP16SQ:0:0:0:0:0:0:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:NOMACRO:Testpunkt:Test point
+TP17R:0:0:0:0:0:0:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:NOMACRO:Testpunkt:Test point
+TP17SQ:0:0:0:0:0:0:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:NOMACRO:Testpunkt:Test point
+TP18R:0:0:0:0:0:0:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:NOMACRO:Testpunkt:Test point
+TP18SQ:0:0:0:0:0:0:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:NOMACRO:Testpunkt:Test point
+TP19R:0:0:0:0:0:0:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:NOMACRO:Testpunkt:Test point
+TP19SQ:0:0:0:0:0:0:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:NOMACRO:Testpunkt:Test point
+TP20R:0:0:0:0:0:0:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:NOMACRO:Testpunkt:Test point

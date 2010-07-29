@@ -1,0 +1,72 @@
+Taster
+//B3F-10XX
+//Tobias Mueller <Tobias_Mueller(replace with at)twam.info>
+//erweitert und umbenannt von M. Weisser <mattias@matwei.de>
+//
+//dia:    diameter of button
+//height: height of button over case of button
+//color:  color of actual button
+####################################################################################################
+B3F-10XX:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SWITCH_B3F_10XX1(:Taster Switch-Omron:Tactile Switch-Omron
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SWITCH_SKHH_V_4_3MM_YELL(:Tactile switch:
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SWITCH_SKHH_V_5MM_YELL(:Tactile switch:
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SWITCH_SKHH_V_7MM_YELL(:Tactile switch:
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SWITCH_SKHH_V_9_5MM_YELL(:Tactile switch:
+####################################################################################################
+SWITCH_ALPS_SKHH_V_GRND
+(dia, height, c)
+####################################################################################################
+SWITCH_B3F_10XX1()
+(4,1,Black)
+SWITCH_SKHH_V_4_3MM_YELL()
+(4,1.3,Yellow)
+SWITCH_SKHH_V_5MM_YELL()
+(4,2,Yellow)
+SWITCH_SKHH_V_7MM_YELL()
+(4,4,Yellow)
+SWITCH_SKHH_V_9_5MM_YELL()
+(4,6.5,Yellow)
+####################################################################################################
+####################################################################################################
+union{
+	box{<-3,0,-3><3,2.9,3> pigment{Black}}
+	box{<-3,2.9,-3><3,3,3> pigment{Gray50}}
+		
+	object{
+		Round_Cylinder_Union(<0,3,0>, <0,3+height,0>, dia/2, (dia/2)/10)
+		texture
+		{
+			pigment{c}
+			finish{phong 0.4 reflection{0.2}  ambient (0.1 * global_ambient_mul)}
+		}
+	}
+	
+	
+	cylinder { <0,3,0> <0,3.2,0> 0.4 pigment {Black} translate<-2.5,0,-2.5>}
+	cylinder { <0,3,0> <0,3.2,0> 0.4 pigment {Black} translate <-2.5,0,2.5>}
+	cylinder { <0,3,0> <0,3.2,0> 0.4 pigment {Black} translate <2.5,0,-2.5>}
+	cylinder { <0,3,0> <0,3.2,0> 0.4 pigment {Black} translate <2.5,0,2.5>}
+	union{
+		box{<-0.2,-1,-0.4> <0.2,1,0.4>}
+		cylinder { <-0,1,-0.4> <0,1,0.4> 0.2}
+		translate <3,0,2.2>
+	}
+	union{
+		box { <-0.2,-1,-0.4> <0.2,1,0.4>}
+		cylinder { <-0,1,-0.4>  <0,1,0.4> 0.2}
+		translate <3,0,-2.2>
+	}
+	union {
+		box { <-0.2,-1,-0.4> <0.2,1,0.4>}
+		cylinder { <-0,1,-0.4>  <0,1,0.4> 0.2}
+		translate <-3,0,2.2>
+	}
+	union {
+		box { <-0.2,-1,-0.4> <0.2,1,0.4>}
+		cylinder { <-0,1,-0.4>  <0,1,0.4> 0.2}
+		translate <-3,0,-2.2>
+	}
+	texture{pigment{Gray70} finish{F_MetalA ambient (0.1 * global_ambient_mul)}}
+}
+#end
+

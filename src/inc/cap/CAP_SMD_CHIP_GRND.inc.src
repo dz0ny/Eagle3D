@@ -1,0 +1,48 @@
+Keramik SMD-Kondensator
+//Grundmakro für SMD-Keramik-Chip-Kondensator (neu Parameter K = Anschlussbreite)
+//basiert auf Makro von Walter Mücke
+####################################################################################################
+NOEAGLEPAC:0:0:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CAP_SMD_CHIP_2220(DarkWood:SMD Kondensator 2220:SMD Capacitor 2220
+C1825:0:0:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CAP_SMD_CHIP_1825(DarkWood:SMD Kondensator 1825:SMD Capacitor 1825
+C1812:0:0:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CAP_SMD_CHIP_1812(DarkWood:SMD Kondensator 1812:SMD Capacitor 1812
+C1210:0:0:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CAP_SMD_CHIP_1210(DarkWood:SMD Kondensator 1210:SMD Capacitor 1210
+C1206:0:0:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CAP_SMD_CHIP_1206(DarkWood:SMD Kondensator 1206:SMD Capacitor 1206
+C1206K:0:0:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CAP_SMD_CHIP_1206(DarkWood:SMD Kondensator 1206:SMD Capacitor 1206
+C0805:0:0:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CAP_SMD_CHIP_0805(DarkWood:SMD Kondensator 0805:SMD Capacitor 0805
+C0805K:0:0:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CAP_SMD_CHIP_0805(DarkWood:SMD Kondensator 0805:SMD Capacitor 0805
+C0603:0:0:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CAP_SMD_CHIP_0603(DarkWood:SMD Kondensator 0603:SMD Capacitor 0603
+C0402:0:0:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CAP_SMD_CHIP_0402(DarkWood:SMD Kondensator 0402:SMD Capacitor 0402
+####################################################################################################
+CAP_SMD_CHIP_GRND
+(L,W,T,K)
+####################################################################################################
+//2220
+CAP_SMD_CHIP_2220(color_sub)
+(5.7,5.0,2.7,0.5)
+//1825
+CAP_SMD_CHIP_1825(color_sub)
+(4.5,6.4,1.7,0.5)
+//1812
+CAP_SMD_CHIP_1812(color_sub)
+(4.5,3.2,1.7,0.5)
+//1210
+CAP_SMD_CHIP_1210(color_sub)
+(3.2,2.5,1.7,0.5)
+CAP_SMD_CHIP_1206(color_sub)
+(3.2,1.6,1.5,0.5)
+CAP_SMD_CHIP_0805(color_sub)
+(2.0,1.25,1.3,0.5)
+CAP_SMD_CHIP_0603(color_sub)
+(1.6,0.8,0.9,0.3)
+CAP_SMD_CHIP_0402(color_sub)
+(1.0,0.5,0.6,0.2)
+####################################################################################################
+####################################################################################################
+union{
+	superellipsoid{<0.25-(L+W)/150, 0.25-(L+W)/150> pigment{color_sub} scale<L/2,W/2,T/2> }     //Grundkörper braun
+	superellipsoid{<0.25-(L+W)/200, 0.25-(L+W)/200> scale<(K+L/100)/2,W/2,T/2> translate <(L-K)/2,0,0> texture{col_silver}}      //rechter Anschluss
+	superellipsoid{<0.25-(L+W)/200, 0.25-(L+W)/200> scale<(K+L/100)/2,W/2,T/2> translate <-(L-K)/2,0,0> texture{col_silver}}      //linker Anschluss
+	rotate<90,0,0>
+	translate<0,T/2,0>
+}
+#end

@@ -1,0 +1,167 @@
+Eagle3D (v###VERSIONDUMMY###)
+(c)2002,2003 Matthias Weißer - Traduzione IT by Luigi ERROI
+matthias@matwei.de                      matrix274@alice.it
+Per le istruzioni e la licenza d'uso vedi Eagle3D_e.pdf
+Questo convertitore funziona solo in modalità "BOARD"
+Eagle3D (v###VERSIONDUMMY###) Parametri di Input
+Generale
+Render
+Componenti
+Poligoni
+Collegamenti
+Fori (modo Real)
+Piazzole & SMD
+Fori (modo Fast)
+Esporta dati OBJ
+Componenti sconosciuti
+Modelli assegnati dall'Utente
+Scheda
+Pins corti
+Scheda rettangolare
+Serigrafia
+Sfondo Immagine
+In sperimentazione. Prego, inviare commenti
+a: matthias@matwei.de
+Attenzione!
+Fori in modalità "REAL" richiedono
+potenza di calcolo e tempo di rendering
+(Più di 10 volte la modalità FAST)
+File di destinazione
+Sfoglia
+File di destinazione
+Scheda
+Dimensioni
+PCB- Spessore scheda(in mm)
+PCB- Spessore rame (in mm)
+[[[[]]]]
+Camera
+Posizione
+Posizione Camera:
+Obiettivo Camera:
+Angolo della lente:
+Attiva
+Colore Spot:
+Posizione Spot:
+Obiettivo Spot:
+Luce-spot
+Raggio:
+Caduta:
+Niente ombra
+Colori
+Selezione manuale
+Scheda
+Collegamenti
+Piazzole e SMD
+Fori
+Sfondo
+Silk Screen
+Nuovo Colore
+Rosso
+Verde
+Blu
+Etichetta
+Colore
+Aggiungi
+Annulla/Esci
+Nessun file selezionato
+POVRay-File creato da
+Scheda
+Piazzole&SMD/Componenti
+Piazzole/Via
+Segnali
+Poligoni
+Fori(Real)/Componenti
+Fori(Real)/Via
+Fori(Real)/Scheda
+Fori(Fast)/Componenti
+Fori(Fast)/Via
+Fori(Fast)/Scheda
+Silk Screen
+Componenti
+Componenti senza Macro (e.g. SMD Solderjumper)
+Colore Selezionato
+Trasparente?
+Seleziona altezza
+Altezza Standard HC49: 3mm
+Altezza Standard HC18: 12mm
+Assegna Componente
+Assegna come Componente sconosciuto
+Luce
+Angolo di rotazione della scheda
+IC su zoccolo
+Con zoccolo
+Senza zoccolo
+Multilayer
+Movimento del layer
+attuale
+Non assegnare modello
+Assegna da file brdname.mpd
+Larghezza Poligono inferiore a 0.1mm! Questo può causare
+un files di Povray molto grande. Richiede molto
+Tempo per il rendering.
+Devi usare Eagle v4.08 o superiore
+Diametro fori (mm)
+//traduce la camera that <0,0,0> is over the Eagle <0,0>
+Attraverso i fori
+Colori preimpostati
+Seleziona Colori preimpostati
+Definito dall'Utente
+FR4 con Solder Mask
+Molto colorato
+Crea POV-File
+Seleziona la directory per salvare
+FR4 con Solder Mask (Mosquito)
+Il File
+esiste. Sovrascriverlo?
+Si
+No
+Tutti con zoccolo
+Tutti senza zoccolo
+PCB normale
+PCB rotondo
+Taglia Piedini
+Solder Mask sui VIA fino a (mm)
+Crea POV-File ed esci
+Errore nella scrittura del POV-File
+Commenti
+Cerca package
+Cerca POVRay-macro
+Cerca commento
+Intensità
+File POVRay scritto con successo
+Esci modalità "assegnati dall'utente"
+Imposta il percorso del file .BRD
+Questi strati sono usati per la serigrafia
+Disegno del Contenitore
+Disegno della scheda
+Testo del Contenitore
+Testo della scheda
+Jumper su multiPIN
+Senza Jumper
+Jumper aperto
+Jumper chiuso
+Tutti senza Jumper
+Tutti i Jumper aperti
+Tutti i Jumper chiusi
+Nessuna Immagine Disponibile
+Mostra Immagine
+anheben um:
+Varie
+Dati Animazione
+Disponibilità di dati non sufficiente per Animazione (min. 3 points)
+Numero di Frames
+Percorso per Flight
+Percorso per visione
+Strati per creazione contenitori
+Without soldermask
+Logo on IC
+No logo
+No board outline found. Generated POVRay file may contain errors.
+All without logo
+Create .svg file
+Pads \& SMD Bottom
+Path to POVRay
+Path to system fonts
+Resolution
+Use anti aliasing
+Call POVRay and render image

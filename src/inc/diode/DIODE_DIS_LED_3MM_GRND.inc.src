@@ -1,0 +1,61 @@
+LED 3mm
+//LED 3mm
+####################################################################################################
+LED3MM:0:0:0:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:DIODE_DIS_LED_3MM(:Diskrete 3MM LED:
+####################################################################################################
+DIODE_DIS_LED_3MM_GRND
+(col,tra,height)
+####################################################################################################
+DIODE_DIS_LED_3MM(col,tra,height)
+(col,tra,height)
+####################################################################################################
+####################################################################################################
+union{
+	merge{
+		cylinder{<0,0.75,0><0,3,0>1.5}
+		difference{
+			cylinder{<0,0,0><0,0.75,0>1.7}
+			box{<1.501,-0.1,-3><3,2,3>}
+		}
+		sphere{<0,3,0>1.5}
+	}
+	
+	#if(pin_short=off)
+		box{<-0.2,1.5,-0.2><0.2,-30.4,0.2> texture{col_silver}translate<-1.27,0,0>}
+	#else
+		box{<-0.2,1.5,-0.2><0.2,-1*(pcb_height+pin_length+height)-0.2,0.2> texture{col_silver}translate<-1.27,0,0>}
+	#end
+	
+	difference{
+		box{<-0.2,1.5,-0.2><2,2.5,0.2>texture{col_silver}translate<-1.27,0,0>}
+		box{<0,0,-0.201><2,1,0.201>texture{col_silver} rotate<0,0,15> translate<0,0.5,0>}
+		lathe{
+			linear_spline 3,
+			<0, 0>, <1.2, 1> <0,1> texture{col_silver} translate<0,1.7,0>}
+		}
+		lathe{
+			linear_spline 4,
+			<0, 0>, <1, 1>, <1.2,1>,<0.2,0>
+			texture{col_silver} translate<0,1.7,0>
+		}
+		
+		box{<-0.4,0,-0.4><0.4,0.3,0.4>pigment{col} finish{ ambient (1 * global_ambient_mul)} translate<0,2.2,0>}
+		
+		difference{
+		#if(pin_short=off)
+			box{<-0.2,1.1,-0.2><0.2,-25.4,0.2> texture{col_silver}translate<1.27,0,0>}
+		#else
+			box{<-0.2,1.1,-0.2><0.2,-1*(pcb_height+pin_length+height)-0.2,0.2> texture{col_silver}translate<1.27,0,0>}
+		#end
+		cylinder{<-0.2,1.1,-0.201><-0.2,1.1,0.201>0.2 translate<1.24,0,0>}
+	}
+	
+	box{<0,1,-0.2><0.2,2.6,0.2>translate<1.27,0,0> texture{col_silver}}
+	
+	pigment{col filter tra}
+	interior { ior 1.5 }
+	translate<0,0.2,0>
+	 	
+	translate<0,height,0>
+}
+#end

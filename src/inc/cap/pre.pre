@@ -1,0 +1,8 @@
+#ifndef(__cap_inc)
+#declare __cap_inc = true;
+
+#ifndef(inc_testmode)
+#declare inc_testmode=true;
+#include "tools.inc"
+#undef inc_testmode
+#end

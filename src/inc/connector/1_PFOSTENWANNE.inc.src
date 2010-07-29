@@ -1,0 +1,39 @@
+Kunststoffkörper von Pfostenwannen
+// Tilmann Reh <tilmann.reh@autometer.de>
+// Grundmakro: Kunststoffkörper von Pfostenwannen.
+// Verwendung für gerade und abgewinkelte Bauform jeweils in Verbindung mit entspr. Pinreihen.
+// Parameter: Breite. (Höhe/Tiefe sind konstant für alle Größen.)
+// Bezugspunkt: Mitte der Auflagefläche (gerade Ausführung).
+####################################################################################################
+####################################################################################################
+PFOSTENWANNE
+(B)
+####################################################################################################
+####################################################################################################
+####################################################################################################
+union{
+difference{
+box{<-B/2,0.3,-4.2><B/2,9,4.5>}
+box{<-B/2+1,2.5,-3.2><B/2-1,10,3.5>}
+box{<-2.2,2,2.5><2.2,10,5>}
+box{<B/2-1.1,0,-1.75><B/2+0.1,6.5,1.75>}
+box{<-B/2+1.1,0,-1.75><-B/2-0.1,6.5,1.75>}}
+difference{
+box{<B/2-6.08,6,4><B/2-4.08,8,4.6>}
+box{<0,0,0><2,3,0.7> rotate<0,0,-30> translate<B/2-5.08,6,4>}
+box{<0,0,0><-2,3,0.7> rotate<0,0,30> translate<B/2-5.08,6,4>}}
+cylinder{<0,0.3,-4.2><0,8.5,-4.2> 0.3}
+sphere{<0,0.3,-3.2> 0.3}
+sphere{<0,0.3,3.2> 0.3}
+#local xc=7.62;
+#while (xc<B/2-1)
+cylinder{<xc,0.3,-4.2><xc,8.5,-4.2> 0.3}
+cylinder{<-xc,0.3,-4.2><-xc,8.5,-4.2> 0.3}
+sphere{<xc,0.3,-3.2> 0.3}
+sphere{<xc,0.3,3.2> 0.3}
+sphere{<-xc,0.3,-3.2> 0.3}
+sphere{<-xc,0.3,3.2> 0.3}
+#local xc=xc+7.62;
+#end
+texture {col_Wannen}}
+#end

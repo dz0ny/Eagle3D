@@ -1,0 +1,112 @@
+DC-DC Konverter
+//Macros for DC-DC CONVERTERs SIP series from TRACO
+//Designed by Philippe Boucheny <philippe.boucheny(replace with at)free.fr>
+//Rev. 1.0 - 21/12/05
+####################################################################################################
+NOEAGLEPAC:0:1:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SPC_VCONV_SIP_TMA_S(:DC-DC converter TMA single <24V:
+NOEAGLEPAC:0:1:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SPC_VCONV_SIP_TMA_D(:DC-DC converter TMA dual <24V:
+NOEAGLEPAC:0:1:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SPC_VCONV_SIP_TMA_S_24V(:DC-DC converter TMA single 24V:
+NOEAGLEPAC:0:1:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SPC_VCONV_SIP_TMA_D_24V(:DC-DC converter TMA dual 24V:
+NOEAGLEPAC:0:1:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SPC_VCONV_SIP_TME(:DC-DC converter TME <24V:
+NOEAGLEPAC:0:1:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SPC_VCONV_SIP_TME_24V(:DC-DC converter TME 24V:
+NOEAGLEPAC:0:1:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SPC_VCONV_SIP_TMV_S(:DC-DC converter TMV single:
+NOEAGLEPAC:0:1:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SPC_VCONV_SIP_TMV_D(:DC-DC converter TMV dual:
+NOEAGLEPAC:0:1:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SPC_VCONV_SIP_TMV_S_24V(:DC-DC converter TMV single 24V:
+NOEAGLEPAC:0:1:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SPC_VCONV_SIP_TMV_D_24V(:DC-DC converter TMV dual 24V:
+NOEAGLEPAC:0:1:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SPC_VCONV_SIP_TMVEN_S(:DC-DC converter TMV-EN single:
+NOEAGLEPAC:0:1:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SPC_VCONV_SIP_TMVEN_D(:DC-DC converter TMV-EN dual:
+NOEAGLEPAC:0:1:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SPC_VCONV_SIP_TMH_S(:DC-DC converter TMH single:
+NOEAGLEPAC:0:1:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SPC_VCONV_SIP_TMH_D(:DC-DC converter TMH dual:
+NOEAGLEPAC:0:1:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SPC_VCONV_SIP_TMR(:DC-DC converter TMR:
+####################################################################################################
+SPC_VCONV_SIP_GRND
+(value,s,Lg,lg1,lg,h,p1,p2,p3,p4,p5,p6,p7,p8,os,pl)
+####################################################################################################
+//TMA single/dual voltage, less or equal to 24V input voltage
+SPC_VCONV_SIP_TMA_S(value)
+(value,2.3,+19.5,1.25,6,10.2,1,1,0,1,0,1,0,0,0,3.2)
+SPC_VCONV_SIP_TMA_D(value)
+(value,2.3,+19.5,1.25,6,10.2,1,1,0,1,0,1,0,0,0,3.2)
+SPC_VCONV_SIP_TMA_S_24V(value)
+(value,2.3,+19.5,1.25,7,10.2,1,1,0,1,0,1,0,0,0,3.2)
+SPC_VCONV_SIP_TMA_D_24V(value)
+(value,2.3,+19.5,1.25,7,10.2,1,1,0,1,0,1,0,0,0,3.2)
+//TME less or equal to 24V input voltage
+SPC_VCONV_SIP_TME(value)
+(value,1.9,+11.5,4.2,6,10.2,1,1,1,1,0,0,0,0,-3.5,3.2)
+SPC_VCONV_SIP_TME_24V(value)
+(value,1.9,+11.5,5.2,7,10.2,1,1,1,1,0,0,0,0,-3.5,3.2)
+//TMV single/dual voltage, less or equal to 24V input voltage
+SPC_VCONV_SIP_TMV_S(value)
+(value,2.3,+19.5,1.25,6,10.2,1,1,0,0,1,0,1,0,0.5,3.2)
+SPC_VCONV_SIP_TMV_D(value)
+(value,2.3,+19.5,1.25,6,10.2,1,1,0,0,1,1,1,0,0.5,3.2)
+SPC_VCONV_SIP_TMV_S_24V(value)
+(value,2.3,+19.5,1.25,7,10.2,1,1,0,0,1,0,1,0,0.5,3.2)
+SPC_VCONV_SIP_TMV_D_24V(value)
+(value,2.3,+19.5,1.25,7,10.2,1,1,0,0,1,1,1,0,0.5,3.2)
+// TMVEN  single/dual voltage
+SPC_VCONV_SIP_TMVEN_S(value)
+(value,3.5,+22,1.75,7.5,12.5,1,1,0,0,1,0,1,0,0.5,4)
+SPC_VCONV_SIP_TMVEN_D(value)
+(value,3.5,+22,1.75,7.5,12.5,1,1,0,0,1,1,1,0,0.5,4)
+// TMH  single/dual voltage
+SPC_VCONV_SIP_TMH_S(value)
+(value,2.3,+19.5,1.25,7.5,10.2,1,1,0,1,0,1,0,0,0,3.2)
+SPC_VCONV_SIP_TMH_D(value)
+(value,2.3,+19.5,1.25,7.5,10.2,1,1,0,1,1,1,0,0,0,3.2)
+// TMR  single/dual voltage
+SPC_VCONV_SIP_TMR(value)
+(value,2,+21.8,3.2,9.2,11.1,1,1,0,0,0,1,1,1,1.5,4)
+####################################################################################################
+####################################################################################################
+union{
+    #local s = -((5*1.27)+s);
+    #local lg1 = lg1+0.125;
+    difference{
+        box{<s,0,lg1-lg><s+Lg,+h,lg1>} 
+        union{
+            box{<s+0.5,-0.1,-lg><s+Lg-0.5,+0.5,lg1+0.5>}
+            cylinder{<-6.35,2.5,lg1-lg-0.2><-6.35,2.5,lg1-lg+0.15> 0.6}
+        }
+    pigment{Gray20}
+    }
+
+    #if(p1=1)
+    box{<-5*1.27-0.25,0.6,-0.125><-5*1.27+0.25,-min(pl,(pin_length+pcb_height)),+0.125> texture{col_silver}}
+    #end
+    #if(p2=1)
+    box{<-3*1.27-0.25,0.6,-0.125><-3*1.27+0.25,-min(pl,(pin_length+pcb_height)),+0.125> texture{col_silver}}
+    #end
+    #if(p3=1)
+    box{<-1*1.27-0.25,0.6,-0.125><-1*1.27+0.25,-min(pl,(pin_length+pcb_height)),+0.125> texture{col_silver}}
+    #end
+    #if(p4=1)
+    box{<+1*1.27-0.25,0.6,-0.125><+1*1.27+0.25,-min(pl,(pin_length+pcb_height)),+0.125> texture{col_silver}}
+    #end
+    #if(p5=1)
+    box{<+3*1.27-0.25,0.6,-0.125><+3*1.27+0.25,-min(pl,(pin_length+pcb_height)),+0.125> texture{col_silver}}
+    #end
+    #if(p6=1)
+    box{<+5*1.27-0.25,0.6,-0.125><+5*1.27+0.25,-min(pl,(pin_length+pcb_height)),+0.125> texture{col_silver}}
+    #end
+    #if(p7=1)
+    box{<+7*1.27-0.25,0.6,-0.125><+7*1.27+0.25,-min(pl,(pin_length+pcb_height)),+0.125> texture{col_silver}}
+    #end
+    #if(p8=1)
+    box{<+9*1.27-0.25,0.6,-0.125><+9*1.27+0.25,-min(pl,(pin_length+pcb_height)),+0.125> texture{col_silver}}
+    #end
+    
+    text {ttf besch_font value 0.1, 0 pigment{White} scale 1.75 rotate<90,0,0> translate<-3.0+os,h+0.01,lg1-(lg/2)-0.5>}  // Marking on top surface
+    text {ttf besch_font "TRACO" 0.1, 0 pigment{White} scale 3 rotate<0,0,0> translate<-3.5+os,6.81,lg1-lg-0.01>}    // Markings front surface 
+    text {ttf besch_font value 0.1, 0 pigment{White} scale 2 rotate<0,0,0> translate<-3.8+os,4.8,lg1-lg-0.01>}       // Markings front surface 
+    text {ttf besch_font "9815" 0.1, 0 pigment{White} scale 1.75 rotate<0,0,0> translate<-1.3+os,2.8,lg1-lg-0.01>}   // Markings front surface 
+    
+    cylinder{<-6.35,2.5,lg1-lg+0.15><-6.35,2.5,lg1-lg+0.1> 0.6 pigment{White}}
+    
+    rotate<0,90,0>
+
+}
+#end
+
+

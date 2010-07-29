@@ -1,0 +1,213 @@
+DC-DC Konverter
+//Macros for DC-DC CONVERTERs DIP series from TRACO
+//Designed by Philippe Boucheny <philippe.boucheny(replace with at)free.fr>
+//Rev. 1.0 - 24/12/05
+####################################################################################################
+NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SPC_VCONV_DIP_TYL(:TRACO DC DC Converter:
+NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SPC_VCONV_DIP_TEM2(:TRACO DC DC Converter:
+NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SPC_VCONV_DIP_TEL2(:TRACO DC DC Converter:
+NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SPC_VCONV_DIP_THI_S(:TRACO DC DC Converter:
+NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SPC_VCONV_DIP_THI_D(:TRACO DC DC Converter: 
+NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SPC_VCONV_DIP_THP3_S(:TRACO DC DC Converter:
+NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SPC_VCONV_DIP_THP3_D(:TRACO DC DC Converter:
+NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SPC_VCONV_DIP_TEM3(:TRACO DC DC Converter:
+NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SPC_VCONV_DIP_TEL3(:TRACO DC DC Converter:
+NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SPC_VCONV_DIP_TEL3NP_S(:TRACO DC DC Converter:
+NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SPC_VCONV_DIP_TEL3NP_D(:TRACO DC DC Converter:  
+NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SPC_VCONV_DIP_TEN3_S(:TRACO DC DC Converter:
+NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SPC_VCONV_DIP_TEN3_D(:TRACO DC DC Converter:
+NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SPC_VCONV_DIP_TEN4_S(:TRACO DC DC Converter:
+NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SPC_VCONV_DIP_TEN4_D(:TRACO DC DC Converter:
+NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SPC_VCONV_DIP_TEL5_S(:TRACO DC DC Converter:
+NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SPC_VCONV_DIP_TEL5_D(:TRACO DC DC Converter:
+NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SPC_VCONV_DIP_TVL(:TRACO DC DC Converter:
+NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SPC_VCONV_DIP_TEN5WI_S(:TRACO DC DC Converter:
+NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SPC_VCONV_DIP_TEN5WI_D(:TRACO DC DC Converter:
+NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SPC_VCONV_DIP_TEN6_S(:TRACO DC DC Converter:
+NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SPC_VCONV_DIP_TEN6_D(:TRACO DC DC Converter:
+NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SPC_VCONV_DIP_TEN8(:TRACO DC DC Converter:
+####################################################################################################
+SPC_VCONV_DIP_GRND
+(value,M,Lb,Tp,L,W,H,p1,p2,p3,p9,p10,p11,p12,p13,p14,p15,p16,p22,p23,p24,offsetX,pw,hpin)
+####################################################################################################
+SPC_VCONV_DIP_TYL(value)
+(value,1,1,0,32.6,20.4,10.3,1,0,0,0,1,0,1,1,0,1,0,0,0,1,0,"1.5W",5)
+SPC_VCONV_DIP_TEM2(value)
+(value,0,0,0,32,20,10,1,1,1,0,1,1,1,1,1,1,0,1,1,1,0,"2W",3.8)
+SPC_VCONV_DIP_TEL2(value)
+(value,0,2,1,23.8,13.7,10,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,"2W",4)
+SPC_VCONV_DIP_THI_S(value)
+(value,0,0,0,32,20,10,1,1,0,0,0,0,1,1,0,0,0,0,1,1,0,"2W",4)
+SPC_VCONV_DIP_THI_D(value)
+(value,0,0,0,32,20,10,1,1,0,0,1,1,0,1,0,0,0,0,1,1,0,"2W",4)
+SPC_VCONV_DIP_THP3_S(value)
+(value,0,0,0,32,20,10,1,0,0,0,0,0,1,1,0,0,0,0,1,1,0,"2W",4)
+SPC_VCONV_DIP_THP3_D(value)
+(value,0,0,0,32,20,10,1,0,0,0,0,1,0,1,0,1,0,0,1,1,0,"2W",4)
+SPC_VCONV_DIP_TEM3(value)
+(value,0,0,0,32,20,10,1,1,1,0,1,1,1,1,1,1,0,1,1,1,0,"3W",3.8)
+SPC_VCONV_DIP_TEL3(value)
+(value,0,0,0,32,20,10.2,1,1,1,0,1,1,1,1,1,1,0,1,1,1,0,"3W",4.5)
+SPC_VCONV_DIP_TEL3NP_S(value)
+(value,0,0,0,32,20,10.2,0,1,1,0,0,1,0,0,1,0,1,1,1,0,-1,"3W",4.5)
+SPC_VCONV_DIP_TEL3NP_D(value)
+(value,0,0,0,32,20,10.2,0,1,1,1,0,1,0,0,1,0,1,1,1,0,-1,"3W",4.5)
+SPC_VCONV_DIP_TEN3_S(value)
+(value,0,0,0,32,20,10.2,0,1,1,0,0,1,0,0,1,0,1,1,1,0,-1,"3W",5)
+SPC_VCONV_DIP_TEN3_D(value)
+(value,0,0,0,32,20,10.2,0,1,1,1,0,1,0,0,1,0,1,1,1,0,-1,"3W",5)
+SPC_VCONV_DIP_TEN4_S(value)
+(value,1,0,0,32,20,10.2,0,1,1,0,0,1,0,0,1,0,1,1,1,0,-1,"4W",5)
+SPC_VCONV_DIP_TEN4_D(value)
+(value,1,0,0,32,20,10.2,0,1,1,1,0,1,0,0,1,0,1,1,1,0,-1,"4W",5)
+SPC_VCONV_DIP_TVL(value)
+(value,1,3,2,51.3,51.3,8,0,1,1,1,0,1,0,0,1,0,1,1,1,0,-1,"5W",6)
+SPC_VCONV_DIP_TEL5_S(value)
+(value,0,0,0,32,20.3,10.2,0,1,1,0,0,1,0,0,1,0,1,1,1,0,-1,"5W",5)
+SPC_VCONV_DIP_TEL5_D(value)
+(value,0,0,0,32,20.3,10.2,0,1,1,1,0,1,0,0,1,0,1,1,1,0,-1,"5W",5)
+SPC_VCONV_DIP_TEN5_S(value)
+(value,1,0,0,32,20,10.2,0,1,1,0,0,1,0,0,1,0,1,1,1,0,-1,"5W",5)
+SPC_VCONV_DIP_TEN5_D(value)
+(value,1,0,0,32,20,10.2,0,1,1,1,0,1,0,0,1,0,1,1,1,0,-1,"5W",5)
+SPC_VCONV_DIP_TEN5WI_S(value)
+(value,1,0,0,32,20,10.2,0,1,1,0,0,1,0,0,1,0,1,1,1,0,-1,"5W",3.8)
+SPC_VCONV_DIP_TEN5WI_D(value)
+(value,1,0,0,32,20,10.2,0,1,1,1,0,1,0,0,1,0,1,1,1,0,-1,"5W",3.8)
+SPC_VCONV_DIP_TEN6_S(value)
+(value,1,0,0,32,20,10.2,0,1,1,0,0,1,0,0,1,0,1,1,1,0,-1,"5W",3.8)
+SPC_VCONV_DIP_TEN6_D(value)
+(value,1,0,0,32,20,10.2,0,1,1,1,0,1,0,0,1,0,1,1,1,0,-1,"5W",3.8)
+SPC_VCONV_DIP_TEN8(value)
+(value,1,0,0,32,20,10.2,1,1,1,1,0,1,0,0,1,0,1,1,1,0,-1,"8W",3.8)
+####################################################################################################
+####################################################################################################
+union{                               
+    #if(M=0)  // Plastic
+        #local inner = 1;          
+        box{<-L/2,+0,-W/2><+L/2,H,+W/2> pigment{Gray20}}
+    #else     // Metalic
+        #if(L>33) 
+            #local inner = 2.5; 
+        #else
+            #local inner = 1.5; 
+        #end         
+        difference{
+            superellipsoid { <0.1, 0.1> scale <L/2, H/2+2,W/2> translate <0, H/2-2, 0> texture{Silver1}}
+            box{<-L/2,0,-W/2><+L/2,-H,+W/2>}            
+        }
+    #end      
+     
+    #if(Lb=0)  // WHITE 
+        #local col=White;
+        box{<-L/2+inner,H,-W/2+inner><+L/2-inner,H+0.01,+W/2-inner> pigment{SpicyPink}} // Label
+        text {ttf global_fontfile_arial "TRACO" 0.05, 0 pigment{col} scale 5 rotate<90,0,0> translate<-9,H+0.05,3.5>}  // Marking
+        text {ttf global_fontfile_arial "POWER" 0.05, 0 pigment{col} scale 5 rotate<90,0,0> translate<-10,H+0.05,-1>}  // Marking
+        text {ttf global_fontfile_arial "DC/DC CONVERTER" 0.05, 0 pigment{col} scale 2 rotate<90,0,0> translate<-13,H+0.05,-4.2>}  // Marking
+        text {ttf global_fontfile_arial pw  0.05, 0 pigment{col} scale 2 rotate<90,0,0> translate<+8,H+0.05,-4.2>}  // Marking
+        text {ttf global_fontfile_arial_bold value 0.05, 0 pigment{col} scale 2 rotate<90,0,0> translate<-5.5+offsetX,H+0.05,-7>}  // Marking
+        text {ttf global_fontfile_arial "TM" 0.05, 0 pigment{col} scale 1.5 rotate<90,0,0> translate<+8.5,H+0.05,6.8>}  // Marking     
+    #end
+    #if(Lb=1) // BLACK
+        #local col=Black;
+        box{<-L/2+inner,H,-W/2+inner><+L/2-inner,H+0.01,+W/2-inner> pigment{SpicyPink}} // Label
+        text {ttf global_fontfile_arial "TRACO" 0.05, 0 pigment{col} scale 5 rotate<90,0,0> translate<-9+offsetX,H+0.05,3>}  // Marking
+        text {ttf global_fontfile_arial "DC/DC CONVERTER" 0.05, 0 pigment{col} scale 2 rotate<90,0,0> translate<-13+offsetX,H+0.05,-1.5>}  // Marking
+        text {ttf global_fontfile_arial pw  0.05, 0 pigment{col} scale 2 rotate<90,0,0> translate<+8+offsetX,H+0.05,-1.5>}  // Marking
+        text {ttf global_fontfile_arial_bold value 0.05, 0 pigment{col} scale 2 rotate<90,0,0> translate<-7+offsetX,H+0.05,-6>}  // Marking
+        text {ttf global_fontfile_arial "R" 0.05, 0 pigment{col} scale 1.5 rotate<90,0,0> translate<+9,H+0.05,6.78>}  // Marking     
+        disc {<9.45, H+0.05, 7.28> y,1.0,0.8 pigment{col}}
+    #end
+    #if(Lb=2) // DIL16
+        #local col=White;
+        text {ttf global_fontfile_arial "TRACO" 0.05, 0 pigment{col} scale 4 rotate<90,0,0> translate<-8+offsetX,H+0.05,3>}  // Marking
+        text {ttf global_fontfile_arial "POWER" 0.05, 0 pigment{col} scale 4 rotate<90,0,0> translate<-8.5+offsetX,H+0.05,-0.5>}  // Marking
+        text {ttf global_fontfile_arial_bold value 0.05, 0 pigment{col} scale 2 rotate<90,0,0> translate<-6+offsetX,H+0.05,-3.5>}  // Marking
+        text {ttf global_fontfile_arial_bold "0341" 0.05, 0 pigment{col} scale 2 rotate<90,0,0> translate<-3+offsetX,H+0.05,-6>}  // Marking
+        text {ttf global_fontfile_arial "R" 0.05, 0 pigment{col} scale 1 rotate<90,0,0> translate<+9.1-2.5,H+0.05,6.9-2>}  // Marking     
+        disc {<9.45-2.5, H+0.05, 7.28-2> y,0.7,0.6.5 pigment{col}}
+    #end
+    #if(Lb=3)  // 5W 
+        #local col=Black;
+        box{<-L/2+inner,H,-W/2+inner><+L/2-inner,H+0.01,+W/2-inner> pigment{SpicyPink}} // Label
+        text {ttf global_fontfile_arial "TRACO" 0.05, 0 pigment{col} scale 9 rotate<90,0,0> translate<-16,H+0.05,13>}  // Marking
+        text {ttf global_fontfile_arial "POWER PRODUCTS" 0.05, 0 pigment{col} scale 3 rotate<90,0,0> translate<-15,H+0.05,8>}  // Marking
+        text {ttf global_fontfile_arial "DC/DC CONVERTER" 0.05, 0 pigment{col} scale 3.2 rotate<90,0,0> translate<-20,H+0.05,-3>}  // Marking
+        text {ttf global_fontfile_arial pw  0.05, 0 pigment{col} scale 3.2 rotate<90,0,0> translate<+14,H+0.05,-3>}  // Marking
+        text {ttf global_fontfile_arial_bold value 0.05, 0 pigment{col} scale 3 rotate<90,0,0> translate<-8+offsetX,H+0.05,-15>}  // Marking
+        text {ttf global_fontfile_arial "R" 0.05, 0 pigment{col} scale 2.5 rotate<90,0,0> translate<+16,H+0.05,19>}  // Marking     
+        disc {<16.7, H+0.05, 19.8> y,1.5,1.2 pigment{col}}
+    #end
+    
+    #if(Tp=0) // DIP24 pins  
+        #if(p1=1)  
+            cylinder{<-13.97,0,-7.62><-13.97,-min(hpin,(pin_length+pcb_height)),-7.62> 0.3 pigment{Silver}}
+            cylinder{<-13.50,H,-7.62><-13.50,H+0.05,-7.62> 0.5 pigment{col}}
+            text {ttf global_fontfile_arial_bold "1" 0.05, 0 pigment{col} scale 1.5 rotate<90,0,0> translate<-13.8,H+0.05,-6.8>}  // Marking
+        #end        
+        #if(p2=1)  
+            cylinder{<-11.43,0,-7.62><-11.43,-min(hpin,(pin_length+pcb_height)),-7.62> 0.3 pigment{Silver}} 
+            #if(p1=0)
+                cylinder{<-11.43,H,-7.62><-11.43,H+0.05,-7.62> 0.5 pigment{col}}
+                text {ttf global_fontfile_arial_bold "2" 0.05, 0 pigment{col} scale 1.5 rotate<90,0,0> translate<-11.8,H+0.05,-6.8>}  // Marking
+            #end
+        #end
+        #if(p3=1)  
+            cylinder{<-8.89,0,-7.62><-8.89,-min(hpin,(pin_length+pcb_height)),-7.62> 0.3 pigment{Silver}}
+        #end
+        #if(p9=1)  
+            cylinder{<+6.35,0,-7.62><+6.35,-min(hpin,(pin_length+pcb_height)),-7.62> 0.3 pigment{Silver}}
+        #end
+        #if(p10=1)  
+            cylinder{<+8.89,0,-7.62><+8.89,-min(hpin,(pin_length+pcb_height)),-7.62> 0.3 pigment{Silver}}
+        #end
+        #if(p11=1)  
+            cylinder{<+11.43,0,-7.62><+11.43,-min(hpin,(pin_length+pcb_height)),-7.62> 0.3 pigment{Silver}}
+        #end
+        #if(p12=1)  
+            cylinder{<+13.97,0,-7.62><+13.97,-min(hpin,(pin_length+pcb_height)),-7.62> 0.3 pigment{Silver}}
+        #end
+             
+        #if(p24=1)  
+            cylinder{<-13.97,0,+7.62><-13.97,-min(hpin,(pin_length+pcb_height)),+7.62> 0.3 pigment{Silver}}
+        #end
+        #if(p23=1)  
+            cylinder{<-11.43,0,+7.62><-11.43,-min(hpin,(pin_length+pcb_height)),+7.62> 0.3 pigment{Silver}}
+        #end
+        #if(p22=1)  
+            cylinder{<-8.89,0,+7.62><-8.89,-min(hpin,(pin_length+pcb_height)),+7.62> 0.3 pigment{Silver}}
+        #end
+        #if(p16=1)  
+            cylinder{<+6.35,0,+7.62><+6.35,-min(hpin,(pin_length+pcb_height)),+7.62> 0.3 pigment{Silver}}
+        #end       
+        #if(p15=1)  
+            cylinder{<+8.89,0,+7.62><+8.89,-min(hpin,(pin_length+pcb_height)),+7.62> 0.3 pigment{Silver}}
+        #end       
+        #if(p14=1)  
+            cylinder{<+11.43,0,+7.62><+11.43,-min(hpin,(pin_length+pcb_height)),+7.62> 0.3 pigment{Silver}}
+        #end       
+        #if(p13=1)  
+            cylinder{<+13.97,0,+7.62><+13.97,-min(hpin,(pin_length+pcb_height)),+7.62> 0.3 pigment{Silver}}
+        #end
+    #end
+           
+    #if(Tp=1) // DIL16 pins
+        cylinder{<-8.89,H,-5.08><-8.89,H+0.05,-5.08> 0.75 pigment{col}}
+        cylinder{<-8.89,0,-5.08><-8.89,-min(hpin,(pin_length+pcb_height)),-5.08> 0.25 pigment{Silver}} //pin1
+        cylinder{<+6.35,0,-5.08><+6.35,-min(hpin,(pin_length+pcb_height)),-5.08> 0.25 pigment{Silver}} //pin7
+        cylinder{<+8.89,0,-5.08><+8.89,-min(hpin,(pin_length+pcb_height)),-5.08> 0.25 pigment{Silver}} //pin8
+        cylinder{<+8.89,0,+5.08><+8.89,-min(hpin,(pin_length+pcb_height)),+5.08> 0.25 pigment{Silver}} //pin9
+        cylinder{<+6.35,0,+5.08><+6.35,-min(hpin,(pin_length+pcb_height)),+5.08> 0.25 pigment{Silver}} //pin10
+        cylinder{<-8.89,0,+5.08><-8.89,-min(hpin,(pin_length+pcb_height)),+5.08> 0.25 pigment{Silver}} //pin16
+    #end  
+
+    #if(Tp=2) // TVL pins
+        cylinder{<-10.16,0,-2.54><-10.16,-min(hpin,(pin_length+pcb_height)),-2.54> 0.25 pigment{Silver}} //pin2
+        cylinder{<-10.16,0,+2.54><-10.16,-min(hpin,(pin_length+pcb_height)),+2.54> 0.25 pigment{Silver}} //pin1
+        cylinder{<+10.16,0,-10.16><+10.16,-min(hpin,(pin_length+pcb_height)),-10.16> 0.25 pigment{Silver}} //pin3
+        cylinder{<+10.16,0,0><+10.16,-min(hpin,(pin_length+pcb_height)),0> 0.25 pigment{Silver}}           //pin4
+        cylinder{<+10.16,0,+10.16><+10.16,-min(hpin,(pin_length+pcb_height)),+10.16> 0.25 pigment{Silver}} //pin5
+    #end  
+
+}
+#end

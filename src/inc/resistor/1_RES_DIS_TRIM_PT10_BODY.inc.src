@@ -1,0 +1,118 @@
+Body of Piher-pot
+// Grundmakro für Piher-Potentiometer PT-10
+// Carsten Kögler <koegler@ftz-leipzig.de>
+####################################################################################################
+####################################################################################################
+RES_DIS_TRIM_PT10_BODY
+(value)
+####################################################################################################
+####################################################################################################
+####################################################################################################
+union {
+
+
+    // Plastikkörper
+    difference{
+       union{
+          // Grundkörper-  10.3 x 10.3 x 4.4 mm 
+          superellipsoid{<1,0.08> scale<5.15,5.15,2.2> rotate<90,0,0> translate<0,2.2,0>  }
+    
+          // Erhöhung in der Mitte oben
+          cylinder{<0,2,0><0,4.5,0>2.5 }
+       }
+       cylinder{<0,-1,0><0,5.0,0>1.5}
+       cylinder{<0,-1,0><0,2.0,0>4.5}
+       box{<-6,-1,-1.5><6,0.6,1.5>}    
+       box{<-1.0,-1,-6><1.0,0.6,6>}    
+    }
+    superellipsoid{<0.03,0.08> scale<4.4,0.5,1.825> translate<0,3.9,-3.325> }
+    box{<-0.5,4.0,-5.15><0.5,4.5,-1.5> }
+
+    
+    // Schriftzug auf der Oberseite
+    #local nrPositions = 11;
+    #local chars = "PIHER SPAIN";
+    #local charNr = 0;
+    #while (charNr < nrPositions)
+      text {
+        ttf besch_font substr(chars, charNr+1, 1) .1, 0
+        pigment { Gray20 }
+        scale 1.5
+        rotate<90,0,0>
+        rotate<0,2,0>
+        translate<0,4.45,0>
+        translate<0,0,3.5>
+        rotate<0,charNr*180/nrPositions-90,0>
+      }
+      #local charNr = charNr + 1;
+    #end
+
+    // Metallplatte auf der Unterseite
+    difference{
+       cylinder{<0,0.5,0><0,0.6,0>4.75 texture{col_silver}}
+       cylinder{<0,0,0><0,1.0,0>2.0 texture{col_silver}}
+       
+    }
+    // weißes Innenteil
+    #local my_angle = rand(global_seed)*270;
+    difference{
+       union{
+          cylinder{<0,0,0><0,4.5,0>1.5 pigment{White}}
+          cylinder{<0,0,0><0,2.0,0>2.5 pigment{White}}
+       }
+       cylinder{<0,-1,0><0,0.5,0>2.0 pigment{White}}
+       difference{
+          box{<-0.6,0,-0.6><0.6,5,0.6>pigment{White}}
+          box{<-1.0,0,-0.6><1.0,5,0.6> rotate<0,45,0> translate<0.424,0,0.424> pigment{White}}
+          translate<0.2,0,0.2>
+          rotate<0,my_angle,0>
+       }
+       box{<-0.3,3.9,-2><0.3,5.0,2> rotate<0,my_angle+45,0> pigment{White}}
+       box{<-0.3,-1,-2><0.3,0.5,2> rotate<0,my_angle+45,0> pigment{White}}
+       box{<-0.3,-1,-1><0.3,4,1> rotate<0,my_angle+45,0> pigment{White}}
+    }
+    
+    // Teil der Anschlussbeine
+    difference{
+       box{<-3.5,4.4,-5.15><3.5,4.5,-1> texture{col_silver}}
+       cylinder{<0,2,0><0,5.0,0>2.55 texture{col_silver}}
+       box{<-1.5,4.0,-6><1.5,5.0,-3.6> texture{col_silver}}
+       box{<-0.6,4.0,-6><0.6,5.0,0> texture{col_silver}}
+       box{<-5,4.0,-2><5,5.0,2> rotate<0,-35,0> translate<-3.5,0,0> texture{col_silver}}
+       box{<-5,4.0,-2><5,5.0,2> rotate<0,35,0> translate<3.5,0,0> texture{col_silver}}
+    }
+    cylinder{<0.6,4.4,-3.6><0.6,4.4,-2.5> 0.1 texture{col_silver}}
+    cylinder{<-0.6,4.4,-3.6><-0.6,4.4,-2.5> 0.1 texture{col_silver}}
+    cylinder{<0,4.4,-0.85><0,4.4,0.85> 0.1 translate<0,0,-3.4> rotate<0,55,0> texture{col_silver}}
+    cylinder{<0,4.4,-0.85><0,4.4,0.85> 0.1 translate<0,0,-3.4> rotate<0,-55,0> texture{col_silver}}
+    
+    
+    // Plastikbippsel
+    superellipsoid{<0.3,0.3> scale<0.3,0.8,0.8> translate<2.65,3.9,-4.0> }
+    superellipsoid{<0.3,0.3> scale<0.3,0.8,0.8> translate<-2.65,3.9,-4.0> }
+    
+    
+    // Beschriftung
+    intersection{
+       cylinder{<0,0,0><0,4.4,0>5.17 pigment {White}}
+       union{
+          #local nrPositions = strlen(value);
+          #local chars = value;
+          #local charNr = 0;
+          #while (charNr < nrPositions)
+            text {
+              ttf besch_font substr(chars, charNr+1, 1) 0.3, 0
+              pigment { White }
+              scale 1.5
+              rotate<180,0,0>
+              translate<0,3,5.2>
+              rotate<0,(-nrPositions*10)/2+charNr*10,0>
+            }
+            #local charNr = charNr + 1;
+          #end
+       }
+    
+    }
+    pigment{Gray20}
+  } 
+#end

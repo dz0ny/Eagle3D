@@ -1,0 +1,71 @@
+7 SEG
+//7 segment Grundmakro
+//BuFran <BuFran@hi-web.cz>
+####################################################################################################
+NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:DIODE_DIS_LED_7SEG_2(:7 seg display:
+####################################################################################################
+DIODE_DIS_LED_7SEG_GRND
+(value)
+####################################################################################################
+DIODE_DIS_LED_7SEG_2(value)
+(value)
+####################################################################################################
+####################################################################################################
+union{
+        #if(pin_short=off)
+                #local pp=7.0;
+        #else
+                #local pp=pcb_height+pin_length;
+        #end
+        
+        difference{
+                box{<-17.9,0,-12.9><17.9,10.5,12.9> pigment{White}}
+                box{<-18,10,-13><18,10.7,13> pigment{Gray30}}
+                box{<-18,-0.1,-11><18,1,11> pigment{Gray70}}
+                box{<-16,-0.2,-13><16,1.1,13> pigment{Gray70}}        
+        }
+        
+        union{
+                DIODE_DIS_LED_7SEG_SYMBOL(<-6,0,-25.5>, <0.1,1,0.09>)
+                scale<16,1,16>
+                translate<-9,10,0>
+                pigment{Red}
+        }
+        
+        union{
+                DIODE_DIS_LED_7SEG_SYMBOL(<-6,0,-25.5>, <0.1,1,0.09>)
+                scale<16,1,16>
+                translate<9,10,0>
+                pigment{Red}
+        }
+        
+        text{ttf besch_font "M" 0.5,0 pigment{Black} scale<3,5.5,3> translate<-7.5,3,-13>}
+        text{ttf besch_font "KINGBRIGHT" 0.5,0.1*x pigment{Black} scale<1,2,1> translate<-3.5,5,-13>}
+        text{ttf besch_font value 0.5,0.1*x pigment{Black} scale<1,2,1> translate<-3.5,3,-13>}
+        
+        union{
+                cylinder{<0,2,-11>,<0,-pp,-11>,0.25 translate<10.16,0,0>}
+                cylinder{<0,2,-11>,<0,-pp,-11>,0.25 translate<7.62,0,0>}
+                cylinder{<0,2,-11>,<0,-pp,-11>,0.25 translate<5.08,0,0>}
+                cylinder{<0,2,-11>,<0,-pp,-11>,0.25 translate<2.54,0,0>}
+                cylinder{<0,2,-11>,<0,-pp,-11>,0.25}
+                cylinder{<0,2,-11>,<0,-pp,-11>,0.25 translate<-2.54,0,0>}
+                cylinder{<0,2,-11>,<0,-pp,-11>,0.25 translate<-5.08,0,0>}
+                cylinder{<0,2,-11>,<0,-pp,-11>,0.25 translate<-7.62,0,0>}
+                cylinder{<0,2,-11>,<0,-pp,-11>,0.25 translate<-10.16,0,0>}
+                
+                cylinder{<0,2,11>,<0,-pp,11>,0.25 translate<10.16,0,0>}
+                cylinder{<0,2,11>,<0,-pp,11>,0.25 translate<7.62,0,0>}
+                cylinder{<0,2,11>,<0,-pp,11>,0.25 translate<5.08,0,0>}
+                cylinder{<0,2,11>,<0,-pp,11>,0.25 translate<2.54,0,0>}
+                cylinder{<0,2,11>,<0,-pp,11>,0.25}
+                cylinder{<0,2,11>,<0,-pp,11>,0.25 translate<-2.54,0,0>}
+                cylinder{<0,2,11>,<0,-pp,11>,0.25 translate<-5.08,0,0>}
+                cylinder{<0,2,11>,<0,-pp,11>,0.25 translate<-7.62,0,0>}
+                cylinder{<0,2,11>,<0,-pp,11>,0.25 translate<-10.16,0,0>}
+
+                pigment{Silver}
+        }
+        
+}
+#end

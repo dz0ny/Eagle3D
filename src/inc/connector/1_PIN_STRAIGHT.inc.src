@@ -1,0 +1,24 @@
+Gerader, quadratischer Stift eines Steckverbinders
+// Tilmann Reh <tilmann.reh@autometer.de>
+// Grundmakro: Gerader, quadratischer Stift eines Steckverbinders.
+// Verwendung für gerade Pfostenwannen sowie z.B. Wago-Steckerleisten.
+// Parameter: Stärke, Höhe über/unter PCB-Oberkante, Farbe
+####################################################################################################
+####################################################################################################
+PIN_STRAIGHT
+(D,HO,HU,col)
+####################################################################################################
+####################################################################################################
+####################################################################################################
+difference{
+box{<-D/2,-HU,-D/2><D/2,HO,D/2>}
+box{<-0.6*D,0,0><0.6*D,0.6*D,0.6*D> rotate<45,0,0> translate<0,HO,D/4>}
+box{<-0.6*D,0,0><0.6*D,0.6*D,-0.6*D> rotate<-45,0,0> translate<0,HO,-D/4>}
+box{<0,0,-0.6*D><0.6*D,0.6*D,0.6*D> rotate<0,0,-45> translate<D/4,HO,0>}
+box{<0,0,-0.6*D><-0.6*D,0.6*D,0.6*D> rotate<0,0,45> translate<-D/4,HO,0>}
+box{<0,0,-0.6*D><0.6*D,0.6*D,0.6*D> rotate<0,0,-45> translate<D/4,-HU,0>}
+box{<0,0,-0.6*D><-0.6*D,0.6*D,0.6*D> rotate<0,0,45> translate<-D/4,-HU,0>}
+box{<-0.6*D,0,0><0.6*D,0.6*D,0.6*D> rotate<45,0,0> translate<0,-HU,D/4>}
+box{<-0.6*D,0,0><0.6*D,0.6*D,-0.6*D> rotate<-45,0,0> translate<0,-HU,-D/4>}
+texture{col}} 
+#end

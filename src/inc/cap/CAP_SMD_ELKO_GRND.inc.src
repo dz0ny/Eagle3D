@@ -1,0 +1,93 @@
+SMD-Elko radial
+//Grundmakro SMD-Elko
+//L = Länge
+//W = Breite
+//H = Höhe
+//D = Durchmesser Elkokörper
+//B = Breite Anschlußpin
+//S = Abstand Anschlußpins unten
+//C = Länge Anschlußpins
+####################################################################################################
+140CLH-0810:0:1:0:1:0:0:0:0:0:0:0:0:0:180:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CAP_SMD_ELKO_0810(:SMD Elko Case-Code BCComponents (rcl.lib):
+140CLH-1010:0:1:0:1:0:0:0:0:0:0:0:0:0:180:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CAP_SMD_ELKO_1010(:SMD Elko Case-Code BCComponents (rcl.lib):
+140CLH-1014:0:1:0:1:0:0:0:0:0:0:0:0:0:180:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CAP_SMD_ELKO_1014(:SMD Elko Case-Code BCComponents (rcl.lib):
+150CLZ-0810:0:1:0:1:0:0:0:0:0:0:0:0:0:180:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CAP_SMD_ELKO_0810(:SMD Elko Case-Code BCComponents (rcl.lib):
+150CLZ-1010:0:1:0:1:0:0:0:0:0:0:0:0:0:180:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CAP_SMD_ELKO_1010(:SMD Elko Case-Code BCComponents (rcl.lib):
+150CLZ-1014:0:1:0:1:0:0:0:0:0:0:0:0:0:180:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CAP_SMD_ELKO_1014(:SMD Elko Case-Code BCComponents (rcl.lib):
+153CLV-0405:0:1:0:1:0:0:0:0:0:0:0:0:0:180:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CAP_SMD_ELKO_0405(:SMD Elko Case-Code BCComponents (rcl.lib):
+153CLV-0505:0:1:0:1:0:0:0:0:0:0:0:0:0:180:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CAP_SMD_ELKO_0505(:SMD Elko Case-Code BCComponents (rcl.lib):
+153CLV-0605:0:1:0:1:0:0:0:0:0:0:0:0:0:180:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CAP_SMD_ELKO_0605(:SMD Elko Case-Code BCComponents (rcl.lib):
+153CLV-0807:0:1:0:1:0:0:0:0:0:0:0:0:0:180:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CAP_SMD_ELKO_0807(:SMD Elko Case-Code BCComponents (rcl.lib):
+153CLV-0810:0:1:0:1:0:0:0:0:0:0:0:0:0:180:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CAP_SMD_ELKO_0810(:SMD Elko Case-Code BCComponents (rcl.lib):
+153CLV-1010:0:1:0:1:0:0:0:0:0:0:0:0:0:180:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CAP_SMD_ELKO_1010(:SMD Elko Case-Code BCComponents (rcl.lib):
+153CLV-1012:0:1:0:1:0:0:0:0:0:0:0:0:0:180:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CAP_SMD_ELKO_1012(:SMD Elko Case-Code BCComponents (rcl.lib):
+153CLV-1014:0:1:0:1:0:0:0:0:0:0:0:0:0:180:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CAP_SMD_ELKO_1014(:SMD Elko Case-Code BCComponents (rcl.lib):
+175TMP-0808:0:1:0:1:0:0:0:0:0:0:0:0:0:180:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CAP_SMD_ELKO_0808(:SMD Elko Case-Code BCComponents (rcl.lib):
+175TMP-0810:0:1:0:1:0:0:0:0:0:0:0:0:0:180:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CAP_SMD_ELKO_0810(:SMD Elko Case-Code BCComponents (rcl.lib):
+NOEAGLEPAC:0:1:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CAP_SMD_ELKO_1212(:SMD Elko:
+NOEAGLEPAC:0:1:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CAP_SMD_ELKO_1214(:SMD Elko:
+PANASONIC_B:0:1:0:1:0:0:0:0:0:0:0:0:0:180:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CAP_SMD_ELKO_PANASONIC_B(:SMD Elko Panasonic B (rcl.lib):
+PANASONIC_C:0:1:0:1:0:0:0:0:0:0:0:0:0:180:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CAP_SMD_ELKO_PANASONIC_C(:SMD Elko Panasonic C (rcl.lib):
+PANASONIC_D:0:1:0:1:0:0:0:0:0:0:0:0:0:180:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CAP_SMD_ELKO_PANASONIC_D(:SMD Elko Panasonic D (rcl.lib):
+PANASONIC_E:0:1:0:1:0:0:0:0:0:0:0:0:0:180:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CAP_SMD_ELKO_PANASONIC_E(:SMD Elko Panasonic E (rcl.lib):
+PANASONIC_F:0:1:0:1:0:0:0:0:0:0:0:0:0:180:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CAP_SMD_ELKO_PANASONIC_F(:SMD Elko Panasonic F (rcl.lib):
+PANASONIC_G:0:1:0:1:0:0:0:0:0:0:0:0:0:180:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CAP_SMD_ELKO_PANASONIC_G(:SMD Elko Panasonic G (rcl.lib):
+####################################################################################################
+CAP_SMD_ELKO_GRND
+(L,W,H,D,B,S,C)
+####################################################################################################
+CAP_SMD_ELKO_0405(value)
+(4.5,4.5,5.5,4.0,0.8,1.0,2.0)
+CAP_SMD_ELKO_0505(value)
+(5.5,5.5,5.5,5.0,0.8,1.4,2.3)
+CAP_SMD_ELKO_0605(value)
+(6.8,6.8,5.5,6.3,0.8,2.0,2.7)
+CAP_SMD_ELKO_0807(value)
+(8.6,8.6,6.8,8.0,0.8,2.3,3.4)
+CAP_SMD_ELKO_0808(value)
+(8.4,8.4,8.7,8,1,4.7,2.2)
+CAP_SMD_ELKO_0810(value)
+(8.6,8.6,10.5,8.0,1.1,3.1,3.0)
+CAP_SMD_ELKO_1010(value)
+(10.6,10.6,10.5,10.0,1.1,4.7,3.3)
+CAP_SMD_ELKO_1012(value)
+(10.6,10.6,12.3,10.0,1.2,4.5,3.9)
+CAP_SMD_ELKO_1014(value)
+(10.6,10.6,14.3,10.0,1.2,4.5,3.9)
+CAP_SMD_ELKO_1212(value)
+(12.8,12.8,12.5,12.5,1.2,4.7,4)
+CAP_SMD_ELKO_1214(value)
+(12.8,12.8,14.5,12.5,1.2,4.7,4)
+CAP_SMD_ELKO_PANASONIC_B(value)
+(4.3,4.3,5.8,4.0,0.65,1.0,1.8)
+CAP_SMD_ELKO_PANASONIC_C(value)
+(5.3,5.3,5.8,5.0,0.65,1.5,2.2)
+CAP_SMD_ELKO_PANASONIC_D(value)
+(6.6,6.6,5.8,6.3,0.65,1.8,2.6)
+CAP_SMD_ELKO_PANASONIC_E(value)
+(8.3,8.3,6.2,8.0,0.65,2.2,3.4)
+CAP_SMD_ELKO_PANASONIC_F(value)
+(8.3,8.3,10.2,8.0,0.9,3.1,3.4)
+CAP_SMD_ELKO_PANASONIC_G(value)
+(10.3,10.3,10.2,10.0,0.9,4.6,3.5)
+####################################################################################################
+####################################################################################################
+union{
+box{<-S/2,0,-B/2><-S/2-C,0.3,B/2>}
+box{<S/2,0,-B/2><S/2+C,0.3,B/2>}
+difference{
+box{<-L/2,0.3,-W/2><L/2,2,W/2>}
+box{<0,0,0><6,3,-5> rotate<0,-45,0> translate<L/2-L/4,0,-W/2>}
+box{<0,0,0><6,3,5> rotate<0,45,0> translate<L/2-L/4,0,W/2>}
+pigment{Gray30}}
+difference{
+cylinder{<0,2,0><0,H-0.4,0>D/2}
+torus{D/2+0.2,0.4 translate<0,3,0>}}
+torus{D/2-0.4,0.4 translate<0,H-0.4,0>}
+cylinder{<0,H-0.4,0><0,H,0>D/2-0.4}
+difference{
+cylinder{<0,H-0.4,0><0,H+0.01,0>D/2-0.4 pigment{Gray20}}
+box{<-D/6,H-0.5,-D/2><D/2,H+0.1,D/2> pigment{Gray20}}}
+text {ttf besch_font value 0.5,0 scale D/7 rotate<90,-90,0> translate<D/16,H+0.01,-D/2+D/8> pigment{Gray20}}
+rotate<0,180,0> texture{col_silver}}
+#end

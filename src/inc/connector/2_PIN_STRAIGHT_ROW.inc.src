@@ -1,0 +1,17 @@
+Reihe gerader quadratischer Stifte
+// Tilmann Reh <tilmann.reh@autometer.de>
+// Grundmakro: Reihe gerader quadratischer Stifte z.B. für Pfostenwannen oder Wago-Stecker.
+// Parameter: Anzahl Pins, Pitch, Stärke, Höhen über/unter PCB, Farbe.
+// Bezugspunkt: Mitte der Pinreihe.
+####################################################################################################
+####################################################################################################
+PIN_STRAIGHT_ROW
+(Pins,Pitch,D,HO,HU,col)
+####################################################################################################
+####################################################################################################
+####################################################################################################
+union{
+#local i=0;
+#while(i<Pins) object{PIN_STRAIGHT (D,HO,HU,col) translate<i*Pitch,0,0>} #local i=i+1; #end
+translate<-(Pins-1)*Pitch/2,0,0>}
+#end

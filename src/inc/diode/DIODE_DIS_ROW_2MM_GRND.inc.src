@@ -1,0 +1,92 @@
+Reihen-LEDs
+//Reihen-LEDs LZR181 - LZR185 Siemens
+//Designed by Friedrich Bleikamp, Lenord, Bauer & Co. Gmbh <fbleikamp@lenord.de> 
+//Privat: <fbleikamp@web.de>
+//a = Anzahl
+####################################################################################################
+LZR181:0:0:0:0:1:0:0:0:0:0:0:0:0:180:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:DIODE_DIS_ROW_2MM_1(:Diskrete 2MM 1FACH REIHEN LED (led.lib):
+LZR182:0:0:0:0:1:0:0:0:0:0:0:0:0:180:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:DIODE_DIS_ROW_2MM_2(:Diskrete 2MM 2FACH REIHEN LED (led.lib):
+LZR183:0:0:0:0:1:0:0:0:0:0:0:0:0:180:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:DIODE_DIS_ROW_2MM_3(:Diskrete 2MM 3FACH REIHEN LED (led.lib):
+LZR184:0:0:0:0:1:0:0:0:0:0:0:0:0:180:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:DIODE_DIS_ROW_2MM_4(:Diskrete 2MM 4FACH REIHEN LED (led.lib):
+LZR185:0:0:0:0:1:0:0:0:0:0:0:0:0:180:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:DIODE_DIS_ROW_2MM_5(:Diskrete 2MM 5FACH REIHEN LED (led.lib):
+####################################################################################################
+DIODE_DIS_ROW_2MM_GRND
+(a,col,tra,height)
+####################################################################################################
+DIODE_DIS_ROW_2MM_1(col,tra,height)
+(1,col,tra,height)
+DIODE_DIS_ROW_2MM_2(col,tra,height)
+(2,col,tra,height)
+DIODE_DIS_ROW_2MM_3(col,tra,height)
+(3,col,tra,height)
+DIODE_DIS_ROW_2MM_4(col,tra,height)
+(4,col,tra,height)
+DIODE_DIS_ROW_2MM_5(col,tra,height)
+(5,col,tra,height)
+####################################################################################################
+####################################################################################################
+#macro DRLED_2MM(col,tra,height)
+union{
+	merge{
+		//Body
+		difference{
+			cylinder{<0,0,0><0,1.6,0>2.1 translate<-0.4,0,0>} 
+			box{<-2.6,-0.1,-2.6><1.3,1.7,2.6>}}
+			box{<-1.6,0,-1.27><1.3,1.6,1.27>} 
+			cylinder{<0,0.75,0><0,2,0>1}
+			sphere{<0,2,0>1}
+		}
+		//Anode
+		#if(pin_short=off)
+			box{<-0.2,0.5,-0.2><0.2,-30.4,0.2> texture{col_silver}translate<-1.27,0,0>}
+		#else
+			box{<-0.2,0.5,-0.2><0.2,-1*(pcb_height+pin_length+height)-0.2,0.2> texture{col_silver}translate<-1.27,0,0>}
+		#end
+		difference{
+			box{<-0.2,0.5,-0.2><2,1.5,0.2>texture{col_silver}translate<-1.27,0,0>}
+			box{<0,-1.0,-0.201><2,0,0.201>texture{col_silver} rotate<0,0,15> translate<0,0.5,0>}
+			lathe{
+				linear_spline 3,
+				<0, 0>, <1.2, 1> <0,1> 
+				texture{col_silver} translate<0,0.6,0>
+			}
+		}
+		//Kathode
+		difference{
+			#if(pin_short=off)
+				box{<-0.2,0.5,-0.2><0.2,-25.4,0.2> texture{col_silver}translate<1.27,0,0>}
+			#else
+				box{<-0.2,0.5,-0.2><0.2,-1*(pcb_height+pin_length+height)-0.2,0.2> texture{col_silver}translate<1.27,0,0>}
+			#end
+			cylinder{<-0.2,0.5,-0.201><-0.2,0.5,0.201>0.2 texture{col_silver} translate<1.24,0,0>
+		}
+	}
+	box{<0,0.1,-0.2><0.2,1.4,0.2>translate<1.27,0,0> texture{col_silver}}
+	box{<0.7,1.2,-0.2><1.27,1.4,0.2>translate<0,0,0> texture{col_silver}}
+	//Cristal
+	box{<-0.3,0,-0.3><0.3,0.3,0.3>pigment{col} finish{ ambient (1 * global_ambient_mul)} translate<0,1,0>}
+	
+	//Reflector
+	//lathe{linear_spline 4,<0, 0>, <0.6,0.6>, <0.8,0.6>,<0.2,0> texture{col_silver}translate<0,0.6,0>}
+	pigment{col filter tra}
+	translate<0,0.1,0>
+	translate<0,0.1+height,0>
+}
+#end
+
+
+#if(a>1)
+union{
+#else
+object{
+#end
+#local i=0;
+        #while(i<a)
+                object{DRLED_2MM(col,tra,height) translate<0,0,i*2.54>}
+                #local i=i+1;
+        #end
+        #if(a>1)
+        translate<0,0,-(a-1)*1.27>
+        #end
+}
+#end

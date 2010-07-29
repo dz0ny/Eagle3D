@@ -1,0 +1,93 @@
+Laser Diode or Receiver pigtail
+//Macros Laser Diode or Receiver pigtail from PD-LD
+//Designed by Philippe Boucheny <philippe.boucheny(at)free.fr>
+//Rev. 1.0  13/04/06   
+####################################################################################################
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:DIODE_DIS_LASER_PDLD_PIGTAIL(:Pigtail Laser Diode or photodetector:
+####################################################################################################
+DIODE_DIS_LASER_PDLD_PIGTAIL_GRND
+()
+####################################################################################################
+DIODE_DIS_LASER_PDLD_PIGTAIL()
+()
+####################################################################################################
+####################################################################################################
+#macro DIODE_DIS_LASER_PDLD_PIGTAIL_PIN(L1,L2,Dx,Dy,Case)
+union{
+    #declare bends=array[3] {<0, L1, 0>,  <-90, 0.5, 0>,  <0,L2,0>}
+    
+    #object {
+        TOOLS_BENTPIPE( 0.225, <0,0,0>, x, bends )
+        rotate <180,90,0> translate <Dx,3.7+Dy,-12> texture {Gold_Texture}
+    }
+    #if(Case=0)
+    cylinder{<Dx,3.7+Dy,-12><Dx,3.7+Dy,-12.05> 0.4 pigment{Black}}
+    #end
+}
+#end
+
+union{
+    difference{
+        union{
+            box{<-8.35,0,-2><+8.35,+1,+2>}
+            box{<-3.7,0,-2><+3.7,7.4,+2> }
+        }
+        cylinder{<-6.35,-0.1,0><-6.35,2.1,0> 1.1}
+        cylinder{<+6.35,-0.1,0><+6.35,2.1,0> 1.1}
+        cylinder{<0,3.7,-2.1><0,3.7,+2.1> 3}
+        box{<-1.5,+1.5,-2.1><+1.5,-1.5,+2.1> rotate 45*z translate<-3.7,7.4,0>}
+        box{<-1.5,+1.5,-2.1><+1.5,-1.5,+2.1> rotate 45*z translate<+3.7,7.4,0>}
+        box{<-0.75,+3.7,-2.1><+0.75,+7.5,+2.1>}
+    
+        pigment{Gray15}
+        finish {
+           diffuse 0.5 
+           specular 0.5
+           ambient (0.1 * global_ambient_mul)
+        }
+    }  
+    
+    cylinder{<0,3.7,15><0,3.7,40> 0.45 pigment{White}} 
+       
+    union{
+       cylinder{<0,3.7,12.6><0,3.7,15> 1.5} 
+       cone{<0,3.7,11.6>,1.95,<0,3.7,12.6> 1.5} 
+       cylinder{<0,3.7,8><0,3.7,11.6> 1.95} 
+       cone{<0,3.7,6>,3,<0,3.7,8> 1.95} 
+       cylinder{<0,3.7,6><0,3.7,-5.5> 3} 
+       cylinder{<0,3.7,-10.5><0,3.7,-10.3> 2.8} 
+        pigment{Gray10}
+        finish {
+           diffuse 0.5
+           specular 0.5
+           ambient (0.1 * global_ambient_mul)
+        }
+    }  
+    
+    cylinder{<0,3.7,-10.5><0,3.7,-12> 3 texture {Gold_Texture}} 
+    cylinder{<0,3.7,-5.5><0,3.7,-10.3> 3 texture{Aluminum}} 
+       
+    #if(global_show_screws=on)
+        object { TOOLS_SCREW(2,6,1,Silver) translate <+6.35,1,0> }
+        object { TOOLS_SCREW(2,6,1,Silver) translate <-6.35,1,0> }
+    #end
+    #if(global_show_washers=on)
+        object { TOOLS_WASHER(2,0,Silver)  translate <+6.35,-1.6-0.7,0> }
+        object { TOOLS_WASHER(2,0,Silver)  translate <-6.35,-1.6-0.7,0> }
+    #end
+    #if(global_show_nuts=on)
+        object { TOOLS_NUT(2,0,Silver)     translate <+6.35,-1.6-0.7-1.4,0> }
+        object { TOOLS_NUT(2,0,Silver)     translate <-6.35,-1.6-0.7-1.4,0> }
+    #end
+    
+    #declare bends=array[3] {<0, 3, 0>, <-90, 0.5, 0>, <0,5,0>}
+    #local Dp = 1;
+    #local Lp = 4.5;
+    #object { DIODE_DIS_LASER_PDLD_PIGTAIL_PIN( 1.335-0.5+2.54,Lp+2*Dp,+Dp,+Dp,0 ) }
+    #object { DIODE_DIS_LASER_PDLD_PIGTAIL_PIN( 1.335-0.5+2.54,Lp+2*Dp,-Dp,+Dp,1 ) }
+    #object { DIODE_DIS_LASER_PDLD_PIGTAIL_PIN( 1.335-0.5,Lp,+Dp,-Dp,0 ) }
+    #object { DIODE_DIS_LASER_PDLD_PIGTAIL_PIN( 1.335-0.5,Lp,-Dp,-Dp,0 ) }
+    
+    //rotate 180*y
+}
+#end

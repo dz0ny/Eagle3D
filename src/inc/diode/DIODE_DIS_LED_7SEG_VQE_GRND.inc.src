@@ -1,0 +1,103 @@
+7 SEG
+// LED-7-Segment-Anzeigen aus DDR-Bestaenden                       Joerg Bredendiek <sprut(replace with at)sprut.de>   
+// VQE14 VQE24 u.s.w.        
+//
+// VQE13  rot  , gemeinsame Kathode, 2-stellig    (= Toshiba TLR324)
+// VQE14  rot  , gemeinsame Anode,   2-stellig    (= Toshiba TLR325)
+// VQE11  rot  , gemeinsame Kathode, 1.5-stellig  (= Toshiba TLR326)
+// VQE12  rot  , gemeinsame Anode,   1.5-stellig  (= Toshiba TLR327)
+// VQE23  gruen, gemeinsame Kathode, 2-stellig    (= Toshiba TLG324)
+// VQE24  gruen, gemeinsame Anode,   2-stellig    (= Toshiba TLG325)
+// VQE21  gruen, gemeinsame Kathode, 1.5-stellig  (= Toshiba TLG326)
+// VQE22  gruen, gemeinsame Anode,   1.5-stellig  (= Toshiba TLG327)
+// 
+// benutzt das segment Grundmakro DIODE_DIS_LED_7SEG_SYMBOL() von BuFran <BuFran(replace with at)hi-web.cz>              
+//
+// Mittelpunkt in geometrischer Mitte
+####################################################################################################
+NOEAGLEPAC:0:0:0:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:DIODE_DIS_LED_7SEG_VQE(:7 seg display:
+####################################################################################################
+DIODE_DIS_LED_7SEG_VQE_GRND
+(value, col, tra, height)
+####################################################################################################
+DIODE_DIS_LED_7SEG_VQE(value, col, tra, height)
+(value, col, tra, height)
+####################################################################################################
+####################################################################################################
+#local vqe_col=col*0.3;        //Farbe abdunkeln
+#local tra=0.9;                //Transparenz fest einstellen
+#local vqe_pastic= texture { pigment{vqe_col filter tra} finish {roughness 0.5 diffuse 0.7 crand 0.1  ambient (0.1 * global_ambient_mul)} } ;   // rauh
+
+union{
+        #if(pin_short=off)
+                #local pp=3.1;
+        #else
+                #local pp=pcb_height+pin_length;
+        #end   
+        
+        // transparenter Koerper        
+        // offizielle Aussenmasse sind 24.8 x 20 x 9.5 mm
+        // offizielle Pinlaenge ist 3.1 mm
+        difference{                                                                                   
+                union{
+                        box{<-12.4  ,  0.5  , -10  >< 12.4  , 9.5  , 10  >}     // Grundkoerper in rot oder gruen
+                        box{<-12.4  ,  9.5  , -10  >< 12.4  , 9.7  ,-8.5 > texture{vqe_pastic}}     // rauer Streifen
+                        box{<-12.4  ,  9.5  ,  10  >< 12.4  , 9.7  , 8.5 > texture{vqe_pastic}}     // 
+                        box{<-12.2  ,  0.5  , -7.5 ><-12    , 0    ,-4   >}     // Fuss
+                        box{<-12.2  ,  0.5  ,  7.5 ><-12    , 0    , 4   >}     // Fuss
+                        box{< 12.2  ,  0.5  , -7.5 >< 12    , 0    ,-4   >}     // Fuss
+                        box{< 12.2  ,  0.5  ,  7.5 >< 12    , 0    , 4   >}     // Fuss
+                }
+                box{<-2  , -2, -2><2  , 10, 2> rotate <0,45,0> translate <13.5,  0  ,-10  >}     // Ecke ab  
+                box{<-4.5, -2, -2><4.5,  2, 2> rotate <45,0,0> translate < 0  , 10.7,-11.2>}     // Vorderkante ab 
+                pigment{vqe_col filter tra}
+        }     
+            
+        // weisser Chiptraeger    
+        difference{
+                box{<-11.6, 6, -8.8><11.6, 8.5, 8.8> pigment{Gray50}}      //keramischer Grundkoerper
+                //2 Anzeigestellen
+                union{
+                        DIODE_DIS_LED_7SEG_SYMBOL(<-6,0,-25.5>, <0.1,10,0.09>)
+                        scale<9,1,12>
+                        translate<-6.35,8.4,0>
+                        pigment{White} 
+                }        
+                union{
+                        DIODE_DIS_LED_7SEG_SYMBOL(<-6,0,-25.5>, <0.1,10,0.09>)
+                        scale<9,1,12>
+                        translate< 6.35,8.4,0>
+                        pigment{White}
+                }        
+        }
+         
+        // Beschriftung      
+        text{ttf besch_font "WF"  0.5,0.1*x pigment{White} scale<2,3,0.1> translate<-10, 4,-10.02>}
+        text{ttf besch_font value 0.5,0.1*x pigment{White} scale<2,3,0.1> translate< -4, 4,-10.02>}
+        
+        //pins
+        union{    
+                //untere Pinreihe
+                cylinder{<0,2,-7.62>,<0,-pp,-7.62>,0.225 translate<-8*1.27,0,0>}
+                cylinder{<0,2,-7.62>,<0,-pp,-7.62>,0.225 translate<-6*1.27,0,0>}
+                cylinder{<0,2,-7.62>,<0,-pp,-7.62>,0.225 translate<-4*1.27,0,0>}
+                cylinder{<0,2,-7.62>,<0,-pp,-7.62>,0.225 translate<-2*1.27,0,0>}
+                cylinder{<0,2,-7.62>,<0,-pp,-7.62>,0.225 translate< 0*1.27,0,0>}
+                cylinder{<0,2,-7.62>,<0,-pp,-7.62>,0.225 translate< 2*1.27,0,0>}
+                cylinder{<0,2,-7.62>,<0,-pp,-7.62>,0.225 translate< 4*1.27,0,0>}
+                cylinder{<0,2,-7.62>,<0,-pp,-7.62>,0.225 translate< 6*1.27,0,0>}
+                cylinder{<0,2,-7.62>,<0,-pp,-7.62>,0.225 translate< 8*1.27,0,0>}
+                //obere Pinreihe                
+                cylinder{<0,2, 7.62>,<0,-pp, 7.62>,0.225 translate<-8*1.27,0,0>}
+                cylinder{<0,2, 7.62>,<0,-pp, 7.62>,0.225 translate<-6*1.27,0,0>}
+                cylinder{<0,2, 7.62>,<0,-pp, 7.62>,0.225 translate<-4*1.27,0,0>}
+                cylinder{<0,2, 7.62>,<0,-pp, 7.62>,0.225 translate<-2*1.27,0,0>}
+                cylinder{<0,2, 7.62>,<0,-pp, 7.62>,0.225 translate< 0*1.27,0,0>}
+                cylinder{<0,2, 7.62>,<0,-pp, 7.62>,0.225 translate< 2*1.27,0,0>}
+                cylinder{<0,2, 7.62>,<0,-pp, 7.62>,0.225 translate< 4*1.27,0,0>}
+                cylinder{<0,2, 7.62>,<0,-pp, 7.62>,0.225 translate< 6*1.27,0,0>}
+                cylinder{<0,2, 7.62>,<0,-pp, 7.62>,0.225 translate< 8*1.27,0,0>}
+                pigment{Silver}
+        }  
+}
+#end

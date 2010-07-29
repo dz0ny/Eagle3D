@@ -1,0 +1,364 @@
+Phoenix
+//Macros for connector PHOENIX type MINICONNEC 5.08
+//Designed by Philippe Boucheny <philippe.boucheny(replace with at)free.fr>
+//Rev. 1.1  06/01/06
+####################################################################################################v
+MSTBV2:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_PHOENIX_508_MSTBV_2(:Connector PHOENIX type MSTBV vertical 2 pins:
+MSTBV3:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_PHOENIX_508_MSTBV_3(:Connector PHOENIX type MSTBV vertical 3 pins:
+MSTBV4:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_PHOENIX_508_MSTBV_4(:Connector PHOENIX type MSTBV vertical 4 pins:
+MSTBV5:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_PHOENIX_508_MSTBV_5(:Connector PHOENIX type MSTBV vertical 5 pins:
+MSTBV6:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_PHOENIX_508_MSTBV_6(:Connector PHOENIX type MSTBV vertical 6 pins:
+MSTBV7:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_PHOENIX_508_MSTBV_7(:Connector PHOENIX type MSTBV vertical 7 pins:
+MSTBV8:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_PHOENIX_508_MSTBV_8(:Connector PHOENIX type MSTBV vertical 8 pins:
+MSTBV9:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_PHOENIX_508_MSTBV_9(:Connector PHOENIX type MSTBV vertical 9 pins:
+MSTBV10:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_PHOENIX_508_MSTBV_10(:Connector PHOENIX type MSTBV vertical 10 pins:
+MSTBV11:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_PHOENIX_508_MSTBV_11(:Connector PHOENIX type MSTBV vertical 11 pins:
+MSTBV12:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_PHOENIX_508_MSTBV_12(:Connector PHOENIX type MSTBV vertical 12 pins:
+MSTBV13:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_PHOENIX_508_MSTBV_13(:Connector PHOENIX type MSTBV vertical 13 pins:
+MSTBV14:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_PHOENIX_508_MSTBV_14(:Connector PHOENIX type MSTBV vertical 14 pins:
+MSTBV15:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_PHOENIX_508_MSTBV_15(:Connector PHOENIX type MSTBV vertical 15 pins:
+MSTBV16:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_PHOENIX_508_MSTBV_16(:Connector PHOENIX type MSTBV vertical 16 pins:
+MSTBV17:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_PHOENIX_508_MSTBV_17(:Connector PHOENIX type MSTBV vertical 17 pins:
+MSTBV18:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_PHOENIX_508_MSTBV_18(:Connector PHOENIX type MSTBV vertical 18 pins:
+MSTBV19:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_PHOENIX_508_MSTBV_19(:Connector PHOENIX type MSTBV vertical 19 pins:
+MSTBV20:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_PHOENIX_508_MSTBV_20(:Connector PHOENIX type MSTBV vertical 20 pins:
+MSTBV21:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_PHOENIX_508_MSTBV_21(:Connector PHOENIX type MSTBV vertical 21 pins:
+MSTBV22:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_PHOENIX_508_MSTBV_22(:Connector PHOENIX type MSTBV vertical 22 pins:
+MSTBV23:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_PHOENIX_508_MSTBV_23(:Connector PHOENIX type MSTBV vertical 23 pins:
+MSTBV24:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_PHOENIX_508_MSTBV_24(:Connector PHOENIX type MSTBV vertical 24 pins:
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_PHOENIX_508_MSTBVA_2(:Connector PHOENIX type MSTBVA vertical 2 pins:
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_PHOENIX_508_MSTBVA_3(:Connector PHOENIX type MSTBVA vertical 3 pins:
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_PHOENIX_508_MSTBVA_4(:Connector PHOENIX type MSTBVA vertical 4 pins:
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_PHOENIX_508_MSTBVA_5(:Connector PHOENIX type MSTBVA vertical 5 pins:
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_PHOENIX_508_MSTBVA_6(:Connector PHOENIX type MSTBVA vertical 6 pins:
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_PHOENIX_508_MSTBVA_7(:Connector PHOENIX type MSTBVA vertical 7 pins:
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_PHOENIX_508_MSTBVA_8(:Connector PHOENIX type MSTBVA vertical 8 pins:
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_PHOENIX_508_MSTBVA_9(:Connector PHOENIX type MSTBVA vertical 9 pins:
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_PHOENIX_508_MSTBVA_10(:Connector PHOENIX type MSTBVA vertical 10 pins:
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_PHOENIX_508_MSTBVA_11(:Connector PHOENIX type MSTBVA vertical 11 pins:
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_PHOENIX_508_MSTBVA_12(:Connector PHOENIX type MSTBVA vertical 12 pins:
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_PHOENIX_508_MSTBVA_13(:Connector PHOENIX type MSTBVA vertical 13 pins:
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_PHOENIX_508_MSTBVA_14(:Connector PHOENIX type MSTBVA vertical 14 pins:
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_PHOENIX_508_MSTBVA_15(:Connector PHOENIX type MSTBVA vertical 15 pins:
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_PHOENIX_508_MSTBVA_16(:Connector PHOENIX type MSTBVA vertical 16 pins:
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_PHOENIX_508_MSTBVA_17(:Connector PHOENIX type MSTBVA vertical 17 pins:
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_PHOENIX_508_MSTBVA_18(:Connector PHOENIX type MSTBVA vertical 18 pins:
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_PHOENIX_508_MSTBVA_19(:Connector PHOENIX type MSTBVA vertical 19 pins:
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_PHOENIX_508_MSTBVA_20(:Connector PHOENIX type MSTBVA vertical 20 pins:
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_PHOENIX_508_MSTBVA_21(:Connector PHOENIX type MSTBVA vertical 21 pins:
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_PHOENIX_508_MSTBVA_22(:Connector PHOENIX type MSTBVA vertical 22 pins:
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_PHOENIX_508_MSTBVA_23(:Connector PHOENIX type MSTBVA vertical 23 pins:
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_PHOENIX_508_MSTBVA_24(:Connector PHOENIX type MSTBVA vertical 24 pins:
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_PHOENIX_508_MSTB_2(:Connector PHOENIX type MSTB horizontal 2 pins:
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_PHOENIX_508_MSTB_3(:Connector PHOENIX type MSTB horizontal 3 pins:
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_PHOENIX_508_MSTB_4(:Connector PHOENIX type MSTB horizontal 4 pins:
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_PHOENIX_508_MSTB_5(:Connector PHOENIX type MSTB horizontal 5 pins:
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_PHOENIX_508_MSTB_6(:Connector PHOENIX type MSTB horizontal 6 pins:
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_PHOENIX_508_MSTB_7(:Connector PHOENIX type MSTB horizontal 7 pins:
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_PHOENIX_508_MSTB_8(:Connector PHOENIX type MSTB horizontal 8 pins:
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_PHOENIX_508_MSTB_9(:Connector PHOENIX type MSTB horizontal 9 pins:
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_PHOENIX_508_MSTB_10(:Connector PHOENIX type MSTB horizontal 10 pins:
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_PHOENIX_508_MSTB_11(:Connector PHOENIX type MSTB horizontal 11 pins:
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_PHOENIX_508_MSTB_12(:Connector PHOENIX type MSTB horizontal 12 pins:
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_PHOENIX_508_MSTB_13(:Connector PHOENIX type MSTB horizontal 13 pins:
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_PHOENIX_508_MSTB_14(:Connector PHOENIX type MSTB horizontal 14 pins:
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_PHOENIX_508_MSTB_15(:Connector PHOENIX type MSTB horizontal 15 pins:
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_PHOENIX_508_MSTB_16(:Connector PHOENIX type MSTB horizontal 16 pins:
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_PHOENIX_508_MSTB_17(:Connector PHOENIX type MSTB horizontal 17 pins:
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_PHOENIX_508_MSTB_18(:Connector PHOENIX type MSTB horizontal 18 pins:
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_PHOENIX_508_MSTB_19(:Connector PHOENIX type MSTB horizontal 19 pins:
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_PHOENIX_508_MSTB_20(:Connector PHOENIX type MSTB horizontal 20 pins:
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_PHOENIX_508_MSTB_21(:Connector PHOENIX type MSTB horizontal 21 pins:
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_PHOENIX_508_MSTB_22(:Connector PHOENIX type MSTB horizontal 22 pins:
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_PHOENIX_508_MSTB_23(:Connector PHOENIX type MSTB horizontal 23 pins:
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_PHOENIX_508_MSTB_24(:Connector PHOENIX type MSTB horizontal 24 pins:
+MSTBA2:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_PHOENIX_508_MSTBA_2(:Connector PHOENIX type MSTBA horizontal 2 pins:
+MSTBA3:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_PHOENIX_508_MSTBA_3(:Connector PHOENIX type MSTBA horizontal 3 pins:
+MSTBA4:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_PHOENIX_508_MSTBA_4(:Connector PHOENIX type MSTBA horizontal 4 pins:
+MSTBA5:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_PHOENIX_508_MSTBA_5(:Connector PHOENIX type MSTBA horizontal 5 pins:
+MSTBA6:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_PHOENIX_508_MSTBA_6(:Connector PHOENIX type MSTBA horizontal 6 pins:
+MSTBA7:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_PHOENIX_508_MSTBA_7(:Connector PHOENIX type MSTBA horizontal 7 pins:
+MSTBA8:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_PHOENIX_508_MSTBA_8(:Connector PHOENIX type MSTBA horizontal 8 pins:
+MSTBA9:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_PHOENIX_508_MSTBA_9(:Connector PHOENIX type MSTBA horizontal 9 pins:
+MSTBA10:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_PHOENIX_508_MSTBA_10(:Connector PHOENIX type MSTBA horizontal 10 pins:
+MSTBA11:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_PHOENIX_508_MSTBA_11(:Connector PHOENIX type MSTBA horizontal 11 pins:
+MSTBA12:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_PHOENIX_508_MSTBA_12(:Connector PHOENIX type MSTBA horizontal 12 pins:
+MSTBA13:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_PHOENIX_508_MSTBA_13(:Connector PHOENIX type MSTBA horizontal 13 pins:
+MSTBA14:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_PHOENIX_508_MSTBA_14(:Connector PHOENIX type MSTBA horizontal 14 pins:
+MSTBA15:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_PHOENIX_508_MSTBA_15(:Connector PHOENIX type MSTBA horizontal 15 pins:
+MSTBA16:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_PHOENIX_508_MSTBA_16(:Connector PHOENIX type MSTBA horizontal 16 pins:
+MSTBA17:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_PHOENIX_508_MSTBA_17(:Connector PHOENIX type MSTBA horizontal 17 pins:
+MSTBA18:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_PHOENIX_508_MSTBA_18(:Connector PHOENIX type MSTBA horizontal 18 pins:
+MSTBA19:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_PHOENIX_508_MSTBA_19(:Connector PHOENIX type MSTBA horizontal 19 pins:
+MSTBA20:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_PHOENIX_508_MSTBA_20(:Connector PHOENIX type MSTBA horizontal 20 pins:
+MSTBA21:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_PHOENIX_508_MSTBA_21(:Connector PHOENIX type MSTBA horizontal 21 pins:
+MSTBA22:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_PHOENIX_508_MSTBA_22(:Connector PHOENIX type MSTBA horizontal 22 pins:
+MSTBA23:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_PHOENIX_508_MSTBA_23(:Connector PHOENIX type MSTBA horizontal 23 pins:
+MSTBA24:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_PHOENIX_508_MSTBA_24(:Connector PHOENIX type MSTBA horizontal 24 pins:
+####################################################################################################
+CON_PHOENIX_508_GRND
+(n,vertical,a)
+####################################################################################################
+// Vertical whithout border
+CON_PHOENIX_508_MSTBV_2()
+(2,1,0)
+CON_PHOENIX_508_MSTBV_3()
+(3,1,0)
+CON_PHOENIX_508_MSTBV_4()
+(4,1,0)
+CON_PHOENIX_508_MSTBV_5()
+(5,1,0)
+CON_PHOENIX_508_MSTBV_6()
+(6,1,0)
+CON_PHOENIX_508_MSTBV_7()
+(7,1,0)
+CON_PHOENIX_508_MSTBV_8()
+(8,1,0)
+CON_PHOENIX_508_MSTBV_9()
+(9,1,0)
+CON_PHOENIX_508_MSTBV_10()
+(10,1,0)
+CON_PHOENIX_508_MSTBV_11()
+(11,1,0)
+CON_PHOENIX_508_MSTBV_12()
+(12,1,0)
+CON_PHOENIX_508_MSTBV_13()
+(13,1,0)
+CON_PHOENIX_508_MSTBV_14()
+(14,1,0)
+CON_PHOENIX_508_MSTBV_15()
+(15,1,0)
+CON_PHOENIX_508_MSTBV_16()
+(16,1,0)
+CON_PHOENIX_508_MSTBV_17()
+(17,1,0)
+CON_PHOENIX_508_MSTBV_18()
+(18,1,0)
+CON_PHOENIX_508_MSTBV_19()
+(19,1,0)
+CON_PHOENIX_508_MSTBV_20()
+(20,1,0)
+CON_PHOENIX_508_MSTBV_21()
+(21,1,0)
+CON_PHOENIX_508_MSTBV_22()
+(22,1,0)
+CON_PHOENIX_508_MSTBV_23()
+(23,1,0)
+CON_PHOENIX_508_MSTBV_24()
+(24,1,0)
+// Horizontal whithout border
+CON_PHOENIX_508_MSTB_2()
+(2,0,0)
+CON_PHOENIX_508_MSTB_3()
+(3,0,0)
+CON_PHOENIX_508_MSTB_4()
+(4,0,0)
+CON_PHOENIX_508_MSTB_5()
+(5,0,0)
+CON_PHOENIX_508_MSTB_6()
+(6,0,0)
+CON_PHOENIX_508_MSTB_7()
+(7,0,0)
+CON_PHOENIX_508_MSTB_8()
+(8,0,0)
+CON_PHOENIX_508_MSTB_9()
+(9,0,0)
+CON_PHOENIX_508_MSTB_10()
+(10,0,0)
+CON_PHOENIX_508_MSTB_11()
+(11,0,0)
+CON_PHOENIX_508_MSTB_12()
+(12,0,0)
+CON_PHOENIX_508_MSTB_13()
+(13,0,0)
+CON_PHOENIX_508_MSTB_14()
+(14,0,0)
+CON_PHOENIX_508_MSTB_15()
+(15,0,0)
+CON_PHOENIX_508_MSTB_16()
+(16,0,0)
+CON_PHOENIX_508_MSTB_17()
+(17,0,0)
+CON_PHOENIX_508_MSTB_18()
+(18,0,0)
+CON_PHOENIX_508_MSTB_19()
+(19,0,0)
+CON_PHOENIX_508_MSTB_20()
+(20,0,0)
+CON_PHOENIX_508_MSTB_21()
+(21,0,0)
+CON_PHOENIX_508_MSTB_22()
+(22,0,0)
+CON_PHOENIX_508_MSTB_23()
+(23,0,0)
+CON_PHOENIX_508_MSTB_24()
+(24,0,0)
+// Vertical whith border
+CON_PHOENIX_508_MSTBVA_2()
+(2,1,1)
+CON_PHOENIX_508_MSTBVA_3()
+(3,1,1)
+CON_PHOENIX_508_MSTBVA_4()
+(4,1,1)
+CON_PHOENIX_508_MSTBVA_5()
+(5,1,1)
+CON_PHOENIX_508_MSTBVA_6()
+(6,1,1)
+CON_PHOENIX_508_MSTBVA_7()
+(7,1,1)
+CON_PHOENIX_508_MSTBVA_8()
+(8,1,1)
+CON_PHOENIX_508_MSTBVA_9()
+(9,1,1)
+CON_PHOENIX_508_MSTBVA_10()
+(10,1,1)
+CON_PHOENIX_508_MSTBVA_11()
+(11,1,1)
+CON_PHOENIX_508_MSTBVA_12()
+(12,1,1)
+CON_PHOENIX_508_MSTBVA_13()
+(13,1,1)
+CON_PHOENIX_508_MSTBVA_14()
+(14,1,1)
+CON_PHOENIX_508_MSTBVA_15()
+(15,1,1)
+CON_PHOENIX_508_MSTBVA_16()
+(16,1,1)
+CON_PHOENIX_508_MSTBVA_17()
+(17,1,1)
+CON_PHOENIX_508_MSTBVA_18()
+(18,1,1)
+CON_PHOENIX_508_MSTBVA_19()
+(19,1,1)
+CON_PHOENIX_508_MSTBVA_20()
+(20,1,1)
+CON_PHOENIX_508_MSTBVA_21()
+(21,1,1)
+CON_PHOENIX_508_MSTBVA_22()
+(22,1,1)
+CON_PHOENIX_508_MSTBVA_23()
+(23,1,1)
+CON_PHOENIX_508_MSTBVA_24()
+(24,1,1)
+// Horizontal whith border
+CON_PHOENIX_508_MSTBA_2()
+(2,0,1)
+CON_PHOENIX_508_MSTBA_3()
+(3,0,1)
+CON_PHOENIX_508_MSTBA_4()
+(4,0,1)
+CON_PHOENIX_508_MSTBA_5()
+(5,0,1)
+CON_PHOENIX_508_MSTBA_6()
+(6,0,1)
+CON_PHOENIX_508_MSTBA_7()
+(7,0,1)
+CON_PHOENIX_508_MSTBA_8()
+(8,0,1)
+CON_PHOENIX_508_MSTBA_9()
+(9,0,1)
+CON_PHOENIX_508_MSTBA_10()
+(10,0,1)
+CON_PHOENIX_508_MSTBA_11()
+(11,0,1)
+CON_PHOENIX_508_MSTBA_12()
+(12,0,1)
+CON_PHOENIX_508_MSTBA_13()
+(13,0,1)
+CON_PHOENIX_508_MSTBA_14()
+(14,0,1)
+CON_PHOENIX_508_MSTBA_15()
+(15,0,1)
+CON_PHOENIX_508_MSTBA_16()
+(16,0,1)
+CON_PHOENIX_508_MSTBA_17()
+(17,0,1)
+CON_PHOENIX_508_MSTBA_18()
+(18,0,1)
+CON_PHOENIX_508_MSTBA_19()
+(19,0,1)
+CON_PHOENIX_508_MSTBA_20()
+(20,0,1)
+CON_PHOENIX_508_MSTBA_21()
+(21,0,1)
+CON_PHOENIX_508_MSTBA_22()
+(22,0,1)
+CON_PHOENIX_508_MSTBA_23()
+(23,0,1)
+CON_PHOENIX_508_MSTBA_24()
+(24,0,1)
+####################################################################################################
+####################################################################################################
+// n = pins ; Vertical = 1 if yes ; With border a = 1 / Whithout border a = 0
+union{
+    difference{
+        union{
+            #local PAS = 5.08;
+            //body
+        	box{<-PAS*n/2-a,-4.15,0><+PAS*n/2+a,4.15,12> }
+        	//up additional thickness
+        	box{<-PAS*n/2-a,+4.15,9><+PAS*n/2+a,4.15+0.5,12> }
+         }
+         
+         union{
+            
+            #local i=0; 
+            #while (i<n)
+                //Half Cylindrical holes
+                intersection{
+                    cylinder{<-(PAS/2*(n-1))+(i*PAS),0.35,2.5><-(PAS/2*(n-1))+(i*PAS),0.35,12.1> 4 }
+                    box{<-(PAS/2*(n-1))+(i*PAS)+2.541,+0.1,2.51><-(PAS/2*(n-1))+(i*PAS)-2.541,-5.1,12.1> }
+                }
+                //Crenels at the top
+                box{<-(PAS/2*(n-1))+(i*PAS)+1,3,11><-(PAS/2*(n-1))+(i*PAS)-1,6,12.5> }
+                //Crenels for pins
+                box{<-(PAS/2*(n-1))+(i*PAS)+0.5,0,-0.1><-(PAS/2*(n-1))+(i*PAS)-0.5,-6,2> }
+                box{<-(PAS/2*(n-1))+(i*PAS)+1.5,-4,-0.1><-(PAS/2*(n-1))+(i*PAS)-1.5,-6,3> }
+             #local i=i+1; #end
+          
+             //Half squared hole               
+             box{<-PAS*n/2-0.01,0,2.5><+PAS*n/2+0.01,3.25,12.1> }
+                                     
+            //bisel   
+        	box{<-PAS*n/2-a-0.1,+4.15,9><+PAS*n/2+a+0.1,4.15+0.7,12> rotate 20*x translate 4*y}
+        	
+         }
+         pigment{ForestGreen}
+    }
+    #if(vertical)
+        #local i=0; #while (i<n)
+            union{
+                //pin body
+                box{<-(PAS/2*(n-1))+(i*PAS)-0.4,-0.4,-4><-(PAS/2*(n-1))+(i*PAS)+0.4,+0.4,9> }
+                //pin top
+                intersection{
+                    box{<-(PAS/2*(n-1))+(i*PAS)-0.4,-0.4,9><-(PAS/2*(n-1))+(i*PAS)+0.4,+0.4,10> }
+                    cone{<-(PAS/2*(n-1))+(i*PAS),0,9>, 0.565, <-(PAS/2*(n-1))+(i*PAS),0,10.01>, 0.25}
+                }
+                texture { pigment{P_Silver2} }
+            }
+        #local i=i+1; #end
+        rotate <-90,180,0>
+    #else
+        #local i=0; #while (i<n)
+            //inside part pin
+            union{
+                //pin body
+                box{<-(PAS/2*(n-1))+(i*PAS)-0.4,-0.4,2><-(PAS/2*(n-1))+(i*PAS)+0.4,+0.4,9> texture { pigment{P_Silver2} }}
+                //pin top
+                intersection{
+                    box{<-(PAS/2*(n-1))+(i*PAS)-0.4,-0.4,9><-(PAS/2*(n-1))+(i*PAS)+0.4,+0.4,10> }
+                    cone{<-(PAS/2*(n-1))+(i*PAS),0,9>, 0.565, <-(PAS/2*(n-1))+(i*PAS),0,10.01>, 0.25}
+                }
+                texture { pigment{P_Silver2} }
+            }
+
+
+            //outside part pin
+            box{<-(PAS/2*(n-1))+(i*PAS)-0.4,0,1.1><-(PAS/2*(n-1))+(i*PAS)+0.4,-7.5,1.9> texture { pigment{P_Silver2} }}
+        #local i=i+1; #end
+        translate <0,4.1,-5.08-1.5> //-1.5>
+        rotate 180*y
+    #end
+}
+#end

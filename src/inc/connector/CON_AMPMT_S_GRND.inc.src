@@ -1,0 +1,85 @@
+Wago Klemme
+//Macro fuer WAGO Leiterplattenklemme Serie 233, con-wago.lib,    Joerg Bredendiek <sprut(replace with at)sprut.de>
+//
+//  WAGO 233-1xx        Rastermass 2.50 mm, grau
+//  WAGO 233-2xx        Rastermass 2.50 mm, grau    Klemmhebel
+//  WAGO 233-4xx        Rastermass 2.54 mm, orange
+//  WAGO 233-5xx        Rastermass 2.54 mm, orange  Klemmhebel
+//
+// Nullpunkt:
+//      mittig zwischen den Pins
+//
+// a = Anzahl der Reihen
+####################################################################################################
+S02P:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_AMPMT_S_2(:Connector AMP MT SXXP 2 pins:
+S03P:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_AMPMT_S_3(:Connector AMP MT SXXP 3 pins:
+S04P:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_AMPMT_S_4(:Connector AMP MT SXXP 4 pins:
+S05P:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_AMPMT_S_5(:Connector AMP MT SXXP 5 pins:
+S06P:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_AMPMT_S_6(:Connector AMP MT SXXP 6 pins:
+S07P:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_AMPMT_S_7(:Connector AMP MT SXXP 7 pins:
+S08P:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_AMPMT_S_8(:Connector AMP MT SXXP 8 pins:
+S09P:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_AMPMT_S_9(:Connector AMP MT SXXP 9 pins:
+NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_AMPMT_S_10(:Connector AMP MT SXXP 10 pins:
+NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_AMPMT_S_12(:Connector AMP MT SXXP 12 pins:
+####################################################################################################
+CON_AMPMT_S_GRND
+(n) 
+####################################################################################################
+CON_AMPMT_S_2(value) 
+(2)
+CON_AMPMT_S_3(value)
+(3)
+CON_AMPMT_S_4(value)
+(4)
+CON_AMPMT_S_5(value) 
+(5)
+CON_AMPMT_S_6(value) 
+(6)
+CON_AMPMT_S_7(value) 
+(7)
+CON_AMPMT_S_8(value) 
+(8)
+CON_AMPMT_S_9(value) 
+(9)
+CON_AMPMT_S_10(value) 
+(10)
+CON_AMPMT_S_12(value) 
+(12)
+####################################################################################################
+####################################################################################################
+
+
+union {
+  #local L = n * 2.54;
+  #local l = 5.715;
+  #local h = 2.54;
+   difference {
+   union {
+        box {<-L/2,0,-l/2><L/2,h,-l/2+l/8>} 
+        box {<-L/2,0,-l/2><L/2,3*h,-l/2+l/8> translate <0,0,l-l/8> }   
+        box {<-L/2,h/4,-l/2+l/8><L/2,h,l/2-l/8>} 
+        cylinder{<-L/2,9*h/4,l/2-l/8><L/2,9*h/4,l/2-l/8> l/8 }
+        pigment{Gray80} }   
+        #local hueco=
+        box {<-0.3175,0,-l><0.3175,0.635,l> pigment {Gray80}}
+        #local i = 0;
+        #while(i<n)
+                object{hueco translate< -(n-1)*2.54/2+i*2.54, 0, 0>}
+        #local i = i + 1;
+        #end   
+        cylinder {<-L,h,l/2-l/8><L,h,l/2-l/8> l/10 }
+        
+        }
+  #local pin =  
+  intersection {
+    box{<-0.3175, -3.556 , -0.3175 > <0.3175, 9.033, 0.3175 >  }
+    cone{<0,-3.556,0>, 0.5,<0,10.033,0>, 0.2 }    
+    cone{<0,10.033,0>, 0.5,<0,-3.556,0>, 0.2 } 
+    texture{col_gold}     }
+ #local i = 0;
+  #while(i<n)
+    object{pin translate< -(n-1)*2.54/2+i*2.54, 0.556*l, 0>}
+  #local i = i + 1;
+  #end   
+  } 
+#end 

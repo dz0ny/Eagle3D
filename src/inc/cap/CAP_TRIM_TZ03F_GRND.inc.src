@@ -1,0 +1,112 @@
+capacitor trimmer
+//Macros for murata TZ03 type F capacitor trimmer
+//Designed by Philippe Boucheny <philippe.boucheny(replace with at)free.fr>
+//Rev. 1.0 du 23/12/05
+####################################################################################################
+CTRIMTZ03:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CAP_TRIM_TZ03F_BLUE(:TZ03 muRata capacitor trimmer:    
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CAP_TRIM_TZ03F_PINK(:TZ03 muRata capacitor trimmer:    
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CAP_TRIM_TZ03F_WHITE(:TZ03 muRata capacitor trimmer:    
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CAP_TRIM_TZ03F_GREEN(:TZ03 muRata capacitor trimmer:    
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CAP_TRIM_TZ03F_ORANGE(:TZ03 muRata capacitor trimmer:    
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CAP_TRIM_TZ03F_RED(:TZ03 muRata capacitor trimmer:    
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CAP_TRIM_TZ03F_BROWN(:TZ03 muRata capacitor trimmer:    
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CAP_TRIM_TZ03F_YELLOW(:TZ03 muRata capacitor trimmer:    
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CAP_TRIM_TZ03F_BLACK(:TZ03 muRata capacitor trimmer:    
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CAP_TRIM_TZ03F_BLACKDOT(:TZ03 muRata capacitor trimmer:    
+####################################################################################################
+CAP_TRIM_TZ03F_GRND
+(col,dot)
+####################################################################################################
+CAP_TRIM_TZ03F_BLUE()
+(Blue,0)
+CAP_TRIM_TZ03F_PINK()
+(Pink,0)
+CAP_TRIM_TZ03F_WHITE()
+(White,0)
+CAP_TRIM_TZ03F_GREEN()
+(Green,0)
+CAP_TRIM_TZ03F_ORANGE()
+(Orange,0)
+CAP_TRIM_TZ03F_RED()
+(Red,0)
+CAP_TRIM_TZ03F_BROWN()
+(Brown,0)
+CAP_TRIM_TZ03F_YELLOW()
+(Yellow,0)
+CAP_TRIM_TZ03F_BLACK()
+(Gray15,0)
+CAP_TRIM_TZ03F_BLACKDOT()
+(Gray15,1)
+####################################################################################################
+####################################################################################################
+union{
+    difference{
+        union{ 
+            difference{          
+                union{
+                    torus { 2.5, 0.5 translate 4.3*y}           //top round
+                    cylinder{<0,0,0><0,4.3,0> 3}                //main case   
+                    cylinder{<0,0,0><0,4.8,0> 2.5}              //top cover 
+                } 
+                union{    
+                    box{<0,-0.2,-3.2><+3.2,5.0,3.2>}            //delete back side (flat side)
+                }
+            } 
+            
+            cylinder{<2.5,0,+1.75><2.5,4.3,+1.75> 0.5}          //back bottom to top edges
+            cylinder{<2.5,0,-1.75><2.5,4.3,-1.75> 0.5}
+            sphere {<2.5,4.3,-1.75>, 0.5}                       //back top corners
+            sphere {<2.5,4.3,+1.75>, 0.5}           
+            cylinder{<2.5,4.3,+1.75><2.5,4.3,-1.75> 0.5}        //back top corner to corner edge
+            box{<-1.3,0,-0.25><+1.3,4.3,+0.25> rotate -16.7*y translate<1.3,0,-2.3709>}     //flanks
+            box{<-1.3,0,-0.25><+1.3,4.3,+0.25> rotate +16.7*y translate<1.3,0,+2.3709>}     //flanks
+                            
+            prism {0 4.8 4 <0, 2.5>, <2.5, 1.75>, <2.5, -1.75>, <0,-2.5>}  //top cover             
+
+            box{<0,0,+1.75><3,4.3,-1.75>}               //back
+            cylinder{<-1.35,4.3,0><+1.3,4.3,0> 0.5 rotate -16.7*y translate<1.3,0,-2.11>}   //back top corner to main case edges
+            cylinder{<-1.35,4.3,0><+1.3,4.3,0> 0.5 rotate +16.7*y translate<1.3,0,+2.11>}
+            
+            cylinder{<0,0,+2.5><0,4.3,+2.5> 0.5}        //back bottom to top edges
+            cylinder{<0,0,-2.5><0,4.3,-2.5> 0.5}
+            sphere {<0,4.3,-2.5>, 0.5}                  //main case junctions
+            sphere {<0,4.3,+2.5>, 0.5}
+            
+        }
+        union{
+            cylinder{<0,4,0><0,5,0> 1.25}                           //central hole
+            box{<+0.1,-1,-0.55><-0.1,6,+0.55> translate -2.9*x }    //front pin groove on round side
+            box{<+0.1,-1,-0.6><-0.1,1.1,0.6> translate +2.91*x}     //back pin groove on flat side
+        }
+         pigment{col}   
+    }
+    difference{
+        cylinder{<0,4,0><0,4.5,0> 1.1}                  //metalic axe
+        union{
+            box{<+1.1,4.1,-0.25><-1.1,4.51,+0.25>}      //axe cross grooves
+            box{<-0.25,4.11,-1.1><+0.25,4.51,+1.1>}
+        }
+        pigment{Silver}
+    }
+    
+    box{<+0.1,0,-0.5><-0.1,4.2,+0.5> translate -2.9*x pigment{Silver}}          //visible front pin allong the case
+    difference{
+        cylinder{<+0.1,0,0><-0.1,0,0> 0.5 rotate -15*z translate <-2.9,4.2,0>  pigment{Silver}} //top front pin
+        box{<+0.1,0,-0.5><-0.1,4.2,+0.5> translate -3.1*x pigment{Silver}}    
+    }
+    box{<+0.1,0,-0.5><-0.1,1,+0.5> translate +2.91*x pigment{Silver}}          //visible back pin allong the case
+    
+    box{<+0.1,-3,-0.5><-0.1,4.3,+0.5> translate 2.54*x pigment{Silver}}        //flat side pin
+    box{<+0.125,-3,-0.5><-0.125,3.0,+0.5> translate -2.54*x pigment{Silver}}   //round side pin
+
+    box{<+0.1,-0.35355,-0.35355><-0.1,0.35355,+0.35355> rotate 45*x translate <2.54,-3,0> pigment{Silver}}         //flat side pin
+    box{<+0.125,-0.35355,-0.35355><-0.125,0.35355,+0.35355> rotate 45*x translate <-2.54,-3,0> pigment{Silver}}    //round side pin
+    
+    #if(dot=1)
+        cylinder{<2.2,0,0><2.2,4.81,0> 0.4 pigment{White}} //White dot on the top
+    #end
+    
+    rotate 90*y
+}
+#end
+

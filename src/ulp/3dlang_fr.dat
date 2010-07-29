@@ -1,0 +1,167 @@
+Eagle3D (v###VERSIONDUMMY###)
+(c)2002,2003 Matthias Weißer
+matthias@matwei.de
+Pour les instructions et la license, veuillez vous référer au fichier Eagle3D_e.pdf
+Ce script ne fonctionne que pour les PCB!
+Paramètres d'entrée de Eagle3D (v###VERSIONDUMMY###)
+Général
+Rendu
+Composants
+Polygones
+Pistes
+Trous (mode réel)
+Pattes des composants et CMS
+Trous (mode rapide)
+Exporter sous forme OBJ data
+Composants inconnus
+Modèles définis par l'utilisateur
+Plaque apparente
+Pattes raccourcies
+Plaque à bords rectangulaire
+Sérigraphie (Silk Screen)
+Décor
+Phase de test. N'hésitez pas à signaler vos erreurs à
+à matthias@matwei.de
+Attention!
+Les trous réels prennent beaucoup de
+charge CPU et de temps de rendu
+(environ 10 fois plus de temps qu'en mode rapide)
+Fichier de destination
+Naviguer
+Fichier de destination
+Plaque
+Dimensions
+Epaisseur de la plaque (en mm)
+Epaisseur de cuivre (en mm)
+[[[[]]]]
+Caméra
+Position
+Position de la caméra:
+Cible de la caméra:
+Angle de vue:
+Activé
+Couleur du Spot:
+Position du Spot:
+Cible du Spot:
+Eclairage
+Cône de Lumière:
+Limite:
+Pas dombre
+Couleurs
+Selection manuelle
+Plaque
+Pistes
+Pattes et CMS
+Trous
+Arrière-plan
+Sérigraphie (Silk Screen)
+Nouvelle couleur
+Rouge
+Vert
+Bleu
+Etiquette
+Couleur
+Ajouter
+Annuler
+Aucun nom de fichier sélectionné!
+Fichier POVRay crée par
+Plaque
+Pattes&CMS/Composants
+Pattes/Vias
+Signaux
+Polygones
+Trous(réel)/Composants
+Trous(réel)/Vias
+Trous(réel)/Board
+Trous(rapide)/Parts
+Trous(rapide)/Vias
+Trous(rapide)/Board
+Sérigraphie (Silk Screen)
+Composants
+Composants sans macro (par exemple: SMD Solderjumper)
+Selectionner une couleur
+Transparent?
+Selectionner hauteur
+Hauteur standart HC49: 3mm
+Hauteur standart HC18: 12mm
+Attribuer le composant
+Définir comme un composant inconnu
+Lumière
+Angle de rotation de la plaque
+Support
+Avec support
+Sans support
+Multicouche
+Layer movement
+actual
+Attribuer aucun modèle
+Utiliser les attributions du fichier *.mpd
+La largueur du polgone est inférieure à 0.1mm! Cela aura pour conséquence
+de créer un très grand fichier POVRay. Cela prendra beaucoup de temps de calcul
+pour créer le rendu.
+Vous devez utiliser une version de Eagle supérieure ou égale à v4.08
+diamètre minimal des trous (en mm)
+//translates the camera that <0,0,0> is over the Eagle <0,0>
+Couleur interne des Vias
+Sélection des couleurs
+Choisissez une présélection des couleurs
+défini par l'utlisateur
+FR4 avec Masque de Soudure
+très coloré
+Créer le fichier POVRay
+Sélectionnert le répertoire de travail
+FR4 avec Masque de Soudure (Muecke)
+Le fichier
+existe déjà! Réécriture?
+Oui
+Non
+Tous avec support
+Tous sans support
+PCB normal
+PCB à bords aroundis
+Tailler selon les dimensions spécifié dans le layer 20 (Dimension)
+Masque de Soudure recouvrant les vias de diamètre jusqu'à (en mm)
+créer le fichier POVRay et Sortir
+Une erreur est appaure lors de l'écriture du fichier POVRay!
+Commentaire
+Rechercher un package
+Rechercher une macro POVRay
+Rechercher un commentaire
+Intensité
+Fichier POVRay crée avec succès
+Annuler les modèles définis par l'utilisateur
+Régler jusqu'au dossier contenant le fichier brd
+Ces layers sont utilisés pour la sérigraphie (Silk Screen)
+Dessin du boitier
+Ecritures situé sur la plaque
+Référence du boitier
+Ecriture sur la plaque 
+Jumpers sur les pinheader
+Sans Jumper
+Jumper ouvert
+Jumper fermé
+Tous sans jumpers
+Tous avec des jumpers ouverts
+Tous avec des jumpers fermés
+Aucune image diposnible
+Montrer l'image
+Réhausser de (en mm):
+Divers
+Ressources pour créer une animation
+Absence ou erreur dans les données spécifiés pour l'animation (3 points minimum)
+Nombre de Trames
+Flight path
+Montrer l'arborescence
+Layers permettant d'afficher des formes en 3D selon les dimensions spécifiés
+Without soldermask
+Logo on IC
+No logo
+No board outline found. Generated POVRay file may contain errors.
+All without logo
+Create .svg file
+Pads \& SMD Bottom
+Path to POVRay
+Path to system fonts
+Resolution
+Use anti aliasing
+Call POVRay and render image

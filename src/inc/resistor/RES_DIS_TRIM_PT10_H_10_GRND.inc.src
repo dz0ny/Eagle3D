@@ -1,0 +1,42 @@
+Piher-pot
+// Piher-Potentiometer PT-10 Horizontal Rastermaß 10mm
+// Carsten Kögler <koegler@ftz-leipzig.de>
+####################################################################################################
+PT-10:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:RES_DIS_TRIM_PT10_H_10(:PT10:PT10
+####################################################################################################
+RES_DIS_TRIM_PT10_H_10_GRND
+(value)
+####################################################################################################
+//PT10 Horizontal 10mm
+RES_DIS_TRIM_PT10_H_10(value)
+(value)
+####################################################################################################
+####################################################################################################
+union{
+    object {RES_DIS_TRIM_PT10_BODY(value) translate<0,1.5,0.2>}
+    // vorderer rechter pin
+    object {RES_DIS_TRIM_PT10_PIN() translate<2.5,0,-5>}
+    // vorderer linker pin
+    object {RES_DIS_TRIM_PT10_PIN() translate<-2.5,0,-5>}
+    // hinterer pin
+    object {RES_DIS_TRIM_PT10_PIN() translate<0,0,5>}
+
+    // verlängerung linker Pin
+    box{<-1.0,0,-0.05><1.0,5.9,0.05> translate<-2.5,0,-5> texture{col_silver}}
+    // Abrunden
+    cylinder{<-1,5.9,0><1,5.9,0>0.1 translate<-2.5,0,-4.95> texture{col_silver}}
+    
+    // verlängerung rechter Pin
+    box{<-1.0,0,-0.05><1.0,5.9,0.05> translate<+2.5,0,-5> texture{col_silver}}
+    // Abrunden
+    cylinder{<-1,5.9,0><1,5.9,0>0.1 translate<+2.5,0,-4.95> texture{col_silver}}
+    
+    // verlängerung hinterer Pin
+    box{<-1.0,0,-0.05><1.0,2.0,0.05> translate<0,0,5> texture{col_silver}}
+    // Abrunden
+    difference{
+        cylinder{<-1,2.0,0><1,2.0,0>0.1 translate<0,0,4.95> texture{col_silver}}
+        box{<-1.0,0,-0.05><1.0,2.0,0.05> translate<0,0,4.9> texture{col_silver}}
+    }
+}
+#end

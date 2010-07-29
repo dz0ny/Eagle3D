@@ -1,0 +1,167 @@
+Eagle3D (v###VERSIONDUMMY###)
+(c)2002,2003 Matthias Weiﬂer
+matthias@matwei.de
+Instructions and License please see Eagle3D_e.pdf
+This Converter runs only in a Board
+Eagle3D (v###VERSIONDUMMY###) Input Parameters
+Global
+Render
+Parts
+Polygons
+Wires
+Holes (real)
+Pads \& SMD Top
+Holes (fast mode)
+Export OBJ data
+Unknown Parts
+User Assigned Models
+Board
+short Pins
+Rectangular Board
+Silk Screen
+Surrounding
+Under test. Please give reports
+to matthias@matwei.de
+Attention!
+Real holes takes a lot of
+CPU power and rendering time
+(Takes more than 10 times of fast mode holes)
+Destination file
+Browse
+Destination file
+Board
+Dimensions
+PCB-Board Thickness (in mm)
+PCB-Copper Thickness (in mm)
+[[[[]]]]
+Camera
+Position
+Camera Position:
+Camera Target:
+Lens Cone Angle:
+Activate
+Spot Color:
+Spot Position:
+Spot Target:
+Spotlight
+Radius:
+Falloff:
+No Shadows
+Colors
+manual Selection
+Board
+Wires
+Pads and SMD
+Holes
+Background
+Silk Screen
+New Color
+Red
+Green
+Blue
+Label
+Color
+Add
+Cancel
+No Filename selected
+POVRay-File created by
+Board
+Pads&SMD/Parts
+Pads/Vias
+Signals
+Polygons
+Holes(real)/Parts
+Holes(real)/Vias
+Holes(real)/Board
+Holes(fast)/Parts
+Holes(fast)/Vias
+Holes(fast)/Board
+Silk Screen
+Parts
+Parts without Macro (e.g. SMD Solderjumper)
+Select Color
+Transparent?
+Select height
+Standard height HC49: 3mm
+Standard height HC18: 12mm
+Assign Part
+Assign as unknown part
+Light
+Rotation Angle Board
+Socket
+Socketed
+Not socketed
+Multilayer
+Layer movement
+actual
+assign no model
+Use assignment from brdname.mpd
+Polygon width lower than 0.1mm! This can cause
+very large POVRay files. This takes a lot
+of rendering time.
+You have to use Eagle v4.08 or higher
+real holes from (mm)
+//translates the camera that <0,0,0> is over the Eagle <0,0>
+Throug holes
+color preset
+select color preset
+User defined
+FR4 with Solder Mask
+very colored
+create POV-File
+Select Output Directory
+FR4 with Solder Mask (Muecke)
+The file
+exist. Overwrite?
+Yes
+No
+all socketed
+all unsocketed
+normal PCB
+round PCB
+Cut outs
+Solder Mask over VIA's up to (mm)
+create POV-File and Exit
+Error while writing POV-File
+Comment
+Search package
+Search POVRay-macro
+Search comment
+Intensity
+POVRay-File succesfully written
+Cancel user assigning models
+Set to Board-Path
+These layers are used for Silk Screen
+Wire from Package
+Wire from Board
+Text from Package
+Text from Board
+Jumper on pinheader
+without Jumper
+Jumper open
+Jumper closed
+all without Jumper
+all Jumper open
+all Jumper closed
+No Image available
+show image
+anheben um:
+Miscellaneous
+Animation data
+No/not enough Animation Data available (min. 3 points)
+Number of Frames
+Flight path
+View path
+Package creation layers
+Without soldermask
+Logo on IC
+No logo
+No board outline found. Generated POVRay file may contain errors.
+All without logo
+Create .svg file
+Pads \& SMD Bottom
+Path to POVRay
+Path to system fonts
+Resolution
+Use anti aliasing
+Call POVRay and render image

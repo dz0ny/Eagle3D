@@ -1,0 +1,146 @@
+PTC Widerstand
+//Macros for Thermistances by BC Components
+//Designed by Philippe Boucheny <philippe.boucheny(at)free.fr>
+//Rev. 1.0  19/06/05
+####################################################################################################
+NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:RES_DIS_PTC660_5_3(:PTC thermistor diam 5 x 3:
+NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:RES_DIS_PTC660_5_4(:PTC thermistor diam 5 x 4:
+NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:RES_DIS_PTC660_5_5(:PTC thermistor diam 5 x 5:
+NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:RES_DIS_PTC660_5_55(:PTC thermistor diam 5 x 5.5:
+NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:RES_DIS_PTC660_7_3(:PTC thermistor diam 7 x 3:
+NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:RES_DIS_PTC660_7_4(:PTC thermistor diam 7 x 4:
+NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:RES_DIS_PTC660_7_5(:PTC thermistor diam 7 x 5:
+NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:RES_DIS_PTC660_7_55(:PTC thermistor diam 7 x 5.5:
+NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:RES_DIS_PTC660_85_3(:PTC thermistor diam 8.5 x 3:
+NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:RES_DIS_PTC660_85_4(:PTC thermistor diam 8.5 x 4:
+NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:RES_DIS_PTC660_85_5(:PTC thermistor diam 8.5 x 5:
+NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:RES_DIS_PTC660_85_55(:PTC thermistor diam 8.5 x 5.5:
+NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:RES_DIS_PTC660_105_3(:PTC thermistor diam 10.5 x 3:
+NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:RES_DIS_PTC660_105_4(:PTC thermistor diam 10.5 x 4:
+NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:RES_DIS_PTC660_105_5(:PTC thermistor diam 10.5 x 5:
+NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:RES_DIS_PTC660_105_55(:PTC thermistor diam 10.5 x 5.5:
+NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:RES_DIS_PTC660_125_3(:PTC thermistor diam 12.5 x 3:
+NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:RES_DIS_PTC660_125_4(:PTC thermistor diam 12.5 x 4:
+NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:RES_DIS_PTC660_125_5(:PTC thermistor diam 12.5 x 5:
+NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:RES_DIS_PTC660_125_55(:PTC thermistor diam 12.5 x 5.5:
+NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:RES_DIS_PTC660_165_3(:PTC thermistor diam 16.5 x 3:
+NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:RES_DIS_PTC660_165_4(:PTC thermistor diam 16.5 x 4:
+NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:RES_DIS_PTC660_165_5(:PTC thermistor diam 16.5 x 5:
+NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:RES_DIS_PTC660_165_55(:PTC thermistor diam 16.5 x 5.5:
+NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:RES_DIS_PTC660_205_3(:PTC thermistor diam 20.5 x 3:
+NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:RES_DIS_PTC660_205_4(:PTC thermistor diam 20.5 x 4:
+NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:RES_DIS_PTC660_205_5(:PTC thermistor diam 20.5 x 5:
+NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:RES_DIS_PTC660_205_55(:PTC thermistor diam 20.5 x 5.5:
+####################################################################################################
+RES_DIS_PTC660_GRND
+(value,D,ep)
+####################################################################################################
+RES_DIS_PTC660_5_3(value)
+(value,5,3)
+RES_DIS_PTC660_5_4(value)
+(value,5,4)
+RES_DIS_PTC660_5_5(value)
+(value,5,5)
+RES_DIS_PTC660_5_55(value)
+(value,5,5.5)
+RES_DIS_PTC660_7_3(value)
+(value,7,3)
+RES_DIS_PTC660_7_4(value)
+(value,7,4)
+RES_DIS_PTC660_7_5(value)
+(value,7,5)
+RES_DIS_PTC660_7_55(value)
+(value,7,5.5)
+RES_DIS_PTC660_85_3(value)
+(value,8.5,3)
+RES_DIS_PTC660_85_4(value)
+(value,8.5,4)
+RES_DIS_PTC660_85_5(value)
+(value,8.5,5)
+RES_DIS_PTC660_85_55(value)
+(value,8.5,5.5)
+RES_DIS_PTC660_105_3(value)
+(value,10.5,3)
+RES_DIS_PTC660_105_4(value)
+(value,10.5,4)
+RES_DIS_PTC660_105_5(value)
+(value,10.5,5)
+RES_DIS_PTC660_105_55(value)
+(value,10.5,5.5)
+RES_DIS_PTC660_125_3(value)
+(value,12.5,3)
+RES_DIS_PTC660_125_4(value)
+(value,12.5,4)
+RES_DIS_PTC660_125_5(value)
+(value,12.5,5)
+RES_DIS_PTC660_125_55(value)
+(value,12.5,5.5)
+RES_DIS_PTC660_165_3(value)
+(value,16.5,3)
+RES_DIS_PTC660_165_4(value)
+(value,16.5,4)
+RES_DIS_PTC660_165_5(value)
+(value,16.5,5)
+RES_DIS_PTC660_165_55(value)
+(value,16.5,5.5)
+RES_DIS_PTC660_205_3(value)
+(value,20.5,3)
+RES_DIS_PTC660_205_4(value)
+(value,20.5,4)
+RES_DIS_PTC660_205_5(value)
+(value,20.5,5)
+RES_DIS_PTC660_205_55(value)
+(value,20.5,5.5)
+####################################################################################################
+####################################################################################################
+
+#macro RTH_PIN (Rot,D)
+    #local R=D*0.1;
+    union{
+        #if(D>10.5)
+            cylinder{<+1,-R,-ep/2+dp/2><+1,-D/2,-ep/2+dp/2> dp/2  translate (5+D/2)*y pigment{Gray60}}
+            intersection{
+                torus{R,0.3 rotate <90,0,0>  }
+                box{<0,R+0.4,-2><R+0.4,0,+2>}
+                translate <1-R,5+D/2-R,-ep/2+dp/2>
+                pigment{Gray60}
+            }
+            cylinder{<-D/4,0,-ep/2+dp/2><1-R,0,-ep/2+dp/2> dp/2 translate (5+D/2)*y pigment{Gray60}}
+        #else
+            cylinder{<-D/4,D/8,-ep/2+dp/2><+1,-D/2,-ep/2+dp/2> dp/2 pigment{Gray60} translate (5+D/2)*y }
+        #end
+        
+        sphere_sweep {
+          cubic_spline                
+          7,             
+          <+1,5,-ep/2+dp/2+0.1>, 0.3            
+          <+1,5,-ep/2+dp/2>, 0.3               
+          <+1,4,-ep/2+dp/2>, 0.3            
+          <+1,2.5,0>, 0.3
+          <+2.5,1,0>, 0.3
+          <+2.54,-1*(pcb_height+pin_length),0>, 0.3
+          <+2.54,-1*(pcb_height+pin_length)-0.1,0>, 0.3
+          texture{col_silver}
+        }
+        
+        rotate Rot*y
+    }
+#end
+
+
+    #local dp=0.6;
+    #local pl=20;
+    #local H2=4;
+    #local F=5.08;
+    union{
+        union{
+            superellipsoid {<1.0, 0.1> scale <D/2,D/2,ep/2-dp/2> pigment{Gray60}}
+            #if(D>7)
+                text{ ttf global_fontfile_alphalcd,value,0.05,0 scale 1.5*D/14 translate<-D/4,D/5,-ep/2+dp/2-0.05>}
+            #end
+            translate (5+D/2)*y               
+        }
+        object{RTH_PIN(0,D)}
+        object{RTH_PIN(180,D)}
+    }
+#end    

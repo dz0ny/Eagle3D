@@ -1,0 +1,322 @@
+Diskrete Diode
+//Discrete Axial Lead Diode Macro from
+//REV 1.2
+//Joseph Zeglinski
+
+// **********************************
+// Individual DIODE TYPE DEFINITIONS:
+
+//   JEDEC DIODE AXIAL PACKAGE TYPES: //Maximums: Body: (Length, Width)
+//						  Wire: (Length, Width)
+//                 BODY        WIRES
+//             LENGTH WIDTH LENGTH WIDTH
+
+// DO-7  =      7.62, 2.71, 38.10, 0.55
+// DO-14 =      7.62, 3.55, 38.10, 0.55
+// DO-15 =      7.62, 3.55, 38.10, 0.88      //Same as: DO-204AC
+// DO-16 =      2.54, 1.27, 19.05, 0.33
+// DO-27 =      9.28, 5.2,  25.4,  1.3
+// DO-32 =      9.52, 6.35, 38.10, 0.812     //Cone shape: 1.98 mm cone
+// DO-34 =      2.2,  1.85, 25.4,  0.56
+// DO-35 =      3.85, 1.75, 13.0,  0.45
+// DO-39 =      4.06, 3.81, 38.10, 0.914     //Cone shape: 1.14 mm
+// DO-41 =      5.2,  2.71, 25.4,  0.86      //Same as: DO-204AL
+// DO-41G =     4.1,  2.6,  28.0,  0.86      //D0-41 GLASS and DO-204AL GLASS
+// DO-201AD =   9.5,  5.3,  25.4,  1.32
+// DO-204AP =   9.5,  5.3,  25.4,  1.07
+
+// 1,5KA =      9.5,  5.3,  25.4,  1.07      //Same as: 1.5KE & DO-204AP
+// F126 =       6.35, 3.05, 31.0,  0.86
+// GP20 =       9.5,  5.3,  25.4,  1.07
+// MPG06 =      3.18, 2.54, 25.4,  0.635
+// P600 =       9.1,  9.1,  25.4,  1.32
+// R-1 =        3.2,  2.6,  20.0,  0.65
+
+//Define a Vertical Diode
+
+// CALLING PARAMETERS: #macro DIC_DIO(Length, Width, Wirelength, Wirewidth,  value, raster, H_V, Cathode_Down)
+//
+// CATHODE BAND (Wire Lead) Downward is the default configuration - "Cathode_Down = 1 true"
+// Anode Wire Lead across the top and down to through hole pad.
+// Change to Cathode_Down = 0 false, to create a new macro with the band at the top - top lead is cathode.
+
+// Choose RASTER: (2.54, 5.08, 7.62, 10.16, 12.7, 15.24) millimetres
+####################################################################################################
+DO07:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:DIODE_DIS_DO7_102MM_H(:Diode DO7 10mm hor.:
+DO15-12:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:DIODE_DIS_DO15_127MM_H(:Diode DO15 12mm hor.:
+DO27-15:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:DIODE_DIS_DO27_152MM_H(:Diode DO27 15mm hor.:
+DO27-15E:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:DIODE_DIS_DO27_152MM_H(:Diode DO27 15mm hor.:
+DO27Z15:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:DIODE_DIS_DO27_152MM_H(:Diode DO27 15mm hor.:
+DO27Z15E:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:DIODE_DIS_DO27_152MM_H(:Diode DO27 15mm hor.:
+DO34-5:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:DIODE_DIS_DO34_050MM_H(:Diode DO34 5mm hor.:
+DO34-7:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:DIODE_DIS_DO34_076MM_H(:Diode DO34 7mm hor.:
+DO34Z7:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:DIODE_DIS_DO34_076MM_H(:Diode DO34 7mm hor.:
+DO35-7:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:DIODE_DIS_DO35_076MM_H(:Diode DO35 7mm hor.:
+DO35-7A:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:DIODE_DIS_DO35_076MM_H(:Diode DO35 7mm hor.:
+DO35-7B:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:DIODE_DIS_DO35_076MM_H(:Diode DO35 7mm hor.:
+DO35Z7:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:DIODE_DIS_DO35_076MM_H(:Diode DO35 7mm hor.:
+DO35-10:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:DIODE_DIS_DO35_102MM_H(:Diode DO35 10mm hor.:
+DO35Z10:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:DIODE_DIS_DO35_102MM_H(:Diode DO35 10mm hor.:
+DO41-7:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:DIODE_DIS_DO41_076MM_H(:Diode DO35 7mm hor.:
+DO41-10:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:DIODE_DIS_DO41_102MM_H(:Diode DO35 10mm hor.:
+DO41Z10:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:DIODE_DIS_DO41_102MM_H(:Diode DO35 10mm hor.:
+DO201-15:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:DIODE_DIS_DO201_152MM_H(:Diode DO201 15mm hor.:
+DO201T15:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:DIODE_DIS_DO201_152MM_H(:Diode DO201 15mm hor.:
+C1702-05:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:DIODE_DIS_DO35_050MM_V(:Diode DO35 5mm ver.:
+RAD2,5:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:DIODE_DIS_DO16_025MM_V(:Diode DO16 2,5mm ver.:
+RAD2,5L:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:DIODE_DIS_DO16_025MM_V(:Diode DO16 2,5mm ver.:
+RAD5G:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:DIODE_DIS_DO41_050MM_V(:Diode DO41 5mm ver.:
+NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:DIODE_DIS_DO7_025MM_V(:Diode:
+NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:DIODE_DIS_DO14_025MM_V(:Diode:
+NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:DIODE_DIS_DO15_025MM_V(:Diode:
+NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:DIODE_DIS_DO34_025MM_V(:Diode:
+NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:DIODE_DIS_DO35_025MM_V(:Diode:
+NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:DIODE_DIS_DO39_025MM_V(:Diode:
+NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:DIODE_DIS_DO41_025MM_V(:Diode:
+NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:DIODE_DIS_DO41G_025MM_V(:Diode:
+NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:DIODE_DIS_DO204AC_025MM_V(:Diode:
+NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:DIODE_DIS_DO204AL_025MM_V(:Diode:
+NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:DIODE_DIS_F126_025MM_V(:Diode:
+NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:DIODE_DIS_R1_025MM_V(:Diode:
+NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:DIODE_DIS_DO27_050MM_V(:Diode:
+NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:DIODE_DIS_DO32_050MM_V(:Diode:
+NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:DIODE_DIS_DO201AD_050MM_V(:Diode:
+NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:DIODE_DIS_DO204AP_050MM_V(:Diode:
+NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:DIODE_DIS_1_5KA_050MM_V(:Diode:
+NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:DIODE_DIS_1_5KE_050MM_V(:Diode:
+NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:DIODE_DIS_GP20_050MM_V(:Diode:
+NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:DIODE_DIS_P600_076MM_V(:Diode:
+NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:DIODE_DIS_DO204AC_050MM_V(:Diode:
+NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:DIODE_DIS_DO14_102MM_H(:Diode:
+NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:DIODE_DIS_DO15_102MM_H(:Diode:
+NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:DIODE_DIS_DO16_050MM_H(:Diode:
+NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:DIODE_DIS_DO35_050MM_H(:Diode:
+NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:DIODE_DIS_DO39_050MM_H(:Diode:
+NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:DIODE_DIS_DO41G_050MM_H(:Diode:
+NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:DIODE_DIS_DO204AC_101MM_H(:Diode:
+NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:DIODE_DIS_DO204AL_050MM_H(:Diode:
+NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:DIODE_DIS_F126_050MM_H(:Diode:
+NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:DIODE_DIS_R1_050MM_H(:Diode:
+NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:DIODE_DIS_DO27_127MM_H(:Diode:
+NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:DIODE_DIS_DO32_127MM_H(:Diode:
+NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:DIODE_DIS_DO201AD_127MM_H(:Diode:
+NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:DIODE_DIS_DO204AP_127MM_H(:Diode:
+NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:DIODE_DIS_1_5KA_127MM_H(:Diode:
+NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:DIODE_DIS_1_5KE_127MM_H(:Diode:
+NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:DIODE_DIS_GP20_127MM_H(:Diode:
+NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:DIODE_DIS_P600_127MM_H(:Diode:
+####################################################################################################
+DIODE_DIS_GRND
+(Length, Width, Wirelength, Wirewidth,  value, raster, H_V, Cathode_Down)
+####################################################################################################
+//Horizontal from Eagle-Lib
+DIODE_DIS_DO7_102MM_H(value)
+(7.62, 2.71, 38.10, 0.55, value,  10.16, "H",  0) pigment{Gray20}
+DIODE_DIS_DO15_127MM_H(value)
+(7.62, 3.55, 38.10, 0.88, value,  12.70, "H",  0) pigment{Gray20}
+DIODE_DIS_DO27_152MM_H(value)
+(9.28, 5.20, 25.40, 1.30, value,  15.24, "H",  0) pigment{Gray20}
+DIODE_DIS_DO34_050MM_H(value)
+(2.20, 1.85, 25.40, 0.56, value,  05.08, "H",  0) pigment{Gray20}
+DIODE_DIS_DO34_076MM_H(value)
+(2.20, 1.85, 25.40, 0.56, value,  07.62, "H",  0) pigment{Gray20}
+DIODE_DIS_DO35_076MM_H(value)
+(3.85, 1.75, 13.00, 0.45, value,  07.62, "H",  0) pigment{Gray20}
+DIODE_DIS_DO35_102MM_H(value)
+(3.85, 1.75, 13.00, 0.45, value,  10.16, "H",  0) pigment{Gray20}
+DIODE_DIS_DO41_076MM_H(value)
+(5.20, 2.71, 25.40, 0.86, value,  07.62, "H",  0) pigment{Gray20}
+DIODE_DIS_DO41_102MM_H(value)
+(5.20, 2.71, 25.40, 0.86, value,  10.16, "H",  0) pigment{Gray20}
+DIODE_DIS_DO201_152MM_H(value)
+(9.50, 5.30, 25.40, 1.32, value,  15.24, "H",  0) pigment{Gray20}
+//Vertical from Eagle-Lib
+DIODE_DIS_DO35_050MM_V(value)
+(3.85, 1.75, 13.00, 0.45, value,  05.08, "V",  1) pigment{Gray20}
+DIODE_DIS_DO16_025MM_V(value)
+(2.54, 1.27, 19.05, 0.33, value,  02.54, "V",  1) pigment{Gray20}
+DIODE_DIS_DO41_050MM_V(value)
+(5.20, 2.71, 25.40, 0.86, value,  05.08, "V",  1) pigment{Gray20}
+// VERTICAL Macros:
+DIODE_DIS_DO7_025MM_V(value)
+(7.62, 2.71, 38.10, 0.55, value,  2.54,  "V",  1) pigment{Gray45}
+DIODE_DIS_DO14_025MM_V(value)
+(7.62, 3.55, 38.10, 0.55, value,  2.54,  "V",  1) pigment{Gray45}
+DIODE_DIS_DO15_025MM_V(value)
+(7.62, 3.55, 38.10, 0.88, value,  2.54,  "V",  1) pigment{Gray45}
+DIODE_DIS_DO16_025MM_V(value)
+(2.54, 1.27, 19.05, 0.33, value,  2.54,  "V",  1) pigment{Gray45}
+DIODE_DIS_DO34_025MM_V(value)
+(2.2,  1.85, 25.4,  0.56, value,  2.54,  "V",  1) pigment{Gray45}
+DIODE_DIS_DO35_025MM_V(value)
+(3.85, 1.75, 13.0,  0.45, value,  2.54,  "V",  1) pigment{Gray45}
+DIODE_DIS_DO39_025MM_V(value)
+(4.06, 3.81, 38.10, 0.914, value, 2.54,  "V",  1) pigment{Gray45}
+DIODE_DIS_DO41_025MM_V(value)
+(5.2,  2.71, 25.4,  0.86, value,  2.54,  "V",  1) pigment{Gray45}
+DIODE_DIS_DO41G_025MM_V(value)
+(4.1,  2.6,  28.0,  0.86, value,  2.54,  "V",  1) pigment{Gray45}
+DIODE_DIS_DO204AC_025MM_V(value)
+(7.62, 3.55, 38.10, 0.88, value,  2.54,  "V",  1) pigment{Gray45}
+DIODE_DIS_DO204AL_025MM_V(value)
+(4.1,  2.6,  28.0,  0.86, value,  2.54,  "V",  1) pigment{Gray45}
+DIODE_DIS_F126_025MM_V(value)
+(4.1,  2.6,  28.0,  0.86, value,  2.54,  "V",  1) pigment{Gray45}
+DIODE_DIS_R1_025MM_V(value)
+(3.2,  2.6,  20.0,  0.65, value,  2.54,  "V",  1) pigment{Gray45}
+DIODE_DIS_DO27_050MM_V(value)
+(9.28, 5.2,  25.4,  1.3,  value,  5.08,  "V",  1) pigment{Gray45}
+DIODE_DIS_DO32_050MM_V(value)
+(9.52, 6.35, 38.10, 0.812, value, 5.08,  "V",  1) pigment{Gray45}
+DIODE_DIS_DO201AD_050MM_V(value)
+(9.5,  5.3,  25.4,  1.32, value,  5.08,  "V",  1) pigment{Gray45}
+DIODE_DIS_DO204AP_050MM_V(value)
+(9.5,  5.3,  25.4,  1.07, value,  5.08,  "V",  1) pigment{Gray45}
+DIODE_DIS_1_5KA_050MM_V(value)
+(9.5,  5.3,  25.4,  1.07, value,  5.08,  "V",  1) pigment{Gray45}
+DIODE_DIS_1_5KE_050MM_V(value)
+(9.5,  5.3,  25.4,  1.07, value,  5.08,  "V",  1) pigment{Gray45}
+DIODE_DIS_GP20_050MM_V(value)
+(9.5,  5.3,  25.4,  1.07, value,  5.08,  "V",  1) pigment{Gray45}
+DIODE_DIS_P600_076MM_V(value)
+(9.1,  9.1,  25.4,  1.32, value,  7.62,  "V",  1) pigment{Gray45}
+DIODE_DIS_DO204AC_050MM_V(value)
+(7.62, 3.55, 38.10, 0.88, value,  5.08,  "V",  1) pigment{Gray45}
+// HORIZONTAL MACROS:
+DIODE_DIS_DO7_102MM_H(value)
+(7.62, 2.71, 38.10, 0.55, value,  10.16, "H",  0) pigment{Gray45}
+DIODE_DIS_DO14_102MM_H(value)
+(7.62, 3.55, 38.10, 0.55, value,  10.16, "H",  0) pigment{Gray45}
+DIODE_DIS_DO15_102MM_H(value)
+(7.62, 3.55, 38.10, 0.88, value,  10.16, "H",  0) pigment{Gray45}
+DIODE_DIS_DO16_050MM_H(value)
+(2.54, 1.27, 19.05, 0.33, value,  5.08,  "H",  0) pigment{Gray45}
+DIODE_DIS_DO34_050MM_H(value)
+(2.2,  1.85, 25.4,  0.56, value,  5.08,  "H",  0) pigment{Gray45}
+DIODE_DIS_DO35_050MM_H(value)
+(3.85, 1.75, 13.0,  0.45, value,  5.08,  "H",  0) pigment{Gray45}
+DIODE_DIS_DO39_050MM_H(value)
+(4.06, 3.81, 38.10, 0.914, value, 5.08,  "H",  0) pigment{Gray45}
+DIODE_DIS_DO41_076MM_H(value)
+(5.2,  2.71, 25.4,  0.86, value,  7.62,  "H",  0) pigment{Gray45}
+DIODE_DIS_DO41G_050MM_H(value)
+(4.1,  2.6,  28.0,  0.86, value,  5.08,  "H",  0) pigment{Gray45}
+DIODE_DIS_DO204AC_101MM_H(value)
+(7.62, 3.55, 38.10, 0.88, value,  10.16, "H",  0) pigment{Gray45}
+DIODE_DIS_DO204AL_050MM_H(value)
+(4.1,  2.6,  28.0,  0.86, value,  5.08,  "H",  0) pigment{Gray45}
+DIODE_DIS_F126_050MM_H(value)
+(4.1,  2.6,  28.0,  0.86, value,  5.08,  "H",  0) pigment{Gray45}
+DIODE_DIS_R1_050MM_H(value)
+(3.2,  2.6,  20.0,  0.65, value,  5.08,  "H",  0) pigment{Gray45}
+DIODE_DIS_DO27_127MM_H(value)
+(9.28, 5.2,  25.4,  1.3,  value,  12.7,  "H",  0) pigment{Gray45}
+DIODE_DIS_DO32_127MM_H(value)
+(9.52, 6.35, 38.10, 0.812, value, 12.7,  "H",  0) pigment{Gray45}
+DIODE_DIS_DO201AD_127MM_H(value)
+(9.5,  5.3,  25.4,  1.32, value,  12.7,  "H",  0) pigment{Gray45}
+DIODE_DIS_DO204AP_127MM_H(value)
+(9.5,  5.3,  25.4,  1.07, value,  12.7,  "H",  0) pigment{Gray45}
+DIODE_DIS_1_5KA_127MM_H(value)
+(9.5,  5.3,  25.4,  1.07, value,  12.7,  "H",  0) pigment{Gray45}
+DIODE_DIS_1_5KE_127MM_H(value)
+(9.5,  5.3,  25.4,  1.07, value,  12.7,  "H",  0) pigment{Gray45}
+DIODE_DIS_GP20_127MM_H(value)
+(9.5,  5.3,  25.4,  1.07, value,  12.7,  "H",  0) pigment{Gray45}
+DIODE_DIS_P600_127MM_H(value)
+(9.1,  9.1,  25.4,  1.32, value,  12.7,  "H",  0) pigment{Gray45}
+####################################################################################################
+####################################################################################################
+
+// ********************
+// PWB Assembly Pratice:  For Components drawing LESS than 1 watt, should be in contact with PCB.
+//                        Seperation must NOT exceed 3.0 mm (CLASS 1 and CLASS 2), 
+//                        or 0.7 mm for CLASS 3 components
+//                        Seperation should be 1.5 mm for WATTS >= 1.0
+
+
+#ifndef (Seperation) #local Seperation = 0.0; #end   // Standard vertical component seperation above board (1 watt or greater) 
+ 
+// *********************        
+
+#local L=Length/2;
+#local W=Width/2;
+#local LW=Wirewidth/2;
+#local Horizontal = !(strcmp(strupr(H_V), "H") ); // string compare returns "0" (false) if equal; therefore, Negate this.
+#local Stub = max( 0.8, Wirewidth );    // Set the component's "Stub Length" from the body to the start of bending
+#local Bend_Radius = global_diode_bend_radius;   // wire bending radius for ALL diodes - set globally
+
+
+union {
+union {
+
+// Build the DIODE body Vertically:
+
+cylinder{<0,-L,0> <0,L,0> W}
+torus{W-W/10,W/10 rotate<0,90,0> translate<0,-L,0>}             // Rounded end
+torus{W-W/10,W/10 rotate<0,90,0> translate<0,L,0>}              // Rounded end
+cylinder{<0,-L,0> <0,-(L+W/10),0> (W-W/10) }                    // End cap
+cylinder{<0,L,0> <0,(L+W/10),0> (W-W/10) }                      // End cap
+cylinder{<0,0.78*L,0> <0,0.9*L,0>(W+W/10000) pigment{White}}  // Cathode Band
+intersection{
+cylinder{<-L,0,0><L,0,0> (W+W/10000)}
+union{
+//
+// Print IDENT (value) on all 4 sides, for viewability:
+
+        // create a TrueType text shape
+        #local astring = text {
+        // one string
+        ttf // font type (only TrueType format for now)
+        besch_font, // Microsoft Windows-format TrueType font file name
+        value, // the string to create
+        1.0, // the extrusion depth
+        0 // inter-character spacing
+        }
+
+        #local astrscale = 1.56*L/(max_extent(astring).x) ;
+                // (1.56*L) is print area (mm), one band-distance from each end. Scale only in X-direction.  
+        object{astring scale <astrscale,1,1> translate< (-0.7*L), -0.375, -(W+0.3) > rotate<270,0,0>}
+        object{astring scale <astrscale,1,1> translate< (-0.7*L), -0.375, -(W+0.3) > rotate<180,0,(Horizontal ? 180 : 0)>}
+        object{astring scale <astrscale,1,1> translate< (-0.7*L), -0.375, -(W+0.3) > rotate<90,0,0>}
+        object{astring scale <astrscale,1,1> translate< (-0.7*L), -0.375, -(W+0.3) > }
+        }
+//
+        rotate<0,0,-90>       // Align the lettering cylinder, vertically
+        pigment{White}        // Paint the lettering white
+          } 
+          
+        pigment{Gray20}        // Paint the diode body dark gray
+        finish { phong 0.3  ambient (0.1 * global_ambient_mul)}
+
+        #if (Horizontal=yes)  
+        rotate<0,0,90>                        // Rotate built diode into horizontal position, Cathode on the left side.
+                                              // Cathode_Down is not relevant - deos not matter -  for horizontal diodes
+        #else rotate<0,0,(Cathode_Down*180)>  // Flip a vertical diode to cathode band downward if Cathode_Down is "TRUE".
+        #end 
+        }
+
+//
+// Attach the wire leads to the diode body:
+
+// Go build the wires, after setting up the arguments for the common routine.
+
+    
+     object{ TOOLS_WIRE_LEADS((Length+2*W/10), Width, Wirelength, Wirewidth,  raster,  Bend_Radius, Seperation, H_V)  }  // Common bent wire generator
+
+       
+
+
+// Still need to RAISE the DIODE an appropriate amount above PCB surface
+// Position the component above the PCB
+
+        #if (Horizontal=no)
+           translate < -raster/2, (L+W/10+Stub + Seperation)  ,0 >
+        #else
+           translate < 0, (W + Seperation), 0 >
+        #end
+
+// ALL DONE: Horizontal or Vertical Diode is positioned.
+
+}
+#end

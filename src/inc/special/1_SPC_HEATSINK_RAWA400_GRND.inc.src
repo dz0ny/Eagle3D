@@ -1,0 +1,50 @@
+Kühlkörper
+//Macros for TO220 heatsink RAWA-400 from Seifert and RA 37/3 from Seem
+//Designed by Philippe Boucheny <philippe.boucheny(replace with at)free.fr>
+//Rev. 1.1 - 01/01/06
+####################################################################################################
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SPC_HEATSINK_RAWA400_8P(:TO220 heatsink RAWA400-8P:
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SPC_HEATSINK_RAWA400_9P(:TO220 heatsink RAWA400-9P:
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SPC_HEATSINK_RAWA400_11P(:TO220 heatsink RAWA400-11P:
+####################################################################################################
+SPC_HEATSINK_RAWA400_GRND 
+(L1,D,Type)
+####################################################################################################
+SPC_HEATSINK_RAWA400_8P()
+(13,3.8,0)
+SPC_HEATSINK_RAWA400_9P()
+(9,3.2,1)
+SPC_HEATSINK_RAWA400_11P()
+(9,3.2,2)
+####################################################################################################
+####################################################################################################
+union{
+#local rawa_height=2;
+#local TO220_height=1.27;
+#local washer_height=0.8;
+    #if(global_show_screws=on)
+        object { TOOLS_SCREW(3,10,0,Silver) rotate 180*x translate <0,-pcb_height,0> }
+    #end
+    #if(global_show_washers=on)
+        object { TOOLS_WASHER(3,1,Silver) translate <0,+rawa_height+TO220_height,0> }
+    #end
+    #if(global_show_nuts=on)
+        object { TOOLS_NUT(3,0,Silver) translate <0,+rawa_height+TO220_height+washer_height,0> }
+    #end
+    difference{
+        union{
+            box{<-8,0,-6><17,02,+6> pigment{Gray20}} // base   
+            box{<-8,0,-6><17,11,-8> pigment{Gray20}} // side   
+            box{<-8,0,+6><17,11,+8> pigment{Gray20}} // side    
+        }
+        union{
+            box{<L1,-0.1,-5.5><17.1,2.1,+5.5> pigment{Gray20}}    
+            cylinder{<0,-.1,0><0,2.1,0> D/2 pigment{Gray20}}
+            #if(Type=2)
+                cylinder{<-2.5,-.1,0><-2.5,2.1,0> D/2 pigment{Gray20}}
+                box{<-2.5,-0.1,-D/2><0,2.1,D/2> pigment{Gray20}}
+            #end
+        } 
+    } 
+}
+#end

@@ -1,0 +1,51 @@
+PLASTIC DIP8 & DIP14 CRYSTAL OSCILLATORS
+//PLASTIC" DIP8 & DIP14 CRYSTAL OSCILLATORS   BY J. ZEGLINSKI
+// <JAZeglinski@rogers.com>
+####################################################################################################
+DIL08-4:0:1:0:0:0:1:0:0:0:SOCKET_DIP8A4(:30://IC-Sockel 4 of 8Pin:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SPC_XTAL_OSZ_PDIP8(:Quarzoszillator im PLASTIC DIP8:Quartz oscillator PLASTIC DIP8
+SG51:0:1:0:0:0:1:0:0:0:SOCKET_DIP14A4(:30://IC-Sockel 4 of 14Pin:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SPC_XTAL_OSZ_PDIP14(:Quarzoszillator im PLASTIC DIP14:Quartz oscillator PLASTIC DIP14
+####################################################################################################
+SPC_XTAL_OSZ_PDIP_GRND
+(p,value)
+####################################################################################################
+SPC_XTAL_OSZ_PDIP8(value)
+(8,value)
+SPC_XTAL_OSZ_PDIP14(value)
+(14,value)
+####################################################################################################
+####################################################################################################
+#macro OSZ_SYMBOL(Symbol_Color, Background_Color)
+	// Create the "classic Oscillator symbol" at origin on X-Z Plane
+	//    Basic symbol is (2.4mm wide x 1.2mm tall) - use "scale" on macro call to fit other size XTAL bodies
+	
+	#local T=0.15; // Symbol line thickness
+	 union{          
+	    box{ <(-0.1-T),0,(-0.6-T)><(0.1+T),0,(0.6+T)> } 
+	    box{ <-0.1,0.01,-0.6><0.1,0.01,0.6>  pigment { Symbol_Color } } // set inside of box to IC body color to create a square "O"
+	    box{ <(-0.5-T),0,-0.6-T><-0.5,0.01,0.6+T>   }
+	    box{ <-0.5,0,-T/2><-1.2,0,T/2>   }
+	    box{ <0.5+T,0,-0.6-T><0.5,0,0.6+T>   }
+	    box{ <0.5,0,-T/2><1.2,0,T/2>  }
+	      texture{ pigment { Background_Color }  }
+	      }
+#end
+
+#if(p=8)
+	union{
+	  object{ IC_DIS_DIP8A4(value,"") } // use "IC.inc" macro to create PLASTIC DIP8 with 4 corner pins and "IC Name"
+	
+	  // Add the "Crystal Oscillator Symbol" to IC created by macro with Name already on it.
+	    #local V=(3.2+0.01+0.25);   // vertical translation distance to final IC surface created in DIP08A4 macro
+	    object{ OSZ_SYMBOL(Gray30,Gray60) scale<1.5,1,1> translate<0,V,2> }   // Plot & scale the symbol, and move up into DIP surface position 
+	  }
+#else
+	union{
+	  object{ IC_DIS_DIP14A4(value,"") } // use "IC.inc" macro to create PLASTIC DIP14 with 4 corner pins and "IC Name"
+	
+	  // Add the "Crystal Oscillator Symbol" to IC created by macro with Name already on it.
+	    #local V=(3.2+0.01+0.25);   // vertical translation distance to final IC surface created in DIP14A4 macro
+	    object{ OSZ_SYMBOL(Gray30,Gray60) scale<1.5,1,1> translate<0,V,2> }   // Plot & scale the symbol, and elevate into DIP surface position 
+	  }
+#end
+
+#end

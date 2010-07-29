@@ -1,0 +1,76 @@
+Taster
+//Macro für Taster 6x6
+//franz.riedmueller@web.de
+####################################################################################################
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SWITCH_PUSH_BUTTON_6X6_RED(:Push button:
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SWITCH_PUSH_BUTTON_6X6_GREEN(:Push button:
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SWITCH_PUSH_BUTTON_6X6_BLUE(:Push button:
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SWITCH_PUSH_BUTTON_6X6_BLACK(:Push button:
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SWITCH_PUSH_BUTTON_6X6_WHITE(:Push button:
+####################################################################################################
+SWITCH_PUSH_BUTTON_6X6_GRND
+(col)
+####################################################################################################
+SWITCH_PUSH_BUTTON_6X6_RED()
+(Red)
+SWITCH_PUSH_BUTTON_6X6_GREEN()
+(Green)
+SWITCH_PUSH_BUTTON_6X6_BLUE()
+(Blue)
+SWITCH_PUSH_BUTTON_6X6_BLACK()
+(Black)
+SWITCH_PUSH_BUTTON_6X6_WHITE()
+(White)
+####################################################################################################
+####################################################################################################
+union{
+ box {<-3,   0, -3>
+      < 3, 3.4,  3>
+      pigment{
+        color rgb <0, 0, 0>
+      }
+ } 
+ box {<-3, 3.4, -3>
+      < 3, 3.5,  3>
+      pigment{
+        color rgb <2, 2, 2>}
+      finish { ambient (0.15 * global_ambient_mul) diffuse 0.85 reflection 0.35 phong 1.0 phong_size 70 brilliance 10}
+ }
+ cone {<0, 3.4, 0>,  1.65,
+       <0, 9.5, 0>, 1.45  
+       pigment{col}
+       finish { ambient (0.15 * global_ambient_mul) diffuse 0.85 reflection 0.05 phong 1.0 phong_size 40}
+ }
+ cylinder {<-2.3, 3.4, 2.3>,
+           <-2.3, 3.7, 2.3>,  0.5 
+           pigment{color rgb <0, 0, 0>}
+           finish { ambient (0.15 * global_ambient_mul) diffuse 0.85}
+ }
+ cylinder {<-2.3, 3.4, -2.3>,
+           <-2.3, 3.7, -2.3>,  0.5 
+           pigment{color rgb <0, 0, 0>}
+           finish { ambient (0.15 * global_ambient_mul) diffuse 0.85}
+ }
+ cylinder {<2.3, 3.4, 2.3>,
+           <2.3, 3.7, 2.3>,  0.5 
+           pigment{color rgb <0, 0, 0>}
+           finish { ambient (0.15 * global_ambient_mul) diffuse 0.85}
+ }
+ cylinder {<2.3, 3.4, -2.3>,
+           <2.3, 3.7, -2.3>,  0.5 
+           pigment{color rgb <0, 0, 0>}
+           finish { ambient (0.15 * global_ambient_mul) diffuse 0.85}
+ }
+ box {<-3.01, -2.5, -0.1>
+      < -2.5,  1.0,  0.1>
+      pigment{
+        color rgb <2, 2, 2>}
+      finish { ambient (0.15 * global_ambient_mul) diffuse 0.85 reflection 0.35 phong 1.0 phong_size 70 brilliance 10}
+ }
+ box {<3.01, -2.5, -0.1>
+      < 2.5,  1.0,  0.1>
+      pigment{color rgb <2, 2, 2>}
+      finish { ambient (0.15 * global_ambient_mul) diffuse 0.85 reflection 0.35 phong 1.0 phong_size 70 brilliance 10}
+ }
+}
+#end

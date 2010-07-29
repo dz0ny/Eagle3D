@@ -1,0 +1,46 @@
+gerade Pfostenwannen
+// Tilmann Reh <tilmann.reh@autometer.de>
+// gerade Pfostenwannen
+// Bezugspunkt: geometrische Mitte der Pins auf PCB-Oberfläche
+####################################################################################################
+ML6:0:0:0:0:0:0:0:0:0:0:0:0:0:180:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_DIS_WS6G(:Wannenstecker 6Pin:Shrouded Header 6Pin
+ML10:0:0:0:0:0:0:0:0:0:0:0:0:0:180:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_DIS_WS10G(:Wannenstecker 10Pin:Shrouded Header 10Pin
+ML14:0:0:0:0:0:0:0:0:0:0:0:0:0:180:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_DIS_WS14G(:Wannenstecker 14Pin:Shrouded Header 14Pin
+ML16:0:0:0:0:0:0:0:0:0:0:0:0:0:180:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_DIS_WS16G(:Wannenstecker 16Pin:Shrouded Header 16Pin
+ML20:0:0:0:0:0:0:0:0:0:0:0:0:0:180:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_DIS_WS20G(:Wannenstecker 20Pin:Shrouded Header 20Pin
+ML26:0:0:0:0:0:0:0:0:0:0:0:0:0:180:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_DIS_WS26G(:Wannenstecker 26Pin:Shrouded Header 26Pin
+ML34:0:0:0:0:0:0:0:0:0:0:0:0:0:180:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_DIS_WS34G(:Wannenstecker 34Pin:Shrouded Header 34Pin
+ML40:0:0:0:0:0:0:0:0:0:0:0:0:0:180:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_DIS_WS40G(:Wannenstecker 40Pin:Shrouded Header 40Pin
+ML50:0:0:0:0:0:0:0:0:0:0:0:0:0:180:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_DIS_WS50G(:Wannenstecker 50Pin:Shrouded Header 50Pin
+ML64:0:0:0:0:0:0:0:0:0:0:0:0:0:180:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_DIS_WS64G(:Wannenstecker 64Pin:Shrouded Header 64Pin
+####################################################################################################
+CON_DIS_WS_XX_G_GRND
+(Pins)
+####################################################################################################
+CON_DIS_WS6G()
+(6)
+CON_DIS_WS10G()
+(10)
+CON_DIS_WS14G()
+(14)
+CON_DIS_WS16G()
+(16)
+CON_DIS_WS20G()
+(20)
+CON_DIS_WS26G()
+(26)
+CON_DIS_WS34G()
+(34)
+CON_DIS_WS40G()
+(40)
+CON_DIS_WS50G()
+(50)
+CON_DIS_WS64G()
+(64)
+####################################################################################################
+####################################################################################################
+union{
+object{PFOSTENWANNE(7.62+Pins*1.27)}
+object{PIN_STRAIGHT_ROW (Pins/2,2.54,0.635,8.5,3,col_gold) translate<0,0,-1.27>}
+object{PIN_STRAIGHT_ROW (Pins/2,2.54,0.635,8.5,3,col_gold) translate<0,0,1.27>}}
+#end

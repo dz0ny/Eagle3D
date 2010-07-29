@@ -1,0 +1,222 @@
+RJ45
+// Makro fuer geschirmte Ethernet-Buchse RJ-45 8-polig
+// Designed by Carsten Koegler, FTZ-Leipzig <koegler(replace with at)ftz-leipzig.de>
+// Vorlage: MEBP 8-8PG Reichelt Elektronik
+####################################################################################################
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_RJ45(:RJ45:
+####################################################################################################
+CON_RJ45_GRND
+()
+####################################################################################################
+CON_RJ45()
+()
+####################################################################################################
+####################################################################################################
+//#local tex_rj45_metal = texture { T_Chrome_3D } ;
+#local tex_rj45_metal = texture { T_Chrome_5B } ;
+#local tex_rj45_pastic = texture { pigment{White*0.3} finish {specular 1 roughness 0.001 reflection 0.07 ambient (0.1 * global_ambient_mul)} } ;
+
+#macro body(B,H,T,R)
+union {
+
+    // Grundkoerper
+    box{<-B/2+R,0  , T/2  > <B/2-R,H-R,-T/2  >}
+    box{<-B/2  ,0  ,-T/2+R> <B/2  ,H-R, T/2-R>}
+    box{<-B/2+R,0  ,-T/2+R> <B/2-R,H    , T/2-R>}
+
+
+    // senkrechte Seiten als Zylinder
+    // linke hintere Ecke
+    cylinder{<-B/2+R, 0, 0> <-B/2+R, H-R> R
+             translate <0, 0, T/2-R>}
+    // linke vordere Ecke
+    cylinder{<-B/2+R, 0, 0> <-B/2+R, H-R> R
+             translate <0, 0,-T/2+R>}
+    // rechte hintere Ecke
+    cylinder{< B/2-R, 0, 0> < B/2-R, H-R> R
+             translate <0, 0, T/2-R>}
+    // rechte vordere Ecke
+    cylinder{< B/2-R, 0, 0> < B/2-R, H-R> R
+             translate <0, 0,-T/2+R>}
+
+    sphere{< B/2-R, H-R, T/2-R> R scale <1,1,1>}
+    sphere{< B/2-R, H-R,-T/2+R> R scale <1,1,1>}
+    sphere{<-B/2+R, H-R, T/2-R> R scale <1,1,1>}
+    sphere{<-B/2+R, H-R,-T/2+R> R scale <1,1,1>}
+
+
+    cylinder{<-B/2+R,  H-R> < B/2-R, H-R> R
+             translate <0, 0, T/2-R>}
+
+    cylinder{<-B/2+R,  H-R> < B/2-R, H-R> R
+             translate <0, 0,-T/2+R>}
+    cylinder{<-T/2+R,  H-R> < T/2-R, H-R> R rotate<0, 90,0>
+             translate < B/2-R, 0, 0>}
+    cylinder{<-T/2+R,  H-R> < T/2-R, H-R> R rotate<0, 90,0>
+             translate < -B/2+R, 0, 0>}
+  }
+#end 
+
+// Ausbruch in der metallenen Vorderseite
+#local stecker1 = 
+      difference
+      {
+         box{<1.5,0.5,-1><15.8-1.5,11.5,15.0>}
+         box{<0  ,0  ,-2><3.0     ,3.3 ,15.0>}
+         box{<16 ,0  ,-2><15.8-3.0,3.3 ,15.0>}
+         box{<0  ,0  ,-2><5.5     ,2.1 ,15.0>}
+         box{<16 ,0  ,-2><15.8-5.5,2.1 ,15.0>}
+      };
+
+// Ausbruch im Kunststoff
+#local stecker2 = 
+      difference
+      {
+         union
+         {
+            box{<1.5, 3.7, -1><15.8-1.5, 11.5, 15.5>}
+            box{<3.1, 2.5, -1><15.8-3.1, 11.5, 15.5>}
+            box{<5.6, 0.7, -1><15.8-5.6, 11.5, 15.5>}
+            box{<-1,-1,-2><16,1  ,2>rotate<-30,0,0>translate<0,4.4,0> pigment{White*0.5}}
+            box{<-1,0 ,-1><16,0.5,1>rotate<-30,0,0>translate<0,2.0,0> pigment{White*0.5}}
+         }
+         box{<-1      ,-1  ,15.0><16  ,15 ,16.0>}
+         box{<-1      ,-1  ,-1  ><1.6 ,15 ,16.0>}
+         box{<15.8-1.6,-1  ,-1  ><16  ,15 ,16.0>}
+      };
+
+#local pin_intern =
+   sphere_sweep {
+      b_spline
+      6,
+      <15.8/2-0.635, 14.0, 6>,   0.2
+      <15.8/2-0.635, 12.7, 6>,   0.2
+      <15.8/2-0.635, 12.0, 6.5>, 0.2
+      <15.8/2-0.635, 11.3, 10>,  0.2
+      <15.8/2-0.635, 11.0, 16>,  0.2
+      <15.8/2-0.635, 11.0, 18>,  0.2
+      texture{col_gold}
+   }
+
+union
+{
+   difference
+   {
+      // Aussenabmaße : 15.8  x  13.0  x  21.4 mm
+      union
+      {
+         object {body(15.8,13.0,21.4,0.3) translate<7.9,0,10.7>  }
+         box{<0,12.0,0.2><0.5,13,7.7> }
+         box{<15.5,12.0,0.2><15.8,13,7.7>}
+      }
+      // das Ganze aushöhlen
+      box{<0.25 ,-1 , 0.2><15.8-0.25 ,13.0-0.25,21.4-0.25>}
+      
+      // Vorne typischer Ausbruch für Stecker
+      stecker1
+
+      // kleiner Schlitz hinten oben
+      box{<3.5,13-0.35,21.4-0.35><15.8-3.5,13+0.35,21.4+0.35> }
+
+      // Schlitze an den Seiten
+      // Schrägen hinten (links und rechts)
+      box{<-0.3,-0.1,-1.64><0.3,0.1,2.0> rotate<-45,0,0> translate<0,10.5+1.15+0.04,10-1.15+0.02+11.2>}
+      box{<15.8-0.3,-0.1,-1.64><16,0.1,2.0> rotate<-45,0,0> translate<0,10.5+1.15+0.04,10-1.15+0.02+11.2>}
+      // Senkrechten
+      box{<-1,-1,18.8><20,10.6,19.00>}
+      // waagerechte hinten
+      box{<-1,10.45,10><20,10.65,18.8> }
+      // Schrägen vorne
+      box{<-1,-0.1,-1.52><20,0.1,1.64> rotate<45,0,0> translate<0,10.5+1.15+0.04,10-1.15+0.02> }
+      // waagerechte vorn
+      box{<-1,12.6,0.2><20,12.8,7.82>}
+
+      // Verbindungspunkte hinten
+      box{<-1,1,19.7><20,1.8,20.5>}
+      box{<-1,8,19.7><20,8.8,20.5>}
+      texture{tex_rj45_metal}
+   }
+
+   // Verbindungspunkte hinten
+   superellipsoid{<0.3,0.3> scale<0.35,0.35,0.35> translate<     0.35,1.4,20.1> texture{tex_rj45_metal}}
+   superellipsoid{<0.3,0.3> scale<0.35,0.35,0.35> translate<     0.35,8.4,20.1> texture{tex_rj45_metal}}
+   superellipsoid{<0.3,0.3> scale<0.35,0.35,0.35> translate<15.8-0.35,1.4,20.1> texture{tex_rj45_metal}}
+   superellipsoid{<0.3,0.3> scale<0.35,0.35,0.35> translate<15.8-0.35,8.4,20.1> texture{tex_rj45_metal}}
+
+   // Schirmanschlüsse
+   box     {<0   , 1, 14-0.75><0.2     , -4,14+0.75> texture{tex_rj45_metal}}
+   cylinder{<0   ,-4, 14     ><0.2     , -4,14     > 0.75 texture{tex_rj45_metal}}
+   box     {<15.8, 1, 14-0.75><15.8-0.2, -4,14+0.75> texture{tex_rj45_metal}}
+   cylinder{<15.8,-4, 14     ><15.8-0.2, -4,14     > 0.75 texture{tex_rj45_metal}}
+
+   // Plastikinnenleben
+   difference
+   {
+      box{<0.4 ,0 , 0.3><15.8-0.4 ,13.0-0.4,21.4-0.4>}
+      stecker2
+
+      texture{tex_rj45_pastic}
+    }
+ 
+   // Plastikfüße zur Befestigung
+   difference
+   {
+      cylinder{<2,-3.5,14-3.05><2,1,14-3.05> 1.5}
+      box{<2-0.3,-4,0><2+0.3,-0.5,20>}
+      texture{tex_rj45_pastic}
+   }
+   difference
+   {
+      cylinder{<15.8-2,-3.5,14-3.05><15.8-2,1,14-3.05> 1.5}
+      box{<15.8-2-0.3,-4,0><15.8-2+0.3,-0.5,20>}
+      texture{tex_rj45_pastic}
+   }
+   cylinder{<2,0,5><2,0,15> 0.5 texture{tex_rj45_pastic}}
+   cylinder{<15.8-2,0,5><15.8-2,0,15> 0.5 texture{tex_rj45_pastic}}
+   
+      
+   object {TOOLS_RECT_BOGEN(0.2, // i_radius
+                            90 , // winkel
+                            0.2, // dicke
+                            2  , // breite
+                            1 , // laenge1
+                            5)  // laenge2
+                            rotate<90,0,0>
+                            translate <15.8-1.5-0.2,7,0.1>
+                            texture{tex_rj45_metal}}
+   object {TOOLS_RECT_BOGEN(0.2, // i_radius
+                            90 , // winkel
+                            0.2, // dicke
+                            2  , // breite
+                            5 , // laenge1
+                            1)  // laenge2
+                            rotate<90,0,0>
+                            rotate<0,-90,0>
+                            translate <1.5+0.2,7,0.1>
+                            texture{tex_rj45_metal}}
+
+   // Pins (8)
+   cylinder{<15.8/2-0.635     ,1,14-3.05+8.89     ><15.8/2-0.635     ,-3.5,14-3.05+8.89     > 0.25 texture{col_gold}}
+   cylinder{<15.8/2-0.635+2.54,1,14-3.05+8.89     ><15.8/2-0.635+2.54,-3.5,14-3.05+8.89     > 0.25 texture{col_gold}}
+   cylinder{<15.8/2-0.635-2.54,1,14-3.05+8.89     ><15.8/2-0.635-2.54,-3.5,14-3.05+8.89     > 0.25 texture{col_gold}}
+   cylinder{<15.8/2-0.635+5.08,1,14-3.05+8.89     ><15.8/2-0.635+5.08,-3.5,14-3.05+8.89     > 0.25 texture{col_gold}}
+
+   cylinder{<15.8/2+0.635     ,1,14-3.05+8.89-2.54><15.8/2+0.635     ,-3.5,14-3.05+8.89-2.54> 0.25 texture{col_gold}}
+   cylinder{<15.8/2+0.635+2.54,1,14-3.05+8.89-2.54><15.8/2+0.635+2.54,-3.5,14-3.05+8.89-2.54> 0.25 texture{col_gold}}
+   cylinder{<15.8/2+0.635-2.54,1,14-3.05+8.89-2.54><15.8/2+0.635-2.54,-3.5,14-3.05+8.89-2.54> 0.25 texture{col_gold}}
+   cylinder{<15.8/2+0.635-5.08,1,14-3.05+8.89-2.54><15.8/2+0.635-5.08,-3.5,14-3.05+8.89-2.54> 0.25 texture{col_gold}}
+   
+   object { pin_intern }
+   object { pin_intern  translate< 2.54,0,0>}
+   object { pin_intern  translate<-2.54,0,0>}
+   object { pin_intern  translate<+5.08,0,0>}
+   
+   object { pin_intern  translate<+1.27,0,0>}
+   object { pin_intern  translate<+1.27+2.54,0,0>}
+   object { pin_intern  translate<+1.27-2.54,0,0>}
+   object { pin_intern  translate<+1.27-5.08,0,0>}
+ 
+   translate<0,0.5,0>  // Anhebung um höhe der Plastikrollen
+   translate<-15.8/2,0,-21.4/2>  // 0-Punkt in die Mitte der Buchse platzieren
+}
+#end

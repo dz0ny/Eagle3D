@@ -1,0 +1,81 @@
+TCVCXO
+//Macros for SMD TCVCXO CFPT-37 CFPT125 and CFPT126 from C-MAC
+//Designed by Philippe Boucheny <philippe.boucheny(at)free.fr>
+//Rev. 1.0  25/03/06
+####################################################################################################
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SPC_XTAL_OSZ_CFPT_37(:SMD TCVCXO CFPT-37:
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SPC_XTAL_OSZ_CFPT_125(:SMD TCVCXO CFPT-125:
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SPC_XTAL_OSZ_CFPT_126(:SMD TCVCXO CFPT-126:
+####################################################################################################
+SPC_XTAL_OSZ_CFPT_GRND
+(Type)
+####################################################################################################
+SPC_XTAL_OSZ_CFPT_37()
+("CFPT-37")
+SPC_XTAL_OSZ_CFPT_125()
+("CFPT-125")
+SPC_XTAL_OSZ_CFPT_126()
+("CFPT-126")
+####################################################################################################
+####################################################################################################
+
+#macro SPC_XTAL_OSZ_CFPT_GRND_CAPSMDCHIP(color_sub,L,W,T,K)
+union{
+	superellipsoid{<0.25-(L+W)/150, 0.25-(L+W)/150> pigment{color_sub} scale<L/2,W/2,T/2> }     //Grundkoerper braun
+	superellipsoid{<0.25-(L+W)/200, 0.25-(L+W)/200> scale<(K+L/100)/2,W/2,T/2> translate <(L-K)/2,0,0> texture{col_silver}}      //rechter Anschluss
+	superellipsoid{<0.25-(L+W)/200, 0.25-(L+W)/200> scale<(K+L/100)/2,W/2,T/2> translate <-(L-K)/2,0,0> texture{col_silver}}      //linker Anschluss
+	rotate<90,0,0>
+	translate<0,T/2,0>
+}
+#end
+ 
+union{
+    difference{
+        box{<-3.5,0,-2.5><+3.5,0.6,+2.5>}
+        cylinder{<0,-0.2,0><0,0.8,0> 0.16 translate<+3.5,0,0> texture{T_Brass_3A}}    
+        cylinder{<0,-0.2,0><0,0.8,0> 0.16 translate<-3.5,0,0> texture{T_Brass_3A}}    
+        cylinder{<0,-0.2,0><0,0.8,0> 0.16 translate<0,0,+2.5> texture{T_Brass_3A}}    
+        cylinder{<0,-0.2,0><0,0.8,0> 0.16 translate<0,0,-2.5> texture{T_Brass_3A}}    
+        cylinder{<0,-0.2,0><0,0.8,0> 0.16 translate<+3.5,0,+2.5>}    
+        cylinder{<0,-0.2,0><0,0.8,0> 0.16 translate<-3.5,0,+2.5>}    
+        cylinder{<0,-0.2,0><0,0.8,0> 0.16 translate<+3.5,0,-2.5>}    
+        cylinder{<0,-0.2,0><0,0.8,0> 0.16 translate<-3.5,0,-2.5>}    
+        cylinder{<0,-0.2,0><0,0.8,0> 0.16 translate<-2.54,0,+2.5> texture{T_Brass_3A}}    
+        cylinder{<0,-0.2,0><0,0.8,0> 0.16 translate<+2.54,0,+2.5> texture{T_Brass_3A}}    
+        cylinder{<0,-0.2,0><0,0.8,0> 0.16 translate<-2.54,0,-2.5> texture{T_Brass_3A}}    
+        cylinder{<0,-0.2,0><0,0.8,0> 0.16 translate<+2.54,0,-2.5> texture{T_Brass_3A}}    
+        cylinder{<0,-0.2,0><0,0.8,0> 0.16 translate<-1.17,0,+2.5>}    
+        cylinder{<0,-0.2,0><0,0.8,0> 0.16 translate<+1.17,0,+2.5>}    
+        cylinder{<0,-0.2,0><0,0.8,0> 0.16 translate<-1.17,0,-2.5>}    
+        cylinder{<0,-0.2,0><0,0.8,0> 0.16 translate<+1.17,0,-2.5>}    
+        cylinder{<0,-0.2,0><0,0.8,0> 0.16 translate<+3.5,0,-1.12>}    
+        cylinder{<0,-0.2,0><0,0.8,0> 0.16 translate<-3.5,0,-1.12>}    
+        cylinder{<0,-0.2,0><0,0.8,0> 0.16 translate<+3.5,0,+1.12>}    
+        cylinder{<0,-0.2,0><0,0.8,0> 0.16 translate<-3.5,0,+1.12>}    
+    pigment{rgb <0.44, 0.37, 0.40>}
+    }
+    union{
+        superellipsoid { <0.15, 0.15> scale <2.7, 0.455,1.7> translate <0, 0.6+0.455, 0> texture{T_Brass_5A} }
+        superellipsoid { <0.15, 0.15> scale <2.55, 0.55,1.55> translate <0, 0.6+0.55, 0> texture{T_Brass_5A} }
+        superellipsoid { <0.15, 0.15> scale <2.5, 0.61,1.5> translate <0, 0.6+0.61, 0> texture{T_Brass_5A} }
+        
+        superellipsoid { <0.05, 0.05> scale <0.05, 0.2,0.3> translate <-2.75, 0.2+0.55, -1.1> texture{col_silver} }
+        superellipsoid { <0.05, 0.05> scale <0.05, 0.2,0.3> translate <-2.75, 0.2+0.55, +1.1> texture{col_silver} }
+        superellipsoid { <0.05, 0.05> scale <0.05, 0.2,0.3> translate <+2.75, 0.2+0.55, -1.1> texture{col_silver} }
+        superellipsoid { <0.05, 0.05> scale <0.05, 0.2,0.3> translate <+2.75, 0.2+0.55, +1.1> texture{col_silver} }
+        
+        box{<-2.3,1.8,-1><+2.3,1.83,+1> pigment{Gray50}}
+        box{<-2,1.8,-1.3><+2,1.83,+1.3> pigment{Gray50}}
+        cylinder{<0,1.8,0><0,1.83,0> 0.3 translate<-2,0,+1> pigment{Gray50}}    
+        cylinder{<0,1.8,0><0,1.83,0> 0.3 translate<-2,0,-1> pigment{Gray50}}    
+        cylinder{<0,1.8,0><0,1.83,0> 0.3 translate<+2,0,+1> pigment{Gray50}}    
+        cylinder{<0,1.8,0><0,1.83,0> 0.3 translate<+2,0,-1> pigment{Gray50}}    
+        text {ttf global_fontfile_arial_bold "CMAC" 0.05, 0 pigment{Gray30} scale <1,0,.8> rotate<90,0,0> translate<-2,1.84,+0.4>}  // Marking
+        text {ttf global_fontfile_arial_bold Type 0.05, 0 pigment{Gray20} scale <0.8,1,1> rotate<90,0,0> translate<-1.5,1.84,-0.9>}  // Marking
+        translate 0.3*z
+    }
+    object{SPC_XTAL_OSZ_CFPT_GRND_CAPSMDCHIP(DarkWood,1.0,0.5,0.6,0.2)translate<0,0.6,-1.9>}
+    object{SPC_XTAL_OSZ_CFPT_GRND_CAPSMDCHIP(DarkWood,1.0,0.5,0.6,0.2)translate<-2.2,0.6,-1.9>}
+    object{SPC_XTAL_OSZ_CFPT_GRND_CAPSMDCHIP(Gray30,1.0,0.5,0.6,0.2)translate<+2.2,0.6,-1.9>}
+}
+#end

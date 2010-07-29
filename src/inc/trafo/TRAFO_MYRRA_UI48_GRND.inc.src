@@ -1,0 +1,121 @@
+Printtransformator
+//Macros for Transformer UI48 60VA
+//Designed by Philippe Boucheny <philippe.boucheny(replace with at)free.fr>
+//Rev. 1.1  10/01/06
+####################################################################################################
+NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:TRAFO_MYRRA_UI48_40(:UI48 Transformer 40VA:
+UI48:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:TRAFO_MYRRA_UI48_60(:UI48 Transformer 60VA:
+####################################################################################################
+TRAFO_MYRRA_UI48_GRND
+(value,pw)
+####################################################################################################
+TRAFO_MYRRA_UI48_40(value)
+(value,40)
+TRAFO_MYRRA_UI48_60(value)
+(value,60)
+####################################################################################################
+####################################################################################################
+
+#macro LABEL_R (L,W,R)
+#local e=0.005;
+    union{
+        cylinder{<-L/2+R,0,-W/2+R><-L/2+R,e,-W/2+R> R}
+        cylinder{<+L/2-R,0,-W/2+R><+L/2-R,e,-W/2+R> R}
+        cylinder{<-L/2+R,0,+W/2-R><-L/2+R,e,+W/2-R> R}
+        cylinder{<+L/2-R,0,+W/2-R><+L/2-R,e,+W/2-R> R}
+        box{<-L/2+R,0,-W/2><+L/2-R,e,+W/2>}
+        box{<-L/2,0,-W/2+R><+L/2,e,+W/2-R>}
+        texture{col_silver}
+    }
+#end
+//**********************************************************************
+
+#if (pw = 60)
+    #local A = 24.25;
+    #local B = 7.25;
+    #local C = 43;
+    #local D = A; //3*A/4;
+    #local E = 34;
+#else
+    #local A = 19.25;
+    #local B = 6.75;
+    #local C = 41.5;
+    #local D = 15;  //3*A/4;
+    #local E = 27.5;
+#end
+union{
+    difference{
+        union{
+            superellipsoid { <0.05, 0.05> scale <E, A,35> translate <0, A, 0> pigment{Gray50} }
+            superellipsoid { <0.05, 0.05> scale <C, D, 26.25> translate <0, D, 0> pigment{Gray50} }
+            superellipsoid { <0.05, 0.05> scale <C, B, 35> translate <0, B, 0> pigment{Gray50} }
+        }
+        union{
+            cylinder{<-37.5,15,30><-37.5,-1,30> 1.55 }        
+            cylinder{<37.5,15,-30><37.5,-1,-30> 1.55 }        
+            cylinder{<-37.5,15,-30><-37.5,-1,-30> 1.55 }        
+            cylinder{<37.5,15,30><37.5,-1,30> 1.55 }        
+            cylinder{<0,2*A-0.5,0><0,2*A+0.5,0> 0.5 }        
+            pigment{Gray20}
+        }
+    }
+    #if(global_show_screws=on)
+        object { TOOLS_SCREW(4,5,1,Silver) rotate 180*x translate <-37.5,-pcb_height,+30> }
+        object { TOOLS_SCREW(4,5,1,Silver) rotate 180*x translate <-37.5,-pcb_height,-30> }
+        object { TOOLS_SCREW(4,5,1,Silver) rotate 180*x translate <+37.5,-pcb_height,+30> }
+        object { TOOLS_SCREW(4,5,1,Silver) rotate 180*x translate <+37.5,-pcb_height,-30> }
+    #end
+
+    union{
+        object{LABEL_R(15,30,1.5)}
+        text {ttf global_fontfile_eagle3d "H" 0.05, 0 pigment{Black} scale 4.5 rotate<90,0,0> translate<-6.5,0.05,10.5>}    // Myrra logo
+        text {ttf global_fontfile_eagle3d "Z" 0.05, 0 pigment{Black} scale 3.5 rotate<90,0,0> translate<-5.8,0.05,7>}       // logo
+        text {ttf global_fontfile_eagle3d "A" 0.05, 0 pigment{Black} scale 3.5 rotate<90,0,0> translate<-5.8,0.05,-8>}      // UL Marking
+        text {ttf global_fontfile_eagle3d "I" 0.05, 0 pigment{Black} scale 3.5 rotate<90,0,0> translate<-6.5,0.05,-12.5>}     // Canada UL Marking
+        text {ttf global_fontfile_eagle3d "/" 0.05, 0 pigment{Black} scale 1 rotate<90,0,0> translate<-6.5,0.05,5.5>}     // Fuse Marking
+        text {ttf global_fontfile_eagle3d "/" 0.05, 0 pigment{Black} scale 1 rotate<90,0,0> translate<-6.5,0.05,2.5>}     // Fuse Marking
+        box{<2.5,0,-7><5.5,0.05,-13> pigment{Black}}
+        text {ttf global_fontfile_arial_bold "63801" 0.05, 0 pigment{White} scale <1.8,2.2,1> rotate<90,90,0> translate<3.2,0.07,-7.7>} // Marking
+        
+        text {ttf global_fontfile_arial_bold value 0.05, 0 pigment{Black} scale 2 rotate<90,0,0> translate<-0.8,0.05,12.8>}     // Ref Marking
+        text {ttf global_fontfile_arial_bold "2x115V" 0.05, 0 pigment{Black} scale 2 rotate<90,0,0> translate<-1,0.05,10.8>}  // Marking
+        text {ttf global_fontfile_arial_bold "50/60Hz" 0.05, 0 pigment{Black} scale 2 rotate<90,0,0> translate<-2,0.05,7.7>} // Marking
+        #if(pw=60)
+            text {ttf global_fontfile_arial_bold "315mA(230V)" 0.05, 0 pigment{Black} scale 1.5 rotate<90,0,0> translate<-5,0.05,4>} // Marking
+            text {ttf global_fontfile_arial_bold "630mA(115V)" 0.05, 0 pigment{Black} scale 1.5 rotate<90,0,0> translate<-5,0.05,1>} // Marking
+        #else
+            text {ttf global_fontfile_arial_bold "200mA(230V)" 0.05, 0 pigment{Black} scale 1.5 rotate<90,0,0> translate<-5,0.05,4>} // Marking
+            text {ttf global_fontfile_arial_bold "400mA(115V)" 0.05, 0 pigment{Black} scale 1.5 rotate<90,0,0> translate<-5,0.05,1>} // Marking
+        #end
+        text {ttf global_fontfile_arial_bold "T" 0.05, 0 pigment{Black} scale 0.8 rotate<90,0,0> translate<-3,0.05,6.2>} // Marking
+        text {ttf global_fontfile_arial_bold "T" 0.05, 0 pigment{Black} scale 0.8 rotate<90,0,0> translate<-3,0.05,3.2>} // Marking
+        text {ttf global_fontfile_arial_bold "1           4           9           12" 0.05, 0 pigment{Black} scale 1 rotate<90,0,0> translate<-6,0.05,-14>} // Marking
+        #if(pw=60)
+            text {ttf global_fontfile_arial_bold "15V 30VA" 0.05, 0 pigment{Black} scale 2 rotate<90,0,0> translate<-4,0.05,-1.5>}      // Marking
+            text {ttf global_fontfile_arial_bold "15V 30VA" 0.05, 0 pigment{Black} scale 2 rotate<90,0,0> translate<-4,0.05,-4>}      // Marking
+        #else
+            text {ttf global_fontfile_arial_bold "15V 20VA" 0.05, 0 pigment{Black} scale 2 rotate<90,0,0> translate<-4,0.05,-1.5>}      // Marking
+            text {ttf global_fontfile_arial_bold "15V 20VA" 0.05, 0 pigment{Black} scale 2 rotate<90,0,0> translate<-4,0.05,-4>}      // Marking
+        #end
+        text {ttf global_fontfile_arial_bold "ta 50/B" 0.05, 0 pigment{Black} scale 1.5 rotate<90,0,0> translate<1,0.05,-6>} // Marking
+        rotate 180*y
+        #if(pw=60)
+            translate<34-8,2*A,35-17-2>
+        #else
+            translate<27.5-3,2*A,35-17-8>
+        #end
+        rotate -90*y
+    }
+    box{<-0.25,0,-0.6><+0.25,-4,+0.6> translate<-26.5,0,-28.5> texture{col_silver}}        
+    box{<-0.25,0,-0.6><+0.25,-4,+0.6> translate<-26.5,0,+28.5> texture{col_silver}}        
+    box{<-0.25,0,-0.6><+0.25,-4,+0.6> translate<-26.5,0,-13.5> texture{col_silver}}        
+    box{<-0.25,0,-0.6><+0.25,-4,+0.6> translate<-26.5,0,+13.5> texture{col_silver}}        
+
+    box{<-0.25,0,-0.6><+0.25,-4,+0.6> translate<+26.5,0,-23.5> texture{col_silver}}        
+    box{<-0.25,0,-0.6><+0.25,-4,+0.6> translate<+26.5,0,+23.5> texture{col_silver}}        
+    box{<-0.25,0,-0.6><+0.25,-4,+0.6> translate<+26.5,0,-8.5> texture{col_silver}}        
+    box{<-0.25,0,-0.6><+0.25,-4,+0.6> translate<+26.5,0,+8.5> texture{col_silver}}        
+    
+//    rotate 90*y     
+}
+#end

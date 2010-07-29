@@ -1,0 +1,286 @@
+Wago Klemme
+//Macro fuer WAGO Leiterplattenklemme Serie 233, con-wago.lib,    Joerg Bredendiek <sprut(replace with at)sprut.de>
+//
+//  WAGO 233-1xx        Rastermass 2.50 mm, grau
+//  WAGO 233-2xx        Rastermass 2.50 mm, grau    Klemmhebel
+//  WAGO 233-4xx        Rastermass 2.54 mm, orange
+//  WAGO 233-5xx        Rastermass 2.54 mm, orange  Klemmhebel
+//
+// Nullpunkt:
+//      mittig zwischen den Pins
+//
+// a = Anzahl der Reihen
+####################################################################################################
+233-102:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_WAGO_233_102(:Wago-Leiterplattenklemme Serie 233, 2-reihig 2.5 mm grau Hebel (con-wago.lib):
+233-103:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_WAGO_233_103(:Wago-Leiterplattenklemme Serie 233, 3-reihig (con-wago.lib):
+233-104:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_WAGO_233_104(:Wago-Leiterplattenklemme Serie 233, 4-reihig (con-wago.lib):
+233-105:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_WAGO_233_105(:Wago-Leiterplattenklemme Serie 233, 5-reihig (con-wago.lib):
+233-106:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_WAGO_233_106(:Wago-Leiterplattenklemme Serie 233, 6-reihig (con-wago.lib):
+233-107:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_WAGO_233_107(:Wago-Leiterplattenklemme Serie 233, 7-reihig (con-wago.lib):
+233-108:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_WAGO_233_108(:Wago-Leiterplattenklemme Serie 233, 8-reihig (con-wago.lib):
+233-109:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_WAGO_233_109(:Wago-Leiterplattenklemme Serie 233, 9-reihig (con-wago.lib):
+233-110:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_WAGO_233_110(:Wago-Leiterplattenklemme Serie 233, 10-reihig (con-wago.lib):
+233-112:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_WAGO_233_112(:Wago-Leiterplattenklemme Serie 233, 12-reihig (con-wago.lib):
+233-116:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_WAGO_233_116(:Wago-Leiterplattenklemme Serie 233, 16-reihig (con-wago.lib):
+233-124:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_WAGO_233_124(:Wago-Leiterplattenklemme Serie 233, 24-reihig (con-wago.lib):
+233-136:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_WAGO_233_136(:Wago-Leiterplattenklemme Serie 233, 36-reihig (con-wago.lib):
+233-148:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_WAGO_233_148(:Wago-Leiterplattenklemme Serie 233, 48-reihig (con-wago.lib):
+233-202:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_WAGO_233_202(:Wago-Leiterplattenklemme Serie 233, 2-reihig 2.5 mm grau klemm (con-wago.lib):
+233-203:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_WAGO_233_203(:Wago-Leiterplattenklemme Serie 233, 3-reihig (con-wago.lib):
+233-204:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_WAGO_233_204(:Wago-Leiterplattenklemme Serie 233, 4-reihig (con-wago.lib):
+233-205:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_WAGO_233_205(:Wago-Leiterplattenklemme Serie 233, 5-reihig (con-wago.lib):
+233-206:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_WAGO_233_206(:Wago-Leiterplattenklemme Serie 233, 6-reihig (con-wago.lib):
+233-207:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_WAGO_233_207(:Wago-Leiterplattenklemme Serie 233, 7-reihig (con-wago.lib):
+233-208:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_WAGO_233_208(:Wago-Leiterplattenklemme Serie 233, 8-reihig (con-wago.lib):
+233-209:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_WAGO_233_209(:Wago-Leiterplattenklemme Serie 233, 9-reihig (con-wago.lib):
+233-210:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_WAGO_233_210(:Wago-Leiterplattenklemme Serie 233, 10-reihig (con-wago.lib):
+233-212:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_WAGO_233_212(:Wago-Leiterplattenklemme Serie 233, 12-reihig (con-wago.lib):
+233-216:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_WAGO_233_216(:Wago-Leiterplattenklemme Serie 233, 16-reihig (con-wago.lib):
+233-224:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_WAGO_233_224(:Wago-Leiterplattenklemme Serie 233, 24-reihig (con-wago.lib):
+233-236:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_WAGO_233_236(:Wago-Leiterplattenklemme Serie 233, 36-reihig (con-wago.lib):
+233-248:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_WAGO_233_248(:Wago-Leiterplattenklemme Serie 233, 48-reihig (con-wago.lib):
+233-402:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_WAGO_233_402(:Wago-Leiterplattenklemme Serie 233, 2-reihig 2.54mm orange Hebel (con-wago.lib):
+233-403:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_WAGO_233_403(:Wago-Leiterplattenklemme Serie 233, 3-reihig (con-wago.lib):
+233-404:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_WAGO_233_404(:Wago-Leiterplattenklemme Serie 233, 4-reihig (con-wago.lib):
+233-405:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_WAGO_233_405(:Wago-Leiterplattenklemme Serie 233, 5-reihig (con-wago.lib):
+233-406:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_WAGO_233_406(:Wago-Leiterplattenklemme Serie 233, 6-reihig (con-wago.lib):
+233-407:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_WAGO_233_407(:Wago-Leiterplattenklemme Serie 233, 7-reihig (con-wago.lib):
+233-408:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_WAGO_233_408(:Wago-Leiterplattenklemme Serie 233, 8-reihig (con-wago.lib):
+233-409:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_WAGO_233_409(:Wago-Leiterplattenklemme Serie 233, 9-reihig (con-wago.lib):
+233-410:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_WAGO_233_410(:Wago-Leiterplattenklemme Serie 233, 10-reihig (con-wago.lib):
+233-412:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_WAGO_233_412(:Wago-Leiterplattenklemme Serie 233, 12-reihig (con-wago.lib):
+233-416:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_WAGO_233_416(:Wago-Leiterplattenklemme Serie 233, 16-reihig (con-wago.lib):
+233-424:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_WAGO_233_424(:Wago-Leiterplattenklemme Serie 233, 24-reihig (con-wago.lib):
+233-436:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_WAGO_233_436(:Wago-Leiterplattenklemme Serie 233, 36-reihig (con-wago.lib):
+233-448:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_WAGO_233_448(:Wago-Leiterplattenklemme Serie 233, 48-reihig (con-wago.lib):
+233-502:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_WAGO_233_502(:Wago-Leiterplattenklemme Serie 233, 2-reihig 2.54mm orange Klemm (con-wago.lib):
+233-503:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_WAGO_233_503(:Wago-Leiterplattenklemme Serie 233, 3-reihig (con-wago.lib):
+233-504:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_WAGO_233_504(:Wago-Leiterplattenklemme Serie 233, 4-reihig (con-wago.lib):
+233-505:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_WAGO_233_505(:Wago-Leiterplattenklemme Serie 233, 5-reihig (con-wago.lib):
+233-506:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_WAGO_233_506(:Wago-Leiterplattenklemme Serie 233, 6-reihig (con-wago.lib):
+233-507:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_WAGO_233_507(:Wago-Leiterplattenklemme Serie 233, 7-reihig (con-wago.lib):
+233-508:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_WAGO_233_508(:Wago-Leiterplattenklemme Serie 233, 8-reihig (con-wago.lib):
+233-509:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_WAGO_233_509(:Wago-Leiterplattenklemme Serie 233, 9-reihig (con-wago.lib):
+233-510:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_WAGO_233_510(:Wago-Leiterplattenklemme Serie 233, 10-reihig (con-wago.lib):
+233-512:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_WAGO_233_512(:Wago-Leiterplattenklemme Serie 233, 12-reihig (con-wago.lib):
+233-516:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_WAGO_233_516(:Wago-Leiterplattenklemme Serie 233, 16-reihig (con-wago.lib):
+233-524:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_WAGO_233_524(:Wago-Leiterplattenklemme Serie 233, 24-reihig (con-wago.lib):
+233-536:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_WAGO_233_536(:Wago-Leiterplattenklemme Serie 233, 36-reihig (con-wago.lib):
+233-548:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_WAGO_233_548(:Wago-Leiterplattenklemme Serie 233, 48-reihig (con-wago.lib):
+####################################################################################################
+CON_WAGO_233_GRND
+(a,typ)
+####################################################################################################
+CON_WAGO_233_102()
+(2,1)
+CON_WAGO_233_103()
+(3,1)
+CON_WAGO_233_104()
+(4,1)
+CON_WAGO_233_105()
+(5,1)
+CON_WAGO_233_106()
+(6,1)
+CON_WAGO_233_107()
+(7,1)
+CON_WAGO_233_108()
+(8,1)
+CON_WAGO_233_109()
+(9,1)
+CON_WAGO_233_110()
+(10,1)
+CON_WAGO_233_112()
+(12,1)
+CON_WAGO_233_116()
+(16,1)
+CON_WAGO_233_124()
+(24,1)
+CON_WAGO_233_136()
+(36,1)
+CON_WAGO_233_148()
+(48,1)
+CON_WAGO_233_202()
+(2,2)
+CON_WAGO_233_203()
+(3,2)
+CON_WAGO_233_204()
+(4,2)
+CON_WAGO_233_205()
+(5,2)
+CON_WAGO_233_206()
+(6,2)
+CON_WAGO_233_207()
+(7,2)
+CON_WAGO_233_208()
+(8,2)
+CON_WAGO_233_209()
+(9,2)
+CON_WAGO_233_210()
+(10,2)
+CON_WAGO_233_212()
+(12,2)
+CON_WAGO_233_216()
+(16,2)
+CON_WAGO_233_224()
+(24,2)
+CON_WAGO_233_236()
+(36,2)
+CON_WAGO_233_248()
+(48,2)
+CON_WAGO_233_402()
+(2,4)
+CON_WAGO_233_403()
+(3,4)
+CON_WAGO_233_404()
+(4,4)
+CON_WAGO_233_405()
+(5,4)
+CON_WAGO_233_406()
+(6,4)
+CON_WAGO_233_407()
+(7,4)
+CON_WAGO_233_408()
+(8,4)
+CON_WAGO_233_409()
+(9,4)
+CON_WAGO_233_410()
+(10,4)
+CON_WAGO_233_412()
+(12,4)
+CON_WAGO_233_416()
+(16,4)
+CON_WAGO_233_424()
+(24,4)
+CON_WAGO_233_436()
+(36,4)
+CON_WAGO_233_448()
+(48,4)
+CON_WAGO_233_502()
+(2,5)
+CON_WAGO_233_503()
+(3,5)
+CON_WAGO_233_504()
+(4,5)
+CON_WAGO_233_505()
+(5,5)
+CON_WAGO_233_506()
+(6,5)
+CON_WAGO_233_507()
+(7,5)
+CON_WAGO_233_508()
+(8,5)
+CON_WAGO_233_509()
+(9,5)
+CON_WAGO_233_510()
+(10,5)
+CON_WAGO_233_512()
+(12,5)
+CON_WAGO_233_516()
+(16,5)
+CON_WAGO_233_524()
+(24,5)
+CON_WAGO_233_536()
+(36,5)
+CON_WAGO_233_548()
+(48,5)
+####################################################################################################
+####################################################################################################
+#local wagocolor1 = color red 0.6 green 0.6 blue 0.6;	        //farbton fuer Plastikkoerper 2.5 mm grau
+#local wagocolor2 = color red 1 green 0.45 blue 0;	        //farbton fuer Plastikkoerper 2.54 mm orange
+#local handcolor = color red 0.9 green 0.9 blue 0.9;         	//farbton weissen Plastikhebel
+
+
+//ein weisser Klemmhebel
+#macro CLAMP_WAGO_233_HAND()
+        union{
+
+                box{<-0.5, 0, 0><0.5, 10, 2> pigment{handcolor}}
+                difference{
+                        box{<-1  ,10, 0><1,   13.5,  4> pigment{handcolor}}
+                        box{<-1.1, -5, -3><1.1, 0, +3> rotate<-45,0,0> translate<0,15,-2> pigment{handcolor}}
+                        cylinder{<-0.5  ,13, 1><0.5  ,13, 1> 2 pigment{handcolor}}
+                }
+        }
+#end
+
+
+
+//eine einzelne Klemme
+#macro CLAMP_WAGO_233_SLICE(typ, raster)
+        union{
+                difference{
+                        object{
+                                prism {
+                                        linear_spline
+                                        0, raster-0.05, 7,
+                                        <0, 0>, <-2.5, 0>, <-5, 4>, <0, 12>, <7.5, 8>, <7.5 0>, <0, 0>
+                                }
+                                pigment{wagocolor}
+                                rotate<0,-90,0>
+                                rotate<0,0,-90>
+                                translate<-2.54, 0, 0>
+                        }
+                        box{<-1.28, 0, 0.7><1.28, 1, 5.08-0.7>            pigment{wagocolor}}            // Kerbe an Unterseite
+                        box{< -0.5, 0, -6><-2, 0.5, 10>                   pigment{wagocolor}}            // Kerbe an Unterseite
+                        box{< -0.5, 1.5, -8><-2, 4.5, -3> rotate<30,0,0>  pigment{wagocolor}}            // Kerbe an Kontakt
+                        #if (typ=1)
+                                box{< -0.5, 6.5, -8><-2, 9.5, -3> rotate<30,0,0>  pigment{wagocolor}}    // obere Kerbe an Kontakt
+                        #end
+                        #if (typ=4)
+                                box{< -0.5, 6.5, -8><-2, 9.5, -3> rotate<30,0,0>  pigment{wagocolor}}    // obere Kerbe an Kontakt
+                        #end
+                }
+                #if (typ=5)
+                        object{CLAMP_WAGO_233_HAND() translate<-1.27, 3, 2>}
+                #end
+                #if (typ=2)
+                        object{CLAMP_WAGO_233_HAND() translate<-1.27, 3, 2>}
+                #end
+                //Pins
+                box { <-1.27-0.35, -3, -0.25>     ,<-1.27+0.35, 2.4, 0.25     > texture{col_silver}} // Kontakt
+                box { <-1.27-0.35, -3,  5.08-0.25>,<-1.27+0.35, 2.4, 5.05+0.25> texture{col_silver}} // Kontakt
+     }
+#end
+
+
+// Endscheibe 1.27 mm dick
+#macro CLAMP_WAGO_233_END(typ)
+        prism {
+                linear_spline
+                0, 1.2, 7,
+                <0, 0>, <-2.5, 0>, <-5, 4>, <0, 12>, <7.5, 8>, <7.5 0>, <0, 0>
+        }
+        pigment{wagocolor}
+        rotate<0,-90,0>
+        rotate<0,0,-90>
+        translate<-2.54, 0, 0>
+#end
+
+
+//makro fuer WAGO-Klemmen Typ 233
+#local wagocolor=wagocolor1; //grau
+#local raster = 2.5;
+#if (typ>2)
+        #local wagocolor=wagocolor2;
+        #local raster = 2.54;
+#end
+
+object{
+        difference{
+                union{
+		        #local i=0;
+		        #while(i<a)
+			        object{CLAMP_WAGO_233_SLICE(typ, raster) translate< -i*raster, 0, 0>}
+                                #local i=i+1;
+		        #end
+		        object{CLAMP_WAGO_233_END(typ) translate< -i*raster, 0, 0> translate< raster/2, 0, 0>}
+
+	        }
+	        cylinder{<-1.28,2,-2>   <1.28, 2  , -2 >0.5 pigment{wagocolor}}
+	        cylinder{<-1.28,2, 6.5> <1.28, 2  , 6.5>0.3 pigment{wagocolor}}
+	        cylinder{<-1.28,7.5,-2> <1.28, 7.5, -2 >0.4 pigment{wagocolor}}
+	        cylinder{<-1.28,7.5,6.5><1.28, 7.5, 6.5>0.5 pigment{wagocolor}}
+	        cylinder{<-1.28,11,0.2> <1.28, 11 , 0.2>0.3 pigment{wagocolor}}
+	} translate< a/2*raster, 0, -raster>
+}
+#end

@@ -1,0 +1,967 @@
+#usage	"<b>Converter from Eagle-BRD to SVG v###VERSIONDUMMY###</b>"
+		"<p>"
+		"Use only for Eagle v4.10 and later"
+		"<p>"
+		"<author>Author: Matthias Weiﬂer matthias@matwei.de</author>"
+
+
+int indent_level = 0;		//Sets the level of idention
+string layer_color[];		//Colors of the available layers
+string layer_name[];		//Colors of the available layers
+
+string str_replace(string str, string rpl, char chr)
+{
+	int i,j;
+	
+	for(i=0;i<strlen(rpl);i++)
+	{
+		while((j = strchr(str,rpl[i]))!=-1) str[j] = chr;
+	}
+	
+	return str;
+}
+
+string remove_special_chars(string in)
+{
+	int i,j;
+		
+	while((i = strchr(in,'‹'))!=-1) in[i] = 'U';
+	while((i = strchr(in,'ƒ'))!=-1) in[i] = 'A';
+	while((i = strchr(in,'÷'))!=-1) in[i] = 'O';
+	while((i = strchr(in,'¸'))!=-1) in[i] = 'U';
+	while((i = strchr(in,'‰'))!=-1) in[i] = 'A';
+	while((i = strchr(in,'ˆ'))!=-1) in[i] = 'O';
+	while((i = strchr(in,'ﬂ'))!=-1) in[i] = 'S';
+	
+	in = str_replace(in,". -+&$+:;,!\"ß%/()=#*~'<>µ[]",'_');
+
+	if((in[0]>='1')&&(in[0]<='9')) in[0] = 'Z';
+	
+	return in;
+}
+
+string r2a(real v)
+{
+	string r;
+	
+	sprintf(r,"%f",v);
+	
+	return r;
+}
+
+string i2a(int v)
+{
+	string r;
+	
+	sprintf(r,"%d",v);
+	
+	return r;
+}	
+
+void indent(void)
+{
+	for(int i = 0; i< indent_level; i++)
+	{
+		printf("    ");
+	}
+}
+
+void add_desc_of_element(UL_ELEMENT E)
+{
+	indent();
+	printf("<desc  id=\"ELEMENT\" ");
+	printf("angle=\"%f\" mirror=\"%d\" name=\"%s\" spin=\"%d\" value=\"%s\" x=\"%f\" y=\"%f\"",E.angle,E.mirror,remove_special_chars(E.name),E.spin,remove_special_chars(E.value),u2mm(E.x),u2mm(E.y));
+	printf(" />\n");
+}
+
+void add_desc_of_text(UL_TEXT T)
+{
+	indent();
+	printf("<desc  id=\"TEXT\" ");
+	printf("angle=\"%f\" font=\"%d\" layer=\"%d\" mirror=\"%d\" ratio=\"%d\" size=\"%d\" spin=\"%d\" value=\"%s\" x=\"%f\" y=\"%f\"",T.angle,T.font,T.layer,T.mirror,T.ratio,T.size,T.spin,remove_special_chars(T.value),u2mm(T.x),u2mm(T.y));
+	printf(" />\n");
+}
+
+void add_desc_of_package(UL_PACKAGE P)
+{
+	
+	indent();
+	printf("<desc id=\"PACKAGE\" ");
+	printf("area=\"(%f,%f)(%f,%f)\" library=\"%s\" name=\"%s\"",u2mm(P.area.x1),u2mm(P.area.y1),u2mm(P.area.x2),u2mm(P.area.y2),remove_special_chars(P.library),remove_special_chars(P.name));
+	printf(" />\n");
+	
+}
+
+void add_number_of_layer(int layer)
+{
+	indent();
+	printf("<desc id=\"LAYER_NUMBER\" ");
+	printf("layer=\"%d\"",layer);
+
+	printf(" />\n");
+}
+
+void add_desc_of_hole(UL_HOLE H)
+{
+	indent();
+	printf("<desc id=\"HOLE\" ");
+	printf("diameter=\"(%f,%f)\" drill=\"%f\" drillsymbol=\"%d\" x=\"%f\" y=\"%f\"",u2mm(H.diameter[LAYER_TSTOP]),u2mm(H.diameter[LAYER_BSTOP]),u2mm(H.drill),H.drillsymbol,u2mm(H.x),u2mm(H.y));
+	printf(" />\n");
+}
+
+void add_desc_of_poly(UL_POLYGON P)
+{
+	indent();
+	printf("<desc id=\"POLYGON\" ");
+	printf("isolate=\"%f\" layer=\"%d\" orphans=\"%d\" pour=\"%d\" rank=\"%d\" spacing=\"%f\" thermals=\"%d\" width=\"%f\"",u2mm(P.isolate),P.layer,P.orphans,P.pour,P.rank,u2mm(P.spacing),P.thermals,u2mm(P.width));
+	printf(" />\n");
+}
+
+void add_desc_of_contact(UL_CONTACT C)
+{
+	indent();
+	printf("<desc id=\"CONTACT\" ");
+	printf("name=\"%s\" type=\"%s\" signal=\"%s\" x=\"%f\" y=\"%f\"",remove_special_chars(C.name),C.pad ? "PAD" : "SMD" ,remove_special_chars(C.signal),u2mm(C.x),u2mm(C.y));
+	printf(" />\n");
+}
+
+string get_pad_diameter_array(UL_PAD P)
+{
+	string result = "[";
+	
+	result += "LAYER_TOP:" + 		r2a(u2mm(P.diameter[LAYER_TOP])) + ",";
+	result += "LAYER_ROUTE2:" + 	r2a(u2mm(P.diameter[2])) + ",";
+	result += "LAYER_ROUTE3:" + 	r2a(u2mm(P.diameter[3])) + ",";
+	result += "LAYER_ROUTE4:" + 	r2a(u2mm(P.diameter[4])) + ",";
+	result += "LAYER_ROUTE5:" + 	r2a(u2mm(P.diameter[5])) + ",";
+	result += "LAYER_ROUTE6:" + 	r2a(u2mm(P.diameter[6])) + ",";
+	result += "LAYER_ROUTE7:" + 	r2a(u2mm(P.diameter[7])) + ",";
+	result += "LAYER_ROUTE8:" + 	r2a(u2mm(P.diameter[8])) + ",";
+	result += "LAYER_ROUTE9:" + 	r2a(u2mm(P.diameter[9])) + ",";
+	result += "LAYER_ROUTE10:" + 	r2a(u2mm(P.diameter[10])) + ",";
+	result += "LAYER_ROUTE11:" + 	r2a(u2mm(P.diameter[11])) + ",";
+	result += "LAYER_ROUTE12:" + 	r2a(u2mm(P.diameter[12])) + ",";
+	result += "LAYER_ROUTE13:" + 	r2a(u2mm(P.diameter[13])) + ",";
+	result += "LAYER_ROUTE14:" + 	r2a(u2mm(P.diameter[14])) + ",";
+	result += "LAYER_ROUTE15:" + 	r2a(u2mm(P.diameter[15])) + ",";
+	result += "LAYER_BOTTOM:" + 	r2a(u2mm(P.diameter[LAYER_BOTTOM])) + ",";
+	result += "LAYER_TSTOP:" + 		r2a(u2mm(P.diameter[LAYER_TSTOP])) + ",";
+	result += "LAYER_BSTOP:" + 		r2a(u2mm(P.diameter[LAYER_BSTOP])) + "]";
+
+	return result;
+}
+
+string get_pad_shape_array(UL_PAD P)
+{
+	string result = "[";
+	
+	result += "LAYER_TOP:" + 		i2a(P.shape[LAYER_TOP]) + ",";
+	result += "LAYER_ROUTE2:" + 	i2a(P.shape[2]) + ",";
+	result += "LAYER_ROUTE3:" + 	i2a(P.shape[3]) + ",";
+	result += "LAYER_ROUTE4:" + 	i2a(P.shape[4]) + ",";
+	result += "LAYER_ROUTE5:" + 	i2a(P.shape[5]) + ",";
+	result += "LAYER_ROUTE6:" + 	i2a(P.shape[6]) + ",";
+	result += "LAYER_ROUTE7:" + 	i2a(P.shape[7]) + ",";
+	result += "LAYER_ROUTE8:" + 	i2a(P.shape[8]) + ",";
+	result += "LAYER_ROUTE9:" + 	i2a(P.shape[9]) + ",";
+	result += "LAYER_ROUTE10:" + 	i2a(P.shape[10]) + ",";
+	result += "LAYER_ROUTE11:" + 	i2a(P.shape[11]) + ",";
+	result += "LAYER_ROUTE12:" + 	i2a(P.shape[12]) + ",";
+	result += "LAYER_ROUTE13:" + 	i2a(P.shape[13]) + ",";
+	result += "LAYER_ROUTE14:" + 	i2a(P.shape[14]) + ",";
+	result += "LAYER_ROUTE15:" + 	i2a(P.shape[15]) + ",";
+	result += "LAYER_BOTTOM:" + 	i2a(P.shape[LAYER_BOTTOM]) + ",";
+	result += "LAYER_TSTOP:" + 		i2a(P.shape[LAYER_TSTOP]) + ",";
+	result += "LAYER_BSTOP:" + 		i2a(P.shape[LAYER_BSTOP]) + "]";
+
+	return result;
+}
+
+void add_desc_of_pad(UL_PAD P)
+{
+	indent();
+	printf("<desc id=\"PAD\" ");
+	printf("angle=\"%f\" diameter=\"%s\" drill=\"%f\" drillsymbol=\"%d\" elongation=\"%d\" flags=\"%d\" name=\"%s\" shape=\"%s\" signal=\"%s\" x=\"%f\" y=\"%f\"",P.angle,get_pad_diameter_array(P),u2mm(P.drill),P.drillsymbol,P.elongation,P.flags,remove_special_chars(P.name),get_pad_shape_array(P),remove_special_chars(P.signal),u2mm(P.x),u2mm(P.y));
+	printf(" />\n");
+}
+
+string get_smd_size_array(UL_SMD S)
+{
+	string result = "[";
+	
+	if(S.layer==LAYER_TOP)
+	{
+		result += "LAYER_TOP:"    + "(" + r2a(u2mm(S.dx[LAYER_TOP]   )) + "," + r2a(u2mm(S.dy[LAYER_TOP]   )) + "),";
+		result += "LAYER_TSTOP:"  + "(" + r2a(u2mm(S.dx[LAYER_TSTOP] )) + "," + r2a(u2mm(S.dy[LAYER_TSTOP] )) + "),";
+		result += "LAYER_TCREAM:" + "(" + r2a(u2mm(S.dx[LAYER_TCREAM])) + "," + r2a(u2mm(S.dy[LAYER_TCREAM])) + ")]";		
+	}
+	else
+	{
+		result += "LAYER_BOTTOM:" + "(" + r2a(u2mm(S.dx[LAYER_BOTTOM])) + "," + r2a(u2mm(S.dy[LAYER_BOTTOM])) + "),";
+		result += "LAYER_BSTOP:"  + "(" + r2a(u2mm(S.dx[LAYER_BSTOP] )) + "," + r2a(u2mm(S.dy[LAYER_BSTOP] )) + "),";
+		result += "LAYER_BCREAM:" + "(" + r2a(u2mm(S.dx[LAYER_BCREAM])) + "," + r2a(u2mm(S.dy[LAYER_BCREAM])) + ")]";
+	}
+
+	return result;
+}
+
+void add_desc_of_smd(UL_SMD S)
+{
+	indent();
+	printf("<desc id=\"SMD\" ");
+	printf("angle=\"%f\" dxdy=\"%s\" flags=\"%d\" layer=\"%d\" name=\"%s\" roundness=\"%d\" signal=\"%s\" x=\"%f\" y=\"%f\"",S.angle,get_smd_size_array(S),S.flags,S.layer,remove_special_chars(S.name),S.roundness,remove_special_chars(S.signal),u2mm(S.x),u2mm(S.y));
+	printf(" />\n");
+}
+
+string get_via_diameter_array(UL_VIA V)
+{
+	string result = "[";
+	
+	result += "LAYER_TOP:" + 		r2a(u2mm(V.diameter[LAYER_TOP])) + ",";
+	result += "LAYER_ROUTE2:" + 	r2a(u2mm(V.diameter[2])) + ",";
+	result += "LAYER_ROUTE3:" + 	r2a(u2mm(V.diameter[3])) + ",";
+	result += "LAYER_ROUTE4:" + 	r2a(u2mm(V.diameter[4])) + ",";
+	result += "LAYER_ROUTE5:" + 	r2a(u2mm(V.diameter[5])) + ",";
+	result += "LAYER_ROUTE6:" + 	r2a(u2mm(V.diameter[6])) + ",";
+	result += "LAYER_ROUTE7:" + 	r2a(u2mm(V.diameter[7])) + ",";
+	result += "LAYER_ROUTE8:" + 	r2a(u2mm(V.diameter[8])) + ",";
+	result += "LAYER_ROUTE9:" + 	r2a(u2mm(V.diameter[9])) + ",";
+	result += "LAYER_ROUTE10:" + 	r2a(u2mm(V.diameter[10])) + ",";
+	result += "LAYER_ROUTE11:" + 	r2a(u2mm(V.diameter[11])) + ",";
+	result += "LAYER_ROUTE12:" + 	r2a(u2mm(V.diameter[12])) + ",";
+	result += "LAYER_ROUTE13:" + 	r2a(u2mm(V.diameter[13])) + ",";
+	result += "LAYER_ROUTE14:" + 	r2a(u2mm(V.diameter[14])) + ",";
+	result += "LAYER_ROUTE15:" + 	r2a(u2mm(V.diameter[15])) + ",";
+	result += "LAYER_BOTTOM:" + 	r2a(u2mm(V.diameter[LAYER_BOTTOM])) + ",";
+	result += "LAYER_TSTOP:" + 		r2a(u2mm(V.diameter[LAYER_TSTOP])) + ",";
+	result += "LAYER_BSTOP:" + 		r2a(u2mm(V.diameter[LAYER_BSTOP])) + "]";
+
+	return result;
+}
+
+string get_via_shape_array(UL_VIA V)
+{
+	string result = "[";
+	
+	result += "LAYER_TOP:" + 		i2a(V.shape[LAYER_TOP]) + ",";
+	result += "LAYER_ROUTE2:" + 	i2a(V.shape[2]) + ",";
+	result += "LAYER_ROUTE3:" + 	i2a(V.shape[3]) + ",";
+	result += "LAYER_ROUTE4:" + 	i2a(V.shape[4]) + ",";
+	result += "LAYER_ROUTE5:" + 	i2a(V.shape[5]) + ",";
+	result += "LAYER_ROUTE6:" + 	i2a(V.shape[6]) + ",";
+	result += "LAYER_ROUTE7:" + 	i2a(V.shape[7]) + ",";
+	result += "LAYER_ROUTE8:" + 	i2a(V.shape[8]) + ",";
+	result += "LAYER_ROUTE9:" + 	i2a(V.shape[9]) + ",";
+	result += "LAYER_ROUTE10:" + 	i2a(V.shape[10]) + ",";
+	result += "LAYER_ROUTE11:" + 	i2a(V.shape[11]) + ",";
+	result += "LAYER_ROUTE12:" + 	i2a(V.shape[12]) + ",";
+	result += "LAYER_ROUTE13:" + 	i2a(V.shape[13]) + ",";
+	result += "LAYER_ROUTE14:" + 	i2a(V.shape[14]) + ",";
+	result += "LAYER_ROUTE15:" + 	i2a(V.shape[15]) + ",";
+	result += "LAYER_BOTTOM:" + 	i2a(V.shape[LAYER_BOTTOM]) + ",";
+	result += "LAYER_TSTOP:" + 		i2a(V.shape[LAYER_TSTOP]) + ",";
+	result += "LAYER_BSTOP:" + 		i2a(V.shape[LAYER_BSTOP]) + "]";
+
+	return result;
+}
+
+void add_desc_of_via(UL_VIA V)
+{
+	indent();
+	printf("<desc id=\"VIA\" ");
+	printf("diameter=\"%s\" drill=\"%f\" drillsymbol=\"%d\" end=\"%d\" flags=\"%d\" shape=\"%s\" start=\"%d\" x=\"%f\" y=\"%f\"",get_via_diameter_array(V),u2mm(V.drill),V.drillsymbol,V.end,V.flags,get_via_shape_array(V),V.start,u2mm(V.x),u2mm(V.y));
+	printf(" />\n");
+}
+
+void add_wire(UL_WIRE W)
+{
+	indent();
+	printf("<path d=\"M %f %f L %f %f\" stroke=\"%s\" stroke-width=\"%f\" stroke-linejoin=\"round\" stroke-linecap=\"round\"></path>\n",u2mm(W.x1),u2mm(W.y1),u2mm(W.x2),u2mm(W.y2),layer_color[W.layer],u2mm(W.width));
+}
+
+
+void add_rect(UL_RECTANGLE R)
+{
+	indent();
+	printf("<rect x=\"%f\" y=\"%f\" width=\"%f\" height=\"%f\" fill=\"%s\" transform=\"translate(%f,%f) rotate(%f)\"/>\n",-u2mm(abs(R.x1-R.x2))/2,-u2mm(abs(R.y1-R.y2))/2,u2mm(abs(R.x1-R.x2)),u2mm(abs(R.y1-R.y2)),layer_color[R.layer],u2mm(R.x1+R.x2)/2,u2mm(R.y1+R.y2)/2,R.angle);
+}
+
+void add_circle(UL_CIRCLE C)
+{
+	indent();
+	if(C.width>0)
+	{
+		printf("<circle cx=\"%f\" cy=\"%f\" r=\"%f\" fill=\"none\" stroke=\"%s\" stroke-width=\"%f\"/>\n",u2mm(C.x),u2mm(C.y),u2mm(C.radius),layer_color[C.layer],u2mm(C.width));
+	}
+	else
+	{
+		printf("<circle cx=\"%f\" cy=\"%f\" r=\"%f\" fill=\"%s\"/>\n",u2mm(C.x),u2mm(C.y),u2mm(C.radius),layer_color[C.layer]);
+	}
+}
+
+void add_hole(UL_HOLE H)
+{
+	indent();
+	printf("<circle cx=\"%f\" cy=\"%f\" r=\"%f\" fill=\"none\" stroke=\"rgb(255,255,255)\" stroke-width=\"0.01\"/>\n",u2mm(H.x),u2mm(H.y),u2mm(H.drill)/2);
+}
+
+void add_pad(UL_PAD P)
+{
+	indent();
+	printf("<circle cx=\"%f\" cy=\"%f\" r=\"%f\" fill=\"none\" stroke=\"%s\" stroke-width=\"%f\"/>\n",u2mm(P.x),u2mm(P.y),u2mm(P.diameter[LAYER_TOP])/2-u2mm(P.diameter[LAYER_TOP] - P.drill)/4,layer_color[17],u2mm(P.diameter[LAYER_TOP] - P.drill)/2);
+}
+
+void add_smd(UL_SMD S)
+{
+	indent();
+	printf("<rect x=\"%f\" y=\"%f\" width=\"%f\" height=\"%f\" fill=\"%s\" transform=\"translate(%f,%f) rotate(%f)\"/>\n",-u2mm(abs(S.dx))/2,-u2mm(abs(S.dy))/2,u2mm(S.dx),u2mm(S.dy),layer_color[S.layer],u2mm(S.x),u2mm(S.y),S.angle);	
+}
+
+void add_via(UL_VIA V)
+{
+	indent();
+	printf("<circle cx=\"%f\" cy=\"%f\" r=\"%f\" fill=\"none\" stroke=\"%s\" stroke-width=\"%f\"/>\n",u2mm(V.x),u2mm(V.y),u2mm(V.diameter[LAYER_TOP])/2-u2mm(V.diameter[LAYER_TOP] - V.drill)/4,layer_color[18],u2mm(V.diameter[LAYER_TOP] - V.drill)/2);	
+}
+
+void add_layer_table(UL_BOARD B)
+{
+	B.layers(L)
+	{
+		indent();
+		printf("<desc id=\"LAYER_DESCRIPTION\" ");
+		printf("layer=\"%d\" ",L.number);
+		printf("layername=\"%s\" ",L.name);
+		printf("/>\n");
+	}
+}
+
+void open_group(string name)
+{
+	indent();
+	printf("<g id=\"%s\">\n",name);
+	indent_level++;
+}
+
+void close_group()
+{
+	indent_level--;
+	indent();
+	printf("</g>\n");
+}
+
+
+string eagle2svg(string output_file)
+{
+	output(output_file,"w")
+	{
+
+	printf("<?xml version=\"1.0\" standalone=\"no\"?>\n");
+	//printf("<!DOCTYPE svg SYSTEM \"http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd\">\n");
+	printf("<svg version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\">\n");
+
+	if(board)
+	{
+		board(B)
+		{
+			open_group("BOARD_" + remove_special_chars(B.name));
+			
+			add_layer_table(B);
+			
+			/*
+				Get the layer colors
+			*/
+			B.layers(L)
+			{
+				string color;
+				
+				
+
+				switch(L.color)
+				{
+					case 0:
+						layer_color[L.number] = "#000000";//rgb(0,0,0)";
+						break;
+					case 1:
+						layer_color[L.number] = "#000099";//"rgb(0,0,153)";
+						break;
+					case 2:
+						layer_color[L.number] = "#009D00";//"rgb(0,157,0)";
+						break;
+					case 3:
+						layer_color[L.number] = "#009D99";//"rgb(0,157,153)";
+						break;
+					case 4:
+						layer_color[L.number] = "#990000";//"rgb(153,0,0)";
+						break;
+					case 5:
+						layer_color[L.number] = "#990099";//"rgb(153,0,153)";
+						break;
+					case 6:
+						layer_color[L.number] = "#999D00";//"rgb(153,157,0)";
+						break;
+					case 7:
+						layer_color[L.number] = "#C7C3C7";//"rgb(199,195,199)";
+						break;
+					case 8:
+						layer_color[L.number] = "#666266";//"rgb(102,98,102)";
+						break;
+					case 9:
+						layer_color[L.number] = "#0000FF";//"rgb(0,0,255)";
+						break;
+					case 10:
+						layer_color[L.number] = "#00FF00";//"rgb(0,255,0)";
+						break;
+					case 11:
+						layer_color[L.number] = "#00FFFF";//"rgb(0,255,255)";
+						break;
+					case 12:
+						layer_color[L.number] = "#FF0000";//"rgb(255,0,0)";
+						break;
+					case 13:
+						layer_color[L.number] = "#FF00FF";//"rgb(255,0,255)";
+						break;
+					case 14:
+						layer_color[L.number] = "#FFFF00";//"rgb(255,255,0)";
+						break;
+					case 15:
+						layer_color[L.number] = "#FFFFFF";//"rgb(255,255,255)";
+						break;
+					default:
+						layer_color[L.number] = "#FFFFFF";//"rgb(255,255,255)";
+						break;
+				}
+			}
+
+			/*
+				Signals
+			*/
+			open_group("SIGNALS");
+			B.signals(S)
+			{
+
+
+				open_group("SIGNAL_" + remove_special_chars(S.name));
+
+				for(int i=1; i<17; i++)
+				{
+					//wires
+					int layer_has_wires = 0;
+					S.wires(W)
+					{
+						if(W.layer==i)
+						{
+							layer_has_wires = 1;
+
+						}
+					}
+					if(layer_has_wires)
+					{
+						open_group("WIRES_LAYER_" + i2a(i));
+						add_number_of_layer(i);
+						S.wires(W)
+						{
+							if(W.layer==i)
+							{
+								add_wire(W);
+							}
+						}
+						
+						close_group();	//closes WIRES_LAYER_
+					}
+					
+					//polygons
+					int layer_has_poly = 0;
+					S.polygons(P)
+					{
+						if(P.layer==i)
+						{
+							layer_has_poly = 1;
+						}
+					}
+					if(layer_has_poly)
+					{
+						open_group("POLYGONS_LAYER_" +  i2a(i));
+						add_number_of_layer(i);
+						S.polygons(P)
+						{
+							if(P.layer==i)
+							{
+								open_group("POLYGON");
+								add_desc_of_poly(P);
+								
+								open_group("CONTOUR");
+								P.contours(W)
+								{
+									add_wire(W);
+								}
+								close_group();	//closes CONTOUR
+												
+								open_group("FILLINGS");
+								P.fillings(W)
+								{
+									add_wire(W);
+								}								
+								close_group();	//closes FILLINGS
+								
+								open_group("WIRES");
+								P.wires(W)
+								{
+									add_wire(W);
+								}
+								close_group();	//closes WIRES
+								
+								close_group();	//closes POLYGON
+							}
+						}
+						close_group();	//closes POLYGONS
+					}
+				}
+				
+				//vias
+				int signal_has_vias = 0;
+				S.vias(V)
+				{
+					signal_has_vias = 1;
+				}
+				if(signal_has_vias)
+				{
+					open_group("VIAS");
+					
+					S.vias(V)
+					{
+						open_group("VIA");
+						add_desc_of_via(V);						
+						add_via(V);
+						close_group();	//closes VIAS
+					}
+					
+					close_group();	//closes VIAS
+				}
+				
+				close_group();	//closes SIGNAL_
+			}
+			close_group();	//closes SIGNALS
+
+			/*
+				Print out all information about Parts
+			*/
+			open_group("ELEMENTS");
+			B.elements(E)
+			{
+				open_group("ELEMENT_" + remove_special_chars(E.name));
+
+				add_desc_of_element(E);
+
+				int has_smashed_text = 0;
+				E.texts(T)
+				{
+					has_smashed_text = 1;
+				}
+				if(has_smashed_text)
+				{
+					open_group("SMASHED_TEXTS");
+					E.texts(T)
+					{
+						open_group("SMASHED_TEXT_" + remove_special_chars(T.value));
+						add_desc_of_text(T);
+						T.wires(W)
+						{
+							add_wire(W);
+						}
+						
+						close_group();	//closes SMASHED_TEXT_
+					}
+					close_group();	//closes SMASHED_TEXTS
+				}
+				
+				open_group("PACKAGE_" + remove_special_chars(E.package.name));
+				add_desc_of_package(E.package);
+				
+				for(int i=0; i<256; i++)
+				{
+					//Wires
+					int layer_has_wire = 0;
+					E.package.wires(W)
+					{
+						if(W.layer==i)
+						{
+							layer_has_wire = 1;
+						}
+					}	
+					if(layer_has_wire)
+					{
+						open_group("WIRES");
+						add_number_of_layer(i);
+						E.package.wires(W)
+						{
+							if(W.layer==i)
+							{
+								add_wire(W);
+							}
+						}	
+						close_group();	//closes WIRES
+					}
+					
+					//Rectangles
+					int layer_has_rect = 0;
+					E.package.rectangles(R)
+					{
+						if(R.layer==i)
+						{
+							layer_has_rect = 1;
+						}
+					}	
+					if(layer_has_rect)
+					{
+						open_group("RECTANGLES");
+						add_number_of_layer(i);
+						E.package.rectangles(R)
+						{
+							if(R.layer==i)
+							{
+								add_rect(R);
+							}
+						}	
+						close_group();	//closes RECTANGLES
+					}
+					
+					//Circles
+					int layer_has_circle = 0;
+					E.package.circles(C)
+					{
+						if(C.layer==i)
+						{
+							layer_has_circle = 1;
+						}
+					}	
+					if(layer_has_circle)
+					{
+						open_group("CIRCLES");
+						add_number_of_layer(i);
+						E.package.circles(C)
+						{
+							if(C.layer==i)
+							{
+								add_circle(C);
+							}
+						}	
+						close_group();	//closes CIRCLES
+					}
+					
+					//Texts
+					int layer_has_text = 0;
+					E.package.texts(T)
+					{
+						if(T.layer==i)
+						{
+							layer_has_text = 1;
+						}
+					}
+					if(layer_has_text)
+					{
+						open_group("TEXTS");
+						add_number_of_layer(i);
+						E.package.texts(T)
+						{
+							if(T.layer==i)
+							{
+								open_group("TEXT_" + remove_special_chars(T.value));
+								add_desc_of_text(T);
+								T.wires(W)
+								{
+									add_wire(W);
+								}
+								close_group();	//closes TEXT_
+							}
+						}
+						close_group();	//closes TEXTS
+					}
+					
+					//polygons
+					int layer_has_poly = 0;
+					E.package.polygons(P)
+					{
+						if(P.layer==i)
+						{
+							layer_has_poly = 1;
+						}
+					}
+					if(layer_has_poly)
+					{
+						open_group("POLYGONS");
+						add_number_of_layer(i);
+						E.package.polygons(P)
+						{
+							if(P.layer==i)
+							{
+								open_group("POLYGON");
+								add_desc_of_poly(P);
+								
+								open_group("CONTOUR");
+								P.contours(W)
+								{
+									add_wire(W);
+								}
+								close_group();	//closes CONTOUR
+												
+								open_group("FILLINGS");
+								P.fillings(W)
+								{
+									add_wire(W);
+								}								
+								close_group();	//closes FILLINGS
+								
+								open_group("WIRES");
+								P.wires(W)
+								{
+									add_wire(W);
+								}
+								close_group();	//closes WIRES
+								
+								close_group();	//closes POLYGON
+							}
+						}
+						close_group();	//closes POLYGONS
+					}					
+				}
+				
+				//Holes
+				int has_holes = 0;
+				E.package.holes(H)
+				{
+					has_holes = 1;
+				}	
+				if(has_holes)
+				{
+					open_group("HOLES");
+					
+					E.package.holes(H)
+					{
+						open_group("HOLE");
+						add_desc_of_hole(H);
+						add_hole(H);
+						close_group();	//closes HOLE
+					}
+					
+					close_group();	//closes HOLES
+				}
+				
+				//Contacts
+				int has_contacts = 0;
+				E.package.contacts(C)
+				{
+					has_contacts = 1;
+				}	
+				if(has_contacts)
+				{
+					open_group("CONTACTS");
+					
+					E.package.contacts(C)
+					{
+						if(C.pad)
+						{
+							open_group("PAD");
+							add_desc_of_pad(C.pad);
+							add_pad(C.pad);
+							close_group();	
+						}						
+						else
+						{
+							open_group("SMD");
+							add_desc_of_smd(C.smd);
+							add_smd(C.smd);
+							close_group();	
+						}						
+					}
+					
+					close_group();	//closes CONTACTS
+				}
+																
+				close_group();	//closes PACKAGE_
+
+				close_group();	//closes ELEMENT_
+			}
+			close_group();	//closes ELEMENTS
+			
+			for(int i=0; i<256; i++)
+			{
+				//Wires
+				int layer_has_wire = 0;
+				B.wires(W)
+				{
+					if(W.layer==i)
+					{
+						layer_has_wire = 1;
+					}
+				}	
+				if(layer_has_wire)
+				{
+					open_group("WIRES");
+					add_number_of_layer(i);
+					B.wires(W)
+					{
+						if(W.layer==i)
+						{
+							add_wire(W);
+						}
+					}	
+					close_group();	//closes WIRES
+				}
+				
+				//Rectangles
+				int layer_has_rect = 0;
+				B.rectangles(R)
+				{
+					if(R.layer==i)
+					{
+						layer_has_rect = 1;
+					}
+				}	
+				if(layer_has_rect)
+				{
+					open_group("RECTANGLES");
+					add_number_of_layer(i);
+					B.rectangles(R)
+					{
+						if(R.layer==i)
+						{
+							add_rect(R);
+						}
+					}	
+					close_group();	//closes RECTANGLES
+				}
+				
+				//Circles
+				int layer_has_circle = 0;
+				B.circles(C)
+				{
+					if(C.layer==i)
+					{
+						layer_has_circle = 1;
+					}
+				}	
+				if(layer_has_circle)
+				{
+					open_group("CIRCLES");
+					add_number_of_layer(i);
+					B.circles(C)
+					{
+						if(C.layer==i)
+						{
+							add_circle(C);
+						}
+					}	
+					close_group();	//closes CIRCLES
+				}
+				
+				//Texts
+				int layer_has_text = 0;
+				B.texts(T)
+				{
+					if(T.layer==i)
+					{
+						layer_has_text = 1;
+					}
+				}
+				if(layer_has_text)
+				{
+					open_group("TEXTS");
+					add_number_of_layer(i);
+					B.texts(T)
+					{
+						if(T.layer==i)
+						{
+							open_group("TEXT_" + remove_special_chars(T.value));
+							add_desc_of_text(T);
+							T.wires(W)
+							{
+								add_wire(W);
+							}
+							close_group();	//closes TEXT_
+						}
+					}
+					close_group();	//closes TEXTS
+				}
+				
+				//polygons
+				int layer_has_poly = 0;
+				B.polygons(P)
+				{
+					if(P.layer==i)
+					{
+						layer_has_poly = 1;
+					}
+				}
+				if(layer_has_poly)
+				{
+					open_group("POLYGONS");
+					add_number_of_layer(i);
+					B.polygons(P)
+					{
+						if(P.layer==i)
+						{
+							open_group("POLYGON");
+							add_desc_of_poly(P);
+							
+							open_group("CONTOUR");
+							P.contours(W)
+							{
+								add_wire(W);
+							}
+							close_group();	//closes CONTOUR
+											
+							open_group("FILLINGS");
+							P.fillings(W)
+							{
+								add_wire(W);
+							}								
+							close_group();	//closes FILLINGS
+							
+							open_group("WIRES");
+							P.wires(W)
+							{
+								add_wire(W);
+							}
+							close_group();	//closes WIRES
+							
+							close_group();	//closes POLYGON
+						}
+					}
+					close_group();	//closes POLYGONS
+				}					
+			}//for(int i=0; i<256; i++)
+			
+			//Holes
+			int has_holes = 0;
+			B.holes(H)
+			{
+				has_holes = 1;
+			}	
+			if(has_holes)
+			{
+				open_group("HOLES");
+				
+				B.holes(H)
+				{
+					open_group("HOLE");
+					add_desc_of_hole(H);
+					add_hole(H);
+					close_group();	//closes HOLE
+				}
+				
+				close_group();	//closes HOLES
+			}
+					
+			close_group();	//closes BOARD_
+		}
+
+	}
+
+
+
+	printf("</svg>\n");
+
+	}
+
+	return "";
+}

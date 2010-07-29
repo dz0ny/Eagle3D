@@ -1,0 +1,69 @@
+PLCC
+//PLCC
+####################################################################################################
+PLCC20:0:1:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:IC_SMD_PLCC20(:SMD-PLCC 20Pin:
+PLCC28:0:1:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:IC_SMD_PLCC28(:SMD-PLCC 28Pin:
+PLCC32:0:1:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:IC_SMD_PLCC32(:SMD-PLCC 32Pin:
+PLCC32R:0:1:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:IC_SMD_PLCC32(:SMD-PLCC 32Pin:
+PLCC44:0:1:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:IC_SMD_PLCC44(:SMD-PLCC 44Pin:
+PLCC52:0:1:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:IC_SMD_PLCC52(:SMD-PLCC 52Pin:
+PLCC68:0:1:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:IC_SMD_PLCC68(:SMD-PLCC 68Pin:
+PLCC84:0:1:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:IC_SMD_PLCC84(:SMD-PLCC 84Pin:
+####################################################################################################
+IC_SMD_PLCC_GRND
+(xsize,ysize,oupin,lrpin,valsize)
+####################################################################################################
+IC_SMD_PLCC20(value)
+(9,9,5,5,1.2)
+IC_SMD_PLCC28(value)
+(11.45,11.45,7,7,1.5)
+IC_SMD_PLCC32(value)
+(11.45,14,7,9,1.5)
+IC_SMD_PLCC44(value)
+(16.5,16.5,11,11,2)
+IC_SMD_PLCC52(value)
+(19.1,19.1,13,13,2.5)
+IC_SMD_PLCC68(value)
+(24.1,24.1,17,17,3)
+IC_SMD_PLCC84(value)
+(29.25,29.25,21,21,3)
+####################################################################################################
+####################################################################################################
+union{
+	union{
+		difference{
+			box{<0,0,0><xsize,4.05,ysize>}
+			box{<-0.1,0,0><xsize+0.1,3,-1> rotate<10,0,0> translate<0,2.15,0>}
+			box{<-0.1,0,0><xsize+0.1,3,1> rotate<-10,0,0> translate<0,2.15,ysize>}
+			box{<-1,-3,-0.1><0,0,ysize+0.1> rotate<0,0,10> translate<0,1.85,0>}
+			box{<1,-3,-0.1><0,0,ysize+0.1> rotate<0,0,-10> translate<xsize,1.85,0>}
+			box{<-1,3,-0.1><0,0,ysize+0.1> rotate<0,0,-10> translate<0,2.15,0>}
+			box{<1,3,-0.1><0,0,ysize+0.1> rotate<0,0,10> translate<xsize,2.15,0>}
+			box{<-0.1,0,0><xsize+0.1,-3,-1> rotate<-10,0,0> translate<0,1.85,0>}
+			box{<-0.1,0,0><xsize+0.1,-3,1> rotate<10,0,0> translate<0,1.85,ysize>}
+			box{<-0.1,0,0><xsize+0.1,3,1> rotate<-45,0,0> translate<0,3,ysize>}
+			box{<0,-0.1,-3><-2,4.5,3> rotate<0,45,0> translate<0.8,0,ysize-0.8>}
+			sphere{<xsize/2,4.05,ysize-2>0.5 pigment{White}}
+		}
+		text{ttf besch_font value 0.2,0 scale<valsize,valsize,valsize> rotate<90,0,0> translate<1.5,4.051,ysize/2> pigment{Gray60} }
+		pigment{Gray30}
+		translate<-xsize/2,0,-ysize/2>
+	}
+	#local i=0;
+	#while(i<(oupin)/2)
+		object{IC_SMD_PLCC_PIN() translate<i*1.27,-0.7,-ysize/2>}
+		object{IC_SMD_PLCC_PIN() translate<-i*1.27,-0.7,-ysize/2>}
+		object{IC_SMD_PLCC_PIN() rotate<0,180,0> translate<i*1.27,-0.7,ysize/2>}
+		object{IC_SMD_PLCC_PIN() rotate<0,180,0> translate<-i*1.27,-0.7,ysize/2>}
+	#local i=i+1;
+	#end
+	#local i=0;
+	#while(i<(lrpin)/2)
+		object{IC_SMD_PLCC_PIN() rotate<0,90,0> translate<-xsize/2,-0.7,i*1.27>}
+		object{IC_SMD_PLCC_PIN() rotate<0,90,0> translate<-xsize/2,-0.7,-i*1.27>}
+		object{IC_SMD_PLCC_PIN() rotate<0,-90,0> translate<xsize/2,-0.7,i*1.27>}
+		object{IC_SMD_PLCC_PIN() rotate<0,-90,0> translate<xsize/2,-0.7,-i*1.27>}
+	#local i=i+1;
+	#end
+}
+#end

@@ -1,0 +1,351 @@
+Modularbuchse
+// Makro fuer einfache MODULAR-Buchsen RJ-45 (8pol) RJ-12 (6pol) RJ11 (4pol) u.ae.,    con-amp.lib ,     Joerg Bredendiek <sprut(replace with at)sprut.de>   
+//
+// plastik schwarz, Schirmung Silber
+// Darstellung ist vereinfacht 
+// 
+//
+// pins   = Anzahl der Pins , 2, 4, 6, 8
+// a      = Abstand zwischen den Mitten der Montagestifte  
+// o      = Abstand zwischen Mittlepunkt und Verbindungslinie der Befestigungszapfen (Offset)  
+// schirm = 0-kein, 1-voll, 2-teilweise  
+// stop   = 0-kein, 1-panel-stop
+####################################################################################################
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_MODULAR_RJ45(:RJ45 Modular-Buchse:
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_MODULAR_RJ12(:RJ12 Modular-Buchse:
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_MODULAR_RJ11(:RJ11 Modular-Buchse:
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_MODULAR_RJ45_SCH(:RJ45 Modular-Buchse geschirmt:
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_MODULAR_RJ12_SCH(:RJ12 Modular-Buchse geschirmt:
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_MODULAR_RJ11_SCH(:RJ11 Modular-Buchse geschirmt:  
+215875-3:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_MODULAR_215875_3(:Modular-Buchse 4-polig (con-amp.lib)    
+215876-6:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_MODULAR_215876_6(:Modular-Buchse 4-polig (con-amp.lib)        
+215876-7:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_MODULAR_215876_7(:Modular-Buchse 2-polig (con-amp.lib)  
+215877-4:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_MODULAR_215877_4(:Modular-Buchse 8-polig (con-amp.lib)
+215877-7:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_MODULAR_215877_7(:Modular-Buchse 8-polig (con-amp.lib)
+215878-2:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_MODULAR_215878_2(:Modular-Buchse 8-polig keyed (con-amp.lib)
+555162-1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_MODULAR_555162_1(:Modular-Buchse 8-polig stop (con-amp.lib)
+555163-1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_MODULAR_555163_1(:Modular-Buchse 6-polig stop (con-amp.lib)
+555163-2:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_MODULAR_555163_2(:Modular-Buchse 4-polig stop (con-amp.lib) 
+555165-1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_MODULAR_555165_1(:Modular-Buchse 6-polig (con-amp.lib)
+555165-2:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_MODULAR_555165_2(:Modular-Buchse 4-polig (con-amp.lib)
+555165-5:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_MODULAR_555165_5(:Modular-Buchse 2-polig (con-amp.lib) 
+555166-1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_MODULAR_555166_1(:Modular-Buchse 8-polig (con-amp.lib)
+555166-3:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_MODULAR_555166_3(:Modular-Buchse 4-polig (con-amp.lib)
+555167-1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_MODULAR_555167_1(:Modular-Buchse 8-polig (con-amp.lib)
+555167-2:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_MODULAR_555167_2(:Modular-Buchse 6-polig (con-amp.lib)
+555140-1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_MODULAR_555140_1(:Modular-Buchse 6-polig geschirmt (con-amp.lib)   
+555140-2:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_MODULAR_555140_2(:Modular-Buchse 4-polig geschirmt (con-amp.lib)   
+555153-1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_MODULAR_555153_1(:Modular-Buchse 8-polig geschirmt (con-amp.lib)   
+555154-1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_MODULAR_555154_1(:Modular-Buchse 6-polig geschirmt (con-amp.lib)   
+555154-2:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_MODULAR_555154_2(:Modular-Buchse 4-polig geschirmt (con-amp.lib)
+####################################################################################################
+CON_MODULAR_GRND
+(pins,a,o,schirm,stop)
+####################################################################################################
+CON_MODULAR_RJ45()
+(8, 11.43, 0, 0, 0)
+CON_MODULAR_RJ12()
+(6, 11.43, 0, 0, 0)
+CON_MODULAR_RJ11()
+(4, 11.43, 0, 0, 0)
+CON_MODULAR_RJ45_SCH()
+(8, 11.43, 0, 1, 0)
+CON_MODULAR_RJ12_SCH()
+(6, 11.43, 0, 1, 0)
+CON_MODULAR_RJ11_SCH()
+(4, 11.43, 0, 1, 0)
+CON_MODULAR_215875_3()
+(4, 6*1.27, 0, 0, 0)
+CON_MODULAR_215876_6()
+(4, 8*1.27, 0, 0, 0)
+CON_MODULAR_215876_7()
+(2, 8*1.27, 0, 0, 0)
+CON_MODULAR_215877_4()
+(8, 9*1.27, 0, 0, 0)
+CON_MODULAR_215877_7()
+(8, 9*1.27, 0, 0, 0)
+CON_MODULAR_215878_2()
+(8, 9*1.27, 0, 0, 0)
+CON_MODULAR_555164_1()
+(8, 9*1.27, 1.27, 0, 0)
+CON_MODULAR_555165_1()
+(6, 8*1.27, 1.27, 0, 0)
+CON_MODULAR_555165_2()
+(4, 8*1.27, 1.27, 0, 0)
+CON_MODULAR_555165_5()
+(2, 8*1.27, 1.27, 0, 0)
+CON_MODULAR_555166_1()
+(8, 9*1.27, 1.27, 0, 1)
+CON_MODULAR_555165_3()
+(4, 9*1.27, 1.27, 0, 1)
+CON_MODULAR_555167_1()
+(8, 9*1.27, 1.27, 0, 0)
+CON_MODULAR_555167_2()
+(6, 9*1.27, 1.27, 0, 0)
+CON_MODULAR_555162_1()
+(8, 9*1.27, 1.27, 0, 1)
+CON_MODULAR_555163_1()
+(6, 8*1.27, 1.27, 0, 1)
+CON_MODULAR_555163_2()
+(4, 8*1.27, 1.27, 0, 1)
+CON_MODULAR_555140_1()
+(6, 8*1.27, 0, 2, 1)
+CON_MODULAR_555140_2()
+(4, 8*1.27, 0, 2, 1)
+CON_MODULAR_555153_1()
+(8, 9*1.27, 0, 2, 1)
+CON_MODULAR_555154_1()
+(6, 8*1.27, 0, 2, 1)
+CON_MODULAR_555154_2()
+(4, 8*1.27, 0, 2, 1)
+####################################################################################################
+####################################################################################################
+#local tex_rj45_pastic1= texture { pigment{White*0.3} finish {specular 1 roughness 0.001 reflection 0.07 ambient (0.1 * global_ambient_mul)} } ;   //etwas glatter/glaenzender
+#local tex_rj45_pastic = texture { pigment{White*0.3} finish {specular 0.1 roughness 0.1 reflection 0.07 ambient (0.1 * global_ambient_mul)} } ;
+// Aussenabmasse 6 pins : 13.4  x  12.8  x  18.0 BHT   
+// Breite ist bauformabhaengig
+
+#local bb = a+3;
+#local bh = 12.8;
+#local bt = 18.0;          
+
+
+// Ausbruch im Kunststoff
+// 4 pin ??
+// 6 pin - 10 mm
+// 8 pin - 12 mm
+#local stecker2 = 
+      difference
+      {
+         union
+         {
+            box{<-bb/2+1.5,  3.7, -11.7><bb/2-1.5, 11.5, 4.8>}
+            box{<-bb/2+3.1,  2.5, -11.7><bb/2-3.1, 11.5, 4.8>}
+            box{<-bb/2+5.6,  0.7, -11.7><bb/2-5.6, 11.5, 4.8>}
+            box{<-1  , -1  , -2><16      ,  1  ,  2  >rotate<-30,0,0>translate<-bb/2,4.4,-21.4/2> pigment{White*0.5}}
+            box{<-1  ,  0  , -1><16      ,  0.5,  1  >rotate<-30,0,0>translate<-bb/20,2.0,-21.4/2> pigment{White*0.5}}
+         }
+         box{<-bb/2-1   , -1  ,  4.3 >< -bb/2+ 16  ,15 , 5.3>}
+         box{<-bb/2-1   , -1  ,-11.7 >< -bb/2+ 1.6 ,15 , 5.3>}
+         box{<-bb/2+14.2, -1  ,-11.7 >< -bb/2+ 16  ,15 , 5.3>}
+      }; 
+      
+
+#local pin_intern =
+   sphere_sweep {
+      b_spline
+      9,
+      <-0.635, 10.0,  17-21.4/2>,   0.2
+      <-0.635, 12.0,  17-21.4/2>,   0.2
+      <-0.635, 12.5,  17-21.4/2>,   0.2
+      <-0.635, 12.5,  6-21.4/2>,   0.2
+      <-0.635, 11.7,  6-21.4/2>,   0.2
+      <-0.635, 11.0,  6.5-21.4/2>, 0.2
+      <-0.635, 10.3, 10-21.4/2>,  0.2
+      <-0.635, 8.0, 16-21.4/2>,  0.2
+      <-0.635, 8.0, 18-21.4/2>,  0.2
+      texture{col_gold} 
+   }              
+   
+#local pin_channel = box{<-0.635-0.31 , bh-0.5, -5>< -0.635+0.31 , bh+1 , -8+bt> texture{tex_rj45_pastic}}  
+           
+           
+union
+{                 
+        #if (schirm=1)  
+        // voll geschrimt
+        #local tex_modul_metal = texture { T_Chrome_5B } ;
+        #local bb = a+3;
+        #local bh = 12.8;
+        #local bt = 18.0;  
+        #local sb = 14+1;
+        #if (a>11)
+                #local sb = 15.5+1;
+        #end        
+        //Metallhuelle, quaderfoermig mit abgerundeten Ecken und Kanten        
+        union{          
+                difference{
+                        box{<-sb/2, 0, -8.5 > < sb/2, bh+1 , -8+bt+1> texture{T_Chrome_5B}}                      //Ummantelung                      
+                        box{<-bb/2, 0, -8   > < bb/2, bh   , -8+bt  > texture{T_Chrome_5B}}                      //Aushoehlung
+                        box{<-sb/2-0.1, bh+0.5, -8.6 > < -sb/2+0.5, bh+1.1 , -8+bt+1> texture{T_Chrome_5B}}      //obere Seitenkannten ausfraesen                  
+                        box{< sb/2+0.1, bh+0.5, -8.6 > <  sb/2-0.5, bh+1.1 , -8+bt+1> texture{T_Chrome_5B}}  
+                        box{<-sb/2-0.1, bh+0.5, -8+bt+1.1 > <  sb/2+0.1, bh+1.1, -8+bt+0.5> texture{T_Chrome_5B}}//obere hinterkannte     
+                        box{<-sb/2-0.1, bh+0.5, -8        > <  sb/2+0.1, bh+1.1, -8.6   > texture{T_Chrome_5B}}  //obere vorderkannte
+                        box{< sb/2+0.1, bh+1.1, -8+bt+0.5 > <  sb/2-0.5, -0.1, -8+bt+1.1> texture{T_Chrome_5B}}  //senkrechte hinterkannten
+                        box{<-sb/2-0.1, bh+1.1, -8+bt+0.5 > < -sb/2+0.5, -0.1, -8+bt+1.1> texture{T_Chrome_5B}}                        
+                        box{< sb/2+0.1, bh+1.1, -8        > <  sb/2-0.5, -0.1, -8.6> texture{T_Chrome_5B}}  //senkrechte vordererkannten
+                        box{<-sb/2-0.1, bh+1.1, -8        > < -sb/2+0.5, -0.1, -8.6> texture{T_Chrome_5B}}  
+                        stecker2                                           
+                }                           
+                box { <-sb/2+1, 3, -3.05-0.5>, <-sb/2+0.5, -3, -3.05+0.5> texture{col_silver}}                     // linke Loetlasche
+                box { < sb/2-1, 3, -3.05-0.5>, < sb/2-0.5, -3, -3.05+0.5> texture{col_silver}}                     // rechte Loetasche                   
+                cylinder{<-sb/2+0.5, bh+0.5, -8        > < -sb/2+0.5, bh+0.5, -8+bt+0.5> 0.5 texture{col_silver}}  // obere Seitenkannten abrunden       
+                cylinder{< sb/2-0.5, bh+0.5, -8        > <  sb/2-0.5, bh+0.5, -8+bt+0.5> 0.5 texture{col_silver}}    
+                cylinder{<-sb/2+0.5, bh+0.5, -8+bt+0.5 > <  sb/2-0.5, bh+0.5, -8+bt+0.5> 0.5 texture{col_silver}}  // obere hinterkannte 
+                cylinder{<-sb/2+0.5, bh+0.5, -8        > <  sb/2-0.5, bh+0.5, -8       > 0.5 texture{col_silver}}  // obere vorderkannte                                
+                cylinder{<-sb/2+0.5, bh+0.5, -8+bt+0.5 > < -sb/2+0.5, 0, -8+bt+0.5> 0.5 texture{col_silver}}       // senkrechte hinterkannten   
+                cylinder{< sb/2-0.5, bh+0.5, -8+bt+0.5 > <  sb/2-0.5, 0, -8+bt+0.5> 0.5 texture{col_silver}}  
+                cylinder{<-sb/2+0.5, bh+0.5, -8        > < -sb/2+0.5, 0, -8       > 0.5 texture{col_silver}}       // senkrechte vorderkannten   
+                cylinder{< sb/2-0.5, bh+0.5, -8        > <  sb/2-0.5, 0, -8       > 0.5 texture{col_silver}}  
+                sphere{< sb/2-0.5, bh+0.5, -8+bt+0.5> 0.5  texture{col_silver}} 
+                sphere{<-sb/2+0.5, bh+0.5, -8+bt+0.5> 0.5  texture{col_silver}}                                    // Eck-Kugeln hinten
+                sphere{< sb/2-0.5, bh+0.5, -8       > 0.5  texture{col_silver}} 
+                sphere{<-sb/2+0.5, bh+0.5, -8       > 0.5  texture{col_silver}}                                    // Eck-Kugeln vorn
+        }                                   
+        #end
+        
+                   
+           
+        
+        #if (schirm=2)        
+        //teilgeschirmt
+        #local tex_modul_metal = texture { T_Chrome_5B } ;
+        #local sb = bb+0.8;
+        #if (a>11)
+                #local sb = 15.5+1;
+        #end           
+        //Metallhuelle, quaderfoermig mit abgerundeten Ecken und Kanten       
+        union{          
+                difference{
+                        box{<-sb/2+0.5, 0, -8.5 > < sb/2-0.5, bh+0.5 ,  -8  > texture{T_Chrome_5B}}                // Frontplatte                                            
+                        stecker2                                                                                   // Durchbrueche
+                }                                                                                                     
+                box { <-sb/2+1, 3, -3.05-0.5>, <-sb/2+0.5, -3, -3.05+0.5> texture{col_silver}}                     // linke Loetlasche
+                box { < sb/2-1, 3, -3.05-0.5>, < sb/2-0.5, -3, -3.05+0.5> texture{col_silver}}                     // rechte Loetasche        
+                cylinder{<-sb/2+0.5, bh, -8        > <  sb/2-0.5, bh, -8       > 0.5 texture{col_silver}}  // obere vorderkannte                                
+                cylinder{<-sb/2+0.5, bh, -8        > < -sb/2+0.5, 0, -8       > 0.5 texture{col_silver}}       // senkrechte vorderkannten   
+                cylinder{< sb/2-0.5, bh, -8        > <  sb/2-0.5, 0, -8       > 0.5 texture{col_silver}}  
+
+                box{<-sb/2, 0, -8 > < -sb/2+0.4, bh ,  -2  > texture{T_Chrome_5B}}                         // linkes Seitenblech                                    
+                box{< sb/2, 0, -8 > <  sb/2-0.4, bh ,  -2  > texture{T_Chrome_5B}}                         // rechtes Seitenblech  
+                
+                box{<-sb/2+0.5, bh, -8 > < -sb/2+2.5, bh+0.5 ,  -2  > texture{T_Chrome_5B}}                // oben links
+                box{< sb/2-2.5, bh, -8 > <  sb/2-0.5, bh+0.5 ,  -2  > texture{T_Chrome_5B}}                // oben rechts      
+                
+                box{<sb/2-2.7, -0.50, 0><-sb/2+2.7, 0, 6> rotate<-15,0,0> translate<0, bh+0.5, -8.3> texture{T_Chrome_5B} }
+                
+             //   box{< sb/2-2.7, bh, -8 > < -sb/2+2.7, bh+0.5 ,  -2  > rotate<-30,0,0> texture{T_Chrome_5B} }           // oben Mitte           
+                
+        }               
+        #end
+        
+           
+           
+        
+        #if (schirm=3)        
+        //teilgeschirmt
+        #local tex_modul_metal = texture { T_Chrome_5B } ;
+        #local sb = bb+0.8;
+        #if (a>11)
+                #local sb = 15.5+1;
+        #end           
+        //Metallhuelle, quaderfoermig mit abgerundeten Ecken und Kanten       
+        union{          
+                difference{
+                        box{<-sb/2, 0, -8.2 > < sb/2, bh+0.4 ,  -2  > texture{T_Chrome_5B}}                      //Ummantelung                      
+                        box{<-bb/2, 0, -8   > < bb/2, bh   , -8+bt  > texture{T_Chrome_5B}}                      //Aushoehlung
+                        box{<-sb/2-0.1, bh+0.5, -8 > < -sb/2+0.5, bh+1.1 , -8+bt+1> texture{T_Chrome_5B}}        //obere Seitenkannten ausfraesen                  
+                        box{< sb/2+0.1, bh+0.5, -8 > <  sb/2-0.5, bh+1.1 , -8+bt+1> texture{T_Chrome_5B}} 
+                        stecker2 
+                }                           
+                box { <-sb/2+1, 3, -3.05-0.5>, <-sb/2+0.5, -3, -3.05+0.5> texture{col_silver}}                  // linke Loetlasche
+                box { < sb/2-1, 3, -3.05-0.5>, < sb/2-0.5, -3, -3.05+0.5> texture{col_silver}}                  // rechte Loetasche 
+        }               
+        #end
+        
+           
+           
+           
+	// Plastik
+	difference
+	{         
+	        union
+	        {             
+		        box{<-bb/2 , 0, -5>< bb/2 , bh , -8+bt> texture{tex_rj45_pastic}}  // hinterer Teil matter
+		        box{<-bb/2 , 0, -8>< bb/2 , bh , -5   > texture{tex_rj45_pastic1}} // vordere 3mm glaenzen mehr         
+		}
+		stecker2                                                                   // Ausspartungen fuer Stecker
+		box{<-bb/2-1 , -2, -8+bt+5>< bb/2+1 , bh+2 , -8+bt+1> rotate<-20,0,0> texture{tex_rj45_pastic}}  //hintere Abschaegung  
+		// Kanaele fuer Anschlussdraehte an der Oberseite der Buchse
+	        pin_channel	
+	        object{pin_channel  translate<+1.27     , 0, 0>}
+	        #if (pins>2)
+	        object { pin_channel  translate<+1.27-2.54, 0, 0>}
+	        object { pin_channel  translate< 2.54     , 0, 0>}                                                             
+	        #end
+	        #if (pins>4)
+	        object { pin_channel  translate<+1.27+2.54,0,0>}
+	        object { pin_channel  translate<-2.54,0,0>}
+	        #end                                                                                                   
+	        #if (pins=8)
+	        object { pin_channel  translate<+5.08,0,0>}
+	        object { pin_channel  translate<+1.27-5.08,0,0>}
+                #end
+		//texture{tex_rj45_pastic}
+	}       
+	    
+	//Panel-stops 
+	#if (schirm>1)  
+	          #local stop=1;
+        #end
+
+	#if (stop=1)   
+	//seitliche plastik-laschen 1.4mm dick
+	box{<-bb/2-1 , 3, -6.4>< -bb/2 , bh-3 , -5>  texture{tex_rj45_pastic}}
+	box{< bb/2+1 , 3, -6.4><  bb/2 , bh-3 , -5>  texture{tex_rj45_pastic}}   
+	#end
+	
+	
+ 
+	// Plastikfuesse zur Befestigung
+	difference
+	{
+		cylinder{< a/2, -3.5, 0>< a/2, 1, 0> 1.4}
+		box{<a/2-0.3,-4,-5><a/2+0.3,-0.5,5>}
+		texture{tex_rj45_pastic}
+	}
+	difference
+	{
+		cylinder{<-a/2, -3.5, 0><-a/2, 1, 0> 1.4}
+		box{<-a/2-0.3,-4,-5><-a/2+0.3,-0.5,5>}
+		texture{tex_rj45_pastic}
+	}
+     
+	// Pins auf der Platine   
+	// hintere Pinreihe liegt 8.89 mm hinter den Befestigungsstiften
+	cylinder{<-0.635     , 1, 8.89     ><-0.635     , -3.5, 8.89     > 0.25 texture{col_gold}}   
+	cylinder{<+0.635     , 1, 8.89-2.54><+0.635     , -3.5, 8.89-2.54> 0.25 texture{col_gold}}	
+	#if (pins>2)	
+	cylinder{<-0.635+2.54, 1, 8.89     ><-0.635+2.54, -3.5, 8.89     > 0.25 texture{col_gold}}
+	cylinder{<+0.635-2.54, 1, 8.89-2.54><+0.635-2.54, -3.5, 8.89-2.54> 0.25 texture{col_gold}}  
+	#end
+	#if (pins>4)
+	cylinder{<+0.635+2.54, 1, 8.89-2.54><+0.635+2.54, -3.5, 8.89-2.54> 0.25 texture{col_gold}}
+	cylinder{<-0.635-2.54, 1, 8.89     ><-0.635-2.54, -3.5, 8.89     > 0.25 texture{col_gold}}
+	#end
+	#if (pins=8)
+	cylinder{<-0.635+5.08, 1, 8.89     ><-0.635+5.08, -3.5, 8.89     > 0.25 texture{col_gold}}
+	cylinder{<+0.635-5.08, 1, 8.89-2.54><+0.635-5.08, -3.5, 8.89-2.54> 0.25 texture{col_gold}}
+	#end
+        
+        //Pins innerhalb der Buchse
+	object { pin_intern }	
+	object { pin_intern  translate<+1.27     , 0, 0>}
+	#if (pins>2)
+	object { pin_intern  translate<+1.27-2.54, 0, 0>}
+	object { pin_intern  translate< 2.54     , 0, 0>}                                                             
+	#end
+	#if (pins>4)
+	object { pin_intern  translate<+1.27+2.54,0,0>}
+	object { pin_intern  translate<-2.54,0,0>}
+	#end                                                                                                   
+	#if (pins=8)
+	object { pin_intern  translate<+5.08,0,0>}
+	object { pin_intern  translate<+1.27-5.08,0,0>}
+	#end      
+	
+	translate<0, 0, -o>
+}
+#end
+
+

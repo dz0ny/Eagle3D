@@ -1,0 +1,43 @@
+abgewinkelte Pfostenwannen
+// Tilmann Reh <tilmann.reh@autometer.de>
+// abgewinkelte Pfostenwannen
+// Bezugspunkt: mittig, 5.08mm vor der unteren/inneren Pinreihe.
+####################################################################################################
+ML10L:0:0:0:0:0:0:0:0:0:0:0:0:0:180:0:0:-6.35:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_DIS_WS10W(:Wannenstecker liegend 10Pin:Shrouded Header bended 10Pin
+ML14L:0:0:0:0:0:0:0:0:0:0:0:0:0:180:0:0:-6.35:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_DIS_WS14W(:Wannenstecker liegend 14Pin:Shrouded Header bended 14Pin
+ML16L:0:0:0:0:0:0:0:0:0:0:0:0:0:180:0:0:-6.35:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_DIS_WS16W(:Wannenstecker liegend 16Pin:Shrouded Header bended 16Pin
+ML20L:0:0:0:0:0:0:0:0:0:0:0:0:0:180:0:0:-6.35:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_DIS_WS20W(:Wannenstecker liegend 20Pin:Shrouded Header bended 20Pin
+ML26L:0:0:0:0:0:0:0:0:0:0:0:0:0:180:0:0:-6.35:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_DIS_WS26W(:Wannenstecker liegend 26Pin:Shrouded Header bended 26Pin
+ML34L:0:0:0:0:0:0:0:0:0:0:0:0:0:180:0:0:-6.35:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_DIS_WS34W(:Wannenstecker liegend 34Pin:Shrouded Header bended 34Pin
+ML40L:0:0:0:0:0:0:0:0:0:0:0:0:0:180:0:0:-6.35:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_DIS_WS40W(:Wannenstecker liegend 40Pin:Shrouded Header bended 40Pin
+ML50L:0:0:0:0:0:0:0:0:0:0:0:0:0:180:0:0:-6.35:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_DIS_WS50W(:Wannenstecker liegend 50Pin:Shrouded Header bended 50Pin
+ML64L:0:0:0:0:0:0:0:0:0:0:0:0:0:180:0:0:-6.35:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_DIS_WS64W(:Wannenstecker liegend 64Pin:Shrouded Header bended 64Pin
+####################################################################################################
+CON_DIS_WS_XX_W_GRND
+(Pins)
+####################################################################################################
+CON_DIS_WS10W()
+(10)
+CON_DIS_WS14W()
+(14)
+CON_DIS_WS16W()
+(16)
+CON_DIS_WS20W()
+(20)
+CON_DIS_WS26W()
+(26)
+CON_DIS_WS34W()
+(34)
+CON_DIS_WS40W()
+(40)
+CON_DIS_WS50W()
+(50)
+CON_DIS_WS64W()
+(64)
+####################################################################################################
+####################################################################################################
+union{
+object{PFOSTENWANNE(7.62+Pins*1.27) rotate<-90,0,0> translate<0,4.5,3.3>}
+object{PIN_BENDED_ROW (Pins/2,2.54,0.635,0.8,4.5-1.27,3,10.5,col_gold) translate<0,0,5.08>}
+object{PIN_BENDED_ROW (Pins/2,2.54,0.635,0.8,4.5+1.27,3,13.04,col_gold) translate<0,0,7.62>}}
+#end

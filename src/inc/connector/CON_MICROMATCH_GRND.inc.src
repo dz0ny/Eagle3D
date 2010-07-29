@@ -1,0 +1,132 @@
+MicroMatch
+// Makro fuer AMP-tyco MicroMatch-Federleiste SMD-Ausfuehrung
+// pin  - Anzahl Kontakte
+// frm = 0 - smd, != 0 - Bedrahtet
+// everyone1@freenet.de
+####################################################################################################
+MICROMATCH-4:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_MICROMATCH_4(:MicroMatch 4:
+MICROMATCH-6:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_MICROMATCH_6(:MicroMatch 6:
+MICROMATCH-8:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_MICROMATCH_8(:MicroMatch 8:
+MICROMATCH-10:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_MICROMATCH_10(:MicroMatch 10:
+MICROMATCH-12:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_MICROMATCH_12(:MicroMatch 12:
+MICROMATCH-14:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_MICROMATCH_14(:MicroMatch 14:
+MICROMATCH-16:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_MICROMATCH_16(:MicroMatch 16:
+MICROMATCH-18:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_MICROMATCH_18(:MicroMatch 18:
+MICROMATCH-20:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_MICROMATCH_20(:MicroMatch 20:
+####################################################################################################
+CON_MICROMATCH_GRND
+(pin, frm)
+####################################################################################################
+CON_MICROMATCH_4()
+(4,1)
+CON_MICROMATCH_6()
+(6,1)
+CON_MICROMATCH_8()
+(8,1)
+CON_MICROMATCH_10()
+(10,1)
+CON_MICROMATCH_12()
+(12,1)
+CON_MICROMATCH_14()
+(14,1)
+CON_MICROMATCH_16()
+(16,1)
+CON_MICROMATCH_18()
+(16,1)
+CON_MICROMATCH_20()
+(20,1)
+####################################################################################################
+####################################################################################################
+
+#local CON_MMTCH_PLASTIC_TEXTURE = texture {pigment{Red*0.6} finish{ambient (0.1 * global_ambient_mul)}};
+#local pitch=1.27;
+#local plastic_z=5;
+#local plastic_x=pitch*pin+2; // formula is a good match to the table in the datasheet
+#if (frm = 0)
+        #local plastic_Y=5.3;
+#else
+        #local plastic_Y=4.0;
+#end
+
+union   {
+        difference{
+                union   {
+                        // Grundkörper
+                        box{<-plastic_x/2+0.5, 0 ,-plastic_z/2+0.5> <plastic_x/2-0.5, plastic_Y, plastic_z/2-0.5> }
+                        
+                        // Kranz
+
+                        #if (frm = 0)
+                                // SMD
+                                difference {
+                                        box{<-plastic_x/2,1.9,-plastic_z/2> <plastic_x/2    ,3.3,plastic_z/2>}
+                                        #local i=0;
+                                        #while(i<(pin/2))
+                                                box{<-0.5,2.4,0><0.5,3.5,5> translate<-(pin/2-0.5)*pitch+pitch*i*2,0,0>}
+                                                box{<-0.5,2.4,-5><0.5,3.5,0> translate<-(pin/2-1.5)*pitch+pitch*i*2,0,0>}
+                                                #local i=i+1;
+                                        #end
+                                        box{<0,0,-plastic_z/4><plastic_x+1,5,plastic_z/4>}
+                                }
+                        #else                   
+                                // Bedrahtet
+                                box{<-plastic_x/2, 0.4 ,-plastic_z/2> <plastic_x/2, 2.0, -1.2>}
+                                box{<-plastic_x/2, 0.4 , plastic_z/2> <plastic_x/2, 2.0, 1.2>}
+                        #end
+                }
+                        
+                // Ausschnitte im Kunststoff für SMD Pins
+                #if (frm = 0)
+                        #local i=0;
+                        #while(i<(pin/2))
+                                box{<-0.18,-1,-5><0.18,1.8,5> translate<-(pin/2-0.5)*pitch+pitch*i*2,0,0>}
+                                box{<-0.18,-1,-5><0.18,1.8,5> translate<-(pin/2-1.5)*pitch+pitch*i*2,0,0>}
+                                #local i=i+1;
+                        #end
+                #end
+
+                // Löcher für Stecker
+                #local i=0;
+                #while(i<(pin/2))
+                        box{<-0.2,-1,0><0.2,6,1.5> translate<-(pin/2-0.5)*pitch+pitch*i*2,0,0>}
+                        box{<-0.35,-1,0.5><0.35,6,1> translate<-(pin/2-0.5)*pitch+pitch*i*2,0,0>}
+                        box{<-0.4,-1,-0.4><0.4,6,-0.9> translate<-(pin/2-0.5)*pitch+pitch*i*2,0,0>}
+                        cylinder{<0,-1,-1.4><0,6,-1.4> 0.2 translate<-(pin/2-0.5)*pitch+pitch*i*2,0,0>}
+                        box{<-0.2,-1,0><0.2,6,-1.5> translate<-(pin/2-1.5)*pitch+pitch*i*2,0,0>}
+                        box{<-0.35,-1,-0.5><0.35,6,-1> translate<-(pin/2-1.5)*pitch+pitch*i*2,0,0>}
+                        box{<-0.4,-1,0.4><0.4,6,0.9> translate<-(pin/2-1.5)*pitch+pitch*i*2,0,0>}
+                        cylinder{<0,-1,1.4><0,6,1.4> 0.2 translate<-(pin/2-1.5)*pitch+pitch*i*2,0,0>}
+                        #local i=i+1;
+                #end
+
+                texture{CON_MMTCH_PLASTIC_TEXTURE}
+        }
+
+        #if (frm = 0)
+                // SMD Pins
+                #local i=0;
+                #while(i<(pin/2))
+                        object{TOOLS_PCB_SMD(1,6,0.25,8) translate<0.5,-0.125,0.5> rotate<0,0,90> translate<-(pin/2-0.5)*pitch+pitch*i*2,0,0> texture{col_silver}}
+                        object{TOOLS_PCB_SMD(1,6,0.25,8) translate<-0.5,-0.125,-0.5> rotate<0,0,-90> translate<-(pin/2-1.5)*pitch+pitch*i*2,0,0> texture{col_silver}}        
+                        #local i=i+1;
+                #end
+        #else
+                // Anschlußdraht
+                #if(pin_short=off)
+                        #local pp=3.0;
+                #else
+                        #local pp=pcb_height+pin_length;
+                #end
+        
+                #local i=0;
+                #local j=1;
+                #while(i<(pin/2))
+                        box{ <-pitch/2-pitch*i-0.1, 1,-pitch*j-0.25> <-pitch/2-pitch*i+0.1, -pp,-pitch*j+0.25> texture{ col_silver finish { phong 1  ambient (0.1 * global_ambient_mul)}}}
+                        box{ < pitch/2+pitch*i+0.1, 1, pitch*j+0.25> < pitch/2+pitch*i-0.1, -pp, pitch*j-0.25> texture{ col_silver finish { phong 1  ambient (0.1 * global_ambient_mul)}}}
+                        #local j=j*-1;
+                        #local i=i+1;
+                #end
+        #end
+}
+        
+#end

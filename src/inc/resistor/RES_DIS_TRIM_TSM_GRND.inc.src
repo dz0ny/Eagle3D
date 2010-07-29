@@ -1,0 +1,105 @@
+TSM4
+//Macros for TSM4 serie, SMD Trimmer Multiturn Cermet Sealed from Vishay
+//Designed by Philippe Boucheny <philippe.boucheny(at)free.fr>
+//Rev. 1.0  26/03/06
+####################################################################################################
+NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:RES_DIS_TRIM_TSM_4YL(:SMD Trimmer Multiturn Cermet Sealed from Vishay:
+NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:RES_DIS_TRIM_TSM_4YJ(:SMD Trimmer Multiturn Cermet Sealed from Vishay:
+NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:RES_DIS_TRIM_TSM_4ZL(:SMD Trimmer Multiturn Cermet Sealed from Vishay:
+NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:RES_DIS_TRIM_TSM_4ZJ(:SMD Trimmer Multiturn Cermet Sealed from Vishay:
+####################################################################################################
+RES_DIS_TRIM_TSM_GRND
+(TrimType,Lg)
+####################################################################################################
+RES_DIS_TRIM_TSM_4YL(value)
+(0,5.1)
+RES_DIS_TRIM_TSM_4YJ(value)
+(1,5.1)
+RES_DIS_TRIM_TSM_4ZL(value)
+(2,4.6)
+RES_DIS_TRIM_TSM_4ZJ(value)
+(3,4.6)
+####################################################################################################
+####################################################################################################
+union{
+    difference{
+        box{<-2.4,0.2,-1.75><+2.4,Lg+0.2,+1.75>}
+        cylinder{<1.55,4,0.95><1.55,Lg+0.3,0.95> 0.75}     
+        box{<-2.1,0.5,0><+2.1,Lg+0.2-0.3,-1.8>}
+        pigment { Gray70 }
+        finish {
+            diffuse 0.5 
+            specular 0.5
+            ambient (0.1 * global_ambient_mul)
+        }
+    }
+    difference{
+        cylinder{<1.55,4.4,0.95><1.55,Lg+0.2,0.95> 0.73}     
+        box{<1.55-0.2,4.5,-1.75><1.55+0.2,Lg+0.3,+1.75>}
+        texture{col_gold}
+    }
+    
+    box{<-2.1,0.5,0><+2.1,Lg+0.2-0.3,-1.74>
+        texture{
+        pigment {Brown}
+        finish {
+            diffuse 0.5 
+            specular 0.5
+            ambient (0.1 * global_ambient_mul)
+        }
+        normal{waves 0.1 frequency 3000.0 scale 800.0}
+        }
+    }
+    
+    text {ttf global_fontfile_eagle3d "0" 0.01, 0 pigment{Black} scale 1.5 rotate<0,180,0> translate<-0.6,+3.1,+1.76>}      // Marking
+    text {ttf global_fontfile_arial value 0.05, 0 pigment{Black} scale 1.6 rotate<0,180,0> translate<+2,3.1,+1.76>}  // Marking
+    text {ttf global_fontfile_arial "9941" 0.01, 0 pigment{Black} scale 1.6 rotate<0,180,0> translate<+2,1.3,+1.76>}  // Marking
+    
+    #if(TrimType=0) //YL
+        #local pin =
+        union{
+            box{<-0.3, 0, -0.75> <+0.3, 0.2, +0.75>}
+            pigment{Silver}
+        }  
+    	object {pin translate<-1.25,0,-1.8>}
+    	object {pin translate<+1.25,0,-1.8>}
+    	object {pin translate<0,0,+1.8>}
+	#end
+    #if(TrimType=1) //YJ
+        #local pin =
+        union{
+            box{<-0.3, 0, -0.3> <+0.3, 0.2, +0.3>}
+            box{<-0.3, 0, -0.15> <+0.3, 1, -0.3>}
+            pigment{Silver}
+        }  
+    	object {pin translate<-1.25,0,-1.6>}
+    	object {pin translate<+1.25,0,-1.6>}
+    	object {pin rotate 180*y translate<0,0,+1.6>}
+	#end
+    #if(TrimType=2) //ZL
+        #local pin =
+        union{
+            box{<-0.3, -0.75,0> <+0.3, +0.75,0.2>}
+            pigment{Silver}
+        }  
+    	object {pin translate<-1.25,0.05,-1.95>}
+    	object {pin translate<+1.25,0.05,-1.95>}
+    	object {pin translate<0,4.75,-1.95>}
+    	rotate <-90,180,0>
+    	translate<0,1.95,-Lg/2-0.1>
+	#end
+    #if(TrimType=3) //ZJ
+        #local pin =
+        union{
+            box{<-0.3, 0, -0.3> <+0.3, 0.2, +0.3>}
+            box{<-0.3, 0, -0.15> <+0.3, 1, -0.3>}
+            pigment{Silver}
+        }  
+    	object {pin translate<-1.25,0,-1.6>}
+    	object {pin translate<+1.25,0,-1.6>}
+    	object {pin rotate 180*z translate<0,5,-1.6>}
+    	rotate <-90,180,0>
+    	translate<0,1.95,-Lg/2-0.1>
+	#end
+}
+#end
