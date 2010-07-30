@@ -19,7 +19,7 @@
 WORKDIR=$(pwd)
 SCRIPTDIR=$(basename $0)
 
-#Check if we are running from the correct position
+#Check if we are running from the correct position and setup directories
 if [ "$WORKDIR" = "$SCRIPTDIR" ]; then
     OUTPUTDIR=$WORKDIR/..
     SRCDIR=$WORKDIR/../src    
@@ -35,6 +35,12 @@ else
     echo "Start it from the root of the Eagle3D source or from the tools/ dir."
     exit
 fi
-
 RELEASEDIR=$BUILDDIR/eagle3d
+
+#Check for some tools
+type zip      > /dev/null && HASZIP="1"      || HASZIP="0"
+type todos    > /dev/null && HASTODOS="1"    || HASTODOS="0"
+type unix2dos > /dev/null && HASUNIX2DOS="1" || HASUNIX2DOS="0"
+
+
 

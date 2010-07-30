@@ -114,19 +114,28 @@ if [ -z "$2" ]; then
     tar -caf $OUTPUTDIR/eagle3d_$FILENAME.tar.gz eagle3d/
     cd $WORKDIR
 
-    ##############################################
-    #Make windows line endings for all text files
-    ##############################################
-    echo "/// Convert files ot have Windows line endings ///"
-    todos $(find $RELEASEDIR | grep -E '(\.sh$)|(\.pl$)|(\.inc\.src$)|(\.dat$)|(\.pos$)|(\.pre$)|(\.inc$)|(\.ulp$)|(\.pov$)|(\.ini$)|(\.txt$)')
+    if [ "$HASTODOS" = "1" ] || [ "$HASUNIX2DOS" = "1" ]; then    
 
-    ##########################################
-    # Compressing Windows zip
-    ##########################################
-    echo "/// Compressing Windows zip ///"
-    cd $BUILDDIR
-    zip -9 -q -r $OUTPUTDIR/eagle3d_$FILENAME.zip eagle3d
-    cd $WORKDIR
+        ##############################################
+        #Make windows line endings for all text files
+        ##############################################
+        echo "/// Convert files ot have Windows line endings ///"
+        if [ "$HASTODOS" = "1" ]; then
+            todos $(find $RELEASEDIR | grep -E '(\.sh$)|(\.pl$)|(\.inc\.src$)|(\.dat$)|(\.pos$)|(\.pre$)|(\.inc$)|(\.ulp$)|(\.pov$)|(\.ini$)|(\.txt$)')
+        elif [ "$HASUNIX2DOS" = "1" ]; then
+            unix2dos $(find $RELEASEDIR | grep -E '(\.sh$)|(\.pl$)|(\.inc\.src$)|(\.dat$)|(\.pos$)|(\.pre$)|(\.inc$)|(\.ulp$)|(\.pov$)|(\.ini$)|(\.txt$)')
+        fi
+        
+        if [ "$HASZIP" = "1" ]; then    
+            ##########################################
+            # Compressing Windows zip
+            ##########################################
+            echo "/// Compressing Windows zip ///"
+            cd $BUILDDIR
+            zip -9 -q -r $OUTPUTDIR/eagle3d_$FILENAME.zip eagle3d
+            cd $WORKDIR
+        fi
+    fi
 fi
     
 echo "/// Done ///"
