@@ -38,9 +38,9 @@ fi
 RELEASEDIR=$BUILDDIR/eagle3d
 
 #Check for some tools
-type zip      > /dev/null && HASZIP="1"      || HASZIP="0"
-type todos    > /dev/null && HASTODOS="1"    || HASTODOS="0"
-type unix2dos > /dev/null && HASUNIX2DOS="1" || HASUNIX2DOS="0"
+type zip      > /dev/null 2>&1 && HASZIP="1"      || HASZIP="0"
+type todos    > /dev/null 2>&1 && HASTODOS="1"    || HASTODOS="0"
+type unix2dos > /dev/null 2>&1 && HASUNIX2DOS="1" || HASUNIX2DOS="0"
 
 
 
