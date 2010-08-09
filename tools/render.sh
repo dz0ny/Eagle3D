@@ -25,11 +25,15 @@ HEIGHT=480
 AAVALUE=0.3
 OUTPUT_DIR=$BUILDDIR/img
 PROCESSES=16
+NAMEMASK='*.pov'
 
-for i in $(find $POV_FILES -type f -name *.pov | sort)
+if [ $# -gt 0 ] 
+then
+    NAMEMASK=$1
+fi
+
+for i in $(find $POV_FILES -type f -name $NAMEMASK | sort)
 do 
-
-    #FILENAME=$(echo $i | sed s/build// | sed 's/\/pov//' | sed s/[./]*//)
     FILENAME=$(basename $i)
     
     if [ "$FILENAME" = "povpre.pov" ] || [ "$FILENAME" = "povpos.pov" ]
@@ -46,13 +50,13 @@ do
                       +O$OUTPUT_DIR/$FILENAME.png \
                       -GS -GR -GD -V -D +I$i > /dev/null 2>&1 &
 
-    while [  $(jobs | grep -i "running" | wc -l) -ge $PROCESSES ]; do
+    while [  $(ps | grep -i "povray" | wc -l) -ge $PROCESSES ]; do
         sleep .05
     done
         
 done
 
-while [  $(jobs | grep -i "running" | grep -i "povray" | wc -l) -ge 1 ]; do
+while [  $(ps | grep -i "povray" | wc -l) -ge 1 ]; do
     echo "Waiting for last render job done"
     sleep .5
 done
