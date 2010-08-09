@@ -1,13 +1,29 @@
 Textool Sockel
-// Eagle3D-Makro fuer TEXTOOL-Sockel,   keine eagle-library,         Joerg Bredendiek <sprut(replace with at)sprut.de>   
+// Eagle3D-Makro for TEXTOOL-Socket,   keine eagle-library,         Joerg Bredendiek <sprut(replace with at)sprut.de>   
+// lever actuated zero insertion force mechanism,  con-3m.lbr
 
-// basierend auf SOCKET_DIP_GRND von Joseph Zeglinski
+// based of SOCKET_DIP_GRND from Joseph Zeglinski
 // TEXTOOL-Sockel mit 15.24mm Reihenabstand erhalten automatisch breite Kontaktfedern
 
-//Grundmakro fuer TEXTOOL SOCKETS
-//pin=Pinanzahl des Sockels
-//breite= Pinreihenabstand in mm
+//Basemakro for TEXTOOL SOCKETS
+//pin    = number of pins
+//breite = interspace between the lines of pins in mm
 ####################################################################################################
+264-4493-00-0602J:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SOCKET_TEX64WW(:IC-Sockel 64Pin 900mil:IC-Socket 64Pin 900mil
+248-1282-00-0602J:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SOCKET_TEX48W(:IC-Sockel 48Pin 600mil:IC-Socket 48Pin 600mil
+242-1281-00-0602J:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SOCKET_TEX42W(:IC-Sockel 42Pin 600mil:IC-Socket 42Pin 600mil
+240-3639-00-0602J:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SOCKET_TEX40WW(:IC-Sockel 40Pin 1000mil:IC-Socket 40Pin 1000mil
+240-1280-00-0602J:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SOCKET_TEX40W(:IC-Sockel 40Pin 600mil:IC-Socket 40Pin 600mil
+232-1285-00-0602J:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SOCKET_TEX32W(:IC-Sockel 32Pin 600mil:IC-Socket 32Pin 600mil   
+228-1277-00-0602J:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SOCKET_TEX28W(:IC-Sockel 28Pin 600mil:IC-Socket 28Pin 600mil   
+228-4817-00-0602J:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SOCKET_TEX28(:IC-Sockel 28Pin 400mil:IC-Socket 28Pin 400mil   
+224-1275-00-0602J:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SOCKET_TEX24W(:IC-Sockel 24Pin 600mil:IC-Socket 24Pin 600mil   
+224-5248-00-0602J:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SOCKET_TEX24(:IC-Sockel 24Pin 300mil:IC-Socket 24Pin 300mil 
+222-3343-00-0602J:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SOCKET_TEX22(:IC-Sockel 22Pin 400mil:IC-Socket 22Pin 400mil
+220-3342-00-0602J:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SOCKET_TEX20(:IC-Sockel 20Pin 300mil:IC-Socket 20Pin 300mil
+218-3341-00-0602J:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SOCKET_TEX18(:IC-Sockel 18Pin 300mil:IC-Socket 18Pin 300mil
+216-3340-00-0602J:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SOCKET_TEX16(:IC-Sockel 16Pin 300mil:IC-Socket 16Pin 300mil
+214-3339-00-0602J:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SOCKET_TEX14(:IC-Sockel 14Pin 300mil:IC-Socket 14Pin 300mil
 TEXTOOL40:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SOCKET_TEX40W(:IC-Sockel 40Pin 600mil:IC-Socket 40Pin 600mil
 TEXTOOL32:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SOCKET_TEX32W(:IC-Sockel 32Pin 600mil:IC-Socket 32Pin 600mil   
 TEXTOOL28:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SOCKET_TEX28W(:IC-Sockel 28Pin 600mil:IC-Socket 28Pin 600mil   
@@ -19,27 +35,40 @@ TEXTOOL16:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SOCKET_TEX
 SOCKET_TEX_GRND
 (pin,breite)
 ####################################################################################################
+SOCKET_TEX14()
+(14,7.62)
 SOCKET_TEX16()
 (16,7.62)
 SOCKET_TEX18()
 (18,7.62)
 SOCKET_TEX20()
 (20,7.62)
+SOCKET_TEX22()
+(22,10.16)
 SOCKET_TEX24()
 (24,7.62)
 SOCKET_TEX24W()
 (24,15.24)
 SOCKET_TEX28()
-(28,7.62)
+(28,10.16)
 SOCKET_TEX28W()
 (28,15.24)
 SOCKET_TEX32W()
 (32,15.24)
 SOCKET_TEX40W()
 (40,15.24)
+SOCKET_TEX40WW()
+(40,25.4)
+SOCKET_TEX42W()
+(42,15.24)
+SOCKET_TEX48W()
+(48,15.24)
+SOCKET_TEX64WW()
+(64,22.86)
 ####################################################################################################
 ####################################################################################################
 /********************************************************************************************************************************************
+//Philips screw for Textool-Socket
 //Kreuzschraube fuer Textool-Sockel
 ********************************************************************************************************************************************/
 #macro TEXSOCKET_SCREWHEAD_CROSS()
@@ -52,13 +81,13 @@ difference{
 }
 #end
 /********************************************************************************************************************************************
-//Textool-Sockel Pin
+//Textool-Socket Pin
 ********************************************************************************************************************************************/
 #macro TEXSOCKET_DIP_PIN()
 box{<-0.2,0,-0.45><0.2,7,0.45> texture{col_silver}}
 #end
 /********************************************************************************************************************************************
-//Textool-Sockel Kontaktfeder
+//Textool-Socket Contakt
 ********************************************************************************************************************************************/
 #macro TEXSOCKET_CONT()
 union{
@@ -71,32 +100,55 @@ union{
 
 ********************************************************************************************************************************************/
 
-#local texcolor = color red 0.15 green 0.5 blue 0.4;	//gruener farbton fuer plastikkörper
+#local texcolor = color red 0.15 green 0.5 blue 0.4;	//typical green color of the plastic body
 union{
 	#local links=-pin/4*2.54-8.73;	//linker gehaeuserand (mit hebel)  10.5mm vom pin  10-1.27=8.73
 	#local rechts=pin/4*2.54+5.73;	//rechter gehaeuserand 7 mm vom pin 7-1.27=5.73
 	#local a=pin;
+        #local srand = 3.8;		//seitenrand , Abstand vom Pin zum Gehauserand
+        #if(breite>20) 
+                #local srand = (33-breite) / 2;
+                #local links =-pin/4*2.54-11.36;
+                #local rechts= pin/4*2.54+7.36;
+                // beim 40WW (240-3639-00-0602J) ist das Gehäuse etwas kürzer
+                #if(pin=40) 
+                        #local links  = -35.5;
+                        #local rechts = 31;
+                #end
+        #end
+	// beim 48W (248-1282-00-0602J) ist das Gehäuse um ca 2,5 mm in Richtung zum Hebel verschoben
+        #if(pin=48) 
+                #local links  = links - 2.5;
+                #local rechts = rechts - 2.5;
+        #end
+
 	difference{
 		union{
 			// der gruene grundkoerper
-			// Länge: 2.54*pin/4 + 14.63
+			// Länge: 2.54*pin/2 + 14.63
 			// Breite:  15.00=7.62+2x3.7   22.75=15.24+2x3.7
 			// Hoehe:   11.50
-//			box{<links, 0, -breite/2-3.7><rechts, 11.8 ,breite/2+3.7>}	//einfachversion mit ecken
 
-			box{<links+1, 0, -breite/2-3.7>  <rechts-1, 11.8 ,breite/2+3.7>}
-			box{<links,   0, -breite/2-3.7+1>  <rechts, 11.8 ,breite/2+3.7-1>}
-			cylinder{<0,0,0><0,11.8,0>1 translate<links+1 , 0,  breite/2+3.7-1>}
-			cylinder{<0,0,0><0,   7,0>1 translate<links+1 , 0, -breite/2-3.7+1>}
-			cylinder{<0,0,0><0,11.8,0>1 translate<rechts-1, 0,  breite/2+3.7-1>}
-			cylinder{<0,0,0><0,11.8,0>1 translate<rechts-1, 0, -breite/2-3.7+1>}
+			box{<links+1, 0, -breite/2-srand>  <rechts-1, 11.8  ,breite/2+srand>}
+			box{<links,   0, -breite/2-srand+1>  <rechts, 11.8  ,breite/2+srand-1>}
+			cylinder{<0,0,0><0,11.8,0>1 translate<links+1 , 0,  breite/2+srand-1>}
+			cylinder{<0,0,0><0,   7,0>1 translate<links+1 , 0, -breite/2-srand+1>}
+			cylinder{<0,0,0><0,11.8,0>1 translate<rechts-1, 0,  breite/2+srand-1>}
+			cylinder{<0,0,0><0,11.8,0>1 translate<rechts-1, 0, -breite/2-srand+1>}
+
+                        // Beschriftung      
+                        text{ttf besch_font "3M" 0.5,0.1*x scale<3,4,1>  rotate<90,0,0> rotate<0,-90,0> translate<links+8,12,-2>}
 		}
+                // diferent width of the contacts (slots)
 		#local ii=0;
 		#if(breite>10) 
 			#local ii=2;
 		#end
+		#if(breite>20) 
+			#local ii=4.5;
+		#end
 		// die Ausspartung fuer den Hebel
-		box{<links-1, 5, -breite/2-3.7+2><links+6, 12 ,-breite/2-3.7-2>}
+		box{<links-1, 5, -breite/2-srand+2><links+6, 12 ,-breite/2-srand-2>}
 		// Vertiefungen
 		box{<-pin/4*2.54, 2, -breite/4><pin/4*2.54, 3, breite/4> translate<0, 9,  breite/2-ii>} 
 		box{<-pin/4*2.54, 2, -breite/4><pin/4*2.54, 3, breite/4> translate<0, 9, -breite/2+ii>} 
@@ -134,7 +186,7 @@ union{
 		cylinder{<-14,0,0><-16.5,0,0>2.4 pigment{texcolor}}
 		sphere{<-14,0,0>2.4 pigment{texcolor}} 
 		sphere{<-16.5,0,0>2.4 pigment{texcolor}} 
-		translate<links+5, 7, -breite/2-3.7+1>
+		translate<links+5, 7, -breite/2-srand+1>
 	}
 
 	//schrauben  Durchmesser 3mm, kreuz mit 2mm
