@@ -1,3 +1,4 @@
+- Increase the support for manufacturer logos. Especially in the ic library.
 - Create a new global file (e3d_textures.inc) and texture definitions there.
   Then use these texture definitions in the macros instead the direct texturing.
   Advantage: Color changes to the same type of texture can be done on one 
