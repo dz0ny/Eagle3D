@@ -2,6 +2,29 @@ TO92
 //TO92 Gehäuse stehend mittlerer Pin gebogen
 ####################################################################################################
 TO92:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:TR_TO92_G(:TO92 gewinckelt stehend:TO92 bend vertical
+TO92-1:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:TR_TO92_G(:TO92 gewinckelt stehend:TO92 bend vertical
+TO92-2:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:TR_TO92_G(:TO92 gewinckelt stehend:TO92 bend vertical
+TO92-3:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:TR_TO92_G(:TO92 gewinckelt stehend:TO92 bend vertical
+TO92-4:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:TR_TO92_G(:TO92 gewinckelt stehend:TO92 bend vertical
+TO92-5:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:TR_TO92_G(:TO92 gewinckelt stehend:TO92 bend vertical
+TO92-6:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:TR_TO92_G(:TO92 gewinckelt stehend:TO92 bend vertical
+TO92A:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:TR_TO92_G(:TO92 gewinckelt stehend:TO92 bend vertical
+TO92B:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:TR_TO92_G(:TO92 gewinckelt stehend:TO92 bend vertical
+TO92C:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:TR_TO92_G(:TO92 gewinckelt stehend:TO92 bend vertical
+TO92D:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:TR_TO92_G(:TO92 gewinckelt stehend:TO92 bend vertical
+TO92E:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:TR_TO92_G(:TO92 gewinckelt stehend:TO92 bend vertical
+TO92F:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:TR_TO92_G(:TO92 gewinckelt stehend:TO92 bend vertical
+TO92G:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:TR_TO92_G(:TO92 gewinckelt stehend:TO92 bend vertical
+TO92I:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:TR_TO92_G(:TO92 gewinckelt stehend:TO92 bend vertical
+TO92K:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:TR_TO92_G(:TO92 gewinckelt stehend:TO92 bend vertical
+TO92R:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:TR_TO92_G(:TO92 gewinckelt stehend:TO92 bend vertical
+TO92-E1:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:TR_TO92_G(:TO92 gewinckelt stehend:TO92 bend vertical
+TO-92:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:TR_TO92_G(:TO92 gewinckelt stehend:TO92 bend vertical
+TO92-CLP:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:TR_TO92_G(:TO92 gewinckelt stehend:TO92 bend vertical
+337L:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:TR_TO92_G(:TO92 gewinkelt stehend:TO92 bend vertical
+317L:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:TR_TO92_G(:TO92 gewinkelt stehend:TO92 bend vertical
+79LXX:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:TR_TO92_G(:TO92 gewinkelt stehend:TO92 bend vertical
+78LXX:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:TR_TO92_G(:TO92 gewinkelt stehend:TO92 bend vertical
 ####################################################################################################
 TR_TO92_G_GRND
 (value)

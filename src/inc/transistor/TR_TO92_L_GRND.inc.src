@@ -2,6 +2,13 @@ TO92
 //TO92 Gehäuse stehend mittlerer Pin nicht gebogen
 ####################################################################################################
 TO92-:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:TR_TO92_L(:TO92 gerade stehend:TO92 straight vertical
+TO92-LINE:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:TR_TO92_L(:TO92 gerade stehend:TO92 straight vertical
+TO92-ECB:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:TR_TO92_L(:TO92 gerade stehend:TO92 straight vertical
+TO92-BCE:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:TR_TO92_L(:TO92 gerade stehend:TO92 straight vertical
+TO92-BEC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:TR_TO92_L(:TO92 gerade stehend:TO92 straight vertical
+TO92-CBE:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:TR_TO92_L(:TO92 gerade stehend:TO92 straight vertical
+TO92-CEB:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:TR_TO92_L(:TO92 gerade stehend:TO92 straight vertical
+TO92-EBC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:-1.27:0:0:0:0:0:0:0:0:0:0:0:0:0:TR_TO92_L(:TO92 gerade stehend:TO92 straight vertical
 ####################################################################################################
 TR_TO92_L_GRND
 (value)
@@ -29,11 +36,13 @@ union{
 	box{<-0.1,12,0><0.58,13,0.44> translate<-1.27,0,0>}                                           //Abstandhalter links
 	box{<-0.1,12,0><0.58,13,0.44> }                                                               //Abstandhalter mitte
 	box{<-0.1,12,0><0.58,13,0.44> translate<1.27,0,0>}                                            //Abstandhalter rechts
+
 	difference{                                                                                             //Transitorkörper
-	cylinder{<0,14,0><0,19.2,0>2.4 pigment{ Gray30}translate<0.12,0,0>}
-	box{<-3,13.9,-1><3,20,-3> pigment{ Gray30}}}
+		cylinder{<0,14,0><0,19.2,0>2.4 pigment{ Gray30}translate<0.12,0,0>}
+		box{<-3,13.9,-1><3,20,-3> pigment{ Gray30}}}
+
 	text {ttf besch_font value 1, 0 pigment { White } translate<-1.8,17,-1.01>}                            //Beschriftung
 	texture{col_silver}
-	translate<-0.24,-9.5,-1.5>
+	translate<-0.24,-9.5,-0.22>
 }
 #end
