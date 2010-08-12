@@ -1,0 +1,257 @@
+TO220 Socket
+//
+// Joerg Bredendiek <sprut(replace with at)sprut.de>   
+// pruefen:
+//TO220H:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:-6.2:0:0:1:0:0:0:0:0:0:0:0:0:0:TR_TO220_L2(:TO220 liegend:TO220 Horizontal
+####################################################################################################
+TO220CL:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:TR_TO220_3_H(:TO220-3 liegend Pins:TO220 horizontal straight leads
+TO220DL:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:TR_TO220_3_H(:TO220-3 liegend Pins:TO220 horizontal straight leads
+TO220:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:TR_TO220_3_H(:TO220-3 liegend Pins:TO220 horizontal straight leads
+TO220BH:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:TR_TO220_3_H(:TO220-3 liegend Pins:TO220 horizontal straight leads
+TO220AH:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:TR_TO220_3_H(:TO220-3 liegend Pins:TO220 horizontal straight leads
+TO220AB:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:TR_TO220_3_H(:TO220-3 liegend Pins:TO220 horizontal straight leads
+TO220AC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:TR_TO220_2_H(:TO220-2 liegend Pins:TO220 horizontal straight leads
+TO220CLK:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:TR_TO220_3_H1(:TO220-3 liegend Pins:TO220 horizontal straight leads
+TO220AHS:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:TR_TO220_3_H1(:TO220-3 liegend Pins:TO220 horizontal straight leads
+TO220BHS:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:TR_TO220_3_H1(:TO220-3 liegend Pins:TO220 horizontal straight leads
+TO220DLK:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:TR_TO220_3_H1(:TO220-3 liegend Pins:TO220 horizontal straight leads
+TO220L1:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:TR_TO220_3_H2(:TO220-3 liegend Pins:TO220 horizontal straight leads
+337TL:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:TR_TO220_3_H2(:TO220-3 liegend Pins:TO220 horizontal straight leads
+317TL:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:TR_TO220_3_H2(:TO220-3 liegend Pins:TO220 horizontal straight leads
+78XXL:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:TR_TO220_3_H2(:TO220-3 liegend Pins:TO220 horizontal straight leads
+TO220AHV:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:TR_TO220_3_H3(:TO220-3 liegend Pins:TO220 horizontal straight leads
+TO220CLH:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:TR_TO220_3_HX(:TO220-3 liegend Pins:TO220 horizontal straight leads
+TO220CH:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:TR_TO220_3_HX(:TO220-3 liegend Pins:TO220 horizontal straight leads
+TO220AHH:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:TR_TO220_3_HX(:TO220-3 liegend Pins:TO220 horizontal straight leads
+TO220BHH:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:TR_TO220_3_HX(:TO220-3 liegend Pins:TO220 horizontal straight leads
+TO220DLH:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:TR_TO220_3_HX(:TO220-3 liegend Pins:TO220 horizontal straight leads
+TO220ACS:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:TR_TO220_2_V(:TO220-2 stehend 2 Pins:TO220 vertical straight leads
+TO220V:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:TR_TO220_3_V(:TO220-3 stehend 3 Pins:TO220 vertical straight leads
+TO220DS:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:TR_TO220_3_V(:TO220-3 stehend 3 Pins:TO220 vertical straight leads
+TO220AV:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:TR_TO220_3_V(:TO220-3 stehend 3 Pins:TO220 vertical straight leads
+TO220BV:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:TR_TO220_3_V(:TO220-3 stehend 3 Pins:TO220 vertical straight leads
+TO220CS:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:TR_TO220_3_V(:TO220-3 stehend 3 Pins:TO220 vertical straight leads
+TO220ABS:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:TR_TO220_3_V(:TO220-3 stehend 3 Pins:TO220 vertical straight leads
+TO220CSH:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:TR_TO220_3_VX(:TO220-3 stehend 3 Pins:TO220 vertical straight leads
+TO220AVH:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:TR_TO220_3_VX(:TO220-3 stehend 3 Pins:TO220 vertical straight leads
+TO220DSH:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:TR_TO220_3_VX(:TO220-3 stehend 3 Pins:TO220 vertical straight leads
+TO220-5:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:TR_TO220_5_V(:TO220-5 stehend 5 Pins:TO220 vertical straight leads
+TO220-51:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:TR_TO220_5_V(:TO220-5 stehend 5 Pins:TO220 vertical straight leads
+337TS:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:TR_TO220_3_V(:TO220-3 stehend 3 Pins:TO220 vertical straight leads
+317TS:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:TR_TO220_3_V(:TO220-3 stehend 3 Pins:TO220 vertical straight leads
+79XXS_:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:TR_TO220_3_V(:TO220-3 stehend 3 Pins:TO220 vertical straight leads
+79XXS:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:TR_TO220_3_V(:TO220-3 stehend 3 Pins:TO220 vertical straight leads
+78XXS_:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:TR_TO220_3_V(:TO220-3 stehend 3 Pins:TO220 vertical straight leads
+78XXS:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:TR_TO220_3_V(:TO220-3 stehend 3 Pins:TO220 vertical straight leads
+TO220S:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:TR_TO220_3_V(:TO220-3 stehend 3 Pins:TO220 vertical straight leads
+L200S:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:TR_TO220_5_V(:TO220-5 stehend 5 Pins:TO220 vertical straight leads
+79XXL:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:TR_TO220_3_H1(:TO220-3 liegend Pins:TO220 horizontal straight leads
+78XXL_S:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:TR_TO220_3_H3(:TO220-3 liegend Pins:TO220 horizontal straight leads
+TO220H:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:TR_TO220_3_H(:TO220-3 liegend Pins:TO220 horizontal straight leads
+####################################################################################################
+TR_TO220_GRND
+(value, pins, hor, inline, lang, shift)
+####################################################################################################
+TR_TO220_3_H(value)
+(value, 3, 1, 1, 5.08, 0)
+TR_TO220_2_H(value)
+(value, 2, 1, 1, 5.08, 0)
+TR_TO220_3_H1(value)
+(value, 3, 1, 1, 2.54, 0)
+TR_TO220_3_H2(value)
+(value, 3, 1, 1, 2.54, 5.08)
+TR_TO220_3_H3(value)
+(value, 3, 1, 1, 0.5, 0)
+TR_TO220_3_HX(value)
+(value, 3, 1, 0, 2.54, 0)
+TR_TO220_2_V(value)
+(value, 2, 0, 1, 0, 0)
+TR_TO220_3_V(value)
+(value, 3, 0, 1, 0, 0)
+TR_TO220_3_VX(value)
+(value, 3, 0, 0, 0, 0)
+TR_TO220_5_V(value)
+(value, 5, 0, 0, 2, 0)
+####################################################################################################
+####################################################################################################
+/********************************************************************************************************************************************
+//plastic body for TO220
+********************************************************************************************************************************************/
+#macro TR_TO220_BODY()
+// plastik grundkoerper
+difference{
+	box{<-5.1, 13.5, 0><5.1, 22.6, 4.5>}
+	box{<-5.5, 0, 0><5.5, 3.5, -2> rotate<80, 0, 0> translate<0, 22.6-0.6, 0> }
+	box{<-5.5, 0, 0><5.5, -1, 2> rotate<-20, 0, 0> translate<0, 13.5, 3.7> }
+	cone{<-5.4,16.5,-0.01>1.4<-5.4,16.5,3.23>1.2}
+	cone{<5.4,16.5,-0.01>1.4<5.4,16.5,3.23>1.2}
+	#if (pins>3)
+	cylinder{<-3.5, 14.5, 0.1><-3.5, 14.5, -0.05>0.7}
+	#else
+	cylinder{<0, 14.5, 0.1><0, 14.5, -0.05>0.7}
+	#end
+	pigment{Gray30}
+}
+#end
+/********************************************************************************************************************************************
+//pin vertical TO220
+********************************************************************************************************************************************/
+#macro TR_TO220_PIN_V(shift)
+#local lshift = shift+lang;
+union{
+	// die platinenoberflaeche liegt bei etwa 8.5
+	// unterer teil
+	union{
+	 	difference{
+			box{<0,tr_to220_s_pin,0><0.75, 9, 0.6>}
+			box{<0,0,0><1,1,1> rotate<0,0,-25> translate<0.45,tr_to220_s_pin,-0.2>}
+			box{<0,0,0><-1,1,1> rotate<0,0,25> translate<0.3,tr_to220_s_pin,-0.2>}
+		}
+		#if (inline=0)
+		#if (lshift>0)
+			// biegung
+			difference{
+				cylinder{< 0,  8.5, 0.6><0.75, 8.5, 0.6> 0.6}
+				cylinder{<-0.1,8.0, 1.1><0.76, 8.0, 1.1> 0.5}
+				translate<0, 0.5, 0>}
+		translate<0,0,-shift*2.54-lang>
+		#end
+		#end
+	}
+
+	//oberer teil
+	box{<0,9.6,0><0.75,13.5,0.6>}
+	#if (inline=0)
+	#if (lshift>0)
+	difference{
+		cylinder{< 0,   9.6,   0  ><0.75, 9.6,   0> 0.6}
+		cylinder{<-0.1,10.1,  -0.5><0.76,10.1,-0.5> 0.5}
+	}
+	#end
+	#end
+
+	//mittlerer teil
+	#if (lshift>0)
+	#if (inline=1)
+		box{<0,9,0><0.75,9.6,0.6>}
+	#else
+		box{<0,9.6,-shift*2.54-lang+0.6><0.75,9,0.6-0.6>}
+	#end
+	#else
+		box{<0,9.6,-shift*2.54-lang+0.6><0.75,9,0.6-0.6>}
+	#end
+
+	#if (pins<5)
+		box{<0,0,0><1.5, 3.7, 0.6> translate<-0.375, 9.8, 0>}
+	#end
+	translate<-0.75/2, -8.5  , -2.54-0.3>
+}
+#end
+/********************************************************************************************************************************************
+//pin horizontal TO220
+********************************************************************************************************************************************/
+#macro TR_TO220_PIN_H(shift)
+union{
+union{
+	#local tr_to220_v_pin = tr_to220_s_pin -2;
+	// senkrechter spitzer teil
+	difference{
+		box{<-0.375,tr_to220_v_pin ,0><0.375,8.5,0.6>}
+		box{<0,0,0>< 1,1,1> rotate<0,0,-25> translate<0.45-0.375,tr_to220_v_pin ,-0.2>}
+		box{<0,0,0><-1,1,1> rotate<0,0, 25> translate< 0.3-0.375,tr_to220_v_pin ,-0.2>}}
+	// biegung
+	difference{
+		cylinder{<-0.375,8.5,0.6><0.375,8.5,0.6>0.6}
+		cylinder{<-0.38,8.0,1.1><0.38,8.0,1.1>0.5}}
+	// horizontal zum koerper
+	box{<-0.375,8.5,0.6><0.375,9.1,4.0+2.54*shift>}
+	translate<0, -5.98,-6.7>
+	translate<0,     0, 5.08-lang>
+	#if (inline=0)
+		translate<0,0,-2.54*shift>
+	#end
+}
+#if (pins<5)
+#if (lang>1)
+	box{<-0.75, 8.5, 2><0.75, 9.1, 6> translate<0, -5.98, -6.7>
+	translate<0,0,(5.08-lang)/2>
+	}
+#end
+#end
+}
+#end
+/********************************************************************************************************************************************
+//pin TO220
+********************************************************************************************************************************************/
+#macro TR_TO220_PIN(shift)
+#if (hor=1)
+TR_TO220_PIN_H(shift)
+#else
+TR_TO220_PIN_V(shift)
+#end
+#end
+/********************************************************************************************************************************************
+//metal back plate
+********************************************************************************************************************************************/
+#macro TR_TO220_BACK()
+union{
+	// metallische Rueckplatte
+	difference{
+		box{<-5.1,22.6,4.5><5.1,29,4.5-1.27>}
+		cylinder{<0,0,0><0,0,2>1.9 translate<0,26.2,2.6>}
+		box{<0,0,0><1,3,3> rotate<0,0,20> translate<5.1,26.5,2>}
+		box{<0,0,0><-1,3,3> rotate<0,0,-20> translate<-5.1,26.5,2>}
+	}
+	box{<-4,22.6,4.5><4,16,4.501>}
+	texture{col_silver}
+}
+#end
+/********************************************************************************************************************************************
+
+********************************************************************************************************************************************/
+// pin_length = 2.5;
+// pcb_height = 1.5;
+
+union{	
+	#if(pin_short=off)
+		#local tr_to220_s_pin = -2;
+	#else
+		#local tr_to220_s_pin = 9.5-(pcb_height+pin_length)-2;
+	#end
+
+	//Pins
+	union{
+		#if (pins<5)
+			object{TR_TO220_PIN(0) translate<-2.54,0,0>}
+			object{TR_TO220_PIN(0) translate< 2.54,0,0>}
+			#if (pins>2)
+				object{TR_TO220_PIN(2)}
+			#end
+		#else
+			object{TR_TO220_PIN(1.5)}
+			object{TR_TO220_PIN(0)   translate<-1.778,0,0>}
+			object{TR_TO220_PIN(0)   translate< 1.778,0,0>}
+			object{TR_TO220_PIN(1.5) translate<-3.556,0,0>}
+			object{TR_TO220_PIN(1.5) translate< 3.556,0,0>}
+		#end			
+		texture{col_silver}
+	}
+
+	// Koerper
+	union{
+		// metallische Rueckplatte
+		object{TR_TO220_BACK()}
+		// plastik grundkoerper
+		object{TR_TO220_BODY()}
+		// Beschriftung
+		text{ttf besch_font value 0.5,0 pigment{White} scale<1.7,2,1.7> translate<-3.5,18,-0.01>}
+		translate<0,-9.5,-4.5>
+		#if (hor=1)
+			translate< 0, -4, 4.5>
+			rotate<90,0,0>
+			translate< 0, 4.6, -1.4>
+		#end
+	}
+}
+#end
+
