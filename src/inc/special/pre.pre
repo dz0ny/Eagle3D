@@ -6,3 +6,6 @@
 	#include "tools.inc"
 	#undef inc_testmode
 #end
+
+// Copyright 2010 Gary French <gary@chromiteblue.com>
+// Simple wire jumpers

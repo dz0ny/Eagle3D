@@ -1,0 +1,69 @@
+Simple wire jumpers
+// Auth: Gary French <gary@chromiteblue.com>
+//
+// Uses existing TOOLS_WIRE_LEADS macro to generate simple wire jumpers.
+// SPC_SIMPLE_WIRE_JUMPER_GRND(l,d,r,lw,dw,op,w)
+//   l:  length, passed to TOOLS_WIRE_LEADS:Length
+//   d:  diameter, passed to TOOLS_WIRE_LEADS:Width
+//   r:  raster, passed to TOOLS_WIRE_LEADS:Raster
+//   lw: length of wire, 2 * value passed to TOOLS_WIRE_LEADS:Wirelength
+//   dw:
+//   op: offset?
+//   w:
+// Defined values:
+//   jumper_diameter: wire diameter (currently defaults to the value of dim_mm_awg_24)
+//   jumper_bend_radius: radius of jumper corners
+//   jumper_seperation: distance of jumper from board surface
+####################################################################################################
+05:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SPC_SIMPLE_WIRE_JUMPER_05MM(:Wire jumper, 5MM:Wire jumper, 5MM
+05C:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SPC_SIMPLE_WIRE_JUMPER_05MM(:Wire jumper, 5MM:Wire jumper, 5MM
+07:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SPC_SIMPLE_WIRE_JUMPER_07MM(:Wire jumper, 7MM:Wire jumper, 7MM
+10:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SPC_SIMPLE_WIRE_JUMPER_10MM(:Wire jumper, 10MM:Wire jumper, 10MM
+10E:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SPC_SIMPLE_WIRE_JUMPER_10MM(:Wire jumper, 10MM:Wire jumper, 10MM
+12:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SPC_SIMPLE_WIRE_JUMPER_12MM(:Wire jumper, 12MM:Wire jumper, 12MM
+15:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SPC_SIMPLE_WIRE_JUMPER_15MM(:Wire jumper, 15MM:Wire jumper, 15MM
+20:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SPC_SIMPLE_WIRE_JUMPER_20MM(:Wire jumper, 20MM:Wire jumper, 20MM
+25:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SPC_SIMPLE_WIRE_JUMPER_25MM(:Wire jumper, 25MM:Wire jumper, 25MM
+30:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SPC_SIMPLE_WIRE_JUMPER_30MM(:Wire jumper, 30MM:Wire jumper, 30MM
+####################################################################################################
+SPC_SIMPLE_WIRE_JUMPER_GRND
+(l,d,r,lw,dw,op,w)
+####################################################################################################
+SPC_SIMPLE_WIRE_JUMPER_05MM()
+(5.8, 2.2, 2.54*2, 20, 0.6, 0, 0.3)
+SPC_SIMPLE_WIRE_JUMPER_07MM()
+(5.8, 2.2, 2.54*3, 20, 0.6, 0, 0.3)
+SPC_SIMPLE_WIRE_JUMPER_10MM()
+(5.8, 2.2, 2.54*4, 20, 0.6, 0, 0.3)
+SPC_SIMPLE_WIRE_JUMPER_12MM()
+(5.8, 2.2, 2.54*5, 20, 0.6, 0, 0.3)
+SPC_SIMPLE_WIRE_JUMPER_15MM()
+(5.8, 2.2, 2.54*6, 20, 0.6, 0, 0.3)
+SPC_SIMPLE_WIRE_JUMPER_20MM()
+(5.8, 2.2, 2.54*8, 20, 0.6, 0, 0.3)
+SPC_SIMPLE_WIRE_JUMPER_25MM()
+(5.8, 2.2, 2.54*10, 20, 0.6, 0, 0.3)
+SPC_SIMPLE_WIRE_JUMPER_30MM()
+(5.8, 2.2, 2.54*12, 20, 0.6, 0, 0.3)
+####################################################################################################
+####################################################################################################
+//general declarations
+#local user_pcb_hole_pitch = 2.54;
+
+//typical wire gauges scaled to Eagle3D
+#local dim_mm_awg_16 = 1.290; //AWG-16
+#local dim_mm_awg_18 = 1.024; //AWG-18 (standard)
+#local dim_mm_awg_20 = 0.812; //AWG-20
+#local dim_mm_awg_22 = 0.644; //AWG-22
+#local dim_mm_awg_24 = 0.511; //AWG-24
+#local dim_mm_awg_26 = 0.405; //AWG-26
+
+#local jumper_diameter = dim_mm_awg_24;
+#local jumper_bend_radius = 0.200;
+#local jumper_seperation = 0.0;
+
+object{
+    TOOLS_WIRE_LEADS(l,d,lw*2,dim_mm_awg_24,r,jumper_bend_radius,jumper_seperation,"H")
+    translate<0,dim_mm_awg_24/2+op,0>
+}
+#end
