@@ -1,0 +1,197 @@
+box-shaped capacitors
+//Joerg Bredendiek <sprut(replace with at)sprut.de>  
+//based on WIMA-Cap-macro by Andreas Rebmann <A.Rebmann-Elektrotechnik@t-online.de>
+//Grundmacro - Breite=B , Tiefe = T, Hoehe = H, Raster = Ra
+####################################################################################################
+C102-043X133:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CAP_DIS_BLOCK_100_040_130_095(:Kondensator Raster 10 (rcl.lib):Capacitor Grid 10 (rcl.lib)
+C102-054X133:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CAP_DIS_BLOCK_100_050_130_110(:Kondensator Raster 10 (rcl.lib):Capacitor Grid 10 (rcl.lib)
+C102-064X133:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CAP_DIS_BLOCK_100_060_130_120(:Kondensator Raster 10 (rcl.lib):Capacitor Grid 10 (rcl.lib)
+C150-054X183:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CAP_DIS_BLOCK_150_050_180_110(:Kondensator Raster 15 (rcl.lib):Capacitor Grid 15 (rcl.lib)
+C150-064X183:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CAP_DIS_BLOCK_150_060_180_125(:Kondensator Raster 15 (rcl.lib):Capacitor Grid 15 (rcl.lib)
+C150-072X183:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CAP_DIS_BLOCK_150_070_180_140(:Kondensator Raster 15 (rcl.lib):Capacitor Grid 15 (rcl.lib)
+C150-084X183:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CAP_DIS_BLOCK_150_080_180_150(:Kondensator Raster 15 (rcl.lib):Capacitor Grid 15 (rcl.lib)
+C150-091X182:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CAP_DIS_BLOCK_150_090_180_160(:Kondensator Raster 15 (rcl.lib):Capacitor Grid 15 (rcl.lib)
+C225-062X268:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CAP_DIS_BLOCK_225_060_265_150(:Kondensator Raster 22.5 (rcl.lib):Capacitor Grid 22.5 (rcl.lib)
+C225-074X268:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CAP_DIS_BLOCK_225_070_265_165(:Kondensator Raster 22.5 (rcl.lib):Capacitor Grid 22.5 (rcl.lib)
+C225-087X268:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CAP_DIS_BLOCK_225_085_265_185(:Kondensator Raster 22.5 (rcl.lib):Capacitor Grid 22.5 (rcl.lib)
+C225-108X268:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CAP_DIS_BLOCK_225_105_265_190(:Kondensator Raster 22.5 (rcl.lib):Capacitor Grid 22.5 (rcl.lib)
+C225-113X268:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CAP_DIS_BLOCK_225_110_265_210(:Kondensator Raster 22.5 (rcl.lib):Capacitor Grid 22.5 (rcl.lib)
+C275-093X316:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CAP_DIS_BLOCK_275_090_315_210(:Kondensator Raster 27.5 (rcl.lib):Capacitor Grid 27.5 (rcl.lib)
+C275-113X316:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CAP_DIS_BLOCK_275_110_315_210(:Kondensator Raster 27.5 (rcl.lib):Capacitor Grid 27.5 (rcl.lib)
+C275-134X316:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CAP_DIS_BLOCK_275_130_315_240(:Kondensator Raster 27.5 (rcl.lib):Capacitor Grid 27.5 (rcl.lib)
+C275-154X316:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CAP_DIS_BLOCK_275_150_315_260(:Kondensator Raster 27.5 (rcl.lib):Capacitor Grid 27.5 (rcl.lib)
+C275-173X316:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CAP_DIS_BLOCK_275_170_315_345(:Kondensator Raster 27.5 (rcl.lib):Capacitor Grid 27.5 (rcl.lib)
+C275-205X316:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CAP_DIS_BLOCK_275_200_315_395(:Kondensator Raster 27.5 (rcl.lib):Capacitor Grid 27.5 (rcl.lib)
+C325-137X374:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CAP_DIS_BLOCK_325_140_415_260(:Kondensator Raster 32.5 (rcl.lib):Capacitor Grid 32.5 (rcl.lib)
+C325-162X374:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CAP_DIS_BLOCK_325_160_415_320(:Kondensator Raster 32.5 (rcl.lib):Capacitor Grid 32.5 (rcl.lib)
+C325-182X374:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CAP_DIS_BLOCK_325_180_415_395(:Kondensator Raster 32.5 (rcl.lib):Capacitor Grid 32.5 (rcl.lib)
+C375-155X418:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CAP_DIS_BLOCK_375_150_415_260(:Kondensator Raster 37.5 (rcl.lib):Capacitor Grid 37.5 (rcl.lib)
+C375-192X418:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CAP_DIS_BLOCK_375_190_415_320(:Kondensator Raster 37.5 (rcl.lib):Capacitor Grid 37.5 (rcl.lib)
+C375-203X418:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CAP_DIS_BLOCK_375_200_415_395(:Kondensator Raster 37.5 (rcl.lib):Capacitor Grid 37.5 (rcl.lib)
+####################################################################################################
+CAP_DIS_BLOCK_GRND
+(B,T,H,Ra)
+####################################################################################################
+//C102-043X133:  rcl.lbr:   CAPACITOR, ,  grid 10.2 mm, outline 4.3 x 13.3 mm
+//C102-054X133:  rcl.lbr:   CAPACITOR, ,  grid 10.2 mm, outline 5.4 x 13.3 mm
+//C102-064X133:  rcl.lbr:   CAPACITOR, ,  grid 10.2 mm, outline 6.4 x 13.3 mm
+//Raster 10
+CAP_DIS_BLOCK_100_040_130_095(value)
+(13.2, 4.2, 9.5, 10.16)
+CAP_DIS_BLOCK_100_050_130_110(value)
+(13.2, 5.3, 11.0, 10.16)
+CAP_DIS_BLOCK_100_060_130_120(value)
+(13.2, 6.3, 12.0, 10.16)
+//
+//C150-054X183:  rcl.lbr:   CAPACITOR, ,  grid 15 mm, outline 5.4 x 18.3 mm
+//C150-064X183:  rcl.lbr:   CAPACITOR, ,  grid 15 mm, outline 6.4 x 18.3 mm
+//C150-072X183:  rcl.lbr:   CAPACITOR, ,  grid 15 mm, outline 7.2 x 18.3 mm
+//C150-084X183:  rcl.lbr:   CAPACITOR, ,  grid 15 mm, outline 8.4 x 18.3 mm
+//C150-091X182:  rcl.lbr:   CAPACITOR, ,  grid 15 mm, outline 9.1 x 18.2 mm
+//Raster 15
+CAP_DIS_BLOCK_150_050_180_110(value)
+(18.2,5.3,11.0,15.24)
+CAP_DIS_BLOCK_150_060_180_125(value)
+(18.2,6.3,12.5,15.24)
+CAP_DIS_BLOCK_150_070_180_140(value)
+(18.2,7.1,14.0,15.24)
+CAP_DIS_BLOCK_150_080_180_150(value)
+(18.2,8.3,15.0,15.24)
+CAP_DIS_BLOCK_150_090_180_160(value)
+(18.1,9.0,16.0,15.24)
+//
+//C225-062X268:  rcl.lbr:   CAPACITOR, ,  grid 22.5 mm, outline 6.2 x 26.8 mm
+//C225-074X268:  rcl.lbr:   CAPACITOR, ,  grid 22.5 mm, outline 7.4 x 26.8 mm
+//C225-087X268:  rcl.lbr:   CAPACITOR, ,  grid 22.5 mm, outline 8.7 x 26.8 mm
+//C225-108X268:  rcl.lbr:   CAPACITOR, ,  grid 22.5 mm, outline 10.8 x 26.8 mm
+//C225-113X268:  rcl.lbr:   CAPACITOR, ,  grid 22.5 mm, outline 11.3 x 26.8 mm
+//Raster 22.5
+CAP_DIS_BLOCK_225_060_265_150(value)
+(26.7,6.1,15.0,22.5)
+CAP_DIS_BLOCK_225_070_265_165(value)
+(26.7,7.3,16.5,22.5)
+CAP_DIS_BLOCK_225_085_265_185(value)
+(26.7,8.6,18.5,22.5)
+CAP_DIS_BLOCK_225_105_265_190(value)
+(26.7,10.7,19.0,22.5)
+CAP_DIS_BLOCK_225_110_265_210(value)
+(26.7,11.2,21.0,22.5)
+//
+//C275-093X316:  rcl.lbr:   CAPACITOR, ,  grid 27.5 mm, outline 9.3 x 31.6 mm
+//C275-113X316:  rcl.lbr:   CAPACITOR, ,  grid 27.5 mm, outline 11.3 x 31.6 mm
+//C275-134X316:  rcl.lbr:   CAPACITOR, ,  grid 27.5 mm, outline 13.4 x 31.6 mm
+//C275-154X316:  rcl.lbr:   CAPACITOR, ,  grid 27.5 mm, outline 15.4 x 31.6 mm
+//C275-173X316:  rcl.lbr:   CAPACITOR, ,  grid 27.5 mm, outline 17.3 x 31.6 mm
+//C275-205X316:  rcl.lbr:   CAPACITOR, ,  grid 27.5 mm, outline 20.5 x 31.6 mm
+//Raster 27.5
+CAP_DIS_BLOCK_275_090_315_210(value)
+(31.5,9.2,21.0,27.5)
+CAP_DIS_BLOCK_275_110_315_210(value)
+(31.5,11.2,21.0,27.5)
+CAP_DIS_BLOCK_275_130_315_240(value)
+(31.5,13.3,24.0,27.5)
+CAP_DIS_BLOCK_275_150_315_260(value)
+(31.5,15.1,26.0,27.5)
+CAP_DIS_BLOCK_275_170_315_345(value)
+(31.5,17.2,34.5,27.5)
+CAP_DIS_BLOCK_275_200_315_395(value)
+(31.5,20.4,39.5,27.5)
+//
+//C325-137X374:  rcl.lbr:   CAPACITOR, ,  grid 32.5 mm, outline 13.7 x 37.4 mm
+//C325-162X374:  rcl.lbr:   CAPACITOR, ,  grid 32.5 mm, outline 16.2 x 37.4 mm
+//C325-182X374:  rcl.lbr:   CAPACITOR, ,  grid 32.5 mm, outline 18.2 x 37.4 mm
+//Raster 32.5
+CAP_DIS_BLOCK_325_140_415_260(value)
+(41.5,15.0,26.0,32.5)
+CAP_DIS_BLOCK_325_160_415_320(value)
+(41.5,19.0,32.0,32.5)
+CAP_DIS_BLOCK_325_180_415_395(value)
+(41.5,20.0,39.5,32.5)
+//
+//C375-155X418:  rcl.lbr:   CAPACITOR, ,  grid 37.5 mm, outline 15.5 x 41.8 mm
+//C375-192X418:  rcl.lbr:   CAPACITOR, ,  grid 37.5 mm, outline 19.2 x 41.8 mm
+//C375-203X418:  rcl.lbr:   CAPACITOR, ,  grid 37.5 mm, outline 20.3 x 41.8 mm
+//Raster 37.5
+CAP_DIS_BLOCK_375_150_415_260(value)
+(41.7,15.4,26.0,37.5)
+CAP_DIS_BLOCK_375_190_415_320(value)
+(41.7,19.1,32.0,37.5)
+CAP_DIS_BLOCK_375_200_415_395(value)
+(41.7,20.2,39.5,37.5)
+####################################################################################################
+####################################################################################################
+union{
+
+box{<-B/2+0.2, 0,     T/2>     <B/2-0.2,H-0.2,-T/2>      rotate<0,0,0> translate<0,0,0>} //Grundkörper
+box{<-B/2,     0,    -T/2+0.2> <B/2,    H-0.2, T/2-0.2>  rotate<0,0,0> translate<0,0,0>} //Kleine Box innen
+box{<-B/2+0.2, H-0.2,-T/2+0.2> <B/2-0.2,H    , T/2-0.2>  rotate<0,0,0> translate<0,0,0>} //Kleine Box oben
+
+cylinder{<-B/2+0.2,0,0> <-B/2+0.2, H-0.2> 0.20  rotate<0,0,0> translate <0, 0,  T/2-0.2>} //Rundungen rechts
+cylinder{<-B/2+0.2,0,0> <-B/2+0.2, H-0.2> 0.20  rotate<0,0,0> translate <0, 0,-T/2+0.2>} //Rundungen rechts
+cylinder{< B/2-0.2,0,0> < B/2-0.2, H-0.2> 0.20  rotate<0,0,0> translate <0, 0,  T/2-0.2>} //Rundungen links
+cylinder{< B/2-0.2,0,0> < B/2-0.2, H-0.2> 0.20  rotate<0,0,0> translate <0, 0, -T/2+0.2>} //Rundungen links
+
+sphere{< B/2-0.2, H-0.2, T/2-0.2> 0.2 scale <1,1,1>  translate<0,0,0>}  //Rundungen oben
+sphere{< B/2-0.2, H-0.2,-T/2+0.2> 0.2 scale <1,1,1>  translate<0,0,0>}  //Rundungen oben
+sphere{<-B/2+0.2, H-0.2, T/2-0.2> 0.2 scale <1,1,1>  translate<0,0,0>}  //Rundungen oben
+sphere{<-B/2+0.2, H-0.2,-T/2+0.2> 0.2 scale <1,1,1>  translate<0,0,0>}  //Rundungen oben
+
+cylinder{<-B/2+0.2,  H-0.2> < B/2-0.2, H-0.2> 0.20 rotate<0,0,0> translate <0, 0, T/2-0.2>}   //Rundungen vorne
+cylinder{<-B/2+0.2,  H-0.2> < B/2-0.2, H-0.2> 0.20 rotate<0,0,0> translate <0, 0,-T/2+0.2>}   //Rundungen hinten
+cylinder{<-T/2+0.2,  H-0.2> < 0, H-0.2> 0.20 rotate<0, 90,0> translate <-B/2+0.2, 0, 0>}  //Rundungen rechts kurz
+cylinder{<-T/2+0.2,  H-0.2> < 0, H-0.2> 0.20 rotate<0,-90,0> translate <-B/2+0.2, 0, 0>}  //Rundungen rechts kurz
+cylinder{<-T/2+0.2,  H-0.2> < 0, H-0.2> 0.20 rotate<0, 90,0> translate < B/2-0.2, 0, 0>}  //Rundungen links kurz
+cylinder{<-T/2+0.2,  H-0.2> < 0, H-0.2> 0.20 rotate<0,-90,0> translate < B/2-0.2, 0, 0>}  //Rundungen links kurz
+
+//Drahtdurchmesser und Beschriftung an die Kondensatorgröße anpassen
+
+#if(pin_short=on)
+#local block_pin_length = -1*(pin_length+pcb_height);
+#else
+#local block_pin_length = -5;
+#end
+
+#if (Ra=10.16)    //d=0.7mm
+cylinder{<-Ra/2 ,0> <-Ra/2,block_pin_length,0> 0.35 texture{col_silver}}   // Draht rechts senkrecht
+cylinder{< Ra/2 ,0> < Ra/2,block_pin_length,0> 0.35 texture{col_silver}}   // Draht links senkrecht
+text {ttf besch_font  value   0.1, 0 scale<2.4,2.4,2.4> pigment {Black} rotate<0,180,0> translate<B/2-2.5, H-6.0, T/2+0.1> rotate<0,0,0>} //Beschriftung Value
+#else
+#end
+
+#if (Ra=15.24)    //d=0.8mm
+cylinder{<-Ra/2 ,0> <-Ra/2,block_pin_length,0> 0.40 texture{col_silver}}   // Draht rechts senkrecht
+cylinder{< Ra/2 ,0> < Ra/2,block_pin_length,0> 0.40 texture{col_silver}}   // Draht links senkrecht
+text {ttf besch_font  value   0.1, 0 scale<3.0,3.0,3.0> pigment {Black} rotate<0,180,0> translate<B/2-4.0, H-7.0, T/2+0.1> rotate<0,0,0>} //Beschriftung Value
+#else
+#end
+
+#if (Ra=22.5)    //d=0.8mm
+cylinder{<-Ra/2 ,0> <-Ra/2,block_pin_length,0> 0.40 texture{col_silver}}   // Draht rechts senkrecht
+cylinder{< Ra/2 ,0> < Ra/2,block_pin_length,0> 0.40 texture{col_silver}}   // Draht links senkrecht
+text {ttf besch_font  value   0.1, 0 scale<3.5,3.5,3.5> pigment {Black} rotate<0,180,0> translate<B/2-6.5, H-9.0, T/2+0.1> rotate<0,0,0>} //Beschriftung Value
+#else
+#end
+
+#if (Ra=27.5)    //d=1.0mm
+cylinder{<-Ra/2 ,0> <-Ra/2,block_pin_length,0> 0.50 texture{col_silver}}   // Draht rechts senkrecht
+cylinder{< Ra/2 ,0> < Ra/2,block_pin_length,0> 0.50 texture{col_silver}}   // Draht links senkrecht
+text {ttf besch_font  value   0.1, 0 scale<4.0,4.0,4.0> pigment {Black} rotate<0,180,0> translate<B/2-10.0, H-12.0, T/2+0.1> rotate<0,0,0>} //Beschriftung Value
+#else
+#end
+
+#if (Ra=32.5)    //d=1.0mm
+cylinder{<-Ra/2 ,0> <-Ra/2,block_pin_length,0> 0.50 texture{col_silver}}   // Draht rechts senkrecht
+cylinder{< Ra/2 ,0> < Ra/2,block_pin_length,0> 0.50 texture{col_silver}}   // Draht links senkrecht
+text {ttf besch_font  value   0.1, 0 scale<4.0,4.0,4.0> pigment {Black} rotate<0,180,0> translate<B/2-10.0, H-12.0, T/2+0.1> rotate<0,0,0>} //Beschriftung Value
+#else
+#end
+
+#if (Ra=37.5)    //d=1.0mm
+cylinder{<-Ra/2 ,0> <-Ra/2,block_pin_length,0> 0.50 texture{col_silver}}   // Draht rechts senkrecht
+cylinder{< Ra/2 ,0> < Ra/2,block_pin_length,0> 0.50 texture{col_silver}}   // Draht links senkrecht
+text {ttf besch_font  value   0.1, 0 scale<4.5,4.5,4.5> pigment {Black} rotate<0,180,0> translate<B/2-15.0, H-15.0, T/2+0.1> rotate<0,0,0>} //Beschriftung Value
+#else
+#end
+
+pigment {rgb<0.3,0.3,1>}}	// hellblau
+#end

@@ -3,6 +3,10 @@ Wimakondenstoren
 //by Andreas Rebmann <A.Rebmann-Elektrotechnik@t-online.de>
 //Grundmacro - Breite=B , Tiefe = T, Hoehe = H, Raster = Ra
 ####################################################################################################
+C2.5/5-2:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CAP_DIS_WIMA_25_025_046_075(:WIMA-Kondensator Raster 2.54 (capacitator-wima.lib):WIMA-Capacitor Grid 2.54 (capacitator-wima.lib)
+C2.5/5-4:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CAP_DIS_WIMA_25_040_046_090(:WIMA-Kondensator Raster 2.54 (capacitator-wima.lib):WIMA-Capacitor Grid 2.54 (capacitator-wima.lib)
+C2.5/5-5:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CAP_DIS_WIMA_25_050_046_100(:WIMA-Kondensator Raster 2.54 (capacitator-wima.lib):WIMA-Capacitor Grid 2.54 (capacitator-wima.lib)
+C2.5/5-6:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CAP_DIS_WIMA_25_060_046_100(:WIMA-Kondensator Raster 2.54 (capacitator-wima.lib):WIMA-Capacitor Grid 2.54 (capacitator-wima.lib)
 C2.5-2:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CAP_DIS_WIMA_25_025_046_075(:WIMA-Kondensator Raster 2.54 (capacitator-wima.lib):WIMA-Capacitor Grid 2.54 (capacitator-wima.lib)
 C2.5-3:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CAP_DIS_WIMA_25_030_046_075(:WIMA-Kondensator Raster 2.54 (capacitator-wima.lib):WIMA-Capacitor Grid 2.54 (capacitator-wima.lib)
 C2.5-4:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CAP_DIS_WIMA_25_040_046_090(:WIMA-Kondensator Raster 2.54 (capacitator-wima.lib):WIMA-Capacitor Grid 2.54 (capacitator-wima.lib)

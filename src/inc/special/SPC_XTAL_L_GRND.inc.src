@@ -1,0 +1,98 @@
+Quarz
+// Joerg Bredendiek <sprut(replace with at)sprut.de>   
+//Quarz HC49/18 liegend mit 4,9mm Pitch
+//basiert auf Modell von Andreas Fecht <info@aftec.de>
+####################################################################################################
+HC18U-H:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SPC_XTAL_L2(:Quarz 4,9MM:
+HC49GW:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SPC_XTAL_L1(:Quarz 4,9MM:
+HC49U-H:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SPC_XTAL_L0(:Quarz 4,9MM:
+HC49U-LM:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SPC_XTAL_L2(:Quarz 4,9MM:
+HC49TL-H:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SPC_XTAL_L3(:Quarz 4,9MM:
+####################################################################################################
+SPC_XTAL_L_GRND
+(value, buegel, pin3, smd, shift, pinshift)
+####################################################################################################
+SPC_XTAL_L0(value)
+(value, 0, 0, 0, -3.81, -5.08)
+SPC_XTAL_L1(value)
+(value, 0, 0, 1, -7, -9.1)
+SPC_XTAL_L2(value)
+(value, 1, 0, 0, -3.81, -5.08)
+SPC_XTAL_L3(value)
+(value, 0, 1, 0, -6.2, -7.62)
+####################################################################################################
+####################################################################################################
+union{
+	#local height = 13.575;
+	union{
+		// bodenplatte
+		cylinder{<-3.35,0,0><-3.35,0.7,0>2.25}
+		cylinder{< 3.35,0,0>< 3.35,0.7,0>2.25}
+		box{<-3.35,0,-2.25><3.35,0.7,2.25>}
+		union{
+			cylinder{<-2.45,-0.1,0><-2.45,0.1,0>1} 
+			cylinder{< 2.45,-0.1,0>< 2.45,0.1,0>1} 
+			pigment{Gray30}
+		}
+
+		// koerper
+		cylinder{<-3.35,0.7,0><-3.35,height,0>2}
+		cylinder{< 3.35,0  ,0>< 3.35,height,0>2}
+		box{<-3.35,0,-2><3.35,height,2>}
+
+		//kappe
+		torus{1.6,0.4 translate<-3.35,height,0>}
+		torus{1.6,0.4 translate< 3.35,height,0>}
+		cylinder{<-3.35,0,0><3.35,0,0>0.4 translate<0,height,-1.6>}
+		cylinder{<-3.35,0,0><3.35,0,0>0.4 translate<0,height, 1.6>}
+		cylinder{<-3.35,height,0><-3.35,height+0.4,0>1.6}
+		cylinder{< 3.35,height,0>< 3.35,height+0.4,0>1.6}
+		box{<-3.35,height,-1.6><3.35,height+0.4,1.6>}
+	
+		// beschriftung auf der seite
+		text {ttf besch_font value 0.1, 0 pigment{White*0.5} scale 1.5 translate<-3,height/3,-2.01>}
+	
+		rotate<90,0,0>
+		translate<0, 2.25, shift>
+	}	
+
+	#if (smd=0)        
+	        // pin unterteil
+		#if  (pin_short=off)
+			cylinder{<-2.45,0,0><-2.45,-12,0>0.2 translate<0, 0, pinshift> }
+			cylinder{< 2.45,0,0>< 2.45,-12,0>0.2 translate<0, 0, pinshift> }
+		#else
+			cylinder{<-2.45,0,0><-2.45,-1*(pin_length+pcb_height),0>0.2 translate<0, 0, pinshift> }
+			cylinder{< 2.45,0,0>< 2.45,-1*(pin_length+pcb_height),0>0.2 translate<0, 0, pinshift> }
+		#end
+                //pin oberteil                 
+                #declare bends1=array[3] {<0, 0.8, 0>,  <90, 1.5, 0>,  <0,2,0> }  
+                object { TOOLS_BENTPIPE( 0.2, <0,0,0>, y, bends1 ) rotate<0,-90,0> translate<-2.45,0,pinshift>}               
+                object { TOOLS_BENTPIPE( 0.2, <0,0,0>, y, bends1 ) rotate<0,-90,0> translate< 2.45,0,pinshift>}               
+                                 
+		#if (pin3=1)
+			cylinder{<0, 3, height+shift+0.575> <0, -1*(pin_length+pcb_height), height+shift+0.575> 0.2}
+		#end  
+	#else
+                //pin 1 und 2                 
+                #declare bends2=array[5] {<0,0.8,0>, <-90,0.5,0>, <0, 1, 0>,  <90, 0.5, 0>,  <0,2,0> }  
+                object { TOOLS_BENTPIPE( 0.2, <0, 0, 0>, x, bends2 ) rotate<0,-90,0> translate<-2.45,0.2,pinshift>}               
+                object { TOOLS_BENTPIPE( 0.2, <0, 0, 0>, x, bends2 ) rotate<0,-90,0> translate< 2.45,0.2,pinshift>}   
+                //pin 3 
+                #declare bends3=array[3] {<0, 3, 0>,  <90, 0.5, 0>,  <0,1,0> }  
+                object { TOOLS_BENTPIPE( 0.2, <0,0,0>, y, bends3 ) rotate<0,-90,0> rotate<0,0,180> translate<0,3.7,height+shift+0.575>}    
+		
+	#end
+
+
+	#if (buegel=1)
+		//#declare bends=array[5] {<0, 5.5, 0>,  <90, 2.5, 0>,  <0,6.4,0>,  <90,2.5,0>,  <0, 5.5, 0> }
+		#declare bends=array[5] {<0, 5.5, 0>,  <90, 2, 0>,  <0,7.4,0>,  <90,2,0>,  <0, 5.5, 0> }
+		// <angle, radius, 0> or <0, distance, 0> for straight pipe
+		// negative angles bend left, positive bend right.
+		object { TOOLS_BENTPIPE( 0.25, <-2.25*2.54, -3, 1.5*2.54>, y, bends ) }
+	#end
+
+	texture{col_silver}
+}
+#end
