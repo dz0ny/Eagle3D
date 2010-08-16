@@ -39,7 +39,28 @@ There are some more rules regarding macro naming and usage of POVRay statements:
   in the source directories. Currently all things which you would like to be
   some sort of global definition should stay inside a single macro. We will 
   have a global file for such things in the future (see TODO)
-  
+
+Each .inc.src file in the src/inc/$LIBNAME directory stands for a single
+macro. The file format is very simple. Each part of the file is separated from
+the others by a line of '#'. The contents of each part are as follows:
+
+<<<<
+Part name (Currently ignored, only one line)
+//Comments inserted before the macro (always prefixed by "//")
+################################################################
+Lines for the 3dpack.dat
+################################################################
+Main macro name (without parameter list, see naming conventions above)
+Main macro parameter list
+################################################################
+//Comment for the sub macro (optional)
+Sub macro name(parameter list)
+Parameter list for main macro
+################################################################
+################################################################
+Actual macro
+>>>>
+
 After adding your macro you can call tools/render.sh after building Eagle3D to
 test the successfull integration. The scripts takes an additional parameter so 
 that you can only render some of the macros.
