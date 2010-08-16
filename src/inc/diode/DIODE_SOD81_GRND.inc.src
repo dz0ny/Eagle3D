@@ -1,0 +1,64 @@
+SOD81
+// Joerg Bredendiek <sprut(replace with at)sprut.de>   
+//SOD81 Gehäuse liegend 
+####################################################################################################
+SOD81:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:DIODE_SOD81_1(:SOD81 10.16mm:SOD81
+SOD81Z:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:DIODE_SOD81_1(:SOD81 10.16mm:SOD81
+####################################################################################################
+DIODE_SOD81_GRND
+(value)
+####################################################################################################
+DIODE_SOD81_1(value)
+(value)
+####################################################################################################
+####################################################################################################
+union{
+	union{
+
+		//Glaskoerper
+		union{
+			cylinder{<-1.9, 0, 0>< 1.9, 0, 0> 1.05-0.25 }
+			cylinder{<-1.65,0, 0>< 1.65,0, 0> 1.05 }
+			torus{0.8, 0.25 rotate<0,0,90> translate<-1.65, 0, 0>}
+			torus{0.8, 0.25 rotate<0,0,90> translate< 1.65, 0, 0>}
+			cone{<0,0,0>0.7 <-1,0,0> 0 translate<-1.8,0,0>}
+			cone{<0,0,0>0.7 < 1,0,0> 0 translate< 1.8,0,0>}
+			pigment{Col_Glass_General}
+		}
+		cylinder{<-1.5,0,0><-1.1,0,0> 1.06 pigment{Black} }    //Markierung
+
+		//Beschriftung
+		intersection{                                                                                                      
+			cylinder{<1.8,0,0><-1.6,0,0>1.06 pigment{Col_Glass_General}}                                                               
+			union{                                                                                                           
+				text {ttf besch_font value 0.5, 0 scale<0.6,0.6,0.6> translate<-0.8,-0.4,-1.0> rotate<0,0,0> pigment{Black}}  
+				text {ttf besch_font value 0.5, 0 scale<0.6,0.6,0.6> translate<-0.8,-0.4,-1.0> rotate<90,0,0> pigment{Black}} 
+				text {ttf besch_font value 0.5, 0 scale<0.6,0.6,0.6> translate<-0.8,-0.4,-1.0> rotate<180,0,0> pigment{Black}}
+			}                                                                                                              
+		}  
+
+		// innenleben
+		cylinder{<-1.55, 0, 0>< -0.2, 0, 0> 0.9 pigment{color Red} } 
+		cylinder{< 1.55, 0, 0><  0.2, 0, 0> 0.9 pigment{color Red} }
+		cylinder{< 0.2,  0, 0>< -0.2, 0, 0> 0.1 texture{col_silver} }
+		translate<0, 1.5, 0>
+	}
+
+	// anschluesse
+	union{
+	        // pin unterteil
+		#if  (pin_short=off)
+			cylinder{<-5.08,0,0><-5.08,-12,0>0.3 }
+			cylinder{< 5.08,0,0>< 5.08,-12,0>0.3 }
+		#else
+			cylinder{<-5.08,0,0><-5.08,-1*(pin_length+pcb_height),0>0.3 }
+			cylinder{< 5.08,0,0>< 5.08,-1*(pin_length+pcb_height),0>0.3 }
+		#end
+	        //pin oberteil                 
+	        #declare bends1=array[3] {<0, 1, 0>,  <90, 0.5, 0>,  <0,3,0> }  
+	        object { TOOLS_BENTPIPE( 0.3, <0,0,0>, y, bends1 ) rotate<0,0,0> translate<-5.08,0,0>}               
+	        object { TOOLS_BENTPIPE( 0.3, <0,0,0>, y, bends1 ) rotate<0,180,0> translate< 5.08,0,0>}               
+		texture{col_silver}
+	}
+}
+#end

@@ -16,14 +16,14 @@ union{
 		box{<0,0,0><0.48,10,0.44> translate< 0,0,2.54>}                                       //mittlerer Pin
 		box{<0,0,0><0.48,10,0.44> translate< 2.54,0,0>}                                       //rechter Pin
 	#else
-		box{<0,9.5-(pcb_height+pin_length),0><0.48,10,0.44> translate<-2.54,0,0>}             //linker Pin
-		box{<0,9.5-(pcb_height+pin_length),0><0.48,10,0.44> translate< 0,0,2.54>}             //mittlerer Pin
-		box{<0,9.5-(pcb_height+pin_length),0><0.48,10,0.44> translate< 2.54,0,0>}             //rechter Pin
+		box{<0,9.3-(pcb_height+pin_length),0><0.48,10,0.44> translate<-2.54,0, 0>}            //linker Pin
+		box{<0,9.3-(pcb_height+pin_length),0><0.48,10,0.44> translate< 0,0,2.54>}             //mittlerer Pin
+		box{<0,9.3-(pcb_height+pin_length),0><0.48,10,0.44> translate< 2.54,0, 0>}            //rechter Pin
 	#end
 
-	box{<-0.24,0,0><0.24,2,0.44> rotate<0,0,-40> translate<-2.30,9.85,0>}                       //linker Pin Schraege
- 	box{<-0.24,0,0><0.24,2,0.44> rotate<-40,0,0> translate< 0,9.85,2.78>}                       //mittlerer Pin Schraege
-	box{<-0.24,0,0><0.24,2,0.44> rotate<0,0, 40> translate< 2.78,9.85,0>}                       //rechter Pin Schraege
+	box{<-0.24,0,0><0.24,2,0.44>   rotate<0,0,-40> translate<-2.30,9.85,0>}                       //linker Pin Schraege
+ 	box{<-0.24,0,0><0.24,3.1,0.44> rotate<-60,0,0> translate< 0.24,9.7,2.7>}                      //mittlerer Pin Schraege
+	box{<-0.24,0,0><0.24,2,0.44>   rotate<0,0, 40> translate< 2.78,9.85,0>}                       //rechter Pin Schraege
 
 	box{<0,11.25,0><0.48,14,0.44> translate<-1.27,0,0>}                                          //linker Pin
 	box{<0,11.25,0><0.48,14,0.44> }                                                              //mittlerer Pin
@@ -39,7 +39,7 @@ union{
 
 	text {ttf besch_font value 1, 0 pigment { White } translate<-1.8,17,-1.01>}                  //Beschriftung
 	texture{col_silver}
-	translate<-0.22,-9.5,-0.22>
+	translate<-0.24,-9.3,-0.24>
 	rotate<0,90,0>
 }
 #end

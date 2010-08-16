@@ -1,0 +1,82 @@
+SOD64
+// Joerg Bredendiek <sprut(replace with at)sprut.de>   
+//SOD64 Gehäuse liegend 
+####################################################################################################
+SOD64-10:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:DIODE_SOD64_1(:SOD64 10mm:SOD64
+SOD64Z10:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:DIODE_SOD64_1(:SOD64 10mm:SOD64
+SOD64-12:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:DIODE_SOD64_2(:SOD64 12mm:SOD64
+SOD64Z12:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:DIODE_SOD64_2(:SOD64 12mm:SOD64
+SOD57-10:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:DIODE_SOD57_3(:SOD57 10mm:SOD57
+SOD57Z10:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:DIODE_SOD57_3(:SOD57 10mm:SOD57  
+SOD61A:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:DIODE_SOD61_A(:SOD61 10mm:SOD61
+SOD61B:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:DIODE_SOD61_B(:SOD61 10mm:SOD61
+SOD61C:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:DIODE_SOD61_C(:SOD61 10mm:SOD61
+SOD61D:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:DIODE_SOD61_D(:SOD61 10mm:SOD61
+SOD61E:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:DIODE_SOD61_E(:SOD61 10mm:SOD61E
+####################################################################################################
+DIODE_SOD64_GRND
+(value, L, BD, BL)
+####################################################################################################
+DIODE_SOD64_1(value)
+(value, 10.16, 4.5, 5)
+DIODE_SOD64_2(value)
+(value, 12.7, 4.5, 5)
+DIODE_SOD57_3(value)
+(value, 10.16, 3.8, 6.1)          
+DIODE_SOD61_A(value)
+(value, 10.16, 2.5, 5.5)   
+DIODE_SOD61_B(value)
+(value, 15.24, 2.5, 8.7)
+DIODE_SOD61_C(value)
+(value, 17.78, 2.5, 11.5)
+DIODE_SOD61_D(value)
+(value, 15.24, 2.5, 9.9)
+DIODE_SOD61_E(value)
+(value, 20.32, 2.5, 13.5)
+
+####################################################################################################
+####################################################################################################
+union{
+
+	//Beschriftung
+	intersection{                                                                                                      
+		sphere{<0,0,0> BD/2+0.01 scale<BL/BD,1,1>  pigment{Gray30}}                                                               
+		union{                                                                                                           
+			text {ttf besch_font value 3, 0  translate<-BL/2+1.2,-0.4,-BD/2-0.5> rotate<90,0,0>} 
+			pigment{Gray30}
+		}  
+   		translate<0, 2.5, 0>                                                                                                         
+	}  
+                  
+        //ring
+	intersection{                                                                                                      
+		sphere{<0,0,0> BD/2+0.01 scale<BL/BD,1,1>  pigment{Gray30}}                                                               
+		cylinder{<-BL/2+0.5, 0, 0><-BL/2+1, 0, 0> BD/2+0.05 pigment{Black} }
+   		translate<0, 2.5, 0> 
+        }
+                          
+        // koerper          
+	union{
+		cylinder{<-BL/2, 0, 0>< BL/2, 0, 0> 0.5 texture{col_silver} }  
+		sphere{<0,0,0> BD/2 scale<BL/BD,1,1> pigment{LightBlue} finish { phong 0.5 }}
+		translate<0, 2.5, 0>
+	}
+
+	// anschluesse
+	union{
+	        // pin unterteil
+		#if  (pin_short=off)
+			cylinder{<-L/2,0,0><-L/2,-12,0>0.3 }
+			cylinder{< L/2,0,0>< L/2,-12,0>0.3 }
+		#else
+			cylinder{<-L/2,0,0><-L/2,-1*(pin_length+pcb_height),0>0.3 }
+			cylinder{< L/2,0,0>< L/2,-1*(pin_length+pcb_height),0>0.3 }
+		#end
+	        //pin oberteil                 
+	        #declare bends1=array[3] {<0, 2, 0>,  <90, 0.5, 0>,  <0,4,0> }  
+	        object { TOOLS_BENTPIPE( 0.3, <0,0,0>, y, bends1 ) rotate<0,0,0> translate<-L/2,0,0>}               
+	        object { TOOLS_BENTPIPE( 0.3, <0,0,0>, y, bends1 ) rotate<0,180,0> translate< L/2,0,0>}               
+		texture{col_silver}
+	}
+}
+#end
