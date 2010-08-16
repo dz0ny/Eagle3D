@@ -1,12 +1,12 @@
 Diskreter Widerstand
 //Diskreter Widerstand
-//l:	Länge
+//l:	LÃ¤nge
 //d:	Durchmesser
 //c1..4	Fraben der Ringe
 //r:	Raster
-//lw:	Länge der Anschlußdrähte
-//dw:	Durchmesser der Anschlußdrähte
-//op:	anheben des Widerstnad über der Platine
+//lw:	LÃ¤nge der AnschluÃŸdrÃ¤hte
+//dw:	Durchmesser der AnschluÃŸdrÃ¤hte
+//op:	anheben des Widerstnad Ã¼ber der Platine
 //h:	"V"=vertikal, "H"=horizontal
 //w:	Leistung, wird benutzt um bei >=1W den Widerstand 1,5mm anzuheben
 ####################################################################################################
@@ -101,7 +101,7 @@ union{
 	#local seperation = 0.0 ;
 #end
 
-//Widerstandskörper
+//WiderstandskÃ¶rper
 union{
 	#if(global_res_shape=1)
 		blob{

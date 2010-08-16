@@ -1,9 +1,9 @@
 Chocke
 // SMD-Drossel von CTC
 // http://www.ctccoils.com
-// L - Gesamt Länge der Drossel
+// L - Gesamt LÃ¤nge der Drossel
 // B - Gesamt Breite der Drossel
-// H - Gesamt Höhe der Drossel
+// H - Gesamt HÃ¶he der Drossel
 // value - Aufschrift
 // everyone1@freenet.de
 ####################################################################################################
@@ -17,15 +17,15 @@ SPC_SMD_INDUCTOR_SMSL_1305(value)
 ####################################################################################################
 ####################################################################################################
 
-#local PX = 2.54;       // Pad-Größe
+#local PX = 2.54;       // Pad-GrÃ¶ÃŸe
 
-#local U = 0.1;         // Überlappung Differenzebildung
-#local R = B*0.9/2;     // Radius Spulenkörper
+#local U = 0.1;         // Ãœberlappung Differenzebildung
+#local R = B*0.9/2;     // Radius SpulenkÃ¶rper
 #local R1 = 0.2;        // Radius Draht
-#local H1 = 0.8;        // Höhe Grundplatte
+#local H1 = 0.8;        // HÃ¶he Grundplatte
 #local H2 = 0.6;        // Dicke der Deckplatten der Spule
-#local L1 = L*0.95/2;   // Halbe Länge der Grundplatte
-#local X1 = L1*0.2;     // Halbe Länge der geraden Seite
+#local L1 = L*0.95/2;   // Halbe LÃ¤nge der Grundplatte
+#local X1 = L1*0.2;     // Halbe LÃ¤nge der geraden Seite
 #local Z1 = B*0.33/2;   // Halbe Breite der geraden Seite
 
 #declare Draht =  torus{ R-R1-0.3, R1 

@@ -1,5 +1,5 @@
 Hohlstecker-Printeinbau
-//Macro für Hohlstecker-Printeinbau (HEBO 13 - Reichelt.de)
+//Macro fÃ¼r Hohlstecker-Printeinbau (HEBO 13 - Reichelt.de)
 //franz.riedmueller@web.de
 ####################################################################################################
 NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_DC_JACK_HEBO_13(:Hohlstecker-Printeinbaubuchse, gewinkelt (Reichelt.de HEBO 13):DC-Jack, Print (Reichelt.de HEBO 13)
@@ -20,7 +20,7 @@ union{
        texture{col_silver}
        translate<-0.7, 0, 0>
  } 
- //Gehäuse
+ //GehÃ¤use
  difference{
         union{
         box{<-5.75,0,-2.5><5.75,4.5,2.5>}

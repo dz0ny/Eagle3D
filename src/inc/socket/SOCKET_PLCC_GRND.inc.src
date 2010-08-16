@@ -1,13 +1,13 @@
-//L    = Länge (x-Achse)
+//L    = LÃ¤nge (x-Achse)
 //B    = Breite (Z-Achse)
 //pin_l= Pins auf einer L-Seite
 //pin_b= Pins auf einer B-Seite
-//Li   = Länge innen
+//Li   = LÃ¤nge innen
 //Bi   = Breite innen
 //totalPins= Anzahl der Pins komplett
-//pincL= Korrektur für Pinausrichtung auf L-Seite
-//pincB= Korrektur für Pinausrichtung auf L-Seite
-//chip = Der Chip für den Sockel
+//pincL= Korrektur fÃ¼r Pinausrichtung auf L-Seite
+//pincB= Korrektur fÃ¼r Pinausrichtung auf L-Seite
+//chip = Der Chip fÃ¼r den Sockel
 ####################################################################################################
 PLCCS20:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SOCKET_PLCC20(:Diskreter Sockel fuer PLCC20:Discrete Socket for  PLCC20
 PLCCS28:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SOCKET_PLCC28(:Diskreter Sockel fuer PLCC28:Discrete Socket for  PLCC28

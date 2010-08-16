@@ -1,11 +1,11 @@
 Printtransformator
 // Printtransformator Grundmakro era-Trafos mit EI-Schnitt
 // von Thomas Wiens <thomas.wiens at twiens.de> 5.11.2004 
-// Parameter: value = Beschriftungsdruck, breite = Gesamtbreite des Geh‰uses, tiefe = Gesamttiefe des Geh‰uses, abs_oben = Abstand des kleinen Quaders von oben
-//            abs_seite = Abstand des kleinen Quaders von der Seite, druck_hoehe = Hˆhe des Beschriftungsdrucks, druck_text = aufgedruckter Text,
-//            anz_laschen = Anzahl der Befestigungslaschen, la_laenge = L‰nge der Lasche, la_breite = Breite der Lasche, la_hoehe = Hˆhe der Lasche, 
+// Parameter: value = Beschriftungsdruck, breite = Gesamtbreite des Geh√§uses, tiefe = Gesamttiefe des Geh√§uses, abs_oben = Abstand des kleinen Quaders von oben
+//            abs_seite = Abstand des kleinen Quaders von der Seite, druck_hoehe = H√∂he des Beschriftungsdrucks, druck_text = aufgedruckter Text,
+//            anz_laschen = Anzahl der Befestigungslaschen, la_laenge = L√§nge der Lasche, la_breite = Breite der Lasche, la_hoehe = H√∂he der Lasche, 
 //            la_lochabstand = Lochabstand der Bohrungen in der Lasche, la_lochdurchm = Durchmesser der Laschenbohrungen,
-//            trafo_pin_laenge = L‰nge der Pins, pinabstand = Abstand der Pins von Prim‰ zu Sekund‰r, pin_aus = Pinabstand von Mittellinie nach ‰uﬂerster Pin, 
+//            trafo_pin_laenge = L√§nge der Pins, pinabstand = Abstand der Pins von Prim√§ zu Sekund√§r, pin_aus = Pinabstand von Mittellinie nach √§u√üerster Pin, 
 //            pin_in = Pinabstand von Mittellinie zum inneren Pin, dia_schraube = Durchmesser der Schraube (M2.5, M3 oder M4)
 ####################################################################################################
 NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:TRAFO_ERA_EI_30_2(:Trafo EI 30-2 (trafo.lib):TrafoEI 30-2 (trafo.lib)
@@ -61,7 +61,7 @@ TRAFO_ERA_EI_66_2(value)
 ********************************************************************************************************************************************/
 #macro TRAFO_ERA_EI_ROUNDED_BOX(B,T,H) 
 union{
-#local rundung = 0.8;    // St‰rke der Abrundung am Geh‰use
+#local rundung = 0.8;    // St√§rke der Abrundung am Geh√§use
 box{<-B/2+rundung, 0,     T/2>     <B/2-rundung,H-rundung,-T/2>      rotate<0,0,0> translate<0,0,0>} //Grundkoerper
 box{<-B/2,     0,    -T/2+rundung> <B/2,    H-rundung, T/2-rundung>  rotate<0,0,0> translate<0,0,0>} //Kleine Box innen
 box{<-B/2+rundung, H-rundung,-T/2+rundung> <B/2-rundung,H    , T/2-rundung>  rotate<0,0,0> translate<0,0,0>} //Kleine Box oben
@@ -85,8 +85,8 @@ cylinder{<-T/2+rundung,  H-rundung> < 0, H-rundung> rundung rotate<0,-90,0> tran
 }
 #end 
 /***********************************************************************************************
-// Makro f¸r die Befestigungslaschen der grˆﬂeren Transformatoren
-// Gesamtl‰nge = ges_l, Breite, Hˆhe der Platte, Lochabstand = hole_dist, Lochdurchmesser = hole
+// Makro f√ºr die Befestigungslaschen der gr√∂√üeren Transformatoren
+// Gesamtl√§nge = ges_l, Breite, H√∂he der Platte, Lochabstand = hole_dist, Lochdurchmesser = hole
 ***********************************************************************************************/
 #macro TRAFO_ERA_EI_BEF_LASCHE(ges_l, breite, hoehe, hole_dist, hole)
 #local D = 0.001;

@@ -1,9 +1,9 @@
 QFP-Pin
-//Makro für Pins von QFP-Gehäusen
-//H = Höhe des Pins
+//Makro fÃ¼r Pins von QFP-GehÃ¤usen
+//H = HÃ¶he des Pins
 //B = Breite des Pins
 //T = Tiefe des Pins
-//S = Materialstärke des Pins
+//S = MaterialstÃ¤rke des Pins
 ####################################################################################################
 ####################################################################################################
 QFP_PIN

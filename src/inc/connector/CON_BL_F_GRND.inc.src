@@ -1,5 +1,5 @@
 Buchsenleisten (flach)
-//Grundmakro für Buchsenleisten (flach)
+//Grundmakro fÃ¼r Buchsenleisten (flach)
 ####################################################################################################
 NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_BL_F_1X5(:Buchsenleiste (flach) 5Pin 1Reihe (con-lsta.lib):Female Header (low profile) 5Pin 1Row (con-lsta.lib)     
 NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_BL_F_1X6(:Buchsenleiste (flach) 6Pin 1Reihe (con-lsta.lib):Female Header (low profile) 6Pin 1Row (con-lsta.lib)       

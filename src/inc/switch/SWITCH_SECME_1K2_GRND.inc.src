@@ -5,7 +5,7 @@ TCVCXO
 ####################################################################################################
 NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SWITCH_SECME_1K2_SH(:Switch 1K2 Straight High actuator:
 NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SWITCH_SECME_1K2_SL(:Switch 1K2 Straight Low actuator:
-NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SWITCH_SECME_1K2_SLB(:Switch 1K2 Straight Low actuator 2µAu:
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SWITCH_SECME_1K2_SLB(:Switch 1K2 Straight Low actuator 2Ä¾Au:
 NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SWITCH_SECME_1K2_RH(:Switch 1K2 Right-angled High actuator:
 NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SWITCH_SECME_1K2_RL(:Switch 1K2 Right-angled Low actuator:
 ####################################################################################################

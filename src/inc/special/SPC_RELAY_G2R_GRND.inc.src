@@ -52,7 +52,7 @@ union{
     text {ttf global_fontfile_arial value 0.05, 0  scale <3,3.5,1> rotate<90,0,0> translate<-2.5,H-0.95,+W/2-7.7>}
     text {ttf global_fontfile_arial_bold "2817Y1" 0.05, 0 scale <1.5,1.5,1> rotate<90,0,0> translate<-2.5,H-0.95,+W/2-9.3>}
     text {ttf global_fontfile_arial_bold "16A / 250V~ / AC1" 0.05, 0 scale <1.5,1.5,1> rotate<90,0,0> translate<-2.5,H-0.95,+W/2-11.1>}
-    text {ttf global_fontfile_arial_bold "°" 0.05, 0 scale <3,3,1> rotate<90,0,0> translate<-L/2+1.5,H-0.95,+W/2-13>}
+    text {ttf global_fontfile_arial_bold "Â°" 0.05, 0 scale <3,3,1> rotate<90,0,0> translate<-L/2+1.5,H-0.95,+W/2-13>}
 
     box{<-L/2+1,H-0.95,-0.05><-7,H-1,+0.05> translate +1.3*z}
     box{<+7,H-0.95,-0.05><+L/2-2,H-1,+0.05> translate +0.8*z}

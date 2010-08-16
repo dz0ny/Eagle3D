@@ -1,6 +1,6 @@
 SMD-Tantal-Chip-Kondensator
-//Grundmakro für SMD-Tantal-Chip-Kondensator
-//basiert auf Makro von Walter Mücke
+//Grundmakro fÃ¼r SMD-Tantal-Chip-Kondensator
+//basiert auf Makro von Walter MÃ¼cke
 ####################################################################################################
 CT3216:0:1:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CAP_SMD_CHIP_TT_SCT_A(:SMD Tantal Chip Bauform A :
 CT3528:0:1:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CAP_SMD_CHIP_TT_SCT_B(:SMD Tantal Chip Bauform B :
@@ -29,7 +29,7 @@ CAP_SMD_CHIP_TT_SCT_R(value)
 ####################################################################################################
 ####################################################################################################
 union{
-	box{<0,0,0><LT,H,W> pigment{rgb(<0.400, 0.320, 0.220>)*1.2} translate<-LT/2,(L-LT)/2,-W/2>}			//Grundkörper braun
+	box{<0,0,0><LT,H,W> pigment{rgb(<0.400, 0.320, 0.220>)*1.2} translate<-LT/2,(L-LT)/2,-W/2>}			//GrundkÃ¶rper braun
 	text{ttf besch_font value 0.1,0 scale L/8 rotate<90,0,0> translate<-LT/4,H+(L-LT)/2+0.01,0> pigment{DarkWood*0.7}}
 	box{<0,0,0><(L-2*P)-0.3,(L-LT)/2,W> pigment{rgb(<0.400, 0.320, 0.220>)*1.2} translate<-((L-2*P)-0.3)/2,0,-W/2>}
 	box{<0,0,0><0.4/exp(-LT/10),0.002,W> pigment{DarkWood*0.7} translate<-LT/2.1,H+(L-LT)/2,-W/2>}		//Markierung

@@ -17,8 +17,8 @@ CON_DIS_DIN41617_31()
 (31)
 ####################################################################################################
 ####################################################################################################
-// Grundmakro: Um 90° gebogener, runder Stift eines Steckverbinders nach DIN41617.
-// Parameter: Stärke über/unter PCB, Biegeradius (Mitte), Höhe über/unter PCB-Oberkante, Länge nach vorn (-Z), Farbe
+// Grundmakro: Um 90Â° gebogener, runder Stift eines Steckverbinders nach DIN41617.
+// Parameter: StÃ¤rke Ã¼ber/unter PCB, Biegeradius (Mitte), HÃ¶he Ã¼ber/unter PCB-Oberkante, LÃ¤nge nach vorn (-Z), Farbe
 // J.Bartels@arcor.de, www.mec-krefeld.de
 #macro PIN41617 (DO,DU,R,HO,HU,L,col)
 union{

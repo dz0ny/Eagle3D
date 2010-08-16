@@ -1,8 +1,8 @@
-Brückengleichrichter
-//Macro für Brückengleichrichter RUND
+BrÃ¼ckengleichrichter
+//Macro fÃ¼r BrÃ¼ckengleichrichter RUND
 //franz.riedmueller@web.de
 ####################################################################################################
-RB1A:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:DIODE_REC_RB1A(:Brückengleichrichter 1A, rund:Rectifier 1A, Round
+RB1A:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:DIODE_REC_RB1A(:BrÃ¼ckengleichrichter 1A, rund:Rectifier 1A, Round
 ####################################################################################################
 DIODE_REC_RB1A_GRND
 (value)

@@ -23,7 +23,7 @@
 #40        "Use only for Eagle v4.08 to v4.09r2"
 #41        "Use only for Eagle v4.10 and later"
         "<p>"
-        "<author>Author: Matthias Weißer matthias@matwei.de</author>"
+        "<author>Author: Matthias WeiÃŸer matthias@matwei.de</author>"
 
 #40#include "3dfunc40.ulp"
 #41#include "3dfunc41.ulp"
@@ -68,7 +68,7 @@ string incfiles =
     "\nglobal_settings{charset utf8}\n"
     "\n";
 
-//String für die Umgebung
+//String fÃ¼r die Umgebung
 string ambient =
     "#if(env=on)\n"
     "sky_sphere {pigment {Navy}\n"
@@ -101,7 +101,7 @@ string logo_names[] =
 //Variablendeklaration
 string depp;
 string out_file;                                                                    //Dateiname der POV-Ray Datei
-string out_file_no_assignment;                                                      //Dateiname für Ausgabe der fehlenden Zuordnungen
+string out_file_no_assignment;                                                      //Dateiname fÃ¼r Ausgabe der fehlenden Zuordnungen
 string pack_file;                                                                   //Dateiname der 3dpack.dat (Package-Zuordnungsdatei)
 string usrpack_file;                                                                //Dateiname der 3dusrpac.dat (User Package-Zuordnungsdatei)
 string color_file;                                                                  //Dateiname der 3dcol.dat (Farbdatei)
@@ -110,8 +110,8 @@ string lang_file;                                                               
 string mpd_file;                                                                    //Dateiname der manuellen Package Definition
 string brd_file;                                                                    //Dateiname der BRD-Datei (inkl. Pfad)
 string color_t = "texture {T_Gold_5C finish{reflection 0.1}}";                      //Farbe des Widerstand-Toleranzrings
-string color_ukpack = "pigment{Red filter 0.2}";                                    //Farbe für die Markierung unbekannter Bauteile
-string pack_con[];                                                                  //Enthält die Datei 3dpack.dat
+string color_ukpack = "pigment{Red filter 0.2}";                                    //Farbe fÃ¼r die Markierung unbekannter Bauteile
+string pack_con[];                                                                  //EnthÃ¤lt die Datei 3dpack.dat
 string color_lgt[];                                                                 //Lichtfarben als Sprache
 string color_lgtp[] = {"White","Red","Green","Blue","Yellow","Gray50","Gray25"};    //Lichtfarbenausgabe
 string color_slct[];                                                                //Farbenzuordnung -> 3dcol.dat
@@ -120,26 +120,26 @@ string color_preset[];                                                          
 string color_background="White";
 string tempstr2;                                                                    //temp halt
 string tempstr;                                                                     //temp halt
-string makro[];                                                                     //für manuelle Zuordnung der Packages
-string lang[];                                                                      //Array für Sprachen
+string makro[];                                                                     //fÃ¼r manuelle Zuordnung der Packages
+string lang[];                                                                      //Array fÃ¼r Sprachen
 string langslct[] = {"Deutsch","English", "French", "Italian", "Portuguese","Spanish"};    //Sprachauswahl
 string config[];                                                                    //Optionsspeicher
 string main_path;                                                                   //Pfad des ULP-Ordners
-string tmp_comment;                                                                 //Für Anpassung der Kommentarsprache
-string mpd_tmp1[],mpd_tmp2[];                                                       //temporär zum Aufbau der Listview
-string mpd[];                                                                       //enthält die Anpassungszeilen in Reinform
-string mpd_view[];                                                                  //Für manuelle Auswahl der Packages per Listview
+string tmp_comment;                                                                 //FÃ¼r Anpassung der Kommentarsprache
+string mpd_tmp1[],mpd_tmp2[];                                                       //temporÃ¤r zum Aufbau der Listview
+string mpd[];                                                                       //enthÃ¤lt die Anpassungszeilen in Reinform
+string mpd_view[];                                                                  //FÃ¼r manuelle Auswahl der Packages per Listview
 string mpd_search[];                                                                //Zum Suchen in der Liste
 string macro_name;                                                                  //Der Name des Platinenmakros
 string socket_str;                                                                  //Der Sockelaufruf wird hier zusammengebaut
-string slk_layers[]={"21,22,51,52","21,22,51,52","","21,22,23,24,25,26,27,28"};     //Enthält die Layer die für den BD genutzt werden
-string ukpack;                                                                      //Enthält die unbekannten Bauteile ->Ende der POVRay-Datei
+string slk_layers[]={"21,22,51,52","21,22,51,52","","21,22,23,24,25,26,27,28"};     //EnthÃ¤lt die Layer die fÃ¼r den BD genutzt werden
+string ukpack;                                                                      //EnthÃ¤lt die unbekannten Bauteile ->Ende der POVRay-Datei
 string pov_pack;                                                                    //Hier werden alle Packages reingeschrieben landet in .pov und .mpd
-string mpd_show_pic[];                                                              //Für die Anzeige des Bildes im manuellen Auswahldialog
-string tempar[];                                                                    //Temporäres Stringarray
-string anim_points_cam_flight_path[];                                               //Punkte für die Animation
-string anim_points_cam_view_path[];                                                 //Punkte für die Animation
-string packgen_layers;                                                              //Layer zur Erzeugung von Gehäusen
+string mpd_show_pic[];                                                              //FÃ¼r die Anzeige des Bildes im manuellen Auswahldialog
+string tempar[];                                                                    //TemporÃ¤res Stringarray
+string anim_points_cam_flight_path[];                                               //Punkte fÃ¼r die Animation
+string anim_points_cam_view_path[];                                                 //Punkte fÃ¼r die Animation
+string packgen_layers;                                                              //Layer zur Erzeugung von GehÃ¤usen
 
 real pcb_cuheight = 0.035;                                                          //Dicke der Kupferauflage
 real pcb_height = 1.5;                                                              //Dicke der Platine
@@ -147,30 +147,30 @@ real x1,x2,y1,y2;                                                               
 real x_max,y_max,x_min,y_min;                                                       //Die Maximalwerte der Platine
 real x_ver,y_ver;                                                                   //Verschiebung der Platine zur Platzierung vor der Kamera
 real angel;                                                                         //Drehwinkel von Leiterbahnen/Bauteilen
-real length;                                                                        //Länge von Leiterbahnen
+real length;                                                                        //LÃ¤nge von Leiterbahnen
 real width;                                                                         //Breite von Leiterbahnen
 real layer_dis;                                                                     //Variable zur Top/Bottom-Platzierung
 real temp;                                                                          //temp halt
-real ar_x[];                                                                        //Array für x-Werte
-real ar_y[];                                                                        //Array für y-Werte
-real ar_layerdis[];                                                                 //Array für Layerverschiebung
-real bedruck_dis = 0.001;                                                           //Zusätzlich Höhe des Bestückungsdruck über Leiterbahnen
-real pad_dis = 0.002;                                                               //Zusätzlich Höhe der Pad,Vias&SMD's über Leiterbahnen
-real boh_dis = 0.003;                                                               //Zusätzlich Höhe der Pseudobohrungen über Leiterbahnen
+real ar_x[];                                                                        //Array fÃ¼r x-Werte
+real ar_y[];                                                                        //Array fÃ¼r y-Werte
+real ar_layerdis[];                                                                 //Array fÃ¼r Layerverschiebung
+real bedruck_dis = 0.001;                                                           //ZusÃ¤tzlich HÃ¶he des BestÃ¼ckungsdruck Ã¼ber Leiterbahnen
+real pad_dis = 0.002;                                                               //ZusÃ¤tzlich HÃ¶he der Pad,Vias&SMD's Ã¼ber Leiterbahnen
+real boh_dis = 0.003;                                                               //ZusÃ¤tzlich HÃ¶he der Pseudobohrungen Ã¼ber Leiterbahnen
 real real_boh = 2.0;                                                                //Ab diesem Durchmesser werden reale Bohrungen erzeugt
-real lgt1_int, lgt2_int, lgt3_int, lgt4_int;                                        //Lichtintensität
-real via_silk = 0.0;                                                                //Unter diesem Durchmesser werden VIA's überlackiert
-real pcb_area;                                                                      //Fläche der Platine in mm^2
+real lgt1_int, lgt2_int, lgt3_int, lgt4_int;                                        //LichtintensitÃ¤t
+real via_silk = 0.0;                                                                //Unter diesem Durchmesser werden VIA's Ã¼berlackiert
+real pcb_area;                                                                      //FlÃ¤che der Platine in mm^2
 real ri,rj;                                                                         //Real-Schleifenvariablen
 
 //Das hier sind die beim Start eingestellten Optionen
 //This are the options which are selected on the start of the ULP
 int opt_bau = 1;                                                                    //Bauteile//Parts
 int opt_lei = 1;                                                                    //Leiterbahnen//Wires
-int opt_pad_top = 1;                                                                //Lötaugen//PAD's and SMD's OBEN
-int opt_pad_bottom = 1;                                                             //Lötaugen//PAD's and SMD's UNTEN
+int opt_pad_top = 1;                                                                //LÃ¶taugen//PAD's and SMD's OBEN
+int opt_pad_bottom = 1;                                                             //LÃ¶taugen//PAD's and SMD's UNTEN
 int opt_pol = 1;                                                                    //Polygone
-int opt_boh = 1;                                                                    //Bohrungen echte Löcher in der Platine/Leiterbahnen//real Holes
+int opt_boh = 1;                                                                    //Bohrungen echte LÃ¶cher in der Platine/Leiterbahnen//real Holes
 int opt_bohf = 0;                                                                   //Bohrungen angedeutet durch schwarze Zylinder//fast Holes
 int opt_obj = 1;                                                                    //Wenn aktiviert werden weitere Informationen in die POVRay-Datei geschrieben -> weiterer Konverter
 int opt_mup = 0;                                                                    //Unbekannte Bauteile markieren//mark unknown parts
@@ -178,15 +178,15 @@ int opt_spn = 1;                                                                
 int opt_pcb = 1;                                                                    //Platine einblenden//show PCB
 int opt_man = 0;                                                                    //Bauteile manuell zuordnen//user assigned models
 int opt_opcb = 0;                                                                   //Platine wir nicht aus Polygonen erzeugt//rec. Board
-int opt_bsd = 1;                                                                    //Bestückungsdruck (Layer21/22)//Silk Screen
-int opt_amb = 0;                                                                    //Sorgt für eine nicht allzu langweilige Umgebung//env
+int opt_bsd = 1;                                                                    //BestÃ¼ckungsdruck (Layer21/22)//Silk Screen
+int opt_amb = 0;                                                                    //Sorgt fÃ¼r eine nicht allzu langweilige Umgebung//env
 int opt_umpd = 0;                                                                   //Manuelle Zuordnung aus vorhergehendem Lauf benutzen//use mpd-File
 int opt_lang = 0;                                                                   //Sprachauswahl//language preset
-int opt_dur = 0;                                                                    //Durchbrüche erzeugen//create holes in the pcb
+int opt_dur = 0;                                                                    //DurchbrÃ¼che erzeugen//create holes in the pcb
 #41int opt_svg = 0;                                                                 //SVG Datei erzeugen
 //End
 
-int pack_count;                                                                     //Anzahl der aus pack.dat eingelesenen Gehäuse
+int pack_count;                                                                     //Anzahl der aus pack.dat eingelesenen GehÃ¤use
 int cam_inf[];                                                                      //Kamerainformation
 int lgt1_inf[];                                                                     //Licht1 Daten
 int lgt2_inf[];                                                                     //Licht2 Daten
@@ -198,31 +198,31 @@ int col_count;                                                                  
 int colc_r = 0;                                                                     //Farberzeugung Rot
 int colc_g = 0;                                                                     //Farberzeugung Gelb
 int colc_b = 0;                                                                     //Farberzeugung Blau
-int height_dlg = 3;                                                                 //Std.-Höhe für Quarzdialog
+int height_dlg = 3;                                                                 //Std.-HÃ¶he fÃ¼r Quarzdialog
 int i,j,k,l;                                                                        //Schleifenvariablen
 int layer_cnt;                                                                      //Anzahl benutzte Signallayer
-int layer_used[];                                                                   //Für jeden Signal-Layer der benutzt wird wird hier eine 1 eingetragen
+int layer_used[];                                                                   //FÃ¼r jeden Signal-Layer der benutzt wird wird hier eine 1 eingetragen
 int pcb_angel[];                                                                    //Drehwinkel der Platine um x,y und z-Achse
 int maindialog;                                                                     //Nimmt das Ergebnis des Hauptdialog zur Auswertung auf
-int socket_dlg=0;                                                                   //Rückgabe des Sockeldialog
-int jumper_dlg=0;                                                                   //Rückgabe des Jumperdialog
+int socket_dlg=0;                                                                   //RÃ¼ckgabe des Sockeldialog
+int jumper_dlg=0;                                                                   //RÃ¼ckgabe des Jumperdialog
 int pcb_shape;                                                                      //Form der Platine (rund/eckig)
-int pcb_round_main_p;                                                               //Radius des als Platine gewählten Circle
+int pcb_round_main_p;                                                               //Radius des als Platine gewÃ¤hlten Circle
 #41int pcb_arc_prc=10;                                                              //Anzahl der Drehungen bei einem Arc in der Platine.
-int mpd_slct;                                                                       //Index manuell ausgewähltes Package
+int mpd_slct;                                                                       //Index manuell ausgewÃ¤hltes Package
 int mpd_sort;                                                                       //The manual package selection dialog will be sorted after this column
-int mpd_dlg;                                                                        //Rückgabewert des MPD-Dialog
+int mpd_dlg;                                                                        //RÃ¼ckgabewert des MPD-Dialog
 int via_pos_x[],via_pos_y[],via_pos_d[];                                            //Hier werden alle VIA und PAD Positionen/Drill gespeichert
-#41int via_ls[],via_le[];                                                           //Informationen für Blind und Burried-Vias in 4.10
+#41int via_ls[],via_le[];                                                           //Informationen fÃ¼r Blind und Burried-Vias in 4.10
 int via_cnt;                                                                        //Anzahl der VIA's und PAD's
-int via_sort_i[];                                                                   //Sortierindex für VIA/PAD
+int via_sort_i[];                                                                   //Sortierindex fÃ¼r VIA/PAD
 int wrs_pos_x1[],wrs_pos_y1[],wrs_pos_x2[],wrs_pos_y2[],wrs_wdt[],wrs_l[],wrs_p[];  //Alle WIRES's aus Wires und Polygon werden hier eingetragen
 int wrs_cnt;                                                                        //Anzahl der wires
-int wrs_sort_i1[],wrs_sort_i2[];                                                    //Sortierindices für wires (x1,x2)
+int wrs_sort_i1[],wrs_sort_i2[];                                                    //Sortierindices fÃ¼r wires (x1,x2)
 int pol_pos_x1[],pol_pos_y1[],pol_pos_x2[],pol_pos_y2[],pol_wdt[],pol_l[],pol_p[];  //Alle WIRES's aus Polygon werden hier eingetragen
 int pol_cnt;                                                                        //Anzahl der Polygon-wires
-int pol_sort_i1[],pol_sort_i2[];                                                    //Sortierindices für Polygon-wires
-int eagle3d_layer=230;                                                              //Layer der von Eagle3D verwendet wird (z.Z. für Animationspunkte)
+int pol_sort_i1[],pol_sort_i2[];                                                    //Sortierindices fÃ¼r Polygon-wires
+int eagle3d_layer=230;                                                              //Layer der von Eagle3D verwendet wird (z.Z. fÃ¼r Animationspunkte)
 int anim_npoints_cam_flight_path=0;                                                 //Anzahl der gegebenen Punkte (Kameraflugpfad)
 int anim_npoints_cam_view_path=0;                                                   //Anzahl der gegebenen Punkte (Kamerablickpunktpfad)
 int anim_nframes=0;                                                                 //Anzahl der zu erzeugenden Frames
@@ -255,7 +255,7 @@ if(pack_con[0] != "") out_file = pack_con[0];
 if((pack_con[1] == "")||(pack_con[2] == ""))
 {
 
-    dlgDialog("Select Language/Sprache auswählen")
+    dlgDialog("Select Language/Sprache auswÃ¤hlen")
     {
         dlgHBoxLayout
         {
@@ -305,7 +305,7 @@ if((pack_con[1] == "")||(pack_con[2] == ""))
 }
 else
 {
-    //Wird gebraucht wenn Konfiguration zurückeschrieben wird!
+    //Wird gebraucht wenn Konfiguration zurÃ¼ckeschrieben wird!
     color_file = pack_con[1];
     lang_file = pack_con[2];
     config[1] = color_file;
@@ -322,14 +322,14 @@ else
 /*************************************
 *Read options from 3dconf.dat        *
 *************************************/
-//Layer für den Bestückungsdruck
+//Layer fÃ¼r den BestÃ¼ckungsdruck
 if(pack_con[3]!=""){config[3] = pack_con[3]; slk_layers[0] = pack_con[3];} else {config[3] = slk_layers[0];}
 if(pack_con[4]!=""){config[4] = pack_con[4]; slk_layers[1] = pack_con[4];} else {config[4] = slk_layers[1];}
 if(pack_con[5]!=""){config[5] = pack_con[5]; slk_layers[2] = pack_con[5];} else {config[5] = slk_layers[2];}
 if(pack_con[6]!=""){config[6] = pack_con[6]; slk_layers[3] = pack_con[6];} else {config[6] = slk_layers[3];}
 //Eagle3D Informationslayer
 if(pack_con[7]!=""){config[7] = pack_con[7]; eagle3d_layer = strtol(pack_con[7]);} else {sprintf(config[7],"%d",eagle3d_layer);}
-//Gehäusegenerierungslayer
+//GehÃ¤usegenerierungslayer
 if(pack_con[8]!=""){config[8] = pack_con[8]; packgen_layers = pack_con[8];} else {config[8] = packgen_layers;}
 //POVRay options
 if(pack_con[9]!=""){config[9] = pack_con[9]; pov_path = pack_con[9];} else {config[9] = pov_path;}
@@ -364,7 +364,7 @@ fileread(tempstr, conf_file);
 //Startmeldung
 if(tempstr=="") dlgMessageBox(lang[0]+"\n"+lang[1]+"\n"+lang[2]+"\n"+lang[3]);
 
-//Ermittlung einiger Werte der Platine für Einstellungen
+//Ermittlung einiger Werte der Platine fÃ¼r Einstellungen
 //Einstellungen von Kamera und Licht
 if(board)
 {
@@ -381,7 +381,7 @@ if(board)
         //Ausgabedatei setzen
         out_file = out_file + filesetext(filename(B.name), "") + ".pov";
 
-        //Boarddateiname für spätere Verwendung setzen
+        //Boarddateiname fÃ¼r spÃ¤tere Verwendung setzen
         brd_file = B.name;
         for(i=0;i<strlen(brd_file);i++) if(brd_file[i] == '\\') brd_file[i] = '/';
 
@@ -536,10 +536,10 @@ if(board)
         lgt4_inf[2] = -(y_max-y_min)*0.36;                                            //Licht4 Position Z
         if((x_max-x_min)>(y_max-y_min))
         {
-            lgt1_inf[1] = (x_max-x_min)*0.57;                                        //Licht1 Höhe
-            lgt2_inf[1] = (x_max-x_min)*0.57;                                        //Licht2 Höhe
-            lgt3_inf[1] = (x_max-x_min)*0.57;                                        //Licht3 Höhe
-            lgt4_inf[1] = (x_max-x_min)*0.57;                                        //Licht4 Höhe
+            lgt1_inf[1] = (x_max-x_min)*0.57;                                        //Licht1 HÃ¶he
+            lgt2_inf[1] = (x_max-x_min)*0.57;                                        //Licht2 HÃ¶he
+            lgt3_inf[1] = (x_max-x_min)*0.57;                                        //Licht3 HÃ¶he
+            lgt4_inf[1] = (x_max-x_min)*0.57;                                        //Licht4 HÃ¶he
         }
         else
         {
@@ -564,10 +564,10 @@ if(board)
         lgt2_inf[11] = 0;                                                    //Licht2 ohne schatten?
         lgt3_inf[11] = 0;                                                    //Licht3 ohne schatten?
         lgt4_inf[11] = 0;                                                    //Licht4 ohne schatten?
-        lgt1_int = 0.7+(pcb_area/70000);                                    //Licht1 Intensität
-        lgt2_int = 0.7+(pcb_area/70000);                                    //Licht2 Intensität
-        lgt3_int = 0.7+(pcb_area/70000);                                    //Licht3 Intensität
-        lgt4_int = 0.7+(pcb_area/70000);                                    //Licht4 Intensität
+        lgt1_int = 0.7+(pcb_area/70000);                                    //Licht1 IntensitÃ¤t
+        lgt2_int = 0.7+(pcb_area/70000);                                    //Licht2 IntensitÃ¤t
+        lgt3_int = 0.7+(pcb_area/70000);                                    //Licht3 IntensitÃ¤t
+        lgt4_int = 0.7+(pcb_area/70000);                                    //Licht4 IntensitÃ¤t
 
         B.layers(L)
         {
@@ -614,9 +614,9 @@ else
 }
 
 do{//do-Schleife um alles
-do{//do-Schleife für Sprachumstellung (dlgAccept(1000);)
+do{//do-Schleife fÃ¼r Sprachumstellung (dlgAccept(1000);)
 
-//Auswahlliste für Farbpresets laden
+//Auswahlliste fÃ¼r Farbpresets laden
 color_preset[0] = lang[107];
 color_preset[1] = lang[108];
 color_preset[2] = lang[112];
@@ -628,9 +628,9 @@ color_preset[5] = lang[109];
 //Farbnamen laden
 if(opt_lang==0)
 {
-    color_lgt[0] = "Weiß";
+    color_lgt[0] = "WeiÃŸ";
     color_lgt[1] = "Rot";
-    color_lgt[2] = "Grün";
+    color_lgt[2] = "GrÃ¼n";
     color_lgt[3] = "Blau";
     color_lgt[4] = "Gelb";
     color_lgt[5] = "Grau50";
@@ -692,7 +692,7 @@ maindialog = dlgDialog(lang[5] + "   " + filename(argv[0]))
                     dlgCell(7,1) dlgCheckBox(lang[21], opt_amb);
                     dlgCell(8,0) dlgCheckBox(lang[97], opt_umpd) if(opt_umpd==1) {opt_bau=0; opt_man=0; opt_mup=0;}
                     dlgCell(8,1) dlgCheckBox(lang[121], opt_dur) if(opt_dur==1);
-                    //Sorgt für gleichbleibende Breite des ULP-Fenster
+                    //Sorgt fÃ¼r gleichbleibende Breite des ULP-Fenster
                     dlgCell(9,0) dlgSpacing(220);
 #40                 dlgCell(9,1) dlgSpacing(230);
 #41                 dlgCell(9,1) dlgSpacing(240);
@@ -1126,10 +1126,10 @@ maindialog = dlgDialog(lang[5] + "   " + filename(argv[0]))
         dlgPushButton(lang[64]){dlgAccept(0);}
     }
 };
-//Für Sprachumstellung
+//FÃ¼r Sprachumstellung
 }while(maindialog==1000);
 
-//Abbruch bei schließen über das Kreuz
+//Abbruch bei schlieÃŸen Ã¼ber das Kreuz
 if(maindialog <= 0) exit(0);
 
 //Abbruch wenn keine Ausgabedatei angegeben
@@ -1138,7 +1138,7 @@ if(out_file==""){dlgMessageBox(lang[65]); exit(0);}
 //Schreiben der MPD-Datei
 if((opt_man==1)||(opt_bau==1)) output(mpd_file,"w") printf("//MPD-File\n");
 
-//Prüft ob in Ausgabedatei geschrieben werden konnte
+//PrÃ¼ft ob in Ausgabedatei geschrieben werden konnte
 fileerror();
 output(out_file,"w") printf("%s",usrinc);
 if (fileerror())
@@ -1215,7 +1215,7 @@ printf("\t#local pcb_wires = off;\n");
 printf("\t#local pcb_pads_smds = off;\n");
 printf("#end\n\n");
 
-//Lichtpositionen/Intensität
+//Lichtpositionen/IntensitÃ¤t
 printf("#local lgt1_pos_x = %d;\n",lgt1_inf[0]);
 printf("#local lgt1_pos_y = %d;\n",lgt1_inf[1]);
 printf("#local lgt1_pos_z = %d;\n",lgt1_inf[2]);
@@ -1236,15 +1236,15 @@ printf("#local lgt4_intense = %f;\n",lgt4_int);
 printf("\n//Do not change these values\n");
 printf("#declare pcb_height = %f;\n",pcb_height);
 printf("#declare pcb_cuheight = %f;\n",pcb_cuheight);
-//Platinenmaße ausgeben
+//PlatinenmaÃŸe ausgeben
 printf("#declare pcb_x_size = %f;\n",abs(x_max-x_min));
 printf("#declare pcb_y_size = %f;\n",abs(y_max-y_min));
 //Top und Bottom-Layer benutzt?
 printf("#declare pcb_layer1_used = %d;\n",layer_used[1]);
 printf("#declare pcb_layer16_used = %d;\n",layer_used[16]);
-//Wenn das hier off ist wird in sämtlichen INC's der Testmodus eingeschaltet
+//Wenn das hier off ist wird in sÃ¤mtlichen INC's der Testmodus eingeschaltet
 printf("#declare inc_testmode = off;\n");
-//Zufallsstrom für Widerstandsfarbgebung
+//Zufallsstrom fÃ¼r Widerstandsfarbgebung
 printf("#declare global_seed=seed(%d);\n",time()%1024);
 //Layerverschiebungen ausgeben
 printf("#declare global_pcb_layer_dis = array[16]\n{\n");
@@ -1253,7 +1253,7 @@ for(i=0;i<16;i++)
     printf("\t%f,\n",ar_layerdis[i]);
 }
 printf("}\n");
-//Durchmesser für reale Bohrungen
+//Durchmesser fÃ¼r reale Bohrungen
 printf("#declare global_pcb_real_hole = %f;\n",real_boh);
 
 
@@ -1653,7 +1653,7 @@ board(B)
     //*************************************************************************************
     if(opt_pcb==1)
     {
-        //Difference wenn reale Bohrungen oder Durchbrüche verwendet werden
+        //Difference wenn reale Bohrungen oder DurchbrÃ¼che verwendet werden
         if((opt_boh==1)||(opt_dur==1)) printf("difference{\n");
         
         //Rechteckige Platinen
@@ -1740,7 +1740,7 @@ board(B)
 
         if(opt_boh==1)
         {
-            //Parsing der Bohrungen (real) (Echte Durchbrüche ab Durchmesser >= real_boh)
+            //Parsing der Bohrungen (real) (Echte DurchbrÃ¼che ab Durchmesser >= real_boh)
             printf("//"+lang[72]+"\n");
             B.elements(E)
             {
@@ -1755,7 +1755,7 @@ board(B)
                 if(u2mm(H.drill)>=real_boh) printf("cylinder{<%f,1,%f><%f,-5,%f>%f texture{col_hls}}\n",u2mm(H.x),u2mm(H.y),u2mm(H.x),u2mm(H.y),u2mm(H.drill)/2);
             }
 
-            //Ausgabe der ins Array geschriebenen Durchkontaktierungen (Echte Durchbrüche)
+            //Ausgabe der ins Array geschriebenen Durchkontaktierungen (Echte DurchbrÃ¼che)
             printf("//"+lang[73]+"\n");
             for(i=0;i<via_cnt;i++)
             {
@@ -1778,7 +1778,7 @@ board(B)
         if(opt_dur==1)
         {
             if(pcb_shape==0)
-            {//Durchbrüche eckige Platine (z.Z. nur runde Durchbrüche)
+            {//DurchbrÃ¼che eckige Platine (z.Z. nur runde DurchbrÃ¼che)
                 B.circles(C)
                 {
                     if(C.layer == 20)
@@ -1789,7 +1789,7 @@ board(B)
                 }
             }
             else
-            {//Durchbrüche runde Platine
+            {//DurchbrÃ¼che runde Platine
                 B.circles(C)
                 {
                     if((pcb_round_main_p!=C.radius)&&(C.layer==20))
@@ -1824,7 +1824,7 @@ board(B)
                 }
             }
 
-            //Durchbrüche in packages
+            //DurchbrÃ¼che in packages
             B.elements(E)
             {
                 i=0;
@@ -1862,7 +1862,7 @@ board(B)
                 }
             }
         }
-        if((opt_boh==1)||(opt_dur==1)) printf("}//End difference(reale Bohrungen/Durchbrüche)\n");
+        if((opt_boh==1)||(opt_dur==1)) printf("}//End difference(reale Bohrungen/DurchbrÃ¼che)\n");
     }
 
     printf("#end\n");
@@ -1896,13 +1896,13 @@ board(B)
             sprintf(mpd_view[i],"%s\t%s\t%s",mpd_tmp2[0],mpd_tmp2[1],mpd_tmp2[2]);
         }
 
-        //Für mehrere ULP-Läufe muß hier neu initialiert werden
+        //FÃ¼r mehrere ULP-LÃ¤ufe muÃŸ hier neu initialiert werden
         pov_pack = "";
         ukpack = "";
 
         B.elements(E)
         {
-            string ps_tmp;              //Eingeführt für Prefix-Aufnahme
+            string ps_tmp;              //EingefÃ¼hrt fÃ¼r Prefix-Aufnahme
             string pack_tra[];          //Nimmt jeweils eine Zeile aus der 3dpack.dat
             string eagle_pack_names[];  //One single 3dpack.dat line supports more than one Eagle part.
                                         //This array holds the single names
@@ -1939,7 +1939,7 @@ board(B)
                         //Unbekannte Bauteile vermerken
                         sprintf(ukpack,"%s//%s\t%s\t%s\n",ukpack,E.name,E.value,E.package.name);
 
-                        //Markierung für unbekanntes Bauteil setzen
+                        //Markierung fÃ¼r unbekanntes Bauteil setzen
                         if((opt_mup==1)&&(opt_man==0))
                         {
                             if(E.mirror==1) layer_dis = -1; else layer_dis = 1;
@@ -2070,12 +2070,12 @@ board(B)
 
                     }//Manuelle Bauteilzuordnung
 
-                    //Das hier sorgt für die Prefixbeachtung zusammen mit einem speziellen
+                    //Das hier sorgt fÃ¼r die Prefixbeachtung zusammen mit einem speziellen
                     //Eintrag in der 3dpack.dat
                     depp = E.name;
                     if(pack_tra[18]=="1"){sprintf(ps_tmp,"%c%s",depp[0],ps_tmp); i=-1; continue;}
 
-                    //Sprachanpassung für Kommentare in der POVRay-Datei
+                    //Sprachanpassung fÃ¼r Kommentare in der POVRay-Datei
                     if((pack_tra[33]=="")||(opt_lang==0)) tmp_comment = pack_tra[32];
                     else tmp_comment = pack_tra[33];
 
@@ -2083,21 +2083,21 @@ board(B)
                     //Wenn ein Bauteil gefunden wurde wird dessen Bezeichner definiert
                     sprintf(pov_pack,"%s#ifndef(pack_%s) #declare global_pack_%s=yes; ",pov_pack,make_pov_str(E.name),make_pov_str(E.name));
 
-                    //Bauteile ohne Makro (z.B. SMD-Lötjumper)
+                    //Bauteile ohne Makro (z.B. SMD-LÃ¶tjumper)
                     if(pack_tra[8] == "1")
                     {
                         //sprintf(pov_pack,"%s#end//"+lang[80]+"\t\t\t\t%s %s %s\n",pov_pack,tmp_comment,E.name,E.value);
                         sprintf(pov_pack,"//"+lang[80]+"\t\t\t\t%s %s %s\n",tmp_comment,E.name,E.value);
                         printf("%s",pov_pack);
                         pov_pack = "";
-                        break;                                                                                                //Nächstes Element
+                        break;                                                                                                //NÃ¤chstes Element
                     }
 
                     sprintf(pov_pack,"%sobject {",pov_pack);
                     sprintf(pov_pack,"%s%s",pov_pack,pack_tra[31]);
-                    if(pack_tra[1] == "1") sprintf(pov_pack,"%s\"%s\",",pov_pack,E.name);                                    //Name des Gehäuse ausgeben?
+                    if(pack_tra[1] == "1") sprintf(pov_pack,"%s\"%s\",",pov_pack,E.name);                                    //Name des GehÃ¤use ausgeben?
                     if(pack_tra[2] == "1") sprintf(pov_pack,"%s\"%s\",",pov_pack,E.value);                                    //Value des Device ausgeben?
-                    if(pack_tra[3] == "1") sprintf(pov_pack,"%s%s,%s,",pov_pack,val2colors(E.value),color_t);                //Farbringe für Widerstand?
+                    if(pack_tra[3] == "1") sprintf(pov_pack,"%s%s,%s,",pov_pack,val2colors(E.value),color_t);                //Farbringe fÃ¼r Widerstand?
                     if(pack_tra[5] == "1")                                                                                     //LED-Optionen
                     {
                         real led_height=0;
@@ -2124,7 +2124,7 @@ board(B)
                         else sprintf(pov_pack,"%s0,",pov_pack);
                         sprintf(pov_pack,"%s%f,",pov_pack,led_height);
                     }
-                    if(pack_tra[7] == "1")                                                                 //Höhe erfragen-Optionen
+                    if(pack_tra[7] == "1")                                                                 //HÃ¶he erfragen-Optionen
                     {
                         dlgDialog(lang[83])
                         {
@@ -2215,7 +2215,7 @@ board(B)
                     //Bauteil plazieren
                     sprintf(pov_pack,"%srotate<0,%f,0> rotate<0,0,%d> translate<%f,%f,%f>",pov_pack,-E.angle,E.mirror*180,u2mm(E.x),-(pcb_height*E.mirror),u2mm(E.y));
 
-                    if(pack_tra[4] == "1")                                                                //SMD-Höhenoffset
+                    if(pack_tra[4] == "1")                                                                //SMD-HÃ¶henoffset
                     {
                         if(E.mirror==0) temp = pcb_cuheight; else temp = -pcb_cuheight;
                         sprintf(pov_pack,"%stranslate<0,%f,0> ",pov_pack,temp);
@@ -2242,7 +2242,7 @@ board(B)
                         }
                         if((socket_dlg==0)||(socket_dlg==2))
                         {
-                            sprintf(pov_pack,"%stranslate<0,%f,0> ",pov_pack,temp/10);        //Bauteil Höhenoffset
+                            sprintf(pov_pack,"%stranslate<0,%f,0> ",pov_pack,temp/10);        //Bauteil HÃ¶henoffset
                             sprintf(socket_str,"#ifndef(pack_%s) object{%s)",make_pov_str(E.name),pack_tra[10]);
                             sprintf(socket_str,"%srotate<0,%f,0> rotate<0,0,%d> translate<%f,%f,%f>",socket_str,-E.angle,E.mirror*180,u2mm(E.x),-(pcb_height*E.mirror),u2mm(E.y));
                             sprintf(socket_str,"%s}#end\t\t\t\t\t//%s %s %s\n",socket_str,pack_tra[12],E.name,E.value);    //Kommentar zum Sockel
@@ -2275,7 +2275,7 @@ board(B)
 
 
     //*************************************************************************************
-    //*                            Lötaugen/SMD's                                         *
+    //*                            LÃ¶taugen/SMD's                                         *
     //*************************************************************************************
 
     printf("#if(pcb_pads_smds=on)\n");
@@ -2653,7 +2653,7 @@ board(B)
     printf("}\n");
 
     //*************************************************************************************
-    //*                            Bestückungsdruck                                       *
+    //*                            BestÃ¼ckungsdruck                                       *
     //*************************************************************************************
 
     printf("#if(pcb_silkscreen=on)\n");
@@ -2918,8 +2918,8 @@ board(B)
         }
     }
 
-}//Schließt Boardkontext
-}//Schließt Outputstatement
+}//SchlieÃŸt Boardkontext
+}//SchlieÃŸt Outputstatement
 
 //Schreiben der INI-Datei wenn Animationspunkte vorhanden sind
 if(anim_npoints_cam_flight_path>2)
@@ -3010,7 +3010,7 @@ dlgMessageBox(lang[130]);
 mpd_dlg=0;
 socket_dlg=0;
 
-//Umschließende do-Schleife
+//UmschlieÃŸende do-Schleife
 }while(maindialog==2);
 
 

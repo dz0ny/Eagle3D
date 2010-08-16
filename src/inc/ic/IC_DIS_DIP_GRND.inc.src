@@ -5,11 +5,11 @@ DIP
 // Example: Some IC's, FET's, Optoisolators and Crystal Oscillators - (8, 14, 16, or 24) pin body, with only 4, 8 or 12 outer pins.
 // The " a= Available Pins" parameter is how many pins (modulo 4), are present on the intended DIP.
 
-//Grundmakro für DIP's
+//Grundmakro fÃ¼r DIP's
 //p=Pincount of a full DIL
 //a=Count of available pins, ( less than or equal to "p" )
 //b=breite (in Raster)
-//h=höhe
+//h=hÃ¶he
 //n=Beschriftung
 ####################################################################################################
 DIL02:0:1:0:0:0:1:0:0:0:SOCKET_DIP2(:30:IC-Sockel 2Pin:0:0:0:0:0:0:0:1:0:0:0:0:0:0:0:0:0:0:IC_DIS_DIP2(:DIP2:

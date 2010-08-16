@@ -1,8 +1,8 @@
-Kunststoffkˆrper von geraden und abgewinkelten Molex-Stiftleisten
+Kunststoffk√∂rper von geraden und abgewinkelten Molex-Stiftleisten
 // Tilmann Reh <tilmann.reh@autometer.de> 
-// Grundmakro: Kunststoffkˆrper von geraden und abgewinkelten Molex-Stiftleisten RM 2.54.
-// Parameter: Anzahl Pins. (-> Breite. Hˆhe/Tiefe sind konstant f¸r alle Grˆﬂen.)
-// Bezugspunkt: Mitte der Pins in Auflagefl‰che (gerade Ausf¸hrung).
+// Grundmakro: Kunststoffk√∂rper von geraden und abgewinkelten Molex-Stiftleisten RM 2.54.
+// Parameter: Anzahl Pins. (-> Breite. H√∂he/Tiefe sind konstant f√ºr alle Gr√∂√üen.)
+// Bezugspunkt: Mitte der Pins in Auflagefl√§che (gerade Ausf√ºhrung).
 ####################################################################################################
 ####################################################################################################
 MOLEX254

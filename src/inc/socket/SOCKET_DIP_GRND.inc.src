@@ -6,7 +6,7 @@ DIP Socket
 // The " a= Available Pins" parameter is how many pins (modulo 4), are present on the intended DIL SOCKET.
 
 
-//Grundmakro für DIL SOCKETS
+//Grundmakro fÃ¼r DIL SOCKETS
 //pin=Pincount of a full DIL
 //a=Count of available pin positions, ( less than or equal to "pin" )
 //breite=breite (in Raster)

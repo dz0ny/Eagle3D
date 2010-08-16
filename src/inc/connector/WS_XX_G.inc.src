@@ -1,7 +1,7 @@
 gerade Pfostenwannen
 // Tilmann Reh <tilmann.reh@autometer.de>
 // gerade Pfostenwannen
-// Bezugspunkt: geometrische Mitte der Pins auf PCB-Oberfl‰che
+// Bezugspunkt: geometrische Mitte der Pins auf PCB-Oberfl√§che
 ####################################################################################################
 ML6:0:0:0:0:0:0:0:0:0:0:0:0:0:180:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_DIS_WS6G(:Wannenstecker 6Pin:Shrouded Header 6Pin
 ML10:0:0:0:0:0:0:0:0:0:0:0:0:0:180:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_DIS_WS10G(:Wannenstecker 10Pin:Shrouded Header 10Pin

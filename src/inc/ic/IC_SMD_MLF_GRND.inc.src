@@ -8,13 +8,13 @@ SO
 //pin_u = Anzahl Pins "unten"
 //pitch = Abstand der einzelnen Pins
 //pin_br= Breite eines Pins
-//pin_h = Höhe eines Pins
+//pin_h = HÃ¶he eines Pins
 //pin_t = Tiefe eines Pins
 //HKoP  = Hoehe des Kunststoffs ueber der Platine (Y-Achse)
 //KORW  = Korrekturwinkel
 //kp1ab = Wenn 0, wird Abschraegung an Pin1 erzeugt
-//cool_x= Kühlfläche unter dem Chip (X-Achse)
-//cool_z= Kühlfläche unter dem Chip (Z-Achse)
+//cool_x= KÃ¼hlflÃ¤che unter dem Chip (X-Achse)
+//cool_z= KÃ¼hlflÃ¤che unter dem Chip (Z-Achse)
 ####################################################################################################
 NOEAGLEPAC:0:1:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:IC_SMD_MLF_28_050MM(:SMD IC MLF28 Package:
 MLF32:0:1:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:IC_SMD_MLF_32_050MM(:SMD IC MLF32 Package:
@@ -50,9 +50,9 @@ box{<-B/2,0,0><+B/2,H,T-B/2>}
 cylinder{<0,0,T-B/2><0,H,T-B/2>,B/2}
 texture{col_silver}}
 #end
-// Änderungen: von QFP-GRND übernommen (Eagle3D version 1.03 11.6.2205)
-// Beschreibung kp1ab geändert
-// Formatierung Quelltext geändert
+// Ã„nderungen: von QFP-GRND Ã¼bernommen (Eagle3D version 1.03 11.6.2205)
+// Beschreibung kp1ab geÃ¤ndert
+// Formatierung Quelltext geÃ¤ndert
 // Parameter pin_h umdefiniert
 // Parameter L und B entfernt
 // Parameter LK und BK am Anfang der Parameterliste
@@ -69,7 +69,7 @@ difference
         }
 #local scl_fa = BK/10;
 text{ttf besch_font value 0.2,0 scale<scl_fa,scl_fa,1> rotate<90,-90,0> translate<-LK/2+LK/4,H+HKoP+0.001,-BK/2+BK/6> pigment{White} }
-// Kühlfläche des Dies unter dem Chip
+// KÃ¼hlflÃ¤che des Dies unter dem Chip
 #if((cool_x!=0) & (cool_z!=0))
         object{TOOLS_PCB_SMD(cool_x,cool_z,H/2,15) texture{col_silver}}
 #end

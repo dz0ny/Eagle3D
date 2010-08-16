@@ -1,5 +1,5 @@
 Chip Widerstands array
-//SR(Tiefe, Breite, Hoehe, Breite Loetflaechen, Abstand Pin zu Pin, Anzahl Widerst‰nde, Schriftzug)
+//SR(Tiefe, Breite, Hoehe, Breite Loetflaechen, Abstand Pin zu Pin, Anzahl Widerst√§nde, Schriftzug)
 ####################################################################################################
 NOEAGLEPAC:0:0:0:1:0:0:0:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:RES_SMD_CHIP_ARRAY_4X0603_0612(:SMD Widerstands array 4x0603 0612:
 ####################################################################################################

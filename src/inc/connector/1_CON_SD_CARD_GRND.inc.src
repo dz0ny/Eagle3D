@@ -17,11 +17,11 @@ CON_SD_CARD_BLACK()
 ####################################################################################################
 #local b  = 24.0;       // Breite        
 #local b1 = 22.5;       // Breite dicker Teil
-#local l  = 32.0;       // Länge
-#local h  = 2.1;        // Höhe
-#local h1 = 1.4;        // Höhe dünner Teil
-#local s  = 4.0;        // Schräge
-#local s1 = s+b1-b;     // Schräge dicker Teil
+#local l  = 32.0;       // LÃ¤nge
+#local h  = 2.1;        // HÃ¶he
+#local h1 = 1.4;        // HÃ¶he dÃ¼nner Teil
+#local s  = 4.0;        // SchrÃ¤ge
+#local s1 = s+b1-b;     // SchrÃ¤ge dicker Teil
 #local r1 = 1.0;        // Radius
 #local r2 = 0.5;        // Radius
 #local k1 = sin(pi/4)*r1;
@@ -36,7 +36,7 @@ CON_SD_CARD_BLACK()
 #local labl_b = 13.8;
 #local labl_r = 1.5;
 
-#local pin_h = 1.4;     // Höhe der Pins
+#local pin_h = 1.4;     // HÃ¶he der Pins
 #local pin_a = 2.5;     // Pin Abstand
 #local pin_l = 6.05;    // Pinposition
 #local pin_s = 0.6;     // Steg zwischen den Pins
@@ -58,7 +58,7 @@ difference{
 #end 
 
 union{
-        // Kunststoffkörper
+        // KunststoffkÃ¶rper
         difference{
                 merge{
                         prism{ 0, h1 11
@@ -96,7 +96,7 @@ union{
                         translate< 0, labs_t, labs_z>
                 }
 
-                // Labelfläche
+                // LabelflÃ¤che
                 merge{
                         prism{ 0, -h, 9
                                 < -labl_l/2+labl_r, 0>, < labl_l/2-labl_r, 0>, < labl_l/2, labl_r>, < labl_l/2, labl_b-labl_r>,

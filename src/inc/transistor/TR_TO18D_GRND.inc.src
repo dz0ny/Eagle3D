@@ -13,8 +13,8 @@ TR_TO18D(value)
 ####################################################################################################
 union{
 cylinder{<0,0,0><0,14,0>0.24 texture{col_silver} translate<-0.8,0,-0.8>}                                          //linker Pin
-cylinder{<0,0,0><0,14,0>0.24 texture{col_silver} translate<1,0,1>}                                            //hinterer Pin Gehäuse
-union{                                                                                                          //Transitorkörper
+cylinder{<0,0,0><0,14,0>0.24 texture{col_silver} translate<1,0,1>}                                            //hinterer Pin GehÃ¤use
+union{                                                                                                          //TransitorkÃ¶rper
 torus{1.6 0.8 pigment {Silver} translate <0.12,19.3,0>}
 
 cylinder{<0,14,0><0,19.3,0>2.4 pigment{ Silver}translate<0.12,0,0>}

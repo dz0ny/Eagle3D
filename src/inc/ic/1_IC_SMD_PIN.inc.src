@@ -1,9 +1,9 @@
 SO Pin
-//Makro für Pin von SO und ähnlichem (Kopie von QFP-Pin)
-//H = Höhe des Pins
+//Makro fÃ¼r Pin von SO und Ã¤hnlichem (Kopie von QFP-Pin)
+//H = HÃ¶he des Pins
 //B = Breite des Pins
 //T = Tiefe des Pins
-//S = Materialstärke des Pins
+//S = MaterialstÃ¤rke des Pins
 ####################################################################################################
 ####################################################################################################
 IC_SMD_PIN

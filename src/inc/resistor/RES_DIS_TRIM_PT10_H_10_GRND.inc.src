@@ -1,6 +1,6 @@
 Piher-pot
-// Piher-Potentiometer PT-10 Horizontal Rastermaﬂ 10mm
-// Carsten Kˆgler <koegler@ftz-leipzig.de>
+// Piher-Potentiometer PT-10 Horizontal Rasterma√ü 10mm
+// Carsten K√∂gler <koegler@ftz-leipzig.de>
 ####################################################################################################
 PT-10:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:RES_DIS_TRIM_PT10_H_10(:PT10:PT10
 ####################################################################################################
@@ -21,17 +21,17 @@ union{
     // hinterer pin
     object {RES_DIS_TRIM_PT10_PIN() translate<0,0,5>}
 
-    // verl‰ngerung linker Pin
+    // verl√§ngerung linker Pin
     box{<-1.0,0,-0.05><1.0,5.9,0.05> translate<-2.5,0,-5> texture{col_silver}}
     // Abrunden
     cylinder{<-1,5.9,0><1,5.9,0>0.1 translate<-2.5,0,-4.95> texture{col_silver}}
     
-    // verl‰ngerung rechter Pin
+    // verl√§ngerung rechter Pin
     box{<-1.0,0,-0.05><1.0,5.9,0.05> translate<+2.5,0,-5> texture{col_silver}}
     // Abrunden
     cylinder{<-1,5.9,0><1,5.9,0>0.1 translate<+2.5,0,-4.95> texture{col_silver}}
     
-    // verl‰ngerung hinterer Pin
+    // verl√§ngerung hinterer Pin
     box{<-1.0,0,-0.05><1.0,2.0,0.05> translate<0,0,5> texture{col_silver}}
     // Abrunden
     difference{

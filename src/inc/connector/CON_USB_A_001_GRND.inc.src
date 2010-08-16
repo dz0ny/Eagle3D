@@ -1,5 +1,5 @@
 USB Connector Type A
-//Macro für USB-Buchse USB-787616 aus der con-amp.lib
+//Macro fÃ¼r USB-Buchse USB-787616 aus der con-amp.lib
 //12.10.2004
 //Designed by hebel23 <hebel(replace with at)hebel23.de> 
 ####################################################################################################
@@ -13,9 +13,9 @@ CON_USB_A_001()
 ####################################################################################################
 ####################################################################################################
 union{
-        /* Blechgehäuse  */               
+        /* BlechgehÃ¤use  */               
         difference{
-                box { <-7,2,0>,<7,8,14>} // Außenhülle
+                box { <-7,2,0>,<7,8,14>} // AuÃŸenhÃ¼lle
                 box { <-6.5, 2.5, -1>, <6.5, 7.5, 14> } // Aussparung in der Mitte
                 box { <-6.5, 0, 12>, <6.5, 7.5, 15> }  // Aussparung hinten
                 difference{                                      // Feder links oben                                      
@@ -45,8 +45,8 @@ union{
                 texture{col_silver}
                 } 
         union{
-                box { <-7, -2, 9.5>, <-6.5, 3, 11> }            // linke Lötlasche
-                box { <7, -2, 9.5>, <6.5, 3, 11> }              // rechte Lötasche
+                box { <-7, -2, 9.5>, <-6.5, 3, 11> }            // linke LÃ¶tlasche
+                box { <7, -2, 9.5>, <6.5, 3, 11> }              // rechte LÃ¶tasche
                 texture{col_silver}
                }
         union{       
@@ -58,7 +58,7 @@ union{
                 union{TOOLS_RECT_BOGEN(0.5,90,0.5,4,0,0)rotate<90,0,270>translate<3.5,2.25,-0.5>}
                 texture{col_silver}
                }
-        /* weißer Kontaktträger */
+        /* weiÃŸer KontakttrÃ¤ger */
         difference{
                 box { <-5,4,1>,<5,6,12>} // Quader in der Mitte
                 union{
@@ -92,7 +92,7 @@ union{
                 box { <3.2,-2,12.5>,<3.8,5,13>} // Kontakt 4 hinten
                 texture{col_gold}
              }
-        /* weißer Sockel */
+        /* weiÃŸer Sockel */
         union{      
                 difference{
                         box { <-6,0,2>,<6,2,12>} // Sockel links
@@ -108,11 +108,11 @@ union{
                                }                
                         difference{
                         box { <-6.5, 0.5, 12>, <6.5, 7.5, 14> } // Sockel hinten
-                        box { <-6, 2.5, 12.5>, <6, 8, 15> }  // Aussparung für Kontakte
-                        box { <-3.8,-2,12>,<-3.2,5,15> }  // Aussparung für Kontakte
-                        box { <-1.3,-2,12>,<-0.7,5,15> }  // Aussparung für Kontakte
-                        box { <0.7,-2,12>,<1.3,5,15> }  // Aussparung für Kontakte
-                        box { <3.2,-2,12>,<3.8,5,15> }  // Aussparung für Kontakte
+                        box { <-6, 2.5, 12.5>, <6, 8, 15> }  // Aussparung fÃ¼r Kontakte
+                        box { <-3.8,-2,12>,<-3.2,5,15> }  // Aussparung fÃ¼r Kontakte
+                        box { <-1.3,-2,12>,<-0.7,5,15> }  // Aussparung fÃ¼r Kontakte
+                        box { <0.7,-2,12>,<1.3,5,15> }  // Aussparung fÃ¼r Kontakte
+                        box { <3.2,-2,12>,<3.8,5,15> }  // Aussparung fÃ¼r Kontakte
                 texture{pigment{color White}}
                                 }
              }  

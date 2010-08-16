@@ -16,7 +16,7 @@ SO
 //di_pcb  = Abstand des Kunststoff zur Platine
 //kor_w   = Korrekturwinkel
 //pin0_m  = Pin-1-Markierung: 0 = keine, 1 = Farbklecks, 2 = Kerbe wie bei DIP, 3 = PowerSO, 4 = DPAK
-//pin0_45 = Wenn != 0 wird an der unteren Seite ein Winkel am Koerper von 45° statt 10° verwendet (SO)
+//pin0_45 = Wenn != 0 wird an der unteren Seite ein Winkel am Koerper von 45Â° statt 10Â° verwendet (SO)
 //pin0_a  = Abstand des Pin0-Kennzeichners vom Rand
 //besch_s = Scalefaktor der Beschriftung
 //besch_w = Wenn != 0 wird Beschriftung gedreht

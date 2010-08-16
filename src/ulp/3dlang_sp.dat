@@ -1,17 +1,17 @@
 Eagle3D (v1.05)
-(c)2002... 2008 Matthias Weiﬂer - TraducciÛn al espaÒol por Juan Enrique Castillo & cdr - updated Apr03-2008
+(c)2002... 2008 Matthias Wei√üer - Traducci√≥n al espa≈Ñol por Juan Enrique Castillo & cdr - updated Apr03-2008
 matthias@matwei.de
 Instrucciones y Licencia, por favor ver Eagle3D_e.pdf
 Este programa se ejecuta solo en el Circuito Impreso (.brd)
-Eagle3D (v1.05-2006) - Entrada de Par·metros
+Eagle3D (v1.05-2006) - Entrada de Par√°metros
 General
 Renderizar solo las siguientes partes:
 Componentes
-PolÌgonos [ Top/Bottom layer(1/2)]
+Pol√≠gonos [ Top/Bottom layer(1/2)]
 Pistas Top/Bottom
 Perforaciones de Sopore, PADs, Vias. (Hueco real)
 PADs,SMD, Vias
-Perforaciones de Sopore, PADs, Vias. (Modo r·pido)
+Perforaciones de Sopore, PADs, Vias. (Modo r√°pido)
 Exportar datos OBJ
 Asociar componentes desconocidos
 Usar modelos asignados
@@ -22,10 +22,10 @@ Pantalla artificial: [Siluetas, Huellas, Textos, Fig(Rec, Cir...)]
 Fondo (paisajismo)
 Under test. Por favor reporte
 a matthias@matwei.de
-°AtenciÛn!
+ƒÑAtenci√≥n!
 Taladros reales consumen
-potencia de CPU y tiempo de renderizaciÛn
-(Tarda m·s de 10 veces m·s que el modo r·pido)
+potencia de CPU y tiempo de renderizaci√≥n
+(Tarda m√°s de 10 veces m√°s que el modo r√°pido)
 Destino del archivo renderizado (*.POV) se debe crear en .../eagle3d/povray
 Buscar
 Destino de archivo
@@ -35,20 +35,20 @@ Grosor lamina de PCB-Board (en mm)
 Grosor lamina cobre PCB (en mm)
 [[[[]]]]
 Camara
-PosiciÛn
-PosiciÛn de Camara:
+Posici√≥n
+Posici√≥n de Camara:
 Objetivo Camera:
-Angulo lente cÛnica:
+Angulo lente c√≥nica:
 Activar
 Spot Color:
-Spot PosiciÛn:
+Spot Posici√≥n:
 Spot Objetivo:
 Luz lunar
 Radio:
-CaÌda:
+Ca√≠da:
 Sin sombras
 Colores
-SelecciÛn manual (sola para: Definido por el usuario)
+Selecci√≥n manual (sola para: Definido por el usuario)
 Circuito Impreso (Baquelita) Color:
 [Top/Bot : Pistas, Wire, Text, Cir, Arc, Polig ] Def Color : Cobre c/s esmaltar
 [Top/Bot : Rect ] Def Color : Cobre c/s esmaltar
@@ -60,7 +60,7 @@ Rojo
 Verde
 Azul
 Etiqueta
-AÒadir
+A≈Ñadir
 Color
 Cerrar ventana
 Archivo no seleccionado
@@ -68,38 +68,38 @@ Archivo POVRay creado por
 Circuito Impreso
 Pads&SMD/Componentes
 Pads/Vias
-SeÒales
-PolÌgonos
+Se≈Ñales
+Pol√≠gonos
 Taladros(real)/Componentes
 Taladros(real)/Vias
 Taladros(real)/Circuito Impreso
-Taladros(r·pido)/Componentes
-Taladros(r·pido)/Vias
-Taladros(r·pido)/Circuito Impreso
+Taladros(r√°pido)/Componentes
+Taladros(r√°pido)/Vias
+Taladros(r√°pido)/Circuito Impreso
 Pantalla artificial
 Componentes
 Componentes sin Macro (Ej. SMD Jumper soldadura)
 Opciones del paquete:
 transparente?       brillo =
 Seleccionar altura del XTAL
-Altura est·ndar del CRYSTALHC49* y SM49: 3  [mm]
-Altura est·ndar del CRYSTALHC18U-V:      12 [mm]        
+Altura est√°ndar del CRYSTALHC49* y SM49: 3  [mm]
+Altura est√°ndar del CRYSTALHC18U-V:      12 [mm]        
 Asignar paquete
 Asignar como paquete desconocido ?
 Luz
-Angulo de rotaciÛn de PCB
-Incluir ZÛcalo al paquete:
+Angulo de rotaci√≥n de PCB
+Incluir Z√≥calo al paquete:
 Si
-Sin zÛcalo este paquete
+Sin z√≥calo este paquete
 Multi-capa
 Movimiento de capa
 actual
 No asignar modelo
-Usar asignaciÛn de comp del archivo (?.mpd) ? = actual (*.brd) name.
-°PolÌgono con anchura menor a 0.1mm! Esto causa
+Usar asignaci√≥n de comp del archivo (?.mpd) ? = actual (*.brd) name.
+ƒÑPol√≠gono con anchura menor a 0.1mm! Esto causa
 archivos POVRay muy grandes. Esto consume
-mucho tiempo de renderizaciÛn.
-T˙ tienes que usar Eagle v4.08 o superior www.cadsoftusa.com
+mucho tiempo de renderizaci√≥n.
+T√∫ tienes que usar Eagle v4.08 o superior www.cadsoftusa.com
 Taladros reales desde [mm]
 //translates the camera that <0,0,0> is over the Eagle <0,0>
 Taladros metalizados Pads, SMD, vias con soldadura. Default Color: Gold
@@ -112,24 +112,24 @@ Crear archivo (*.POV) y NO cerrar
 El archivo (*.POV) se debe crear en ...\eagle3d\povray
 Con capa de barniz (FR4 Muecke)
 El archivo  
- existe.    øActualizarlo?
+ existe.    ≈ºActualizarlo?
 Si
 No
-.....    Todos los demas con zÛcalo    .....
-.....    Todos los demas sin zÛcalo    .....
+.....    Todos los demas con z√≥calo    .....
+.....    Todos los demas sin z√≥calo    .....
 Normal PCB
 Ronda PCB
-LÌmites
+L√≠mites
 Mascara de soldadura VIA's hasta (mm)
 Crear archivo (*.POV) y cerrar
-Error mientras se escribÌa archivo (*.POV)
+Error mientras se escrib√≠a archivo (*.POV)
 Comentario
 Buscar paquete
 Buscar macro POVRay
 Buscar comentario
 Intensidad
 Archivo PovRay creado correctamente, Abralo ahora con POV-RAY
-Cancelar asignaciÛn de modelos de usuario
+Cancelar asignaci√≥n de modelos de usuario
 !cambiar la carpeta del actual brd
 Capas Pantalla artificial [Place: top=21, bot=22] [Name: top=25, bot=26] [Value: top=27, bot=28] [Docu: top=51 , bot=52]
 Objetos del Paquete [T/B place(FootPrint/Poli), Docu(Text/Figure)] 21 22 {51 52}
@@ -147,12 +147,12 @@ Imagen no disponible
 mostrar imagen
 Altura [mm] de los pines del LED = 
 Varios
-Datos de animaciÛn
+Datos de animaci√≥n
 No/not enough Animation Data available (min. 3 puntos)
-Numero de Im·genes
+Numero de Im√°genes
 Flight path
 Ver carpeta
-CreaciÛn de paquete de capas
+Creaci√≥n de paquete de capas
 Sin capa de barniz
 Escoja Logo del paquete:
 Sin logo este paquete

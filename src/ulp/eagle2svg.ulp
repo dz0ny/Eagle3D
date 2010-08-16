@@ -2,7 +2,7 @@
 		"<p>"
 		"Use only for Eagle v4.10 and later"
 		"<p>"
-		"<author>Author: Matthias Weißer matthias@matwei.de</author>"
+		"<author>Author: Matthias WeiÃŸer matthias@matwei.de</author>"
 
 
 int indent_level = 0;		//Sets the level of idention
@@ -25,15 +25,15 @@ string remove_special_chars(string in)
 {
 	int i,j;
 		
-	while((i = strchr(in,'Ü'))!=-1) in[i] = 'U';
-	while((i = strchr(in,'Ä'))!=-1) in[i] = 'A';
-	while((i = strchr(in,'Ö'))!=-1) in[i] = 'O';
-	while((i = strchr(in,'ü'))!=-1) in[i] = 'U';
-	while((i = strchr(in,'ä'))!=-1) in[i] = 'A';
-	while((i = strchr(in,'ö'))!=-1) in[i] = 'O';
-	while((i = strchr(in,'ß'))!=-1) in[i] = 'S';
+	while((i = strchr(in,'Ãœ'))!=-1) in[i] = 'U';
+	while((i = strchr(in,'Ã„'))!=-1) in[i] = 'A';
+	while((i = strchr(in,'Ã–'))!=-1) in[i] = 'O';
+	while((i = strchr(in,'Ã¼'))!=-1) in[i] = 'U';
+	while((i = strchr(in,'Ã¤'))!=-1) in[i] = 'A';
+	while((i = strchr(in,'Ã¶'))!=-1) in[i] = 'O';
+	while((i = strchr(in,'ÃŸ'))!=-1) in[i] = 'S';
 	
-	in = str_replace(in,". -+&$+:;,!\"§%/()=#*~'<>µ[]",'_');
+	in = str_replace(in,". -+&$+:;,!\"Â§%/()=#*~'<>Ä¾[]",'_');
 
 	if((in[0]>='1')&&(in[0]<='9')) in[0] = 'Z';
 	

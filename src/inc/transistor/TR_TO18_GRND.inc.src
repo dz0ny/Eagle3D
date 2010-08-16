@@ -1,5 +1,5 @@
 TO18
-//TO18 Gehäuse stehend        
+//TO18 GehÃ¤use stehend        
 // Joerg Bredendiek <sprut(replace with at)sprut.de>   
 //based on Robert Eckelmann <dc6xs@dc6xs.de>
 ####################################################################################################
@@ -21,7 +21,6 @@ TR_TO18(value)
 (value)
 ####################################################################################################
 ####################################################################################################
-+####################################################################################################  
 union{       
         #if(pin_short=off)
                 #local tr_to18_pin=0;
@@ -30,10 +29,10 @@ union{
         #end    
 
         cylinder{<0,tr_to18_pin,0><0,14,0>0.24 texture{col_silver} translate<-1.27,0,-1.27>}                 //linker Pin
-        cylinder{<0,tr_to18_pin,0><0,14,0>0.24 texture{col_silver} translate<1.27,0,1.27>}                   //hinterer Pin Gehäuse
+        cylinder{<0,tr_to18_pin,0><0,14,0>0.24 texture{col_silver} translate<1.27,0,1.27>}                   //hinterer Pin GehÃ¤use
         cylinder{<0,tr_to18_pin,0><0,14,0>0.24 texture{col_silver} translate<1.27,0,-1.27>}                  //rechter Pin
 
-union{                                                                                                       //Transitorkörper
+union{                                                                                                       //TransitorkÃ¶rper
         torus{1.6 0.8 pigment {Silver} translate <0.12,19.3,0>}
         cylinder{<0,14,0><0,19.3,0>2.4 pigment{ Silver}translate<0.12,0,0>}
         cylinder{<0,19.3,0><0,20.1,0>1.6 pigment{ Silver}translate<0.12,0,0>}

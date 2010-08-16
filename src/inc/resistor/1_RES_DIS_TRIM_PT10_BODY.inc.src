@@ -1,6 +1,6 @@
 Body of Piher-pot
-// Grundmakro für Piher-Potentiometer PT-10
-// Carsten Kögler <koegler@ftz-leipzig.de>
+// Grundmakro fÃ¼r Piher-Potentiometer PT-10
+// Carsten KÃ¶gler <koegler@ftz-leipzig.de>
 ####################################################################################################
 ####################################################################################################
 RES_DIS_TRIM_PT10_BODY
@@ -11,13 +11,13 @@ RES_DIS_TRIM_PT10_BODY
 union {
 
 
-    // Plastikkörper
+    // PlastikkÃ¶rper
     difference{
        union{
-          // Grundkörper-  10.3 x 10.3 x 4.4 mm 
+          // GrundkÃ¶rper-  10.3 x 10.3 x 4.4 mm 
           superellipsoid{<1,0.08> scale<5.15,5.15,2.2> rotate<90,0,0> translate<0,2.2,0>  }
     
-          // Erhöhung in der Mitte oben
+          // ErhÃ¶hung in der Mitte oben
           cylinder{<0,2,0><0,4.5,0>2.5 }
        }
        cylinder{<0,-1,0><0,5.0,0>1.5}
@@ -53,7 +53,7 @@ union {
        cylinder{<0,0,0><0,1.0,0>2.0 texture{col_silver}}
        
     }
-    // weißes Innenteil
+    // weiÃŸes Innenteil
     #local my_angle = rand(global_seed)*270;
     difference{
        union{

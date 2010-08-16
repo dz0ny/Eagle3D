@@ -1,5 +1,5 @@
 TO92
-//TO92 Gehäuse stehend mittlerer Pin gebogen, raster 5.08 mm
+//TO92 GehÃ¤use stehend mittlerer Pin gebogen, raster 5.08 mm
 ####################################################################################################
 TO92L:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:TR_TO92_G2(:TO92 gerade stehend:TO92 straight vertical
 ####################################################################################################
@@ -33,7 +33,7 @@ union{
 	box{<-0.1,12,0><0.58,13,0.44> }                                                              //Abstandhalter mitte
 	box{<-0.1,12,0><0.58,13,0.44> translate< 1.27,0,0>}                                          //Abstandhalter rechts
 
-	difference{                                                                                  //Transitorkörper
+	difference{                                                                                  //TransitorkÃ¶rper
 		cylinder{<0,14,0><0,19.2,0>2.4 pigment{ Gray30}translate<0.12,0,0>}
             box{<-3,13.9,-1><3,20,-3> pigment{ Gray30}}}
 

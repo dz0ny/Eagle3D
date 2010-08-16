@@ -47,7 +47,7 @@ union
  
  box{<-3,3,3><3,10,-3> texture {T_Gold_1A } }                   
  
- union  // Spulenkörper
+ union  // SpulenkÃ¶rper
  {   
  
   

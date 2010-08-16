@@ -1,5 +1,5 @@
 USB Connector Type A
-//Macro für USB-Mini-Buchse MOLEX 54919-0578 (RS-Components Artikel: 418-0172)
+//Macro fÃ¼r USB-Mini-Buchse MOLEX 54919-0578 (RS-Components Artikel: 418-0172)
 //Designed by hebel23 <hebel(replace with at)hebel23.de>
 //24.10.2004
 ####################################################################################################
@@ -14,7 +14,7 @@ CON_USB_B_002()
 ####################################################################################################
 union{
     union{      
-     // Blechgehäuse                    
+     // BlechgehÃ¤use                    
     difference{      
     union{      
           union{TOOLS_RECT_BOGEN(0.25,90,0.25,8,4,0)translate<-3.355,0.15,-4>}
@@ -40,7 +40,7 @@ union{
              box { <-0.5, 3, -1>, <0.5,5,-5> }      
                 }
           }
-     // Lötfahnen
+     // LÃ¶tfahnen
      difference{     
      union{
           union{TOOLS_RECT_BOGEN(0.5,90,0.25,5.5,0.5,2.5)translate<3.85,0.1,-5.75>}
@@ -51,7 +51,7 @@ union{
           }
           texture{col_silver}
          }
-     // schwarzer Kontaktträger in der Mitte
+     // schwarzer KontakttrÃ¤ger in der Mitte
         difference{
                 box { <-2.5,1,-1>,<2.5,2,-7>} 
                 box { <-0.25,1.25,0>,<0.25,1.75,-8>} 
@@ -61,7 +61,7 @@ union{
                 box { <1.75,1.25,0>,<1.25,1.75,-8>} 
                 texture{pigment{color rgb <0.1, 0.1, 0.1>}}
                 }
-     // schwarzer Kontaktträger Hinten
+     // schwarzer KontakttrÃ¤ger Hinten
          difference{
                 box { <-3.75,0,-6>,<3.75,3.75,-8.5>} 
                 box { <-2,1.9,-7>,<3,4,-8.6>} 

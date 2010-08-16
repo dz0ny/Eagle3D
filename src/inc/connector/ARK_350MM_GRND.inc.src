@@ -1,5 +1,5 @@
 Anreiklemme 3,5mm
-//Grundmakro für Anreiklemme 3,50mm; Modified by Carsten Kögler, FTZ-Leipzig <koegler@ftz-leipzig.de>
+//Grundmakro fÃ¼r Anreiklemme 3,50mm; Modified by Carsten KÃ¶gler, FTZ-Leipzig <koegler@ftz-leipzig.de>
 ####################################################################################################
 NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:ARK_350MM_2(:connector: 
 NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:ARK_350MM_3(:connector:
@@ -40,30 +40,30 @@ ARK_350MM_12()
 (12)
 ####################################################################################################
 ####################################################################################################
-// Makro für einpolige Reihenklemme -> siehe ARK_350MM_GRND
+// Makro fÃ¼r einpolige Reihenklemme -> siehe ARK_350MM_GRND
 // Based on Macro "ARK_PIN", Designed by Friedrich Bleikamp, Lenord, Bauer & Co. Gmbh <fbleikamp@lenord.de>
-// Modified by Carsten Kögler, FTZ-Leipzig <koegler@ftz-leipzig.de>
+// Modified by Carsten KÃ¶gler, FTZ-Leipzig <koegler@ftz-leipzig.de>
 // Vorlage: RIA Anschlussklemme AKL 059-xx
 #macro ARK_PIN_350MM()
 union{
 
-// Einlötstift
+// EinlÃ¶tstift
 	cylinder{<0,-3.0,0><0,1.0,0>0.45 texture{col_silver}}
 	cone{<0,-3.0,0>0.45<0,-3.4,0>0.1 texture{col_silver}}
 
-// Plastikkörper
+// PlastikkÃ¶rper
 	difference{
 		box{<-1.75,0,-3.7><1.75,8.2,2.8>}               // Hauptbox
-		box{<-1.4 ,0.6,-4><1.4 ,5.1,2.2>}               // Loch für Drahteinführung
+		box{<-1.4 ,0.6,-4><1.4 ,5.1,2.2>}               // Loch fÃ¼r DrahteinfÃ¼hrung
 		box{<-0.75,-0.1,-4.01><0.75,1.1,1>}             // Schlitz in der unteren Mitte
 		box{<-1.5 ,-0.1,-1.5><1.5,0.7,1.5> rotate<0,45,0> translate<0,0,-4.8>}         // Schlitz etwas abrunden
-                box{<-2.6,5,0><2.6,0,-3> rotate<30,0,0> translate<0,4.6,-4>}      // Klemme vorne oben abschrägen
-		cylinder{<0,5.2,0><0,10,0>1.5}                  // Senkrechte Löcher für die Schraube - oben etwas weiter
+                box{<-2.6,5,0><2.6,0,-3> rotate<30,0,0> translate<0,4.6,-4>}      // Klemme vorne oben abschrÃ¤gen
+		cylinder{<0,5.2,0><0,10,0>1.5}                  // Senkrechte LÃ¶cher fÃ¼r die Schraube - oben etwas weiter
 		cylinder{<0,2.2,0><0,5.2,0>1.1}                 //                                    - unten kleiner
 
 	}
 
-// Abgeschrägten Innenteil hinzufügen (siehe Datenblatt)
+// AbgeschrÃ¤gten Innenteil hinzufÃ¼gen (siehe Datenblatt)
 	box{<-1.4 , 4.6,-1.9><1.4,5.1,2.8>}
         difference{
         	box{<-1.4 , -0.25,-0.25><1.4,0.25,0.25>}
@@ -80,7 +80,7 @@ union{
 
 // metallenes Innenleben
 	difference{
-		box{<-1.35,0.65,-1.9><1.35,4.4,2.5>}   // Hauptkörper
+		box{<-1.35,0.65,-1.9><1.35,4.4,2.5>}   // HauptkÃ¶rper
 		cylinder{<0,2.2,-2.0><0,2.2,2.6>1.1}    // Loch
 		cylinder{<0,2.2,0><0,5.2,0>1.1}
 		texture{col_silver}

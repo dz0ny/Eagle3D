@@ -1,9 +1,9 @@
-Kunststoffkörper von Pfostenwannen
+KunststoffkÃ¶rper von Pfostenwannen
 // Tilmann Reh <tilmann.reh@autometer.de>
-// Grundmakro: Kunststoffkörper von Pfostenwannen.
-// Verwendung für gerade und abgewinkelte Bauform jeweils in Verbindung mit entspr. Pinreihen.
-// Parameter: Breite. (Höhe/Tiefe sind konstant für alle Größen.)
-// Bezugspunkt: Mitte der Auflagefläche (gerade Ausführung).
+// Grundmakro: KunststoffkÃ¶rper von Pfostenwannen.
+// Verwendung fÃ¼r gerade und abgewinkelte Bauform jeweils in Verbindung mit entspr. Pinreihen.
+// Parameter: Breite. (HÃ¶he/Tiefe sind konstant fÃ¼r alle GrÃ¶ÃŸen.)
+// Bezugspunkt: Mitte der AuflageflÃ¤che (gerade AusfÃ¼hrung).
 ####################################################################################################
 ####################################################################################################
 PFOSTENWANNE

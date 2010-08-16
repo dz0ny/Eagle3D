@@ -2,7 +2,7 @@ SD_DO214
 // SMD-LED die zur Seite leuchtet - EVERLIGHT 12-215SURC/S530-A2/TR8
 // col = Farbe
 // tra = Durchsichtigkeit
-// height = Höhe
+// height = HÃ¶he
 // everyone1@freenet.de
 ####################################################################################################
 NOEAGLEPAC:0:0:0:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:DIODE_LED_SMD_SIDE(:Diskrete 3MM LED:

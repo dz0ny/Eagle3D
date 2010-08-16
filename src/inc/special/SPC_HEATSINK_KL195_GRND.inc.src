@@ -3,14 +3,14 @@ Kuehlkoerper
 //Designed by Philippe Boucheny <philippe.boucheny(replace with at)free.fr>
 //Rev. 1.1 - 04/01/06
 ####################################################################################################
-NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SPC_HEATSINK_KL195_25(:TO220 heatsink 6.2캜/W:
-NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SPC_HEATSINK_KL195_38(:TO220 heatsink 5.0캜/W:
-NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SPC_HEATSINK_KL195_50(:TO220 heatsink 4.2캜/W:
-NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SPC_HEATSINK_KL195_63(:TO220 heatsink 3.6캜/W:
-NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SPC_HEATSINK_KL195_25I(:TO220 heatsink 6.2캜/W isolated:
-NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SPC_HEATSINK_KL195_38I(:TO220 heatsink 5.0캜/W isolated:
-NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SPC_HEATSINK_KL195_50I(:TO220 heatsink 4.2캜/W isolated:
-NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SPC_HEATSINK_KL195_63I(:TO220 heatsink 3.6캜/W isolated:
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SPC_HEATSINK_KL195_25(:TO220 heatsink 6.2째C/W:
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SPC_HEATSINK_KL195_38(:TO220 heatsink 5.0째C/W:
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SPC_HEATSINK_KL195_50(:TO220 heatsink 4.2째C/W:
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SPC_HEATSINK_KL195_63(:TO220 heatsink 3.6째C/W:
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SPC_HEATSINK_KL195_25I(:TO220 heatsink 6.2째C/W isolated:
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SPC_HEATSINK_KL195_38I(:TO220 heatsink 5.0째C/W isolated:
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SPC_HEATSINK_KL195_50I(:TO220 heatsink 4.2째C/W isolated:
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SPC_HEATSINK_KL195_63I(:TO220 heatsink 3.6째C/W isolated:
 ####################################################################################################
 SPC_HEATSINK_KL195_GRND
 (Lg,Iso)

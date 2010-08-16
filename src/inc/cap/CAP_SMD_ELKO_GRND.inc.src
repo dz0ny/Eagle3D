@@ -1,12 +1,12 @@
 SMD-Elko radial
 //Grundmakro SMD-Elko
-//L = L‰nge
+//L = L√§nge
 //W = Breite
-//H = Hˆhe
-//D = Durchmesser Elkokˆrper
-//B = Breite Anschluﬂpin
-//S = Abstand Anschluﬂpins unten
-//C = L‰nge Anschluﬂpins
+//H = H√∂he
+//D = Durchmesser Elkok√∂rper
+//B = Breite Anschlu√üpin
+//S = Abstand Anschlu√üpins unten
+//C = L√§nge Anschlu√üpins
 ####################################################################################################
 140CLH-0810:0:1:0:1:0:0:0:0:0:0:0:0:0:180:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CAP_SMD_ELKO_0810(:SMD Elko Case-Code BCComponents (rcl.lib):
 140CLH-1010:0:1:0:1:0:0:0:0:0:0:0:0:0:180:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CAP_SMD_ELKO_1010(:SMD Elko Case-Code BCComponents (rcl.lib):

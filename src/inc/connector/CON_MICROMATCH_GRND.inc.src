@@ -51,7 +51,7 @@ CON_MICROMATCH_20()
 union   {
         difference{
                 union   {
-                        // Grundkörper
+                        // GrundkÃ¶rper
                         box{<-plastic_x/2+0.5, 0 ,-plastic_z/2+0.5> <plastic_x/2-0.5, plastic_Y, plastic_z/2-0.5> }
                         
                         // Kranz
@@ -75,7 +75,7 @@ union   {
                         #end
                 }
                         
-                // Ausschnitte im Kunststoff für SMD Pins
+                // Ausschnitte im Kunststoff fÃ¼r SMD Pins
                 #if (frm = 0)
                         #local i=0;
                         #while(i<(pin/2))
@@ -85,7 +85,7 @@ union   {
                         #end
                 #end
 
-                // Löcher für Stecker
+                // LÃ¶cher fÃ¼r Stecker
                 #local i=0;
                 #while(i<(pin/2))
                         box{<-0.2,-1,0><0.2,6,1.5> translate<-(pin/2-0.5)*pitch+pitch*i*2,0,0>}
@@ -111,7 +111,7 @@ union   {
                         #local i=i+1;
                 #end
         #else
-                // Anschlußdraht
+                // AnschluÃŸdraht
                 #if(pin_short=off)
                         #local pp=3.0;
                 #else

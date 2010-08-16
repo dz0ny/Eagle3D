@@ -1,8 +1,8 @@
 Gerader, quadratischer Stift eines Steckverbinders
 // Tilmann Reh <tilmann.reh@autometer.de>
 // Grundmakro: Gerader, quadratischer Stift eines Steckverbinders.
-// Verwendung für gerade Pfostenwannen sowie z.B. Wago-Steckerleisten.
-// Parameter: Stärke, Höhe über/unter PCB-Oberkante, Farbe
+// Verwendung fÃ¼r gerade Pfostenwannen sowie z.B. Wago-Steckerleisten.
+// Parameter: StÃ¤rke, HÃ¶he Ã¼ber/unter PCB-Oberkante, Farbe
 ####################################################################################################
 ####################################################################################################
 PIN_STRAIGHT

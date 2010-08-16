@@ -1,12 +1,12 @@
 Elko
 //Elko Grundmakro   
-//bearbeitet von Walter Mücke
+//bearbeitet von Walter MÃ¼cke
 //tex_scale     vector um die Textur zu strecken/stauchen
-//val_size      Größe der Beschriftung
+//val_size      GrÃ¶ÃŸe der Beschriftung
 //dis           Abstand der Pins      
 //dia           Radius des Elkos 
-//hig           Höhe des Kondensator 
-//dia_b         Radius des Anschlußdrahtes
+//hig           HÃ¶he des Kondensator 
+//dia_b         Radius des AnschluÃŸdrahtes
 //value         Beschriftungstext            
 ####################################################################################################
 E2-5:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CAP_DIS_ELKO_2MM_5MM(:Elko 2mm Pitch, 5mm Durchmesser, 11mm Hoehe:Elko 2mm Pitch, 5mm  Diameter, 11mm High
@@ -60,7 +60,7 @@ CAP_DIS_ELKO_7MM5_18MM(value)
 union{
 	difference{
 		union{
-			cylinder{<0,0.5,0><0,hig-0.5,0>dia}									//Elko Körper
+			cylinder{<0,0.5,0><0,hig-0.5,0>dia}									//Elko KÃ¶rper
 			torus{dia-0.5,0.5 translate<0,hig-0.5,0>}							//Elko Rundung oben
 			difference{
 				cylinder{<0,hig-0.5,0><0,hig,0>dia-0.5}
@@ -69,7 +69,7 @@ union{
 			torus{dia-0.5,0.5 translate<0,0.5,0>}								//Elko Rundung unten
 		}
 		torus{dia+0.85,1 translate<0,2.5,0>}									//Aussparung unten
-		pigment{image_map{png "tex_elko.png"}scale tex_scale}					//Textur für Minusmarkierung
+		pigment{image_map{png "tex_elko.png"}scale tex_scale}					//Textur fÃ¼r Minusmarkierung
         finish{reflection { 0.03, 0.1}  phong 0.4 crand 0.05 ambient (0.1 * global_ambient_mul)}
 	}
 	difference{

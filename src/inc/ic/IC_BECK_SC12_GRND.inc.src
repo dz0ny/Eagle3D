@@ -42,7 +42,7 @@ union
 		box{<-23,-1,0><23,10,-5> rotate<3,0,0> translate<0,0,-11>} //Schraege lange Seite
 		box{<-23,-1,0><23,10,5> rotate<-3,0,0> translate<0,0,11>} //Schraege lange Seite
 			
-		box{<-6,8.3,-5>,<6,10,5>} //Aufkleberfl‰che*/
+		box{<-6,8.3,-5>,<6,10,5>} //Aufkleberfl√§che*/
 		
 		cylinder{<-20.5,9.0,-9.5>,<-20.5,10.0,-9.5> 0.25}
 		

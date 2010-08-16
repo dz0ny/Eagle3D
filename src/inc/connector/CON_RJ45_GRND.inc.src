@@ -102,31 +102,31 @@ union
 {
    difference
    {
-      // Aussenabmaße : 15.8  x  13.0  x  21.4 mm
+      // AussenabmaÃŸe : 15.8  x  13.0  x  21.4 mm
       union
       {
          object {body(15.8,13.0,21.4,0.3) translate<7.9,0,10.7>  }
          box{<0,12.0,0.2><0.5,13,7.7> }
          box{<15.5,12.0,0.2><15.8,13,7.7>}
       }
-      // das Ganze aushöhlen
+      // das Ganze aushÃ¶hlen
       box{<0.25 ,-1 , 0.2><15.8-0.25 ,13.0-0.25,21.4-0.25>}
       
-      // Vorne typischer Ausbruch für Stecker
+      // Vorne typischer Ausbruch fÃ¼r Stecker
       stecker1
 
       // kleiner Schlitz hinten oben
       box{<3.5,13-0.35,21.4-0.35><15.8-3.5,13+0.35,21.4+0.35> }
 
       // Schlitze an den Seiten
-      // Schrägen hinten (links und rechts)
+      // SchrÃ¤gen hinten (links und rechts)
       box{<-0.3,-0.1,-1.64><0.3,0.1,2.0> rotate<-45,0,0> translate<0,10.5+1.15+0.04,10-1.15+0.02+11.2>}
       box{<15.8-0.3,-0.1,-1.64><16,0.1,2.0> rotate<-45,0,0> translate<0,10.5+1.15+0.04,10-1.15+0.02+11.2>}
       // Senkrechten
       box{<-1,-1,18.8><20,10.6,19.00>}
       // waagerechte hinten
       box{<-1,10.45,10><20,10.65,18.8> }
-      // Schrägen vorne
+      // SchrÃ¤gen vorne
       box{<-1,-0.1,-1.52><20,0.1,1.64> rotate<45,0,0> translate<0,10.5+1.15+0.04,10-1.15+0.02> }
       // waagerechte vorn
       box{<-1,12.6,0.2><20,12.8,7.82>}
@@ -143,7 +143,7 @@ union
    superellipsoid{<0.3,0.3> scale<0.35,0.35,0.35> translate<15.8-0.35,1.4,20.1> texture{tex_rj45_metal}}
    superellipsoid{<0.3,0.3> scale<0.35,0.35,0.35> translate<15.8-0.35,8.4,20.1> texture{tex_rj45_metal}}
 
-   // Schirmanschlüsse
+   // SchirmanschlÃ¼sse
    box     {<0   , 1, 14-0.75><0.2     , -4,14+0.75> texture{tex_rj45_metal}}
    cylinder{<0   ,-4, 14     ><0.2     , -4,14     > 0.75 texture{tex_rj45_metal}}
    box     {<15.8, 1, 14-0.75><15.8-0.2, -4,14+0.75> texture{tex_rj45_metal}}
@@ -158,7 +158,7 @@ union
       texture{tex_rj45_pastic}
     }
  
-   // Plastikfüße zur Befestigung
+   // PlastikfÃ¼ÃŸe zur Befestigung
    difference
    {
       cylinder{<2,-3.5,14-3.05><2,1,14-3.05> 1.5}
@@ -216,7 +216,7 @@ union
    object { pin_intern  translate<+1.27-2.54,0,0>}
    object { pin_intern  translate<+1.27-5.08,0,0>}
  
-   translate<0,0.5,0>  // Anhebung um höhe der Plastikrollen
+   translate<0,0.5,0>  // Anhebung um hÃ¶he der Plastikrollen
    translate<-15.8/2,0,-21.4/2>  // 0-Punkt in die Mitte der Buchse platzieren
 }
 #end

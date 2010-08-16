@@ -1,5 +1,5 @@
 Buchsenleisten
-//Grundmakro für Buchsenleisten
+//Grundmakro fÃ¼r Buchsenleisten
 ####################################################################################################
 FE05-1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:BL_1X5(:Buchsenleiste 5Pin 1Reihe (con-lsta.lib):Female Header  5Pin 1Row (con-lsta.lib)     
 FE06:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:BL_1X6(:Buchsenleiste 6Pin 1Reihe (con-lsta.lib):Female Header  6Pin 1Row (con-lsta.lib)       

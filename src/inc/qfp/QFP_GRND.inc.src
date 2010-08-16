@@ -1,19 +1,19 @@
-//Makro f¸r QFP-Gah‰use aller Art
-//L     = L‰nge ¸ber alles (x-Achse)
-//B     = Breite ¸ber alles (z-Achse)
-//H     = Hˆhe des Kunststoff (Y-Achse)
+//Makro f√ºr QFP-Gah√§use aller Art
+//L     = L√§nge √ºber alles (x-Achse)
+//B     = Breite √ºber alles (z-Achse)
+//H     = H√∂he des Kunststoff (Y-Achse)
 //pin_l = Anzahl Pins links
 //pin_r = Anzahl Pins rechts
 //pin_o = Anzahl Pins "oben"
 //pin_u = Anzahl Pins "unten"
 //pitch = Abstand der einzelnen Pins
 //pin_br= Breite eines Pins
-//pin_h = St‰rke des Pinmaterials
-//LK    = L‰nge des Kunststoff (x-Achse)
+//pin_h = St√§rke des Pinmaterials
+//LK    = L√§nge des Kunststoff (x-Achse)
 //BK    = Breite des Kunststoff (z-Achse)
-//HKoP  = Hˆhe des Kunststoffs ¸ber der Platine (Y-Achse)
+//HKoP  = H√∂he des Kunststoffs √ºber der Platine (Y-Achse)
 //KORW  = Korrekturwinkel
-//kp1ab = Wenn nicht 0 wird keine Abschr‰gung an Pin1 erzeugt
+//kp1ab = Wenn nicht 0 wird keine Abschr√§gung an Pin1 erzeugt
 //logo  = Name of the logo
 ####################################################################################################
 LQFP-64:0:1:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:1:0:0:0:0:0:0:0:0:0:0:QFP_LQFP_64_050MM(:LQFP-64:
@@ -43,10 +43,10 @@ QFP_GRND
 //LQFP-64 aus DS80C390 Datasheet
 QFP_LQFP_64_050MM(value,logo)
 (12,12,1.4,16,16,16,16,0.5,0.22,0.15,10,10,0.1,0,0,logo)
-//TQFP-32 Maﬂe von www.altera.com
+//TQFP-32 Ma√üe von www.altera.com
 QFP_TQFP_32_080MM(value,logo)
 (9,9,1.17,8,8,8,8,0.8,0.37,0.15,7,7,0.1,90,0,logo)
-//TQFP-44 Maﬂe von www.altera.com
+//TQFP-44 Ma√üe von www.altera.com
 QFP_TQFP_44_080MM(value,logo)
 (12,12,1.17,11,11,11,11,0.8,0.37,0.15,10,10,0.1,90,0,logo)
 //PQFP-48
@@ -57,34 +57,34 @@ QFP_LQFP_48_050MM(value,logo)
 (9,9,1.1,12,12,12,12,0.5,0.22,0.1,7,7,0.22,90,0,logo)
 QFP_TQFP_64_080MM(value,logo)
 (16,16,1.2,16,16,16,16,0.8,0.35,0.15,14,14,0.1,90,0,logo)
-//TQFP-100 Maﬂe von www.altera.com
+//TQFP-100 Ma√üe von www.altera.com
 QFP_TQFP_100_050MM(value,logo)
 (16,16,1.17,25,25,25,25,0.5,0.22,0.15,14,14,0.1,90,0,logo)
-//TQFP-144 Maﬂe von www.altera.com
+//TQFP-144 Ma√üe von www.altera.com
 QFP_TQFP_144_050MM(value,logo)
 (22,22,1.17,36,36,36,36,0.5,0.22,0.15,20,20,0.1,90,0,logo)
-//PQFP-44 Maﬂe von www.altera.com
+//PQFP-44 Ma√üe von www.altera.com
 QFP_PQFP_44_080MM(value,logo)
 (13.2,13.2,2,11,11,11,11,0.8,0.37,0.1,10,10,0.2,90,0,logo)
-//PQFP-100 Maﬂe von www.altera.com
+//PQFP-100 Ma√üe von www.altera.com
 QFP_PQFP_100_065MM(value,logo)
 (24.3,18.3,1.95,20,20,30,30,0.65,0.3,0.1,21,15,0.15,90,0,logo)
-//PQFP-160 Maﬂe von www.altera.com
+//PQFP-160 Ma√üe von www.altera.com
 QFP_PQFP_160_065MM(value,logo)
 (31.2,31.1,3.4,40,40,40,40,0.65,0.3,0.1,28,28,0.32,90,0,logo)
-//PQFP-208 Maﬂe von www.altera.com
+//PQFP-208 Ma√üe von www.altera.com
 QFP_PQFP_208_050MM(value,logo)
 (30.8,30.8,3.4,52,52,52,52,0.5,0.22,0.1,28,28,0.32,90,0,logo)
-//PQFP-240 Maﬂe von www.altera.com
+//PQFP-240 Ma√üe von www.altera.com
 QFP_PQFP_240_050MM(value,logo)
 (34.5,34.5,3.4,60,60,60,60,0.5,0.22,0.1,32,32,0.32,90,0,logo)
-//SQFP-R-14X20-100 Maﬂe von M16C/62 Geh‰use QFP100-P-1420-0.65
+//SQFP-R-14X20-100 Ma√üe von M16C/62 Geh√§use QFP100-P-1420-0.65
 QFP_SQFP_R_14X20_100_065MM(value,logo)
 (22.8,16.8,2.8,20,20,30,30,0.65,0.3,0.15,20,14,0.1,0,1,logo)
 // Philips LPC2148 SQFP-S-10X10-64
 QFP_SQFP_S_10X10_64_050MM(value,logo)
 (12.0,12.0,2.8,16,16,16,16,0.5,0.22,0.15,10,10,0.1,0,1,logo)
-//PQFP-128 Maﬂe von www.micrel.com
+//PQFP-128 Ma√üe von www.micrel.com
 QFP_PQFP_128_050MM(value,logo)
 (23.2,17.2,3.4,26,26,38,38,0.50,0.22,0.1,20,14,0.1,0,1,logo)
 //TQFP-112

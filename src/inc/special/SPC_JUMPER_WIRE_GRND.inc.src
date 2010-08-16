@@ -6,17 +6,17 @@ Wire jumper
 //If value is set in Eagle (1 to 9), colors can be passed to POV, by Emil Crisbaseanu
 //<emilcrisba(at)gmail.com>
 ####################################################################################################
-NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SPC_JUMPER_WIRE_5MM(:Drahtbrücke:Wire jumper
-NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SPC_JUMPER_WIRE_7MM(:Drahtbrücke:Wire jumper
-NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SPC_JUMPER_WIRE_10MM(:Drahtbrücke:Wire jumper
-NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SPC_JUMPER_WIRE_12MM(:Drahtbrücke:Wire jumper
-NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SPC_JUMPER_WIRE_15MM(:Drahtbrücke:Wire jumper
-NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SPC_JUMPER_WIRE_17MM(:Drahtbrücke:Wire jumper
-NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SPC_JUMPER_WIRE_20MM(:Drahtbrücke:Wire jumper
-NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SPC_JUMPER_WIRE_22MM(:Drahtbrücke:Wire jumper
-NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SPC_JUMPER_WIRE_25MM(:Drahtbrücke:Wire jumper
-NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SPC_JUMPER_WIRE_27MM(:Drahtbrücke:Wire jumper
-NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SPC_JUMPER_WIRE_30MM(:Drahtbrücke:Wire jumper
+NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SPC_JUMPER_WIRE_5MM(:DrahtbrÃ¼cke:Wire jumper
+NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SPC_JUMPER_WIRE_7MM(:DrahtbrÃ¼cke:Wire jumper
+NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SPC_JUMPER_WIRE_10MM(:DrahtbrÃ¼cke:Wire jumper
+NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SPC_JUMPER_WIRE_12MM(:DrahtbrÃ¼cke:Wire jumper
+NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SPC_JUMPER_WIRE_15MM(:DrahtbrÃ¼cke:Wire jumper
+NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SPC_JUMPER_WIRE_17MM(:DrahtbrÃ¼cke:Wire jumper
+NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SPC_JUMPER_WIRE_20MM(:DrahtbrÃ¼cke:Wire jumper
+NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SPC_JUMPER_WIRE_22MM(:DrahtbrÃ¼cke:Wire jumper
+NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SPC_JUMPER_WIRE_25MM(:DrahtbrÃ¼cke:Wire jumper
+NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SPC_JUMPER_WIRE_27MM(:DrahtbrÃ¼cke:Wire jumper
+NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SPC_JUMPER_WIRE_30MM(:DrahtbrÃ¼cke:Wire jumper
 ####################################################################################################
 SPC_JUMPER_WIRE_GRND
 (Lg,value)

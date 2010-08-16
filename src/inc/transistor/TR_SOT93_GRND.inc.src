@@ -9,7 +9,7 @@ TO3
 //               S = Offset des Bauteils bezueglich = auf der Y-Achse (Y-Separation)
 //               B = Position des Knicks der Pins auf der Z-Achse (Bend position)
 //               V = Beschriftung (Value)
-// Description : Dieses Macro generiert ein SOT93 Package für horizontale und vertikale Montage.
+// Description : Dieses Macro generiert ein SOT93 Package fÃ¼r horizontale und vertikale Montage.
 //               This macro generates a SOT93 package for horizontal and vertical mounting.
 ####################################################################################################
 TOP3:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:TR_SOT93_H(:Transistor TOP3-Gehaeuse (SOT93), horizontale Montage: Transistor TOP3-Package (SOT93), horizontal mounting

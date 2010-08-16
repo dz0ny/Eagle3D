@@ -1,7 +1,7 @@
 gerade Molex-Stiftleisten RM 2.54
 // Tilmann Reh <tilmann.reh@autometer.de>
 // gerade Molex-Stiftleisten RM 2.54.
-// Bezugspunkt: Mitte der Pins auf PCB-Oberfl‰che
+// Bezugspunkt: Mitte der Pins auf PCB-Oberfl√§che
 ####################################################################################################
 MSF2:0:0:0:0:0:0:0:0:0:0:0:0:0:180:0:0:2.54:0:0:0:0:0:0:0:0:0:0:0:0:0:MOLEX_PSL2G(:PC mount header:
 MSF3:0:0:0:0:0:0:0:0:0:0:0:0:0:180:0:0:2.54:0:0:0:0:0:0:0:0:0:0:0:0:0:MOLEX_PSL3G(:PC mount header:

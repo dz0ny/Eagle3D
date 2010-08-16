@@ -45,7 +45,7 @@ union{
 		cylinder{<0,tr_to39_pin ,0><0,14,0>0.24 texture{col_silver} translate< 2.54,0,0>}      //rechter Pin
 	#end
 
-	union{                                                                                                       //Transistorkörper
+	union{                                                                                                       //TransistorkÃ¶rper
 		torus{4.2 0.8 pigment {P_Silver3} translate <0.12,19.3,0>}
 		cylinder{<0,14,0><0,19.3,0>5 pigment{ P_Silver3}translate<0.12,0,0>}
 		cylinder{<0,19.3,0><0,20.1,0>4.2 pigment{ P_Silver3}translate<0.12,0,0>}

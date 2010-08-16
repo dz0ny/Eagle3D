@@ -1,8 +1,8 @@
 Eagle3D (v###VERSIONDUMMY###)
-(c)2002,2003 Matthias Weiﬂer - Traduzione IT by Luigi ERROI
+(c)2002,2003 Matthias Wei√üer - Traduzione IT by Luigi ERROI
 matthias@matwei.de                      matrix274@alice.it
 Per le istruzioni e la licenza d'uso vedi Eagle3D_e.pdf
-Questo convertitore funziona solo in modalit‡ "BOARD"
+Questo convertitore funziona solo in modalit≈ï "BOARD"
 Eagle3D (v###VERSIONDUMMY###) Parametri di Input
 Generale
 Render
@@ -23,9 +23,9 @@ Sfondo Immagine
 In sperimentazione. Prego, inviare commenti
 a: matthias@matwei.de
 Attenzione!
-Fori in modalit‡ "REAL" richiedono
+Fori in modalit≈ï "REAL" richiedono
 potenza di calcolo e tempo di rendering
-(Pi˘ di 10 volte la modalit‡ FAST)
+(Pi≈Ø di 10 volte la modalit≈ï FAST)
 File di destinazione
 Sfoglia
 File di destinazione
@@ -96,7 +96,7 @@ Movimento del layer
 attuale
 Non assegnare modello
 Assegna da file brdname.mpd
-Larghezza Poligono inferiore a 0.1mm! Questo puÚ causare
+Larghezza Poligono inferiore a 0.1mm! Questo pu≈à causare
 un files di Povray molto grande. Richiede molto
 Tempo per il rendering.
 Devi usare Eagle v4.08 o superiore
@@ -127,9 +127,9 @@ Commenti
 Cerca package
 Cerca POVRay-macro
 Cerca commento
-Intensit‡
+Intensit≈ï
 File POVRay scritto con successo
-Esci modalit‡ "assegnati dall'utente"
+Esci modalit≈ï "assegnati dall'utente"
 Imposta il percorso del file .BRD
 Questi strati sono usati per la serigrafia
 Disegno del Contenitore
@@ -148,7 +148,7 @@ Mostra Immagine
 anheben um:
 Varie
 Dati Animazione
-Disponibilit‡ di dati non sufficiente per Animazione (min. 3 points)
+Disponibilit≈ï di dati non sufficiente per Animazione (min. 3 points)
 Numero di Frames
 Percorso per Flight
 Percorso per visione

@@ -1,9 +1,9 @@
 SUBD Platinenmonatge
-//Makro für DSUBD Andreas Fecht <info@vetter-und-fecht.de>
+//Makro fÃ¼r DSUBD Andreas Fecht <info@vetter-und-fecht.de>
 //modifiziert und erweitert von Duane Clark <dclark@akamail.com>
-//etwas mißbraucht zur Kantenmontage durch USER_Ma(China)
-//Modifikation zur exakten Ausrichtung auf halbe Platinenhöhe: Wolfgang Moser <womo (a) d81.de>
-//Erweitert für stehende print Montage von Stefan Seegel
+//etwas miÃŸbraucht zur Kantenmontage durch USER_Ma(China)
+//Modifikation zur exakten Ausrichtung auf halbe PlatinenhÃ¶he: Wolfgang Moser <womo (a) d81.de>
+//Erweitert fÃ¼r stehende print Montage von Stefan Seegel
 ####################################################################################################
 M09D:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_DSUB_M9D(:SUB-D 9polig Platinenmonatge maennlich:SUB-D 9 Pins PCB-mount male
 M15D:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_DSUB_M15D(:SUB-D 15polig Platinenmonatge maennlich:SUB-D 15 Pins PCB-mount male

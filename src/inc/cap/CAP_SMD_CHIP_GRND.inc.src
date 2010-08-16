@@ -1,6 +1,6 @@
 Keramik SMD-Kondensator
-//Grundmakro für SMD-Keramik-Chip-Kondensator (neu Parameter K = Anschlussbreite)
-//basiert auf Makro von Walter Mücke
+//Grundmakro fÃ¼r SMD-Keramik-Chip-Kondensator (neu Parameter K = Anschlussbreite)
+//basiert auf Makro von Walter MÃ¼cke
 ####################################################################################################
 NOEAGLEPAC:0:0:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CAP_SMD_CHIP_2220(DarkWood:SMD Kondensator 2220:SMD Capacitor 2220
 C1825:0:0:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CAP_SMD_CHIP_1825(DarkWood:SMD Kondensator 1825:SMD Capacitor 1825
@@ -39,7 +39,7 @@ CAP_SMD_CHIP_0402(color_sub)
 ####################################################################################################
 ####################################################################################################
 union{
-	superellipsoid{<0.25-(L+W)/150, 0.25-(L+W)/150> pigment{color_sub} scale<L/2,W/2,T/2> }     //Grundkörper braun
+	superellipsoid{<0.25-(L+W)/150, 0.25-(L+W)/150> pigment{color_sub} scale<L/2,W/2,T/2> }     //GrundkÃ¶rper braun
 	superellipsoid{<0.25-(L+W)/200, 0.25-(L+W)/200> scale<(K+L/100)/2,W/2,T/2> translate <(L-K)/2,0,0> texture{col_silver}}      //rechter Anschluss
 	superellipsoid{<0.25-(L+W)/200, 0.25-(L+W)/200> scale<(K+L/100)/2,W/2,T/2> translate <-(L-K)/2,0,0> texture{col_silver}}      //linker Anschluss
 	rotate<90,0,0>

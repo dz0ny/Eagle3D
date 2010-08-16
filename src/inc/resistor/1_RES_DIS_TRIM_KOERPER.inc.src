@@ -1,5 +1,5 @@
 Spektrol-Poti
-// Grundmakro für Spektrol-Potis
+// Grundmakro fÃ¼r Spektrol-Potis
 // Andreas Rebmann <A.Rebmann-Elektrotechnik@t-online.de>
 // geteilt und modifiziert ich@ossiostborn.de alias CArt
 // Grundmacro des Quaders - Breite=B , Tiefe = T, Hoehe = H
@@ -11,7 +11,7 @@ RES_DIS_TRIM_KOERPER
 ####################################################################################################
 ####################################################################################################
 union {
-    // Grundkörper
+    // GrundkÃ¶rper
     box{<-B/2+0.2, 0.15 , T/2    > <B/2-0.2,H-0.2,-T/2>     pigment{Farbe}}
     box{<-B/2,     0.15 ,-T/2+0.2> <B/2,    H-0.2, T/2-0.2> pigment{Farbe}}
     box{<-B/2+0.2, H-0.2,-T/2+0.2> <B/2-0.2,H    , T/2-0.2> pigment{Farbe}}

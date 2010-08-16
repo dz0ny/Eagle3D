@@ -1,7 +1,7 @@
 SD_DO214
 // Tilmann Reh <tilmann.reh@autometer.de>
-// SMD-Diodengehäuse DO214, drei Varianten: -AA (SMB), -AB (SMC), -AC (SMA).
-// Parameter: Länge, Breite, Höhe des Kunststoffkörpers, Länge incl. Pins, Breite der Anschlüsse.
+// SMD-DiodengehÃ¤use DO214, drei Varianten: -AA (SMB), -AB (SMC), -AC (SMA).
+// Parameter: LÃ¤nge, Breite, HÃ¶he des KunststoffkÃ¶rpers, LÃ¤nge incl. Pins, Breite der AnschlÃ¼sse.
 ####################################################################################################
 DO214AC:0:0:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:DIODE_SMD_DO214AC(:DO214 AC:
 DO214AA:0:0:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:DIODE_SMD_DO214AA(:DO214 AA:

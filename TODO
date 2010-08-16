@@ -6,7 +6,6 @@
 - All of the Eagle3D supplied inc files should be prefixed with e3d_.
 - Test the build system under windows (cygwin)
 - Get rid of the shell scripts in tools/ and do it all with perl
-- Check and correct all the text files to valid utf-8
 - Get rid of the .inc.src files and create a more modern macro definition
   file format.
 - Translate all the comments in the ULP/INC files to english

@@ -1,7 +1,7 @@
 Reihe gebogener quadratischer Stifte
 // Tilmann Reh <tilmann.reh@autometer.de>
-// Grundmakro: Reihe gebogener quadratischer Stifte z.B. für Pfostenwannen oder Wago-Stecker.
-// Parameter: Anzahl Pins, Pitch, Stärke, Radius, Höhen über/unter PCB, Länge, Farbe.
+// Grundmakro: Reihe gebogener quadratischer Stifte z.B. fÃ¼r Pfostenwannen oder Wago-Stecker.
+// Parameter: Anzahl Pins, Pitch, StÃ¤rke, Radius, HÃ¶hen Ã¼ber/unter PCB, LÃ¤nge, Farbe.
 // Bezugspunkt: Mitte der Pinreihe.
 ####################################################################################################
 ####################################################################################################

@@ -59,7 +59,7 @@ CON_SD_CONNECTOR_YAMAICHI_FPS_NO_CARD()
 
 
 union{
-        // Metallkörper
+        // MetallkÃ¶rper
 //        box{ <-4.98, 0, 0> < 23.02, h, 29.0> }
         difference{
                 prism{ 0, h, 25
@@ -81,7 +81,7 @@ union{
                 texture{ col_silver finish { phong 1  ambient (0.1 * global_ambient_mul)} }
         }
         
-        // Kunststoffkörper
+        // KunststoffkÃ¶rper
         difference{
                 merge{
                         prism{ 0, h-bl_d-ua, 9

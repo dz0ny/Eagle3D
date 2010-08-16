@@ -1,5 +1,5 @@
 MicroMatch
-// Makro fuer AMP-tyco MicroMatch-Federleiste SMD-Ausführung
+// Makro fuer AMP-tyco MicroMatch-Federleiste SMD-AusfÃ¼hrung
 // pin  - Anzahl Kontakte
 ####################################################################################################
 NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_MICROMATCH_SMD_4(:SMD MicroMatch 4:

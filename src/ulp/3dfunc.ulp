@@ -18,7 +18,7 @@
 
 #usage	"<b>functions for Eagle3D v###VERSIONDUMMY###</b>"
 		"<p>"
-		"<author>Author: Matthias Weißer matthias@matwei.de</author>"
+		"<author>Author: Matthias WeiÃŸer matthias@matwei.de</author>"
         
 string val2colors(string val)
 {
@@ -163,12 +163,12 @@ string val2colors(string val)
 }
         
 
-//Wandelt den Widerstandswert in eine Dreifarbkombination zur Übergabe an DR
-//Widerstanswert müßen angegeben werden als Zahlen bzw. ZahlenBuchstabenkombination
+//Wandelt den Widerstandswert in eine Dreifarbkombination zur Ãœbergabe an DR
+//Widerstanswert mÃ¼ÃŸen angegeben werden als Zahlen bzw. ZahlenBuchstabenkombination
 //100 = 100Ohm = Braun,Schwarz,Braun
 //4k7 = 4,7kOhm = Gelb,Violett,Rot
 //12k = 12000Ohm = Braun,Rot,Orange
-//1M = 1000000Ohm = Braun,Schwarz,Grün
+//1M = 1000000Ohm = Braun,Schwarz,GrÃ¼n
 //1R2 = 1,2Ohm = Braun,Rot,Gold
 string rval2color(string val)
 {
@@ -181,9 +181,9 @@ string rval2color(string val)
 	//Dezimaltrennzeichen
 	k = strchr(val, ',');
 	if(k != -1) val[k] = '.';
-	//Großschreibung
+	//GroÃŸschreibung
 	val = strupr(val);
-	//Dezimaltrennzeichen für R
+	//Dezimaltrennzeichen fÃ¼r R
 	k = strchr(val, 'R');
 	if(k != -1) val[k] = '.';
 	//Darstellung des Widerstandswert in 100tel Ohm
@@ -281,8 +281,8 @@ string rval2color(string val)
 }
 
 
-//Wandelt den Widerstandswert in eine Dreizahlkombination zur Übergabe an SR 0402,0603 usw.
-//Widerstanswert müßen angegeben werden als Zahlen bzw. ZahlenBuchstabenkombination
+//Wandelt den Widerstandswert in eine Dreizahlkombination zur Ãœbergabe an SR 0402,0603 usw.
+//Widerstanswert mÃ¼ÃŸen angegeben werden als Zahlen bzw. ZahlenBuchstabenkombination
 //100 = 100Ohm = 101
 //12k = 12000Ohm = 123
 //1M = 1000000Ohm = 105
@@ -299,9 +299,9 @@ string rval2rcde(string val)
 	//Dezimaltrennzeichen
 	k = strchr(val, ',');
 	if(k != -1) val[k] = '.';
-	//Großschreibung
+	//GroÃŸschreibung
 	val = strupr(val);
-	//Dezimaltrennzeichen für R
+	//Dezimaltrennzeichen fÃ¼r R
 	k = strchr(val, 'R');
 	if(k != -1) val[k] = '.';
 	
@@ -406,9 +406,9 @@ string rval2rcde(string val)
 	return out;
 }
 
-//Gibt einen formatierten String zurück der eine Linie zeichnen kann
+//Gibt einen formatierten String zurÃ¼ck der eine Linie zeichnen kann
 //erwartet Angaben in units
-//c_x1 und c_x2 erzeugen Abschlußzylinder wenn 1
+//c_x1 und c_x2 erzeugen AbschluÃŸzylinder wenn 1
 string create_line(int ix1, int iy1, int ix2, int iy2, int iwid, real t, real dis, int c_x1, int c_x2)
 {
 	string out,tmp;
@@ -446,9 +446,9 @@ string create_line(int ix1, int iy1, int ix2, int iy2, int iwid, real t, real di
 	return out+tmp;
 }     
 
-//Gibt einen formatierten String zurück der einen ARC zeichnen kann
+//Gibt einen formatierten String zurÃ¼ck der einen ARC zeichnen kann
 //erwartet Angaben in units
-//c_x1 und c_x2 erzeugen Abschlußzylinder wenn 1
+//c_x1 und c_x2 erzeugen AbschluÃŸzylinder wenn 1
 string create_arc(int xc, int yc, int r, int w, real a1, real a2, real t, real dis, int c_x1, int c_x2)
 {
 	string out,tmp;
@@ -490,15 +490,15 @@ string make_pov_str(string in)
 {
 	int i,j;
 		
-	while((i = strchr(in,'Ü'))!=-1) in[i] = 'U';
-	while((i = strchr(in,'Ä'))!=-1) in[i] = 'A';
-	while((i = strchr(in,'Ö'))!=-1) in[i] = 'O';
-	while((i = strchr(in,'ü'))!=-1) in[i] = 'U';
-	while((i = strchr(in,'ä'))!=-1) in[i] = 'A';
-	while((i = strchr(in,'ö'))!=-1) in[i] = 'O';
-	while((i = strchr(in,'ß'))!=-1) in[i] = 'S';
+	while((i = strchr(in,'Ãœ'))!=-1) in[i] = 'U';
+	while((i = strchr(in,'Ã„'))!=-1) in[i] = 'A';
+	while((i = strchr(in,'Ã–'))!=-1) in[i] = 'O';
+	while((i = strchr(in,'Ã¼'))!=-1) in[i] = 'U';
+	while((i = strchr(in,'Ã¤'))!=-1) in[i] = 'A';
+	while((i = strchr(in,'Ã¶'))!=-1) in[i] = 'O';
+	while((i = strchr(in,'ÃŸ'))!=-1) in[i] = 'S';
 	
-	in = strreplace(in,". -&$+:;,!\"\"§%/()=#*~'<>µ[]",'_');
+	in = strreplace(in,". -&$+:;,!\"\"Â§%/()=#*~'<>Ä¾[]",'_');
 
 	if((in[0]>='1')&&(in[0]<='9')) in[0] = 'Z';
 	
@@ -537,7 +537,7 @@ real calc_distance(int x1, int y1, int x2, int y2)
 	return sqrt(dx*dx + dy*dy);
 }
 
-//Erzeugt ein prism-Objekt aus dem übergebenen UL_BOARD 
+//Erzeugt ein prism-Objekt aus dem Ã¼bergebenen UL_BOARD 
 string make_prism_from_board_layer(UL_BOARD B, int layer, int precision, real lower, real upper, string texture)
 {
 	string out;
@@ -558,7 +558,7 @@ string make_prism_from_board_layer(UL_BOARD B, int layer, int precision, real lo
 
 	sprintf(out,"%sprism{%f,%f,%d\n",out,lower,upper,i);
 	
-	//Array in dem die bearbeiteten Segmente für den Boardumriss eingetragen werden
+	//Array in dem die bearbeiteten Segmente fÃ¼r den Boardumriss eingetragen werden
 	int processed_board_segments[];
 	
 	for(k=0;k<j;k++)
@@ -577,7 +577,7 @@ string make_prism_from_board_layer(UL_BOARD B, int layer, int precision, real lo
 		l=0;
 		cur_segment = -1;
 		cur_dist = 1e308;
-		//nächstgelegenes Segment suchen
+		//nÃ¤chstgelegenes Segment suchen
 		B.wires(W)
 		{	    															
 			if((W.layer == layer)&&(processed_board_segments[l]==0))
@@ -677,7 +677,7 @@ string make_prism_from_board_layer(UL_BOARD B, int layer, int precision, real lo
 	return out;
 }
 
-//Erzeugt ein prism-Objekt aus den Wires der im übergebenen UL_BOARD befindelichen packages
+//Erzeugt ein prism-Objekt aus den Wires der im Ã¼bergebenen UL_BOARD befindelichen packages
 string make_prism_from_board_elements_package_layer(UL_BOARD B, int layer, int precision, real lower, real upper, string texture)
 {
 	string out;
@@ -701,7 +701,7 @@ string make_prism_from_board_elements_package_layer(UL_BOARD B, int layer, int p
 
 	sprintf(out,"%sprism{%f,%f,%d\n",out,lower,upper,i);
 	
-	//Array in dem die bearbeiteten Segmente für den Boardumriss eingetragen werden
+	//Array in dem die bearbeiteten Segmente fÃ¼r den Boardumriss eingetragen werden
 	int processed_board_segments[];
 	
 	for(k=0;k<j;k++)
@@ -720,7 +720,7 @@ string make_prism_from_board_elements_package_layer(UL_BOARD B, int layer, int p
 		l=0;
 		cur_segment = -1;
 		cur_dist = 1e308;
-		//nächstgelegenes Segment suchen
+		//nÃ¤chstgelegenes Segment suchen
 		B.elements(E)
 		{
             E.package.wires(W)
@@ -827,7 +827,7 @@ string make_prism_from_board_elements_package_layer(UL_BOARD B, int layer, int p
 }
 
 
-//Erzeugt ein prism-Objekt aus dem übergebenen UL_PACKAGE
+//Erzeugt ein prism-Objekt aus dem Ã¼bergebenen UL_PACKAGE
 string make_prism_from_package_layer(UL_PACKAGE P, int layer, int precision, real lower, real upper, string texture)
 {
 	string out;
@@ -853,7 +853,7 @@ string make_prism_from_package_layer(UL_PACKAGE P, int layer, int precision, rea
 
 	sprintf(out,"%sprism{%f,%f,%d\n",out,lower,upper,i);
 	
-	//Array in dem die bearbeiteten Segmente für den Boardumriss eingetragen werden
+	//Array in dem die bearbeiteten Segmente fÃ¼r den Boardumriss eingetragen werden
 	int processed_board_segments[];
 	
 	for(k=0;k<j;k++)
@@ -872,7 +872,7 @@ string make_prism_from_package_layer(UL_PACKAGE P, int layer, int precision, rea
 		l=0;
 		cur_segment = -1;
 		cur_dist = 1e308;
-		//nächstgelegenes Segment suchen
+		//nÃ¤chstgelegenes Segment suchen
 		P.wires(W)
 		{	    															
 			if((W.layer == layer)&&(processed_board_segments[l]==0))
@@ -972,7 +972,7 @@ string make_prism_from_package_layer(UL_PACKAGE P, int layer, int precision, rea
 	return out;
 }
 
-//Erzeugt ein Gehäuse aus den übergebenen Layern als union{prism{} prism{} ...}
+//Erzeugt ein GehÃ¤use aus den Ã¼bergebenen Layern als union{prism{} prism{} ...}
 string create_case_from_layers_in_element(UL_ELEMENT E, string layers, real pcb_height)
 {
 	string dbg;
@@ -1020,7 +1020,7 @@ string create_case_from_layers_in_element(UL_ELEMENT E, string layers, real pcb_
 			}
 		}
 		
-		//Prüfen ob die Farbangabe ein komplette POVRay texture ist
+		//PrÃ¼fen ob die Farbangabe ein komplette POVRay texture ist
 		if(strstr(color,"texture")==-1)
 		{
 			if(strstr(color,"pigment")==-1)
@@ -1031,7 +1031,7 @@ string create_case_from_layers_in_element(UL_ELEMENT E, string layers, real pcb_
 			color = "texture{" + color + "}";
 		}
 		
-		//Höheninformationen generieren
+		//HÃ¶heninformationen generieren
 		if(E.mirror)
 		{
 			top = -pcb_height;

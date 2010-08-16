@@ -1,5 +1,5 @@
 Chip Widerstand
-//SR(Tiefe, Breite, Hoehe, Breite Lötfläche, Schriftzug)
+//SR(Tiefe, Breite, Hoehe, Breite LÃ¶tflÃ¤che, Schriftzug)
 ####################################################################################################
 R2512:0:0:0:1:0:0:0:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:RES_SMD_CHIP_2512(:SMD Widerstand 2512:SMD Resistor 2512
 R2010:0:0:0:1:0:0:0:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:RES_SMD_CHIP_2010(:SMD Widerstand 2010:SMD Resistor 2010

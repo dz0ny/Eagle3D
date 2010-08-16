@@ -110,13 +110,13 @@ union{
                 #local srand = (33-breite) / 2;
                 #local links =-pin/4*2.54-11.36;
                 #local rechts= pin/4*2.54+7.36;
-                // beim 40WW (240-3639-00-0602J) ist das Geh‰use etwas k¸rzer
+                // beim 40WW (240-3639-00-0602J) ist das Geh√§use etwas k√ºrzer
                 #if(pin=40) 
                         #local links  = -35.5;
                         #local rechts = 31;
                 #end
         #end
-	// beim 48W (248-1282-00-0602J) ist das Geh‰use um ca 2,5 mm in Richtung zum Hebel verschoben
+	// beim 48W (248-1282-00-0602J) ist das Geh√§use um ca 2,5 mm in Richtung zum Hebel verschoben
         #if(pin=48) 
                 #local links  = links - 2.5;
                 #local rechts = rechts - 2.5;
@@ -125,7 +125,7 @@ union{
 	difference{
 		union{
 			// der gruene grundkoerper
-			// L‰nge: 2.54*pin/2 + 14.63
+			// L√§nge: 2.54*pin/2 + 14.63
 			// Breite:  15.00=7.62+2x3.7   22.75=15.24+2x3.7
 			// Hoehe:   11.50
 

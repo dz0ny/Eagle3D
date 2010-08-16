@@ -1,7 +1,7 @@
 abgewinkelte Molex-Stiftleisten RM 2.54.
 // Tilmann Reh <tilmann.reh@autometer.de>
 // abgewinkelte Molex-Stiftleisten RM 2.54.
-// Bezugspunkt: Mitte der Pins auf PCB-Oberfl‰che
+// Bezugspunkt: Mitte der Pins auf PCB-Oberfl√§che
 ####################################################################################################
 NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:MOLEX_PSL2W(:PC mount header:
 NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:MOLEX_PSL3W(:PC mount header:

@@ -17,7 +17,7 @@ RES_DIS_TRIM_B25V(value)
 ####################################################################################################
 union {
     object{RES_DIS_TRIM_KOERPER(B,T,H,Farbe)}
-    //Anschluﬂbeine zuordnen
+    //Anschlu√übeine zuordnen
     union {
       cylinder{<-2.54,1,Rf-0.635> <-2.54,-3,Rf-0.635> 0.25}
       cylinder{<2.54,1,Rf-0.635> <2.54,-3,Rf-0.635> 0.25}

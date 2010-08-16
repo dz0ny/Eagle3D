@@ -1,8 +1,8 @@
 Eagle3D (v###VERSIONDUMMY###)
-(c)2002,2003 Matthias Weißer
+(c)2002,2003 Matthias WeiÃŸer
 matthias@matwei.de
 Bedienung und Lizenz siehe Eagle3D.pdf
-ULP kann nur im Board ausgeführt werden
+ULP kann nur im Board ausgefÃ¼hrt werden
 Eagle3D (v###VERSIONDUMMY###) Parameter eingeben
 Allgemein
 Rendern
@@ -16,11 +16,11 @@ OBJ Daten exportieren
 Unbekannte Bauteile
 Manuelle Zuordnung v. Bauteilen
 Platine
-Gekürzte Pins
+GekÃ¼rzte Pins
 Rechteckige Platine
-Bestückungsdruck
+BestÃ¼ckungsdruck
 Umgebung
-Z.z. noch experimentell. Bitte um Rückmeldungen
+Z.z. noch experimentell. Bitte um RÃ¼ckmeldungen
 an matthias@matwei.de
 Achtung!
 Reale Bohrungen sind sehr aufwendig
@@ -30,15 +30,15 @@ Ausgabedatei
 Durchsuchen
 Ausgabedatei
 Platine
-Maße
-PCB-Materialstärke (in mm)
-PCB-Kupferstärke (in mm)
+MaÃŸe
+PCB-MaterialstÃ¤rke (in mm)
+PCB-KupferstÃ¤rke (in mm)
 [[[[]]]]
 Kamera
 Position
 Kameraposition:
 Kamerablickpunkt:
-Kameraöffnungswinkel:
+KameraÃ¶ffnungswinkel:
 aktivieren
 Lichtfarbe
 Lichtposition:
@@ -51,23 +51,23 @@ Farben
 Manuelle Auswahl
 Platine
 Leiterbahnen
-Lötaugen & SMD
+LÃ¶taugen & SMD
 Bohrungen
 Hintergrund
-Bestückungsdruck
+BestÃ¼ckungsdruck
 Neue Farbe
 Rot
-Grün
+GrÃ¼n
 Blau
 Bezeichnung
 Farbe
-hinzufügen
+hinzufÃ¼gen
 Abbrechen
 Kein Dateiname angegeben
 POVRay-Datei erstellt mit
 Platine
-Lötaugen&SMD/Bauteile
-Lötaugen/Durchkontaktierungen
+LÃ¶taugen&SMD/Bauteile
+LÃ¶taugen/Durchkontaktierungen
 Signale
 Polygone
 Bohrungen(real)/Bauteile
@@ -76,62 +76,62 @@ Bohrungen(real)/Platine
 Bohrungen(schnell)/Bauteile
 Bohrungen(schnell)/Durchkontaktierungen
 Bohrungen(schnell)/Platine
-Bestückungsdruck
+BestÃ¼ckungsdruck
 Bauteile
-Bauteile ohne Makro (z.B. SMD-Lötjumper)
-Farbe auswählen
+Bauteile ohne Makro (z.B. SMD-LÃ¶tjumper)
+Farbe auswÃ¤hlen
 Transparent?
-Höhe eingeben
-Standardhöhe HC49: 3mm
-Standardhöhe HC18: 12mm
+HÃ¶he eingeben
+StandardhÃ¶he HC49: 3mm
+StandardhÃ¶he HC18: 12mm
 Bauteil zuordnen
 Als unbekanntes Bauteil selbst zugeordnet
 Licht
 Drehwinkel Platine
 Sockel
 Gesockelt
-Direkt eingelötet
+Direkt eingelÃ¶tet
 Multilayer
 Layerverschiebung
 Aktualisieren
 Kein Modell zuordnen
 Zuordnung aus brdname.mpd nutzen
-Polygonwidth ist z.T. kleiner als 0,1mm. Dadurch können
-bei Verwendung von Polygonen extrem große POVRay-Dateien
-entstehen, die enorm viel Renderzeit benötigen.
-Sie benötigen Eagle v4.08 oder höher
-Durchmesser für reale Bohrung ab (mm)
-//versetzt die Kamera, sodass <0,0,0> über dem Eagle-Nullpunkt ist
+Polygonwidth ist z.T. kleiner als 0,1mm. Dadurch kÃ¶nnen
+bei Verwendung von Polygonen extrem groÃŸe POVRay-Dateien
+entstehen, die enorm viel Renderzeit benÃ¶tigen.
+Sie benÃ¶tigen Eagle v4.08 oder hÃ¶her
+Durchmesser fÃ¼r reale Bohrung ab (mm)
+//versetzt die Kamera, sodass <0,0,0> Ã¼ber dem Eagle-Nullpunkt ist
 Durchkontaktierungen
 Farbpreset
-Farbpreset auswählen
+Farbpreset auswÃ¤hlen
 Benutzer definiert
-FR4 mit Lötstop
+FR4 mit LÃ¶tstop
 sehr bunt
 POV-Datei schreiben
-Ausgabeverzeichnis wählen
-FR4 mit Lötstop (Muecke)
+Ausgabeverzeichnis wÃ¤hlen
+FR4 mit LÃ¶tstop (Muecke)
 Die Datei
-existiert. Überschreiben?
+existiert. Ãœberschreiben?
 Ja
 Nein
 Alle sockeln
 Alle ungesockelt
 Normale Platine
 Runde Platine
-Durchbrüche
-VIA's überlackieren bis (mm)
+DurchbrÃ¼che
+VIA's Ã¼berlackieren bis (mm)
 POV-Datei schreiben und Ende
 Fehler beim schreiben der POV-Datei
 Kommentar
 Package durchsuchen
 POVRay-Macro durchsuchen
 Kommentar durchsuchen
-Intensität
+IntensitÃ¤t
 POVRay-Datei erfolgreich geschrieben
 Manuelle Zuordnung abbrechen
 Board-Pfad setzen
-Diese Layer werden für den Bestückungsdruck genutzt
+Diese Layer werden fÃ¼r den BestÃ¼ckungsdruck genutzt
 Wire aus Package
 Wire aus Board
 Text aus Package
@@ -152,16 +152,16 @@ Keine/zu wenig Animationsdaten vorhanden (mind. 3 Punkte)
 Anzahl Bilder
 Flugpfad
 Blickpunktpfad
-Layer zur Gehäusegenerierung
-Ohne Lötstopp
+Layer zur GehÃ¤usegenerierung
+Ohne LÃ¶tstopp
 Logo auf IC
 Kein Logo
-Kein Bordumriss gefunden. POVRay-Datei wird unter Umständen nicht korrekt erzeugt.
+Kein Bordumriss gefunden. POVRay-Datei wird unter UmstÃ¤nden nicht korrekt erzeugt.
 Logozuordnung abbrechen
 .svg Datei erzeugen
 Pads \& SMD Bottom
 Pfad zu POVRay
 Pfad zu Systemschriften
-Auflösung
+AuflÃ¶sung
 Antialiasing verwenden
 POVRay aufrufen und Bild rendern

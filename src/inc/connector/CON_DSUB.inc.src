@@ -1,5 +1,5 @@
 SUB-D
-//Makro für DSUB Andreas Fecht <info@vetter-und-fecht.de>
+//Makro fÃ¼r DSUB Andreas Fecht <info@vetter-und-fecht.de>
 //modifiziert und erweitert von Duane Clark <dclark@akamail.com>
 ####################################################################################################
 F09H:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_DSUB_F9(:SUB-D 9polig 90 Grad weiblich:SUB-D 9 Pins 90deg female

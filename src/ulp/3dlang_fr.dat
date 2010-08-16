@@ -1,29 +1,29 @@
 Eagle3D (v###VERSIONDUMMY###)
-(c)2002,2003 Matthias Weißer
+(c)2002,2003 Matthias WeiÃŸer
 matthias@matwei.de
-Pour les instructions et la license, veuillez vous référer au fichier Eagle3D_e.pdf
+Pour les instructions et la license, veuillez vous rÃ©fÃ©rer au fichier Eagle3D_e.pdf
 Ce script ne fonctionne que pour les PCB!
-Paramètres d'entrée de Eagle3D (v###VERSIONDUMMY###)
-Général
+ParamÄtres d'entrÃ©e de Eagle3D (v###VERSIONDUMMY###)
+GÃ©nÃ©ral
 Rendu
 Composants
 Polygones
 Pistes
-Trous (mode réel)
+Trous (mode rÃ©el)
 Pattes des composants et CMS
 Trous (mode rapide)
 Exporter sous forme OBJ data
 Composants inconnus
-Modèles définis par l'utilisateur
+ModÄles dÃ©finis par l'utilisateur
 Plaque apparente
 Pattes raccourcies
-Plaque à bords rectangulaire
-Sérigraphie (Silk Screen)
-Décor
-Phase de test. N'hésitez pas à signaler vos erreurs à
-à matthias@matwei.de
+Plaque Å• bords rectangulaire
+SÃ©rigraphie (Silk Screen)
+DÃ©cor
+Phase de test. N'hÃ©sitez pas Å• signaler vos erreurs Å•
+Å• matthias@matwei.de
 Attention!
-Les trous réels prennent beaucoup de
+Les trous rÃ©els prennent beaucoup de
 charge CPU et de temps de rendu
 (environ 10 fois plus de temps qu'en mode rapide)
 Fichier de destination
@@ -34,17 +34,17 @@ Dimensions
 Epaisseur de la plaque (en mm)
 Epaisseur de cuivre (en mm)
 [[[[]]]]
-Caméra
+CamÃ©ra
 Position
-Position de la caméra:
-Cible de la caméra:
+Position de la camÃ©ra:
+Cible de la camÃ©ra:
 Angle de vue:
-Activé
+ActivÃ©
 Couleur du Spot:
 Position du Spot:
 Cible du Spot:
 Eclairage
-Cône de Lumière:
+CÃ´ne de LumiÄre:
 Limite:
 Pas dombre
 Couleurs
@@ -53,8 +53,8 @@ Plaque
 Pistes
 Pattes et CMS
 Trous
-Arrière-plan
-Sérigraphie (Silk Screen)
+ArriÄre-plan
+SÃ©rigraphie (Silk Screen)
 Nouvelle couleur
 Rouge
 Vert
@@ -63,20 +63,20 @@ Etiquette
 Couleur
 Ajouter
 Annuler
-Aucun nom de fichier sélectionné!
-Fichier POVRay crée par
+Aucun nom de fichier sÃ©lectionnÃ©!
+Fichier POVRay crÃ©e par
 Plaque
 Pattes&CMS/Composants
 Pattes/Vias
 Signaux
 Polygones
-Trous(réel)/Composants
-Trous(réel)/Vias
-Trous(réel)/Board
+Trous(rÃ©el)/Composants
+Trous(rÃ©el)/Vias
+Trous(rÃ©el)/Board
 Trous(rapide)/Parts
 Trous(rapide)/Vias
 Trous(rapide)/Board
-Sérigraphie (Silk Screen)
+SÃ©rigraphie (Silk Screen)
 Composants
 Composants sans macro (par exemple: SMD Solderjumper)
 Selectionner une couleur
@@ -85,8 +85,8 @@ Selectionner hauteur
 Hauteur standart HC49: 3mm
 Hauteur standart HC18: 12mm
 Attribuer le composant
-Définir comme un composant inconnu
-Lumière
+DÃ©finir comme un composant inconnu
+LumiÄre
 Angle de rotation de la plaque
 Support
 Avec support
@@ -94,65 +94,65 @@ Sans support
 Multicouche
 Layer movement
 actual
-Attribuer aucun modèle
+Attribuer aucun modÄle
 Utiliser les attributions du fichier *.mpd
-La largueur du polgone est inférieure à 0.1mm! Cela aura pour conséquence
-de créer un très grand fichier POVRay. Cela prendra beaucoup de temps de calcul
-pour créer le rendu.
-Vous devez utiliser une version de Eagle supérieure ou égale à v4.08
-diamètre minimal des trous (en mm)
+La largueur du polgone est infÃ©rieure Å• 0.1mm! Cela aura pour consÃ©quence
+de crÃ©er un trÄs grand fichier POVRay. Cela prendra beaucoup de temps de calcul
+pour crÃ©er le rendu.
+Vous devez utiliser une version de Eagle supÃ©rieure ou Ã©gale Å• v4.08
+diamÄtre minimal des trous (en mm)
 //translates the camera that <0,0,0> is over the Eagle <0,0>
 Couleur interne des Vias
-Sélection des couleurs
-Choisissez une présélection des couleurs
-défini par l'utlisateur
+SÃ©lection des couleurs
+Choisissez une prÃ©sÃ©lection des couleurs
+dÃ©fini par l'utlisateur
 FR4 avec Masque de Soudure
-très coloré
-Créer le fichier POVRay
-Sélectionnert le répertoire de travail
+trÄs colorÃ©
+CrÃ©er le fichier POVRay
+SÃ©lectionnert le rÃ©pertoire de travail
 FR4 avec Masque de Soudure (Muecke)
 Le fichier
-existe déjà! Réécriture?
+existe dÃ©jÅ•! RÃ©Ã©criture?
 Oui
 Non
 Tous avec support
 Tous sans support
 PCB normal
-PCB à bords aroundis
-Tailler selon les dimensions spécifié dans le layer 20 (Dimension)
-Masque de Soudure recouvrant les vias de diamètre jusqu'à (en mm)
-créer le fichier POVRay et Sortir
-Une erreur est appaure lors de l'écriture du fichier POVRay!
+PCB Å• bords aroundis
+Tailler selon les dimensions spÃ©cifiÃ© dans le layer 20 (Dimension)
+Masque de Soudure recouvrant les vias de diamÄtre jusqu'Å• (en mm)
+crÃ©er le fichier POVRay et Sortir
+Une erreur est appaure lors de l'Ã©criture du fichier POVRay!
 Commentaire
 Rechercher un package
 Rechercher une macro POVRay
 Rechercher un commentaire
-Intensité
-Fichier POVRay crée avec succès
-Annuler les modèles définis par l'utilisateur
-Régler jusqu'au dossier contenant le fichier brd
-Ces layers sont utilisés pour la sérigraphie (Silk Screen)
+IntensitÃ©
+Fichier POVRay crÃ©e avec succÄs
+Annuler les modÄles dÃ©finis par l'utilisateur
+RÃ©gler jusqu'au dossier contenant le fichier brd
+Ces layers sont utilisÃ©s pour la sÃ©rigraphie (Silk Screen)
 Dessin du boitier
-Ecritures situé sur la plaque
-Référence du boitier
+Ecritures situÃ© sur la plaque
+RÃ©fÃ©rence du boitier
 Ecriture sur la plaque 
 Jumpers sur les pinheader
 Sans Jumper
 Jumper ouvert
-Jumper fermé
+Jumper fermÃ©
 Tous sans jumpers
 Tous avec des jumpers ouverts
-Tous avec des jumpers fermés
+Tous avec des jumpers fermÃ©s
 Aucune image diposnible
 Montrer l'image
-Réhausser de (en mm):
+RÃ©hausser de (en mm):
 Divers
-Ressources pour créer une animation
-Absence ou erreur dans les données spécifiés pour l'animation (3 points minimum)
+Ressources pour crÃ©er une animation
+Absence ou erreur dans les donnÃ©es spÃ©cifiÃ©s pour l'animation (3 points minimum)
 Nombre de Trames
 Flight path
 Montrer l'arborescence
-Layers permettant d'afficher des formes en 3D selon les dimensions spécifiés
+Layers permettant d'afficher des formes en 3D selon les dimensions spÃ©cifiÃ©s
 Without soldermask
 Logo on IC
 No logo

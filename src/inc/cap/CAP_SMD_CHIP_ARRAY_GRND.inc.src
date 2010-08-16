@@ -1,5 +1,5 @@
 Chip Kondensator array
-//(Tiefe, Breite, Hoehe, Breite Loetflaechen, Abstand Pin zu Pin, Anzahl Kondensatoren,Farbe des Körpers)
+//(Tiefe, Breite, Hoehe, Breite Loetflaechen, Abstand Pin zu Pin, Anzahl Kondensatoren,Farbe des KÃ¶rpers)
 ####################################################################################################
 NOEAGLEPAC:0:0:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CAP_SMD_CHIP_ARRAY_4X0603_0612(DarkWood:SMD Kondensator array 4x0603 0612:SMD Capacitor array 4x0603 0612
 ####################################################################################################

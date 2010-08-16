@@ -1,7 +1,7 @@
 // Tilmann Reh <tilmann.reh@autometer.de>
-// Grundmakro: Um 90° gebogener, quadratischer Stift eines Steckverbinders.
-// Verwendung für abgewinkelte Pfostenwannen sowie z.B. Wago-Steckerleisten.
-// Parameter: Stärke, Biegeradius (Mitte), Höhe über/unter PCB-Oberkante, Länge nach vorn (-Z), Farbe
+// Grundmakro: Um 90Â° gebogener, quadratischer Stift eines Steckverbinders.
+// Verwendung fÃ¼r abgewinkelte Pfostenwannen sowie z.B. Wago-Steckerleisten.
+// Parameter: StÃ¤rke, Biegeradius (Mitte), HÃ¶he Ã¼ber/unter PCB-Oberkante, LÃ¤nge nach vorn (-Z), Farbe
 ####################################################################################################
 ####################################################################################################
 PIN_BENDED

@@ -1,45 +1,45 @@
 LSH-Taster
-// Makro für LSH-Taster von Schurter (http://www.schurter.de/)
+// Makro fÃ¼r LSH-Taster von Schurter (http://www.schurter.de/)
 // Erstellt von Oliver Saal (osaal@gmx.de) 22.09.2003
-// height  = Höhe des Tasters (von der Platine aus gemessen)
+// height  = HÃ¶he des Tasters (von der Platine aus gemessen)
 // dia_top = Durchmesser des Tasters am oberen Ende
 // Benutzt Makro "IC_SMD_PIN" aus "ic.inc"
 ####################################################################################################
-LSH43:0:0:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SWITCH_PUSH_BUTTON_LSH43(:Taster Schurter Typ LSH 1301.9314 Höhe 4.3 mm:Switch Schurter Typ LSH 1301.9314 height 4.3 mm
-LSH50:0:0:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SWITCH_PUSH_BUTTON_LSH50(:Taster Schurter Typ LSH 1301.9315 Höhe 5.0 mm:Switch Schurter Typ LSH 1301.9315 height 5.0 mm
-LSH70:0:0:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SWITCH_PUSH_BUTTON_LSH70(:Taster Schurter Typ LSH 1301.9316 Höhe 7.0 mm:Switch Schurter Typ LSH 1301.9316 height 7.0 mm
-LSH80:0:0:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SWITCH_PUSH_BUTTON_LSH80(:Taster Schurter Typ LSH 1301.9318 Höhe 8.0 mm:Switch Schurter Typ LSH 1301.9318 height 8.0 mm
-LSH95:0:0:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SWITCH_PUSH_BUTTON_LSH95(:Taster Schurter Typ LSH 1301.9319 Höhe 9.5 mm:Switch Schurter Typ LSH 1301.9319 height 9.5 mm
-LSH125:0:0:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SWITCH_PUSH_BUTTON_LSH125(:Taster Schurter Typ LSH 1301.9320 Höhe 12.5 mm:switch Schurter Typ LSH 1301.9320 height 12.5 mm
+LSH43:0:0:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SWITCH_PUSH_BUTTON_LSH43(:Taster Schurter Typ LSH 1301.9314 HÃ¶he 4.3 mm:Switch Schurter Typ LSH 1301.9314 height 4.3 mm
+LSH50:0:0:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SWITCH_PUSH_BUTTON_LSH50(:Taster Schurter Typ LSH 1301.9315 HÃ¶he 5.0 mm:Switch Schurter Typ LSH 1301.9315 height 5.0 mm
+LSH70:0:0:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SWITCH_PUSH_BUTTON_LSH70(:Taster Schurter Typ LSH 1301.9316 HÃ¶he 7.0 mm:Switch Schurter Typ LSH 1301.9316 height 7.0 mm
+LSH80:0:0:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SWITCH_PUSH_BUTTON_LSH80(:Taster Schurter Typ LSH 1301.9318 HÃ¶he 8.0 mm:Switch Schurter Typ LSH 1301.9318 height 8.0 mm
+LSH95:0:0:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SWITCH_PUSH_BUTTON_LSH95(:Taster Schurter Typ LSH 1301.9319 HÃ¶he 9.5 mm:Switch Schurter Typ LSH 1301.9319 height 9.5 mm
+LSH125:0:0:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SWITCH_PUSH_BUTTON_LSH125(:Taster Schurter Typ LSH 1301.9320 HÃ¶he 12.5 mm:switch Schurter Typ LSH 1301.9320 height 12.5 mm
 ####################################################################################################
 SWITCH_PUSH_BUTTON_LSH
 (height,dia_top)
 ####################################################################################################
-// Schurter-Best-Nr. LSH 1301.9314, Reichelt-Best.Nr.: Taster 9314 Höhe 4,3mm
+// Schurter-Best-Nr. LSH 1301.9314, Reichelt-Best.Nr.: Taster 9314 HÃ¶he 4,3mm
 SWITCH_PUSH_BUTTON_LSH43()
 (4.3, 3.4)
-// Schurter-Best-Nr. LSH 1301.9315, Reichelt-Best.Nr.: Taster 9315 Höhe 5,0mm
+// Schurter-Best-Nr. LSH 1301.9315, Reichelt-Best.Nr.: Taster 9315 HÃ¶he 5,0mm
 SWITCH_PUSH_BUTTON_LSH50()
 (5.0, 3.4)
-// Schurter-Best-Nr. LSH 1301.9316, Reichelt-Best.Nr.: Taster 9316 Höhe 7,0mm
+// Schurter-Best-Nr. LSH 1301.9316, Reichelt-Best.Nr.: Taster 9316 HÃ¶he 7,0mm
 SWITCH_PUSH_BUTTON_LSH70()
 (7.0, 3.2)
-// Schurter-Best-Nr. LSH 1301.9318, Reichelt-Best.Nr.: Taster 9318 Höhe 8,0mm
+// Schurter-Best-Nr. LSH 1301.9318, Reichelt-Best.Nr.: Taster 9318 HÃ¶he 8,0mm
 SWITCH_PUSH_BUTTON_LSH80()
 (8.0, 3.2)
-// Schurter-Best-Nr. LSH 1301.9319, Reichelt-Best.Nr.: Taster 9319 Höhe 9,5mm
+// Schurter-Best-Nr. LSH 1301.9319, Reichelt-Best.Nr.: Taster 9319 HÃ¶he 9,5mm
 SWITCH_PUSH_BUTTON_LSH95()
 (9.5, 3.0)
-// Schurter-Best-Nr. LSH 1301.9320, Reichelt-Best.Nr.: Taster 9320 Höhe 12,5mm
+// Schurter-Best-Nr. LSH 1301.9320, Reichelt-Best.Nr.: Taster 9320 HÃ¶he 12,5mm
 SWITCH_PUSH_BUTTON_LSH125()
 (12.5, 3.0)
 ####################################################################################################
 ####################################################################################################
-// Makro für LSH-Grundkörper (Quader mit abgerundeten senkrechten Kanten)
+// Makro fÃ¼r LSH-GrundkÃ¶rper (Quader mit abgerundeten senkrechten Kanten)
 // Erstellt von Oliver Saal (osaal@gmx.de) 22.09.2003
-// size_x = Länge
+// size_x = LÃ¤nge
 // size_z = Breite
-// height = Höhe
+// height = HÃ¶he
 // r      = Radius der Rundung
 #macro SWITCH_PUSH_BUTTON_LSH_BOX(size_x,size_z,height,r)
 union

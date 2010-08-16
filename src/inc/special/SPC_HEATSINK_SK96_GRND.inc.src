@@ -23,12 +23,12 @@ union{
                          }
       difference{
         union{
-              prism{0,l,9 <0,0>,<8,0>,<8,12.5>,<9.5,12.5>,<9.5,14>,<54,14>,<54,27>,<0,27>,<0,0>}   // Grundkörper
+              prism{0,l,9 <0,0>,<8,0>,<8,12.5>,<9.5,12.5>,<9.5,14>,<54,14>,<54,27>,<0,27>,<0,0>}   // GrundkÃ¶rper
               cylinder{<54,0,15><54,l,15>1}                                                        // gerundete Ecken
               cylinder{<54,0,19><54,l,19>1}
               cylinder{<54,0,23><54,l,23>1}
               cylinder{<54,0,27><54,l,27>1}
-                                                                                                   // Rundung der Kühlrippen
+                                                                                                   // Rundung der KÃ¼hlrippen
               cylinder{<1,0,27><1,l,27>1}
               cylinder{<6,0,27><6,l,27>1}
               cylinder{<11,0,27><11,l,27>1}
