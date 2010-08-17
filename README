@@ -17,6 +17,24 @@ should end up with three archives (.tar.gz, .tar.bz2, .zip).
 To get the big overview png with all the macros call the render.sh
 script in the tools/ directory.
 
+You can also use make. The following make targets are available:
+
+$ make all
+    Creates all Eagle3D release archives
+
+$ make lib
+    Creates only the lib (.inc files)
+
+$ make render
+    Renders all the macros as small images and creates a big image
+    with combines all of the macros into on big image. This step will
+    need quite some time to finish. Creating the final output image
+    needs also a lot of RAM. 2GiB is not enough in default settings
+    so expect some swapping if you have less then 4GiB installed.
+
+$make clean
+    Removes all the created files. A clean source tree should be left.
+
 Extending Eagle3D?
 ==================
 
