@@ -13,15 +13,34 @@ TO3
 //               This macro generates a SOT93 package for horizontal and vertical mounting.
 ####################################################################################################
 TOP3:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:TR_SOT93_H(:Transistor TOP3-Gehaeuse (SOT93), horizontale Montage: Transistor TOP3-Package (SOT93), horizontal mounting
-TOP3V:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:TR_SOT93_V(:Transistor TOP3-Gehaeuse (SOT93), vertikale Montage: Transistor TOP3-Package (SOT93), vertical mounting
+TOP3V:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:TR_SOT93_V(:Transistor TOP3-Gehaeuse (SOT93), vertikale Montage: Transistor TOP3-Package (SOT93), vertical mounting  
+TOP3S-2:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:TR_SOT93_V(:Transistor TOP3-Gehaeuse (SOT93), vertikale Montage: Transistor TOP3-Package (SOT93), vertical mounting
+TOP3S-1:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:TR_SOT93_V(:Transistor TOP3-Gehaeuse (SOT93), vertikale Montage: Transistor TOP3-Package (SOT93), vertical mounting 
+TOP3AV:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:TR_SOT93_V(:Transistor TOP3-Gehaeuse (SOT93), vertikale Montage: Transistor TOP3-Package (SOT93), vertical mounting
+TOP3BV:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:TR_SOT93_V(:Transistor TOP3-Gehaeuse (SOT93), vertikale Montage: Transistor TOP3-Package (SOT93), vertical mounting
+SOT93S:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:TR_SOT93_V(:Transistor TOP3-Gehaeuse (SOT93), vertikale Montage: Transistor TOP3-Package (SOT93), vertical mounting
+SOT93V:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:TR_SOT93_V(:Transistor TOP3-Gehaeuse (SOT93), vertikale Montage: Transistor TOP3-Package (SOT93), vertical mounting
+TOP3L-1:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:TR_SOT93_H(:Transistor TOP3-Gehaeuse (SOT93), horizontale Montage: Transistor TOP3-Package (SOT93), horizontal mounting
+TOP3L-2:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:TR_SOT93_H(:Transistor TOP3-Gehaeuse (SOT93), horizontale Montage: Transistor TOP3-Package (SOT93), horizontal mounting  
+TOP3L:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:TR_SOT93_H(:Transistor TOP3-Gehaeuse (SOT93), horizontale Montage: Transistor TOP3-Package (SOT93), horizontal mounting  
+TOP3AH:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:TR_SOT93_H(:Transistor TOP3-Gehaeuse (SOT93), horizontale Montage: Transistor TOP3-Package (SOT93), horizontal mounting  
+TOP3BH:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:TR_SOT93_H(:Transistor TOP3-Gehaeuse (SOT93), horizontale Montage: Transistor TOP3-Package (SOT93), horizontal mounting  
+TOP3BHS:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:TR_SOT93_H1(:Transistor TOP3-Gehaeuse (SOT93), horizontale Montage: Transistor TOP3-Package (SOT93), horizontal mounting    
+TOP3AHS:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:TR_SOT93_H1(:Transistor TOP3-Gehaeuse (SOT93), horizontale Montage: Transistor TOP3-Package (SOT93), horizontal mounting  
+SOT93L:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:TR_SOT93_H2(:Transistor TOP3-Gehaeuse (SOT93), horizontale Montage: Transistor TOP3-Package (SOT93), horizontal mounting  
+SOT93:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:TR_SOT93_H2(:Transistor TOP3-Gehaeuse (SOT93), horizontale Montage: Transistor TOP3-Package (SOT93), horizontal mounting  
 ####################################################################################################
 TR_SOT93_GRND
-(M, O, S, B, V)
+(M, O, S, B, V, L)
 ####################################################################################################
 TR_SOT93_H(value) 
-("H",-3.3,0,3.6,value)
+("H",-3.3,0,3.6,value, 0)  
+TR_SOT93_H1(value) 
+("H",-3.3,0,3.6,value,2.54)
+TR_SOT93_H2(value) 
+("H",-3.3-3.0,0,3.6,value,0)
 TR_SOT93_V(value) 
-("V",-3.18,0,0,value)
+("V",-3.18,0,0,value, 0)
 ####################################################################################################
 ####################################################################################################
 #local Horizontal =! (strcmp(strupr(M), "H") );
@@ -117,7 +136,8 @@ union {
      translate <11.1, 0, 0>
    }
    texture {col_silver}
-   translate <-6.45,0,-wt/2>
+   translate <-6.45,0,-wt/2>    
+   translate <0,L,0>
   }
  #end 
  //Beschriftung
@@ -128,7 +148,7 @@ union {
   rotate <90,0,0>
   translate <0,2.45+S, O>
  #else
-  translate <0,1.8+S, 0>
+  translate <0,1.8+S, O>
  #end
 }
 #end
