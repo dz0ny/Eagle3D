@@ -1,6 +1,6 @@
 #!/bin/sh
 
-# Copyright 2005-2010 Matthias Weisser <matthias@matwei.de>
+# Copyright 2010 Matthias Weisser <matthias@matwei.de>
 #
 # This file is part of Eagle3D
 #
@@ -17,19 +17,24 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 WORKDIR=$(pwd)
-SCRIPTDIR=$(basename $0)
+SCRIPTDIR=$(dirname $0)
 
 #Check if we are running from the correct position and setup directories
-if [ "$WORKDIR" = "$SCRIPTDIR" ]; then
-    OUTPUTDIR=$WORKDIR/..
-    SRCDIR=$WORKDIR/../src    
-    BUILDDIR=$WORKDIR/../build
-    TOOLDIR=$WORKDIR/../tools
-elif [ -d "$WORKDIR/src" ] && [ -d "$WORKDIR/tools" ]; then
+if [ -d "$WORKDIR/src" ] && [ -d "$WORKDIR/tools" ]; then
     OUTPUTDIR=$WORKDIR
     SRCDIR=$WORKDIR/src    
     BUILDDIR=$WORKDIR/build
     TOOLDIR=$WORKDIR/tools
+elif [ -d "$WORKDIR/../src" ] && [ -d "$WORKDIR/../tools" ]; then
+    OUTPUTDIR=$WORKDIR/..
+    SRCDIR=$WORKDIR/../src    
+    BUILDDIR=$WORKDIR/../build
+    TOOLDIR=$WORKDIR/../tools
+elif [ -d "$SCRIPTDIR/../src" ] && [ -d "$SCRIPTDIR/../tools" ]; then
+    OUTPUTDIR=$SCRIPTDIR/..
+    SRCDIR=$SCRIPTDIR/../src    
+    BUILDDIR=$SCRIPTDIR/../build
+    TOOLDIR=$SCRIPTDIR/../tools
 else
     echo "Sript run from invalid position."
     echo "Start it from the root of the Eagle3D source or from the tools/ dir."

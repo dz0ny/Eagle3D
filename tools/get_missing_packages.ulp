@@ -1,0 +1,94 @@
+/*
+ * Copyright 2010 Matthias Weisser <matthias@matwei.de>
+ *
+ * This file is part of Eagle3D
+ *
+ * Eagle3D is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation; version 2 of the License.
+ *
+ * Eagle3D is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ */
+ 
+#usage "<b>Creates a list of all packages which are not available in Eagle3D</b>\n"
+       "This will only work with the linux version of Eagle"
+       "<p>"
+       "<author>Author: matthias@matwei.de</author>"
+
+if(1 == argc)
+{
+    string scr;
+    int i = 0;
+
+    //Get alist of all libraries
+    while(strlen(path_lbr[i]) > 0)
+    {
+        string lbrs[];    
+        int n = fileglob(lbrs, path_lbr[i++] + "/*.lbr");
+        int j;
+        
+        for(j = 0; j < n; j++)
+        {
+            //Open the library
+            scr += "open " +  lbrs[j] + ";";
+            //And call the ULP for it
+            scr += "run " + argv[0] + " \"" + lbrs[j] + "\";";
+        }
+    }
+    
+    scr += "run " + argv[0] + " last run;";
+    
+    exit(scr);
+}
+else if((2 == argc) && (library))
+{
+    //This is called multiple time (once for each library)
+    string res;
+    
+    library(L)
+    {
+        L.devices(D)
+        {
+            if(D.package)
+            {
+                res += D.package.name + "\n";
+            }
+        }
+    }
+
+    output("/tmp/eagle_package_list.txt", "a")
+    {
+        printf("%s", res);
+    }
+}
+else if(3 == argc)
+{
+    //Final step
+    //We call the shell script with our information file and let the unix tools 
+    //do the magic to create the list of not available packages.
+    string s[];
+    int n;
+
+    if(0 == system(filesetext(argv[0], ".sh") + " /tmp/eagle_package_list.txt /tmp/eagle3d_missing_packages.txt"))
+    {
+        if((n = fileread(s, "/tmp/eagle3d_missing_packages.txt")) > 0)
+        {
+            string msg;
+            
+            sprintf(msg, "We have %d missing packages.\nA list of these are written to /tmp/eagle3d_missing_packages.txt", n);
+            dlgMessageBox(msg);
+        }
+    }
+    else
+    {
+        dlgMessageBox("Calling the shell script failed\nDo you build Eagle3D before calling this ULP?");
+    }
+}
+
+
