@@ -48,6 +48,10 @@ L200S:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:TR_TO220_5_V(:
 79XXL:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:TR_TO220_3_H1(:TO220-3 liegend Pins:TO220 horizontal straight leads
 78XXL_S:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:TR_TO220_3_H3(:TO220-3 liegend Pins:TO220 horizontal straight leads
 TO220H:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:TR_TO220_3_H(:TO220-3 liegend Pins:TO220 horizontal straight leads
+BR220S:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:TR_TO220_3_V(:TO220-3 stehend 3 Pins:TO220 vertical straight leads
+BR210S:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:TR_TO220_2_V(:TO220-2 stehend 2 Pins:TO220 vertical straight leads  
+IW220ABS:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:TR_TO220_3_V(:TO220-3 stehend 3 Pins:TO220 vertical straight leads
+DO220S:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:TR_TO220_2_V(:TO220-2 stehend 2 Pins:TO220 vertical straight leads
 ####################################################################################################
 TR_TO220_GRND
 (value, pins, hor, inline, lang, shift)

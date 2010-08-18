@@ -19,6 +19,12 @@ SIL11:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:RES_DIS_SIL_11
 SIL12:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:RES_DIS_SIL_12(:SIL-Netzwerk 12Pin:SIL-Network 13Pin 12R
 SIL13:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:RES_DIS_SIL_13(:SIL-Netzwerk 13Pin:SIL-Network 14Pin 13R
 SIL14:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:RES_DIS_SIL_14(:SIL-Netzwerk 14Pin:SIL-Network 15Pin 14R
+SIL05A:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:RES_DIS_SIL_5(:SIL-Netzwerk 5Pin:SIL-Network 6Pin 5D
+SIL05C:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:RES_DIS_SIL_5(:SIL-Netzwerk 5Pin:SIL-Network 6Pin 5D                                                   
+SIL08A:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:RES_DIS_SIL_8(:SIL-Netzwerk 8Pin:SIL-Network 9Pin 8D
+SIL08C:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:RES_DIS_SIL_8(:SIL-Netzwerk 8Pin:SIL-Network 9Pin 8D
+SIL09A:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:RES_DIS_SIL_9(:SIL-Netzwerk 9Pin:SIL-Network 10Pin 9D
+SIL09C:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:RES_DIS_SIL_9(:SIL-Netzwerk 9Pin:SIL-Network 10Pin 9D
 ####################################################################################################
 RES_DIS_SIL_GRND
 (pin)

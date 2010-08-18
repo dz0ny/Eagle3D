@@ -10,6 +10,10 @@ TO202AH:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:TR_TO202_3_H
 TO202GH:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:TR_TO202_3_H(:TO202-3 liegend 3 Pins:TO202 horizontal straight leads
 TO202CH:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:TR_TO202_3_H(:TO202-3 liegend 3 Pins:TO202 horizontal straight leads
 TO202:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:TR_TO202_3_H(:TO202-3 liegend 3 Pins:TO202 horizontal straight leads
+79MXXL:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:TR_TO202_3_H(:TO202-3 liegend 3 Pins:TO202 horizontal straight leads
+78MXXL:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:TR_TO202_3_H(:TO202-3 liegend 3 Pins:TO202 horizontal straight leads
+79MXXS:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:TR_TO202_3_V(:TO202-3 stehend 3 Pins:TO202 vertical straight leads      
+78MXXS:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:TR_TO202_3_V(:TO202-3 stehend 3 Pins:TO202 vertical straight leads
 ####################################################################################################
 TR_TO202_GRND
 (value, pins, hor, inline, lang, shift)
