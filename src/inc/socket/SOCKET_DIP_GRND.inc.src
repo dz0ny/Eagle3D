@@ -44,6 +44,22 @@ NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SOCKET_DI
 NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SOCKET_DIP52W(:IC-Sockel 52 Pin:IC socket 52 pin
 NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SOCKET_DIP64_9(:IC-Sockel 64 900mil Pin:IC socket 64 900mil pin
 NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SOCKET_DIP68_9(:IC-Sockel 68 900mil Pin:IC socket 68 900mil pin
+SOCKET-04:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SOCKET_DIP4(:IC-Sockel 4 Pin:IC socket 4 pin
+SOCKET-06:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SOCKET_DIP6_4(:IC-Sockel 6 Pin:IC socket 6 pin
+SOCKET-08:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SOCKET_DIP8(:IC-Sockel 8Pin:IC-Socket 8Pin
+SOCKET-14:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SOCKET_DIP14(:IC-Sockel 14Pin:IC-Socket 14Pin
+SOCKET-16:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SOCKET_DIP16(:IC-Sockel 16Pin:IC-Socket 16Pin
+SOCKET-18:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SOCKET_DIP18(:IC-Sockel 18Pin:IC-Socket 18Pin
+SOCKET-20:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SOCKET_DIP20(:IC-Sockel 20Pin:IC-Socket 20Pin
+SOCKET-22S:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SOCKET_DIP22(:IC-Sockel 22Pin:IC-Socket 22Pin
+SOCKED-04:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SOCKET_DIP4(:IC-Sockel 4 Pin:IC socket 4 pin
+SOCKED-06:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SOCKET_DIP6_4(:IC-Sockel 6 Pin:IC socket 6 pin
+SOCKED-08:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SOCKET_DIP8(:IC-Sockel 8Pin:IC-Socket 8Pin
+SOCKED-14:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SOCKET_DIP14(:IC-Sockel 14Pin:IC-Socket 14Pin
+SOCKED-16:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SOCKET_DIP16(:IC-Sockel 16Pin:IC-Socket 16Pin
+SOCKED-18:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SOCKET_DIP18(:IC-Sockel 18Pin:IC-Socket 18Pin
+SOCKED-20:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SOCKET_DIP20(:IC-Sockel 20Pin:IC-Socket 20Pin
+SOCKED-22S:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SOCKET_DIP22(:IC-Sockel 22Pin:IC-Socket 22Pin  
 ####################################################################################################
 SOCKET_DIP_GRND
 (pin,a,breite)

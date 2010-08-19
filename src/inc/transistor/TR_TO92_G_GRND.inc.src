@@ -26,6 +26,10 @@ TO92-CLP:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:TR_TO92_G(:
 79LXX:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:TR_TO92_G(:TO92 gewinkelt stehend:TO92 bend vertical
 78LXX:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:TR_TO92_G(:TO92 gewinkelt stehend:TO92 bend vertical
 SOT54E:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:TR_TO92_G(:TO92 gewinkelt stehend:TO92 bend vertical
+SOT54A:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:TR_TO92_G(:TO92 gewinkelt stehend:TO92 bend vertical
+SOT54B:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:TR_TO92_G(:TO92 gewinkelt stehend:TO92 bend vertical
+SOT54C:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:TR_TO92_G(:TO92 gewinkelt stehend:TO92 bend vertical
+SOT54D:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:TR_TO92_G(:TO92 gewinkelt stehend:TO92 bend vertical
 ####################################################################################################
 TR_TO92_G_GRND
 (value)
