@@ -1,0 +1,339 @@
+Dipswitch small
+// Joerg Bredendiek <sprut(replace with at)sprut.de>  
+// based on Nigel Eke <nigel@eke.name> ans some Pin-macros
+//Dipswitch  small and smd
+// pintyp=0  smd nach außen gewinkelt
+// pintyp=1  smd nach innen gewinkelt
+// pintyp=2  normal
+####################################################################################################
+CTS-219-02:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SWITCH_DIP02_SM(:Dip switch:
+CTS-219-02J:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SWITCH_DIP02_SMJ(:Dip switch:
+CTS-219-03:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SWITCH_DIP03_SM(:Dip switch:
+CTS-219-03J:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SWITCH_DIP03_SMJ(:Dip switch:
+CTS-219-04:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SWITCH_DIP04_SM(:Dip switch:
+CTS-219-04J:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SWITCH_DIP04_SMJ(:Dip switch:
+CTS-219-05:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SWITCH_DIP05_SM(:Dip switch:
+CTS-219-05J:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SWITCH_DIP05_SMJ(:Dip switch:
+CTS-219-06:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SWITCH_DIP06_SM(:Dip switch:
+CTS-219-06J:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SWITCH_DIP06_SMJ(:Dip switch:
+CTS-219-07:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SWITCH_DIP07_SM(:Dip switch:
+CTS-219-07J:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SWITCH_DIP07_SMJ(:Dip switch:
+CTS-219-08:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SWITCH_DIP08_SM(:Dip switch:
+CTS-219-08J:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SWITCH_DIP08_SMJ(:Dip switch:
+CTS-219-09:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SWITCH_DIP09_SM(:Dip switch:
+CTS-219-09J:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SWITCH_DIP09_SMJ(:Dip switch:
+CTS-219-10:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SWITCH_DIP10_SM(:Dip switch:
+CTS-219-10J:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SWITCH_DIP10_SMJ(:Dip switch:
+CTS-219-12:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SWITCH_DIP12_SM(:Dip switch:
+CTS-219-12J:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SWITCH_DIP12_SMJ(:Dip switch:
+DIP02YL:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SWITCH_DIP02_SMV(:Dip switch:
+DIP03YL:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SWITCH_DIP03_SMV(:Dip switch:
+DIP04YL:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SWITCH_DIP04_SMV(:Dip switch:
+DIP05YL:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SWITCH_DIP05_SMV(:Dip switch:
+DIP06YL:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SWITCH_DIP06_SMV(:Dip switch:
+DIP07YL:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SWITCH_DIP07_SMV(:Dip switch:
+DIP08YL:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SWITCH_DIP08_SMV(:Dip switch:
+DIP09YL:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SWITCH_DIP09_SMV(:Dip switch:
+DIP10YL:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SWITCH_DIP10_SMV(:Dip switch:
+DIP04S:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SWITCH_DIP04_SMV1(:Dip switch:
+DIP08S:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SWITCH_DIP08_SMV1(:Dip switch:
+SD4-01:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SWITCH_DIP01_SMV2(:Dip switch:
+SD4-02:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SWITCH_DIP02_SMV2(:Dip switch:
+SD4-03:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SWITCH_DIP03_SMV2(:Dip switch:
+SD4-04:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SWITCH_DIP04_SMV2(:Dip switch:
+SD4-05:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SWITCH_DIP05_SMV2(:Dip switch:
+SD4-06:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SWITCH_DIP06_SMV2(:Dip switch:
+SD4-07:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SWITCH_DIP07_SMV2(:Dip switch:
+SD4-08:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SWITCH_DIP08_SMV2(:Dip switch:
+SD4-09:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SWITCH_DIP09_SMV2(:Dip switch:
+SD4-10:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SWITCH_DIP10_SMV2(:Dip switch:
+####################################################################################################
+SWITCH_DIP_SM_GRND
+(nrSwitches, pintyp, abmasse)
+####################################################################################################
+SWITCH_DIP01_SM()
+(1,0, 0)
+SWITCH_DIP02_SM()
+(2,0, 0)
+SWITCH_DIP03_SM()
+(3,0, 0)
+SWITCH_DIP04_SM()
+(4,0, 0)
+SWITCH_DIP05_SM()
+(5,0, 0)
+SWITCH_DIP06_SM()
+(6,0, 0)
+SWITCH_DIP07_SM()
+(7,0, 0)
+SWITCH_DIP08_SM()
+(8,0, 0)
+SWITCH_DIP09_SM()
+(9,0, 0)
+SWITCH_DIP10_SM()
+(10,0, 0)
+SWITCH_DIP12_SM()
+(12,0, 0)
+SWITCH_DIP01_SMJ()
+(1,1, 1)
+SWITCH_DIP02_SMJ()
+(2,1, 1)
+SWITCH_DIP03_SMJ()
+(3,1, 1)
+SWITCH_DIP04_SMJ()
+(4,1, 1)
+SWITCH_DIP05_SMJ()
+(5,1, 1)
+SWITCH_DIP06_SMJ()
+(6,1, 1)
+SWITCH_DIP07_SMJ()
+(7,1, 1)
+SWITCH_DIP08_SMJ()
+(8,1, 1)
+SWITCH_DIP09_SMJ()
+(9,1, 1)
+SWITCH_DIP10_SMJ()
+(10,1, 1)
+SWITCH_DIP12_SMJ()
+(12,1, 1)
+SWITCH_DIP01_SMV()
+(1,2, 2)
+SWITCH_DIP02_SMV()
+(2,2, 2)
+SWITCH_DIP03_SMV()
+(3,2, 2)
+SWITCH_DIP04_SMV()
+(4,2, 2)
+SWITCH_DIP05_SMV()
+(5,2, 2)
+SWITCH_DIP06_SMV()
+(6,2, 2)
+SWITCH_DIP07_SMV()
+(7,2, 2)
+SWITCH_DIP08_SMV()
+(8,2, 2)
+SWITCH_DIP09_SMV()
+(9,2, 2)
+SWITCH_DIP10_SMV()
+(10,2, 2)
+SWITCH_DIP12_SMV()
+(12,2, 2)
+SWITCH_DIP04_SMV1()
+(4,2, 3)
+SWITCH_DIP08_SMV1()
+(8,2, 3)
+SWITCH_DIP01_SMV2()
+(1,2, 4)
+SWITCH_DIP02_SMV2()
+(2,2, 4)
+SWITCH_DIP03_SMV2()
+(3,2, 4)
+SWITCH_DIP04_SMV2()
+(4,2, 4)
+SWITCH_DIP05_SMV2()
+(5,2, 4)
+SWITCH_DIP06_SMV2()
+(6,2, 4)
+SWITCH_DIP07_SMV2()
+(7,2, 4)
+SWITCH_DIP08_SMV2()
+(8,2, 4)
+SWITCH_DIP09_SMV2()
+(9,2, 4)
+SWITCH_DIP10_SMV2()
+(10,2, 4)
+####################################################################################################
+####################################################################################################
+/********************************************************************************************************************************************
+// Pin Typ 0,  smd nach außen gewinkelt
+********************************************************************************************************************************************/
+#macro SWITCH_DIP_SM_PIN0(H,B,T,S)
+//H = Höhe des Pins
+//B = Breite des Pins
+//T = Tiefe des Pins
+//S = Materialstärke des Pins
+union{
+	box{<0,H,T/2><B/4,H-S,-T/2>}
+	difference{
+		cylinder{<B/4,H-S,-T/2><B/4,H-S,T/2>S}
+		box{<-1,H-S,-T/2-0.01><B/2,H-S-3,T/2+0.01>}}
+	box{<B/4,H-S,-T/2><B/4+S,S,T/2>}
+	difference{
+		cylinder{<B/4+S,S,-T/2><B/4+S,S,T/2>S}
+		box{<0,S,-T/2-0.01><B,S+3,T/2+0.01>}}
+	box{<B/4+S,0,-T/2><B,S,T/2>}
+	difference{
+		box{<B/4+S,S,-T/2><B/4+S+S/2,1.5*S,T/2>}
+		cylinder{<B/4+S+S/2,S+S/2,T/2+0.01><B/4+S+S/2,S+S/2,-T/2-0.01>,S/2}}
+	//box{<0,0,-T/2><B,H,T/2> pigment{White filter 0.9}}
+	rotate<0,90,0>
+	texture{col_silver}
+}
+#end
+/********************************************************************************************************************************************
+// Pin Typ 1,  smd nach innen gewinkelt
+********************************************************************************************************************************************/
+#macro SWITCH_DIP_SM_PIN1()
+
+union{
+	intersection{
+		difference{
+			box{<0,0,0><1.8,0.9,0.45>}
+			cylinder{<0.9,0.9,-0.1><0.9,0.9,0.5>0.7}}
+		cylinder{<0.9,0.9,-0.1><0.9,0.9,0.5>0.9}}
+	box{<1.6,0.8,0><1.8,1.2,0.45>}
+	difference{
+		box{<1.6,1.2,-0.125><1.8,2.5,0.45+0.125>}
+		box{<-0.1,0,0><0.3,0.5,-0.5> rotate<-20,0,0> translate<1.55,1.2,0>}
+		box{<-0.1,0,0><0.3,0.5,0.5> rotate<20,0,0> translate<1.55,1.2,0.45>}}
+	difference{
+		cylinder{<1.5,2.5,-0.125><1.5,2.5,0.45+0.125>0.3}
+		box{<1.6,2.9,-1><1,2,1>}}
+	difference{
+		box{<1.6,2.5,-0.125><1.4,2.8,0.45+0.125>}
+		cylinder{<1.45,2.45,-1><1.45,2.45,1>0.15}}
+	texture{col_silver}
+	translate<-1.4,0,0>
+	rotate<0,90,0>
+	translate<-0.225,0,0>
+}
+#end
+/********************************************************************************************************************************************
+// Pin Typ 2, normal
+********************************************************************************************************************************************/
+#macro SWITCH_DIP_SM_PIN2()
+union{
+	//unterstes Ende durch das Loch der Platine
+	difference{
+		box{<0,0,0><0.455,3.4,0.3>}
+		box{<0,0,0><0.5,0.5,0.5> rotate<0,0,-20> translate<0.305,0,-0.1>}
+		box{<0,0,0><-0.5,0.5,0.5> rotate<0,0,20> translate<0.15,0,-0.1>}
+	}
+	box{<0,0,0><1.43,0.3,0.33> translate<-0.4875,5.3,0.5>}
+	difference{
+		box{<0,0,0><1.43,0.25,0.25> translate<-0.4875,5.05,0.3>}
+		cylinder{<0,0,0><2,0,0>0.25 translate<-0.6,5.05,0.55>}
+	}
+	// breiter senkrechter Streifen mit Verjuengung
+	difference{
+		box{<0,0,0><1.43,1.7,0.3> translate<-0.4875,3.4,0>}
+		box{<0,0,0><1,2.2,0.5> rotate<0,0,-20> translate<0.55,3.4,-0.1>}
+		box{<0,0,0><-1,2.2,0.5> rotate<0,0,20> translate<-0.095,3.40,-0.1>}
+	}
+	// obere Biegung des breiten Streifens
+	difference{
+		cylinder{<0,0,0><1.43,0,0>0.5 translate<-0.4875,5.1,0.5> }
+		box{<0,0,0><2,2.2,2> translate<-0.8,3.1,0.3>}
+		box{<0,0,0><2,2.2,2> translate<-0.7,4,0.5>}
+	}
+	texture{col_silver}
+	translate<-0.455/2,-3,-0.15>
+}
+#end
+/********************************************************************************************************************************************
+// Pin 
+********************************************************************************************************************************************/
+#macro SWITCH_DIP_SM_PIN(pintyp)
+#if (pintyp=0)
+	SWITCH_DIP_SM_PIN0(2.5, 1.5, 0.75, 0.3)
+#end
+
+#if (pintyp=1)
+	SWITCH_DIP_SM_PIN1()
+#end
+
+#if (pintyp=2)
+	SWITCH_DIP_SM_PIN2()
+#end
+
+#end
+
+/********************************************************************************************************************************************
+// body
+********************************************************************************************************************************************/
+#macro SWITCH_DIP_SM_HOUSING(seitenrand, tiefe)
+difference { 
+	box { <0,1,-tiefe> <2.54*(nrSwitches-1)+2*seitenrand, 4, tiefe> }
+	box { <0,3.7,-2> <.2,4.2,2> }
+	translate <-seitenrand,0,0> 
+} 
+#end
+
+
+#local well  = union{
+	box { <-0.5, 3.9, -2>  <0.5, 4.1, 2>  }
+	box { <-0.5, 2,   -1> <0.5,  4.1, 1>  }
+	}
+
+
+
+	//Grundkoerper
+	#local seitenrand = 2.2;	//CTS
+	#local tiefe = 3.5;
+	#if (abmasse=1)
+		#local seitenrand = 1.5;
+		#local tiefe = 3.5;
+	#end
+	#if (abmasse=2)			// DIPxxYL
+		#local seitenrand = 2.5;
+//		#local tiefe = 4.4;
+	#end
+	#if (abmasse=3)			// DIPxxS
+		#local seitenrand = 1.5;
+		#local tiefe = 3.5;
+	#end
+	#if (abmasse=4)			// SD-xx	
+		#local seitenrand = 2.1;
+		#local tiefe = 3.5;
+	#end
+	union {
+	difference {
+		object { SWITCH_DIP_SM_HOUSING(seitenrand, tiefe) }
+		#local wellNr = 0;
+		#while (wellNr < nrSwitches)
+			object { well translate<wellNr*2.54,0,0> }
+			#local wellNr = wellNr + 1;
+		#end
+	pigment { color red 0.15 green 0.1 blue 0.1 } 
+	}
+
+
+	text {
+		ttf besch_font "ON" .01, 0
+		pigment { NewTan }
+		rotate<90,0,0>
+		translate<-0.5, 4.01, 2.5>}
+
+
+	#local switchNr = 0;
+	#while (switchNr < nrSwitches)
+		#local xShift = switchNr*2.54;
+		//pins
+		object { SWITCH_DIP_SM_PIN(pintyp) rotate <0,180,0>  translate<xShift, 0, 3.81> }
+		object { SWITCH_DIP_SM_PIN(pintyp)                   translate<xShift, 0, -3.81> }
+		// schalter
+		box { <-0.6, 2, -2>  <0.6, 3, 2> texture {T_Gold_5E} translate<xShift,0,0>}
+		#local onOff = SRand(1);
+		#if (onOff < 0)
+			box { <-0.5, 3,-1> <0.5, 4.1, 0> pigment {Red} translate<xShift,0,0>}
+		#else
+			box { <-0.5, 3, 1> <0.5, 4.1, 0> pigment {Red} translate<xShift,0,0>}
+		#end
+		//beschriftung
+		text {
+			ttf besch_font str(switchNr+1,2,0) .01, 0
+			pigment { NewTan }
+			rotate<90,0,0>
+			translate<xShift-1, 4.01,-3>
+			#if (switchNr>8)
+				translate<0.5, 0, 0>
+			#end
+		}
+		#if (switchNr < (nrSwitches-1))
+			cylinder{<0,4,0><0,4.01,0> 0.25 translate<xShift+1.27, 0, -0.5> pigment { NewTan }}
+		#end
+		#local switchNr = switchNr + 1;
+	#end
+
+    translate<(-nrSwitches+1)*2.54/2,0,0>
+}
+#end
