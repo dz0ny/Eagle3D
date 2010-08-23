@@ -1,0 +1,550 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+ Authors: Matthias Weisser
+ Copyright (C) 2010 Matthias Weisse <matthias@matwei.de>
+
+ This library is free software; you can redistribute it and/or
+ modify it under the terms of the GNU Library General Public
+ License as published by the Free Software Foundation; either
+ version 2 of the License, or (at your option) any later version.
+
+ This library is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ Library General Public License for more details.
+
+ You should have received a copy of the GNU Library General Public
+ License along with this library; if not, write to the
+ Free Software Foundation, Inc., 59 Temple Place - Suite 330,
+ Boston, MA 02111-1307, USA.
+
+-->
+<language id="pov" _name="POVRay" version="2.0" _section="Sources">
+    <metadata>
+      <!-- <property name="mimetypes">text/x-c;text/x-csrc;image/x-xpixmap</property> -->
+      <property name="globs">*.pov;*.ini</property>
+      <property name="line-comment-start">//</property>
+      <property name="block-comment-start">/*</property>
+      <property name="block-comment-end">*/</property>
+    </metadata>
+
+    <styles>
+        <style id="comment"           _name="Comment"             map-to="def:comment"/>
+        <style id="error"             _name="Error"               map-to="def:error"/>
+        <style id="string"            _name="String"              map-to="def:string"/>
+        <style id="preprocessor"      _name="Preprocessor"        map-to="def:preprocessor"/>
+        <style id="common-defines"    _name="Common Defines"      map-to="def:special-constant"/>
+        <style id="included-file"     _name="Included File"       map-to="def:string"/>
+        <style id="char"              _name="Character"           map-to="def:character"/>
+        <style id="keyword"           _name="Keyword"             map-to="def:keyword"/>
+        <style id="type"              _name="Data Type"           map-to="def:type"/>
+        <style id="storage-class"     _name="Storage Class"       map-to="def:type"/>
+        <style id="floating-point"    _name="Floating point number" map-to="def:floating-point"/>
+        <style id="decimal"           _name="Decimal number"      map-to="def:decimal"/>
+    </styles>
+
+    <definitions>
+       
+        <context id="pov" class="no-spell-check">
+            <include>
+
+                <!-- Comments -->
+                <context id="comment" style-ref="comment" end-at-line-end="true" class="comment" class-disabled="no-spell-check">
+                    <start>//</start>
+
+                    <include>
+                      <context ref="def:in-line-comment"/>
+                    </include>
+                </context>
+
+                <context id="comment-multiline" style-ref="comment" class="comment" class-disabled="no-spell-check">
+                    <start>/\*</start>
+                    <end>\*/</end>
+                    <include>
+                        <context ref="def:in-comment"/>
+                    </include>
+                </context>
+
+                <context id="close-comment-outside-comment" style-ref="error">
+                    <match>\*/(?!\*)</match>
+                </context>
+
+                <!-- Literals -->
+                <context id="string" style-ref="string" end-at-line-end="true" class="string" class-disabled="no-spell-check">
+                    <start>"</start>
+                    <end>"</end>
+                    <include>
+                        <context ref="def:line-continue"/>
+                    </include>
+                </context>                
+                
+                <define-regex id="float" extended="true">
+                    ( (\d+)?\.\d+ | \d+\. ) |
+                    ( (\d+|(\d+)?\.\d+|\d+\.)[eE][+-]?\d+ )
+                </define-regex>
+
+                <context id="float" style-ref="floating-point">
+                    <match>(?&lt;![\w\.])\%{float}(?![\w\.])</match>
+                </context>
+                
+                <context id="decimal" style-ref="decimal">
+                    <match extended="true">
+                        (?&lt;![\w\.])
+                        [0-9]+
+                        (?![\w\.])
+                    </match>
+                </context>
+
+
+                <!-- Keywords -->
+                <context id="preprocessor" style-ref="preprocessor" class="preprocessor">
+                    <match>#((include)|(declare)|(local)|(macro)|(fopen)|(fclose)|(read)|(write)|(default)|(version)|(ifn?(def)?)|(else)|(end)|(switch)|(case)|(range)|(break)|(while)|(debug)|(error)|(warning))</match>
+                </context> 
+                
+                <context id="keywords" style-ref="keyword" class="keyword">
+                    <keyword>aa_level</keyword>
+                    <keyword>aa_threshold</keyword>
+                    <keyword>abs</keyword>
+                    <keyword>absorption</keyword>
+                    <keyword>accuracy</keyword>
+                    <keyword>acos</keyword>
+                    <keyword>acosh</keyword>
+                    <keyword>adaptive</keyword>
+                    <keyword>adc_bailout</keyword>
+                    <keyword>agate</keyword>
+                    <keyword>agate_turb</keyword>
+                    <keyword>all</keyword>
+                    <keyword>all_intersections</keyword>
+                    <keyword>alpha</keyword>
+                    <keyword>altitude</keyword>
+                    <keyword>always_sample</keyword>
+                    <keyword>ambient</keyword>
+                    <keyword>ambient_light</keyword>
+                    <keyword>angle</keyword>
+                    <keyword>aperture</keyword>
+                    <keyword>append</keyword>
+                    <keyword>arc_angle</keyword>
+                    <keyword>area_light</keyword>
+                    <keyword>array</keyword>
+                    <keyword>asc</keyword>
+                    <keyword>ascii</keyword>
+                    <keyword>asin</keyword>
+                    <keyword>asinh</keyword>
+                    <keyword>assumed_gamma</keyword>
+                    <keyword>atan</keyword>
+                    <keyword>atan2</keyword>
+                    <keyword>atanh</keyword>
+                    <keyword>autostop</keyword>
+                    <keyword>average</keyword>
+                    <keyword>b_spline</keyword>
+                    <keyword>background</keyword>
+                    <keyword>bezier_spline</keyword>
+                    <keyword>bicubic_patch</keyword>
+                    <keyword>black_hole</keyword>
+                    <keyword>blue</keyword>
+                    <keyword>blur_samples</keyword>
+                    <keyword>bounded_by</keyword>
+                    <keyword>boxed</keyword>
+                    <keyword>bozo</keyword>
+                    <keyword>brick</keyword>
+                    <keyword>brick_size</keyword>
+                    <keyword>brightness</keyword>
+                    <keyword>brilliance</keyword>
+                    <keyword>bump_map</keyword>
+                    <keyword>bump_size</keyword>
+                    <keyword>bumps</keyword>
+                    <keyword>camera</keyword>
+                    <keyword>caustics</keyword>
+                    <keyword>ceil</keyword>
+                    <keyword>cells</keyword>
+                    <keyword>charset</keyword>
+                    <keyword>checker</keyword>
+                    <keyword>chr</keyword>
+                    <keyword>circular</keyword>
+                    <keyword>clipped_by</keyword>
+                    <keyword>clock</keyword>
+                    <keyword>clock_delta</keyword>
+                    <keyword>clock_on</keyword>
+                    <keyword>collect</keyword>
+                    <keyword>color</keyword>
+                    <keyword>color_map</keyword>
+                    <keyword>colour</keyword>
+                    <keyword>colour_map</keyword>
+                    <keyword>component</keyword>
+                    <keyword>composite</keyword>
+                    <keyword>concat</keyword>
+                    <keyword>confidence</keyword>
+                    <keyword>conic_sweep</keyword>
+                    <keyword>conserve_energy</keyword>
+                    <keyword>contained_by</keyword>
+                    <keyword>control0</keyword>
+                    <keyword>control1</keyword>
+                    <keyword>coords</keyword>
+                    <keyword>cos</keyword>
+                    <keyword>cosh</keyword>
+                    <keyword>count</keyword>
+                    <keyword>crackle</keyword>
+                    <keyword>crand</keyword>
+                    <keyword>cube</keyword>
+                    <keyword>cubic</keyword>
+                    <keyword>cubic_spline</keyword>
+                    <keyword>cubic_wave</keyword>
+                    <keyword>cutaway_textures</keyword>
+                    <keyword>cylindrical</keyword>
+                    <keyword>defined</keyword>
+                    <keyword>degrees</keyword>
+                    <keyword>density</keyword>
+                    <keyword>density_file</keyword>
+                    <keyword>density_map</keyword>
+                    <keyword>dents</keyword>
+                    <keyword>df3</keyword>
+                    <keyword>difference</keyword>
+                    <keyword>diffuse</keyword>
+                    <keyword>dimension_size</keyword>
+                    <keyword>dimensions</keyword>
+                    <keyword>direction</keyword>
+                    <keyword>disc</keyword>
+                    <keyword>dispersion</keyword>
+                    <keyword>dispersion_samples</keyword>
+                    <keyword>dist_exp</keyword>
+                    <keyword>distance</keyword>
+                    <keyword>div</keyword>
+                    <keyword>double_illuminate</keyword>
+                    <keyword>eccentricity</keyword>
+                    <keyword>emission</keyword>
+                    <keyword>error_bound</keyword>
+                    <keyword>evaluate</keyword>
+                    <keyword>exp</keyword>
+                    <keyword>expand_thresholds</keyword>
+                    <keyword>exponent</keyword>
+                    <keyword>exterior</keyword>
+                    <keyword>extinction</keyword>
+                    <keyword>face_indices</keyword>
+                    <keyword>facets</keyword>
+                    <keyword>fade_color</keyword>
+                    <keyword>fade_colour</keyword>
+                    <keyword>fade_distance</keyword>
+                    <keyword>fade_power</keyword>
+                    <keyword>falloff</keyword>
+                    <keyword>falloff_angle</keyword>
+                    <keyword>false</keyword>
+                    <keyword>file_exists</keyword>
+                    <keyword>filter</keyword>
+                    <keyword>final_clock</keyword>
+                    <keyword>final_frame</keyword>
+                    <keyword>finish</keyword>
+                    <keyword>fisheye</keyword>
+                    <keyword>flatness</keyword>
+                    <keyword>flip</keyword>
+                    <keyword>floor</keyword>
+                    <keyword>focal_point</keyword>
+                    <keyword>fog</keyword>
+                    <keyword>fog_alt</keyword>
+                    <keyword>fog_offset</keyword>
+                    <keyword>fog_type</keyword>
+                    <keyword>form</keyword>
+                    <keyword>frame_number</keyword>
+                    <keyword>frequency</keyword>
+                    <keyword>fresnel</keyword>
+                    <keyword>function</keyword>
+                    <keyword>gather</keyword>
+                    <keyword>gif</keyword>
+                    <keyword>global_lights</keyword>
+                    <keyword>global_settings</keyword>
+                    <keyword>gradient</keyword>
+                    <keyword>granite</keyword>
+                    <keyword>gray</keyword>
+                    <keyword>gray_threshold</keyword>
+                    <keyword>green</keyword>
+                    <keyword>hexagon</keyword>
+                    <keyword>hf_gray_16</keyword>
+                    <keyword>hierarchy</keyword>
+                    <keyword>hypercomplex</keyword>
+                    <keyword>hollow</keyword>
+                    <keyword>iff</keyword>
+                    <keyword>image_height</keyword>
+                    <keyword>image_map</keyword>
+                    <keyword>image_pattern</keyword>
+                    <keyword>image_width</keyword>
+                    <keyword>initial_clock</keyword>
+                    <keyword>initial_frame</keyword>
+                    <keyword>inside</keyword>
+                    <keyword>inside_vector</keyword>
+                    <keyword>int</keyword>
+                    <keyword>interior</keyword>
+                    <keyword>interior_texture</keyword>
+                    <keyword>internal</keyword>
+                    <keyword>interpolate</keyword>
+                    <keyword>intersection</keyword>
+                    <keyword>intervals</keyword>
+                    <keyword>inverse</keyword>
+                    <keyword>ior</keyword>
+                    <keyword>irid</keyword>
+                    <keyword>irid_wavelength</keyword>
+                    <keyword>jitter</keyword>
+                    <keyword>jpeg</keyword>
+                    <keyword>julia</keyword>
+                    <keyword>lambda</keyword>
+                    <keyword>leopard</keyword>
+                    <keyword>light_group</keyword>
+                    <keyword>light_source</keyword>
+                    <keyword>linear_spline</keyword>
+                    <keyword>linear_sweep</keyword>
+                    <keyword>ln</keyword>
+                    <keyword>load_file</keyword>
+                    <keyword>location</keyword>
+                    <keyword>log</keyword>
+                    <keyword>look_at</keyword>
+                    <keyword>looks_like</keyword>
+                    <keyword>low_error_factor</keyword>
+                    <keyword>magnet</keyword>
+                    <keyword>major_radius</keyword>
+                    <keyword>mandel</keyword>
+                    <keyword>map_type</keyword>
+                    <keyword>marble</keyword>
+                    <keyword>material</keyword>
+                    <keyword>material_map</keyword>
+                    <keyword>matrix</keyword>
+                    <keyword>max</keyword>
+                    <keyword>max_extent</keyword>
+                    <keyword>max_gradient</keyword>
+                    <keyword>max_intersections</keyword>
+                    <keyword>max_iteration</keyword>
+                    <keyword>max_sample</keyword>
+                    <keyword>max_trace</keyword>
+                    <keyword>max_trace_level</keyword>
+                    <keyword>media</keyword>
+                    <keyword>media_attenuation</keyword>
+                    <keyword>media_interaction</keyword>
+                    <keyword>merge</keyword>
+                    <keyword>mesh</keyword>
+                    <keyword>mesh2</keyword>
+                    <keyword>metallic</keyword>
+                    <keyword>method</keyword>
+                    <keyword>metric</keyword>
+                    <keyword>min</keyword>
+                    <keyword>min_extent</keyword>
+                    <keyword>minimum_reuse</keyword>
+                    <keyword>mod</keyword>
+                    <keyword>mortar</keyword>
+                    <keyword>natural_spline</keyword>
+                    <keyword>nearest_count</keyword>
+                    <keyword>no</keyword>
+                    <keyword>no_bump_scale</keyword>
+                    <keyword>no_image</keyword>
+                    <keyword>no_reflection</keyword>
+                    <keyword>no_shadow</keyword>
+                    <keyword>noise_generator</keyword>
+                    <keyword>normal</keyword>
+                    <keyword>normal_indices</keyword>
+                    <keyword>normal_map</keyword>
+                    <keyword>normal_vectors</keyword>
+                    <keyword>number_of_waves</keyword>
+                    <keyword>object</keyword>
+                    <keyword>octaves</keyword>
+                    <keyword>off</keyword>
+                    <keyword>offset</keyword>
+                    <keyword>omega</keyword>
+                    <keyword>omnimax</keyword>
+                    <keyword>on</keyword>
+                    <keyword>once</keyword>
+                    <keyword>onion</keyword>
+                    <keyword>open</keyword>
+                    <keyword>orient</keyword>
+                    <keyword>orientation</keyword>
+                    <keyword>orthographic</keyword>
+                    <keyword>panoramic</keyword>
+                    <keyword>parallel</keyword>
+                    <keyword>parametric</keyword>
+                    <keyword>pass_through</keyword>
+                    <keyword>pattern</keyword>
+                    <keyword>perspective</keyword>
+                    <keyword>pgm</keyword>
+                    <keyword>phase</keyword>
+                    <keyword>phong</keyword>
+                    <keyword>phong_size</keyword>
+                    <keyword>photons</keyword>
+                    <keyword>pi</keyword>
+                    <keyword>pigment</keyword>
+                    <keyword>pigment_map</keyword>
+                    <keyword>pigment_pattern</keyword>
+                    <keyword>planar</keyword>
+                    <keyword>plane</keyword>
+                    <keyword>png</keyword>
+                    <keyword>point_at</keyword>
+                    <keyword>poly</keyword>
+                    <keyword>poly_wave</keyword>
+                    <keyword>polygon</keyword>
+                    <keyword>pot</keyword>
+                    <keyword>pow</keyword>
+                    <keyword>ppm</keyword>
+                    <keyword>precision</keyword>
+                    <keyword>precompute</keyword>
+                    <keyword>pretrace_end</keyword>
+                    <keyword>pretrace_start</keyword>
+                    <keyword>prod</keyword>
+                    <keyword>projected_through</keyword>
+                    <keyword>pwr</keyword>
+                    <keyword>quadratic_spline</keyword>
+                    <keyword>quadric</keyword>
+                    <keyword>quartic</keyword>
+                    <keyword>quaternion</keyword>
+                    <keyword>quick_color</keyword>
+                    <keyword>quick_colour</keyword>
+                    <keyword>quilted</keyword>
+                    <keyword>radial</keyword>
+                    <keyword>radians</keyword>
+                    <keyword>radiosity</keyword>
+                    <keyword>radius</keyword>
+                    <keyword>rainbow</keyword>
+                    <keyword>ramp_wave</keyword>
+                    <keyword>rand</keyword>
+                    <keyword>ratio</keyword>
+                    <keyword>reciprocal</keyword>
+                    <keyword>recursion_limit</keyword>
+                    <keyword>red</keyword>
+                    <keyword>reflection</keyword>
+                    <keyword>reflection_exponent</keyword>
+                    <keyword>refraction</keyword>
+                    <keyword>render</keyword>
+                    <keyword>repeat</keyword>
+                    <keyword>rgb</keyword>
+                    <keyword>rgbf</keyword>
+                    <keyword>rgbft</keyword>
+                    <keyword>rgbt</keyword>
+                    <keyword>right</keyword>
+                    <keyword>ripples</keyword>
+                    <keyword>rotate</keyword>
+                    <keyword>roughness</keyword>
+                    <keyword>samples</keyword>
+                    <keyword>save_file</keyword>
+                    <keyword>scale</keyword>
+                    <keyword>scallop_wave</keyword>
+                    <keyword>scattering</keyword>
+                    <keyword>seed</keyword>
+                    <keyword>select</keyword>
+                    <keyword>shadowless</keyword>
+                    <keyword>sin</keyword>
+                    <keyword>sine_wave</keyword>
+                    <keyword>sinh</keyword>
+                    <keyword>size</keyword>
+                    <keyword>sky</keyword>
+                    <keyword>sky_sphere</keyword>
+                    <keyword>slice</keyword>
+                    <keyword>slope</keyword>
+                    <keyword>slope_map</keyword>
+                    <keyword>smooth</keyword>
+                    <keyword>smooth_triangle</keyword>
+                    <keyword>solid</keyword>
+                    <keyword>sor</keyword>
+                    <keyword>spacing</keyword>
+                    <keyword>specular</keyword>
+                    <keyword>spherical</keyword>
+                    <keyword>spiral1</keyword>
+                    <keyword>spiral2</keyword>
+                    <keyword>spline</keyword>
+                    <keyword>split_union</keyword>
+                    <keyword>spotlight</keyword>
+                    <keyword>spotted</keyword>
+                    <keyword>sqr</keyword>
+                    <keyword>sqrt</keyword>
+                    <keyword>statistics</keyword>
+                    <keyword>str</keyword>
+                    <keyword>strcmp</keyword>
+                    <keyword>strength</keyword>
+                    <keyword>strlen</keyword>
+                    <keyword>strlwr</keyword>
+                    <keyword>strupr</keyword>
+                    <keyword>sturm</keyword>
+                    <keyword>substr</keyword>
+                    <keyword>sum</keyword>
+                    <keyword>sys</keyword>
+                    <keyword>t</keyword>
+                    <keyword>tan</keyword>
+                    <keyword>tanh</keyword>
+                    <keyword>target</keyword>
+                    <keyword>texture</keyword>
+                    <keyword>texture_list</keyword>
+                    <keyword>texture_map</keyword>
+                    <keyword>tga</keyword>
+                    <keyword>thickness</keyword>
+                    <keyword>threshold</keyword>
+                    <keyword>tiff</keyword>
+                    <keyword>tightness</keyword>
+                    <keyword>tile2</keyword>
+                    <keyword>tiles</keyword>
+                    <keyword>tolerance</keyword>
+                    <keyword>toroidal</keyword>
+                    <keyword>trace</keyword>
+                    <keyword>transform</keyword>
+                    <keyword>translate</keyword>
+                    <keyword>transmit</keyword>
+                    <keyword>triangle</keyword>
+                    <keyword>triangle_wave</keyword>
+                    <keyword>true</keyword>
+                    <keyword>ttf</keyword>
+                    <keyword>turb_depth</keyword>
+                    <keyword>turbulence</keyword>
+                    <keyword>type</keyword>
+                    <keyword>u</keyword>
+                    <keyword>u_steps</keyword>
+                    <keyword>ultra_wide_angle</keyword>
+                    <keyword>undef</keyword>
+                    <keyword>union</keyword>
+                    <keyword>up</keyword>
+                    <keyword>use_alpha</keyword>
+                    <keyword>use_color</keyword>
+                    <keyword>use_colour</keyword>
+                    <keyword>use_index</keyword>
+                    <keyword>utf8</keyword>
+                    <keyword>uv_indices</keyword>
+                    <keyword>uv_mapping</keyword>
+                    <keyword>uv_vectors</keyword>
+                    <keyword>v</keyword>
+                    <keyword>v_steps</keyword>
+                    <keyword>val</keyword>
+                    <keyword>variance</keyword>
+                    <keyword>vaxis_rotate</keyword>
+                    <keyword>vcross</keyword>
+                    <keyword>vdot</keyword>
+                    <keyword>vertex_vectors</keyword>
+                    <keyword>vlength</keyword>
+                    <keyword>vnormalize</keyword>
+                    <keyword>vrotate</keyword>
+                    <keyword>vstr</keyword>
+                    <keyword>vturbulence</keyword>
+                    <keyword>warp</keyword>
+                    <keyword>water_level</keyword>
+                    <keyword>waves</keyword>
+                    <keyword>width</keyword>
+                    <keyword>wood</keyword>
+                    <keyword>wrinkles</keyword>
+                    <keyword>x</keyword>
+                    <keyword>y</keyword>
+                    <keyword>yes</keyword>
+                    <keyword>z</keyword>
+                </context>
+
+                <!-- Shapes -->
+                <context id="types" style-ref="type" class="type">
+                    <keyword>blob</keyword>
+                    <keyword>box</keyword>                    
+                    <keyword>cone</keyword>                    
+                    <keyword>cylinder</keyword>
+                    <keyword>height_field</keyword>
+                    <keyword>isosurface</keyword>
+                    <keyword>julia_fractal</keyword>
+                    <keyword>lathe</keyword>
+                    <keyword>prism</keyword>
+                    <keyword>sphere</keyword>
+                    <keyword>sphere_sweep</keyword>
+                    <keyword>superellipsoid</keyword>
+                    <keyword>text</keyword>
+                    <keyword>torus</keyword>                
+                </context>
+
+            </include>
+        </context>
+    </definitions>
+</language>
