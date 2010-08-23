@@ -1,0 +1,147 @@
+TO92
+// Joerg Bredendiek <sprut(replace with at)sprut.de>  
+// replacement for all TR_TO92 and DIODE_TO92 macros
+//
+//TO92 & SOT54 packages, vertical
+// pin - number of pins (2 or 3)
+// L - Pin 1 shift along X
+// M - Pin 2 shift along Z
+// R - Pin 3 shift along X
+// D - Rotation of the whole package around Y
+//
+//
+####################################################################################################
+TO92-:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:TR_TO92_L(:TO92 gerade stehend:TO92 straight vertical
+TO92-LINE:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:TR_TO92_L(:TO92 gerade stehend:TO92 straight vertical
+TO92-ECB:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:TR_TO92_L(:TO92 gerade stehend:TO92 straight vertical
+TO92-BCE:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:TR_TO92_L(:TO92 gerade stehend:TO92 straight vertical
+TO92-BEC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:TR_TO92_L(:TO92 gerade stehend:TO92 straight vertical
+TO92-CBE:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:TR_TO92_L(:TO92 gerade stehend:TO92 straight vertical
+TO92-CEB:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:TR_TO92_L(:TO92 gerade stehend:TO92 straight vertical
+TO92-EBC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:-1.27:0:0:0:0:0:0:0:0:0:0:0:0:0:TR_TO92_L(:TO92 gerade stehend:TO92 straight vertical
+TO92:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:TR_TO92_G(:TO92 gewinckelt stehend:TO92 bend vertical
+TO92-1:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:TR_TO92_G(:TO92 gewinckelt stehend:TO92 bend vertical
+TO92-2:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:TR_TO92_G(:TO92 gewinckelt stehend:TO92 bend vertical
+TO92-3:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:TR_TO92_G(:TO92 gewinckelt stehend:TO92 bend vertical
+TO92-4:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:TR_TO92_G(:TO92 gewinckelt stehend:TO92 bend vertical
+TO92-5:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:TR_TO92_G(:TO92 gewinckelt stehend:TO92 bend vertical
+TO92-6:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:TR_TO92_G(:TO92 gewinckelt stehend:TO92 bend vertical
+TO92A:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:TR_TO92_G(:TO92 gewinckelt stehend:TO92 bend vertical
+TO92B:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:TR_TO92_G(:TO92 gewinckelt stehend:TO92 bend vertical
+TO92C:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:TR_TO92_G(:TO92 gewinckelt stehend:TO92 bend vertical
+TO92D:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:TR_TO92_G(:TO92 gewinckelt stehend:TO92 bend vertical
+TO92E:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:TR_TO92_G(:TO92 gewinckelt stehend:TO92 bend vertical
+TO92F:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:TR_TO92_G(:TO92 gewinckelt stehend:TO92 bend vertical
+TO92G:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:TR_TO92_G(:TO92 gewinckelt stehend:TO92 bend vertical
+TO92I:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:TR_TO92_G(:TO92 gewinckelt stehend:TO92 bend vertical
+TO92K:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:TR_TO92_G(:TO92 gewinckelt stehend:TO92 bend vertical
+TO92R:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:TR_TO92_G(:TO92 gewinckelt stehend:TO92 bend vertical
+TO92-E1:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:TR_TO92_G(:TO92 gewinckelt stehend:TO92 bend vertical
+TO-92:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:TR_TO92_G(:TO92 gewinckelt stehend:TO92 bend vertical
+TO92-CLP:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:TR_TO92_G(:TO92 gewinckelt stehend:TO92 bend vertical
+337L:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:TR_TO92_G(:TO92 gewinkelt stehend:TO92 bend vertical
+317L:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:TR_TO92_G(:TO92 gewinkelt stehend:TO92 bend vertical
+79LXX:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:TR_TO92_G(:TO92 gewinkelt stehend:TO92 bend vertical
+78LXX:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:TR_TO92_G(:TO92 gewinkelt stehend:TO92 bend vertical
+SOT54E:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:TR_TO92_G(:TO92 gewinkelt stehend:TO92 bend vertical
+SOT54A:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:TR_TO92_G(:TO92 gewinkelt stehend:TO92 bend vertical
+SOT54B:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:TR_TO92_G(:TO92 gewinkelt stehend:TO92 bend vertical
+SOT54C:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:TR_TO92_G(:TO92 gewinkelt stehend:TO92 bend vertical
+SOT54D:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:TR_TO92_G(:TO92 gewinkelt stehend:TO92 bend vertical
+TO92L:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:TR_TO92_G2(:TO92 gerade stehend:TO92 straight vertical
+SOT54AA:0:1:0:0:0:0:0:0:0:0:0:0:0:-90:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:TR_TO92_G2(:TO92 gerade stehend:TO92 straight vertical
+SOT54CA:0:1:0:0:0:0:0:0:0:0:0:0:0:-90:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:TR_TO92_G2(:TO92 gerade stehend:TO92 straight vertical
+SOT54BA:0:1:0:0:0:0:0:0:0:0:0:0:0:-90:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:TR_TO92_G2(:TO92 gerade stehend:TO92 straight vertical  
+SOT54CB:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:TR_TO92_G3(:TO92 gerade stehend:TO92 straight vertical
+SOT54AB:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:TR_TO92_G3(:TO92 gerade stehend:TO92 straight vertical
+SOT54BB:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:TR_TO92_G3(:TO92 gerade stehend:TO92 straight vertical  
+TO92/:0:1:0:0:0:0:0:0:0:0:0:0:0:45:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:TR_TO92_G4(:TO92 gerade stehend:TO92 straight vertical 
+TO92C1:0:1:0:0:0:0:0:0:0:0:0:0:0:-45:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:TR_TO92_G4(:TO92 gerade stehend:TO92 straight vertical    
+SOT54DB:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:TR_TO92_G5(:TO92 gerade stehend:TO92 straight vertical
+SOT54DA:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:TR_TO92_G5(:TO92 gerade stehend:TO92 straight vertical
+TO92H:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:DIODE_TO92_2(:TO92 gerade stehend:TO92 straight vertical
+C182A:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:DIODE_TO92_2(:TO92 gerade stehend:TO92 straight vertical
+SOT54H:0:1:0:0:0:0:0:0:0:0:0:0:0:180:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:DIODE_TO92_2(:TO92 gerade stehend:TO92 straight vertical
+####################################################################################################
+TR_TO92_G_GRND
+(value, pin, L, M, R, D)
+####################################################################################################
+TR_TO92_L(value)
+(value, 3, -2.54, 0.00, 2.54, 0)
+TR_TO92_G(value)
+(value, 3, -1.27, 1.905,1.27, 0)
+TR_TO92_G2(value)
+(value, 3, -2.54, 2.54, 2.54, 90)
+TR_TO92_G3(value)
+(value, 3, -2.00, 2.00, 2.00, 0)
+TR_TO92_G4(value)
+(value, 3, -1.80, 1.80, 1.80, 0)
+TR_TO92_G5(value)
+(value, 3, -2.18, 2.55, 2.18, 0)
+DIODE_TO92_2(value)
+(value, 2, -1.27, 0.00, 1.27, 0)
+####################################################################################################
+####################################################################################################
+union{
+	//lower part of pin
+	#if(pin_short=off)
+		box{<-0.24,0,-0.22><0.24,10,0.22> translate< L,0,0>}                                      //linker Pin
+		#if (pin=3)
+		box{<-0.24,0,-0.22><0.24,10,0.22> translate< 0,0,M>}                                      //mittlerer Pin
+		#end
+		box{<-0.24,0,-0.22><0.24,10,0.22> translate< R,0,0>}                                      //rechter Pin
+	#else
+		box{<-0.24,9.3-(pcb_height+pin_length),-0.22><0.24,10,0.22> translate< L,0,0>}            //linker Pin
+		#if (pin=3)
+		box{<-0.24,9.3-(pcb_height+pin_length),-0.22><0.24,10,0.22> translate< 0,0,M>}            //mittlerer Pin
+		#end
+		box{<-0.24,9.3-(pcb_height+pin_length),-0.22><0.24,10,0.22> translate< R,0,0>}            //rechter Pin
+	#end
+
+	// bended middle part of pin
+	#local M1=sqrt( (1.5*1.5) + (L+1.27-0.48)*(L+1.27-0.48) );
+	#local M2=sqrt( (1.5*1.5) + (M+0.44)*(M+0.44) );
+	#local M3=sqrt( (1.5*1.5) + (R-1.27+0.48)*(R-1.27+0.48) );
+
+	#local L1=sqrt((M1*M1) - (0.48*0.48) );
+	#local L2=sqrt((M2*M2) - (0.44*0.44) );
+	#local L3=sqrt((M3*M3) - (0.48*0.48) );
+
+	#local A1= (asin( (L+1.27-0.48)/M1 ) + asin(0.48/M1) ) / 3.1415 * 180;
+	#local A2= (asin( (M+0.44)/M2 )      - asin(0.44/M2) ) / 3.1415 * 180;
+	#local A3= (asin( (R-1.27+0.48)/M3 ) - asin(0.48/M3) ) / 3.1415 * 180;
+
+	box{<-0.24,-L1/2,-0.22><0.24,L1/2,0.22> rotate<0,0,A1> translate<(L+1.27)/2-1.27 ,10.75,0>}          //linker Pin Schraege
+	#if (pin=3)
+ 	box{<-0.24,-L2/2,-0.22><0.24,L2/2,0.22> rotate<-A2,0,0> translate< 0,10.75,(M/2)>}                   //mittlerer Pin Schraege
+	#end
+	box{<-0.24,-L3/2,-0.22><0.24,L3/2,0.22> rotate<0,0, A3> translate<(R-1.27)/2+1.27,10.75,0>}          //rechter Pin Schraege
+
+
+	// upper part of pin at the housing
+	box{<-0.24,11.5,-0.22><0.24,14,0.22> translate<-1.27,0,0>}                                     //linker Pin
+	#if (pin=3)
+	box{<-0.24,11.5,-0.22><0.24,14,0.22> }                                                         //mittlerer Pin
+	#end
+	box{<-0.24,11.5,-0.22><0.24,14,0.22> translate< 1.27,0,0>}                                     //rechter Pin
+
+	// wider part of pin close to the housing
+	box{<-0.34,12,-0.22><0.34,13,0.22> translate<-1.27,0,0>}                                        //Abstandhalter links
+	#if (pin=3)
+	box{<-0.34,12,-0.22><0.34,13,0.22> }                                                            //Abstandhalter mitte
+	#end
+	box{<-0.34,12,-0.22><0.34,13,0.22> translate< 1.27,0,0>}                                        //Abstandhalter rechts
+
+	// plastic body
+	difference{                                                                                  //Transistorkoerper
+		cylinder{<0,14,0><0,19.2,0>2.4 pigment{ Gray30}translate<0.12,0,0>}
+            box{<-3,13.9,-1><3,20,-3> pigment{ Gray30}}}
+
+	// label
+	text {ttf besch_font value 1, 0 pigment { White } translate<-1.8,17,-1.01>}                  //Beschriftung
+
+	texture{col_silver}
+	translate<0, -9.3, 0>
+	rotate<0,D,0>
+}
+#end
