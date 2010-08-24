@@ -12,18 +12,20 @@ IC_SMD_PIN
 ####################################################################################################
 ####################################################################################################
 union{
-box{<0,H,T/2><B/4,H-S,-T/2>}
-difference{
-cylinder{<B/4,H-S,-T/2><B/4,H-S,T/2>S}
-box{<-1,H-S,-T/2-0.01><B/2,H-S-3,T/2+0.01>}}
-box{<B/4,H-S,-T/2><B/4+S,S,T/2>}
-difference{
-cylinder{<B/4+S,S,-T/2><B/4+S,S,T/2>S}
-box{<0,S,-T/2-0.01><B,S+3,T/2+0.01>}}
-box{<B/4+S,0,-T/2><B,S,T/2>}
-difference{
-box{<B/4+S,S,-T/2><B/4+S+S/2,1.5*S,T/2>}
-cylinder{<B/4+S+S/2,S+S/2,T/2+0.01><B/4+S+S/2,S+S/2,-T/2-0.01>,S/2}}
-//box{<0,0,-T/2><B,H,T/2> pigment{White filter 0.9}}
-texture{col_silver}}
+    box{<0,H,T/2> <B/4,H-S,-T/2>}
+    difference{
+        cylinder{<B/4,H-S,-T/2> <B/4,H-S,T/2> S}
+        box{<-1,H-S,-T/2-0.01> <B/2,H-S-3,T/2+0.01>}
+    }
+    box{<B/4,H-S,-T/2> <B/4+S,S,T/2>}
+    difference{
+        cylinder{<B/4+S,S,-T/2> <B/4+S,S,T/2> S}
+        box{<0,S,-T/2-0.01> <B,S+3,T/2+0.01>}
+    }
+    box{<B/4+S,0,-T/2> <B,S,T/2>}
+    difference{
+        box{<B/4+S,S,-T/2> <B/4+S+S/2,1.5*S, T/2>}
+        cylinder{<B/4+S+S/2,S+S/2,T/2+0.01> <B/4+S+S/2,S+S/2,-T/2-0.01>, S/2}
+    }    
+}
 #end

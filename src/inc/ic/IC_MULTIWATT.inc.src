@@ -10,14 +10,14 @@ Multiwatt
 //Multiwatt15V (value)  - for vertical MW15 package
 //Multiwatt15H (value)  - for horizontal MW15 package
 ####################################################################################################
-MULTIWATT-15:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:-5.08:0:0:0:0:0:0:0:0:0:0:0:0:0:MULTIWATT15V(:Multiwatt 15 vertikal:Multiwatt 15 vertical
+MULTIWATT-15:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:-5.08:0:0:0:0:0:0:0:0:0:0:0:0:0:IC_MULTIWATT15V(:Multiwatt 15 vertikal:Multiwatt 15 vertical
 ####################################################################################################
 IC_MULTIWATT
 (value,H_V)
 ####################################################################################################
-MULTIWATT15V(value)
+IC_MULTIWATT15V(value)
 (value,1)
-MULTIWATT15H(value) 
+IC_MULTIWATT15H(value) 
 (value,0)
 ####################################################################################################
 ####################################################################################################
@@ -44,8 +44,8 @@ MULTIWATT15H(value)
 	//
 	// Some textures for components' leads
 	//
-	#local DiscLead_Silver = texture { col_silver finish { phong 1  ambient (0.1 * global_ambient_mul)}};
-	#local DiscLead_Gold   = texture { col_gold finish{ phong 1  ambient (0.1 * global_ambient_mul)}};
+	#local DiscLead_Silver = texture{e3d_tex_silver};
+	#local DiscLead_Gold   = texture{e3d_tex_gold};
 	
 	//////////////////////////////////////////
 	// Resistor/Diode/Condensator leads
@@ -89,7 +89,8 @@ MULTIWATT15H(value)
 	         box {<-BoxSize,-BoxSize,-BoxSize> <BoxSize,BoxSize,0>}
 	         rotate <-90,180,0> translate <-HorizLeadHLen,Height-BendRadius,0> }
 	      cylinder {<0,-2,0>, <0,Height-BendRadius,0>, LeadRadius translate (HorizLeadHLen+BendRadius)*x }
-	      texture {LeadTxtr} }
+	      texture {LeadTxtr} 
+       }
 	#end
 	
 	//////////////////////////////////////////
@@ -127,7 +128,8 @@ MULTIWATT15H(value)
 	         box {<-BoxSize,-BoxSize,-BoxSize> <BoxSize,BoxSize,0>}
 	         rotate <-90,0,0> translate <HorizLeadLen+BendRadius,HorizLeadHei,0> }
 	      cylinder {<0,-2,0>, <0,HorizLeadHei,0>, LeadRadius translate Entraxe*x }
-	      texture {LeadTxtr} }
+	      texture {LeadTxtr} 
+	   }
 	#end
 	
 	//////////////////////////////////////////
@@ -172,7 +174,8 @@ MULTIWATT15H(value)
 	         rotate <-90,90,0> translate <+Entraxe/2, Height-BendRadius,BendRadius> }
 	      cylinder {<-(Entraxe/2),Height,BendRadius>, <-(Entraxe/2),Height,BendRadius+Depth>, LeadRadius }
 	      cylinder {<+(Entraxe/2),Height,BendRadius>, <+(Entraxe/2),Height,BendRadius+Depth>, LeadRadius }
-	      texture {LeadTxtr} }
+	      texture {LeadTxtr} 
+	   }
 	#end
 	
 	
@@ -191,7 +194,8 @@ MULTIWATT15H(value)
 	   union {
 	      cylinder {<-(Entraxe/2),-2,0>, <-(Entraxe/2),Height,0>, LeadRadius }
 	      cylinder {<+(Entraxe/2),-2,0>, <+(Entraxe/2),Height,0>, LeadRadius }
-	      texture {LeadTxtr} }
+	      texture {LeadTxtr} 
+	   }
 	#end
 
 
@@ -219,7 +223,7 @@ MULTIWATT15H(value)
 	      box { <-0.5,-1,0> <0.5,2,2> }
 	      box { <-10,-1,-1> <10,2,1> }
 	      }
-	   texture { T_Silver_5A finish{phong 0.1 phong_size 10  ambient (0.1 * global_ambient_mul)} }
+	   texture{e3d_tex_heatsink_silver}
 	}
 	#end
 	
@@ -240,11 +244,9 @@ MULTIWATT15H(value)
 	      cylinder { <-6,4.9,5> <-6,5.5,5> 1 }
 	      
 	      #local Twidth = TextWidth( value, besch_font, 2 );
-	      text { ttf besch_font value 1, 0 pigment { White } scale <2,2,1> rotate 90*x translate <-Twidth/2,5.95,6> }
+	      text { ttf besch_font value 1, 0 scale <2,2,1> rotate 90*x translate <-Twidth/2,5.95,6> texture{e3d_tex_ic_marking_bright}}	      
 	   }
-	   texture {pigment {Gray20} }
-	   finish {phong 0.1 phong_size 25  ambient (0.1 * global_ambient_mul)}
-	   
+	   texture{e3d_tex_ic_body_2}
 	}
 	#end
 	
@@ -321,8 +323,7 @@ MULTIWATT15H(value)
 	
 	      
 	   translate -1.27*z
-	   texture { col_silver }
-	   finish { phong 0.5  ambient (0.1 * global_ambient_mul)}
+	   texture{e3d_tex_silver}
 	   }
 	#end
 	
@@ -385,8 +386,7 @@ MULTIWATT15H(value)
 	      translate -(NpinB-1)*G*x
 	      }
 	      
-	   texture { col_silver }
-	   finish { phong 0.5  ambient (0.1 * global_ambient_mul)}
+          texture{e3d_tex_silver}
 	   }
 	#end
 

@@ -186,6 +186,7 @@ union{
             #local i=i+1;
         #end
         translate<-p/2*1.27+1.27,0,0>
+        texture{e3d_tex_silver}
     }
 
     // ADAPTIVE print scaling for small IC's 
@@ -193,53 +194,53 @@ union{
     // Automatically size the X-scaling factor for the value (n) to fit the DIP IC surface:
     // DIP4 - because it is so short, printing will be "rotated to fit" the width (b) of this IC
 
-    // create a TrueType text shape
-    #local astring = text {ttf besch_font,n,0.2,0 pigment { Khaki*0.85 }}
-    #local L=(max_extent(astring).x); // MM width of text string (n)
-    #local astrscale = ( (p=4) ? (b*2-1.0)/L : ((p/2)*2.54-0.2 -2.5 )/L );  //scale to width for tiny DIP4
-    #if(p=4)
-        #local astrscale = (astrscale<1.5 ? astrscale : 1.5);    // Leave normal scaling, if a short label will fit
-        object{astring rotate<90,-90,0,>  scale <1.5,1,astrscale>  translate<0.3,h+0.01,-L*astrscale/2>  }
-    #else 
-        #if(astrscale < 1.5) // For DP6 & DIP8 check if a normal scale label will still fit
-            object{astring rotate<90,0,0,>  scale <astrscale,1,1.5>  translate<-(p/4)*2.54+1.5,h+0.01,-0.3> } //No - shrink in X-direction      
-        #else
-        text{ttf global_fontfile_arial_bold n 0.2, 0 pigment { Gray60 } rotate <90,0,0> scale<b/2,1,b/2> translate<-b,h+0.01,0.6>}
-        #end
-    #end
-    
-    #if(p>12)
-        #if(strcmp(logo,"MICROCHIP")=0.0)
-            text{ttf global_fontfile_eagle3d "m" 0.2,0 pigment { Gray60} scale<b+1,b+1,b+1> rotate<90,0,0> translate<-(p/5)*2.54+0.5,h+0.01,-b/1.8>}                        
-            text{ttf besch_font "Microchip" 0.2,0 pigment{Gray60} rotate<90,0,0> scale<b/1.5,b/1.5,b/1.5> translate<-b,h+0.01,-b/2> }
-            #if(p>14)
-                text{ttf besch_font "Microchip" 0.2,0 pigment{Gray60} rotate<90,0,0> scale<b/1.5,b/1.5,b/1.5> translate<-b,h+0.01,-b/2> }
+    union{
+        // create a TrueType text shape
+        #local astring = text {ttf besch_font,n,0.2,0}
+        #local L=(max_extent(astring).x); // MM width of text string (n)
+        #local astrscale = ( (p=4) ? (b*2-1.0)/L : ((p/2)*2.54-0.2 -2.5 )/L );  //scale to width for tiny DIP4
+        #if(p=4)
+            #local astrscale = (astrscale<1.5 ? astrscale : 1.5);    // Leave normal scaling, if a short label will fit
+            object{astring rotate<90,-90,0,>  scale <1.5,1,astrscale>  translate<0.3,h+0.01,-L*astrscale/2>  }
+        #else 
+            #if(astrscale < 1.5) // For DP6 & DIP8 check if a normal scale label will still fit
+                object{astring rotate<90,0,0,>  scale <astrscale,1,1.5>  translate<-(p/4)*2.54+1.5,h+0.01,-0.3> } //No - shrink in X-direction      
+            #else
+                text{ttf global_fontfile_arial_bold n 0.2, 0 rotate <90,0,0> scale<b/2,1,b/2> translate<-b,h+0.01,0.6>}
             #end
         #end
-                
-        #if(strcmp(logo,"PHILIPS")=0.0)
-            text{ttf global_fontfile_eagle3d "p" 0.2,0 pigment { Gray60} scale<b*1.5,b*1.5,b*1.5> rotate<90,0,0> translate<-(p/5)*2.54+1.5,h+0.01,-b/1.5>}                        
-        #end
+        
+        #if(p>12)
+            #if(strcmp(logo,"MICROCHIP")=0.0)
+                text{ttf global_fontfile_eagle3d "m" 0.2,0 scale<b+1,b+1,b+1> rotate<90,0,0> translate<-(p/5)*2.54+0.5,h+0.01,-b/1.8>}                        
+                text{ttf besch_font "Microchip" 0.2,0 rotate<90,0,0> scale<b/1.5,b/1.5,b/1.5> translate<-b,h+0.01,-b/2> }
+                #if(p>14)
+                    text{ttf besch_font "Microchip" 0.2,0 rotate<90,0,0> scale<b/1.5,b/1.5,b/1.5> translate<-b,h+0.01,-b/2> }
+                #end
+            #end
+                    
+            #if(strcmp(logo,"PHILIPS")=0.0)
+                text{ttf global_fontfile_eagle3d "p" 0.2,0 scale<b*1.5,b*1.5,b*1.5> rotate<90,0,0> translate<-(p/5)*2.54+1.5,h+0.01,-b/1.5>}                        
+            #end
 
-        #if(strcmp(logo,"MAXIM")=0.0)
-            text{ttf global_fontfile_eagle3d "-" 0.2,0 pigment { Gray60} scale<b/2.5,b/2.5,b/2.5> rotate<90,0,0> translate<-(p/5)*2.54,h+0.01,-b/2.2>}                        
-        #end
+            #if(strcmp(logo,"MAXIM")=0.0)
+                text{ttf global_fontfile_eagle3d "-" 0.2,0 scale<b/2.5,b/2.5,b/2.5> rotate<90,0,0> translate<-(p/5)*2.54,h+0.01,-b/2.2>}                        
+            #end
 
-        #if(strcmp(logo,"ST")=0.0)
-            text{ttf global_fontfile_eagle3d "s" 0.2,0 pigment { Gray60} scale<b,b,b> rotate<90,0,0> translate<-(p/5)*2.54+0.5,h+0.01,-b/2.2>}                        
-        #end
+            #if(strcmp(logo,"ST")=0.0)
+                text{ttf global_fontfile_eagle3d "s" 0.2,0 scale<b,b,b> rotate<90,0,0> translate<-(p/5)*2.54+0.5,h+0.01,-b/2.2>}                        
+            #end
 
-        #if(strcmp(logo,"TEXAS")=0.0)
-            text{ttf global_fontfile_eagle3d "t" 0.2,0 pigment { Gray60} scale<b*0.9,b*0.9,b*0.9> rotate<90,0,0> translate<-(p/5)*2.54,h+0.01,-b/2.2>}                        
-        #end    
-    #end                            
+            #if(strcmp(logo,"TEXAS")=0.0)
+                text{ttf global_fontfile_eagle3d "t" 0.2,0 scale<b*0.9,b*0.9,b*0.9> rotate<90,0,0> translate<-(p/5)*2.54,h+0.01,-b/2.2>}                        
+            #end    
+        #end                            
+        texture{e3d_tex_ic_marking_bright}
+    }
     
     translate<0,0.25,0>
     
-    texture{
-        pigment{Gray30}
-        finish {ambient (0.1 * global_ambient_mul)}
-    }
+    texture{e3d_tex_ic_body_1}
 }
 #end
 

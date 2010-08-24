@@ -11,7 +11,6 @@ IC_BECK_SC12()
 ()
 ####################################################################################################
 ####################################################################################################
-
 union
 {
 	//plastic package
@@ -23,8 +22,7 @@ union
 			{
 				box{<-22,0,-11>,<22,9.5,11>}
 				box{<-23,8.5,-7.5>,<9.5,10,7.5>}
-			}
-			
+			}			
 	
 			box{<0,0,-8>,<-5,-5,8> rotate<0,0,18.43> translate<9.5,9.5,0>} //Schraege innen rechts
 			box{<0,0,-7.5>,<20,-5,7.5> rotate<0,0,-3.81> translate<-21.5,9.5,0>} //Schraege innen links
@@ -44,10 +42,9 @@ union
 			
 		box{<-6,8.3,-5>,<6,10,5>} //Aufkleberfläche*/
 		
-		cylinder{<-20.5,9.0,-9.5>,<-20.5,10.0,-9.5> 0.25}
+		cylinder{<-20.5,9.0,-9.5>,<-20.5,10.0,-9.5> 0.25}		
 		
-		
-		pigment{Gray30}			
+		texture{e3d_tex_ic_body_1}
 	}
 	
 	//Holo-Aufkleber
@@ -64,9 +61,9 @@ union
 		texture{T_Chrome_5C}
 	}
 	
-	text{ttf global_fontfile_arial_bold "@CHIP" 1, 0 scale<3.3,3.3,0> rotate<90,0,0> translate<-5.5,8.3+w,1.5> pigment{Black}}
-	text{ttf global_fontfile_arial_bold "License SL01" 1, 0 scale<1.2,1.2,0> rotate<90,0,0> translate<-3.5,8.3+w,-2.0> pigment{Black}}
-	text{ttf global_fontfile_arial_bold "2001 BECK IPC" 1, 0 scale<1.2,1.2,0> rotate<90,0,0> translate<-4.0,8.3+w,-3.5> pigment{Black}}
+	text{ttf global_fontfile_arial_bold "@CHIP" 1, 0 scale<3.3,3.3,0> rotate<90,0,0> translate<-5.5,8.3+w,1.5> texture{e3d_tex_ic_marking_black}}
+	text{ttf global_fontfile_arial_bold "License SL01" 1, 0 scale<1.2,1.2,0> rotate<90,0,0> translate<-3.5,8.3+w,-2.0> texture{e3d_tex_ic_marking_black}}
+	text{ttf global_fontfile_arial_bold "2001 BECK IPC" 1, 0 scale<1.2,1.2,0> rotate<90,0,0> translate<-4.0,8.3+w,-3.5> texture{e3d_tex_ic_marking_black}}
 		
 	//Pins	
 	union
@@ -77,7 +74,7 @@ union
 			cylinder{<i*2.54+1.27,0.5,-7.62>,<i*2.54+1.27,-4.5,-7.62> 0.25}
 			#local i=i+1;
 		#end
-		texture{col_silver}
+		texture{e3d_tex_silver}
 	}
 	
 }

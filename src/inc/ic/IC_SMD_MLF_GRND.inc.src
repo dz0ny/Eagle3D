@@ -46,61 +46,58 @@ IC_SMD_MLF_64_050MM(value)
 ********************************************************************************************************************************************/
 #macro MLF_PIN(H,B,T)
 union{
-box{<-B/2,0,0><+B/2,H,T-B/2>}
-cylinder{<0,0,T-B/2><0,H,T-B/2>,B/2}
-texture{col_silver}}
+    box{<-B/2,0,0><+B/2,H,T-B/2>}
+    cylinder{<0,0,T-B/2><0,H,T-B/2>,B/2}
+    texture{e3d_tex_silver}
+}
 #end
-// Änderungen: von QFP-GRND übernommen (Eagle3D version 1.03 11.6.2205)
-// Beschreibung kp1ab geändert
-// Formatierung Quelltext geändert
-// Parameter pin_h umdefiniert
-// Parameter L und B entfernt
-// Parameter LK und BK am Anfang der Parameterliste
-union{
-difference
-        {
-        box{<-LK/2,HKoP,-BK/2><LK/2,HKoP+H,BK/2>}
-        #if(kp1ab=0)
+    union{
+        difference{
+            box{<-LK/2,HKoP,-BK/2><LK/2,HKoP+H,BK/2>}
+            #if(kp1ab=0)
                 box{<0,0,-3><-2,5,3> rotate<0,-45,0> translate<-LK/2+LK/40,0,-BK/2+BK/40>}
-        #end
-        cylinder{<0,H+HKoP-0.1,0><0,H+HKoP+1,0>0.4 translate<-LK/2+LK/10,0,-BK/2+BK/10>}
-        pigment{Gray30}
-        finish {ambient (0.1 * global_ambient_mul)}
+            #end
+            cylinder{<0,H+HKoP-0.1,0><0,H+HKoP+1,0>0.4 translate<-LK/2+LK/10,0,-BK/2+BK/10>}
+            texture{e3d_tex_ic_body_1}
+            }
         }
-#local scl_fa = BK/10;
-text{ttf besch_font value 0.2,0 scale<scl_fa,scl_fa,1> rotate<90,-90,0> translate<-LK/2+LK/4,H+HKoP+0.001,-BK/2+BK/6> pigment{White} }
-// Kühlfläche des Dies unter dem Chip
-#if((cool_x!=0) & (cool_z!=0))
-        object{TOOLS_PCB_SMD(cool_x,cool_z,H/2,15) texture{col_silver}}
-#end
+    
+    #local scl_fa = BK/10;
+    text{ttf besch_font value 0.2,0 scale<scl_fa,scl_fa,1> rotate<90,-90,0> translate<-LK/2+LK/4,H+HKoP+0.001,-BK/2+BK/6> texture{e3d_tex_ic_marking_bright} }
 
-// Pins auf linker Seite
-#local i=0;
-#while(i<(pin_l/2))
+    // Kühlfläche des Dies unter dem Chip
+    #if((cool_x!=0) & (cool_z!=0))
+        object{TOOLS_PCB_SMD(cool_x,cool_z,H/2,15) texture{e3d_tex_silver}}
+    #end
+
+    // Pins auf linker Seite
+    #local i=0;
+    #while(i<(pin_l/2))
         object{MLF_PIN(pin_h,pin_br,pin_t) translate<-(div(pin_l,2)-i)*pitch,0,-BK/2-0.01> rotate<0,90,0> }
         object{MLF_PIN(pin_h,pin_br,pin_t) translate<+(div(pin_l,2)-i)*pitch,0,-BK/2-0.01> rotate<0,90,0> }
         #local i=i+1;
-#end
-// Pins auf rechter Seite
-#local i=0;
-#while(i<(pin_r/2))
+    #end
+    // Pins auf rechter Seite
+    #local i=0;
+    #while(i<(pin_r/2))
         object{MLF_PIN(pin_h,pin_br,pin_t) translate<-(div(pin_r,2)-i)*pitch,0,-BK/2-0.01> rotate<0,-90,0> }
         object{MLF_PIN(pin_h,pin_br,pin_t) translate<+(div(pin_r,2)-i)*pitch,0,-BK/2-0.01> rotate<0,-90,0> }
         #local i=i+1;
-#end
-// Pins auf vorderen/"unteren" Seite
-#local i=0;
-#while(i<pin_u)
+    #end
+    // Pins auf vorderen/"unteren" Seite
+    #local i=0;
+    #while(i<pin_u)
         object{MLF_PIN(pin_h,pin_br,pin_t) translate<-(div(pin_u,2)-i)*pitch,0,-LK/2-0.01>}
         object{MLF_PIN(pin_h,pin_br,pin_t) translate<+(div(pin_u,2)-i)*pitch,0,-LK/2-0.01>}
         #local i=i+1;
-#end
-// Pins auf hinteren/"oberen" Seite
-#local i=0;
-#while(i<pin_o)
+    #end
+    // Pins auf hinteren/"oberen" Seite
+    #local i=0;
+    #while(i<pin_o)
         object{MLF_PIN(pin_h,pin_br,pin_t) translate<-(div(pin_o,2)-i)*pitch,0,-LK/2-0.01> rotate<0,180,0> }
         object{MLF_PIN(pin_h,pin_br,pin_t) translate<+(div(pin_o,2)-i)*pitch,0,-LK/2-0.01> rotate<0,180,0> }
         #local i=i+1;
-#end
-rotate<0,KORW,0>}
+    #end
+    rotate<0,KORW,0>
+}
 #end

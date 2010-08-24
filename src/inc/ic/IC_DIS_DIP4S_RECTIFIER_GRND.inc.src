@@ -25,11 +25,15 @@ union{
 		object{IC_DIS_PIN() rotate<0,180,0> translate<-2.54,-3.75,3.81>}
 		object{IC_DIS_PIN() translate<-2.54,-3.75,-3.81>}
 		object{IC_DIS_PIN() translate<2.54,-3.75,-3.81>}
+		texture{e3d_tex_silver}
 	}
-	text {ttf besch_font value 0.2, 0 pigment { Gray60 } rotate <90,0,0> scale<1.5,1,1.5> translate<-3.1,3.21,-0.3>}
-	text {ttf besch_font "~     ~" 0.2, 0 pigment { Gray60 } rotate <90,0,0> scale<1.5,1,1.5> translate<-3.0,3.21,1.8>}
-	text {ttf besch_font "+     -" 0.2, 0 pigment { Gray60 } rotate <90,0,0> scale<1.5,1,1.5> translate<-3.0,3.21,-2.5>}
+	union{	
+	    text {ttf besch_font value 0.2, 0     rotate <90,0,0> scale<1.5,1,1.5> translate<-3.1,3.21,-0.3>}
+	    text {ttf besch_font "~     ~" 0.2, 0 rotate <90,0,0> scale<1.5,1,1.5> translate<-3.0,3.21,1.8>}
+	    text {ttf besch_font "+     -" 0.2, 0 rotate <90,0,0> scale<1.5,1,1.5> translate<-3.0,3.21,-2.5>}
+	    texture{e3d_tex_ic_marking_bright}
+	}
 	translate<0,0.25,0>
-	pigment{Gray30}
+	texture{e3d_tex_ic_body_1}
 }
 #end

@@ -29,45 +29,34 @@ IC_SMD_SOT143(value)
 union{
     difference{
         box{<LK/2,di_pcb,BK/2><-LK/2,di_pcb+HK,-BK/2>}
-        box{<LK/2+0.01,0,0><-LK/2-0.1,-HK,1>  rotate<10,0,0> 
-translate<0,(di_pcb+HK)/2-pin_s/2,BK/2>}
-        box{<LK/2+0.01,0,0><-LK/2-0.1,-HK,-1>  rotate<-10,0,0> 
-translate<0,(di_pcb+HK)/2-pin_s/2,-BK/2>}
-        box{<LK/2+0.01,0,0><-LK/2-0.1,HK,1>  rotate<-10,0,0> 
-translate<0,(di_pcb+HK)/2+pin_s/2,BK/2>}
-        box{<LK/2+0.01,0,0><-LK/2-0.1,HK,-1>  rotate<10,0,0> 
-translate<0,(di_pcb+HK)/2+pin_s/2,-BK/2>}
+        box{<LK/2+0.01,0,0><-LK/2-0.1,-HK,1>  rotate<10,0,0> translate<0,(di_pcb+HK)/2-pin_s/2,BK/2>}
+        box{<LK/2+0.01,0,0><-LK/2-0.1,-HK,-1>  rotate<-10,0,0> translate<0,(di_pcb+HK)/2-pin_s/2,-BK/2>}
+        box{<LK/2+0.01,0,0><-LK/2-0.1,HK,1>  rotate<-10,0,0> translate<0,(di_pcb+HK)/2+pin_s/2,BK/2>}
+        box{<LK/2+0.01,0,0><-LK/2-0.1,HK,-1>  rotate<10,0,0> translate<0,(di_pcb+HK)/2+pin_s/2,-BK/2>}
         #if(pin0_45!=0)
-            box{<LK/2+0.01,0,0><-LK/2-0.1,HK,-1>  rotate<45,0,0> 
-translate<0,(di_pcb+HK)/2+pin_s/2+pin_s*1.5,-BK/2>}
+            box{<LK/2+0.01,0,0><-LK/2-0.1,HK,-1>  rotate<45,0,0> translate<0,(di_pcb+HK)/2+pin_s/2+pin_s*1.5,-BK/2>}
         #end
-        box{<0,0,-BK/2-0.1><1,HK,BK/2+0.1>  rotate<0,0,10> 
-translate<LK/2,(di_pcb+HK)/2+pin_s/2,0>}
-        box{<0,0,-BK/2-0.1><-1,HK,BK/2+0.1>  rotate<0,0,-10> 
-translate<-LK/2,(di_pcb+HK)/2+pin_s/2,0>}
-        box{<0,0,-BK/2-0.1><1,-HK,BK/2+0.1>  rotate<0,0,-10> 
-translate<LK/2,(di_pcb+HK)/2-pin_s/2,0>}
-        box{<0,0,-BK/2-0.1><-1,-HK,BK/2+0.1>  rotate<0,0,10> 
-translate<-LK/2,(di_pcb+HK)/2-pin_s/2,0>}
+        box{<0,0,-BK/2-0.1><1,HK,BK/2+0.1>  rotate<0,0,10> translate<LK/2,(di_pcb+HK)/2+pin_s/2,0>}
+        box{<0,0,-BK/2-0.1><-1,HK,BK/2+0.1>  rotate<0,0,-10> translate<-LK/2,(di_pcb+HK)/2+pin_s/2,0>}
+        box{<0,0,-BK/2-0.1><1,-HK,BK/2+0.1>  rotate<0,0,-10> translate<LK/2,(di_pcb+HK)/2-pin_s/2,0>}
+        box{<0,0,-BK/2-0.1><-1,-HK,BK/2+0.1>  rotate<0,0,10> translate<-LK/2,(di_pcb+HK)/2-pin_s/2,0>}
         #if(pin0_m = 0)
             #local TextX = -LK/2+0.1*LK;
         #end // ohne Pin-1-Markierung
     }
-       
-    object{IC_SMD_PIN((HK+di_pcb)/2+pin_s/2,(B-BK)/2,pinb_x,pin_s) 
-rotate<0,90,0> translate<0.95,0,-BK/2>}
-    object{IC_SMD_PIN((HK+di_pcb)/2+pin_s/2,(B-BK)/2,pinb_1,pin_s) 
-rotate<0,90,0> translate<-0.75,0,-BK/2>}
-
-    object{IC_SMD_PIN((HK+di_pcb)/2+pin_s/2,(B-BK)/2,pinb_x,pin_s) 
-rotate<0,-90,0> translate<0.95,0,BK/2>}
-    object{IC_SMD_PIN((HK+di_pcb)/2+pin_s/2,(B-BK)/2,pinb_x,pin_s) 
-rotate<0,-90,0> translate<-0.95,0,BK/2>}
+    
+    union{       
+        object{IC_SMD_PIN((HK+di_pcb)/2+pin_s/2,(B-BK)/2,pinb_x,pin_s) rotate<0,90,0> translate<0.95,0,-BK/2>}
+        object{IC_SMD_PIN((HK+di_pcb)/2+pin_s/2,(B-BK)/2,pinb_1,pin_s) rotate<0,90,0> translate<-0.75,0,-BK/2>}
+        object{IC_SMD_PIN((HK+di_pcb)/2+pin_s/2,(B-BK)/2,pinb_x,pin_s) rotate<0,-90,0> translate<0.95,0,BK/2>}
+        object{IC_SMD_PIN((HK+di_pcb)/2+pin_s/2,(B-BK)/2,pinb_x,pin_s) rotate<0,-90,0> translate<-0.95,0,BK/2>}
+        texture{e3d_tex_silver}
+    }
       
-    text{ttf besch_font value 0.2,0 rotate<90,0,0> 
-scale<besch_s,1,besch_s> translate<TextX,HK+di_pcb+0.01,-besch_s/2> 
-pigment{Gray60} }
+    text{ttf besch_font value 0.2,0 rotate<90,0,0> scale<besch_s,1,besch_s> translate<TextX,HK+di_pcb+0.01,-besch_s/2> texture{e3d_tex_ic_marking_bright} }
+    
     rotate<0,kor_w,0>
-    pigment{Gray20}
+    
+    texture{e3d_tex_ic_body_1}
 }
 #end

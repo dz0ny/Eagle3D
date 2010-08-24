@@ -1,5 +1,5 @@
 /*
- * Copyright 2005-2010 Matthias Weisser <matthias@matwei.de>
+ * Copyright 2010 Matthias Weisser <matthias@matwei.de>
  *
  * This file is part of Eagle3D
  *
@@ -24,10 +24,11 @@
 #ifndef(__e3d_tex_inc)
 #declare __e3d_tex_inc = true;
 
-//******************************************************************************************************
-//Color settings for a couple of parts
+//------------------------------------------------------------------------------
+//Texture settings
 
-#declare col_gold = 
+//Gold
+#declare e3d_tex_gold = //texture{e3d_tex_gold}
     texture{
         T_Gold_5E 
         finish{
@@ -35,39 +36,85 @@
             ambient(0.35 * global_ambient_mul)
         }
     };
-    
-#declare col_silver = 
+
+//Silver
+#declare e3d_tex_silver = //texture{e3d_tex_silver}
     texture{
         T_Silver_5A
         finish{
             F_MetalA 
-            ambient (0.35 * global_ambient_mul)
+            ambient(0.35 * global_ambient_mul)
         }
     };
 
-//----------------------------------------------------------------------
+//Plastic body of an IC
+#declare e3d_tex_ic_body_1 = //texture{e3d_tex_ic_body_1}
+    texture{
+        pigment{Gray30}
+        finish{ambient(0.1 * global_ambient_mul)}
+    }
+
+//Plastic body of an IC
+#declare e3d_tex_ic_body_2 = //texture{e3d_tex_ic_body_2}
+    texture{
+        pigment{Gray30}
+        finish{phong 0.1 phong_size 25  ambient (0.1 * global_ambient_mul)}
+    }
+    
+//Bright IC marking
+#declare e3d_tex_ic_marking_bright = //texture{e3d_tex_ic_marking_bright}
+    texture{
+        pigment{Gray60}
+        finish{ambient(0.1 * global_ambient_mul)}
+    }
+
+//Black IC marking
+#declare e3d_tex_ic_marking_black = //texture{e3d_tex_ic_marking_black}
+    texture{
+        pigment{Black}
+        finish{ambient(0.1 * global_ambient_mul)}
+    }
+
+//A silver heatsink as found on packages like TO220
+#declare e3d_tex_heatsink_silver = //texture{e3d_tex_heatsink_silver}
+    texture{
+        T_Silver_5A 
+        finish{phong 0.1 phong_size 10  ambient (0.1 * global_ambient_mul)}
+    }
+
+
+//------------------------------------------------------------------------------
 //Shrouded Header
-// glatter schwarzer Kunststoff
-#declare col_Wannen = texture{
-                            pigment{Gray70}
-                            finish{ambient (0.1 * global_ambient_mul)}
-                        };  // hellgrauer Kunststoff
+// hellgrauer Kunststoff
+#declare col_Wannen = 
+    texture{
+        pigment{Gray70}
+        finish{ambient (0.1 * global_ambient_mul)}
+    };  
 
 //----------------------------------------------------------------------
 //Molex Stiftleisten
 // hellbeiger Kunststoff Molex-Stiftleisten
-#declare col_Molex =    texture {
-                            pigment{Wheat}
-                            finish{ambient (0.1 * global_ambient_mul)}
-                        };
+#declare col_Molex =    
+    texture {
+        pigment{Wheat}
+        finish{ambient (0.1 * global_ambient_mul)}
+    };
 //----------------------------------------------------------------------
 //Keramik-Scheibenkondensatoren
 // braune Keramik-Scheibenkondensatoren
-#declare col_Kerko =    texture{
-                            pigment{MediumWood}
-                            finish{ambient (0.1 * global_ambient_mul)}
-                        }
+#declare col_Kerko = 
+    texture{
+        pigment{MediumWood}
+        finish{ambient (0.1 * global_ambient_mul)}
+    }
 //******************************************************************************************************
+
+//------------------------------------------------------------------------------
+//for backward compatibility (Will try to get rid of them)
+#declare col_gold   = texture{e3d_tex_gold};
+#declare col_silver = texture{e3d_tex_silver};
+
 
 #end //__e3d_tex_inc
 
