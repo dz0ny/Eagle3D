@@ -63,22 +63,22 @@ CAP_DIS_CERAMIC_DISK_10MM_25MM(value)
 (25,value,10.16,Gray,Blue)
 ####################################################################################################
 ####################################################################################################
-#local diam = diam1/2;
-	#local cap = object {superellipsoid{<1, 1>scale<diam,diam*0.25,diam>rotate <-90,-7.5,0>translate<0,diam*1.1,0>} } 
-	#local txt = text{ ttf besch_font ,value,40,0 scale<diam/3,diam/3,diam/3> translate<-diam/1.5,diam,-20>} 
-	#local leg = object{ cylinder {  <0,diam*0.2,0>,<0,-10.0>,0.25 texture{col_silver}}}  
-	#local ls2 = leadspc/2 ;
-	union{ 
-		object{ intersection{ object{txt} object{cap} } translate <0,0,-0.05> pigment{tcolour} }
-		object {cap pigment{bcolour}}
-		difference{
-			torus { leadspc/2, 0.25 rotate -90*x  pigment{bcolour} }
-			box { <-leadspc,0,0.5>, <leadspc,-leadspc,-0.5> }
-			translate <0,diam*0.2,0>  
-		} 
-		object{ leg translate<-ls2,0,0> }
-		object{ leg translate< ls2,0,0> }
-		translate <0,0,0> 
-		pigment{bcolour}
-	} 
+    #local diam = diam1/2;
+    #local cap = object {superellipsoid{<1, 1>scale<diam,diam*0.25,diam>rotate <-90,-7.5,0>translate<0,diam*1.1,0>} } 
+    #local txt = text{ ttf besch_font ,value,40,0 scale<diam/3,diam/3,diam/3> translate<-diam/1.5,diam,-20>} 
+    #local leg = object{ cylinder {  <0,diam*0.2,0>,<0,-10.0>,0.25 texture{col_silver}}}  
+    #local ls2 = leadspc/2 ;
+    union{ 
+        object{ intersection{ object{txt} object{cap} } translate <0,0,-0.05> pigment{tcolour} }
+        object {cap pigment{bcolour}}
+        difference{
+            torus { leadspc/2, 0.25 rotate -90*x  pigment{bcolour} }
+            box { <-leadspc,0,0.5>, <leadspc,-leadspc,-0.5> }
+            translate <0,diam*0.2,0>  
+        } 
+        object{ leg translate<-ls2,0,0> }
+        object{ leg translate< ls2,0,0> }
+        translate <0,0,0> 
+        pigment{bcolour}
+    } 
 #end

@@ -53,7 +53,7 @@ union{
     //Plus pin
     cylinder {<-Lg/2-Lt+rrr,0,0><-Lg/2+1,0,0> dw*1.5 texture{ Aluminum }}
     //pins
-	object{TOOLS_WIRE_LEADS(Lg,diam,lw*2,dw,r,global_res_bend_radius,0,"H")}
+    object{TOOLS_WIRE_LEADS(Lg,diam,lw*2,dw,r,global_res_bend_radius,0,"H")}
     //Text value
     intersection{
         cylinder {<-Lg/2,0,0><+Lg/2,0,0> diam/2-0.1 }
