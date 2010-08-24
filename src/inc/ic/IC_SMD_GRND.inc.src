@@ -447,7 +447,7 @@ union{
         #if(strcmp(logo,"TEXAS")=0.0)
             #local logo_assigned = 1;
             #local label = union{
-                text{ttf global_fontfile_eagle3d "t" 0.2,0 scale<besch_s*2,besch_s*2,1> rotate<90,0,0> translate<-LK/3,0,0>}		
+                text{ttf global_fontfile_eagle3d "t" 0.2,0 scale<besch_s*2,besch_s*2,1> rotate<90,0,0> translate<-LK/3,0,0>}
                 text{ttf global_fontfile_arial value 0.2,0 rotate<90,0,0> scale<value_scale_factor_arial,1,value_scale_factor_arial> translate<-value_arial_size.z/2,0,-value_arial_size.x/2-BK/6>}
                 translate<0,HK+di_pcb+0.001,0>
             }

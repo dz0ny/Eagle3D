@@ -47,11 +47,11 @@ union{
     //Pins
     union
     {
-	    object {IC_SMD_PIN(1.5,1.5,0.6,0.3) rotate -90*y translate<-1.27,0,1.9>}
-	    object {IC_SMD_PIN(1.5,1.5,0.6,0.3) rotate -90*y translate<+1.27,0,1.9>}
-	    object {IC_SMD_PIN(1.5,1.5,0.6,0.3) rotate +90*y translate<-1.27,0,-1.9>}
-	    object {IC_SMD_PIN(1.5,1.5,0.6,0.3) rotate +90*y translate<+1.27,0,-1.9>}
-	    texture{e3d_tex_silver}
-	}
+        object {IC_SMD_PIN(1.5,1.5,0.6,0.3) rotate -90*y translate<-1.27,0,1.9>}
+        object {IC_SMD_PIN(1.5,1.5,0.6,0.3) rotate -90*y translate<+1.27,0,1.9>}
+        object {IC_SMD_PIN(1.5,1.5,0.6,0.3) rotate +90*y translate<-1.27,0,-1.9>}
+        object {IC_SMD_PIN(1.5,1.5,0.6,0.3) rotate +90*y translate<+1.27,0,-1.9>}
+        texture{e3d_tex_silver}
+    }
 }
 #end

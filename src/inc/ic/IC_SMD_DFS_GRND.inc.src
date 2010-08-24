@@ -30,14 +30,14 @@ union{
         text {ttf global_fontfile_arial_bold "~" 0.02, 0 scale 1 rotate<90,0,0> translate<-2.7,1.91,-3>}
         texture{e3d_tex_ic_marking_bright}
     }
-	
-	//Pins
-	union{
-	    object {IC_SMD_PIN(1.5,1.5,1.2,0.3) rotate -90*y translate<-2.5,0,3>}
-	    object {IC_SMD_PIN(1.5,1.5,1.2,0.3) rotate -90*y translate<+2.5,0,3>}
-	    object {IC_SMD_PIN(1.5,1.5,1.2,0.3) rotate +90*y translate<-2.5,0,-3>}
-	    object {IC_SMD_PIN(1.5,1.5,1.2,0.3) rotate +90*y translate<+2.5,0,-3>}
-	    texture{e3d_tex_silver}
-	}
+    
+    //Pins
+    union{
+        object {IC_SMD_PIN(1.5,1.5,1.2,0.3) rotate -90*y translate<-2.5,0,3>}
+        object {IC_SMD_PIN(1.5,1.5,1.2,0.3) rotate -90*y translate<+2.5,0,3>}
+        object {IC_SMD_PIN(1.5,1.5,1.2,0.3) rotate +90*y translate<-2.5,0,-3>}
+        object {IC_SMD_PIN(1.5,1.5,1.2,0.3) rotate +90*y translate<+2.5,0,-3>}
+        texture{e3d_tex_silver}
+    }
 }
 #end
