@@ -23,7 +23,7 @@
 <language id="pov" _name="POVRay" version="2.0" _section="Sources">
     <metadata>
       <!-- <property name="mimetypes">text/x-c;text/x-csrc;image/x-xpixmap</property> -->
-      <property name="globs">*.pov;*.ini</property>
+      <property name="globs">*.pov;*.ini;*.inc.src</property>
       <property name="line-comment-start">//</property>
       <property name="block-comment-start">/*</property>
       <property name="block-comment-end">*/</property>
