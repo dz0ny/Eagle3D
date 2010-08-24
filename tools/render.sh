@@ -93,6 +93,12 @@ do
 done
 
 #Create the final output file
-echo "Creating gallery file"
-nice -n 19 montage -geometry 64x48 -tile 10x $(find $OUTPUT_DIR -type f | grep png$ | sort) $OUTPUT_DIR/../gallery.png
+if [ $(find $OUTPUT_DIR -type f | wc -l) -gt 50 ]
+then
+    echo "Creating small gallery file"    
+    nice -n 19 montage -geometry 64x48 -tile 10x $(find $OUTPUT_DIR -type f | grep png$ | sort) $OUTPUT_DIR/../gallery.png
+else
+    echo "Creating big gallery file"
+    nice -n 19 montage -geometry 128x96 -tile 10x $(find $OUTPUT_DIR -type f | grep png$ | sort) $OUTPUT_DIR/../gallery.png
+fi
 
