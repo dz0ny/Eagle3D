@@ -80,62 +80,75 @@ CAP_DIS_ELKO_AXIAL_55MM_30MM(value)
 ####################################################################################################
 ####################################################################################################
 union{
-union{
-    difference{
-        union{
-            cylinder{<0,dis/2-3.5,0><0,-(dis/2-3.5),0>dia}                            //Elko Koerper
-            torus{dia-0.5,0.5 translate<0,-(dis/2-3.5),0>}                            //Elko Rundung oben
-            difference{
-                cylinder{<0,-(dis/2-3.5),0><0,-(dis/2-3.0),0>dia-0.5}
-                cylinder{<0,-(dis/2-3.5),0><0,-(dis/2-2.9),0>dia*0.8*pow(dia/16,0.11)}
-            }
-            torus{dia-0.5,0.5 translate<0,dis/2-3.5,0>}                                //Elko Rundung unten
-            difference{
-                cylinder{<0,dis/2-3.5,0><0,dis/2-3.0,0>dia-0.5}
-                cylinder{<0,dis/2-3.5,0><0,dis/2-2.9,0>dia*0.8*pow(dia/16,0.11)}
-            }
-        }
-        torus{dia+0.85,1 translate<0,dis/2-5,0>}                                    //Ausspahrung unten
-        pigment{                                                                    //Textur fuer Minusmarkierung
-                image_map{png "tex_elko_axial.png" map_type 2 interpolate 4}
-                scale <dia*2*pi*1.35,dia*2*pi,dia*2*pi*1.35>                
-        }
-        finish{reflection { 0.03, 0.1}  phong 0.4 crand 0.05 ambient (0.1 * global_ambient_mul) }        
-    }
-    cylinder{<0,-(dis/2-3.6),0><0,-(dis/2-3.1),0>dia*0.8*pow(dia/16,0.11)           //Abdeckung oben
-        texture{col_silver}                                                                                     
+    union{
+        
+        //Elko Koerper
+        difference{
+            union{
+                cylinder{<0,dis/2-3.5,0><0,-(dis/2-3.5),0>dia}                            
+                //Elko Rundung oben
+                torus{dia-0.5,0.5 translate<0,-(dis/2-3.5),0>}                            
+                difference{
+                    cylinder{<0,-(dis/2-3.5),0><0,-(dis/2-3.0),0>dia-0.5}
+                    cylinder{<0,-(dis/2-3.5),0><0,-(dis/2-2.9),0>dia*0.8*pow(dia/16,0.11)}
                 }
+                //Elko Rundung unten
+                torus{dia-0.5,0.5 translate<0,dis/2-3.5,0>}
+                difference{
+                    cylinder{<0,dis/2-3.5,0><0,dis/2-3.0,0>dia-0.5}
+                    cylinder{<0,dis/2-3.5,0><0,dis/2-2.9,0>dia*0.8*pow(dia/16,0.11)}
+                }
+            }
+            
+            //Aussparung unten
+            torus{dia+0.85,1 translate<0,dis/2-5,0>}                                    
+            
+            //Textur fuer Minusmarkierung
+            pigment{                                                                    
+                    image_map{png "tex_elko_axial.png" map_type 2 interpolate 4}
+                    scale <dia*2*pi*1.35,dia*2*pi,dia*2*pi*1.35>                
+            }
+            finish{reflection { 0.03, 0.1}  phong 0.4 crand 0.05 ambient (0.1 * global_ambient_mul) }        
+        }
+        
+        //Abdeckung oben
+        cylinder{<0,-(dis/2-3.6),0><0,-(dis/2-3.1),0>dia*0.8*pow(dia/16,0.11)           
+            texture{e3d_tex_silver}
+        }
 
-    cylinder{<0,dis/2-3.2,0><0,dis/2-3.5,0>dia-0.5 pigment{Black}}                  //Abdeckung unten
-    cylinder{<0,-(dis/2-3.2),0><0,-(dis/2-2),0> 1.5 texture{col_silver}}            //Kontakt
-    intersection{
-        cylinder{<0,dis/2,0><0,-dis/2 + val_size + 3.5,0>dia}
-        text {ttf besch_font value 0.2, 0 scale val_size rotate<0,0,-90> translate<0, dis/4,-dia>}
-        rotate<0,10,0>
-        translate<0,-val_size,-0.001>
-        pigment {rgb<0.4,0.6,1>}
-    }
-    intersection{
-        cylinder{<0,dis/2,0><0,-dis/2 + val_size + 3.5,0>dia}
-        text {ttf besch_font value 0.2, 0 scale val_size rotate<0,0,-90> translate<0, dis/4,-dia>}
-        rotate<0,100,0>
-        translate<-0.001,-val_size,0>
-        pigment {rgb<0.4,0.6,1>}
-    }
-    intersection{
-        cylinder{<0,dis/2,0><0,-dis/2 + val_size + 3.5,0>dia}
-        text {ttf besch_font value 0.2, 0 scale val_size rotate<0,0,-90> translate<0, dis/4,-dia>}
-        rotate<0,190,0>
-        translate<0,-val_size,0.001>
-        pigment {rgb<0.4,0.6,1>}
-    }
-    rotate<0,180,>
-    rotate<0,0,90>
+        //Abdeckung unten
+        cylinder{<0,dis/2-3.2,0><0,dis/2-3.5,0>dia-0.5 pigment{Black}}                  
+        
+        //Kontakt
+        cylinder{<0,-(dis/2-3.2),0><0,-(dis/2-2),0> 1.5 texture{e3d_tex_silver}}            
+        intersection{
+            cylinder{<0,dis/2,0><0,-dis/2 + val_size + 3.5,0>dia}
+            text {ttf besch_font value 0.2, 0 scale val_size rotate<0,0,-90> translate<0, dis/4,-dia>}
+            rotate<0,10,0>
+            translate<0,-val_size,-0.001>
+            pigment {rgb<0.4,0.6,1>}
+        }
+        intersection{
+            cylinder{<0,dis/2,0><0,-dis/2 + val_size + 3.5,0>dia}
+            text {ttf besch_font value 0.2, 0 scale val_size rotate<0,0,-90> translate<0, dis/4,-dia>}
+            rotate<0,100,0>
+            translate<-0.001,-val_size,0>
+            pigment {rgb<0.4,0.6,1>}
+        }
+        intersection{
+            cylinder{<0,dis/2,0><0,-dis/2 + val_size + 3.5,0>dia}
+            text {ttf besch_font value 0.2, 0 scale val_size rotate<0,0,-90> translate<0, dis/4,-dia>}
+            rotate<0,190,0>
+            translate<0,-val_size,0.001>
+            pigment {rgb<0.4,0.6,1>}
+        }
+        rotate<0,180,>
+        rotate<0,0,90>
     }
     object{TOOLS_WIRE_LEADS (dis-7, dia, 35, dia_b,  dis,  global_res_bend_radius, 0, "H")}
-        pigment{Red}
-        finish{F_MetalE ambient (0.1 * global_ambient_mul)}
-        translate<0,dia,0>
 
+    pigment{Red}
+    finish{F_MetalE ambient (0.1 * global_ambient_mul)}
+    translate<0,dia,0>
 }
 #end

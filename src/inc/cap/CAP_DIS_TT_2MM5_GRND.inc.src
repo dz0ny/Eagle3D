@@ -41,23 +41,33 @@ CAP_DIS_TT_2MM5_10MM(value)
 ####################################################################################################
 ####################################################################################################
 union{
+    //Body
     sphere{<0,0,0>obj_dia/2 scale<1,obj_hgt/obj_dia,1> pigment{CoolCopper}}
-    #if(pin_short=off)
-        cylinder{<0,1,0><0,-16,0>0.25 texture{col_silver} translate<-1.25,-((obj_hgt/obj_dia)*obj_dia)/2+1,0>}
-        cylinder{<0,1,0><0,-14,0>0.25 texture{col_silver} translate<1.25,-((obj_hgt/obj_dia)*obj_dia)/2+1,0>}
-    #else
-        cylinder{<0,1,0><0,-1*(pcb_height+pin_length)-1.2,0>0.25 texture{col_silver} translate<-1.25,-((obj_hgt/obj_dia)*obj_dia)/2+1,0>}
-        cylinder{<0,1,0><0,-1*(pcb_height+pin_length)-1.2,0>0.25 texture{col_silver} translate<1.25,-((obj_hgt/obj_dia)*obj_dia)/2+1,0>}
-    #end
-    intersection{
-        sphere{<0,0,0>obj_dia/2 scale<1,obj_hgt/obj_dia,1.001> translate<0,0,0>}
-        text {ttf besch_font "+" obj_dia+0.4, 0 rotate<0,0,00> translate<-1.25,-((obj_hgt/obj_dia)*obj_dia)/2+1,-(obj_dia+0.4)/2>}
+    
+    //Leads
+    union{
+        #if(pin_short=off)
+            cylinder{<0,1,0><0,-16,0>0.25 translate<-1.25,-((obj_hgt/obj_dia)*obj_dia)/2+1,0>}
+            cylinder{<0,1,0><0,-14,0>0.25 translate<1.25,-((obj_hgt/obj_dia)*obj_dia)/2+1,0>}
+        #else
+            cylinder{<0,1,0><0,-1*(pcb_height+pin_length)-1.2,0>0.25 translate<-1.25,-((obj_hgt/obj_dia)*obj_dia)/2+1,0>}
+            cylinder{<0,1,0><0,-1*(pcb_height+pin_length)-1.2,0>0.25 translate<1.25,-((obj_hgt/obj_dia)*obj_dia)/2+1,0>}
+        #end
+        texture{e3d_tex_silver}
     }
-    intersection{
-        sphere{<0,0,0>obj_dia/2 scale<1,obj_hgt/obj_dia,1.001> translate<0,0,0>}
-        text {ttf besch_font value obj_dia+0.4,0  scale<sca_txt,1,1> rotate<0,0,90> translate<0.25,-((obj_hgt/obj_dia)*obj_dia)/2+1.5,-(obj_dia+0.4)/2>}
+    
+    //Marking
+    union{
+        intersection{
+            sphere{<0,0,0>obj_dia/2 scale<1,obj_hgt/obj_dia,1.001> translate<0,0,0>}
+            text {ttf besch_font "+" obj_dia+0.4, 0 rotate<0,0,00> translate<-1.25,-((obj_hgt/obj_dia)*obj_dia)/2+1,-(obj_dia+0.4)/2>}
+        }
+        intersection{
+            sphere{<0,0,0>obj_dia/2 scale<1,obj_hgt/obj_dia,1.001> translate<0,0,0>}
+            text {ttf besch_font value obj_dia+0.4,0  scale<sca_txt,1,1> rotate<0,0,90> translate<0.25,-((obj_hgt/obj_dia)*obj_dia)/2+1.5,-(obj_dia+0.4)/2>}
+        }
+        texture{e3d_tex_cap_marking_black}
     }
-    pigment{Black}
     translate<0,((obj_hgt/obj_dia)*obj_dia)/2+0.2,0>
 }
 #end

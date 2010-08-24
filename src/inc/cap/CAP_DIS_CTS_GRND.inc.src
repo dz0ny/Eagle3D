@@ -39,19 +39,16 @@ union{
 
     difference{
         //Body
-        union{
-            //cylinder {<-Lg/2,0,0><+Lg/2,0,0> diam/2  texture{NBglass } } // set this line as comment to speed up render
-            cylinder {<-Lg/2,0,0><+Lg/2,0,0> diam/2-0.1 }
-        }
+        cylinder {<-Lg/2,0,0><+Lg/2,0,0> diam/2-0.1 }
         //Plus side
         union{
             torus{ rr rrr rotate <90,90,0> translate<-Lg/2,0,0> }
             cylinder{<-Lg/2-rrr,0,0><-Lg/2+rrr,0,0> rr}
         }
-        texture{ col_silver }
+        texture{e3d_tex_silver}
     }
     //Plus pin
-    cylinder {<-Lg/2-Lt+rrr,0,0><-Lg/2+1,0,0> dw*1.5 texture{ Aluminum }}
+    cylinder {<-Lg/2-Lt+rrr,0,0><-Lg/2+1,0,0> dw*1.5 texture{Aluminum}}
     //pins
     object{TOOLS_WIRE_LEADS(Lg,diam,lw*2,dw,r,global_res_bend_radius,0,"H")}
     //Text value
@@ -61,7 +58,7 @@ union{
                 text {ttf global_fontfile_arial "+" 2,0 scale(Lg/20.8)*3  rotate<-90,180,180> translate<-Lg/2.5,diam/2,-(diam/9.1)*1.5 > }
                 text {ttf global_fontfile_arial value 2,0  scale diam/9.1*3 rotate<-90,180,180> translate<-Lg/3.5,diam/2,-(diam/9.1)*1.5> }
         }
-        pigment{Black}
+        texture{e3d_tex_cap_marking_black}
         translate +0.01*y
     }
     

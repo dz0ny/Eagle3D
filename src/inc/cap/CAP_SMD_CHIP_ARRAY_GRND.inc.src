@@ -1,27 +1,26 @@
 Chip Kondensator array
 //(Tiefe, Breite, Hoehe, Breite Loetflaechen, Abstand Pin zu Pin, Anzahl Kondensatoren,Farbe des Körpers)
 ####################################################################################################
-NOEAGLEPAC:0:0:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CAP_SMD_CHIP_ARRAY_4X0603_0612(DarkWood:SMD Kondensator array 4x0603 0612:SMD Capacitor array 4x0603 0612
+NOEAGLEPAC:0:0:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CAP_SMD_CHIP_ARRAY_4X0603_0612(:SMD Kondensator array 4x0603 0612:SMD Capacitor array 4x0603 0612
 ####################################################################################################
 CAP_SMD_CHIP_ARRAY_GRND
-(b,l,h,blf,pitch,n,color_sub)
+(b,l,h,blf,pitch,n)
 ####################################################################################################
-CAP_SMD_CHIP_ARRAY_4X0603_0612(color_sub)
-(1.60,3.20,0.8,0.4,0.8,4,color_sub)
+CAP_SMD_CHIP_ARRAY_4X0603_0612()
+(1.60,3.20,0.8,0.4,0.8,4)
 ####################################################################################################
 ####################################################################################################
 union{    
-    //White body
+    //Body
     object{
         Round_Box_Union(<0,0.05,0>, <l,h,b>, min(b,l,h)/6)
         translate<-l/2,0,-b/2>
-        pigment{color_sub}    
+        texture{e3d_tex_cap_smd_ceramic_1}
     }
         
     //Pins
     #local i = 0;
-    #local x_pos = -(n-1)/2*pitch;
-        
+    #local x_pos = -(n-1)/2*pitch;        
     union{    
         #while(i<n)
         
@@ -32,7 +31,7 @@ union{
             #local x_pos = x_pos + pitch;
         
         #end
-        texture{col_silver}
+        texture{e3d_tex_silver}
     }    
 }
 #end

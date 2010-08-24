@@ -80,27 +80,30 @@ union{
         }
          pigment{col}   
     }
-    difference{
-        cylinder{<0,4,0><0,4.5,0> 1.1}                  //metalic axe
-        union{
-            box{<+1.1,4.1,-0.25><-1.1,4.51,+0.25>}      //axe cross grooves
-            box{<-0.25,4.11,-1.1><+0.25,4.51,+1.1>}
+    
+    union{        
+        difference{
+            cylinder{<0,4,0><0,4.5,0> 1.1}                  //metalic axe
+            union{
+                box{<+1.1,4.1,-0.25><-1.1,4.51,+0.25>}      //axe cross grooves
+                box{<-0.25,4.11,-1.1><+0.25,4.51,+1.1>}
+            }
         }
-        pigment{Silver}
-    }
-    
-    box{<+0.1,0,-0.5><-0.1,4.2,+0.5> translate -2.9*x pigment{Silver}}          //visible front pin allong the case
-    difference{
-        cylinder{<+0.1,0,0><-0.1,0,0> 0.5 rotate -15*z translate <-2.9,4.2,0>  pigment{Silver}} //top front pin
-        box{<+0.1,0,-0.5><-0.1,4.2,+0.5> translate -3.1*x pigment{Silver}}    
-    }
-    box{<+0.1,0,-0.5><-0.1,1,+0.5> translate +2.91*x pigment{Silver}}          //visible back pin allong the case
-    
-    box{<+0.1,-3,-0.5><-0.1,4.3,+0.5> translate 2.54*x pigment{Silver}}        //flat side pin
-    box{<+0.125,-3,-0.5><-0.125,3.0,+0.5> translate -2.54*x pigment{Silver}}   //round side pin
+        
+        box{<+0.1,0,-0.5><-0.1,4.2,+0.5> translate -2.9*x}          //visible front pin allong the case
+        difference{
+            cylinder{<+0.1,0,0><-0.1,0,0> 0.5 rotate -15*z translate <-2.9,4.2,0>} //top front pin
+            box{<+0.1,0,-0.5><-0.1,4.2,+0.5> translate -3.1*x }    
+        }
+        box{<+0.1,0,-0.5><-0.1,1,+0.5> translate +2.91*x }          //visible back pin allong the case
+        
+        box{<+0.1,-3,-0.5><-0.1,4.3,+0.5> translate 2.54*x}        //flat side pin
+        box{<+0.125,-3,-0.5><-0.125,3.0,+0.5> translate -2.54*x}   //round side pin
 
-    box{<+0.1,-0.35355,-0.35355><-0.1,0.35355,+0.35355> rotate 45*x translate <2.54,-3,0> pigment{Silver}}         //flat side pin
-    box{<+0.125,-0.35355,-0.35355><-0.125,0.35355,+0.35355> rotate 45*x translate <-2.54,-3,0> pigment{Silver}}    //round side pin
+        box{<+0.1,-0.35355,-0.35355><-0.1,0.35355,+0.35355> rotate 45*x translate <2.54,-3,0>}         //flat side pin
+        box{<+0.125,-0.35355,-0.35355><-0.125,0.35355,+0.35355> rotate 45*x translate <-2.54,-3,0>}    //round side pin
+        texture{e3d_tex_silver}
+    }
     
     #if(dot=1)
         cylinder{<2.2,0,0><2.2,4.81,0> 0.4 pigment{White}} //White dot on the top

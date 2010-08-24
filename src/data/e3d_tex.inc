@@ -74,6 +74,31 @@
         pigment{Black}
         finish{ambient(0.1 * global_ambient_mul)}
     }
+    
+//Black cap marking
+#declare e3d_tex_cap_marking_black = //texture{e3d_tex_cap_marking_black}
+    texture{e3d_tex_ic_marking_black}
+    
+//Blue color for block cap
+#declare e3d_tex_cap_block_blue = //texture{e3d_tex_cap_block_blue}
+    texture{
+        pigment {rgb<0.3,0.3,1>}
+        finish{ambient(0.1 * global_ambient_mul)}
+    }
+    
+//Dark gray for SMD aluminium electrolytic cap base
+#declare e3d_tex_cap_smd_electrolytic_base = //texture{e3d_tex_cap_smd_electrolytic_base}
+    texture{
+        pigment {Gray30}
+        finish{ambient(0.1 * global_ambient_mul)}
+    }
+    
+//The shade of brown you see on 100nF SMD ceramic caps
+#declare e3d_tex_cap_smd_ceramic_1 = //texture{e3d_tex_cap_smd_ceramic_1}
+    texture{
+        pigment{DarkWood}
+        finish{ambient(0.1 * global_ambient_mul)}
+    }
 
 //A silver heatsink as found on packages like TO220
 #declare e3d_tex_heatsink_silver = //texture{e3d_tex_heatsink_silver}

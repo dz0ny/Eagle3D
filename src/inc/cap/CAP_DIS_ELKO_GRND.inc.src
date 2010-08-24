@@ -58,37 +58,52 @@ CAP_DIS_ELKO_7MM5_18MM(value)
 ####################################################################################################
 ####################################################################################################
 union{
+    //Elko Körper
     difference{
-        union{
-            cylinder{<0,0.5,0><0,hig-0.5,0>dia}                                  //Elko Körper
-            torus{dia-0.5,0.5 translate<0,hig-0.5,0>}                            //Elko Rundung oben
+        union{            
+            cylinder{<0,0.5,0><0,hig-0.5,0>dia}                                  
+            //Elko Rundung oben
+            torus{dia-0.5,0.5 translate<0,hig-0.5,0>}                            
             difference{
                 cylinder{<0,hig-0.5,0><0,hig,0>dia-0.5}
                 cylinder{<0,hig-0.5,0><0,hig+0.1,0>dia*0.8*pow(dia/16,0.11)}
             }
-            torus{dia-0.5,0.5 translate<0,0.5,0>}                                //Elko Rundung unten
+            //Elko Rundung unten
+            torus{dia-0.5,0.5 translate<0,0.5,0>}                                
         }
-        torus{dia+0.85,1 translate<0,2.5,0>}                                     //Aussparung unten
-        pigment{image_map{png "tex_elko.png"}scale tex_scale}                    //Textur für Minusmarkierung
+        //Aussparung unten
+        torus{dia+0.85,1 translate<0,2.5,0>}                                     
+
+        //Textur für Minusmarkierung
+        pigment{image_map{png "tex_elko.png"}scale tex_scale}                    
         finish{reflection { 0.03, 0.1}  phong 0.4 crand 0.05 ambient (0.1 * global_ambient_mul)}
     }
+
+    //Abdeckung oben
     difference{
-        cylinder{<0,hig-0.5,0><0,hig-0.1,0>dia*0.8*pow(dia/16,0.11)}            //Abdeckung oben
+        cylinder{<0,hig-0.5,0><0,hig-0.1,0>dia*0.8*pow(dia/16,0.11)}            
         box{<0,hig-0.35,-0.1><dia,hig,0.1>} 
         box{<0,hig-0.35,-0.1><dia,hig,0.1> rotate<0,120,0>}
         box{<0,hig-0.35,-0.1><dia,hig,0.1> rotate<0,240,0>} 
         texture{col_silver}
     }
-    cylinder{<0,0.2,0><0,0.5,0>dia-0.5 pigment{Black}}                            //Abdeckung unten
-    #if(pin_short=off)
-        cylinder{<0,0,0><0,-14.5,0>dia_b texture{col_silver} translate<dis/2,0,0>}    //Beinchen rechts
-        cylinder{<0,0,0><0,-17.5,0>dia_b texture{col_silver} translate<-dis/2,0,0>}   //Beinchen links
-    #else
-        cylinder{<0,0,0><0,-1*(pcb_height+pin_length)-0.2,0>dia_b texture{col_silver} translate<dis/2,0,0>}    //Beinchen rechts
-        cylinder{<0,0,0><0,-1*(pcb_height+pin_length)-0.2,0>dia_b texture{col_silver} translate<-dis/2,0,0>}   //Beinchen links
-    #end
+    
+    //Abdeckung unten
+    cylinder{<0,0.2,0><0,0.5,0>dia-0.5 pigment{Black}}                            
+    union{
+        #if(pin_short=off)
+            cylinder{<0,0,0><0,-14.5,0>dia_b translate<dis/2,0,0>}    //Beinchen rechts
+            cylinder{<0,0,0><0,-17.5,0>dia_b translate<-dis/2,0,0>}   //Beinchen links
+        #else
+            cylinder{<0,0,0><0,-1*(pcb_height+pin_length)-0.2,0>dia_b translate<dis/2,0,0>}    //Beinchen rechts
+            cylinder{<0,0,0><0,-1*(pcb_height+pin_length)-0.2,0>dia_b translate<-dis/2,0,0>}   //Beinchen links
+        #end
+        texture{e3d_tex_silver}
+    }
+    
+    //Beschriftung
     intersection{
-        cylinder{<0,0,0><0,hig,0>dia}                                            //Beschriftung
+        cylinder{<0,0,0><0,hig,0>dia}
         text {ttf besch_font value 0.2, 0 scale val_size rotate<0,0,90> translate<0,0,-dia>}
         rotate<0,0,180>
         rotate<0,10,0>
@@ -96,7 +111,7 @@ union{
         pigment {rgb<0.4,0.6,1>}
     }
     intersection{
-        cylinder{<0,0,0><0,hig,0>dia }                                            //Beschriftung
+        cylinder{<0,0,0><0,hig,0>dia }
         text {ttf besch_font value 0.2, 0 scale val_size rotate<0,0,90> translate<0,0,-dia>}
         rotate<0,0,180>
         rotate<0,100,0>
@@ -104,14 +119,13 @@ union{
         pigment {rgb<0.4,0.6,1>}
     }
     intersection{
-        cylinder{<0,0,0><0,hig,0>dia }                                            //Beschriftung
+        cylinder{<0,0,0><0,hig,0>dia }
         text {ttf besch_font value 0.2, 0 scale val_size rotate<0,0,90> translate<0,0,-dia>}
         rotate<0,0,180>
         rotate<0,190,0>
         translate<0,hig-val_size,0.001>
         pigment {rgb<0.4,0.6,1>}
     }
-    pigment{Red}
     finish{F_MetalE ambient (0.1 * global_ambient_mul)}
     translate<0,0.2,0>
 }

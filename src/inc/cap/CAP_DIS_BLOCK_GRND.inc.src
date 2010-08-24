@@ -152,42 +152,42 @@ union{
     #end
 
     #if (Ra=10.16)    //d=0.7mm
-        cylinder{<-Ra/2 ,0> <-Ra/2,block_pin_length,0> 0.35 texture{col_silver}}   // Draht rechts senkrecht
-        cylinder{< Ra/2 ,0> < Ra/2,block_pin_length,0> 0.35 texture{col_silver}}   // Draht links senkrecht
-        text {ttf besch_font  value   0.1, 0 scale<2.4,2.4,2.4> pigment {Black} rotate<0,180,0> translate<B/2-2.5, H-6.0, T/2+0.1> rotate<0,0,0>} //Beschriftung Value
+        cylinder{<-Ra/2 ,0> <-Ra/2,block_pin_length,0> 0.35 texture{e3d_tex_silver}}   // Draht rechts senkrecht
+        cylinder{< Ra/2 ,0> < Ra/2,block_pin_length,0> 0.35 texture{e3d_tex_silver}}   // Draht links senkrecht
+        text {ttf besch_font  value   0.1, 0 scale<2.4,2.4,2.4> texture{e3d_tex_cap_marking_black} rotate<0,180,0> translate<B/2-2.5, H-6.0, T/2+0.1> rotate<0,0,0>} //Beschriftung Value
     #end
 
     #if (Ra=15.24)    //d=0.8mm
-        cylinder{<-Ra/2 ,0> <-Ra/2,block_pin_length,0> 0.40 texture{col_silver}}   // Draht rechts senkrecht
-        cylinder{< Ra/2 ,0> < Ra/2,block_pin_length,0> 0.40 texture{col_silver}}   // Draht links senkrecht
-        text {ttf besch_font  value   0.1, 0 scale<3.0,3.0,3.0> pigment {Black} rotate<0,180,0> translate<B/2-4.0, H-7.0, T/2+0.1> rotate<0,0,0>} //Beschriftung Value
+        cylinder{<-Ra/2 ,0> <-Ra/2,block_pin_length,0> 0.40 texture{e3d_tex_silver}}   // Draht rechts senkrecht
+        cylinder{< Ra/2 ,0> < Ra/2,block_pin_length,0> 0.40 texture{e3d_tex_silver}}   // Draht links senkrecht
+        text {ttf besch_font  value   0.1, 0 scale<3.0,3.0,3.0> texture{e3d_tex_cap_marking_black} rotate<0,180,0> translate<B/2-4.0, H-7.0, T/2+0.1> rotate<0,0,0>} //Beschriftung Value
     #end
 
     #if (Ra=22.5)    //d=0.8mm
-        cylinder{<-Ra/2 ,0> <-Ra/2,block_pin_length,0> 0.40 texture{col_silver}}   // Draht rechts senkrecht
-        cylinder{< Ra/2 ,0> < Ra/2,block_pin_length,0> 0.40 texture{col_silver}}   // Draht links senkrecht
-        text {ttf besch_font  value   0.1, 0 scale<3.5,3.5,3.5> pigment {Black} rotate<0,180,0> translate<B/2-6.5, H-9.0, T/2+0.1> rotate<0,0,0>} //Beschriftung Value
+        cylinder{<-Ra/2 ,0> <-Ra/2,block_pin_length,0> 0.40 texture{e3d_tex_silver}}   // Draht rechts senkrecht
+        cylinder{< Ra/2 ,0> < Ra/2,block_pin_length,0> 0.40 texture{e3d_tex_silver}}   // Draht links senkrecht
+        text {ttf besch_font  value   0.1, 0 scale<3.5,3.5,3.5> texture{e3d_tex_cap_marking_black} rotate<0,180,0> translate<B/2-6.5, H-9.0, T/2+0.1> rotate<0,0,0>} //Beschriftung Value
     #end
 
     #if (Ra=27.5)    //d=1.0mm
-        cylinder{<-Ra/2 ,0> <-Ra/2,block_pin_length,0> 0.50 texture{col_silver}}   // Draht rechts senkrecht
-        cylinder{< Ra/2 ,0> < Ra/2,block_pin_length,0> 0.50 texture{col_silver}}   // Draht links senkrecht
-        text {ttf besch_font  value   0.1, 0 scale<4.0,4.0,4.0> pigment {Black} rotate<0,180,0> translate<B/2-10.0, H-12.0, T/2+0.1> rotate<0,0,0>} //Beschriftung Value
+        cylinder{<-Ra/2 ,0> <-Ra/2,block_pin_length,0> 0.50 texture{e3d_tex_silver}}   // Draht rechts senkrecht
+        cylinder{< Ra/2 ,0> < Ra/2,block_pin_length,0> 0.50 texture{e3d_tex_silver}}   // Draht links senkrecht
+        text {ttf besch_font  value   0.1, 0 scale<4.0,4.0,4.0> texture{e3d_tex_cap_marking_black} rotate<0,180,0> translate<B/2-10.0, H-12.0, T/2+0.1> rotate<0,0,0>} //Beschriftung Value
     #end
 
     #if (Ra=32.5)    //d=1.0mm
-        cylinder{<-Ra/2 ,0> <-Ra/2,block_pin_length,0> 0.50 texture{col_silver}}   // Draht rechts senkrecht
-        cylinder{< Ra/2 ,0> < Ra/2,block_pin_length,0> 0.50 texture{col_silver}}   // Draht links senkrecht
-        text {ttf besch_font  value   0.1, 0 scale<4.0,4.0,4.0> pigment {Black} rotate<0,180,0> translate<B/2-10.0, H-12.0, T/2+0.1> rotate<0,0,0>} //Beschriftung Value
+        cylinder{<-Ra/2 ,0> <-Ra/2,block_pin_length,0> 0.50 texture{e3d_tex_silver}}   // Draht rechts senkrecht
+        cylinder{< Ra/2 ,0> < Ra/2,block_pin_length,0> 0.50 texture{e3d_tex_silver}}   // Draht links senkrecht
+        text {ttf besch_font  value   0.1, 0 scale<4.0,4.0,4.0> texture{e3d_tex_cap_marking_black} rotate<0,180,0> translate<B/2-10.0, H-12.0, T/2+0.1> rotate<0,0,0>} //Beschriftung Value
     #end
 
     #if (Ra=37.5)    //d=1.0mm
-        cylinder{<-Ra/2 ,0> <-Ra/2,block_pin_length,0> 0.50 texture{col_silver}}   // Draht rechts senkrecht
-        cylinder{< Ra/2 ,0> < Ra/2,block_pin_length,0> 0.50 texture{col_silver}}   // Draht links senkrecht
-        text {ttf besch_font  value   0.1, 0 scale<4.5,4.5,4.5> pigment {Black} rotate<0,180,0> translate<B/2-15.0, H-15.0, T/2+0.1> rotate<0,0,0>} //Beschriftung Value
+        cylinder{<-Ra/2 ,0> <-Ra/2,block_pin_length,0> 0.50 texture{e3d_tex_silver}}   // Draht rechts senkrecht
+        cylinder{< Ra/2 ,0> < Ra/2,block_pin_length,0> 0.50 texture{e3d_tex_silver}}   // Draht links senkrecht
+        text {ttf besch_font  value   0.1, 0 scale<4.5,4.5,4.5> texture{e3d_tex_cap_marking_black} rotate<0,180,0> translate<B/2-15.0, H-15.0, T/2+0.1> rotate<0,0,0>} //Beschriftung Value
     #end
 
     // hellblau
-    pigment {rgb<0.3,0.3,1>}
+    texture{e3d_tex_cap_block_blue}
 }   
 #end
