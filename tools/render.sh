@@ -62,15 +62,24 @@ while [  $(ps | grep -i "povray" | wc -l) -ge 1 ]; do
 done
 
 #Removing empty fatal files
+FATALCOUNT=0
 for i in $(find $OUTPUT_DIR/fatal -type f -name *.txt)
 do 
 
     if [ ! -s $i ]
     then
         rm $i
+    else
+        FATALCOUNT=$(($FATALCOUNT+1))
     fi
 
 done
+
+if [ $FATALCOUNT -gt 0 ] 
+then
+    echo "We have $FATALCOUNT files which do not render!"
+    echo "Check build/img/fatal!"
+fi
 
 #Removing empty warning files
 for i in $(find $OUTPUT_DIR/warning -type f -name *.txt)
