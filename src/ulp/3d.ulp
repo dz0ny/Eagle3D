@@ -63,8 +63,8 @@ string usrinc =
     ;
 
 string incfiles =
-    "#include \"tools.inc\"\n"
-    "#include \"user.inc\"\n"
+    "#include \"e3d_tools.inc\"\n"
+    "#include \"e3d_user.inc\"\n"
     "\nglobal_settings{charset utf8}\n"
     "\n";
 

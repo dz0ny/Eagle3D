@@ -49,7 +49,7 @@ mkdir -p $RELEASEDIR/doc
 mkdir -p $RELEASEDIR/examples
 
 cp    $BUILDDIR/inc/*.inc   $RELEASEDIR/povray
-touch $RELEASEDIR/povray/user.inc
+touch $RELEASEDIR/povray/e3d_user.inc
 
 cp    $SRCDIR/data/fonts/*.ttf  $RELEASEDIR/povray
 cp    $SRCDIR/data/tex/*.png    $RELEASEDIR/povray

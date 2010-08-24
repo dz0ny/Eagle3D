@@ -16,8 +16,10 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef(__tools_inc)
-#declare __tools_inc = true;
+#ifndef(__e3d_tools_inc)
+#declare __e3d_tools_inc = true;
+
+global_settings{charset utf8}
 
 //POVRay include files
 #include "arrays.inc"
@@ -43,18 +45,19 @@
 #include "transforms.inc"
 
 //Library files
-#include "ic.inc"
-#include "resistor.inc"
-#include "trafo.inc"
-#include "transistor.inc"
-#include "connector.inc"
-#include "cap.inc"
-#include "diode.inc"
-#include "special.inc"
-#include "capwima.inc"
-#include "socket.inc"
-#include "qfp.inc"
-#include "switch.inc"
+#include "e3d_tex.inc"
+#include "e3d_ic.inc"
+#include "e3d_resistor.inc"
+#include "e3d_trafo.inc"
+#include "e3d_transistor.inc"
+#include "e3d_connector.inc"
+#include "e3d_cap.inc"
+#include "e3d_diode.inc"
+#include "e3d_special.inc"
+#include "e3d_capwima.inc"
+#include "e3d_socket.inc"
+#include "e3d_qfp.inc"
+#include "e3d_switch.inc"
 
 //******************************************************************************************************
 #if(inc_testmode=true)
@@ -78,8 +81,6 @@
 #end
 
 #declare besch_font = "DejaVuLGCSansMono-Bold.ttf"
-#declare col_gold = texture {T_Gold_5E finish{F_MetalA ambient (0.35 * global_ambient_mul)}};
-#declare col_silver = texture {T_Silver_5A finish{F_MetalA ambient (0.35 * global_ambient_mul)}} ;
 
 //******************************************************************************************************
 //Font symbols
@@ -137,9 +138,6 @@
     #warning "Font AlphaLCD not found. Fallback font arial used"
     #declare global_fontfile_alphalcd = global_fontfile_arial;
 #end
-//******************************************************************************************************
-
-global_settings{charset utf8}
 
 //******************************************************************************************************
 #macro COL_GOLD()
@@ -152,32 +150,7 @@ global_settings{charset utf8}
     texture{col_silver}
 #end
 
-//******************************************************************************************************
-//Color settings for a couple of parts
 
-//----------------------------------------------------------------------
-//Shrouded Header
-// glatter schwarzer Kunststoff
-#declare col_Wannen =    texture{
-                            pigment{Gray70}
-                            finish{ambient (0.1 * global_ambient_mul)}
-                        };  // hellgrauer Kunststoff
-
-//----------------------------------------------------------------------
-//Molex Stiftleisten
-// hellbeiger Kunststoff Molex-Stiftleisten
-#declare col_Molex =    texture {
-                            pigment{Wheat}
-                            finish{ambient (0.1 * global_ambient_mul)}
-                        };
-//----------------------------------------------------------------------
-//Keramik-Scheibenkondensatoren
-// braune Keramik-Scheibenkondensatoren
-#declare col_Kerko =    texture{
-                            pigment{MediumWood}
-                            finish{ambient (0.1 * global_ambient_mul)}
-                        }
-//******************************************************************************************************
 
 #ifdef(col_preset)
     //Verschieden Farb-Presets
@@ -295,7 +268,7 @@ global_settings{charset utf8}
 #macro ARC(rad,wid,st_wi,en_wi,height)
     union{
         #local i=st_wi;
-        #local l=((rad*pi)/360)*1.1;
+        #local l=((rad*pi)/360) * 1.1;
         
         cylinder{<0,0,-rad> <0,height,-rad> wid/2 pigment{Red} rotate<0,-i-90,0> }
         

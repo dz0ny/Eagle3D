@@ -34,6 +34,8 @@
 #declare global_diode_bend_radius = 1;
 #declare global_res_bend_radius = 1;
 
+#declare global_ambient_mul = 1.0;
+
 #declare pin_length = 2.5;
 
 #declare col_preset = 1;
@@ -47,19 +49,19 @@
 #declare pcb_layer16_used = 1;
 #declare inc_testmode=off;
 
-#include "tools.inc"
-#include "resistor.inc"
-#include "transistor.inc"
-#include "ic.inc"
-#include "connector.inc"
-#include "cap.inc"
-#include "diode.inc"
-#include "special.inc"
-#include "capwima.inc"
-#include "socket.inc"
-#include "qfp.inc"
-#include "switch.inc"
-#include "user.inc"
+#include "e3d_tools.inc"
+#include "e3d_resistor.inc"
+#include "e3d_transistor.inc"
+#include "e3d_ic.inc"
+#include "e3d_connector.inc"
+#include "e3d_cap.inc"
+#include "e3d_diode.inc"
+#include "e3d_special.inc"
+#include "e3d_capwima.inc"
+#include "e3d_socket.inc"
+#include "e3d_qfp.inc"
+#include "e3d_switch.inc"
+#include "e3d_user.inc"
 
 #declare cam_x = -2;
 #declare cam_y = 7;

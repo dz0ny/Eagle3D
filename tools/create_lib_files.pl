@@ -269,14 +269,14 @@ foreach my $cur_dir (@main_dirs)
         
         #Get the output file name for this directory
         my $output_inc_file_name = $cur_dir . ".inc";
-        open my $INC_FILE, '>', "$output_dir_inc/$output_inc_file_name" or 
+        open my $INC_FILE, '>', "$output_dir_inc/e3d_$output_inc_file_name" or 
             die "could not open $output_dir_inc/$output_inc_file_name: $^E";
         
         #Write file header
         print $INC_FILE "//Eagle3D ###VERSIONDUMMY### INC-File $output_inc_file_name\n";
 	    print $INC_FILE "//created by: $script_name\n";
 		print $INC_FILE "//created on: " . get_date_and_time() . "\n";
-        print $INC_FILE "//(c) 2002-2006 by M. Weisser\n";
+        print $INC_FILE "//(c) 2002-2010 by M. Weisser\n";
 	    print $INC_FILE "//or the author of the macro\n\n";
         
         #Write the global and then the local .pre file
