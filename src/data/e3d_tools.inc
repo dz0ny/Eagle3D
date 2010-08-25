@@ -54,7 +54,6 @@ global_settings{charset utf8}
 #include "e3d_cap.inc"
 #include "e3d_diode.inc"
 #include "e3d_special.inc"
-#include "e3d_capwima.inc"
 #include "e3d_socket.inc"
 #include "e3d_qfp.inc"
 #include "e3d_switch.inc"

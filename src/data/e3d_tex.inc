@@ -86,6 +86,13 @@
         finish{ambient(0.1 * global_ambient_mul)}
     }
     
+//Red color for wima cap
+#declare e3d_tex_cap_wima = //texture{e3d_tex_cap_wima}
+    texture{
+        pigment {Red}
+        finish{ambient(0.1 * global_ambient_mul)}
+    }
+    
 //Dark gray for SMD aluminium electrolytic cap base
 #declare e3d_tex_cap_smd_electrolytic_base = //texture{e3d_tex_cap_smd_electrolytic_base}
     texture{

@@ -50,17 +50,6 @@
 #declare inc_testmode=off;
 
 #include "e3d_tools.inc"
-#include "e3d_resistor.inc"
-#include "e3d_transistor.inc"
-#include "e3d_ic.inc"
-#include "e3d_connector.inc"
-#include "e3d_cap.inc"
-#include "e3d_diode.inc"
-#include "e3d_special.inc"
-#include "e3d_capwima.inc"
-#include "e3d_socket.inc"
-#include "e3d_qfp.inc"
-#include "e3d_switch.inc"
 #include "e3d_user.inc"
 
 #declare cam_x = -2;
