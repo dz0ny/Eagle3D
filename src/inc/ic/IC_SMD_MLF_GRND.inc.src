@@ -44,13 +44,16 @@ IC_SMD_MLF_64_050MM(value)
 //B = Breite des Pins
 //T = Tiefe des Pins
 ********************************************************************************************************************************************/
-#macro MLF_PIN(H,B,T)
 union{
-    box{<-B/2,0,0><+B/2,H,T-B/2>}
-    cylinder{<0,0,T-B/2><0,H,T-B/2>,B/2}
-    texture{e3d_tex_silver}
-}
-#end
+
+    #macro MLF_PIN(H,B,T)
+        union{
+            box{<-B/2,0,0><+B/2,H,T-B/2>}
+            cylinder{<0,0,T-B/2><0,H,T-B/2>,B/2}
+            texture{e3d_tex_silver}
+        }
+    #end
+    
     union{
         difference{
             box{<-LK/2,HKoP,-BK/2><LK/2,HKoP+H,BK/2>}
