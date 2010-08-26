@@ -1,2 +1,2 @@
-#declare environment = off;
+#declare e3d_environment = off;
 

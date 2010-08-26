@@ -70,7 +70,7 @@ string incfiles =
 
 //String für die Umgebung
 string ambient =
-    "#if(env=on)\n"
+    "#if(e3d_environment=on)\n"
     "sky_sphere {pigment {Navy}\n"
     "pigment {bozo turbulence 0.65 octaves 7 omega 0.7 lambda 2\n"
     "color_map {\n"
@@ -1185,8 +1185,8 @@ printf("#declare col_preset = %d;\n",col_preset);
 if(opt_spn==1) printf("#declare pin_short = on;\n");
 else printf("#declare pin_short = off;\n");
 //Umgebung
-if(opt_amb==1) printf("\n#declare env = on;\n");
-else printf("\n#declare env = off;\n");
+if(opt_amb==1) printf("\n#declare e3d_environment = on;\n");
+else printf("\n#declare e3d_environment = off;\n");
 //Kameraeinstellungen
 printf("\n#local cam_x = %d;\n",cam_inf[0]);
 printf("#local cam_y = %d;\n",cam_inf[1]);
