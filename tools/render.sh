@@ -26,6 +26,7 @@ AAVALUE=0.3
 OUTPUT_DIR=$BUILDDIR/img
 PROCESSES=16
 NAMEMASK='*.pov'
+POVRAY=povray
 
 if [ $# -gt 0 ] 
 then
@@ -42,22 +43,24 @@ do
     fi
         
     echo "Rendering $FILENAME"
-    nice -n 19 povray +L$INC_FILES \
-                      +L$POV_FILES \
-                      +W$WIDTH +H$HEIGHT +A$AAVALUE \
-                      -GW$OUTPUT_DIR/warning/$FILENAME.warnings.txt \
-                      -GF$OUTPUT_DIR/fatal/$FILENAME.fatal.txt \
-                      +O$OUTPUT_DIR/$FILENAME.png \
-                      -GS -GR -GD -V -D +I$i > /dev/null 2>&1 &
+    nice -n 19 $POVRAY +L$INC_FILES \
+                       +L$POV_FILES \
+                       +W$WIDTH +H$HEIGHT +A$AAVALUE \
+                       -GW$OUTPUT_DIR/warning/$FILENAME.warnings.txt \
+                       -GF$OUTPUT_DIR/fatal/$FILENAME.fatal.txt \
+                       +O$OUTPUT_DIR/$FILENAME.png \
+                       -GS -GR -GD -V -D +I$i > /dev/null 2>&1 &
 
-    while [  $(ps | grep -i "povray" | wc -l) -ge $PROCESSES ]; do
+    while [  $(ps | grep -i "$POVRAY" | wc -l) -ge $PROCESSES ]; do
         sleep .05
     done
         
 done
 
-while [  $(ps | grep -i "povray" | wc -l) -ge 1 ]; do
-    echo "Waiting for last render job done"
+REMAIN=1
+while [ $REMAIN -ge 1 ]; do
+    REMAIN=$(ps | grep -i "$POVRAY" | wc -l)
+    echo "Waiting for last render job done ($REMAIN jobs left)"
     sleep .5
 done
 
