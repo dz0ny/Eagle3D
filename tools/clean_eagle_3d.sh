@@ -20,6 +20,7 @@
 
 rm -rf $BUILDDIR
 rm -f $OUTPUTDIR/eagle3d*.zip
+rm -f $OUTPUTDIR/eagle3d*.exe
 rm -f $OUTPUTDIR/eagle3d*.tar.gz
 rm -f $OUTPUTDIR/eagle3d*.tar.bz2
 rm -f $OUTPUTDIR/partSize.dat

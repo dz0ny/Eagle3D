@@ -21,16 +21,19 @@ SCRIPTDIR=$(dirname $0)
 
 #Check if we are running from the correct position and setup directories
 if [ -d "$WORKDIR/src" ] && [ -d "$WORKDIR/tools" ]; then
+    BASEDIR=$WORKDIR
     OUTPUTDIR=$WORKDIR
     SRCDIR=$WORKDIR/src    
     BUILDDIR=$WORKDIR/build
     TOOLDIR=$WORKDIR/tools
 elif [ -d "$WORKDIR/../src" ] && [ -d "$WORKDIR/../tools" ]; then
+    BASEDIR=$WORKDIR/..
     OUTPUTDIR=$WORKDIR/..
     SRCDIR=$WORKDIR/../src    
     BUILDDIR=$WORKDIR/../build
     TOOLDIR=$WORKDIR/../tools
 elif [ -d "$SCRIPTDIR/../src" ] && [ -d "$SCRIPTDIR/../tools" ]; then
+    BASEDIR=$SCRIPTDIR/..
     OUTPUTDIR=$SCRIPTDIR/..
     SRCDIR=$SCRIPTDIR/../src    
     BUILDDIR=$SCRIPTDIR/../build
@@ -46,6 +49,7 @@ RELEASEDIR=$BUILDDIR/eagle3d
 type zip      > /dev/null 2>&1 && HASZIP="1"      || HASZIP="0"
 type todos    > /dev/null 2>&1 && HASTODOS="1"    || HASTODOS="0"
 type unix2dos > /dev/null 2>&1 && HASUNIX2DOS="1" || HASUNIX2DOS="0"
+type makensis > /dev/null 2>&1 && HASMAKENSIS="1" || HASMAKENSIS="0"
 
 
 
