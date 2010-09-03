@@ -3,6 +3,7 @@
 
 from optparse import OptionParser
 import datetime
+import fnmatch
 import glob
 import logging
 import os
@@ -18,7 +19,9 @@ SCRIPT_VERSION = "2.02"
 #SCRIPT_NAME = "Eagle3D INC SRC Compiler v%s"%SCRIPT_VERSION
 SCRIPT_NAME = "INC SRC Compiler v%s"%SCRIPT_VERSION
 
-INCLUDE_FILE_SUFFIX = '.inc.src'
+INCLUDE_EXTENSION = '.inc.src'
+
+INCLUDE_SUFFIX = '_GRND'
 
 INCLUDE_PREFIX_MAP = {
 	'cap': 'CAP_',
@@ -50,6 +53,9 @@ MACRO_PARAM_PATTERNS = [
 	['c1,c2,c3,c4',                    'texture{pigment{Yellow}finish{phong 0.2}},texture{pigment{Violet*1.2}finish{phong 0.2}},texture{pigment{Red*0.7}finish{phong 0.2}},texture {T_Gold_5C finish{reflection 0.1}}'],
 	['j',                              '1'],
 ]
+
+IGNORE_FILE_LIST = ["pre.pre", "pos.pos"]
+IGNORE_DIR_LIST = [".*"]
 
 
 ###############################################################################
@@ -206,17 +212,74 @@ class env:
 		print "  SCRIPTDIR: %s"%env.SCRIPTDIR
 		print "  ARCHIVE_OUTPUT_DIR: %s"%env.ARCHIVE_OUTPUT_DIR
 		print "  SRCDIR: %s"%env.SRCDIR
-		print "  OUTDIR_ROOT: %s"%env.OUTDIR_ROOT
 		print "  TOOLDIR: %s"%env.TOOLDIR
-		print "  RELEASEDIR: %s"%env.RELEASEDIR
+		print "  DATADIR: %s"%env.DATADIR
+		print "  INCDIR: %s"%env.INCDIR
+		print "  ULPDIR: %s"%env.ULPDIR
+		print "  OUTDIR_ROOT: %s"%env.OUTDIR_ROOT
+		print "  OUTDIR_3DPACK: %s"%env.OUTDIR_3DPACK
 		print "  OUTDIR_INC: %s"%env.OUTDIR_INC
 		print "  OUTDIR_POV: %s"%env.OUTDIR_POV
 		print "  OUTDIR_IMG: %s"%env.OUTDIR_IMG
+		print "  RELEASEDIR: %s"%env.RELEASEDIR
+		print "  RELEASEDIR_ULP: %s"%env.RELEASEDIR_ULP
+		print "  RELEASEDIR_POVRAY: %s"%env.RELEASEDIR_POVRAY
+		print "  RELEASEDIR_ULP: %s"%env.RELEASEDIR_ULP
+		print "  RELEASEDIR_EXAMPLES: %s"%env.RELEASEDIR_EXAMPLES
 		print "UTILITIES:"
-		print "  HASZIP: "+str(env.HASZIP)
-		print "  HASTODOS: "+str(env.HASTODOS)
-		print "  HASUNIX2DOS: "+str(env.HASUNIX2DOS)
+		print "  HASZIP: %s"%str(env.HASZIP)
+		print "  HASTAR: %s"%str(env.HASTAR)
+		print "  HASGZIP: %s"%str(env.HASGZIP)
+		print "  HASBZIP2: %s"%str(env.HASBZIP2)
+		print "  HASTODOS: %s"%str(env.HASTODOS)
+		print "  HASUNIX2DOS: %s"%str(env.HASUNIX2DOS)
+		print "  HASDOS2UNIX: %s"%str(env.HASDOS2UNIX)
 	dump = Callable(dump)
+
+
+class iterate_dir(object):
+	def on_each_rootdir_pre(self, rootdir):
+		pass
+
+	def on_each_rootdir_post(self, rootdir):
+		pass
+
+	def on_each_file(self, rootdir, file):
+		pass
+
+	def start(self, topdir):
+		for rootdir, dirlist, filelist in os.walk(topdir):
+			rootdir_basename = os.path.basename(rootdir)
+
+			skip_dir = False
+			for pattern in IGNORE_DIR_LIST:
+				if fnmatch.fnmatch(rootdir_basename, pattern):
+					#do not recurse
+					dirlist[:]=[]
+					#skip this directory, continue will just skip to the next pattern
+					skip_dir = True
+
+			if skip_dir:
+				continue
+
+			# skip the base directory
+			if rootdir == topdir:
+				continue
+
+			#if not make.quiet: logger.info("  directory: "+rootdir[len(topdir):])
+			dirlist.sort()
+
+			self.on_each_rootdir_pre(rootdir)
+
+			filelist.sort()
+			for f in filelist:
+				#ignore files
+				if f in IGNORE_FILE_LIST:
+					continue
+
+				self.on_each_file(os.path.join(rootdir, f))
+
+			self.on_each_rootdir_post(rootdir)
 
 
 ###############################################################################
@@ -226,6 +289,7 @@ class make:
 	quiet = None
 	version = None
 	static_date = None
+	full_check = None
 
 	###############################################################################
 	# return the time and date in the format of: 22.08.2010 22:31:52
@@ -253,6 +317,26 @@ class make:
 
 	########################################
 	#
+	"""
+
+*.src.inc format:
+Part name (Currently ignored, only one line)
+//Comments inserted before the macro (always prefixed by "//")
+################################################################
+Lines for the 3dpack.dat
+################################################################
+Main macro name (without parameter list, see naming conventions above)
+Main macro parameter list
+################################################################
+//Comment for the sub macro (optional)
+Sub macro name(parameter list)
+Parameter list for main macro
+################################################################
+################################################################
+Actual macro
+
+
+	"""
 	def parse_inc_src(inc_src_content=[], inc_src_block=0):
 		result = []
 		inc_src_content_len = len(inc_src_content)
@@ -274,51 +358,48 @@ class make:
 	def verify():
 		all_errors_found = 0
 
-		logger.info("VERIFYING BUILD")
-		logger.info('')
-
 		####################
 		#
-		all_inc_macros = []
-		for rootdir, dirlist, filelist in os.walk(env.INCDIR):
+		logger.info("checking macro include file format...")
+		class iterate_dir1(iterate_dir):
+			all_errors_found = 0
+			all_inc_macros = []
+			def on_each_file(self, filepath):
 
-			# skip the base directory
-			if rootdir != env.INCDIR:
+				errors_found = 0
 
-				rootdir_rel = rootdir[len(env.WORKDIR)+1:]
-				#if not make.quiet: logger.info("  directory: "+rootdir_rel)
+				filepath_basename = os.path.basename(filepath)
+				filepath_subdir = os.path.basename(os.path.dirname(filepath))
+				filepath_rel = os.path.join(filepath_subdir, filepath_basename)
 
-				rootdir_basename = os.path.basename(rootdir)
+				f_inc_src = open(filepath, 'r')
+				content = f_inc_src.read()
+				f_inc_src.close()
+				content = content.split("\n")
+				index = 0
 
-				for rootdir2, dirlist2, filelist2 in os.walk(rootdir):
-					filelist2.sort()
-					for file in filelist2:
-						#ignore files
-						if file in ["pre.pre", "pos.pos"]:
-							continue
+				for i in make.parse_inc_src(content, 3):
+					if i.strip() == '' or i[:2] == "//" or i[:1] == "(":
+						pass
+					else:
+						#split on left paren to get the macro name only
+						i_split = i.split('(')
+						if len(i_split) > 1:
+							self.all_inc_macros.append(i_split[0].strip())
+						else:
+							logger.info("ERROR: "+filepath+'; line: '+i)
+							errors_found = errors_found+1
 
-						f_inc_src_filepath = os.path.join(rootdir2, file)
-						f_inc_src_filepath_rel = f_inc_src_filepath[len(env.INCDIR)+1:]
+				if not make.quiet and errors_found<1:
+					logger.info(filepath_rel+': no errors found.')
 
-						#if not make.quiet: logger.info("    file: "+f_inc_src_filepath_rel)
+				if errors_found:
+					self.all_errors_found = self.all_errors_found+errors_found
 
-						f_inc_src = open(f_inc_src_filepath, 'r')
-						f_inc_src_content = f_inc_src.read()
-						f_inc_src.close()
-						f_inc_src_content = f_inc_src_content.split("\n")
-						f_inc_src_index = 0
+		it = iterate_dir1()
+		it.start(env.INCDIR)
 
-						for i in make.parse_inc_src(f_inc_src_content, 3):
-							if i.strip() == '' or i[:2] == "//" or i[:1] == "(":
-								pass
-							else:
-								i_split = i.split('(')
-								if len(i_split) > 1:
-									all_inc_macros.append(i_split[0])
-								else:
-									logger.info("    ERROR: "+f_inc_src_filepath_rel+'; line: '+i)
-
-		logger.info("total of %s macros"%(str(len(all_inc_macros))))
+		logger.info("total of %s macros"%(str(len(it.all_inc_macros))))
 		logger.info('')
 
 
@@ -334,11 +415,11 @@ class make:
 			if len(i_split) > 30:
 				f_3dpack_macros.append(i_split[31][:-1])
 			else:
-				logger.info("    ERROR: 3dpack.dat; "+i)
+				logger.info("ERROR: 3dpack.dat; "+i)
 
 		missing_inc_macros_count = 0
 		missing_inc_macros = []
-		for i in all_inc_macros:
+		for i in it.all_inc_macros:
 			if i not in f_3dpack_macros:
 				missing_inc_macros_count = missing_inc_macros_count+1
 				missing_inc_macros.append(i)
@@ -346,82 +427,77 @@ class make:
 		if missing_inc_macros_count>0:
 			logger.info("found %s defined parts that are not in 3dpack.dat:"%(str(missing_inc_macros_count)))
 			for i in missing_inc_macros:
-				logger.info("  %s"%(i))
+				logger.info("%s"%(i))
 		else:
 			logger.info('no unused parts found.')
 		logger.info('')
 
 		all_errors_found = all_errors_found+missing_inc_macros_count
 
+
 		####################
 		#
 		logger.info("checking macro include file format...")
-		for rootdir, dirlist, filelist in os.walk(env.INCDIR):
-			filelist.sort()
-			for inc in filelist:
-				#ignore files
-				if inc in ["pre.pre", "pos.pos"]:
-					continue
-
-				filepath = os.path.join(rootdir, inc)
-				filepath_rel = filepath[len(env.INCDIR)+1:]
-
-				macro = ''
-				if inc.endswith(INCLUDE_FILE_SUFFIX):
-					macro = inc[:-len(INCLUDE_FILE_SUFFIX)]
+		class iterate_dir2(iterate_dir):
+			all_errors_found = 0
+			def on_each_file(self, filepath):
 
 				errors_found = 0
 
-				subdir = os.path.basename(os.path.dirname(filepath))
-				if not inc.startswith(INCLUDE_PREFIX_MAP[subdir]):
-					logger.info('  '+filepath_rel+': file name is inconsistant with naming rules')
+				filepath_basename = os.path.basename(filepath)
+				filepath_subdir = os.path.basename(os.path.dirname(filepath))
+				#filepath_rel = filepath_subdir+filepath[len(rootdir)-1:]
+				filepath_rel = os.path.join(filepath_subdir, filepath_basename)
+
+				filepath_barename = ''
+				if filepath.endswith(INCLUDE_EXTENSION):
+					filepath_barename = filepath_basename[:-len(INCLUDE_EXTENSION)]
+
+				if not filepath_barename.startswith(INCLUDE_PREFIX_MAP[filepath_subdir]):
+					logger.info(filepath_rel+': file name is inconsistant with naming rules, expected prefix %s.'%INCLUDE_PREFIX_MAP[filepath_subdir])
 					errors_found = errors_found+1
 
-				filepathHandle = open(filepath, 'r')
-				capture_next_line = False
-				line_index = 0
+				if not filepath_barename.endswith(INCLUDE_SUFFIX):
+					logger.info(filepath_rel+': file name is inconsistant with naming rules, expected suffix %s.'%INCLUDE_SUFFIX)
+					errors_found = errors_found+1
 
-				#*.src.inc format:
-				# Part name (Currently ignored, only one line)
-				# //Comments inserted before the macro (always prefixed by "//")
-				# ################################################################
-				# Lines for the 3dpack.dat
-				# ################################################################
-				# Main macro name (without parameter list, see naming conventions above)
-				# Main macro parameter list
-				# ################################################################
-				# //Comment for the sub macro (optional)
-				# Sub macro name(parameter list)
-				# Parameter list for main macro
-				# ################################################################
-				# ################################################################
-				# Actual macro
+				f_inc_src = open(filepath, 'r')
+				content = f_inc_src.read()
+				f_inc_src.close()
+				content = content.split("\n")
+				index = 0
 
-				# line index: description
-				#          0: first line of data for 3dpack.dat
-				#          1: main macro name
-				#          2: first line of sub-macro list
-				#          3: first line double hash
-				#          4: first line of main macro body
-				for line in filepathHandle:
-					line = line.strip()
-					if capture_next_line:
-						if line_index == 1:
-							if line != macro:
-								logger.info('  '+filepath_rel+': file name is inconsistant with macro name: '+line+'; '+macro)
-								errors_found = errors_found+1
-						line_index = line_index + 1
-						capture_next_line = False
-					#if "#"*100 in line:
-					if line[:20] == "#"*20:
-						capture_next_line = True
-				filepathHandle.close()
+				for i in make.parse_inc_src(content, 2):
+					if i.strip() == '' or i[:2] == "//" or i[:1] == "(":
+						pass
+					else:
+						if i.strip() != filepath_barename:
+							logger.info(filepath_rel+': main macro "%s" is inconsistant with naming rules, should match file barename: %s.'%(i, filepath_barename))
+							errors_found = errors_found+1
+
+				if make.full_check:
+					for i in make.parse_inc_src(content, 3):
+						if i.strip() == '' or i[:2] == "//" or i[:1] == "(":
+							pass
+						else:
+							#split on left paren to get the macro name only
+							i_split = i.split('(')
+							if len(i_split) > 1:
+								sub_macro = i_split[0].strip()
+								if not sub_macro.startswith(INCLUDE_PREFIX_MAP[filepath_subdir]):
+									logger.info(filepath_rel+': sub macro "%s" is inconsistant with naming rules, expected prefix %s.'%(sub_macro, INCLUDE_PREFIX_MAP[filepath_subdir]))
+							else:
+								logger.info("ERROR: "+filepath+'; line: '+i)
 
 				if not make.quiet and errors_found<1:
-					logger.info('  '+filepath_rel+': no errors found')
+					logger.info(filepath_rel+': no errors found')
 
 				if errors_found != None:
-					all_errors_found = all_errors_found+errors_found
+					self.all_errors_found = self.all_errors_found+errors_found
+		logger.info('')
+
+		it = iterate_dir2()
+		it.start(env.INCDIR)
 
 		return all_errors_found
 
@@ -475,18 +551,14 @@ class make:
 
 		logger.info('creating library files...')
 		f_3dpack = open(os.path.join(env.OUTDIR_3DPACK, "3dpack.dat"), 'w')
-		for rootdir, dirlist, filelist in os.walk(env.INCDIR):
 
-			# skip the base directory
-			if rootdir != env.INCDIR:
-
-				rootdir_rel = rootdir[len(env.WORKDIR)+1:]
-				if not make.quiet: logger.info("  directory: "+rootdir_rel)
-
+		class iterate_dir1(iterate_dir):
+			def on_each_rootdir_pre(self, rootdir):
 				rootdir_basename = os.path.basename(rootdir)
 
-				# get the output file name for this directory
+				# generate the output filename and open it for writing
 				f_inc_filepath = os.path.join(env.OUTDIR_INC, "e3d_"+rootdir_basename)+".inc"
+				if not make.quiet: logger.info("writing header for "+"e3d_"+rootdir_basename+".inc")
 				f_inc = open(f_inc_filepath, 'w')
 
 				# write file header
@@ -507,132 +579,142 @@ class make:
 				f_inc.write(f_local_inc_pre.read())
 				f_local_inc_pre.close()
 
-				for rootdir2, dirlist2, filelist2 in os.walk(rootdir):
-					filelist2.sort()
-					for file in filelist2:
-						#ignore files
-						if file in ["pre.pre", "pos.pos"]:
-							continue
+				f_inc.close()
 
-						f_inc_src_filepath = os.path.join(rootdir2, file)
-						f_inc_src_filepath_rel = f_inc_src_filepath[len(env.INCDIR)+1:]
+			def on_each_file(self, filepath):
 
-						if not make.quiet: logger.info("    file: "+f_inc_src_filepath_rel)
+				filepath_basename = os.path.basename(filepath)
+				filepath_subdir = os.path.basename(os.path.dirname(filepath))
+				filepath_rel = os.path.join(filepath_subdir, filepath_basename)
 
-						f_inc_src = open(f_inc_src_filepath, 'r')
-						f_inc_src_content = f_inc_src.read()
-						f_inc_src.close()
-						f_inc_src_content = f_inc_src_content.split("\n")
-						f_inc_src_index = 0
+				# generate the output filename and open it for writing (append)
+				f_inc_filepath = os.path.join(env.OUTDIR_INC, "e3d_"+filepath_subdir)+".inc"
+				f_inc = open(f_inc_filepath, 'a')
 
-						#get the main macro name and argument list
-						f_inc_src_mainmacro = make.parse_inc_src(f_inc_src_content, 2)
+				if not make.quiet: logger.info("processing "+filepath_rel)
 
-						f_inc.write("/********************************************************************************************************************************************\n")
-						#print $INC_FILE get_comment_from_inc_src(@inc_src_content);
-						for i in make.parse_inc_src(f_inc_src_content, 0):
-							f_inc.write(i)
-							f_inc.write("\n")
-						f_inc.write("********************************************************************************************************************************************/\n")
+				# load the source file
+				f_content = open(filepath, 'r')
+				content = f_content.read()
+				f_content.close()
+				content = content.split("\n")
+				#f_inc_src_index = 0
 
-						#print $INC_FILE "#macro " . get_macro_head_from_inc_src(@inc_src_content) . "\n";
+				# get the main macro name and argument list
+				mainmacro = make.parse_inc_src(content, 2)
+
+				# print the comments
+				f_inc.write("/********************************************************************************************************************************************\n")
+				for i in make.parse_inc_src(content, 0):
+					f_inc.write(i)
+					f_inc.write("\n")
+				f_inc.write("********************************************************************************************************************************************/\n")
+
+				# print the macro header
+				f_inc.write("#macro ")
+				f_inc.write(mainmacro[0])
+				f_inc.write(mainmacro[1])
+				f_inc.write("\n")
+
+				# print the main macro body
+				for i in make.parse_inc_src(content, 5):
+					f_inc.write(i)
+					f_inc.write("\n")
+
+				# print the macro calls
+				for i in make.parse_inc_src(content, 3):
+					if i.strip() == '':
+						pass
+					elif i[:2] == "//":
+						f_inc.write(i)
+						f_inc.write("\n")
+					elif i[:1] == "(":
+						f_inc.write(mainmacro[0])
+						f_inc.write(i)
+						f_inc.write("\n#end\n")
+					else:
 						f_inc.write("#macro ")
-						f_inc.write(f_inc_src_mainmacro[0])
-						f_inc.write(f_inc_src_mainmacro[1])
+						f_inc.write(i)
 						f_inc.write("\n")
 
-						#print $INC_FILE get_macro_body_from_inc_src(@inc_src_content) . "\n";
-						for i in make.parse_inc_src(f_inc_src_content, 5):
-							f_inc.write(i)
-							f_inc.write("\n")
+				f_inc.write("\n\n")
+				f_inc.close()
 
-						#print $INC_FILE get_macro_calls_from_inc_src(@inc_src_content) . "\n";
-						for i in make.parse_inc_src(f_inc_src_content, 3):
-							if i.strip() == '':
-								pass
-							elif i[:2] == "//":
-								f_inc.write(i)
-								f_inc.write("\n")
-							elif i[:1] == "(":
-								f_inc.write(f_inc_src_mainmacro[0])
-								f_inc.write(i)
-								f_inc.write("\n#end\n")
+				####################
+				# append the 3dpack.dat file
+				for i in make.parse_inc_src(content, 1):
+					f_3dpack.write(i)
+					f_3dpack.write("\n")
+
+				####################
+				# build the povray files
+				macros = []
+				for i in make.parse_inc_src(content, 3):
+					if i.strip() == '' or i[:2] == "//" or i[:1] == "(":
+						pass
+					else:
+						i_split = i.split('(')
+
+						if len(i_split)>1:
+							i_split[1] = i_split[1].strip()
+							if i_split[1] == ')':
+								i_split = i_split[:-1]
 							else:
-								f_inc.write("#macro ")
-								f_inc.write(i)
-								f_inc.write("\n")
+								i_split[1] = i_split[1][:-1].strip().replace(' ', '')
+						macros.append(i_split)
 
-						f_inc.write("\n\n")
+				for i in macros:
+					if i[0] == '':
+						continue
+					matched = 0
+					if len(i)>1:
+						for j in MACRO_PARAM_PATTERNS:
+							if i[1] == j[0]:
+								i[1] = j[1]
+								matched = matched+1
+						if matched <1:
+							logger.info("ERROR, unmatched argument string: "+i[0]+'('+i[1]+')')
+						elif matched >1:
+							logger.info("ERROR, argument string matched more than once: "+i[0]+'('+i[1]+')')
 
-						####################
-						# append the 3dpack.dat file
-						for i in make.parse_inc_src(f_inc_src_content, 1):
-							f_3dpack.write(i)
-							f_3dpack.write("\n")
+					# open the matching POV file
+					f_pov = open(os.path.join(env.OUTDIR_POV, i[0]+'.pov'), 'w')
 
-						####################
-						# build the povray files
-						macros = []
-						for i in make.parse_inc_src(f_inc_src_content, 3):
-							if i.strip() == '' or i[:2] == "//" or i[:1] == "(":
-								pass
-							else:
-								i_split = i.split('(')
+					f_pov.write('//POVRay test file for macro %s\n'%(i[0]))
+					f_pov.write("//created by: %s\n"%(SCRIPT_NAME))
+					f_pov.write("//created on: %s\n"%(make.formatted_datetime()))
+					f_pov.write('//(c) 2002-2010 by M. Weisser\n')
+					f_pov.write('\n')
+					f_pov.write('#include "povpre.pov"\n')
+					f_pov.write('#local macroname = "%s"\n'%(i[0]))
+					f_pov.write('\n')
 
-								if len(i_split)>1:
-									i_split[1] = i_split[1].strip()
-									if i_split[1] == ')':
-										i_split = i_split[:-1]
-									else:
-										i_split[1] = i_split[1][:-1].strip().replace(' ', '')
+					if len(i)>1:
+						f_pov.write('#local obj = object{%s(%s)}\n'%(i[0], i[1]))
+					else:
+						f_pov.write('#local obj = object{%s()}\n'%(i[0]))
 
-								macros.append(i_split)
+					f_pov.write('#local x_size = (max_extent(obj) - min_extent(obj)).x;\n')
+					f_pov.write('#local y_size = (max_extent(obj) - min_extent(obj)).y;\n')
+					f_pov.write('#local z_size = (max_extent(obj) - min_extent(obj)).z;\n')
+					f_pov.write('#local scale_f = 2/max(x_size,y_size,z_size);\n')
+					#f_pov.write('\n')
+					f_pov.write('camera{location <cam_x,cam_y,cam_z>\n')
+					f_pov.write('look_at <0,0,0>angle 18}\n')
+					f_pov.write('object{obj scale scale_f\n')
+					f_pov.write('translate<0,-min_extent(obj).y*scale_f,0>\n')
+					f_pov.write('translate<0,-y_size/2*scale_f,0>}\n')
+					#f_pov.write('\n')
+					f_pov.write('#include "povpos.pov"\n')
 
-						for i in macros:
-							if i[0] == '':
-								continue
-							matched = 0
-							if len(i)>1:
-								for j in MACRO_PARAM_PATTERNS:
-									if i[1] == j[0]:
-										i[1] = j[1]
-										matched = matched+1
-								if matched <1:
-									logger.info("ERROR, unmatched argument string: "+i[0]+'('+i[1]+')')
-								elif matched >1:
-									logger.info("ERROR, argument string matched more than once: "+i[0]+'('+i[1]+')')
+					f_pov.close()
 
-							# open the matching POV file
-							f_pov = open(os.path.join(env.OUTDIR_POV, i[0]+'.pov'), 'w')
+			def on_each_rootdir_post(self, rootdir):
+				rootdir_basename = os.path.basename(rootdir)
 
-							f_pov.write('//POVRay test file for macro %s\n'%(i[0]))
-							f_pov.write("//created by: %s\n"%(SCRIPT_NAME))
-							f_pov.write("//created on: %s\n"%(make.formatted_datetime()))
-							f_pov.write('//(c) 2002-2010 by M. Weisser\n')
-							f_pov.write('\n')
-							f_pov.write('#include "povpre.pov"\n')
-							f_pov.write('#local macroname = "%s"\n'%(i[0]))
-							f_pov.write('\n')
-
-							if len(i)>1:
-								f_pov.write('#local obj = object{%s(%s)}\n'%(i[0], i[1]))
-							else:
-								f_pov.write('#local obj = object{%s()}\n'%(i[0]))
-
-							f_pov.write('#local x_size = (max_extent(obj) - min_extent(obj)).x;\n')
-							f_pov.write('#local y_size = (max_extent(obj) - min_extent(obj)).y;\n')
-							f_pov.write('#local z_size = (max_extent(obj) - min_extent(obj)).z;\n')
-							f_pov.write('#local scale_f = 2/max(x_size,y_size,z_size);\n')
-							f_pov.write('\n')
-							f_pov.write('camera{location <cam_x,cam_y,cam_z>\n')
-							f_pov.write('look_at <0,0,0>angle 18}\n')
-							f_pov.write('object{obj scale scale_f\n')
-							f_pov.write('translate<0,-min_extent(obj).y*scale_f,0>\n')
-							f_pov.write('translate<0,-y_size/2*scale_f,0>}\n')
-							f_pov.write('\n')
-							f_pov.write('#include "povpos.pov"\n')
-
-							f_pov.close()
+				# generate the output filename and open it for writing (append)
+				f_inc_filepath = os.path.join(env.OUTDIR_INC, "e3d_"+rootdir_basename)+".inc"
+				f_inc = open(f_inc_filepath, 'a')
 
 				# include global .pos file
 				f_global_inc_pos = open(os.path.join(env.DATADIR, "pos.pos"), 'r')
@@ -646,6 +728,9 @@ class make:
 
 				f_inc.close()
 
+
+		it = iterate_dir1()
+		it.start(env.INCDIR)
 
 		f_3dpack_add = open(os.path.join(env.DATADIR, "3dpack_add.dat"), 'r')
 		f_3dpack.write(f_3dpack_add.read())
@@ -881,12 +966,12 @@ if __name__ == "__main__":
 		print usage_string
 		sys.exit(1)
 
-
 	parser = OptionParser(usage=usage_string, version="%prog v"+SCRIPT_VERSION)
 	parser.add_option(      "--noconsole",   action="store_true", dest="noconsole",   default=False, help="do not print to console, only to log file.")
 	parser.add_option("-q", "--quiet",       action="store_true", dest="quiet",       default=False, help="do not print 'no errors' message.")
 	parser.add_option("-s", "--silent",      action="store_true", dest="silent",      default=False, help="print and log nothing, return non-zero on any error.")
 	parser.add_option(      "--static-date", action="store_true", dest="static_date", default=False, help="calculate date and time only once at start.")
+	parser.add_option(      "--full-check",  action="store_true", dest="full_check",  default=False, help="when verifying, also check sub-macros.")
 	(options, args) = parser.parse_args()
 
 	logger = logging.getLogger(action)
@@ -917,6 +1002,7 @@ if __name__ == "__main__":
 		logger.addHandler(logging.StreamHandler())
 
 	make.quiet = options.quiet
+	make.full_check = options.full_check
 
 	if action == "verify":
 		sys.exit(make.verify())
