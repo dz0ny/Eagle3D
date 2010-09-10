@@ -371,7 +371,8 @@ class iterate_dir(object):
 	def on_each_rootdir_post(self, rootdir):
 		pass
 
-	def on_each_file(self, rootdir, file):
+	#def on_each_file(self, rootdir, file):
+	def on_each_file(self, filepath):
 		pass
 
 	def start(self, topdir):
@@ -404,6 +405,7 @@ class iterate_dir(object):
 				if f in IGNORE_FILE_LIST:
 					continue
 
+				#self.on_each_file(rootdir, f)
 				self.on_each_file(os.path.join(rootdir, f))
 
 			self.on_each_rootdir_post(rootdir)
@@ -482,20 +484,25 @@ Actual macro
 
 	########################################
 	#
-	def verify():
+	def verify(opts):
+		verify_mask = opts.verify_mask
+
 		all_errors_found = 0
 
 		####################
 		#
-		logger.info("checking macro include file format...")
+		logger.info("collecting macro names...")
 		class iterate_dir1(iterate_dir):
 			all_errors_found = 0
 			all_inc_macros = []
 			def on_each_file(self, filepath):
+				filepath_basename = os.path.basename(filepath)
+
+				if not fnmatch.fnmatch(filepath_basename, verify_mask):
+					return
 
 				errors_found = 0
 
-				filepath_basename = os.path.basename(filepath)
 				filepath_subdir = os.path.basename(os.path.dirname(filepath))
 				filepath_rel = os.path.join(filepath_subdir, filepath_basename)
 
@@ -568,10 +575,13 @@ Actual macro
 		class iterate_dir2(iterate_dir):
 			all_errors_found = 0
 			def on_each_file(self, filepath):
+				filepath_basename = os.path.basename(filepath)
+
+				if not fnmatch.fnmatch(filepath_basename, verify_mask):
+					return
 
 				errors_found = 0
 
-				filepath_basename = os.path.basename(filepath)
 				filepath_subdir = os.path.basename(os.path.dirname(filepath))
 				#filepath_rel = filepath_subdir+filepath[len(rootdir)-1:]
 				filepath_rel = os.path.join(filepath_subdir, filepath_basename)
@@ -621,10 +631,12 @@ Actual macro
 
 				if errors_found != None:
 					self.all_errors_found = self.all_errors_found+errors_found
-		logger.info('')
 
 		it = iterate_dir2()
 		it.start(env.SRCDIR_INC)
+		if it.all_errors_found == 0:
+			logger.info("no errors found")
+		logger.info('')
 
 		return all_errors_found
 
@@ -633,7 +645,7 @@ Actual macro
 
 	########################################
 	#
-	def clean():
+	def clean(opts):
 
 		########################################
 		# remove intermediate files
@@ -660,8 +672,10 @@ Actual macro
 
 	########################################
 	#
-	def create():
-		make.clean()
+	def create(opts):
+		make.clean(opts)
+
+		create_mask = opts.create_mask
 
 		total_errors = 0
 
@@ -705,8 +719,11 @@ Actual macro
 				f_inc.close()
 
 			def on_each_file(self, filepath):
-
 				filepath_basename = os.path.basename(filepath)
+
+				if not fnmatch.fnmatch(filepath_basename, create_mask):
+					return
+
 				filepath_subdir = os.path.basename(os.path.dirname(filepath))
 				filepath_rel = os.path.join(filepath_subdir, filepath_basename)
 
@@ -993,7 +1010,7 @@ Actual macro
 
 	########################################
 	#
-	def release():
+	def release(opts):
 
 		total_errors = 0
 
@@ -1077,7 +1094,6 @@ Actual macro
 
 	########################################
 	#
-	#def render(render_size_x, render_size_y, render_aa, render_procs, render_namemask, render_noclobber):
 	def render(opts):
 
 		if opts.render_bin:
@@ -1110,7 +1126,7 @@ Actual macro
 		render_povdir = env.OUTDIR_POV
 		render_incdir = env.RELEASEDIR_POVRAY
 		render_outdir = env.OUTDIR_IMG
-		render_namemask = opts.render_namemask
+		render_mask = opts.render_mask
 		render_noclobber = opts.render_noclobber
 
 		template_values = {}
@@ -1143,7 +1159,7 @@ Actual macro
 		for rootdir, dirlist, filelist in os.walk(render_povdir):
 			filelist.sort()
 			for f in filelist:
-				if fnmatch.fnmatch(f, render_namemask):
+				if fnmatch.fnmatch(f, render_mask):
 					if f in ["povpos.pov", "povpre.pov"]:
 						continue
 					target_render_filepath = os.path.join(render_outdir, f+".png")
@@ -1233,8 +1249,8 @@ Actual macro
 				filelist.sort()
 				for f in filelist:
 					#if fnmatch.fnmatch(f, "*.png"):
-					#if fnmatch.fnmatch(f, render_namemask.replace(".pov", "*.png")):
-					if fnmatch.fnmatch(f, render_namemask+"*.png"):
+					#if fnmatch.fnmatch(f, render_mask.replace(".pov", "*.png")):
+					if fnmatch.fnmatch(f, render_mask+"*.png"):
 						if gallery_page_item_count == items_per_gallery_page:
 							gallery_page_item_count = 0
 							gallery_pages.append([])
@@ -1312,9 +1328,15 @@ this option default is %default""")
 	option_groups[-1].add_option("--static-date",
 	                             action="store_true", dest="static_date", default=False,
 	                             help="calculate date and time once at start (default is %default).")
+	option_groups[-1].add_option("--create-mask",
+	                             action="store", dest="create_mask", default="*.inc.src", metavar="[STRING]",
+	                             help="name mask of files to process (default is %default).")
 	parser.add_option_group(option_groups[-1])
 
 	option_groups.append(OptionGroup(parser, "verify", None))
+	option_groups[-1].add_option("--verify-mask",
+	                             action="store", dest="verify_mask", default="*.inc.src", metavar="[STRING]",
+	                             help="name mask of files to process (default is %default).")
 	option_groups[-1].add_option("--full-check",
 	                             action="store_true", dest="full_check", default=False,
 	                             help="when verifying, also check sub-macros (default is %default).")
@@ -1339,9 +1361,9 @@ this option default is %default""")
 	option_groups[-1].add_option("--processes",
 	                             action="store", dest="render_procs", default="16", metavar="[INT]", type="int",
 	                             help="number of rendering processes to spawn (default is %default).")
-	option_groups[-1].add_option("--namemask",
-	                             action="store", dest="render_namemask", default="*.pov", metavar="[STRING]",
-	                             help="name mask of files to render (default is %default).")
+	option_groups[-1].add_option("--render-mask",
+	                             action="store", dest="render_mask", default="*.pov", metavar="[STRING]",
+	                             help="name mask of files to process (default is %default).")
 	option_groups[-1].add_option("--noclobber",
 	                             action="store_true", dest="render_noclobber", default=False,
 	                             help="do not render files that exist (default is %default).")
@@ -1368,9 +1390,16 @@ this option default is %default""")
 		parser.print_help()
 		sys.exit(1)
 
+	logger = logging.getLogger(action)
+
 	(options, args) = parser.parse_args()
 
 	if options.help:
+		parser.print_help()
+		sys.exit(1)
+
+	env.init()
+	if env.WORKDIR == None:
 		parser.print_help()
 		sys.exit(1)
 
@@ -1388,13 +1417,6 @@ this option default is %default""")
 						parser.remove_option(k)
 	# at this point we have several empty option groups.
 	# ugly if we call print_help but they will not effect otherwise.
-
-	logger = logging.getLogger(action)
-
-	env.init()
-	if env.WORKDIR == None:
-		parser.print_help()
-		sys.exit(1)
 
 	if options.static_date:
 		make.static_date = datetime.datetime.now()
@@ -1423,43 +1445,29 @@ this option default is %default""")
 			_trace=0; _count=0; _countfuncs=1; _countcallers=1
 		tracer = trace.Trace(ignoredirs=[sys.prefix, sys.exec_prefix,], trace=_trace, count=_count, countfuncs=_countfuncs, countcallers=_countcallers, outfile=_outfile)
 		if action == "verify":
-			tracer.run('make.verify()')
+			tracer.run('make.verify(options)')
 		elif action == "clean":
-			tracer.run('make.clean()')
+			tracer.run('make.clean(options)')
 		elif action == "create":
-			tracer.run('make.create()')
+			tracer.run('make.create(options)')
 		elif action == "release":
-			tracer.run('make.release()')
+			tracer.run('make.release(options)')
 		elif action == "render":
-			tracer.run('make.render(options.render_size_x, options.render_size_y, options.render_aa, options.render_procs, options.render_namemask, options.render_noclobber)')
+			tracer.run('make.render(options)')
 		elif action == "env":
 			tracer.run('env.dump()')
 		r = tracer.results()
 		r.write_results(show_missing=True, coverdir=os.path.dirname(os.path.abspath(__file__)))
 	else:
 		if action == "verify":
-			sys.exit(make.verify())
+			sys.exit(make.verify(options))
 		elif action == "clean":
-			sys.exit(make.clean())
+			sys.exit(make.clean(options))
 		elif action == "create":
-			sys.exit(make.create())
+			sys.exit(make.create(options))
 		elif action == "release":
-			sys.exit(make.release())
+			sys.exit(make.release(options))
 		elif action == "render":
-			#sys.exit(make.render(options.render_size_x, options.render_size_y, options.render_aa, options.render_procs, options.render_namemask, options.render_noclobber))
 			sys.exit(make.render(options))
 		elif action == "env":
 			sys.exit(env.dump())
-
-	#if action == "verify":
-		#sys.exit(make.verify())
-	#elif action == "clean":
-		#sys.exit(make.clean())
-	#elif action == "create":
-		#sys.exit(make.create())
-	#elif action == "release":
-		#sys.exit(make.release())
-	#elif action == "render":
-		#sys.exit(make.render(options.render_size_x, options.render_size_y, options.render_aa, options.render_procs, options.render_namemask, options.render_noclobber))
-	#elif action == "env":
-		#sys.exit(env.dump())
