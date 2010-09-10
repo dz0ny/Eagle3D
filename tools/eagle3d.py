@@ -1,18 +1,167 @@
 #! /usr/bin/env python
 # -*- coding: utf-8 -*-
 
-from optparse import OptionParser
+from optparse import OptionParser, OptionGroup
 import datetime
 import fnmatch
 import glob
 import logging
 import os
 import re
+import string
+import shlex
 import shutil
 import subprocess
 import sys
 
-import fileinput
+#import fileinput
+import threading
+import traceback
+
+
+###############################################################################
+#
+def upDir(path, levels=1):
+	if levels == 1:
+		return os.path.dirname(path)
+	elif levels > 1:
+		return upDir(os.path.dirname(path), levels-1)
+	else:
+		return None
+
+
+###############################################################################
+#
+def which(program):
+	import os
+	def is_exe(fpath):
+		#print fpath+': '+str(os.path.isfile(fpath))+', '+str(os.access(fpath, os.X_OK))
+		return os.path.isfile(fpath) and os.access(fpath, os.X_OK)
+
+	fpath, fname = os.path.split(program)
+	if fpath:
+		if is_exe(program):
+			return program
+	else:
+		for path in os.environ.get("PATH", '').split(os.pathsep):
+			exe_file = os.path.join(path, program)
+			if is_exe(exe_file):
+				return exe_file
+
+	return False
+
+
+###############################################################################
+#
+def touch(filepath):
+	if not os.path.exists(filepath):
+		open(filepath, 'w').close()
+
+
+###############################################################################
+#
+def subprocess_call(command, cwd=None):
+	NULL = open('/dev/null', 'w')
+	return subprocess.call(command, cwd=cwd, stdout=NULL, stderr=NULL)
+
+
+###############################################################################
+#
+class Callable:
+	def __init__(self, _callable):
+		self.__call__ = _callable
+
+
+###############################################################################
+#
+class ProcessQueue(threading.Thread):
+	logger = None
+	keep_alive = None
+	process_list = None
+	title_list = None
+	_dev_null = None
+
+	def __init__ (self, max_proc=4, logger=None):
+		self.logger = logger
+		self.process_list = []
+		self.title_list = []
+		for i in range(0, max_proc):
+			self.process_list.append(None)
+			self.title_list.append(None)
+		self._dev_null = open('/dev/null', 'w')
+		threading.Thread.__init__(self)
+
+	def kill(self):
+		self.keep_alive = False
+		for i in range(0, len(self.process_list)):
+			if self.process_list[i] != None:
+				try:
+					self.process_list[i].kill()
+				except OSError:
+					pass
+
+	def wait(self):
+		any_alive = True
+		try:
+			while any_alive:
+				any_alive = False
+				for i in range(0, len(self.process_list)):
+					if self.process_list[i] != None:
+						any_alive = True
+			self.keep_alive = False
+		except KeyboardInterrupt:
+			self.kill()
+			return
+
+	def run(self):
+		self.keep_alive = True
+		try:
+			while self.keep_alive:
+				for i in range(0, len(self.process_list)):
+					# Popen.poll() returns None if still alive
+					if self.process_list[i] != None:
+						exitcode = self.process_list[i].poll()
+						if exitcode != None:
+							if self.logger != None:
+								logger.info("%s done, exit code %d."%(self.title_list[i], self.process_list[i].poll()))
+								#stderr = self.process_list[i].communicate()[1]
+								#if exitcode != 0:
+									#logger.info("stderr: %s"%(stderr))
+							self.process_list[i] = None
+							self.title_list[i] = None
+		except KeyboardInterrupt:
+			self.kill()
+			return
+
+	def add_process(self, command, title=None):
+		if title == None:
+			title = command
+		handled = False
+		while not handled:
+			for i in range(0, len(self.process_list)):
+				if self.process_list[i] == None:
+					try:
+						#self.process_list[i] = subprocess.Popen(shlex.split(command), stdout=self._dev_null, stderr=subprocess.PIPE, universal_newlines=True)
+						self.process_list[i] = subprocess.Popen(shlex.split(command), stdout=self._dev_null, stderr=self._dev_null, universal_newlines=True)
+						self.title_list[i] = title
+						if self.logger != None:
+							logger.info("%s queued."%(title))
+					except IOError, e:
+						if self.logger != None:
+							logger.info("%s exited with I/O error %d: %s."%(title, e[0], e[1]))
+							logger.info("command: %s"%(command))
+						self.process_list[i] = None
+					except OSError, e:
+						if self.logger != None:
+							logger.info("%s exited with OS error %d: %s."%(title, e[0], e[1]))
+							logger.info("command: %s"%(command))
+						self.process_list[i] = None
+					except KeyboardInterrupt:
+						self.kill()
+						return
+					handled = True
+					return
+
 
 #SCRIPT_VERSION = "3.00"
 SCRIPT_VERSION = "2.02"
@@ -60,55 +209,6 @@ IGNORE_DIR_LIST = [".*"]
 
 ###############################################################################
 #
-def upDir(path, levels=1):
-	if levels == 1:
-		return os.path.dirname(path)
-	elif levels > 1:
-		return upDir(os.path.dirname(path), levels-1)
-	else:
-		return None
-
-
-###############################################################################
-#
-def which(program):
-	import os
-	def is_exe(fpath):
-		#print fpath+': '+str(os.path.isfile(fpath))+', '+str(os.access(fpath, os.X_OK))
-		return os.path.isfile(fpath) and os.access(fpath, os.X_OK)
-
-	fpath, fname = os.path.split(program)
-	if fpath:
-		if is_exe(program):
-			return program
-	else:
-		for path in os.environ["PATH"].split(os.pathsep):
-			exe_file = os.path.join(path, program)
-			if is_exe(exe_file):
-				return exe_file
-
-	return False
-
-
-def touch(filepath):
-	if not os.path.exists(filepath):
-		open(filepath, 'w').close()
-
-
-def subprocess_call(command, cwd=None):
-	NULL = open('/dev/null', 'w')
-	return subprocess.call(command, cwd=cwd, stdout=NULL, stderr=NULL)
-
-
-###############################################################################
-#
-class Callable:
-	def __init__(self, _callable):
-		self.__call__ = _callable
-
-
-###############################################################################
-#
 class env:
 	WORKDIR = None
 	SCRIPTDIR = None
@@ -140,6 +240,13 @@ class env:
 	HASTODOS = False
 	HASUNIX2DOS = False
 	HASDOS2UNIX = False
+
+	HASMAKENSIS = False
+
+	HASPOVRAY = False
+
+	HASCONVERT = False
+	HASMONTAGE = False
 
 	def init():
 		#get the directory we are in currently
@@ -204,6 +311,13 @@ class env:
 		env.HASUNIX2DOS = which('unix2dos')
 		env.HASDOS2UNIX = which('dos2unix')
 
+		env.HASMAKENSIS = which('makensis')
+
+		env.HASPOVRAY = which('povray')
+
+		env.HASCONVERT = which('convert')
+		env.HASMONTAGE = which('montage')
+
 	init = Callable(init)
 
 	def dump():
@@ -234,6 +348,11 @@ class env:
 		print "  HASTODOS: %s"%str(env.HASTODOS)
 		print "  HASUNIX2DOS: %s"%str(env.HASUNIX2DOS)
 		print "  HASDOS2UNIX: %s"%str(env.HASDOS2UNIX)
+		print "  HASMAKENSIS: %s"%str(env.HASMAKENSIS)
+		print "  HASPOVRAY: %s"%str(env.HASPOVRAY)
+		print "  HASCONVERT: %s"%str(env.HASCONVERT)
+		print "  HASMONTAGE: %s"%str(env.HASMONTAGE)
+
 	dump = Callable(dump)
 
 
@@ -512,11 +631,10 @@ Actual macro
 		# remove intermediate files
 		if os.path.exists(env.OUTDIR_ROOT):
 			if os.path.isdir(env.OUTDIR_ROOT):
-				shutil.rmtree(env.OUTDIR_ROOT)
-				#try:
-					#shutil.rmtree(env.OUTDIR_ROOT)
-				#except exception shutil.Error:
-					#return False
+				try:
+					shutil.rmtree(env.OUTDIR_ROOT)
+				except shutil.Error:
+					pass
 			else:
 				return 1
 		if os.path.exists(env.ARCHIVE_OUTPUT_DIR):
@@ -545,9 +663,6 @@ Actual macro
 		os.makedirs(env.OUTDIR_3DPACK)
 		os.makedirs(env.OUTDIR_INC)
 		os.makedirs(env.OUTDIR_POV)
-		os.makedirs(env.OUTDIR_IMG)
-		os.makedirs(os.path.join(env.OUTDIR_IMG, "warning"))
-		os.makedirs(os.path.join(env.OUTDIR_IMG, "fatal"))
 
 		logger.info('creating library files...')
 		f_3dpack = open(os.path.join(env.OUTDIR_3DPACK, "3dpack.dat"), 'w')
@@ -681,8 +796,8 @@ Actual macro
 					f_pov = open(os.path.join(env.OUTDIR_POV, i[0]+'.pov'), 'w')
 
 					f_pov.write('//POVRay test file for macro %s\n'%(i[0]))
-					f_pov.write("//created by: %s\n"%(SCRIPT_NAME))
-					f_pov.write("//created on: %s\n"%(make.formatted_datetime()))
+					f_pov.write('//created by: %s\n'%(SCRIPT_NAME))
+					f_pov.write('//created on: %s\n'%(make.formatted_datetime()))
 					f_pov.write('//(c) 2002-2010 by M. Weisser\n')
 					f_pov.write('\n')
 					f_pov.write('#include "povpre.pov"\n')
@@ -698,13 +813,13 @@ Actual macro
 					f_pov.write('#local y_size = (max_extent(obj) - min_extent(obj)).y;\n')
 					f_pov.write('#local z_size = (max_extent(obj) - min_extent(obj)).z;\n')
 					f_pov.write('#local scale_f = 2/max(x_size,y_size,z_size);\n')
-					#f_pov.write('\n')
+					f_pov.write('\n')
 					f_pov.write('camera{location <cam_x,cam_y,cam_z>\n')
 					f_pov.write('look_at <0,0,0>angle 18}\n')
 					f_pov.write('object{obj scale scale_f\n')
 					f_pov.write('translate<0,-min_extent(obj).y*scale_f,0>\n')
 					f_pov.write('translate<0,-y_size/2*scale_f,0>}\n')
-					#f_pov.write('\n')
+					f_pov.write('\n')
 					f_pov.write('#include "povpos.pov"\n')
 
 					f_pov.close()
@@ -938,6 +1053,177 @@ Actual macro
 	release = Callable(release)
 
 
+	########################################
+	#
+	def render(render_size_x, render_size_y, render_aa, render_procs, render_namemask, render_noclobber):
+
+		if not env.HASPOVRAY:
+			logger.info("could not find rendering executable, exiting.")
+			return -1
+
+		total_errors = 0
+
+		nice_bin = which('nice')
+		if nice_bin:
+			nice_bin = nice_bin+" -n 19"
+
+		logger.info('creating output directories...')
+		if not os.path.exists(env.OUTDIR_IMG):
+			os.makedirs(env.OUTDIR_IMG)
+
+		if os.path.exists(os.path.join(env.OUTDIR_IMG, "warning")):
+			if os.path.isdir(os.path.join(env.OUTDIR_IMG, "warning")):
+				shutil.rmtree(os.path.join(env.OUTDIR_IMG, "warning"))
+		os.makedirs(os.path.join(env.OUTDIR_IMG, "warning"))
+		if os.path.exists(os.path.join(env.OUTDIR_IMG, "fatal")):
+			if os.path.isdir(os.path.join(env.OUTDIR_IMG, "fatal")):
+				shutil.rmtree(os.path.join(env.OUTDIR_IMG, "fatal"))
+		os.makedirs(os.path.join(env.OUTDIR_IMG, "fatal"))
+
+		render_bin = env.HASPOVRAY
+		render_povdir = env.OUTDIR_POV
+		render_incdir = env.RELEASEDIR_POVRAY
+		render_outdir = env.OUTDIR_IMG
+
+		template_values = {}
+		template_values['nice_bin'] = nice_bin
+		template_values['render_bin'] = render_bin
+		template_values['render_incdir'] = render_incdir
+		template_values['render_povdir'] = render_povdir
+		template_values['render_size_x'] = str(render_size_x)
+		template_values['render_size_y'] = str(render_size_y)
+		template_values['render_aa'] = str(render_aa)
+		template_values['render_outdir'] = render_outdir
+
+		command_template = string.Template("""${nice_bin} ${render_bin} +L${render_incdir}
+                                                                        +L${render_povdir}
+                                                                        +W${render_size_x} +H${render_size_y} +A${render_aa}
+                                                                        -GW${render_outdir}/warning/${render_file_basename}.warnings.log
+                                                                        -GF${render_outdir}/fatal/${render_file_basename}.fatal.log
+                                                                        +O${render_outdir}/${render_file_basename}.png
+                                                                        -GS -GR -GD -V -D +I${render_file_fullname}""")
+
+		#try:
+		pq = ProcessQueue(max_proc=render_procs, logger=logger)
+		pq.start()
+
+		total_rendering_attempts = 0
+		total_rendering_skipped = 0
+
+		for rootdir, dirlist, filelist in os.walk(render_povdir):
+			filelist.sort()
+			for f in filelist:
+				if fnmatch.fnmatch(f, render_namemask):
+					if f in ["povpos.pov", "povpre.pov"]:
+						continue
+					target_render_filepath = os.path.join(render_outdir, f+".png")
+					if render_noclobber and os.path.exists(target_render_filepath) and os.path.getsize(target_render_filepath)!=0:
+						logger.info("skipping %s, image exists."%(f+".png"))
+						total_rendering_skipped = total_rendering_skipped+1
+						continue
+					#if not make.quiet: logger.info("rendering "+f)
+
+					template_values['render_file_basename'] = f
+					template_values['render_file_fullname'] = os.path.join(rootdir, f)
+
+					command = command_template.substitute(template_values)
+					command = " ".join(command.split())
+					pq.add_process(command, f)
+
+					total_rendering_attempts = total_rendering_attempts+1
+
+		pq.wait()
+		del pq
+
+		#except:
+			#traceback.print_last()
+			#return -1
+
+		logger.info("a total of %d rendering processes were attempted."%(total_rendering_attempts))
+		if render_noclobber:
+			logger.info("a total of %d rendering processes were skipped."%(total_rendering_skipped))
+
+		# removing empty fatal files
+		fatal_rendering_procs = 0
+		for rootdir, dirlist, filelist in os.walk(os.path.join(render_outdir, "fatal")):
+			filelist.sort()
+			for f in filelist:
+				if fnmatch.fnmatch(f, "*.log"):
+					f_fullpath = os.path.join(rootdir, f)
+					if os.path.getsize(f_fullpath) == 0:
+						os.remove(f_fullpath)
+					else:
+						fatal_rendering_procs = fatal_rendering_procs+1
+		if fatal_rendering_procs > 0:
+			logger.info("%d of %d rendering processes had fatal errors."%(fatal_rendering_procs, total_rendering_attempts))
+			logger.info("check %s."%(os.path.join(render_outdir, "fatal")))
+
+		total_errors = total_errors + fatal_rendering_procs
+
+		# removing empty warning files
+		warning_rendering_procs = 0
+		for rootdir, dirlist, filelist in os.walk(os.path.join(render_outdir, "warning")):
+			filelist.sort()
+			for f in filelist:
+				if fnmatch.fnmatch(f, "*.log"):
+					f_fullpath = os.path.join(rootdir, f)
+					if os.path.getsize(f_fullpath) == 0:
+						os.remove(f_fullpath)
+					else:
+						warning_rendering_procs = warning_rendering_procs+1
+		if warning_rendering_procs > 0:
+			logger.info("%d of %d rendering processes had warnings."%(warning_rendering_procs, total_rendering_attempts))
+			logger.info("check %s."%(os.path.join(render_outdir, "warnings")))
+
+		total_errors = total_errors + warning_rendering_procs
+
+		if env.HASMONTAGE:
+			# create the gallery file(s)
+			pq = ProcessQueue(max_proc=1, logger=logger)
+			pq.start()
+
+			if total_rendering_attempts > 50:
+				montage_command = [nice_bin,env.HASMONTAGE,"-geometry","64x48","-tile","10x"]
+				montage_title = "gallery"
+				for rootdir, dirlist, filelist in os.walk(os.path.join(render_outdir)):
+					filelist.sort()
+					for f in filelist:
+						if fnmatch.fnmatch(f, "*.png"):
+							montage_command.append(os.path.join(rootdir, f))
+				montage_command.append(os.path.join(upDir(render_outdir), "gallery.png"))
+				pq.add_process(" ".join(montage_command), montage_title)
+			else:
+				gallery_pages = []
+				items_per_gallery_page = 50
+				gallery_page_item_count = 0
+				montage_command_base = [nice_bin,env.HASMONTAGE,"-geometry","128x96","-tile","10x"]
+
+				for rootdir, dirlist, filelist in os.walk(os.path.join(render_outdir)):
+					filelist.sort()
+					for f in filelist:
+						if fnmatch.fnmatch(f, "*.png"):
+							if gallery_page_item_count == items_per_gallery_page:
+								gallery_page_item_count = 0
+								gallery_pages.append([])
+							gallery_pages[-1].append(os.path.join(rootdir, f))
+							gallery_page_item_count = gallery_page_item_count+1
+
+				for i in range(0, len(gallery_pages)):
+					montage_title = "gallery page %d"%(i)
+					montage_command = montage_command_base
+					for j in gallery_pages[i]:
+						montage_command.append(j)
+					montage_command.append(os.path.join(upDir(render_outdir), "gallery-%d.png"%(i)))
+					pq.add_process(" ".join(montage_command), montage_title)
+
+			pq.wait()
+			del pq
+
+		return total_errors
+
+	render = Callable(render)
+
+
 ###############################################################################
 # entry
 # this constuct allows the file to be imported as a module as well as executed.
@@ -945,44 +1231,109 @@ if __name__ == "__main__":
 
 	usage_string = """Usage: %s [ACTION] [options]
   ACTION       The administrative action to be performed.
-  verify       verify that include files are the correct format.
+  help         show help for all commands.
   clean        remove previous attempts to create an eagle3d distribution.
   create       create an eagle3d distribution.
-  release      set VERSION variable in files and create archives."""%(os.path.basename(sys.argv[0]))
+  verify       verify that include files are the correct format.
+  release      set VERSION variable in files and create archives.
+  render       render example images for Eagle3D parts.
+  env          dump env settings."""%(os.path.basename(sys.argv[0]))
 
-	if len(sys.argv) < 2:
-		print usage_string
-		sys.exit(1)
+	parser = OptionParser(usage=usage_string,
+	                      version="%prog v"+SCRIPT_VERSION,
+	                      description="%prog is a administrative utility used to generate, test and release Eagle3D.",
+			      add_help_option=False)
+	parser.add_option("-h", "--help",
+	                  action="store_true", dest="help", default=False,
+	                  help="show this help message and exit.")
+	parser.add_option("--noconsole",
+	                  action="store_true", dest="noconsole", default=False,
+	                  help="do not print to console, only to log file.")
+	parser.add_option("-q", "--quiet",
+	                  action="store_true", dest="quiet", default=False,
+	                  help="do not print 'no errors' message.")
+	parser.add_option("-s", "--silent",
+	                  action="store_true", dest="silent", default=False,
+	                  help="print and log nothing, return non-zero on any error.")
+	parser.add_option("-d", "--debug",
+	                  action="count", dest="debugmode", default=0,
+	                  help="""run in debugging mode.
+this option may be used multiple times.
+one will count the number of times each line is executed.
+two will output a trace of each line as it is being counted.
+three will output a list of functions that were called at least once.""")
 
+	option_groups = []
+
+	option_groups.append(OptionGroup(parser, "create", None))
+	option_groups[-1].add_option("--static-date",
+	                             action="store_true", dest="static_date", default=False,
+	                             help="calculate date and time once at start.")
+	parser.add_option_group(option_groups[-1])
+
+	option_groups.append(OptionGroup(parser, "verify", None))
+	option_groups[-1].add_option("--full-check",
+	                             action="store_true", dest="full_check", default=False,
+	                             help="when verifying, also check sub-macros.")
+	parser.add_option_group(option_groups[-1])
+
+	option_groups.append(OptionGroup(parser, "release", None))
+	option_groups[-1].add_option("--name",
+	                             action="store", dest="release_name", metavar="[STRING]",
+	                             help="the name used when creating release archives.")
+	parser.add_option_group(option_groups[-1])
+
+	option_groups.append(OptionGroup(parser, "render", None))
+	option_groups[-1].add_option("-x", "--size-x",
+	                             action="store", dest="render_size_x", default="640", metavar="[INT]", type="int",
+	                             help="x size (width) of rendered images.")
+	option_groups[-1].add_option("-y", "--size-y",
+	                             action="store", dest="render_size_y", default="480", metavar="[INT]", type="int",
+	                             help="y size (height) of rendered images.")
+	option_groups[-1].add_option("--anti-alias",
+	                             action="store", dest="render_aa", default="0.3", metavar="[FLOAT]", type="float",
+	                             help="anti-alias value of rendered images.")
+	option_groups[-1].add_option("--processes",
+	                             action="store", dest="render_procs", default="16", metavar="[INT]", type="int",
+	                             help="number of rendering processes to spawn.")
+	option_groups[-1].add_option("--namemask",
+	                             action="store", dest="render_namemask", default="*.pov", metavar="[STRING]",
+	                             help="name mask of files to render.")
+	option_groups[-1].add_option("--noclobber",
+	                             action="store_true", dest="render_noclobber", default=False,
+	                             help="do not render files that exist and are non-zero in size.")
+	parser.add_option_group(option_groups[-1])
+
+	# check for an action
 	action = None
-	if sys.argv[1] in ["verify", "clean", "create", "env"]:
+	if len(sys.argv) > 1 and sys.argv[1] in ["help", "clean", "create", "verify", "release", "render", "env"]:
 		action = sys.argv[1]
-		usage_string = """Usage: %prog [ACTION] [options]"""
-	elif sys.argv[1] == "release":
-		action = "release"
-		usage_string = """Usage: %prog [VERSION] [options]
-  VERSION       The version of EagleD you are creating."""
 	else:
-		print usage_string
+		parser.print_help()
 		sys.exit(1)
 
-	parser = OptionParser(usage=usage_string, version="%prog v"+SCRIPT_VERSION)
-	parser.add_option(      "--noconsole",   action="store_true", dest="noconsole",   default=False, help="do not print to console, only to log file.")
-	parser.add_option("-q", "--quiet",       action="store_true", dest="quiet",       default=False, help="do not print 'no errors' message.")
-	parser.add_option("-s", "--silent",      action="store_true", dest="silent",      default=False, help="print and log nothing, return non-zero on any error.")
-	parser.add_option(      "--static-date", action="store_true", dest="static_date", default=False, help="calculate date and time only once at start.")
-	parser.add_option(      "--full-check",  action="store_true", dest="full_check",  default=False, help="when verifying, also check sub-macros.")
 	(options, args) = parser.parse_args()
 
-	logger = logging.getLogger(action)
+	if options.help:
+		parser.print_help()
+		sys.exit(1)
 
-	#create takes an additional argument
-	if action == "release":
-		if len(args) < 2:
-			parser.print_help()
-			sys.exit(1)
-		else:
-			make.version = args[1]
+	# now we have an action, remove the options in the option groups that are unrelated
+	# this is using partially documented members, is there a better way?
+	for i in parser.option_groups:
+		if i.title != action:
+			for j in i.option_list:
+				# all of out options have long versions
+				for k in j._long_opts:
+					if parser.has_option(k):
+						parser.remove_option(k)
+				for k in j._short_opts:
+					if parser.has_option(k):
+						parser.remove_option(k)
+	# at this point we have several empty option groups.
+	# ugly if we call print_help but they will not effect otherwise.
+
+	logger = logging.getLogger(action)
 
 	env.init()
 	if env.WORKDIR == None:
@@ -1004,13 +1355,54 @@ if __name__ == "__main__":
 	make.quiet = options.quiet
 	make.full_check = options.full_check
 
-	if action == "verify":
-		sys.exit(make.verify())
-	elif action == "clean":
-		sys.exit(make.clean())
-	elif action == "create":
-		sys.exit(make.create())
-	elif action == "release":
-		sys.exit(make.release())
-	elif action == "env":
-		sys.exit(env.dump())
+	if options.debugmode:
+		import sys, trace
+		#_outfile = os.path.join(os.path.dirname(os.path.abspath(__file__)), "eagle3d-debug-"+action+".log")
+		_outfile = "eagle3d-debug-"+action+".log"
+		if options.debugmode > 0:
+			_trace=0; _count=1; _countfuncs=0; _countcallers=0
+		if options.debugmode > 1:
+			_trace=1; _count=1; _countfuncs=0; _countcallers=0
+		if options.debugmode > 2:
+			_trace=0; _count=0; _countfuncs=1; _countcallers=1
+		tracer = trace.Trace(ignoredirs=[sys.prefix, sys.exec_prefix,], trace=_trace, count=_count, countfuncs=_countfuncs, countcallers=_countcallers, outfile=_outfile)
+		if action == "verify":
+			tracer.run('make.verify()')
+		elif action == "clean":
+			tracer.run('make.clean()')
+		elif action == "create":
+			tracer.run('make.create()')
+		elif action == "release":
+			tracer.run('make.release()')
+		elif action == "render":
+			tracer.run('make.render(options.render_size_x, options.render_size_y, options.render_aa, options.render_procs, options.render_namemask, options.render_noclobber)')
+		elif action == "env":
+			tracer.run('env.dump()')
+		r = tracer.results()
+		r.write_results(show_missing=True, coverdir=os.path.dirname(os.path.abspath(__file__)))
+	else:
+		if action == "verify":
+			sys.exit(make.verify())
+		elif action == "clean":
+			sys.exit(make.clean())
+		elif action == "create":
+			sys.exit(make.create())
+		elif action == "release":
+			sys.exit(make.release())
+		elif action == "render":
+			sys.exit(make.render(options.render_size_x, options.render_size_y, options.render_aa, options.render_procs, options.render_namemask, options.render_noclobber))
+		elif action == "env":
+			sys.exit(env.dump())
+
+	#if action == "verify":
+		#sys.exit(make.verify())
+	#elif action == "clean":
+		#sys.exit(make.clean())
+	#elif action == "create":
+		#sys.exit(make.create())
+	#elif action == "release":
+		#sys.exit(make.release())
+	#elif action == "render":
+		#sys.exit(make.render(options.render_size_x, options.render_size_y, options.render_aa, options.render_procs, options.render_namemask, options.render_noclobber))
+	#elif action == "env":
+		#sys.exit(env.dump())
