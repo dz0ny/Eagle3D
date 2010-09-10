@@ -213,12 +213,13 @@ class env:
 	WORKDIR = None
 	SCRIPTDIR = None
 	ARCHIVE_OUTPUT_DIR = None
-	SRCDIR = None
-	TOOLDIR = None
 
-	DATADIR = None
-	INCDIR = None
-	ULPDIR = None
+	SRCDIR_ROOT = None
+	SRCDIR_DATA = None
+	SRCDIR_DOC = None
+	SRCDIR_EXAMPLES = None
+	SRCDIR_INC = None
+	SRCDIR_ULP = None
 
 	OUTDIR_ROOT = None
 	OUTDIR_3DPACK = None
@@ -232,21 +233,21 @@ class env:
 	RELEASEDIR_ULP = None
 	RELEASEDIR_EXAMPLES = None
 
-	HASZIP = False
-	HASTAR = False
-	HASGZIP = False
-	HASBZIP2 = False
+	#HASZIP = False
+	#HASTAR = False
+	#HASGZIP = False
+	#HASBZIP2 = False
 
-	HASTODOS = False
-	HASUNIX2DOS = False
-	HASDOS2UNIX = False
+	#HASTODOS = False
+	#HASUNIX2DOS = False
+	#HASDOS2UNIX = False
 
-	HASMAKENSIS = False
+	#HASMAKENSIS = False
 
-	HASPOVRAY = False
+	#HASPOVRAY = False
 
-	HASCONVERT = False
-	HASMONTAGE = False
+	#HASCONVERT = False
+	#HASMONTAGE = False
 
 	def init():
 		#get the directory we are in currently
@@ -254,13 +255,16 @@ class env:
 		#get the directory this script is in
 		env.SCRIPTDIR = os.path.dirname(os.path.abspath(__file__))
 
+		#is the working directory the tools directory?
 		if env.WORKDIR == env.SCRIPTDIR:
 			env.ARCHIVE_OUTPUT_DIR = upDir(env.WORKDIR)
-			env.SRCDIR = os.path.join(upDir(env.WORKDIR),'src')
-			env.TOOLDIR = os.path.join(upDir(env.WORKDIR),'tools')
-			env.DATADIR = os.path.join(env.SRCDIR,'data')
-			env.INCDIR = os.path.join(env.SRCDIR,'inc')
-			env.ULPDIR = os.path.join(env.SRCDIR,'ulp')
+
+			env.SRCDIR_ROOT = os.path.join(upDir(env.WORKDIR),'src')
+			env.SRCDIR_DATA = os.path.join(env.SRCDIR_ROOT,'data')
+			env.SRCDIR_DOC = os.path.join(env.SRCDIR_ROOT,'doc')
+			env.SRCDIR_EXAMPLES = os.path.join(env.SRCDIR_ROOT,'examples')
+			env.SRCDIR_INC = os.path.join(env.SRCDIR_ROOT,'inc')
+			env.SRCDIR_ULP = os.path.join(env.SRCDIR_ROOT,'ulp')
 
 			env.OUTDIR_ROOT = os.path.join(upDir(env.WORKDIR),'build')
 			env.OUTDIR_3DPACK = os.path.join(env.OUTDIR_ROOT, "3dpack")
@@ -274,13 +278,16 @@ class env:
 			env.RELEASEDIR_ULP = os.path.join(env.RELEASEDIR,'doc')
 			env.RELEASEDIR_EXAMPLES = os.path.join(env.RELEASEDIR,'examples')
 
+		#is the working directory one level up from tools?
 		elif os.path.isdir(os.path.join(env.WORKDIR,'src')) and os.path.isdir(os.path.join(env.WORKDIR,'tools')):
 			env.ARCHIVE_OUTPUT_DIR = env.WORKDIR
-			env.SRCDIR = os.path.join(env.WORKDIR,'src')
-			env.TOOLDIR = os.path.join(env.WORKDIR,'tools')
-			env.DATADIR = os.path.join(env.SRCDIR,'data')
-			env.INCDIR = os.path.join(env.SRCDIR,'inc')
-			env.ULPDIR = os.path.join(env.SRCDIR,'ulp')
+
+			env.SRCDIR_ROOT = os.path.join(env.WORKDIR,'src')
+			env.SRCDIR_DATA = os.path.join(env.SRCDIR_ROOT,'data')
+			env.SRCDIR_DOC = os.path.join(env.SRCDIR_ROOT,'doc')
+			env.SRCDIR_EXAMPLES = os.path.join(env.SRCDIR_ROOT,'examples')
+			env.SRCDIR_INC = os.path.join(env.SRCDIR_ROOT,'inc')
+			env.SRCDIR_ULP = os.path.join(env.SRCDIR_ROOT,'ulp')
 
 			env.OUTDIR_ROOT = os.path.join(env.WORKDIR,'build')
 			env.OUTDIR_3DPACK = os.path.join(env.OUTDIR_ROOT, "3dpack")
@@ -302,21 +309,21 @@ class env:
 			#exit
 		#fi
 
-		env.HASZIP = which('zip')
-		env.HASTAR = which('tar')
-		env.HASGZIP = which('gzip')
-		env.HASBZIP2 = which('bzip2')
+		#env.HASZIP = which('zip')
+		#env.HASTAR = which('tar')
+		#env.HASGZIP = which('gzip')
+		#env.HASBZIP2 = which('bzip2')
 
-		env.HASTODOS = which('todos')
-		env.HASUNIX2DOS = which('unix2dos')
-		env.HASDOS2UNIX = which('dos2unix')
+		#env.HASTODOS = which('todos')
+		#env.HASUNIX2DOS = which('unix2dos')
+		#env.HASDOS2UNIX = which('dos2unix')
 
-		env.HASMAKENSIS = which('makensis')
+		#env.HASMAKENSIS = which('makensis')
 
-		env.HASPOVRAY = which('povray')
+		#env.HASPOVRAY = which('povray')
 
-		env.HASCONVERT = which('convert')
-		env.HASMONTAGE = which('montage')
+		#env.HASCONVERT = which('convert')
+		#env.HASMONTAGE = which('montage')
 
 	init = Callable(init)
 
@@ -325,11 +332,12 @@ class env:
 		print "  WORKDIR: %s"%env.WORKDIR
 		print "  SCRIPTDIR: %s"%env.SCRIPTDIR
 		print "  ARCHIVE_OUTPUT_DIR: %s"%env.ARCHIVE_OUTPUT_DIR
-		print "  SRCDIR: %s"%env.SRCDIR
-		print "  TOOLDIR: %s"%env.TOOLDIR
-		print "  DATADIR: %s"%env.DATADIR
-		print "  INCDIR: %s"%env.INCDIR
-		print "  ULPDIR: %s"%env.ULPDIR
+		print "  SRCDIR_ROOT: %s"%env.SRCDIR_ROOT
+		print "  SRCDIR_DATA: %s"%env.SRCDIR_DATA
+		print "  SRCDIR_DOC: %s"%env.SRCDIR_DOC
+		print "  SRCDIR_EXAMPLES: %s"%env.SRCDIR_EXAMPLES
+		print "  SRCDIR_INC: %s"%env.SRCDIR_INC
+		print "  SRCDIR_ULP: %s"%env.SRCDIR_ULP
 		print "  OUTDIR_ROOT: %s"%env.OUTDIR_ROOT
 		print "  OUTDIR_3DPACK: %s"%env.OUTDIR_3DPACK
 		print "  OUTDIR_INC: %s"%env.OUTDIR_INC
@@ -340,18 +348,18 @@ class env:
 		print "  RELEASEDIR_POVRAY: %s"%env.RELEASEDIR_POVRAY
 		print "  RELEASEDIR_ULP: %s"%env.RELEASEDIR_ULP
 		print "  RELEASEDIR_EXAMPLES: %s"%env.RELEASEDIR_EXAMPLES
-		print "UTILITIES:"
-		print "  HASZIP: %s"%str(env.HASZIP)
-		print "  HASTAR: %s"%str(env.HASTAR)
-		print "  HASGZIP: %s"%str(env.HASGZIP)
-		print "  HASBZIP2: %s"%str(env.HASBZIP2)
-		print "  HASTODOS: %s"%str(env.HASTODOS)
-		print "  HASUNIX2DOS: %s"%str(env.HASUNIX2DOS)
-		print "  HASDOS2UNIX: %s"%str(env.HASDOS2UNIX)
-		print "  HASMAKENSIS: %s"%str(env.HASMAKENSIS)
-		print "  HASPOVRAY: %s"%str(env.HASPOVRAY)
-		print "  HASCONVERT: %s"%str(env.HASCONVERT)
-		print "  HASMONTAGE: %s"%str(env.HASMONTAGE)
+		#print "UTILITIES:"
+		#print "  HASZIP: %s"%str(env.HASZIP)
+		#print "  HASTAR: %s"%str(env.HASTAR)
+		#print "  HASGZIP: %s"%str(env.HASGZIP)
+		#print "  HASBZIP2: %s"%str(env.HASBZIP2)
+		#print "  HASTODOS: %s"%str(env.HASTODOS)
+		#print "  HASUNIX2DOS: %s"%str(env.HASUNIX2DOS)
+		#print "  HASDOS2UNIX: %s"%str(env.HASDOS2UNIX)
+		#print "  HASMAKENSIS: %s"%str(env.HASMAKENSIS)
+		#print "  HASPOVRAY: %s"%str(env.HASPOVRAY)
+		#print "  HASCONVERT: %s"%str(env.HASCONVERT)
+		#print "  HASMONTAGE: %s"%str(env.HASMONTAGE)
 
 	dump = Callable(dump)
 
@@ -516,7 +524,7 @@ Actual macro
 					self.all_errors_found = self.all_errors_found+errors_found
 
 		it = iterate_dir1()
-		it.start(env.INCDIR)
+		it.start(env.SRCDIR_INC)
 
 		logger.info("total of %s macros"%(str(len(it.all_inc_macros))))
 		logger.info('')
@@ -616,7 +624,7 @@ Actual macro
 		logger.info('')
 
 		it = iterate_dir2()
-		it.start(env.INCDIR)
+		it.start(env.SRCDIR_INC)
 
 		return all_errors_found
 
@@ -685,12 +693,12 @@ Actual macro
 				f_inc.write("\n")
 
 				# include global .pre file
-				f_global_inc_pre = open(os.path.join(env.DATADIR, "pre.pre"), 'r')
+				f_global_inc_pre = open(os.path.join(env.SRCDIR_DATA, "pre.pre"), 'r')
 				f_inc.write(f_global_inc_pre.read())
 				f_global_inc_pre.close()
 
 				# include local .pre file
-				f_local_inc_pre = open(os.path.join(env.INCDIR, rootdir_basename, "pre.pre"), 'r')
+				f_local_inc_pre = open(os.path.join(env.SRCDIR_INC, rootdir_basename, "pre.pre"), 'r')
 				f_inc.write(f_local_inc_pre.read())
 				f_local_inc_pre.close()
 
@@ -832,12 +840,12 @@ Actual macro
 				f_inc = open(f_inc_filepath, 'a')
 
 				# include global .pos file
-				f_global_inc_pos = open(os.path.join(env.DATADIR, "pos.pos"), 'r')
+				f_global_inc_pos = open(os.path.join(env.SRCDIR_DATA, "pos.pos"), 'r')
 				f_inc.write(f_global_inc_pos.read())
 				f_global_inc_pos.close()
 
 				# include local .pos file
-				f_local_inc_pos = open(os.path.join(env.INCDIR, rootdir_basename, "pos.pos"), 'r')
+				f_local_inc_pos = open(os.path.join(env.SRCDIR_INC, rootdir_basename, "pos.pos"), 'r')
 				f_inc.write(f_local_inc_pos.read())
 				f_local_inc_pos.close()
 
@@ -845,16 +853,16 @@ Actual macro
 
 
 		it = iterate_dir1()
-		it.start(env.INCDIR)
+		it.start(env.SRCDIR_INC)
 
-		f_3dpack_add = open(os.path.join(env.DATADIR, "3dpack_add.dat"), 'r')
+		f_3dpack_add = open(os.path.join(env.SRCDIR_DATA, "3dpack_add.dat"), 'r')
 		f_3dpack.write(f_3dpack_add.read())
 		f_3dpack_add.close()
 
 		f_3dpack.close()
 
-		shutil.copy2(os.path.join(env.DATADIR, 'prepov.pre'), os.path.join(env.OUTDIR_POV, 'povpre.pov'))
-		shutil.copy2(os.path.join(env.DATADIR, 'pospov.pos'), os.path.join(env.OUTDIR_POV, 'povpos.pov'))
+		shutil.copy2(os.path.join(env.SRCDIR_DATA, 'prepov.pre'), os.path.join(env.OUTDIR_POV, 'povpre.pov'))
+		shutil.copy2(os.path.join(env.SRCDIR_DATA, 'pospov.pos'), os.path.join(env.OUTDIR_POV, 'povpos.pov'))
 
 		logger.info('creating release directories...')
 		os.makedirs(env.RELEASEDIR)
@@ -863,14 +871,14 @@ Actual macro
 		os.makedirs(env.RELEASEDIR_POVRAY)
 		os.makedirs(env.RELEASEDIR_ULP)
 
-		shutil.copy2(os.path.join(upDir(env.SRCDIR), 'COPYING'), env.RELEASEDIR)
+		shutil.copy2(os.path.join(upDir(env.SRCDIR_ROOT), 'COPYING'), env.RELEASEDIR)
 
 		logger.info('copying doc files to release directory...')
-		for filepath in glob.glob(os.path.join(env.SRCDIR, 'doc', '*')):
+		for filepath in glob.glob(os.path.join(env.SRCDIR_DOC, '*')):
 			shutil.copy2(filepath, env.RELEASEDIR_DOC)
 
 		logger.info('copying example files to release directory...')
-		for filepath in glob.glob(os.path.join(env.SRCDIR, 'examples', '*')):
+		for filepath in glob.glob(os.path.join(env.SRCDIR_EXAMPLES, '*')):
 			shutil.copy2(filepath, env.RELEASEDIR_EXAMPLES)
 
 		logger.info('copying povray files to release directory...')
@@ -879,21 +887,21 @@ Actual macro
 		touch(os.path.join(env.RELEASEDIR_POVRAY, "e3d_user.inc"))
 
 		logger.info('copying data files to release directory...')
-		for filepath in glob.glob(os.path.join(env.DATADIR, 'fonts', '*.ttf')):
+		for filepath in glob.glob(os.path.join(env.SRCDIR_DATA, 'fonts', '*.ttf')):
 			shutil.copy2(filepath, env.RELEASEDIR_POVRAY)
-		for filepath in glob.glob(os.path.join(env.DATADIR, 'tex', '*.png')):
+		for filepath in glob.glob(os.path.join(env.SRCDIR_DATA, 'tex', '*.png')):
 			shutil.copy2(filepath, env.RELEASEDIR_POVRAY)
-		for filepath in glob.glob(os.path.join(env.DATADIR, '*.inc')):
+		for filepath in glob.glob(os.path.join(env.SRCDIR_DATA, '*.inc')):
 			shutil.copy2(filepath, env.RELEASEDIR_POVRAY)
 
 
 		logger.info('copying ulp files to release directory...')
 
-		f_3d_ulp = open(os.path.join(env.ULPDIR, "3d.ulp"), 'r')
+		f_3d_ulp = open(os.path.join(env.SRCDIR_ULP, "3d.ulp"), 'r')
 		f_3d_ulp_content = f_3d_ulp.read().split("\n")
 		f_3d_ulp.close()
 
-		f_3dfunc_ulp = open(os.path.join(env.ULPDIR, "3dfunc.ulp"), 'r')
+		f_3dfunc_ulp = open(os.path.join(env.SRCDIR_ULP, "3dfunc.ulp"), 'r')
 		f_3dfunc_ulp_content = f_3dfunc_ulp.read().split("\n")
 		f_3dfunc_ulp.close()
 
@@ -967,12 +975,12 @@ Actual macro
 
 
 
-		shutil.copy2(os.path.join(env.ULPDIR, 'eagle2svg.ulp'), env.RELEASEDIR_ULP)
-		for filepath in glob.glob(os.path.join(env.ULPDIR, '3dlang*.dat')):
+		shutil.copy2(os.path.join(env.SRCDIR_ULP, 'eagle2svg.ulp'), env.RELEASEDIR_ULP)
+		for filepath in glob.glob(os.path.join(env.SRCDIR_ULP, '3dlang*.dat')):
 			shutil.copy2(filepath, env.RELEASEDIR_ULP)
-		for filepath in glob.glob(os.path.join(env.ULPDIR, '3dcol*.dat')):
+		for filepath in glob.glob(os.path.join(env.SRCDIR_ULP, '3dcol*.dat')):
 			shutil.copy2(filepath, env.RELEASEDIR_ULP)
-		for filepath in glob.glob(os.path.join(env.ULPDIR, '3d*.png')):
+		for filepath in glob.glob(os.path.join(env.SRCDIR_ULP, '3d*.png')):
 			shutil.copy2(filepath, env.RELEASEDIR_ULP)
 		touch(os.path.join(env.RELEASEDIR_ULP, "3dconf.dat"))
 
@@ -1011,38 +1019,52 @@ Actual macro
 						if retcode != 0:
 							total_errors = total_errors+1
 
-		if env.HASTAR:
-			filepath = os.path.join(env.ARCHIVE_OUTPUT_DIR, "eagle3d_"+make.version_to_filename()+".tar.bz2")
-			command = ['tar', '-c', '-a', '-f', filepath, os.path.basename(env.RELEASEDIR) ]
-			logger.info('calling: '+" ".join(command))
-			retcode = subprocess_call(command, env.OUTDIR_ROOT)
-			if retcode != 0:
-				total_errors = total_errors+1
+		_tar = which('tar')
+		if _tar:
+			if which('bzip2'):
+				filepath = os.path.join(env.ARCHIVE_OUTPUT_DIR, "eagle3d_"+make.version_to_filename()+".tar.bz2")
+				command = [_tar, '-c', '-a', '-f', filepath, os.path.basename(env.RELEASEDIR) ]
+				logger.info('calling: '+" ".join(command))
+				retcode = subprocess_call(command, env.OUTDIR_ROOT)
+				if retcode != 0:
+					total_errors = total_errors+1
+			else:
+				logger.info('cound not find bzip2, not making tar.bz2 archive')
 
-			filepath = os.path.join(env.ARCHIVE_OUTPUT_DIR, "eagle3d_"+make.version_to_filename()+".tar.gz")
-			command = ['tar', '-c', '-a', '-f', filepath, os.path.basename(env.RELEASEDIR) ]
-			logger.info('calling: '+" ".join(command))
-			retcode = subprocess_call(command, env.OUTDIR_ROOT)
-			if retcode != 0:
-				total_errors = total_errors+1
+			if which('gzip'):
+				filepath = os.path.join(env.ARCHIVE_OUTPUT_DIR, "eagle3d_"+make.version_to_filename()+".tar.gz")
+				command = [_tar, '-c', '-a', '-f', filepath, os.path.basename(env.RELEASEDIR) ]
+				logger.info('calling: '+" ".join(command))
+				retcode = subprocess_call(command, env.OUTDIR_ROOT)
+				if retcode != 0:
+					total_errors = total_errors+1
+			else:
+				logger.info('cound not find bzip2, not making tar.bz2 archive')
+		else:
+			logger.info('cound not find tar, not making tar.* archives')
 
 		logger.info('preparing release for non *nix systems...')
-		cmd = env.HASUNIX2DOS
-		if not cmd:
-			cmd = env.HASTODOS
-		if cmd:
+		_eolbin = False
+		for j in ['todos', 'unix2dos']:
+			if _eolbin:
+				continue
+			else:
+				k = witch(j)
+				if k: _eolbin = k
+		if _eolbin:
 			logger.info('making DOS line endings for all text files...')
 			for filepattern in ['*.sh', '*.pl', '*.inc', '*.src', '*.dat', '*.pos', '*.pre', '*.inc', '*.ulp', '*.pov', '*.ini', '*.txt']:
 				for rootdir, dirlist, filelist in os.walk(env.RELEASEDIR):
 					for filepath in glob.glob(os.path.join(rootdir, filepattern)):
 						if not make.quiet: logger.info('  %s'%(filepath))
-						subprocess_call([cmd, filepath])
+						subprocess_call([_eolbin, filepath])
 						if retcode != 0:
 							total_errors = total_errors+1
 
-		if env.HASZIP:
+		_zip = which('zip')
+		if _zip:
 			filepath = os.path.join(env.ARCHIVE_OUTPUT_DIR, "eagle3d_"+make.version_to_filename()+".zip")
-			command = ['zip', '-9', '-q', '-r', filepath, os.path.basename(env.RELEASEDIR) ]
+			command = [_zip, '-9', '-q', '-r', filepath, os.path.basename(env.RELEASEDIR) ]
 			logger.info('calling: '+" ".join(command))
 			retcode = subprocess_call(command, env.OUTDIR_ROOT)
 			if retcode != 0:
@@ -1055,11 +1077,16 @@ Actual macro
 
 	########################################
 	#
-	def render(render_size_x, render_size_y, render_aa, render_procs, render_namemask, render_noclobber):
+	#def render(render_size_x, render_size_y, render_aa, render_procs, render_namemask, render_noclobber):
+	def render(opts):
 
-		if not env.HASPOVRAY:
-			logger.info("could not find rendering executable, exiting.")
-			return -1
+		if opts.render_bin:
+			render_bin = which(opts.render_bin)
+		else:
+			render_bin = which('povray')
+		if not render_bin and not opts.render_dryrun:
+				logger.info("could not find rendering executable, exiting.")
+				return -1
 
 		total_errors = 0
 
@@ -1080,19 +1107,20 @@ Actual macro
 				shutil.rmtree(os.path.join(env.OUTDIR_IMG, "fatal"))
 		os.makedirs(os.path.join(env.OUTDIR_IMG, "fatal"))
 
-		render_bin = env.HASPOVRAY
 		render_povdir = env.OUTDIR_POV
 		render_incdir = env.RELEASEDIR_POVRAY
 		render_outdir = env.OUTDIR_IMG
+		render_namemask = opts.render_namemask
+		render_noclobber = opts.render_noclobber
 
 		template_values = {}
 		template_values['nice_bin'] = nice_bin
 		template_values['render_bin'] = render_bin
 		template_values['render_incdir'] = render_incdir
 		template_values['render_povdir'] = render_povdir
-		template_values['render_size_x'] = str(render_size_x)
-		template_values['render_size_y'] = str(render_size_y)
-		template_values['render_aa'] = str(render_aa)
+		template_values['render_size_x'] = str(opts.render_size_x)
+		template_values['render_size_y'] = str(opts.render_size_y)
+		template_values['render_aa'] = str(opts.render_aa)
 		template_values['render_outdir'] = render_outdir
 
 		command_template = string.Template("""${nice_bin} ${render_bin} +L${render_incdir}
@@ -1104,12 +1132,14 @@ Actual macro
                                                                         -GS -GR -GD -V -D +I${render_file_fullname}""")
 
 		#try:
-		pq = ProcessQueue(max_proc=render_procs, logger=logger)
-		pq.start()
+		if not opts.render_dryrun:
+			pq = ProcessQueue(max_proc=render_procs, logger=logger)
+			pq.start()
 
 		total_rendering_attempts = 0
 		total_rendering_skipped = 0
 
+		logger.info("rendering parts...")
 		for rootdir, dirlist, filelist in os.walk(render_povdir):
 			filelist.sort()
 			for f in filelist:
@@ -1117,7 +1147,8 @@ Actual macro
 					if f in ["povpos.pov", "povpre.pov"]:
 						continue
 					target_render_filepath = os.path.join(render_outdir, f+".png")
-					if render_noclobber and os.path.exists(target_render_filepath) and os.path.getsize(target_render_filepath)!=0:
+					#if render_noclobber and os.path.exists(target_render_filepath) and os.path.getsize(target_render_filepath)!=0:
+					if render_noclobber and os.path.exists(target_render_filepath):
 						logger.info("skipping %s, image exists."%(f+".png"))
 						total_rendering_skipped = total_rendering_skipped+1
 						continue
@@ -1128,12 +1159,17 @@ Actual macro
 
 					command = command_template.substitute(template_values)
 					command = " ".join(command.split())
-					pq.add_process(command, f)
+					if not opts.render_dryrun:
+						pq.add_process(command, f)
+					else:
+						if not make.quiet: logger.info("\ncommand: %s"%(command))
+						touch(target_render_filepath)
 
 					total_rendering_attempts = total_rendering_attempts+1
 
-		pq.wait()
-		del pq
+		if not opts.render_dryrun:
+			pq.wait()
+			del pq
 
 		#except:
 			#traceback.print_last()
@@ -1177,47 +1213,53 @@ Actual macro
 
 		total_errors = total_errors + warning_rendering_procs
 
-		if env.HASMONTAGE:
-			# create the gallery file(s)
-			pq = ProcessQueue(max_proc=1, logger=logger)
-			pq.start()
+		total_rendering_results = total_rendering_attempts + total_rendering_skipped
+		_im_montage = which('montage')
+		if _im_montage:
+			logger.info("rendering part gallery file(s)...")
+			if not opts.render_dryrun:
+				pq = ProcessQueue(max_proc=1, logger=logger)
+				pq.start()
 
-			if total_rendering_attempts > 50:
-				montage_command = [nice_bin,env.HASMONTAGE,"-geometry","64x48","-tile","10x"]
-				montage_title = "gallery"
-				for rootdir, dirlist, filelist in os.walk(os.path.join(render_outdir)):
-					filelist.sort()
-					for f in filelist:
-						if fnmatch.fnmatch(f, "*.png"):
-							montage_command.append(os.path.join(rootdir, f))
-				montage_command.append(os.path.join(upDir(render_outdir), "gallery.png"))
-				pq.add_process(" ".join(montage_command), montage_title)
-			else:
-				gallery_pages = []
-				items_per_gallery_page = 50
-				gallery_page_item_count = 0
-				montage_command_base = [nice_bin,env.HASMONTAGE,"-geometry","128x96","-tile","10x"]
+			tile_geometry = "%dx%d"%(opts.render_colsperpage, opts.render_rowsperpage)
+			montage_command_base = ["cd", render_outdir, "&&", nice_bin, _im_montage, "-geometry", "128x96", "-tile", tile_geometry]
 
-				for rootdir, dirlist, filelist in os.walk(os.path.join(render_outdir)):
-					filelist.sort()
-					for f in filelist:
-						if fnmatch.fnmatch(f, "*.png"):
-							if gallery_page_item_count == items_per_gallery_page:
-								gallery_page_item_count = 0
-								gallery_pages.append([])
-							gallery_pages[-1].append(os.path.join(rootdir, f))
-							gallery_page_item_count = gallery_page_item_count+1
+			items_per_gallery_page = int(opts.render_colsperpage)*int(opts.render_rowsperpage)
 
-				for i in range(0, len(gallery_pages)):
-					montage_title = "gallery page %d"%(i)
-					montage_command = montage_command_base
-					for j in gallery_pages[i]:
-						montage_command.append(j)
-					montage_command.append(os.path.join(upDir(render_outdir), "gallery-%d.png"%(i)))
-					pq.add_process(" ".join(montage_command), montage_title)
+			gallery_pages = [[]]
+			gallery_page_item_count = 0
 
-			pq.wait()
-			del pq
+			for rootdir, dirlist, filelist in os.walk(os.path.join(render_outdir)):
+				filelist.sort()
+				for f in filelist:
+					#if fnmatch.fnmatch(f, "*.png"):
+					#if fnmatch.fnmatch(f, render_namemask.replace(".pov", "*.png")):
+					if fnmatch.fnmatch(f, render_namemask+"*.png"):
+						if gallery_page_item_count == items_per_gallery_page:
+							gallery_page_item_count = 0
+							gallery_pages.append([])
+						#gallery_pages[-1].append(os.path.join(rootdir, f))
+						gallery_pages[-1].append(f)
+						gallery_page_item_count = gallery_page_item_count+1
+
+			for i in range(0, len(gallery_pages)):
+				montage_title = "gallery, page %d"%(i)
+				montage_command = montage_command_base + gallery_pages[i]
+				#if total_rendering_results <= items_per_gallery_page:
+					#montage_command.append(os.path.join(upDir(render_outdir), "gallery.png"))
+				#else:
+					#montage_command.append(os.path.join(upDir(render_outdir), "gallery-%d.png"%(i)))
+				montage_command.append(os.path.join(upDir(render_outdir), "gallery-%d.png"%(i)))
+				command = " ".join(montage_command)
+				if not opts.render_dryrun:
+					pq.add_process(command, montage_title)
+				else:
+					logger.info("rendering %s"%(montage_title))
+					if not make.quiet: logger.info("\ncommand: %s"%(command))
+
+			if not opts.render_dryrun:
+				pq.wait()
+				del pq
 
 		return total_errors
 
@@ -1248,33 +1290,34 @@ if __name__ == "__main__":
 	                  help="show this help message and exit.")
 	parser.add_option("--noconsole",
 	                  action="store_true", dest="noconsole", default=False,
-	                  help="do not print to console, only to log file.")
+	                  help="do not print to console, only to log file (default is %default).")
 	parser.add_option("-q", "--quiet",
 	                  action="store_true", dest="quiet", default=False,
-	                  help="do not print 'no errors' message.")
+	                  help="do not print 'no errors' message (default is %default).")
 	parser.add_option("-s", "--silent",
 	                  action="store_true", dest="silent", default=False,
-	                  help="print and log nothing, return non-zero on any error.")
+	                  help="print and log nothing, return non-zero on any error (default is %default).")
 	parser.add_option("-d", "--debug",
 	                  action="count", dest="debugmode", default=0,
 	                  help="""run in debugging mode.
 this option may be used multiple times.
 one will count the number of times each line is executed.
 two will output a trace of each line as it is being counted.
-three will output a list of functions that were called at least once.""")
+three will output a list of functions that were called at least once.
+this option default is %default""")
 
 	option_groups = []
 
 	option_groups.append(OptionGroup(parser, "create", None))
 	option_groups[-1].add_option("--static-date",
 	                             action="store_true", dest="static_date", default=False,
-	                             help="calculate date and time once at start.")
+	                             help="calculate date and time once at start (default is %default).")
 	parser.add_option_group(option_groups[-1])
 
 	option_groups.append(OptionGroup(parser, "verify", None))
 	option_groups[-1].add_option("--full-check",
 	                             action="store_true", dest="full_check", default=False,
-	                             help="when verifying, also check sub-macros.")
+	                             help="when verifying, also check sub-macros (default is %default).")
 	parser.add_option_group(option_groups[-1])
 
 	option_groups.append(OptionGroup(parser, "release", None))
@@ -1286,22 +1329,35 @@ three will output a list of functions that were called at least once.""")
 	option_groups.append(OptionGroup(parser, "render", None))
 	option_groups[-1].add_option("-x", "--size-x",
 	                             action="store", dest="render_size_x", default="640", metavar="[INT]", type="int",
-	                             help="x size (width) of rendered images.")
+	                             help="x size (width) of rendered images (default is %default).")
 	option_groups[-1].add_option("-y", "--size-y",
 	                             action="store", dest="render_size_y", default="480", metavar="[INT]", type="int",
-	                             help="y size (height) of rendered images.")
+	                             help="y size (height) of rendered images (default is %default).")
 	option_groups[-1].add_option("--anti-alias",
 	                             action="store", dest="render_aa", default="0.3", metavar="[FLOAT]", type="float",
-	                             help="anti-alias value of rendered images.")
+	                             help="anti-alias value of rendered images (default is %default).")
 	option_groups[-1].add_option("--processes",
 	                             action="store", dest="render_procs", default="16", metavar="[INT]", type="int",
-	                             help="number of rendering processes to spawn.")
+	                             help="number of rendering processes to spawn (default is %default).")
 	option_groups[-1].add_option("--namemask",
 	                             action="store", dest="render_namemask", default="*.pov", metavar="[STRING]",
-	                             help="name mask of files to render.")
+	                             help="name mask of files to render (default is %default).")
 	option_groups[-1].add_option("--noclobber",
 	                             action="store_true", dest="render_noclobber", default=False,
-	                             help="do not render files that exist and are non-zero in size.")
+	                             help="do not render files that exist (default is %default).")
+	option_groups[-1].add_option("--dry-run",
+	                             action="store_true", dest="render_dryrun", default=False,
+	                             help="do not render files, only print command that would have been used (default is %default).")
+	option_groups[-1].add_option("--cols-per-page",
+	                             action="store", dest="render_colsperpage", default="7", metavar="[INT]", type="int",
+	                             help="number of images to render per column on each page of the gallery (default is %default).")
+	option_groups[-1].add_option("--rows-per-page",
+	                             action="store", dest="render_rowsperpage", default="10", metavar="[INT]", type="int",
+	                             help="number of images to render per row on each page of the gallery (default is %default).")
+	option_groups[-1].add_option("--povray",
+	                             action="store", dest="render_bin", default="povray", metavar="[STRING]",
+	                             help="the rendering executable to use (default is %default).")
+
 	parser.add_option_group(option_groups[-1])
 
 	# check for an action
@@ -1390,7 +1446,8 @@ three will output a list of functions that were called at least once.""")
 		elif action == "release":
 			sys.exit(make.release())
 		elif action == "render":
-			sys.exit(make.render(options.render_size_x, options.render_size_y, options.render_aa, options.render_procs, options.render_namemask, options.render_noclobber))
+			#sys.exit(make.render(options.render_size_x, options.render_size_y, options.render_aa, options.render_procs, options.render_namemask, options.render_noclobber))
+			sys.exit(make.render(options))
 		elif action == "env":
 			sys.exit(env.dump())
 
