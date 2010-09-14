@@ -208,7 +208,7 @@ class ProcessQueue(threading.Thread):
 
 ###############################################################################
 #
-class HtmlFileWriter():
+class HtmlFileWriter:
 
 	files = {}
 	header_string = ""
@@ -228,7 +228,7 @@ class HtmlFileWriter():
 	def write_header(self, k, title_string=""):
 		if not k in self.files:
 			self.files[k] = {'filepath':k%int(0), 'rowcount':0, 'colcount':0, 'page':0, 'title':title_string}
-			if not self.quiet: logger.info('adding file: '+self.files[k]['filepath'])
+			if not self.quiet: logger.info('initializing file: '+os.path.basename(self.files[k]['filepath']))
 
 		if not os.path.exists(self.files[k]['filepath']):
 			f = open(self.files[k]['filepath'], 'w')
@@ -250,8 +250,8 @@ class HtmlFileWriter():
 				self.write_header(k)
 			else:
 				f = open(self.files[k]['filepath'], 'a')
-				f.write("\t</tr>\n")
-				f.write("\t<tr>\n")
+				f.write("\n\t\t</tr>")
+				f.write("\n\t\t<tr>")
 				f.close()
 
 		f = open(self.files[k]['filepath'], 'a')
@@ -262,8 +262,10 @@ class HtmlFileWriter():
 	def set_footer_string(self, footer_string):
 		self.footer_string = footer_string
 
-	def get_page_links(self, k, on_page=None):
+	def get_toc(self, k, on_page=None):
 		links = []
+		links.append('<a href="index.html" title="up">^^^</a>')
+		links.append('<br />')
 		if on_page != None:
 			if on_page > 0:
 				href = os.path.basename(k%(on_page-1))
@@ -286,13 +288,13 @@ class HtmlFileWriter():
 
 	def write_footer(self, k, page=None):
 		if page == None:
-			if not self.quiet: logger.info('finalizing file: '+self.files[k]['filepath'])
+			if not self.quiet: logger.info('finalizing file: '+os.path.basename(self.files[k]['filepath']))
 			f = open(self.files[k]['filepath'], 'a')
 		else:
-			if not self.quiet: logger.info('finalizing file: '+k%page)
+			if not self.quiet: logger.info('finalizing file: '+os.path.basename(k%page))
 			f = open(k%page, 'a')
-		if '%PAGE_LINKS%' in self.footer_string:
-			f.write(self.footer_string.replace('%PAGE_LINKS%', self.get_page_links(k, page)))
+		if '%TOC%' in self.footer_string:
+			f.write(self.footer_string.replace('%TOC%', self.get_toc(k, page)))
 		else:
 			f.write(self.footer_string)
 		f.close()
@@ -302,6 +304,32 @@ class HtmlFileWriter():
 			for k in self.files.keys():
 				for page in range(0, self.files[k]['page']+1):
 					self.write_footer(k, page)
+
+	def replace_tokens(self, tokens, content):
+		for t in tokens.keys():
+			if t in content:
+			#if content.find(t) > 0:
+			  content = content.replace(t, tokens[t])
+		return content
+
+	def write_top_index(self, filepath, tokens, header_string, body_string, footer_string):
+		header_string = self.replace_tokens(tokens, header_string)
+		body_string = self.replace_tokens(tokens, body_string)
+		footer_string = self.replace_tokens(tokens, footer_string)
+
+		if not self.quiet: logger.info('opening file: '+os.path.basename(filepath))
+		f = open(filepath, 'w')
+		f.write(header_string)
+		if len(self.files) > 0:
+			for k in self.files.keys():
+				for page in range(0, self.files[k]['page']+1):
+					tokens['%INDEX_HREF%'] = os.path.basename(k%page)
+					tokens['%INDEX_TITLE%'] = os.path.basename(k%page)
+					tokens['%INDEX_NAME%'] = os.path.basename(k%page)
+					f.write(self.replace_tokens(tokens, body_string))
+		f.write(footer_string)
+		if not self.quiet: logger.info('closing file: '+os.path.basename(filepath))
+		f.close()
 
 
 ###############################################################################
@@ -1471,6 +1499,9 @@ class _Worker:
 	########################################
 	#
 	def renderhtml(self):
+
+		import eagle3d_templates
+
 		quiet = config._get('quiet')
 		render_dryrun = config._get('render_dryrun')
 
@@ -1503,81 +1534,33 @@ class _Worker:
 			if not os.path.exists(render_thumbnaildir):
 				os.makedirs(render_thumbnaildir)
 
+		command = """%CONVERT_BIN% -geometry %THUMB_SIZE_X%x%THUMB_SIZE_X% %THUMB_INPUT_FILEPATH% %THUMBNAIL_OUTPUT_FILEPATH%"""
 		if not render_dryrun:
 			pq = ProcessQueue(max_proc=16, logger=logger)
 			pq.start()
-			command = string.Template("""${convert_bin} -geometry ${thumbnail_size_x}x${thumbnail_size_x} ${thumbnail_input_filepath} ${thumbnail_output_filepath}""")
-
-		template_values = {}
-		template_values['eagle3d_string'] = "Eagle3D"
-		template_values['convert_bin'] = convert_bin
-		template_values['thumbnail_size_x'] = renderhtml_thumb_size_x
-		template_values['thumbnail_size_y'] = renderhtml_thumb_size_y
 
 		renderhtml_cols = config._get('renderhtml_cols')
 		renderhtml_rows = config._get('renderhtml_rows')
-		template_values['cell_size_x'] = str(100/renderhtml_cols)+"%"
-		template_values['cell_size_y'] = ""
+
+		tokens = {}
+		tokens['%EAGLE3D%'] = "Eagle3D"
+		tokens['%CONVERT_BIN%'] = convert_bin
+		tokens['%THUMB_SIZE_X%'] = str(renderhtml_thumb_size_x)
+		tokens['%THUMB_SIZE_Y%'] = str(renderhtml_thumb_size_y)
+		tokens['%CELL_SIZE_X%'] = str(100/renderhtml_cols)+"%"
+		tokens['%CELL_SIZE_Y%'] = ""
 
 		htmlFileWriter = HtmlFileWriter(renderhtml_cols, renderhtml_rows, quiet)
 
-		html_header_template = string.Template("""<html>
-<head>
-	<style type="text/css">
-		table.parts {
-			border-width: 1px;
-			border-spacing: 3px;
-			border-style: outset;
-			border-color: black;
-			background-color: white;
-		}
-		table.parts th {
-			border-width: 1px;
-			padding: 3px;
-			border-style: outset;
-			border-color: black;
-			background-color: white;
-		}
-		table.parts td {
-			border-width: 1px;
-			padding: 3px;
-			border-style: outset;
-			border-color: black;
-			background-color: white;
-			text-align: center;
-		}
-	</style>
-	<title>${eagle3d_string} - %TITLE%</title>
-</head>
-<body>
-<center><h3>${eagle3d_string} - %TITLE%</h3></center>
-<center>
-	<table class="parts">
-		<tr>
-""")
-		html_body_template = string.Template("""			<td width="${cell_size_x}" height="${cell_size_y}" title="${thumbnail_text}" >
-				<a href="${thumbnail_a_href}" >
-					<img width="${thumbnail_size_x}" height="${thumbnail_size_y}" src="${thumbnail_img_src}" />
-				</a>
-			</td>
-""")
-		html_footer_template = string.Template("""	</tr>
-	</table>
-</center>
-<center>
-	<p>%PAGE_LINKS%</p>
-	<p></p>
-	<p></p>
-	<p>${eagle3d_string}</p>
-</center>
-</body>
-</html>
-""")
 
 		src_inc_prefix_map_swap = dict((value, key) for key, value in src_inc_prefix_map.iteritems())
 
-		htmlFileWriter.set_header_string(html_header_template.substitute(template_values))
-		htmlFileWriter.set_footer_string(html_footer_template.substitute(template_values))
+		# the following variables are imported from eagle3d_templates:
+		#   renderhtml_page_header_template
+		#   renderhtml_page_body_template
+		#   renderhtml_page_footer_template
+		htmlFileWriter.set_header_string(htmlFileWriter.replace_tokens(tokens, eagle3d_templates.renderhtml_page_header_template))
+		htmlFileWriter.set_footer_string(htmlFileWriter.replace_tokens(tokens, eagle3d_templates.renderhtml_page_footer_template))
 
 		#by using the povray directory, we will be generating a list of the images that _should_ exist
 		for rootdir, dirlist, filelist in os.walk(povray_outdir):
@@ -1593,27 +1576,38 @@ class _Worker:
 					#generate the image name the same way it is during rendering
 					img_basename = f+img_extension
 					img_barename = f[:-len(render_extension)]
-					template_values['thumbnail_input_filepath'] = os.path.join(render_outdir, img_basename)
-					template_values['thumbnail_output_filepath'] = os.path.join(render_thumbnaildir, img_basename)
-					template_values['thumbnail_a_href'] = os.path.join("..", img_basename)
-					template_values['thumbnail_img_src'] = os.path.join("thumbnail", img_basename)
-					template_values['thumbnail_text'] = img_barename
+					tokens['%THUMB_INPUT_FILEPATH%'] = os.path.join(render_outdir, img_basename)
+					tokens['%THUMB_OUTPUT_FILEPATH%'] = os.path.join(render_thumbnaildir, img_basename)
+					tokens['%THUMB_A_HREF%'] = os.path.join("..", img_basename)
+					tokens['%THUMB_IMG_SRC%'] = os.path.join("thumbnail", img_basename)
+					tokens['%THUMB_TEXT%'] = img_barename
 
 					filepath = os.path.join(render_htmldir, "index."+subdir+"-%d.html")
 					title = subdir
 					htmlFileWriter.write_header(filepath, title)
 
+					cmd = htmlFileWriter.replace_tokens(tokens, command)
 					if not render_dryrun:
-						cmd = command.substitute(template_values)
 						pq.add_process(" ".join(cmd.split()), f)
 
-					htmlFileWriter.write_body(filepath, html_body_template.substitute(template_values))
+					htmlFileWriter.write_body(filepath, htmlFileWriter.replace_tokens(tokens, eagle3d_templates.renderhtml_page_body_template))
 
 		if not render_dryrun:
 			pq.wait()
 			del pq
 
 		htmlFileWriter.write_all_footers()
+
+		# the following variables are imported from eagle3d_templates:
+		#   renderhtml_index_header_template
+		#   renderhtml_index_body_template
+		#   renderhtml_index_footer_template
+		filepath = os.path.join(render_htmldir, "index.html")
+		htmlFileWriter.write_top_index(filepath,
+		                               tokens,
+		                               eagle3d_templates.renderhtml_index_header_template,
+		                               eagle3d_templates.renderhtml_index_body_template,
+		                               eagle3d_templates.renderhtml_index_footer_template)
 
 
 config = _ConfigParser()
