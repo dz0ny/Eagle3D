@@ -15,8 +15,7 @@ import shlex
 import shutil
 import subprocess
 import sys
-
-#import fileinput
+import tempfile
 import threading
 import traceback
 
@@ -1585,6 +1584,7 @@ class _Worker:
 	def render(self):
 		quiet = config._get('quiet')
 		dryrun = config._get('dryrun')
+		noclobber = config._get('render_noclobber')
 
 		render_bin = config._getbin('povray')
 		if not render_bin and not dryrun:
@@ -1601,21 +1601,26 @@ class _Worker:
 		if not os.path.exists(env.OUTDIR_IMG):
 			os.makedirs(env.OUTDIR_IMG)
 
-		if os.path.exists(os.path.join(env.OUTDIR_IMG, "warning")):
-			if os.path.isdir(os.path.join(env.OUTDIR_IMG, "warning")):
-				shutil.rmtree(os.path.join(env.OUTDIR_IMG, "warning"))
-		os.makedirs(os.path.join(env.OUTDIR_IMG, "warning"))
-		if os.path.exists(os.path.join(env.OUTDIR_IMG, "fatal")):
-			if os.path.isdir(os.path.join(env.OUTDIR_IMG, "fatal")):
-				shutil.rmtree(os.path.join(env.OUTDIR_IMG, "fatal"))
-		os.makedirs(os.path.join(env.OUTDIR_IMG, "fatal"))
+		if noclobber:
+			if not os.path.exists(os.path.join(env.OUTDIR_IMG, "warning")):
+				os.makedirs(os.path.join(env.OUTDIR_IMG, "warning"))
+			if not os.path.exists(os.path.join(env.OUTDIR_IMG, "fatal")):
+				os.makedirs(os.path.join(env.OUTDIR_IMG, "fatal"))
+		else:
+			if os.path.exists(os.path.join(env.OUTDIR_IMG, "warning")):
+				if os.path.isdir(os.path.join(env.OUTDIR_IMG, "warning")):
+					shutil.rmtree(os.path.join(env.OUTDIR_IMG, "warning"))
+			os.makedirs(os.path.join(env.OUTDIR_IMG, "warning"))
+			if os.path.exists(os.path.join(env.OUTDIR_IMG, "fatal")):
+				if os.path.isdir(os.path.join(env.OUTDIR_IMG, "fatal")):
+					shutil.rmtree(os.path.join(env.OUTDIR_IMG, "fatal"))
+			os.makedirs(os.path.join(env.OUTDIR_IMG, "fatal"))
 
 		render_povdir = env.OUTDIR_POV
 		render_incdir = env.RELEASEDIR_POVRAY
 		render_outdir = env.OUTDIR_IMG
 
 		render_mask = config._get('render_mask')
-		render_noclobber = config._get('render_noclobber')
 		render_procs = int(config._get('render_procs'))
 		img_extension = config._get('img_extension')
 
@@ -1736,25 +1741,30 @@ class _Worker:
 			for rootdir, dirlist, filelist in os.walk(os.path.join(render_outdir)):
 				filelist.sort()
 				for f in filelist:
-					#if fnmatch.fnmatch(f, "*.png"):
-					#if fnmatch.fnmatch(f, render_mask.replace(".pov", "*"+img_extension)):
 					if fnmatch.fnmatch(f, render_mask+"*"+img_extension):
 						if gallery_page_item_count == items_per_gallery_page:
 							gallery_page_item_count = 0
 							gallery_pages.append([])
-						#gallery_pages[-1].append(os.path.join(rootdir, f))
 						gallery_pages[-1].append(f)
 						gallery_page_item_count = gallery_page_item_count+1
 
+			tmpfilepathlist = []
 			for i in range(0, len(gallery_pages)):
+				(oshandle, tmpfilepath) = tempfile.mkstemp(suffix='.sh')
+				tmpfilepathlist.append(tmpfilepath)
+				os.write(oshandle, "#!/bin/bash\n")
+
+				os.write(oshandle, "cd "+render_outdir+"\n")
+				os.write(oshandle, "\n")
+				os.write(oshandle, nice_bin+" "+_im_montage+" -geometry 128x96 -tile "+tile_geometry+" \\\n")
+
 				montage_title = "gallery, page %d"%(i)
-				montage_command = montage_command_base + gallery_pages[i]
-				#if total_rendering_results <= items_per_gallery_page:
-					#montage_command.append(os.path.join(upDir(render_outdir), "gallery"+img_extension))
-				#else:
-					#montage_command.append(os.path.join(upDir(render_outdir), "gallery-%d%s"%(i, img_extension)))
-				montage_command.append(os.path.join(upDir(render_outdir), "gallery-%d%s"%(i, img_extension)))
-				command = " ".join(montage_command)
+
+				for j in gallery_pages[i]:
+					os.write(oshandle, j+" \\\n")
+				os.write(oshandle, os.path.join(upDir(render_outdir), "gallery-%d%s"%(i, img_extension))+" \n")
+				command = "/bin/bash "+tmpfilepath
+
 				if not dryrun:
 					pq.add_process(command, montage_title)
 				else:
@@ -1764,6 +1774,9 @@ class _Worker:
 			if not dryrun:
 				pq.wait()
 				del pq
+
+			for i in tmpfilepathlist:
+				os.remove(i)
 
 		return total_errors
 
