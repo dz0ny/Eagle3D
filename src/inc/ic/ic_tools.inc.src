@@ -1,0 +1,99 @@
+
+
+// ////////////////////////////////////////////////////////////
+// Original file: ./1_IC_DIS_PIN.inc.src
+// Pin Diskretes IC
+// DIP Pin
+// //////////
+#macro IC_DIS_PIN()
+union{
+    difference{
+        box{<0,0,0><0.455,3.4,0.3>}
+        box{<0,0,0><0.5,0.5,0.5> rotate<0,0,-20> translate<0.305,0,-0.1>}
+        box{<0,0,0><-0.5,0.5,0.5> rotate<0,0,20> translate<0.15,0,-0.1>}
+    }
+    box{<0,0,0><1.43,0.3,0.33> translate<-0.4875,5.3,0.5>}
+    difference{
+        box{<0,0,0><1.43,0.25,0.25> translate<-0.4875,5.05,0.3>}
+        cylinder{<0,0,0><2,0,0>0.25 translate<-0.6,5.05,0.55>}
+    }
+    difference{
+        box{<0,0,0><1.43,1.7,0.3> translate<-0.4875,3.4,0>}
+        box{<0,0,0><1,2.2,0.5> rotate<0,0,-20> translate<0.55,3.4,-0.1>}
+        box{<0,0,0><-1,2.2,0.5> rotate<0,0,20> translate<-0.095,3.40,-0.1>}
+    }
+    difference{
+        cylinder{<0,0,0><1.43,0,0>0.5 translate<-0.4875,5.1,0.5> }
+        box{<0,0,0><2,2.2,2> translate<-0.8,3.1,0.3>}
+        box{<0,0,0><2,2.2,2> translate<-0.7,4,0.5>}
+    }
+    translate<-0.455/2,0,0>
+}
+#end
+
+
+
+// ////////////////////////////////////////////////////////////
+// Original file: ./1_IC_SMD_PIN.inc.src
+// SO Pin
+// Makro für Pin von SO und ähnlichem (Kopie von QFP-Pin)
+// H = Höhe des Pins
+// B = Breite des Pins
+// T = Tiefe des Pins
+// S = Materialstärke des Pins
+// //////////
+#macro IC_SMD_PIN(H,B,T,S)
+union{
+    box{<0,H,T/2> <B/4,H-S,-T/2>}
+    difference{
+        cylinder{<B/4,H-S,-T/2> <B/4,H-S,T/2> S}
+        box{<-1,H-S,-T/2-0.01> <B/2,H-S-3,T/2+0.01>}
+    }
+    box{<B/4,H-S,-T/2> <B/4+S,S,T/2>}
+    difference{
+        cylinder{<B/4+S,S,-T/2> <B/4+S,S,T/2> S}
+        box{<0,S,-T/2-0.01> <B,S+3,T/2+0.01>}
+    }
+    box{<B/4+S,0,-T/2> <B,S,T/2>}
+    difference{
+        box{<B/4+S,S,-T/2> <B/4+S+S/2,1.5*S, T/2>}
+        cylinder{<B/4+S+S/2,S+S/2,T/2+0.01> <B/4+S+S/2,S+S/2,-T/2-0.01>, S/2}
+    }
+}
+#end
+
+
+
+// ////////////////////////////////////////////////////////////
+// Original file: ./1_IC_SMD_PLCC_PIN.inc.src
+// PLCC Pin
+// //////////
+#macro IC_SMD_PLCC_PIN()
+union{
+    intersection{
+        difference{
+            box{<0,0,0><1.8,0.9,0.45>}
+            cylinder{<0.9,0.9,-0.1><0.9,0.9,0.5>0.7}
+        }
+        cylinder{<0.9,0.9,-0.1><0.9,0.9,0.5>0.9}
+    }
+    box{<1.6,0.8,0><1.8,1.2,0.45>}
+    difference{
+        box{<1.6,1.2,-0.125><1.8,2.5,0.45+0.125>}
+        box{<-0.1,0,0><0.3,0.5,-0.5> rotate<-20,0,0> translate<1.55,1.2,0>}
+        box{<-0.1,0,0><0.3,0.5,0.5> rotate<20,0,0> translate<1.55,1.2,0.45>}
+    }
+    difference{
+        cylinder{<1.5,2.5,-0.125><1.5,2.5,0.45+0.125>0.3}
+        box{<1.6,2.9,-1><1,2,1>}
+    }
+    difference{
+        box{<1.6,2.5,-0.125><1.4,2.8,0.45+0.125>}
+        cylinder{<1.45,2.45,-1><1.45,2.45,1>0.15}
+    }
+    translate<-1.4,0,0>
+    rotate<0,90,0>
+    translate<-0.225,0,0>
+}
+#end
+

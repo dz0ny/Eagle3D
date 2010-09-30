@@ -1,0 +1,732 @@
+
+
+// ////////////////////////////////////////////////////////////
+// Original file: ./1_AMP_HE14_1S.inc.src
+// Macros for HE14 serie Right-Angle Single-Row
+// Designed by Philippe Boucheny <philippe.boucheny(replace with at)numericable.fr>
+// Rev. 1.0  09/02/08
+// //////////
+#macro AMP_HE14_1S(Pins)
+#local HE14Blue = color green 0.5 blue 1;
+union{
+    difference{
+        union{
+                box{<0,0.8,-2.54><Pins*2.54,2.6,2.54>}
+                #local i=0; #while (i<Pins) box{<0.87+i*2.54,0,2.1><1.67+i*2.54,0.8,+2.54>} #local i=i+1; #end
+
+                difference{
+                    box{<0,0,-2.1><Pins*2.54,2.6,-2.54>}
+                    #local i=0; #while (i<Pins) box{<0.4+i*2.54,-0.1,-2><2.14+i*2.54,0.8,-3>} #local i=i+1; #end
+                    box{<-0.01,-0.01,0><0.41,0.8,-3>}
+                    box{<Pins*2.54+0.01,-0.01,0><Pins*2.54-0.41,0.8,-3>}
+                }
+            }
+        union{
+                cylinder{<0,-2,-2.54+0.2><0,3,-2.54+0.2> 1.2}
+                box{<Pins*2.54-0.4,-2,+2.541><Pins*2.55,3,+2.54-0.4>}
+                box{<Pins*2.54-0.4,-2,-2.541><Pins*2.55,3,-2.54+1.2>}//front right
+                box{<Pins*2.54-1.27,-2,-2.541><Pins*2.55,3,-2.54+0.4>}//front right
+                box{<+0.4,-2,+2.541><-0.01,3,+2.54-0.4>} //back right
+        }
+    }
+
+    difference{
+        box{<1.27,2.6,-2.54><(Pins-0.5)*2.54,11.4,-1.9>}
+        box{<1.27-1,9,-2.54><(Pins-0.5)*2.54+1,13,-1.9> rotate -8.5*x translate 2*z}
+    }
+    box{<1.27,8,-2.54><(Pins-0.5)*2.54,8.5,-1.7>}
+    box{<1.27,8,-2><(Pins-0.5)*2.54,8.5,-1.7> rotate -30*x translate <0,2.45,3.75>}
+
+    difference{
+        box{<0.4,2.6,+2.54><Pins*2.54-0.4,11.4,+1.9>}
+        box{<0.4-1,9,+2.54><Pins*2.54-0.4+1,13,+1.9> rotate 8.5*x translate -2*z}
+    }
+    translate <-Pins*1.27,0,0> pigment {HE14Blue}
+}
+#end
+
+
+
+// ////////////////////////////////////////////////////////////
+// Original file: ./1_ARK_PIN.inc.src
+// Schraubenkopf
+// Designed by Friedrich Bleikamp, Lenord, Bauer & Co. Gmbh <fbleikamp@lenord.de>
+// Privat: <fbleikamp@web.de>
+// //////////
+#macro ARK_PIN()
+union{
+	cylinder{<0,-3,0><0,1.1,0>0.4 texture{col_silver}}
+	cone{<0,-3,0>0.4<0,-3.5,0>0.1 texture{col_silver}}
+	difference{
+		box{<-2.54,0,-4><2.54,10,4>}
+		box{<-2.04,1,-4.01><2.04,6,3>}
+		box{<-0.75,-0.1,-4.01><0.75,1.1,1>}
+		box{<-2.6,5,0><2.6,0,-3> rotate<30,0,0> translate<0,7,-4>}
+		box{<-2.6,5,0><2.6,0,3> rotate<-30,0,0> translate<0,7,4>}
+		cylinder{<0,5.9,0><0,10.1,0>1.4}
+		cone{<0,9,0>1.4<0,10.1,0>1.8}
+	}
+	superellipsoid{<1,0.1> rotate<90,0,0> scale<1,2.3,1> texture{col_silver} translate<0,7,0>}
+	difference{
+		superellipsoid{<1,0.1> rotate<90,0,0> scale<1.3,0.5,1.3> texture{col_silver} translate<0,9.5,0>}
+		box{<0.25,0,-2><-0.25,1,2>rotate<0,rand(global_seed)*180,0> translate<0,9.8,0>}
+	}
+	difference{
+		box{<-2,1.1,-2.5><2,5.9,2.5>}
+		cylinder{<0,3.5,-2.6><0,3.5,2.6>1.4}
+		cylinder{<0,3.5,0><0,6,0>1.4}
+		texture{col_silver}
+	}
+	pigment{Gray60}
+	translate<0,0.2,0>
+}
+#end
+
+
+// ////////////////////////////////////////////////////////////
+// Original file: ./1_CON_JUMPER.inc.src
+//  MOSES <iloff@mosesele.de>
+//  Jumper
+// //////////
+#macro CON_JUMPER()
+union{
+difference{
+box{<0,0,0><2.54,6.0,2.00> translate<-1.27,2.5,-1.27>}
+box{<0,0,0><0.635,10.0,0.635> translate<-0.3175,2.5,-0.3175>}
+pigment{MediumBlue}translate<-1.27,0,0>}
+difference{
+box{<0,0,0><2.54,6.0,2.00> translate<-1.27,2.5,-1.27>}
+box{<0,0,0><0.635,10.0,0.635> translate<-0.3175,2.5,-0.3175>}
+pigment{MediumBlue} translate<1.27,0,0>}}
+#end
+
+
+// ////////////////////////////////////////////////////////////
+// Original file: ./1_CON_PBL_F.inc.src
+// Pin fuer Buchsenleiste (flache Bauform), hinzugefügt von B.Redemann www.b-redemann.de
+// //////////
+#macro CON_PBL_F()
+union{
+
+difference{
+	box{<0,0,0><0.5,3,0.3> translate<-0.25,-3,-0.15>}
+	box{<0,0,-0.5><0.5,0.5,0.5> rotate<0,0,-30> translate<0.1,-3,0>}
+	box{<0,0,-0.5><-0.5,0.5,0.5> rotate<0,0,30> translate<-0.1,-3,0>}
+	box{<-0.5,0,0><0.5,0.5,0.5> rotate<30,0,0> translate<0,-3,0.05>}
+	box{<-0.5,0,0><0.5,0.5,-0.5> rotate<-30,0,0> translate<0,-3,-0.05>}
+	texture{col_gold}
+}
+difference{
+	difference{
+		box{<-1.27,0,-1.27><1.27,3,1.27>}
+		box{<-1.27,-0.1,-1.27><1.27,3.1,1.27> rotate<0,45,0> translate<-1.95,0,-1.95> }
+		box{<-1.27,-0.1,-1.27><1.27,3.1,1.27> rotate<0,45,0> translate< 1.95,0,-1.95> }
+		box{<-1.27,-0.1,-1.27><1.27,3.1,1.27> rotate<0,45,0> translate<-1.95,0, 1.95> }
+		box{<-1.27,-0.1,-1.27><1.27,3.1,1.27> rotate<0,45,0> translate< 1.95,0, 1.95> }
+	}
+	cylinder{<0,1,0><0,3.1,0>1.0}
+}
+
+difference{
+	cylinder{<0,2.5,0><0,3.03,0>1.0}
+	cylinder{<0,1.9,0><0,3.2,0>0.9}
+	texture{col_silver}
+}
+
+difference{
+	cylinder{<0,0.5,0><0,2.55,0>0.9}
+	cylinder{<0,0.4,0><0,2.6,0>0.7}
+	texture{col_gold}
+}
+pigment{Gray30}}
+#end
+
+
+// ////////////////////////////////////////////////////////////
+// Original file: ./1_CON_PHOENIX_381_PHGH.inc.src
+// Phoenix - Grund-Gehaeuse Kunststoff
+// Macros fuer Phoenix Mini-Combicon 3.81mm Klemmen und Gegenstecker
+// Designed by Friedrich Bleikamp, Lenord, Bauer & Co. Gmbh <fbleikamp@lenord.de>
+// Privat: <fbleikamp@web.de>
+// Phoenix - Grund-Gehaeuse Kunststoff
+// //////////
+#macro CON_PHOENIX_381_PHGH()
+union{
+	difference{
+		box{<-1,0,-1.905><8,7,1.905> }
+		cylinder{<-1.1,5,0><0.6,5,0>0.65 }
+		box{<-1.1,6,-1.4><-0.8,6.5,1.4> }
+		box{<-1.1,-0.1,-1.4><-0.8,4,1.4> }
+		box{<-1.1,-0.1,-0.5><-0.2,3,0.5> }
+		box{<-1.1,-0.1,-1.4><1.2,1.3,1.4> }
+		box{<-1.1,-0.1,-1.4><2.4,0.3,1.4> }
+		box{<2,0.6,-1.7><8.1,5.5,1.7> }
+		box{<2,5.4,-0.6><8.1,6,0.6> }
+		box{<2,5.9,-1.5><8.1,6.7,1.5> }
+		pigment{ForestGreen}
+	}
+	//Rundung unten
+	difference{
+		cylinder{<2,-1.0,0><8,-1.0,0>2.0 }
+		box{<1.9,-3.1,-2.1><8.1,0.1,2.1> }
+		pigment{ForestGreen}
+	}
+	//Oben auf
+	cylinder{<5,7,-1.905><5,7,1.905>0.2 pigment{ForestGreen}}
+	//Links
+	box{<6,2,-1.9><8,3.3,-2.1> pigment{ForestGreen}}
+	box{<7.5,0.5,-1.9><8,6.5,-2.1> pigment{ForestGreen}}
+	//Rechts
+	box{<6,2,1.9><8,3.3,2.1> pigment{ForestGreen}}
+	box{<7.5,0.5,1.9><8,6.5,2.1> pigment{ForestGreen}}
+}
+#end
+
+
+// ////////////////////////////////////////////////////////////
+// Original file: ./1_CON_PHOENIX_381_PHGSG.inc.src
+// Macros fuer Phoenix Mini-Combicon 3.81mm Klemmen und Gegenstecker
+// Designed by Friedrich Bleikamp, Lenord, Bauer & Co. Gmbh <fbleikamp@lenord.de>
+// Privat: <fbleikamp@web.de>
+// Phoenix - Gegenstecker Kunststoff MC 1,5/xx-ST-381
+// //////////
+#macro CON_PHOENIX_381_PHGSG()
+union{
+   difference {
+   merge{
+      box{<0,0,-1.905><9,9.5,1.905> }
+      box{<4,9.5,-1.905><9,11,1.905> }
+      box{<-6.2,4,-1.5><0,8,1.5> }
+      box{<-6.1,8,-0.4><-4,9,0.4> }
+      sphere { <2.05, 9.5, 0>, 0.5 }
+      cylinder{<4,9.5,0><4,11,0>1.905 }
+      cylinder{<9,7.1,-1.905><9,7.1,1.905>0.3 }
+
+   }
+      box{<0.3,0.8,-0.75><9.5,5.5,0.75> }
+      box{<8.5,0.5,-1.2><9.5,6.5,1.2> }
+      box{<6.3,10.5,-0.9><7,11.1,0.9> }
+      box{<-2,-2,-2><2,2,2> rotate<0,0,12> translate<9.9,9.5,0>}
+      cylinder{<4,7,0><4,11.1,0>1.4 }
+      cylinder{<-6.3,6.5,0><1.5,6.5,0>0.5}
+      cylinder{<-6.3,6.5,0><-5.8,6.5,0>0.9}
+      cylinder{<-6.3,2.5,0><0,2.5,0>2.0}
+   }
+   cylinder{<7.5,10.70,-1.905><7.5,10.70,1.905>0.3 }
+   pigment{ForestGreen}
+}
+#end
+
+
+// ////////////////////////////////////////////////////////////
+// Original file: ./1_CON_PHOENIX_381_PHGSRW.inc.src
+// Phoenix - Gegenstecker MCVW 1,5/xx-ST-381 (type =0)
+// Macros fuer Phoenix Mini-Combicon 3.81mm Klemmen und Gegenstecker
+// Designed by Friedrich Bleikamp, Lenord, Bauer & Co. Gmbh <fbleikamp@lenord.de>
+// Privat: <fbleikamp@web.de>
+// Phoenix - Gegenstecker MCVW 1,5/xx-ST-381 (type =0)
+// und MCVR 1,5/xx-ST-381 (type =1) Kunststoffteil
+// //////////
+#macro CON_PHOENIX_381_PHGSRW(typ)
+union{
+	difference{
+	union{
+		box{<-1.5,0,-1.9><1.5,-6.6,2.2>}
+		box{<-0.4,-6.5,-1.9><0.4,-4,-3.2> }
+	}
+	cylinder{<0,0.1,3.7><0,-6.7,3.7>2.0}
+	cylinder{<0,0.1,0><0,-6.7,0>0.5}
+	cylinder{<0,-6.0,0><0,-6.7,0>0.9}
+	#if (typ = 1) //MVCR
+	   rotate <0,180,0>
+	#end
+	}
+	difference{
+		union{
+			box{<-1.905,0,3.7><1.905,11.6,-4.6>}
+			cylinder{<-1.905,7.3,4.9><1.905,7.3,4.9>0.3 }
+			box{<-1.905,0,3.7><1.905,7.3,5.2>}
+			box{<-1.905,7.3,3.7><1.905,7.6,4.9>}
+			box{<-1.905,0,-4.6><1.905,2.45,-5.2>}
+		}
+		box{<-1.95,0,-2.2><1.95,2.0,2.2> rotate <70,0,0> translate <0,9.7,2.9>}
+		box{<-0.9,2.7,5.3><0.9,5.5,-4>}
+		box{<-1.5,2.5,5.3><1.5,6.6,4>}
+	}
+	difference{
+		union{
+			cylinder{<-1.905,12.2,2.7><1.905,12.2,2.7>0.3 }
+			cylinder{<-1.905,12.2,-1.65><1.905,12.2,-1.65>0.3 }
+			box{<-1.905,11.9,2.7><1.905,12.5,-1.65>}
+			cylinder{<-1.905,11.9,-4.9><1.905,11.9,-4.9>0.3 }
+			box{<-1.905,11.6,2.1><1.905,12.2,-4.9>}
+		}
+		cylinder{<0,10.6,0><0,12.6,0>1.4}
+	}
+	pigment{ForestGreen}
+}
+#end
+
+
+// ////////////////////////////////////////////////////////////
+// Original file: ./1_CON_PHOENIX_381_PHNR.inc.src
+// //////////
+// Macros fuer Phoenix Mini-Combicon 3.81mm Klemmen und Gegenstecker
+// Designed by Friedrich Bleikamp, Lenord, Bauer & Co. Gmbh <fbleikamp@lenord.de>
+// Privat: <fbleikamp@web.de>
+// Nummer
+#macro CON_PHOENIX_381_PHNR(n)
+union{
+	box{<-1.905,0,-1.75><1.905,0.1,1.75> pigment{White}}
+	box{<-1.89,0,-1.75><-1.905,0.25,1.75> pigment{Gray20}}
+	box{<1.905,0,-1.75><1.89,0.25,1.75> pigment{Gray20}}
+	#if (n < 10)
+		text {ttf besch_font str(n,0,0) 0.2,0  scale<3.5,3.5,3.5> pigment{Gray20} rotate<90,180,0> translate<0.8,0.2,1.2> }
+	#else
+		text {ttf besch_font str(n,0,0) 0.2,0  scale<3.0,3.5,3.5> pigment{Gray20} rotate<90,180,0> translate<1.5,0.2,1.2> }
+	#end
+}
+#end
+
+
+// ////////////////////////////////////////////////////////////
+// Original file: ./1_CON_PHOENIX_381_PHPIN.inc.src
+// Macros fuer Phoenix Mini-Combicon 3.81mm Klemmen und Gegenstecker
+// Designed by Friedrich Bleikamp, Lenord, Bauer & Co. Gmbh <fbleikamp@lenord.de>
+// Privat: <fbleikamp@web.de>
+// Phoenix - Kontakt (gerade)
+// //////////
+#macro CON_PHOENIX_381_PHPIN()
+difference{
+	box{<-0.35,-3.5,-0.35><0.35,7.5,0.35>}
+	// anspitzen oben
+	box{<0,0,-0.7><0.7,0.7,0.7> rotate<0,0,30> translate<0.4,7,0>}
+	box{<0,0,-0.7><-0.7,0.7,0.7> rotate<0,0,-30> translate<-0.4,7,0>}
+	box{<-0.7,0,0><0.7,0.7,0.7> rotate<-30,0,0> translate<0,7,0.4>}
+	box{<-0.7,0,0><0.7,0.7,-0.7> rotate<30,0,0> translate<0,7,-0.4>}
+	// anspitzen unten
+	box{<0,0,-0.7><0.7,0.7,0.7> rotate<0,0,-30> translate<0.1,-3.5,0>}
+	box{<0,0,-0.7><-0.7,0.7,0.7> rotate<0,0,30> translate<-0.1,-3.5,0>}
+	box{<-0.7,0,0><0.7,0.7,0.7> rotate<30,0,0> translate<0,-3.5,0.1>}
+	box{<-0.7,0,0><0.7,0.7,-0.7> rotate<-30,0,0> translate<0,-3.5,-0.1>}
+	texture{col_silver}
+}
+#end
+
+
+// ////////////////////////////////////////////////////////////
+// Original file: ./1_CON_PHOENIX_381_PHPINW.inc.src
+// Macros fuer Phoenix Mini-Combicon 3.81mm Klemmen und Gegenstecker
+// Designed by Friedrich Bleikamp, Lenord, Bauer & Co. Gmbh <fbleikamp@lenord.de>
+// Privat: <fbleikamp@web.de>
+// Phoenix - Kontakt Winkel
+// //////////
+#macro CON_PHOENIX_381_PHPINW()
+difference{
+	//#macro RECT_BOGEN(i_radius,winkel,dicke,breite,laenge1,laenge2)
+	object {TOOLS_RECT_BOGEN(0.1,90,0.7,0.7,6,7)}
+	//laenge1 anspitzen
+	box{<0,0,-0.7><0.7,0.7,0.7> rotate<0,0,30> translate<0.4,7,0>}
+	box{<0,0,-0.7><-0.7,0.7,0.7> rotate<0,0,-30> translate<-0.4,7,0>}
+	box{<-0.7,0,0><0.7,0.7,0.7> rotate<-30,0,0> translate<0,7,0.4>}
+	box{<-0.7,0,0><0.7,0.7,-0.7> rotate<30,0,0> translate<0,7,-0.4>}
+	//laenge2 anspitzen
+	box{<0,0,-0.7><0.7,0.7,0.7> rotate<0,0,-30> translate<6,0.4,0>}
+	box{<0,0,-0.7><0.7,-0.7,0.7> rotate<0,0,30> translate<6,-0.4,0>}
+	box{<0,-0.7,0><0.7,0.7,0.7> rotate<0,30,0> translate<6,0,0.4>}
+	box{<0,-0.7,0><0.7,0.7,-0.7> rotate<0,-30,0> translate<6,0,-0.4>}
+	texture{col_silver} rotate<0,0,-90> translate<0,3.0,0>
+}
+#end
+
+
+// ////////////////////////////////////////////////////////////
+// Original file: ./1_CON_PHOENIX_381_SCREWHEAD.inc.src
+// Macros fuer Phoenix Mini-Combicon 3.81mm Klemmen und Gegenstecker
+// Designed by Friedrich Bleikamp, Lenord, Bauer & Co. Gmbh <fbleikamp@lenord.de>
+// Privat: <fbleikamp@web.de>
+// Schraubenkopf
+// //////////
+#macro CON_PHOENIX_381_SCREWHEAD()
+difference{
+	superellipsoid{<1,0.1> rotate<90,0,0> scale<1.4,0.5,1.4> translate<0,0,0>}
+	box{<0.25,0,-2><-0.25,1,2>rotate<0,30,0> translate<0,0,0>}
+	texture{col_silver}
+}
+#end
+
+
+// ////////////////////////////////////////////////////////////
+// Original file: ./1_MOLEX254.inc.src
+// Tilmann Reh <tilmann.reh@autometer.de>
+// Grundmakro: Kunststoffkörper von geraden und abgewinkelten Molex-Stiftleisten RM 2.54.
+// Parameter: Anzahl Pins. (-> Breite. Höhe/Tiefe sind konstant für alle Größen.)
+// Bezugspunkt: Mitte der Pins in Auflagefläche (gerade Ausführung).
+// Kunststoffkörper von geraden und abgewinkelten Molex-Stiftleisten
+// //////////
+#macro MOLEX254(Pins)
+union{
+difference{
+box{<0,0,-2.5><Pins*2.54,3,3>}
+#local i=0; #while (i<Pins) box{<0.77+i*2.54,-0.1,-3><1.77+i*2.54,0.8,4>} #local i=i+1; #end }
+box{<1.27,2,-2.5><(Pins-0.5)*2.54,11.3,-1.7>}
+box{<1.27,5.8,-2><(Pins-0.5)*2.54,7.5,-1.4>}
+translate <-Pins*1.27,0,0> texture {col_Molex}}
+#end
+
+
+// ////////////////////////////////////////////////////////////
+// Original file: ./1_PBL.inc.src
+// Pin für Buchsenleiste
+// //////////
+#macro PBL()
+union{
+
+difference{
+	box{<0,0,0><0.5,3,0.3> translate<-0.25,-3,-0.15>}
+	box{<0,0,-0.5><0.5,0.5,0.5> rotate<0,0,-30> translate<0.1,-3,0>}
+	box{<0,0,-0.5><-0.5,0.5,0.5> rotate<0,0,30> translate<-0.1,-3,0>}
+	box{<-0.5,0,0><0.5,0.5,0.5> rotate<30,0,0> translate<0,-3,0.05>}
+	box{<-0.5,0,0><0.5,0.5,-0.5> rotate<-30,0,0> translate<0,-3,-0.05>}
+	texture{col_gold}
+}
+difference{
+	difference{
+		box{<-1.27,0,-1.27><1.27,8,1.27>}
+		box{<-1.27,-0.1,-1.27><1.27,8.1,1.27> rotate<0,45,0> translate<-1.95,0,-1.95> }
+		box{<-1.27,-0.1,-1.27><1.27,8.1,1.27> rotate<0,45,0> translate< 1.95,0,-1.95> }
+		box{<-1.27,-0.1,-1.27><1.27,8.1,1.27> rotate<0,45,0> translate<-1.95,0, 1.95> }
+		box{<-1.27,-0.1,-1.27><1.27,8.1,1.27> rotate<0,45,0> translate< 1.95,0, 1.95> }
+	}
+	cylinder{<0,1,0><0,8.1,0>1.0}
+}
+
+difference{
+	cylinder{<0,7.5,0><0,8.03,0>1.0}
+	cylinder{<0,6.9,0><0,8.2,0>0.9}
+	texture{col_silver}
+}
+
+difference{
+	cylinder{<0,0.5,0><0,7.55,0>0.9}
+	cylinder{<0,0.4,0><0,7.6,0>0.7}
+	texture{col_gold}
+}
+
+pigment{Gray30}
+finish {ambient (0.1 * global_ambient_mul)}
+}
+#end
+
+
+// ////////////////////////////////////////////////////////////
+// Original file: ./1_PFOSTENWANNE.inc.src
+// //////////
+// Tilmann Reh <tilmann.reh@autometer.de>
+// Grundmakro: Kunststoffkörper von Pfostenwannen.
+// Verwendung für gerade und abgewinkelte Bauform jeweils in Verbindung mit entspr. Pinreihen.
+// Parameter: Breite. (Höhe/Tiefe sind konstant für alle Größen.)
+// Bezugspunkt: Mitte der Auflagefläche (gerade Ausführung).
+// Kunststoffkörper von Pfostenwannen
+#macro PFOSTENWANNE(B)
+union{
+difference{
+box{<-B/2,0.3,-4.2><B/2,9,4.5>}
+box{<-B/2+1,2.5,-3.2><B/2-1,10,3.5>}
+box{<-2.2,2,2.5><2.2,10,5>}
+box{<B/2-1.1,0,-1.75><B/2+0.1,6.5,1.75>}
+box{<-B/2+1.1,0,-1.75><-B/2-0.1,6.5,1.75>}}
+difference{
+box{<B/2-6.08,6,4><B/2-4.08,8,4.6>}
+box{<0,0,0><2,3,0.7> rotate<0,0,-30> translate<B/2-5.08,6,4>}
+box{<0,0,0><-2,3,0.7> rotate<0,0,30> translate<B/2-5.08,6,4>}}
+cylinder{<0,0.3,-4.2><0,8.5,-4.2> 0.3}
+sphere{<0,0.3,-3.2> 0.3}
+sphere{<0,0.3,3.2> 0.3}
+#local xc=7.62;
+#while (xc<B/2-1)
+cylinder{<xc,0.3,-4.2><xc,8.5,-4.2> 0.3}
+cylinder{<-xc,0.3,-4.2><-xc,8.5,-4.2> 0.3}
+sphere{<xc,0.3,-3.2> 0.3}
+sphere{<xc,0.3,3.2> 0.3}
+sphere{<-xc,0.3,-3.2> 0.3}
+sphere{<-xc,0.3,3.2> 0.3}
+#local xc=xc+7.62;
+#end
+texture {col_Wannen}}
+#end
+
+
+// ////////////////////////////////////////////////////////////
+// Original file: ./1_PHW2.inc.src
+// Designed by Friedrich Bleikamp, Lenord, Bauer & Co. Gmbh <fbleikamp@lenord.de>
+// Privat: <fbleikamp@web.de>
+// Pin für Stiftleisten Winkel obere Reihe
+// //////////
+#macro PHW2()
+union{
+//PIN Loetseite
+difference{
+box{<0,0,0><0.6,5.54,0.6> texture{col_gold} translate<-0.3,0,-0.3>}
+box{<0,0,-0.5><0.5,0.5,0.5> texture{col_gold} rotate<0,0,-30> translate<0.1,0,0>}
+box{<0,0,-0.5><-0.5,0.5,0.5> texture{col_gold} rotate<0,0,30> translate<-0.1,0,0>}
+box{<-0.5,0,0><0.5,0.5,0.5> texture{col_gold} rotate<30,0,0> translate<0,0,0.1>}
+box{<-0.5,0,0><0.5,0.5,-0.5> texture{col_gold} rotate<-30,0,0> translate<0,0,-0.1>}
+translate<0,-2.22,0>}
+//PIN Steckseite
+difference{
+box{<0,0,0><0.6,11.54,0.6> texture{col_gold} translate<-0.3,0,-0.3>}
+box{<0,0,-0.5><0.5,0.5,0.5> texture{col_gold} rotate<0,0,-60> translate<0.1,11.54,0>}
+box{<0,0,-0.5><-0.5,0.5,0.5> texture{col_gold} rotate<0,0,60> translate<-0.1,11.54,0>}
+box{<-0.5,0,0><0.5,0.5,0.5> texture{col_gold} rotate<60,0,0> translate<0,11.54,0.1>}
+box{<-0.5,0,0><0.5,0.5,-0.5> texture{col_gold} rotate<-60,0,0> translate<0,11.54,-0.1>}
+rotate<0,0,-90> translate<0.5,3.81,0>}
+//PIN Bogen
+difference{
+box{<0,0,0><0.6,0.4,0.4> texture{col_gold} translate<0,0.0,0.0>}
+cylinder{<-0.1,0,0><0.8,0,0>0.2 texture{col_gold} translate<0,0.0,0.0>}
+rotate<0,-90,0> translate<0.5,3.31,-0.3>}
+difference{
+cylinder{<0,0,0><0.6,0,0>0.8 texture{col_gold} translate<0,0,0> }
+box{<0,0,0><2,2.2,-2> texture{col_gold} translate<-0.1,0,-0.1>}
+box{<0,0,0><2,2.2,-2> texture{col_gold} translate<-0.1,-1.8,0.4>}
+rotate<0,-90,0> translate<0.5,3.31,-0.3>}
+//Kunststoff
+difference{
+box{<0,-2,-1.27><2,1.27,1.27> pigment{Gray30} translate<0,0,0>}
+box{<-0.5,-1,-1><2.5,1,1> pigment{Gray30} rotate<45,0,0> translate<0,1.76,1.76>}
+box{<-0.5,-1,-1><2.5,1,1> pigment{Gray30} rotate<45,0,0> translate<0,1.76,-1.76>}
+translate<4.04,3.81,0>}
+rotate<0,-90,0>
+}
+#end
+
+
+// ////////////////////////////////////////////////////////////
+// Original file: ./1_PHW.inc.src
+// Designed by Friedrich Bleikamp, Lenord, Bauer & Co. Gmbh <fbleikamp@lenord.de>
+// Privat: <fbleikamp@web.de>
+// Pin für Stiftleisten Winkel
+// //////////
+#macro PHW()
+union{
+//PIN Loetseite
+difference{
+box{<0,0,0><0.6,3,0.6> texture{col_gold} translate<-0.3,0,-0.3>}
+box{<0,0,-0.5><0.5,0.5,0.5> texture{col_gold} rotate<0,0,-30> translate<0.1,0,0>}
+box{<0,0,-0.5><-0.5,0.5,0.5> texture{col_gold} rotate<0,0,30> translate<-0.1,0,0>}
+box{<-0.5,0,0><0.5,0.5,0.5> texture{col_gold} rotate<30,0,0> translate<0,0,0.1>}
+box{<-0.5,0,0><0.5,0.5,-0.5> texture{col_gold} rotate<-30,0,0> translate<0,0,-0.1>}
+translate<0,-2.22,0>}
+//PIN Steckseite
+difference{
+box{<0,0,0><0.6,9,0.6> texture{col_gold} translate<-0.3,0,-0.3>}
+box{<0,0,-0.5><0.5,0.5,0.5> texture{col_gold} rotate<0,0,-60> translate<0.1,9,0>}
+box{<0,0,-0.5><-0.5,0.5,0.5> texture{col_gold} rotate<0,0,60> translate<-0.1,9,0>}
+box{<-0.5,0,0><0.5,0.5,0.5> texture{col_gold} rotate<60,0,0> translate<0,9,0.1>}
+box{<-0.5,0,0><0.5,0.5,-0.5> texture{col_gold} rotate<-60,0,0> translate<0,9,-0.1>}
+rotate<0,0,-90> translate<0.5,1.27,0>}
+//PIN Bogen
+difference{
+box{<0,0,0><0.6,0.4,0.4> texture{col_gold} translate<0,0.0,0.0>}
+cylinder{<-0.1,0,0><0.8,0,0>0.2 texture{col_gold} translate<0,0.0,0.0>}
+rotate<0,-90,0> translate<0.5,0.77,-0.3>}
+difference{
+cylinder{<0,0,0><0.6,0,0>0.8 texture{col_gold} translate<0,0,0> }
+box{<0,0,0><2,2.2,-2> texture{col_gold} translate<-0.1,0,-0.1>}
+box{<0,0,0><2,2.2,-2> texture{col_gold} translate<-0.1,-1.8,0.4>}
+rotate<0,-90,0> translate<0.5,0.77,-0.3>}
+//Kunststoff
+difference{
+box{<0,-1.27,-1.27><2,1.27,1.27> pigment{Gray30} translate<0,0,0>}
+box{<-0.5,-1,-1><2.5,1,1> pigment{Gray30} rotate<45,0,0> translate<0,1.76,1.76>}
+box{<-0.5,-1,-1><2.5,1,1> pigment{Gray30} rotate<45,0,0> translate<0,1.76,-1.76>}
+box{<-0.5,-1,-1><2.5,1,1> pigment{Gray30} rotate<45,0,0> translate<0,-1.76,-1.76>}
+box{<-0.5,-1,-1><2.5,1,1> pigment{Gray30} rotate<45,0,0> translate<0,-1.76,1.76>}
+translate<1.5,1.27,0>}
+rotate<0,-90,0>
+}
+#end
+
+
+// ////////////////////////////////////////////////////////////
+// Original file: ./1_PIN_BENDED.inc.src
+// Tilmann Reh <tilmann.reh@autometer.de>
+// Grundmakro: Um 90° gebogener, quadratischer Stift eines Steckverbinders.
+// Verwendung für abgewinkelte Pfostenwannen sowie z.B. Wago-Steckerleisten.
+// Parameter: Stärke, Biegeradius (Mitte), Höhe über/unter PCB-Oberkante, Länge nach vorn (-Z), Farbe
+// //////////
+#macro PIN_BENDED(D,R,HO,HU,L,col)
+union{
+difference{
+cylinder{<0,-D/2,0><0,D/2,0> R+D/2}
+cylinder{<0,-D,0><0,D,0> R-D/2}
+box{<-R-D,-D,-R-D><0,D,R+D>}
+box{<-R-D,-D,-R-D><R+D,D,0>}
+rotate<0,0,90> translate<0,HO-R,-R>}
+difference{
+box{<-D/2,-HU,-D/2><D/2,HO-R,D/2>}
+box{<0,0,-0.6*D><0.6*D,0.6*D,0.6*D> rotate<0,0,-45> translate<D/4,-HU,0>}
+box{<0,0,-0.6*D><-0.6*D,0.6*D,0.6*D> rotate<0,0,45> translate<-D/4,-HU,0>}
+box{<-0.6*D,0,0><0.6*D,0.6*D,0.6*D> rotate<45,0,0> translate<0,-HU,D/4>}
+box{<-0.6*D,0,0><0.6*D,0.6*D,-0.6*D> rotate<-45,0,0> translate<0,-HU,-D/4>}}
+difference{
+box{<-D/2,HO-D/2,-L><D/2,HO+D/2,-R>}
+box{<0,-0.6*D,0><0.6*D,0.6*D,0.6*D> rotate<0,45,0> translate<D/4,HO,-L>}
+box{<0,-0.6*D,0><-0.6*D,0.6*D,0.6*D> rotate<0,-45,0> translate<-D/4,HO,-L>}
+box{<-0.6*D,0,0><0.6*D,-0.6*D,-0.6*D> rotate<-45,0,0> translate<0,HO-D/4,-L>}
+box{<-0.6*D,0,0><0.6*D,0.6*D,-0.6*D> rotate<45,0,0> translate<0,HO+D/4,-L>}}
+texture{col}}
+#end
+
+
+// ////////////////////////////////////////////////////////////
+// Original file: ./1_PIN_STRAIGHT.inc.src
+// Tilmann Reh <tilmann.reh@autometer.de>
+// Grundmakro: Gerader, quadratischer Stift eines Steckverbinders.
+// Verwendung für gerade Pfostenwannen sowie z.B. Wago-Steckerleisten.
+// Parameter: Stärke, Höhe über/unter PCB-Oberkante, Farbe
+// Gerader, quadratischer Stift eines Steckverbinders
+// //////////
+#macro PIN_STRAIGHT(D,HO,HU,col)
+difference{
+box{<-D/2,-HU,-D/2><D/2,HO,D/2>}
+box{<-0.6*D,0,0><0.6*D,0.6*D,0.6*D> rotate<45,0,0> translate<0,HO,D/4>}
+box{<-0.6*D,0,0><0.6*D,0.6*D,-0.6*D> rotate<-45,0,0> translate<0,HO,-D/4>}
+box{<0,0,-0.6*D><0.6*D,0.6*D,0.6*D> rotate<0,0,-45> translate<D/4,HO,0>}
+box{<0,0,-0.6*D><-0.6*D,0.6*D,0.6*D> rotate<0,0,45> translate<-D/4,HO,0>}
+box{<0,0,-0.6*D><0.6*D,0.6*D,0.6*D> rotate<0,0,-45> translate<D/4,-HU,0>}
+box{<0,0,-0.6*D><-0.6*D,0.6*D,0.6*D> rotate<0,0,45> translate<-D/4,-HU,0>}
+box{<-0.6*D,0,0><0.6*D,0.6*D,0.6*D> rotate<45,0,0> translate<0,-HU,D/4>}
+box{<-0.6*D,0,0><0.6*D,0.6*D,-0.6*D> rotate<-45,0,0> translate<0,-HU,-D/4>}
+texture{col}}
+#end
+
+
+// ////////////////////////////////////////////////////////////
+// Original file: ./1_SMA_THREADS.inc.src
+//Threads for SMA
+//Duane Clark <dclark@akamail.com>
+// //////////
+#macro SMA_THREADS(od,id,pitch,len)
+difference
+{
+  #local ParAMin = id/2;
+  #local ParAMax = od/2;
+  #local ParBMin = 0;
+  #local ParBMax = 2*pi;
+  #local ParCMin = 0;
+  #local ParCMax = 1;
+  #local td = ParAMax-ParAMin; // thread depth
+  #local threads = len/pitch;
+
+  union
+  {
+    #local i = 0;
+    #while(i<threads)
+      cone{<0,0,i*pitch> id/2 <0,0,(i+0.5)*pitch> od/2}
+      cone{<0,0,(i+0.5)*pitch> od/2 <0,0,(i+1)*pitch> id/2}
+      #local i = i+1;
+    #end
+  }
+
+  // trim the left end
+  difference
+  {
+    cylinder{<0,0,-1.1*pitch><0,0,td*0.99> 1.1*od/2}
+    cone{<0,0,0> id/2 <0,0,td> id/1.99+td}
+  }
+  // trim the right end
+  difference
+  {
+    cylinder{<0,0,len-0.99*td><0,0,len+pitch*2> 1.1*od/2}
+    cone{<0,0,len-td> id/1.99+td <0,0,len> id/2}
+  }
+}
+#end
+
+
+// ////////////////////////////////////////////////////////////
+// Original file: ./2_PH.inc.src
+// Pin für Stiftleisten
+// //////////
+#macro PH()
+union{
+object{PIN_STRAIGHT(0.5,9,3,col_gold)}
+difference{
+box{<0,0,0><2.54,2,2.54> pigment{Gray30} translate<-1.27,0,-1.27>}
+box{<0,-0.5,0><1,2.5,1> pigment{Gray30} rotate<0,45,0> translate<0.635,0,1.27>}
+box{<0,-0.5,0><1,2.5,1> pigment{Gray30} rotate<0,-45,0> translate<-1.27,0,0.635>}
+box{<0,-0.5,0><1,2.5,1> pigment{Gray30} rotate<0,45,0> translate<0.635,0,-1.27>}
+box{<0,-0.5,0><1,2.5,1> pigment{Gray30} rotate<0,-135,0> translate<-0.635,0,-1.27>}
+box{<-0.635,-0.1,-1.3><0.635,0.5,1.3> pigment{Gray30} rotate<0,0,0> translate<0,0,0>}
+box{<-1.3,-0.1,-0.635><1.3,0.5,0.635> pigment{Gray30} rotate<0,0,0> translate<0,0,0>}
+}}
+#end
+
+
+// ////////////////////////////////////////////////////////////
+// Original file: ./2_PIN_BENDED_ROW.inc.src
+// Tilmann Reh <tilmann.reh@autometer.de>
+// Grundmakro: Reihe gebogener quadratischer Stifte z.B. für Pfostenwannen oder Wago-Stecker.
+// Parameter: Anzahl Pins, Pitch, Stärke, Radius, Höhen über/unter PCB, Länge, Farbe.
+// Bezugspunkt: Mitte der Pinreihe.
+// Reihe gebogener quadratischer Stifte
+// //////////
+#macro PIN_BENDED_ROW(Pins,Pitch,D,R,HO,HU,L,col)
+union{
+#local i=0;
+#while(i<Pins) object{PIN_BENDED (D,R,HO,HU,L,col) translate<i*Pitch,0,0>} #local i=i+1; #end
+translate<-(Pins-1)*Pitch/2,0,0>}
+#end
+
+
+// ////////////////////////////////////////////////////////////
+// Original file: ./2_PIN_STRAIGHT_ROW.inc.src
+// //////////
+// Tilmann Reh <tilmann.reh@autometer.de>
+// Grundmakro: Reihe gerader quadratischer Stifte z.B. für Pfostenwannen oder Wago-Stecker.
+// Parameter: Anzahl Pins, Pitch, Stärke, Höhen über/unter PCB, Farbe.
+// Bezugspunkt: Mitte der Pinreihe.
+// Reihe gerader quadratischer Stifte
+#macro PIN_STRAIGHT_ROW(Pins,Pitch,D,HO,HU,col)
+union{
+#local i=0;
+#while(i<Pins) object{PIN_STRAIGHT (D,HO,HU,col) translate<i*Pitch,0,0>} #local i=i+1; #end
+translate<-(Pins-1)*Pitch/2,0,0>}
+#end
+
+
+// ////////////////////////////////////////////////////////////
+// Original file: ./2_SMA_JACK.inc.src
+// SMA
+// Duane Clark <dclark@akamail.com>
+// //////////
+#macro SMA_JACK(l)
+union
+{
+  difference
+  {
+    union
+    {
+      object{SMA_THREADS(6.35,5.38,0.71,3.56)
+        rotate<0,0,-90>
+        translate<0,0,0.76>
+      }
+      cylinder{<0,0,0> <0,0,l> 2.69 }
+    }
+    cylinder{<0,0,-0.1> <0,0,l+0.1> 2.3 }
+  }
+  difference
+  {
+    cylinder{<0,0,1.93> <0,0,4> 2.3 pigment{White}}
+    cylinder{<0,0,1.9> <0,0,3.9> 0.92 pigment{White}}
+  }
+  difference
+  {
+    cylinder{<0,0,1.95> <0,0,3.6> 0.90}
+    cylinder{<0,0,1.9> <0,0,3.5> 0.70}
+  }
+  texture{col_gold}
+}
+#end
