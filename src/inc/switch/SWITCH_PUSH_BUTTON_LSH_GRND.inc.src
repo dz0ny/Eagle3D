@@ -12,7 +12,7 @@ LSH80:0:0:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SWITCH_PUSH_BU
 LSH95:0:0:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SWITCH_PUSH_BUTTON_LSH95(:Taster Schurter Typ LSH 1301.9319 Höhe 9.5 mm:Switch Schurter Typ LSH 1301.9319 height 9.5 mm
 LSH125:0:0:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SWITCH_PUSH_BUTTON_LSH125(:Taster Schurter Typ LSH 1301.9320 Höhe 12.5 mm:switch Schurter Typ LSH 1301.9320 height 12.5 mm
 ####################################################################################################
-SWITCH_PUSH_BUTTON_LSH
+SWITCH_PUSH_BUTTON_LSH_GRND
 (height,dia_top)
 ####################################################################################################
 // Schurter-Best-Nr. LSH 1301.9314, Reichelt-Best.Nr.: Taster 9314 Höhe 4,3mm
@@ -61,7 +61,7 @@ union
 	cylinder {<0,0,0><0,0.2,0>0.3 translate<-2,3.6,2>}
 	cylinder {<0,0,0><0,0.2,0>0.3 translate<2,3.6,-2>}
 	cylinder {<0,0,0><0,0.2,0>0.3 translate<2,3.6,2>}
-	
+
 	cone {<0,3.6,0> 1.7 <0,height-0.2,0> dia_top/2 }
 	torus {dia_top/2-0.2, 0.2 translate<0,height-0.2,0>}
 	cylinder {<0, height-0.2,0><0, height,0>,dia_top/2-0.2}
