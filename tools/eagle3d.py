@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 import ConfigParser
-from optparse import OptionParser, OptionGroup, Option
+from optparse import OptionParser, OptionGroup, Option, make_option
 
 import datetime
 import fnmatch
@@ -376,32 +376,6 @@ class HtmlFileWriter:
 
 ###############################################################################
 #
-#class _OptionParser(OptionParser):
-	#def __init__(self,
-	             #usage=None,
-	             #option_list=None,
-	             #option_class=Option,
-	             #version=None,
-	             #conflict_handler="error",
-	             #description=None,
-	             #formatter=None,
-	             #add_help_option=True,
-	             #prog=None,
-	             #epilog=None):
-		#OptionParser.__init__(self,
-		                      #usage,
-		                      #option_list,
-		                      #option_class,
-		                      #version,
-		                      #conflict_handler,
-		                      #description,
-		                      #formatter,
-		                      #add_help_option,
-		                      #prog,
-		                      #epilog)
-
-###############################################################################
-#
 class _ConfigParser(ConfigParser.SafeConfigParser):
 
 	filepath = None
@@ -502,7 +476,9 @@ class _ConfigParser(ConfigParser.SafeConfigParser):
 			self.init_config()
 
 	def write_config(self):
-		pfile = open(self.filepath, 'wb')
+		if os.path.exists(self.filepath):
+			os.remove(self.filepath)
+		pfile = open(self.filepath, "w")
 		self.write(pfile)
 		pfile.close()
 
@@ -568,6 +544,226 @@ class _ConfigParser(ConfigParser.SafeConfigParser):
 		self.set(section, 'convert',                          str(which('convert')))
 		self.set(section, 'montage',                          str(which('montage')))
 
+
+###############################################################################
+#
+class _OptionsParser():
+
+	option_list = None
+	group_description = None
+	parser = None
+
+	def __init__(self):
+		self.get_option_list()
+
+		self.parser = OptionParser(usage=None,
+		                           version="%prog v"+SCRIPT_VERSION,
+		                           add_help_option=False,
+		                           option_list=self.option_list['none'])
+
+		for option_list_key in self.group_description.keys():
+			group = OptionGroup(self.parser, option_list_key, self.group_description[option_list_key])
+			for opt in self.option_list[option_list_key]:
+				group.add_option(opt)
+			self.parser.add_option_group(group)
+
+
+	def handle_command_line(self):
+
+		usage_string = """Usage: %prog [ACTION] [options]
+
+%prog is a administrative utility used to generate, test and release Eagle3D.
+Two options may be used without an action:
+  --rewrite-config
+  --recheck-config
+
+  ACTION       The administrative action to be performed."""
+
+		group_description_keys = self.group_description.keys()
+		group_description_keys.sort()
+
+		for group_description_key in group_description_keys:
+			usage_string = usage_string + "\n  " + group_description_key.ljust(13) + self.group_description[group_description_key]
+
+		self.parser.set_usage(usage_string)
+
+		#parse the command line arguments
+		(options, args) = self.parser.parse_args()
+
+		#load the config
+		config.read_config()
+		if not config.config_exists():
+			config.update_options(options)
+			config.write_config()
+
+		#if the command line arg is set, reset the system section of config
+		if options.recheck_config:
+			config.set_system_config()
+			config.write_config()
+
+		#apply any command line arguments to the options
+		config.update_options(options, self.parser.get_default_values())
+
+		if options.rewrite_config:
+			config.write_config()
+
+		# check for an action
+		action = None
+		if len(sys.argv) > 1 and sys.argv[1] in self.group_description.keys():
+			action = sys.argv[1]
+		else:
+			#exit normally if no action was required
+			if options.rewrite_config or options.recheck_config:
+				sys.exit(0)
+			else:
+				parser.print_help()
+				sys.exit(1)
+
+		if options.help or action == 'help':
+			parser.print_help()
+			sys.exit(0)
+
+		if options.helpall or action == 'helpall':
+			for action in optiongroups_keys:
+				parser.add_option_group(optiongroups[action])
+			parser.print_help()
+			sys.exit(0)
+
+		return action, options
+
+	def get_option_list(self):
+		if self.option_list != None:
+			return self.option_list
+
+		self.option_list = {}
+		self.group_description = {}
+
+		key = "none"
+		self.option_list[key] = []
+		self.option_list[key].append(make_option("-h", "--help",
+		                                       action="store_true", dest="help", default=False,
+		                                       help="show basic help message and exit."))
+		self.option_list[key].append(make_option("--helpall",
+												action="store_true", dest="helpall", default=False,
+												help="show help messages for all commands and exit."))
+		self.option_list[key].append(make_option("--noconsole",
+												action="store_true", dest="noconsole", default=False,
+												help="do not print to console, only to log file (default is %default)."))
+		self.option_list[key].append(make_option("-q", "--quiet",
+												action="store_true", dest="quiet", default=False,
+												help="do not print 'no errors' message (default is %default)."))
+		self.option_list[key].append(make_option("-s", "--silent",
+												action="store_true", dest="silent", default=False,
+												help="print and log nothing, return non-zero on any error (default is %default)."))
+		self.option_list[key].append(make_option("--rewrite-config",
+												action="store_true", dest="rewrite_config", default=False,
+												help="overwrite the existing configuration file, replacing it with defaults and rechecking paths"))
+		self.option_list[key].append(make_option("--recheck-config",
+												action="store_true", dest="recheck_config", default=False,
+												help="overwrite the existing system section of the configuration file, rechecking the paths"))
+		self.option_list[key].append(make_option("--dry-run",
+												action="store_true", dest="dryrun", default=False,
+												help="do not perform some actions, only print what would have been done (default is %default)."))
+		self.option_list[key].append(make_option("-d", "--debug",
+												action="count", dest="debugmode", default=0,
+												help="""run in debugging mode.
+this option may be used multiple times.
+one will count the number of times each line is executed.
+two will output a trace of each line as it is being counted.
+three will output a list of functions that were called at least once.
+this option default is %default"""))
+
+
+		key = "help"
+		self.group_description[key] = "show basic help message and exit."
+		self.option_list[key] = []
+
+
+		key = "helpall"
+		self.group_description[key] = "show help messages for all commands and exit."
+		self.option_list[key] = []
+
+
+		key = "clean"
+		self.group_description[key] = "remove previous attempts to create an eagle3d distribution."
+		self.option_list[key] = []
+
+
+		key = "create"
+		self.group_description[key] = "create an eagle3d distribution."
+		self.option_list[key] = []
+		self.option_list[key].append(make_option("--create-mask",
+												action="store", dest="create_mask", default="*.inc.src", metavar="[STRING]",
+												help="name mask of files to process (default is %default)."))
+
+
+		key = "verify"
+		self.group_description[key] = "verify that include files are the correct format."
+		self.option_list[key] = []
+		self.option_list[key].append(make_option("--verify-mask",
+												action="store", dest="verify_mask", default="*.inc.src", metavar="[STRING]",
+												help="name mask of files to process (default is %default)."))
+		self.option_list[key].append(make_option("--full-check",
+												action="store_true", dest="verify_full_check", default=False,
+												help="when verifying, also check sub-macros (default is %default)."))
+
+
+		key = "release"
+		self.group_description[key] = "set VERSION variable in files and create archives."
+		self.option_list[key] = []
+		self.option_list[key].append(make_option("--name",
+												action="store", dest="release_name", metavar="[STRING]",
+												help="the name used when creating release archives."))
+
+		key = "render"
+		self.group_description[key] = "render example images for Eagle3D parts."
+		self.option_list[key] = []
+		self.option_list[key].append(make_option("-x", "--size-x",
+												action="store", dest="render_size_x", default=640, metavar="[INT]", type="int",
+												help="x size (width) of rendered images (default is %default)."))
+		self.option_list[key].append(make_option("-y", "--size-y",
+												action="store", dest="render_size_y", default=480, metavar="[INT]", type="int",
+												help="y size (height) of rendered images (default is %default)."))
+		self.option_list[key].append(make_option("--anti-alias",
+												action="store", dest="render_aa", default=0.3, metavar="[FLOAT]", type="float",
+												help="anti-alias value of rendered images (default is %default)."))
+		self.option_list[key].append(make_option("--processes",
+												action="store", dest="render_procs", default=16, metavar="[INT]", type="int",
+												help="number of rendering processes to spawn (default is %default)."))
+		self.option_list[key].append(make_option("--render-mask",
+												action="store", dest="render_mask", default="*.pov", metavar="[STRING]",
+												help="name mask of files to process (default is %default)."))
+		self.option_list[key].append(make_option("--noclobber",
+												action="store_true", dest="render_noclobber", default=False,
+												help="do not render files that exist (default is %default)."))
+		self.option_list[key].append(make_option("--render-cols",
+												action="store", dest="render_colsperpage", default=15, metavar="[INT]", type="int",
+												help="number of images to render per column on each page of the gallery (default is %default)."))
+		self.option_list[key].append(make_option("--render-rows",
+												action="store", dest="render_rowsperpage", default=10, metavar="[INT]", type="int",
+												help="number of images to render per row on each page of the gallery (default is %default)."))
+
+		key = "renderhtml"
+		self.group_description[key] = "generate an HTML digest of parts from rendered example images."
+		self.option_list[key] = []
+		self.option_list[key].append(make_option("--thumb-size-x",
+												action="store", dest="renderhtml_thumb_size_x", default=64, metavar="[INT]", type="int",
+												help="x size (width) of thumbnail images"))
+		self.option_list[key].append(make_option("--thumb-size-y",
+												action="store", dest="renderhtml_thumb_size_y", default=48, metavar="[INT]", type="int",
+												help="y size (height) of thumbnail images"))
+		self.option_list[key].append(make_option("--renderhtml-cols",
+												action="store", dest="renderhtml_cols", default=15, metavar="[INT]", type="int",
+												help="number of thumbnail image columns per row"))
+		self.option_list[key].append(make_option("--renderhtml-rows",
+												action="store", dest="renderhtml_rows", default=10, metavar="[INT]", type="int",
+												help="number of images to render per row on each page of the gallery (default is %default)"))
+
+		key = "env"
+		self.group_description[key] = "dump environmental settings."
+		self.option_list[key] = []
+
+		return self.option_list
 
 
 ###############################################################################
@@ -1686,196 +1882,6 @@ class _Worker:
 		                               eagle3d_templates.renderhtml_index_footer_template)
 
 
-def get_optionsparser():
-
-	parser = OptionParser(usage=None,
-	                      version="%prog v"+SCRIPT_VERSION,
-	                      add_help_option=False)
-	parser.add_option("-h", "--help",
-	                  action="store_true", dest="help", default=False,
-	                  help="show basic help message and exit.")
-	parser.add_option("--helpall",
-	                  action="store_true", dest="helpall", default=False,
-	                  help="show help messages for all commands and exit.")
-	parser.add_option("--noconsole",
-	                  action="store_true", dest="noconsole", default=False,
-	                  help="do not print to console, only to log file (default is %default).")
-	parser.add_option("-q", "--quiet",
-	                  action="store_true", dest="quiet", default=False,
-	                  help="do not print 'no errors' message (default is %default).")
-	parser.add_option("-s", "--silent",
-	                  action="store_true", dest="silent", default=False,
-	                  help="print and log nothing, return non-zero on any error (default is %default).")
-	parser.add_option("--rewrite-config",
-	                  action="store_true", dest="rewrite_config", default=False,
-	                  help="overwrite the existing configuration file, replacing it with defaults and rechecking paths")
-	parser.add_option("--recheck-config",
-	                  action="store_true", dest="recheck_config", default=False,
-	                  help="overwrite the existing system section of the configuration file, rechecking the paths")
-	parser.add_option("--dry-run",
-	                  action="store_true", dest="dryrun", default=False,
-	                  help="do not perform some actions, only print what would have been done (default is %default).")
-	parser.add_option("-d", "--debug",
-	                  action="count", dest="debugmode", default=0,
-	                  help="""run in debugging mode.
-this option may be used multiple times.
-one will count the number of times each line is executed.
-two will output a trace of each line as it is being counted.
-three will output a list of functions that were called at least once.
-this option default is %default""")
-
-	return parser
-
-
-def get_optiongroups(parser):
-
-	optiongroups = {}
-
-	og = OptionGroup(parser, "help", "show basic help message and exit.")
-	optiongroups["help"] = og
-
-	og = OptionGroup(parser, "helpall", "show help messages for all commands and exit.")
-	optiongroups["helpall"] = og
-
-	og = OptionGroup(parser, "clean", "remove previous attempts to create an eagle3d distribution.")
-	optiongroups["clean"] = og
-
-	og = OptionGroup(parser, "create", "create an eagle3d distribution.")
-	og.add_option("--create-mask",
-	              action="store", dest="create_mask", default="*.inc.src", metavar="[STRING]",
-	              help="name mask of files to process (default is %default).")
-	optiongroups["create"] = og
-
-	og = OptionGroup(parser, "verify", "verify that include files are the correct format.")
-	og.add_option("--verify-mask",
-	              action="store", dest="verify_mask", default="*.inc.src", metavar="[STRING]",
-	              help="name mask of files to process (default is %default).")
-	og.add_option("--full-check",
-	              action="store_true", dest="verify_full_check", default=False,
-	              help="when verifying, also check sub-macros (default is %default).")
-	optiongroups["verify"] = og
-
-	og = OptionGroup(parser, "release", "set VERSION variable in files and create archives.")
-	og.add_option("--name",
-	              action="store", dest="release_name", metavar="[STRING]",
-	              help="the name used when creating release archives.")
-	optiongroups["release"] = og
-
-	og = OptionGroup(parser, "render", "render example images for Eagle3D parts.")
-	og.add_option("-x", "--size-x",
-	              action="store", dest="render_size_x", default="640", metavar="[INT]", type="int",
-	              help="x size (width) of rendered images (default is %default).")
-	og.add_option("-y", "--size-y",
-	              action="store", dest="render_size_y", default="480", metavar="[INT]", type="int",
-	              help="y size (height) of rendered images (default is %default).")
-	og.add_option("--anti-alias",
-	              action="store", dest="render_aa", default="0.3", metavar="[FLOAT]", type="float",
-	              help="anti-alias value of rendered images (default is %default).")
-	og.add_option("--processes",
-	              action="store", dest="render_procs", default="16", metavar="[INT]", type="int",
-	              help="number of rendering processes to spawn (default is %default).")
-	og.add_option("--render-mask",
-	              action="store", dest="render_mask", default="*.pov", metavar="[STRING]",
-	              help="name mask of files to process (default is %default).")
-	og.add_option("--noclobber",
-	              action="store_true", dest="render_noclobber", default=False,
-	              help="do not render files that exist (default is %default).")
-	og.add_option("--render-cols",
-	              action="store", dest="render_colsperpage", default="15", metavar="[INT]", type="int",
-	              help="number of images to render per column on each page of the gallery (default is %default).")
-	og.add_option("--render-rows",
-	              action="store", dest="render_rowsperpage", default="10", metavar="[INT]", type="int",
-	              help="number of images to render per row on each page of the gallery (default is %default).")
-	optiongroups["render"] = og
-
-	og = OptionGroup(parser, "renderhtml", "generate an HTML digest of parts from rendered example images.")
-	og.add_option("--thumb-size-x",
-	              action="store", dest="renderhtml_thumb_size_x", default="64", metavar="[INT]", type="int",
-	              help="x size (width) of thumbnail images")
-	og.add_option("--thumb-size-y",
-	              action="store", dest="renderhtml_thumb_size_y", default="48", metavar="[INT]", type="int",
-	              help="y size (height) of thumbnail images")
-	og.add_option("--renderhtml-cols",
-	              action="store", dest="renderhtml_cols", default="15", metavar="[INT]", type="int",
-	              help="number of thumbnail image columns per row")
-	og.add_option("--renderhtml-rows",
-	              action="store", dest="renderhtml_rows", default="10", metavar="[INT]", type="int",
-	              help="number of images to render per row on each page of the gallery (default is %default)")
-	optiongroups["renderhtml"] = og
-
-	og = OptionGroup(parser, "env", "dump environmental settings.")
-	optiongroups["env"] = og
-
-	return optiongroups
-
-
-def handle_command_line(optionsparser, optiongroups):
-
-	usage_string = """Usage: %prog [ACTION] [options]
-
-  %prog is a administrative utility used to generate, test and release Eagle3D.
-  Two options may be used without an action:
-    --rewrite-config
-    --recheck-config
-
-  ACTION       The administrative action to be performed."""
-
-	optiongroups_keys = optiongroups.keys()
-	optiongroups_keys.sort()
-
-	for action in optiongroups_keys:
-		usage_string = usage_string + "\n  " + action.ljust(13) + optiongroups[action].get_description()
-
-	parser.set_usage(usage_string)
-
-	#parse the command line arguments
-	(options, args) = parser.parse_args()
-
-	#load the config
-	config.read_config()
-	if not config.config_exists():
-		config.update_options(options)
-		config.write_config()
-
-	#if the command line arg is set, reset the system section of config
-	if options.recheck_config:
-		config.set_system_config()
-		config.write_config()
-
-	#apply any command line arguments to the options
-	config.update_options(options, parser.get_default_values())
-
-	if options.rewrite_config:
-		config.write_config()
-
-	# check for an action
-	action = None
-	if len(sys.argv) > 1 and sys.argv[1] in optiongroups.keys():
-		action = sys.argv[1]
-	else:
-		#exit normally if no action was required
-		if options.rewrite_config or options.recheck_config:
-			sys.exit(0)
-		else:
-			parser.print_help()
-			sys.exit(1)
-
-	if options.help or action == 'help':
-		parser.print_help()
-		sys.exit(0)
-
-	if options.helpall or action == 'helpall':
-		for action in optiongroups_keys:
-			parser.add_option_group(optiongroups[action])
-		parser.print_help()
-		sys.exit(0)
-
-	return action, options
-
-
-#config = None
-#worker = None
-
 ###############################################################################
 # entry
 # this constuct allows the file to be imported as a module as well as executed.
@@ -1887,11 +1893,13 @@ if __name__ == "__main__":
 	worker = _Worker()
 	worker.timestamp = datetime.datetime.now()
 
-	parser = get_optionsparser()
-	#why do we need an instance of OptionsParser to greate OptionGroup instances?
-	groups = get_optiongroups(parser)
+	optparser = _OptionsParser()
+	action, options = optparser.handle_command_line()
+	#parser = get_optionsparser()
+	##why do we need an instance of OptionsParser to greate OptionGroup instances?
+	#groups = get_optiongroups(parser)
+	#action, options = handle_command_line(parser, groups)
 
-	action, options = handle_command_line(parser, groups)
 
 	logger = logging.getLogger(action)
 
