@@ -1,8 +1,9 @@
 #! /usr/bin/env python
 # -*- coding: utf-8 -*-
 
-from optparse import OptionParser, OptionGroup
 import ConfigParser
+from optparse import OptionParser, OptionGroup, Option
+
 import datetime
 import fnmatch
 import glob
@@ -72,9 +73,26 @@ def subprocess_call(command, cwd=None):
 	return subprocess.call(command, cwd=cwd, stdout=NULL, stderr=NULL)
 
 
+#def parse_inc_src(inc_src_content=[], inc_src_block=0):
+	#result = []
+	#inc_src_content_len = len(inc_src_content)
+	#inc_src_index = 1
+	#inc_src_block_index = 0
+	#while inc_src_index<inc_src_content_len and inc_src_block_index != inc_src_block:
+		#if inc_src_content[inc_src_index][:20] == "#"*20:
+			#inc_src_block_index = inc_src_block_index+1
+		#inc_src_index = inc_src_index+1
+	#while inc_src_index<inc_src_content_len and inc_src_content[inc_src_index][:20] != "#"*20:
+		#result.append(inc_src_content[inc_src_index])
+		#inc_src_index = inc_src_index+1
+	#return result
+
 ########################################
 #
-"""
+class IncludeParser(object):
+	"""
+This routine is in global so that it can be accessed from the iteration objects easily.
+
 *.src.inc format:
 Part name (Currently ignored, only one line)
 //Comments inserted before the macro (always prefixed by "//")
@@ -90,23 +108,47 @@ Parameter list for main macro
 ################################################################
 ################################################################
 Actual macro
-
-
 """
-def parse_inc_src(inc_src_content=[], inc_src_block=0):
-	result = []
-	inc_src_content_len = len(inc_src_content)
-	inc_src_index = 1
-	inc_src_block_index = 0
-	while inc_src_index<inc_src_content_len and inc_src_block_index != inc_src_block:
-		if inc_src_content[inc_src_index][:20] == "#"*20:
-			inc_src_block_index = inc_src_block_index+1
-		inc_src_index = inc_src_index+1
-	while inc_src_index<inc_src_content_len and inc_src_content[inc_src_index][:20] != "#"*20:
-		result.append(inc_src_content[inc_src_index])
-		inc_src_index = inc_src_index+1
-	return result
 
+	error_count = 0
+
+	def __init__(self, filepath):
+		f = open(filepath, 'r')
+		self.content = f.read()
+		self.content = self.content.split("\n")
+		f.close()
+
+	def get_error_count(self):
+		return self.error_count
+
+	def parse_inc_src(self, block=0):
+		result = []
+		content_len = len(self.content)
+		index = 1
+		block_index = 0
+		while index<content_len and block_index != block:
+			if self.content[index][:20] == "#"*20:
+				block_index = block_index+1
+			index = index+1
+		while index<content_len and self.content[index][:20] != "#"*20:
+			result.append(self.content[index])
+			index = index+1
+		return result
+
+	def get_all_submacros(self):
+		macros = []
+		for i in self.parse_inc_src(3):
+			if i.strip() == '' or i[:2] == "//" or i[:1] == "(":
+				pass
+			else:
+				#split on left paren to get the macro name only
+				i_split = i.split('(')
+				if len(i_split) > 1:
+					macros.append(i_split[0].strip())
+				else:
+					logger.info("ERROR: "+filepath+'; line: '+i)
+					self.error_count = self.error_count+1
+		return macros
 
 ###############################################################################
 #
@@ -334,6 +376,32 @@ class HtmlFileWriter:
 
 ###############################################################################
 #
+#class _OptionParser(OptionParser):
+	#def __init__(self,
+	             #usage=None,
+	             #option_list=None,
+	             #option_class=Option,
+	             #version=None,
+	             #conflict_handler="error",
+	             #description=None,
+	             #formatter=None,
+	             #add_help_option=True,
+	             #prog=None,
+	             #epilog=None):
+		#OptionParser.__init__(self,
+		                      #usage,
+		                      #option_list,
+		                      #option_class,
+		                      #version,
+		                      #conflict_handler,
+		                      #description,
+		                      #formatter,
+		                      #add_help_option,
+		                      #prog,
+		                      #epilog)
+
+###############################################################################
+#
 class _ConfigParser(ConfigParser.SafeConfigParser):
 
 	filepath = None
@@ -443,7 +511,7 @@ class _ConfigParser(ConfigParser.SafeConfigParser):
 		section = 'general'
 		if not self.has_section(section):
 			self.add_section(section)
-		self.set(section, 'src_inc_file_ignore_list',         's:pre.pre, pos.pos')
+		self.set(section, 'src_inc_file_ignore_list',         's:pre.pre, pos.pos, *_tools.inc.src')
 		self.set(section, 'src_inc_dir_ignore_list',          's:.*')
 		self.set(section, 'src_inc_extension',                's:.inc.src')
 		self.set(section, 'inc_extension',                    's:.inc')
@@ -484,7 +552,6 @@ class _ConfigParser(ConfigParser.SafeConfigParser):
 		self.set(section, 'j',                                '1')
 
 	def set_system_config(self):
-
 		section = 'system'
 		if not self.has_section(section):
 			self.add_section(section)
@@ -616,8 +683,12 @@ class env:
 
 
 class iterate_dir(object):
+	ignore_dir_list = None
+	ignore_file_list = None
 
-	def __init__(self, quiet):
+	def __init__(self, ignore_dir_list=None, ignore_file_list=None,  quiet=False):
+		self.ignore_dir_list = ignore_dir_list
+		self.ignore_file_list = ignore_file_list
 		self.quiet = quiet
 		object.__init__(self)
 
@@ -635,15 +706,18 @@ class iterate_dir(object):
 		for rootdir, dirlist, filelist in os.walk(topdir):
 			rootdir_basename = os.path.basename(rootdir)
 
-			skip_dir = False
-			for pattern in config._get('src_inc_dir_ignore_list'):
-				if fnmatch.fnmatch(rootdir_basename, pattern):
-					#do not recurse
-					dirlist[:]=[]
-					#skip this directory, continue will just skip to the next pattern
-					skip_dir = True
+			skip = False
+			if self.ignore_dir_list:
+				for pattern in self.ignore_dir_list:
+					if fnmatch.fnmatch(rootdir_basename, pattern):
+						#do not recurse
+						dirlist[:]=[]
+						#skip this directory, continue will just skip to the next pattern
+						skip = True
+						#if not self.quiet:
+							#logger.info("ignoring "+rootdir_basename)
 
-			if skip_dir:
+			if skip:
 				continue
 
 			# skip the base directory
@@ -656,11 +730,16 @@ class iterate_dir(object):
 
 			filelist.sort()
 			for f in filelist:
-				#ignore files
-				if f in config._get('src_inc_file_ignore_list'):
-					continue
+				skip = False
+				if self.ignore_file_list:
+					for pattern in self.ignore_file_list:
+						if fnmatch.fnmatch(f, pattern):
+							skip = True
 
-				#self.on_each_file(rootdir, f)
+				if skip:
+					#if not self.quiet:
+						#logger.info("ignoring "+f)
+					continue
 				self.on_each_file(os.path.join(rootdir, f))
 
 			self.on_each_rootdir_post(rootdir)
@@ -702,7 +781,7 @@ class _Worker:
 
 		####################
 		#
-		logger.info("collecting macro names...")
+		logger.info("collecting submacro names...")
 		class iterate_dir1(iterate_dir):
 			all_errors_found = 0
 			all_inc_macros = []
@@ -717,23 +796,15 @@ class _Worker:
 				filepath_subdir = os.path.basename(os.path.dirname(filepath))
 				filepath_rel = os.path.join(filepath_subdir, filepath_basename)
 
-				f_inc_src = open(filepath, 'r')
-				content = f_inc_src.read()
-				f_inc_src.close()
-				content = content.split("\n")
-				index = 0
+				incsrc = IncludeParser(filepath)
 
-				for i in parse_inc_src(content, 3):
-					if i.strip() == '' or i[:2] == "//" or i[:1] == "(":
-						pass
-					else:
-						#split on left paren to get the macro name only
-						i_split = i.split('(')
-						if len(i_split) > 1:
-							self.all_inc_macros.append(i_split[0].strip())
-						else:
-							logger.info("ERROR: "+filepath+'; line: '+i)
-							errors_found = errors_found+1
+				submacros = incsrc.get_all_submacros()
+				if len(submacros) == 0:
+					logger.info(filepath_rel+': no submacros!')
+				else:
+					for i in submacros: self.all_inc_macros.append(i)
+
+				errors_found = incsrc.get_error_count()
 
 				if not quiet and errors_found<1:
 					logger.info(filepath_rel+': no errors found.')
@@ -741,12 +812,11 @@ class _Worker:
 				if errors_found:
 					self.all_errors_found = self.all_errors_found+errors_found
 
-		it = iterate_dir1(quiet)
+		it = iterate_dir1(config._get('src_inc_dir_ignore_list'), config._get('src_inc_file_ignore_list'), quiet)
 		it.start(env.SRCDIR_INC)
 
 		logger.info("total of %s macros"%(str(len(it.all_inc_macros))))
 		logger.info('')
-
 
 		logger.info("checking defined macros against used macros...")
 
@@ -814,13 +884,9 @@ class _Worker:
 					logger.info(filepath_rel+': file name is inconsistant with naming rules, expected suffix %s.'%self.src_inc_suffix)
 					errors_found = errors_found+1
 
-				f_inc_src = open(filepath, 'r')
-				content = f_inc_src.read()
-				f_inc_src.close()
-				content = content.split("\n")
-				index = 0
+				incsrc = IncludeParser(filepath)
 
-				for i in parse_inc_src(content, 2):
+				for i in incsrc.parse_inc_src(2):
 					if i.strip() == '' or i[:2] == "//" or i[:1] == "(":
 						pass
 					else:
@@ -829,7 +895,7 @@ class _Worker:
 							errors_found = errors_found+1
 
 				if verify_full_check:
-					for i in parse_inc_src(content, 3):
+					for i in incsrc.parse_inc_src(3):
 						if i.strip() == '' or i[:2] == "//" or i[:1] == "(":
 							pass
 						else:
@@ -848,7 +914,7 @@ class _Worker:
 				if errors_found != None:
 					self.all_errors_found = self.all_errors_found+errors_found
 
-		it = iterate_dir2(quiet)
+		it = iterate_dir2(config._get('src_inc_dir_ignore_list'), config._get('src_inc_file_ignore_list'), quiet)
 		it.start(env.SRCDIR_INC)
 		if it.all_errors_found == 0:
 			logger.info("no errors found")
@@ -926,14 +992,26 @@ class _Worker:
 				f_inc.write("\n")
 
 				# include global .pre file
+				if not quiet: logger.info("including global pre file")
 				f_global_inc_pre = open(os.path.join(env.SRCDIR_DATA, "pre.pre"), 'r')
 				f_inc.write(f_global_inc_pre.read())
 				f_global_inc_pre.close()
 
 				# include local .pre file
+				if not quiet: logger.info("including local pre file for "+rootdir_basename)
 				f_local_inc_pre = open(os.path.join(env.SRCDIR_INC, rootdir_basename, "pre.pre"), 'r')
 				f_inc.write(f_local_inc_pre.read())
 				f_local_inc_pre.close()
+
+				# include tools file
+				#   bash command:
+				#   for F in `find -type f -name "1_*"`; do echo "$F">>./connector_tools.inc.src; cat $F >> ./connector_tools.inc.src; echo "">>./connector_tools.inc.src; done
+				f_inc_tools_filepath = os.path.join(env.SRCDIR_INC, rootdir_basename, rootdir_basename+"_tools.inc.src")
+				if os.path.isfile(f_inc_tools_filepath):
+					if not quiet: logger.info("including local tools file for "+rootdir_basename)
+					f_inc_tools = open(f_inc_tools_filepath, 'r')
+					f_inc.write(f_inc_tools.read())
+					f_inc_tools.close()
 
 				f_inc.close()
 
@@ -953,18 +1031,14 @@ class _Worker:
 				if not quiet: logger.info("processing "+filepath_rel)
 
 				# load the source file
-				f_content = open(filepath, 'r')
-				content = f_content.read()
-				f_content.close()
-				content = content.split("\n")
-				#f_inc_src_index = 0
+				incsrc = IncludeParser(filepath)
 
 				# get the main macro name and argument list
-				mainmacro = parse_inc_src(content, 2)
+				mainmacro = incsrc.parse_inc_src(2)
 
 				# print the comments
 				f_inc.write("/********************************************************************************************************************************************\n")
-				for i in parse_inc_src(content, 0):
+				for i in incsrc.parse_inc_src(0):
 					f_inc.write(i)
 					f_inc.write("\n")
 				f_inc.write("********************************************************************************************************************************************/\n")
@@ -976,12 +1050,12 @@ class _Worker:
 				f_inc.write("\n")
 
 				# print the main macro body
-				for i in parse_inc_src(content, 5):
+				for i in incsrc.parse_inc_src(5):
 					f_inc.write(i)
 					f_inc.write("\n")
 
 				# print the macro calls
-				for i in parse_inc_src(content, 3):
+				for i in incsrc.parse_inc_src(3):
 					if i.strip() == '':
 						pass
 					elif i[:2] == "//":
@@ -1001,14 +1075,14 @@ class _Worker:
 
 				####################
 				# append the 3dpack.dat file
-				for i in parse_inc_src(content, 1):
+				for i in incsrc.parse_inc_src(1):
 					f_3dpack.write(i)
 					f_3dpack.write("\n")
 
 				####################
 				# build the povray files
 				macro_list = []
-				for i in parse_inc_src(content, 3):
+				for i in incsrc.parse_inc_src(3):
 					if i.strip() == '' or i[:2] == "//" or i[:1] == "(":
 						pass
 					else:
@@ -1076,11 +1150,13 @@ class _Worker:
 				f_inc = open(f_inc_filepath, 'a')
 
 				# include global .pos file
+				if not quiet: logger.info("including global post file")
 				f_global_inc_pos = open(os.path.join(env.SRCDIR_DATA, "pos.pos"), 'r')
 				f_inc.write(f_global_inc_pos.read())
 				f_global_inc_pos.close()
 
 				# include local .pos file
+				if not quiet: logger.info("including local post file for "+rootdir_basename)
 				f_local_inc_pos = open(os.path.join(env.SRCDIR_INC, rootdir_basename, "pos.pos"), 'r')
 				f_inc.write(f_local_inc_pos.read())
 				f_local_inc_pos.close()
@@ -1088,7 +1164,7 @@ class _Worker:
 				f_inc.close()
 
 
-		it = iterate_dir1(quiet)
+		it = iterate_dir1(config._get('src_inc_dir_ignore_list'), config._get('src_inc_file_ignore_list'), quiet)
 		it.start(env.SRCDIR_INC)
 
 		f_3dpack_add = open(os.path.join(env.SRCDIR_DATA, "3dpack_add.dat"), 'r')
@@ -1312,10 +1388,10 @@ class _Worker:
 	#
 	def render(self):
 		quiet = config._get('quiet')
-		render_dryrun = config._get('render_dryrun')
+		dryrun = config._get('dryrun')
 
 		render_bin = config._getbin('povray')
-		if not render_bin and not render_dryrun:
+		if not render_bin and not dryrun:
 				logger.info("could not find rendering executable, exiting.")
 				return -1
 
@@ -1344,7 +1420,7 @@ class _Worker:
 
 		render_mask = config._get('render_mask')
 		render_noclobber = config._get('render_noclobber')
-		render_procs = config._get('render_procs')
+		render_procs = int(config._get('render_procs'))
 		img_extension = config._get('img_extension')
 
 		template_values = {}
@@ -1366,7 +1442,7 @@ class _Worker:
                                                                         +O${render_outdir}/${render_file_basename}${img_extension}
                                                                         -GS -GR -GD -V -D +I${render_file_fullname}""")
 
-		if not render_dryrun:
+		if not dryrun:
 			pq = ProcessQueue(max_proc=render_procs, logger=logger)
 			pq.start()
 
@@ -1393,7 +1469,7 @@ class _Worker:
 
 					command = command_template.substitute(template_values)
 					command = " ".join(command.split())
-					if not render_dryrun:
+					if not dryrun:
 						pq.add_process(command, f)
 					else:
 						if not quiet: logger.info("\ncommand: %s"%(command))
@@ -1401,7 +1477,7 @@ class _Worker:
 
 					total_rendering_attempts = total_rendering_attempts+1
 
-		if not render_dryrun:
+		if not dryrun:
 			pq.wait()
 			del pq
 
@@ -1449,7 +1525,7 @@ class _Worker:
 		render_rowsperpage = config._get('render_rowsperpage')
 		if _im_montage:
 			logger.info("rendering part gallery file(s)...")
-			if not render_dryrun:
+			if not dryrun:
 				pq = ProcessQueue(max_proc=1, logger=logger)
 				pq.start()
 
@@ -1483,13 +1559,13 @@ class _Worker:
 					#montage_command.append(os.path.join(upDir(render_outdir), "gallery-%d%s"%(i, img_extension)))
 				montage_command.append(os.path.join(upDir(render_outdir), "gallery-%d%s"%(i, img_extension)))
 				command = " ".join(montage_command)
-				if not render_dryrun:
+				if not dryrun:
 					pq.add_process(command, montage_title)
 				else:
 					logger.info("rendering %s"%(montage_title))
 					if not quiet: logger.info("\ncommand: %s"%(command))
 
-			if not render_dryrun:
+			if not dryrun:
 				pq.wait()
 				del pq
 
@@ -1503,7 +1579,7 @@ class _Worker:
 		import eagle3d_templates
 
 		quiet = config._get('quiet')
-		render_dryrun = config._get('render_dryrun')
+		dryrun = config._get('dryrun')
 
 		src_inc_prefix_map = config._get('src_inc_prefix_map')
 
@@ -1522,7 +1598,7 @@ class _Worker:
 		logger.info('cleaning/creating output directories...')
 		if not os.path.exists(env.OUTDIR_IMG):
 			os.makedirs(env.OUTDIR_IMG)
-		if not render_dryrun:
+		if not dryrun:
 			if os.path.exists(render_htmldir):
 				if os.path.isdir(render_htmldir):
 					shutil.rmtree(render_htmldir)
@@ -1535,7 +1611,7 @@ class _Worker:
 				os.makedirs(render_thumbnaildir)
 
 		command = """%CONVERT_BIN% -geometry %THUMB_SIZE_X%x%THUMB_SIZE_X% %THUMB_INPUT_FILEPATH% %THUMBNAIL_OUTPUT_FILEPATH%"""
-		if not render_dryrun:
+		if not dryrun:
 			pq = ProcessQueue(max_proc=16, logger=logger)
 			pq.start()
 
@@ -1587,12 +1663,12 @@ class _Worker:
 					htmlFileWriter.write_header(filepath, title)
 
 					cmd = htmlFileWriter.replace_tokens(tokens, command)
-					if not render_dryrun:
+					if not dryrun:
 						pq.add_process(" ".join(cmd.split()), f)
 
 					htmlFileWriter.write_body(filepath, htmlFileWriter.replace_tokens(tokens, eagle3d_templates.renderhtml_page_body_template))
 
-		if not render_dryrun:
+		if not dryrun:
 			pq.wait()
 			del pq
 
@@ -1610,34 +1686,17 @@ class _Worker:
 		                               eagle3d_templates.renderhtml_index_footer_template)
 
 
-config = _ConfigParser()
-worker = _Worker()
-###############################################################################
-# entry
-# this constuct allows the file to be imported as a module as well as executed.
-if __name__ == "__main__":
+def get_optionsparser():
 
-	usage_string = """Usage: %s [ACTION] [options]
-  only two options may be used without an action:
-    --rewrite-config:
-    --recheck-config
-  ACTION       The administrative action to be performed.
-  help         show help for all commands.
-  clean        remove previous attempts to create an eagle3d distribution.
-  create       create an eagle3d distribution.
-  verify       verify that include files are the correct format.
-  release      set VERSION variable in files and create archives.
-  render       render example images for Eagle3D parts.
-  renderhtml   generate an HTML digest of parts from rendered example images.
-  env          dump env settings."""%(os.path.basename(sys.argv[0]))
-
-	parser = OptionParser(usage=usage_string,
+	parser = OptionParser(usage=None,
 	                      version="%prog v"+SCRIPT_VERSION,
-	                      description="%prog is a administrative utility used to generate, test and release Eagle3D.",
 	                      add_help_option=False)
 	parser.add_option("-h", "--help",
 	                  action="store_true", dest="help", default=False,
-	                  help="show this help message and exit.")
+	                  help="show basic help message and exit.")
+	parser.add_option("--helpall",
+	                  action="store_true", dest="helpall", default=False,
+	                  help="show help messages for all commands and exit.")
 	parser.add_option("--noconsole",
 	                  action="store_true", dest="noconsole", default=False,
 	                  help="do not print to console, only to log file (default is %default).")
@@ -1653,6 +1712,9 @@ if __name__ == "__main__":
 	parser.add_option("--recheck-config",
 	                  action="store_true", dest="recheck_config", default=False,
 	                  help="overwrite the existing system section of the configuration file, rechecking the paths")
+	parser.add_option("--dry-run",
+	                  action="store_true", dest="dryrun", default=False,
+	                  help="do not perform some actions, only print what would have been done (default is %default).")
 	parser.add_option("-d", "--debug",
 	                  action="count", dest="debugmode", default=0,
 	                  help="""run in debugging mode.
@@ -1662,77 +1724,113 @@ two will output a trace of each line as it is being counted.
 three will output a list of functions that were called at least once.
 this option default is %default""")
 
-	option_groups = []
+	return parser
 
-	option_groups.append(OptionGroup(parser, "create", None))
-	option_groups[-1].add_option("--create-mask",
-	                             action="store", dest="create_mask", default="*.inc.src", metavar="[STRING]",
-	                             help="name mask of files to process (default is %default).")
-	parser.add_option_group(option_groups[-1])
 
-	option_groups.append(OptionGroup(parser, "verify", None))
-	option_groups[-1].add_option("--verify-mask",
-	                             action="store", dest="verify_mask", default="*.inc.src", metavar="[STRING]",
-	                             help="name mask of files to process (default is %default).")
-	option_groups[-1].add_option("--full-check",
-	                             action="store_true", dest="verify_full_check", default=False,
-	                             help="when verifying, also check sub-macros (default is %default).")
-	parser.add_option_group(option_groups[-1])
+def get_optiongroups(parser):
 
-	option_groups.append(OptionGroup(parser, "release", None))
-	option_groups[-1].add_option("--name",
-	                             action="store", dest="release_name", metavar="[STRING]",
-	                             help="the name used when creating release archives.")
-	parser.add_option_group(option_groups[-1])
+	optiongroups = {}
 
-	option_groups.append(OptionGroup(parser, "render", None))
-	option_groups[-1].add_option("-x", "--size-x",
-	                             action="store", dest="render_size_x", default="640", metavar="[INT]", type="int",
-	                             help="x size (width) of rendered images (default is %default).")
-	option_groups[-1].add_option("-y", "--size-y",
-	                             action="store", dest="render_size_y", default="480", metavar="[INT]", type="int",
-	                             help="y size (height) of rendered images (default is %default).")
-	option_groups[-1].add_option("--anti-alias",
-	                             action="store", dest="render_aa", default="0.3", metavar="[FLOAT]", type="float",
-	                             help="anti-alias value of rendered images (default is %default).")
-	option_groups[-1].add_option("--processes",
-	                             action="store", dest="render_procs", default="16", metavar="[INT]", type="int",
-	                             help="number of rendering processes to spawn (default is %default).")
-	option_groups[-1].add_option("--render-mask",
-	                             action="store", dest="render_mask", default="*.pov", metavar="[STRING]",
-	                             help="name mask of files to process (default is %default).")
-	option_groups[-1].add_option("--noclobber",
-	                             action="store_true", dest="render_noclobber", default=False,
-	                             help="do not render files that exist (default is %default).")
-	option_groups[-1].add_option("--dry-run",
-	                             action="store_true", dest="render_dryrun", default=False,
-	                             help="do not render files, only print command that would have been used (default is %default).")
-	option_groups[-1].add_option("--cols-per-page",
-	                             action="store", dest="render_colsperpage", default="15", metavar="[INT]", type="int",
-	                             help="number of images to render per column on each page of the gallery (default is %default).")
-	option_groups[-1].add_option("--rows-per-page",
-	                             action="store", dest="render_rowsperpage", default="10", metavar="[INT]", type="int",
-	                             help="number of images to render per row on each page of the gallery (default is %default).")
-	parser.add_option_group(option_groups[-1])
+	og = OptionGroup(parser, "help", "show basic help message and exit.")
+	optiongroups["help"] = og
 
-	option_groups.append(OptionGroup(parser, "renderhtml", None))
-	option_groups[-1].add_option("--thumb-size-x",
-	                             action="store", dest="renderhtml_thumb_size_x", default="64", metavar="[INT]", type="int",
-	                             help="x size (width) of thumbnail images")
-	option_groups[-1].add_option("--thumb-size-y",
-	                             action="store", dest="renderhtml_thumb_size_y", default="48", metavar="[INT]", type="int",
-	                             help="y size (height) of thumbnail images")
-	option_groups[-1].add_option("--cols",
-	                             action="store", dest="renderhtml_cols", default="15", metavar="[INT]", type="int",
-	                             help="number of thumbnail image columns per row")
-	option_groups[-1].add_option("--rows",
-	                             action="store", dest="renderhtml_rows", default="10", metavar="[INT]", type="int",
-	                             help="number of images to render per row on each page of the gallery (default is %default)")
-	parser.add_option_group(option_groups[-1])
+	og = OptionGroup(parser, "helpall", "show help messages for all commands and exit.")
+	optiongroups["helpall"] = og
 
+	og = OptionGroup(parser, "clean", "remove previous attempts to create an eagle3d distribution.")
+	optiongroups["clean"] = og
+
+	og = OptionGroup(parser, "create", "create an eagle3d distribution.")
+	og.add_option("--create-mask",
+	              action="store", dest="create_mask", default="*.inc.src", metavar="[STRING]",
+	              help="name mask of files to process (default is %default).")
+	optiongroups["create"] = og
+
+	og = OptionGroup(parser, "verify", "verify that include files are the correct format.")
+	og.add_option("--verify-mask",
+	              action="store", dest="verify_mask", default="*.inc.src", metavar="[STRING]",
+	              help="name mask of files to process (default is %default).")
+	og.add_option("--full-check",
+	              action="store_true", dest="verify_full_check", default=False,
+	              help="when verifying, also check sub-macros (default is %default).")
+	optiongroups["verify"] = og
+
+	og = OptionGroup(parser, "release", "set VERSION variable in files and create archives.")
+	og.add_option("--name",
+	              action="store", dest="release_name", metavar="[STRING]",
+	              help="the name used when creating release archives.")
+	optiongroups["release"] = og
+
+	og = OptionGroup(parser, "render", "render example images for Eagle3D parts.")
+	og.add_option("-x", "--size-x",
+	              action="store", dest="render_size_x", default="640", metavar="[INT]", type="int",
+	              help="x size (width) of rendered images (default is %default).")
+	og.add_option("-y", "--size-y",
+	              action="store", dest="render_size_y", default="480", metavar="[INT]", type="int",
+	              help="y size (height) of rendered images (default is %default).")
+	og.add_option("--anti-alias",
+	              action="store", dest="render_aa", default="0.3", metavar="[FLOAT]", type="float",
+	              help="anti-alias value of rendered images (default is %default).")
+	og.add_option("--processes",
+	              action="store", dest="render_procs", default="16", metavar="[INT]", type="int",
+	              help="number of rendering processes to spawn (default is %default).")
+	og.add_option("--render-mask",
+	              action="store", dest="render_mask", default="*.pov", metavar="[STRING]",
+	              help="name mask of files to process (default is %default).")
+	og.add_option("--noclobber",
+	              action="store_true", dest="render_noclobber", default=False,
+	              help="do not render files that exist (default is %default).")
+	og.add_option("--render-cols",
+	              action="store", dest="render_colsperpage", default="15", metavar="[INT]", type="int",
+	              help="number of images to render per column on each page of the gallery (default is %default).")
+	og.add_option("--render-rows",
+	              action="store", dest="render_rowsperpage", default="10", metavar="[INT]", type="int",
+	              help="number of images to render per row on each page of the gallery (default is %default).")
+	optiongroups["render"] = og
+
+	og = OptionGroup(parser, "renderhtml", "generate an HTML digest of parts from rendered example images.")
+	og.add_option("--thumb-size-x",
+	              action="store", dest="renderhtml_thumb_size_x", default="64", metavar="[INT]", type="int",
+	              help="x size (width) of thumbnail images")
+	og.add_option("--thumb-size-y",
+	              action="store", dest="renderhtml_thumb_size_y", default="48", metavar="[INT]", type="int",
+	              help="y size (height) of thumbnail images")
+	og.add_option("--renderhtml-cols",
+	              action="store", dest="renderhtml_cols", default="15", metavar="[INT]", type="int",
+	              help="number of thumbnail image columns per row")
+	og.add_option("--renderhtml-rows",
+	              action="store", dest="renderhtml_rows", default="10", metavar="[INT]", type="int",
+	              help="number of images to render per row on each page of the gallery (default is %default)")
+	optiongroups["renderhtml"] = og
+
+	og = OptionGroup(parser, "env", "dump environmental settings.")
+	optiongroups["env"] = og
+
+	return optiongroups
+
+
+def handle_command_line(optionsparser, optiongroups):
+
+	usage_string = """Usage: %prog [ACTION] [options]
+
+  %prog is a administrative utility used to generate, test and release Eagle3D.
+  Two options may be used without an action:
+    --rewrite-config
+    --recheck-config
+
+  ACTION       The administrative action to be performed."""
+
+	optiongroups_keys = optiongroups.keys()
+	optiongroups_keys.sort()
+
+	for action in optiongroups_keys:
+		usage_string = usage_string + "\n  " + action.ljust(13) + optiongroups[action].get_description()
+
+	parser.set_usage(usage_string)
 
 	#parse the command line arguments
 	(options, args) = parser.parse_args()
+
 	#load the config
 	config.read_config()
 	if not config.config_exists():
@@ -1752,21 +1850,50 @@ this option default is %default""")
 
 	# check for an action
 	action = None
-	if len(sys.argv) > 1 and sys.argv[1] in ["help", "clean", "create", "verify", "release", "render", "renderhtml", "env"]:
+	if len(sys.argv) > 1 and sys.argv[1] in optiongroups.keys():
 		action = sys.argv[1]
 	else:
+		#exit normally if no action was required
 		if options.rewrite_config or options.recheck_config:
 			sys.exit(0)
 		else:
 			parser.print_help()
 			sys.exit(1)
 
-	worker.timestamp = datetime.datetime.now()
-	logger = logging.getLogger(action)
-
 	if options.help or action == 'help':
 		parser.print_help()
-		sys.exit(1)
+		sys.exit(0)
+
+	if options.helpall or action == 'helpall':
+		for action in optiongroups_keys:
+			parser.add_option_group(optiongroups[action])
+		parser.print_help()
+		sys.exit(0)
+
+	return action, options
+
+
+#config = None
+#worker = None
+
+###############################################################################
+# entry
+# this constuct allows the file to be imported as a module as well as executed.
+if __name__ == "__main__":
+	global config, worker
+
+	config = _ConfigParser()
+
+	worker = _Worker()
+	worker.timestamp = datetime.datetime.now()
+
+	parser = get_optionsparser()
+	#why do we need an instance of OptionsParser to greate OptionGroup instances?
+	groups = get_optiongroups(parser)
+
+	action, options = handle_command_line(parser, groups)
+
+	logger = logging.getLogger(action)
 
 	env.init()
 	if env.WORKDIR == None:
@@ -1793,34 +1920,34 @@ this option default is %default""")
 		if options.debugmode > 2:
 			_trace=0; _count=0; _countfuncs=1; _countcallers=1
 		tracer = trace.Trace(ignoredirs=[sys.prefix, sys.exec_prefix,], trace=_trace, count=_count, countfuncs=_countfuncs, countcallers=_countcallers, outfile=_outfile)
-		if action == "verify":
-			tracer.run('worker.verify()')
-		elif action == "clean":
+		if action == "clean":
 			tracer.run('worker.clean()')
 		elif action == "create":
 			tracer.run('worker.create()')
+		elif action == "env":
+			tracer.run('env.dump()')
 		elif action == "release":
 			tracer.run('worker.release()')
 		elif action == "render":
 			tracer.run('worker.render()')
 		elif action == "renderhtml":
 			tracer.run('worker.renderhtml()')
-		elif action == "env":
-			tracer.run('env.dump()')
+		elif action == "verify":
+			tracer.run('worker.verify()')
 		r = tracer.results()
 		r.write_results(show_missing=True, coverdir=os.path.dirname(os.path.abspath(__file__)))
 	else:
-		if action == "verify":
-			sys.exit(worker.verify())
-		elif action == "clean":
+		if action == "clean":
 			sys.exit(worker.clean())
 		elif action == "create":
 			sys.exit(worker.create())
+		elif action == "env":
+			sys.exit(worker.dump())
 		elif action == "release":
 			sys.exit(worker.release())
 		elif action == "render":
 			sys.exit(worker.render())
 		elif action == "renderhtml":
 			sys.exit(worker.renderhtml())
-		elif action == "env":
-			sys.exit(worker.dump())
+		elif action == "verify":
+			sys.exit(worker.verify())
