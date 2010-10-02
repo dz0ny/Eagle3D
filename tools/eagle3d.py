@@ -432,12 +432,17 @@ class _ConfigParser(ConfigParser.SafeConfigParser):
 				return items
 			else:
 				return self.items(key)
-		raise ConfigParser.NoOptionError
+		raise ConfigParser.NoOptionError('general', key)
 
 	def _getbin(self, name):
+		#returns the absolute path to a given binary, or False if it does not exist
 		if self.has_option('system', name):
-			return self.get('system', name)
-		raise ConfigParser.NoOptionError
+			bin = self.get('system', name)
+			if bin == "False":
+				return False
+			else:
+				return bin
+		raise ConfigParser.NoOptionError('system', name)
 
 	def update_options(self, options, defaults=None):
 		for opt in options.__dict__:
@@ -615,17 +620,17 @@ Two options may be used without an action:
 			if options.rewrite_config or options.recheck_config:
 				sys.exit(0)
 			else:
-				parser.print_help()
+				self.parser.print_help()
 				sys.exit(1)
 
 		if options.help or action == 'help':
-			parser.print_help()
+			self.parser.print_help()
 			sys.exit(0)
 
 		if options.helpall or action == 'helpall':
 			for action in optiongroups_keys:
-				parser.add_option_group(optiongroups[action])
-			parser.print_help()
+				self.parser.add_option_group(optiongroups[action])
+			self.parser.print_help()
 			sys.exit(0)
 
 		return action, options
@@ -710,8 +715,8 @@ this option default is %default"""))
 		key = "release"
 		self.group_description[key] = "set VERSION variable in files and create archives."
 		self.option_list[key] = []
-		self.option_list[key].append(make_option("--name",
-												action="store", dest="release_name", metavar="[STRING]",
+		self.option_list[key].append(make_option("--release-name",
+												action="store", dest="release_name", metavar="[STRING]", default=None,
 												help="the name used when creating release archives."))
 
 		key = "render"
@@ -944,7 +949,6 @@ class iterate_dir(object):
 #
 class _Worker:
 
-	version = None
 	timestamp = None
 
 	###############################################################################
@@ -957,11 +961,14 @@ class _Worker:
 
 	########################################
 	#
-	def version_to_filename(version):
-		if not self.timestamp:
-			self.timestamp = datetime.datetime.now()
-		filename = version.replace(' ', '_').replace('.', '_')
-		filename = filename + self.timestamp.strftime('_%d%m%G')
+	def filesafe_version(self, version=None):
+		filename = ""
+		if version == None:
+			if not self.timestamp:
+				self.timestamp = datetime.datetime.now()
+			filename = self.timestamp.strftime('%d%m%G')
+		else:
+			filename = version.replace(' ', '_').replace('.', '_')
 		return filename
 
 
@@ -1501,7 +1508,13 @@ class _Worker:
 	#
 	def release(self):
 		quiet = config._get('quiet')
-		version = config._get('version')
+
+		try:
+			release_name = config._get('release_name')
+			release_safename = self.filesafe_version(release_name)
+		except ConfigParser.NoOptionError, e:
+			release_name = self.formatted_datetime()
+			release_safename = self.filesafe_version()
 
 		total_errors = 0
 
@@ -1510,8 +1523,7 @@ class _Worker:
 			for rootdir, dirlist, filelist in os.walk(env.RELEASEDIR):
 				for filepath in glob.glob(os.path.join(rootdir, filepattern)):
 					if not quiet: logger.info('  %s'%(filepath))
-					#retcode = subprocess.call(["sed", "-i", "s,###VERSIONDUMMY###,%s,"%(version), filepath])
-					retcode = subprocess_call(["sed", "-i", "s,###VERSIONDUMMY###,%s,"%(version), filepath])
+					retcode = subprocess_call(["sed", "-i", "s,###VERSIONDUMMY###,%s,"%(release_name), filepath])
 					if retcode != 0:
 						total_errors = total_errors+1
 
@@ -1530,7 +1542,7 @@ class _Worker:
 		_tar = config._getbin('tar')
 		if _tar:
 			if config._getbin('bzip2'):
-				filepath = os.path.join(env.ARCHIVE_OUTPUT_DIR, "eagle3d_"+self.version_to_filename()+".tar.bz2")
+				filepath = os.path.join(env.ARCHIVE_OUTPUT_DIR, "eagle3d_"+release_safename+".tar.bz2")
 				command = [_tar, '-c', '-a', '-f', filepath, os.path.basename(env.RELEASEDIR) ]
 				logger.info('calling: '+" ".join(command))
 				retcode = subprocess_call(command, env.OUTDIR_ROOT)
@@ -1540,7 +1552,7 @@ class _Worker:
 				logger.info('cound not find bzip2, not making tar.bz2 archive')
 
 			if config._getbin('gzip'):
-				filepath = os.path.join(env.ARCHIVE_OUTPUT_DIR, "eagle3d_"+self.version_to_filename(version)+".tar.gz")
+				filepath = os.path.join(env.ARCHIVE_OUTPUT_DIR, "eagle3d_"+release_safename+".tar.gz")
 				command = [_tar, '-c', '-a', '-f', filepath, os.path.basename(env.RELEASEDIR) ]
 				logger.info('calling: '+" ".join(command))
 				retcode = subprocess_call(command, env.OUTDIR_ROOT)
@@ -1552,23 +1564,23 @@ class _Worker:
 			logger.info('cound not find tar, not making tar.* archives')
 
 		logger.info('preparing release for non *nix systems...')
-		_bin = False
-		_bin = config._getbin('todos')
-		if not _bin:
-			_bin = config._getbin('unix2dos')
-		if _bin:
+		_unix2dos = False
+		_unix2dos = config._getbin('todos')
+		if not _unix2dos:
+			_unix2dos = config._getbin('unix2dos')
+		if _unix2dos:
 			logger.info('making DOS line endings for all text files...')
 			for filepattern in ['*.sh', '*.pl', '*.inc', '*.src', '*.dat', '*.pos', '*.pre', '*.inc', '*.ulp', '*.pov', '*.ini', '*.txt']:
 				for rootdir, dirlist, filelist in os.walk(env.RELEASEDIR):
 					for filepath in glob.glob(os.path.join(rootdir, filepattern)):
 						if not quiet: logger.info('  %s'%(filepath))
-						subprocess_call([_bin, filepath])
+						retcode = subprocess_call([_unix2dos, filepath])
 						if retcode != 0:
 							total_errors = total_errors+1
 
 		_zip = config._getbin('zip')
 		if _zip:
-			filepath = os.path.join(env.ARCHIVE_OUTPUT_DIR, "eagle3d_"+version_to_filename(version)+".zip")
+			filepath = os.path.join(env.ARCHIVE_OUTPUT_DIR, "eagle3d_"+release_safename+".zip")
 			command = [_zip, '-9', '-q', '-r', filepath, os.path.basename(env.RELEASEDIR) ]
 			logger.info('calling: '+" ".join(command))
 			retcode = subprocess_call(command, env.OUTDIR_ROOT)
@@ -1908,17 +1920,12 @@ if __name__ == "__main__":
 
 	optparser = _OptionsParser()
 	action, options = optparser.handle_command_line()
-	#parser = get_optionsparser()
-	##why do we need an instance of OptionsParser to greate OptionGroup instances?
-	#groups = get_optiongroups(parser)
-	#action, options = handle_command_line(parser, groups)
-
 
 	logger = logging.getLogger(action)
 
 	env.init()
 	if env.WORKDIR == None:
-		parser.print_help()
+		optparser.parser.print_help()
 		sys.exit(1)
 
 	if not options.silent:
