@@ -762,6 +762,9 @@ this option default is %default"""))
 		self.option_list[key].append(make_option("--renderhtml-rows",
 												action="store", dest="renderhtml_rows", default=10, metavar="[INT]", type="int",
 												help="number of images to render per row on each page of the gallery (default is %default)"))
+		self.option_list[key].append(make_option("--renderhtml-mask",
+												action="store", dest="renderhtml_mask", default="*.pov", metavar="[STRING]",
+												help="name mask of files to process (default is %default)."))
 
 		key = "env"
 		self.group_description[key] = "dump environmental settings."
@@ -1796,6 +1799,7 @@ class _Worker:
 
 		quiet = config._get('quiet')
 		dryrun = config._get('dryrun')
+		renderhtml_mask = config._get('renderhtml_mask')
 
 		src_inc_prefix_map = config._get('src_inc_prefix_map')
 
@@ -1826,7 +1830,7 @@ class _Worker:
 			if not os.path.exists(render_thumbnaildir):
 				os.makedirs(render_thumbnaildir)
 
-		command = """%CONVERT_BIN% -geometry %THUMB_SIZE_X%x%THUMB_SIZE_X% %THUMB_INPUT_FILEPATH% %THUMBNAIL_OUTPUT_FILEPATH%"""
+		command = """%CONVERT_BIN% -geometry %THUMB_SIZE_X%x%THUMB_SIZE_X% %THUMB_INPUT_FILEPATH% %THUMB_OUTPUT_FILEPATH%"""
 		if not dryrun:
 			pq = ProcessQueue(max_proc=16, logger=logger)
 			pq.start()
@@ -1855,10 +1859,14 @@ class _Worker:
 		htmlFileWriter.set_footer_string(htmlFileWriter.replace_tokens(tokens, eagle3d_templates.renderhtml_page_footer_template))
 
 		#by using the povray directory, we will be generating a list of the images that _should_ exist
+		logger.info("rendering thumbnails...")
 		for rootdir, dirlist, filelist in os.walk(povray_outdir):
 			filelist.sort()
 			for f in filelist:
-				if fnmatch.fnmatch(f, "*"+render_extension):
+				if fnmatch.fnmatch(f, renderhtml_mask):
+				#if fnmatch.fnmatch(f, "*"+render_extension):
+					if f in ["povpos.pov", "povpre.pov"]:
+						continue
 					f_prefix = f.split('_')[0]+'_'
 					if f_prefix in src_inc_prefix_map_swap:
 						subdir = src_inc_prefix_map_swap[f_prefix]
@@ -1879,6 +1887,7 @@ class _Worker:
 					htmlFileWriter.write_header(filepath, title)
 
 					cmd = htmlFileWriter.replace_tokens(tokens, command)
+					logger.info(cmd)
 					if not dryrun:
 						pq.add_process(" ".join(cmd.split()), f)
 
