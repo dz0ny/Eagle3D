@@ -4,7 +4,7 @@ Trimmer
 RTRIM64W:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:RES_DIS_TRIM_64Y(:Trimmer-R von Spectrol:Trimmer Resistor  from Spectrol
 RTRIM64Y:0:1:0:0:0:0:0:0:0:0:0:0:0:0:-1.27:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:RES_DIS_TRIM_64W(:Trimmer-R von Spectrol:Trimmer Resistor  from Spectrol
 ####################################################################################################
-RES_DIS_TRIM_S_GRND
+RES_DIS_TRIM_SPECTROL1_GRND
 (B,T,H,Farbe,D_schraube,Rf)
 ####################################################################################################
 //senkrecht
