@@ -111,7 +111,7 @@ SOT23-EBC:0:1:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:2:0:0:0:0:0:0:0:0:0:0:IC_SMD_SOT
 SOT23B-3:0:1:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:2:0:0:0:0:0:0:0:0:0:0:IC_SMD_SOT23(:SOT23:
 SOT23C:0:1:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:2:0:0:0:0:0:0:0:0:0:0:IC_SMD_SOT23(:SOT23:
 SOT23W:0:1:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:2:0:0:0:0:0:0:0:0:0:0:IC_SMD_SOT23(:SOT23:
-TO252:0:1:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:1:0:0:0:0:0:0:0:0:0:0:TR_TO252(:TO252:
+TO252:0:1:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:1:0:0:0:0:0:0:0:0:0:0:IC_TR_TO252(:TO252:
 NOEAGLEPAC:0:1:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:1:0:0:0:0:0:0:0:0:0:0:IC_SMD_VSO40(:VSO40:
 NOEAGLEPAC:0:1:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:1:0:0:0:0:0:0:0:0:0:0:IC_SMD_VSO56(:VSO56:
 NOEAGLEPAC:0:1:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:1:0:0:0:0:0:0:0:0:0:0:IC_SMD_PSO20(:PSO20:
@@ -126,17 +126,17 @@ DPAK_3:0:1:0:1:0:0:0:0:0:0:0:0:0:0:0:0:-0.5:0:0:1:0:0:0:0:0:0:0:0:0:0:IC_SMD_DPA
 DPAK_4:0:1:0:1:0:0:0:0:0:0:0:0:0:0:0:0:-0.5:0:0:1:0:0:0:0:0:0:0:0:0:0:IC_SMD_DPAK_369C(:DPAK CASE 369C:
 DPAK_5:0:1:0:1:0:0:0:0:0:0:0:0:0:0:0:0:-0.5:0:0:1:0:0:0:0:0:0:0:0:0:0:IC_SMD_DPAK_369C(:DPAK CASE 369C:
 DPAK_6:0:1:0:1:0:0:0:0:0:0:0:0:0:0:0:0:-0.5:0:0:1:0:0:0:0:0:0:0:0:0:0:IC_SMD_DPAK_369C(:DPAK CASE 369C:
-TO263:0:1:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:1:0:0:0:0:0:0:0:0:0:0:TR_TO263(:TO263:
-TO263-3:0:1:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:1:0:0:0:0:0:0:0:0:0:0:TR_TO263(:TO263:
-TS-005:0:1:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:1:0:0:0:0:0:0:0:0:0:0:TR_TO263(:TO263:
-NOEAGLEPAC:0:1:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:1:0:0:0:0:0:0:0:0:0:0:TR_SOT23(:SOT23:
+TO263:0:1:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:1:0:0:0:0:0:0:0:0:0:0:IC_TR_TO263(:TO263:
+TO263-3:0:1:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:1:0:0:0:0:0:0:0:0:0:0:IC_TR_TO263(:TO263:
+TS-005:0:1:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:1:0:0:0:0:0:0:0:0:0:0:IC_TR_TO263(:TO263:
+NOEAGLEPAC:0:1:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:1:0:0:0:0:0:0:0:0:0:0:IC_TR_SOT23(:SOT23:
 TSOP86:0:1:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:1:0:0:0:0:0:0:0:0:0:0:IC_SMD_TSOP86(:TSOP86:
 ####################################################################################################
 IC_SMD_GRND
 (LK,BK,HK,B,pin_u,pin_o,ptch_u,ptch_o,pinb_u,pinb_o,pin_s,di_pcb,kor_w,pin0_m,pin0_45,pin0_a,besch_s,besch_w,logo)
 ####################################################################################################
 // JEDEC MO-193AA
-IC_SMD_TSOP6(value,logo)  
+IC_SMD_TSOP6(value,logo)
 (2.9,1.6,0.9, 2.8, 3,3, 0.95,0.95, 0.4,0.4,0.2, 0.1,0, 1,0,0.3,0.6,0,logo)
 IC_SMD_SO8(value,logo)
 (4.9,3.9,1.35,6,4,4,1.27,1.27,0.4,0.4,0.22,0.18,0,1,1,3.9/5,3.9/5,0,logo)
@@ -254,11 +254,11 @@ IC_SMD_SOT223(value,logo)
 IC_SMD_SOT363(value,logo)
 (2.0,1.25,1.0,2.1,3,3,0.65,0.65,0.25,0.25,0.15,0.1,0,1,0,0,0.5,0,logo)
 //SMD-Transistoren aus SIC_GRND abgeleitet
-TR_SOT23(value,logo)
+IC_TR_SOT23(value,logo)
 (2.9,1.3,1,2.8,2,1,1.9,1.9,0.45,0.45,0.13,0.1,0,0,0,1.5,0.7,0,logo)
-TR_TO252(value,logo)
+IC_TR_TO252(value,logo)
 (6.1,6.5,2.2,10,2,1,4.5,1.9,0.9,5.3,0.5,0.1,0,0,0,1.5,1.0,0,logo)
-TR_TO263(value,logo)
+IC_TR_TO263(value,logo)
 (10.2,8.7,4.2,15.2,2,1,5.1,1.9,1.4,10.2,0.5,0.1,0,0,0,1.5,1.0,0,logo)
 // Friedrich Bleikamp
 IC_SMD_DPAK_369C(value,logo)
@@ -281,15 +281,15 @@ union{
         box{<0,0,-BK/2-0.1><-1,HK,BK/2+0.1>  rotate<0,0,-10> translate<-LK/2,(di_pcb+HK)/2+pin_s/2,0>}
         box{<0,0,-BK/2-0.1><1,-HK,BK/2+0.1>  rotate<0,0,-10> translate<LK/2,(di_pcb+HK)/2-pin_s/2,0>}
         box{<0,0,-BK/2-0.1><-1,-HK,BK/2+0.1>  rotate<0,0,10> translate<-LK/2,(di_pcb+HK)/2-pin_s/2,0>}
-        #if(pin0_m = 0) 
-            #local TextX = -LK/2+0.1*LK; 
+        #if(pin0_m = 0)
+            #local TextX = -LK/2+0.1*LK;
         #end // ohne Pin-1-Markierung
         #if(pin0_m = 1)  // SO-Farbmarkierung
             #local TextX = -LK/2+0.1*LK;
-            #if((((pin_u-1)/2*ptch_u)+0.3)>LK/2) 
+            #if((((pin_u-1)/2*ptch_u)+0.3)>LK/2)
                 #local i = -(pin_u-1)/2*ptch_u+0.3;
-            #else 
-                #local i = -(pin_u-1)/2*ptch_u; 
+            #else
+                #local i = -(pin_u-1)/2*ptch_u;
             #end
             sphere{<i,HK+di_pcb+0.1,-BK/2+pin0_a>0.15 texture{e3d_tex_ic_marking_bright}}
         #end
@@ -303,10 +303,10 @@ union{
             box{<0,di_pcb-0.1,-1.45> <-2,HK+di_pcb+0.1,1.45> translate<1.45-LK/2,0,0>}
             box{<0,di_pcb-0.1,-1.45> <2,HK+di_pcb+0.1,1.45> translate<-1.45+LK/2,0,0>}
         #end
-        
+
         #if(pin0_m = 4) // fuer DPAK ohne Pin-1-Markierung
-            #local TextX = -LK/2+0.15*LK; 
-        #end 
+            #local TextX = -LK/2+0.15*LK;
+        #end
     }
     #if(pin0_m = 3)  // PSO-Metallboden (vereinfacht, da der Rest sowieso unsichtbar bleibt)
         box{<-LK/2,0,-1.5> <LK/2,1,1.5> texture{e3d_tex_silver}}
@@ -314,16 +314,16 @@ union{
 
     #if(pin0_m = 4)  // DPAK-SEATING PLANE & BLIND PIN
             box{<-pinb_u/2,(HK+di_pcb)/2+pin_s/2,-(BK/2+1)> <pinb_u/2,(HK+di_pcb)/2-pin_s/2,-(BK/2-0.1)> texture{e3d_tex_silver}}
-            box{<-0.57,0,-5.25> <0.57,0.5,-4.5> translate<ptch_u/2,0,0> texture{e3d_tex_silver}} 
-            box{<-0.57,0,-5.25> <0.57,0.5,-4.5> translate<-ptch_u/2,0,0> texture{e3d_tex_silver}} 
+            box{<-0.57,0,-5.25> <0.57,0.5,-4.5> translate<ptch_u/2,0,0> texture{e3d_tex_silver}}
+            box{<-0.57,0,-5.25> <0.57,0.5,-4.5> translate<-ptch_u/2,0,0> texture{e3d_tex_silver}}
             difference{
-                box{<-2.5,0,-0.85> <2.5,0.55,4.5>} 
+                box{<-2.5,0,-0.85> <2.5,0.55,4.5>}
                 box{<-0.5,-0.1,-0.5> <0.5,1.1,0.5> rotate <0,45,0> translate<-2.5,0,4.5>}
                 box{<-0.5,-0.1,-0.5> <0.5,0.6,0.5> rotate <0,45,0> translate<2.5,0,4.5>}
                 texture{e3d_tex_silver}
             }
     #end
-    
+
     union{
         #local i=0;
         #while(i<(pin_u/2))
@@ -336,7 +336,7 @@ union{
             #end
             #local i=i+1;
         #end
-        
+
         #local i=0;
         #while(i<(pin_o/2))
             #if((pin_o/2)=div(pin_o,2))
@@ -350,7 +350,7 @@ union{
         #end
         texture{e3d_tex_silver}
     }
-        
+
     #local value_arial_size_min = 0.0;
     #local value_arial_size_max = 0.0;
     #local value_arial_size = 0.0;
@@ -361,19 +361,19 @@ union{
     #local value_courier_bold = text{ttf global_fontfile_courier_bold value 0.2,0 rotate<90,-90,0>}
     Extents(value_arial_bold, value_arial_size_min, value_arial_size_max)
     Extents(value_courier_bold, value_courier_size_min, value_courier_size_max)
-    #local value_arial_size = value_arial_size_max - value_arial_size_min; 
-    #local value_courier_size = value_courier_size_max - value_courier_size_min;    
+    #local value_arial_size = value_arial_size_max - value_arial_size_min;
+    #local value_courier_size = value_courier_size_max - value_courier_size_min;
     #local value_scale_factor_arial = LK/value_arial_size.z * 0.5;
-    #local value_scale_factor_courier = LK/value_courier_size.z * 0.5;    
-    
-    #if(value_arial_size.x*value_scale_factor_arial > LK/6.0) 
-                #local value_scale_factor_arial = LK/6.0 / value_arial_size.x;    
+    #local value_scale_factor_courier = LK/value_courier_size.z * 0.5;
+
+    #if(value_arial_size.x*value_scale_factor_arial > LK/6.0)
+                #local value_scale_factor_arial = LK/6.0 / value_arial_size.x;
     #end
-    #if(value_courier_size.x*value_scale_factor_courier > LK/6.0) 
+    #if(value_courier_size.x*value_scale_factor_courier > LK/6.0)
                 #local value_scale_factor_courier = LK/6.0 / value_courier_size.x;
     #end
-        
-    #local value_arial_size = value_arial_size * value_scale_factor_arial; 
+
+    #local value_arial_size = value_arial_size * value_scale_factor_arial;
     #local value_courier_size = value_courier_size * value_scale_factor_courier;
     //a random datecode string
     #local value_datecode_arial_size_min = 0.0;
@@ -382,68 +382,68 @@ union{
     #local value_datecode_courier_size_min = 0.0;
     #local value_datecode_courier_size_max = 0.0;
     #local value_datecode_courier_size = 0.0;
-    #local value_datecode_string = concat(str(rand(global_seed)*52.9, -2, 0),str(rand(global_seed)*3.9+2, -2, 0));    
+    #local value_datecode_string = concat(str(rand(global_seed)*52.9, -2, 0),str(rand(global_seed)*3.9+2, -2, 0));
     #local value_datecode_arial_bold = text{ttf global_fontfile_arial_bold value_datecode_string 0.2,0 rotate<90,-90,0>}
     #local value_datecode_courier_bold = text{ttf global_fontfile_arial_bold value_datecode_string 0.2,0 rotate<90,-90,0>}
     Extents(value_datecode_arial_bold, value_datecode_arial_size_min, value_datecode_arial_size_max)
     Extents(value_datecode_courier_bold, value_courier_size_min, value_courier_size_max)
-    #local value_datecode_arial_size = value_datecode_arial_size_max - value_datecode_arial_size_min; 
-    #local value_datecode_courier_size = value_courier_size_max - value_courier_size_min;    
+    #local value_datecode_arial_size = value_datecode_arial_size_max - value_datecode_arial_size_min;
+    #local value_datecode_courier_size = value_courier_size_max - value_courier_size_min;
     #local value_datecode_scale_factor_arial = value_scale_factor_arial;
     #local value_datecode_scale_factor_courier = value_scale_factor_courier;
-    #local value_datecode_arial_size = value_datecode_arial_size * value_scale_factor_arial; 
+    #local value_datecode_arial_size = value_datecode_arial_size * value_scale_factor_arial;
     #local value_datecode_courier_size = value_datecode_courier_size * value_scale_factor_courier;
-    
+
     // added logos. now with Atmel, FTDI, Microchip, Philips, and ST
     // by xocas
-        
+
     #local logo_assigned = 0;
-    
-    union{        
+
+    union{
         #if(strcmp(logo,"PHILIPS")=0.0)
                 #local logo_assigned = 1;
                 #local label = union{
-                    text{ttf global_fontfile_eagle3d "p" 0.2,0 scale<besch_s*2,besch_s*2,1> rotate<90,0,0> translate<-LK/3,0,0>}        
+                    text{ttf global_fontfile_eagle3d "p" 0.2,0 scale<besch_s*2,besch_s*2,1> rotate<90,0,0> translate<-LK/3,0,0>}
                     text{ttf global_fontfile_arial value 0.2,0 rotate<90,0,0> scale<value_scale_factor_arial,1,value_scale_factor_arial> translate<-value_arial_size.z/2,0,-value_arial_size.x/2-BK/6>}
                     translate<0,HK+di_pcb+0.001,0>
                 }
         #end
-            
+
         #if(strcmp(logo,"MICROCHIP")=0.0)
             #local logo_assigned = 1;
             #local label = union{
-                text{ttf global_fontfile_eagle3d "m" 0.2,0 scale<besch_s*2,besch_s*2,1> rotate<90,0,0> translate<-LK/3,0,0>}        
+                text{ttf global_fontfile_eagle3d "m" 0.2,0 scale<besch_s*2,besch_s*2,1> rotate<90,0,0> translate<-LK/3,0,0>}
                 text{ttf global_fontfile_arial value 0.2,0 rotate<90,0,0> scale<value_scale_factor_arial,1,value_scale_factor_arial> translate<-value_arial_size.z/2,0,-value_arial_size.x/2-BK/6>}
                 translate<0,HK+di_pcb+0.001,0>
             }
-         #end    
+         #end
          #if(strcmp(logo,"ST")=0.0)
             #local logo_assigned = 1;
             #local label = union{
-                text{ttf global_fontfile_eagle3d "s" 0.2,0 scale<besch_s*2,besch_s*2,1> rotate<90,0,0> translate<-LK/2.5,0,-BK/3>}        
+                text{ttf global_fontfile_eagle3d "s" 0.2,0 scale<besch_s*2,besch_s*2,1> rotate<90,0,0> translate<-LK/2.5,0,-BK/3>}
                 text{ttf global_fontfile_arial value 0.2,0 rotate<90,0,0> scale<value_scale_factor_arial,1,value_scale_factor_arial> translate<-value_arial_size.z/2,0,value_arial_size.x/2>}
                 translate<0,HK+di_pcb+0.001,0>
             }
         #end
-        
+
         #if(strcmp(logo,"ATMEL")=0.0)
             #local logo_assigned = 1;
             #local label = union{
-                text{ttf global_fontfile_eagle3d "a" 0.2,0 scale<besch_s*2,besch_s*2,1> rotate<90,0,0> translate<-LK/3,0,0>}        
+                text{ttf global_fontfile_eagle3d "a" 0.2,0 scale<besch_s*2,besch_s*2,1> rotate<90,0,0> translate<-LK/3,0,0>}
                 text{ttf global_fontfile_arial value 0.2,0 rotate<90,0,0> scale<value_scale_factor_arial,1,value_scale_factor_arial> translate<-value_arial_size.z/2,0,-value_arial_size.x/2-BK/6>}
                 translate<0,HK+di_pcb+0.001,0>
             }
         #end
-         
+
         #if(strcmp(logo,"FTDI")=0.0)
             #local logo_assigned = 1;
             #local label = union{
-                text{ttf global_fontfile_eagle3d "f" 0.2,0 scale<besch_s*2,besch_s*2,1> rotate<90,0,0> translate<-LK/3,0,0>}        
+                text{ttf global_fontfile_eagle3d "f" 0.2,0 scale<besch_s*2,besch_s*2,1> rotate<90,0,0> translate<-LK/3,0,0>}
                 text{ttf global_fontfile_arial value 0.2,0 rotate<90,0,0> scale<value_scale_factor_arial,1,value_scale_factor_arial> translate<-value_arial_size.z/2,0,-value_arial_size.x/2-BK/6>}
                 translate<0,HK+di_pcb+0.001,0>
             }
         #end
-        
+
         #if(strcmp(logo,"TEXAS")=0.0)
             #local logo_assigned = 1;
             #local label = union{
@@ -452,11 +452,11 @@ union{
                 translate<0,HK+di_pcb+0.001,0>
             }
         #end
-        
+
         #if(logo_assigned < 0.5)
             #local label = text{ttf besch_font value 0.2,0 rotate<90,0,0> scale<besch_s,1,besch_s> translate<TextX,HK+di_pcb+0.01,-besch_s/2> }
         #end
-        
+
         #if(besch_w=0)
             object{label}
         #else

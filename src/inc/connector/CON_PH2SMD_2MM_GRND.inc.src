@@ -2,54 +2,54 @@ laser
 //Stefan Seegel <post(replace with at)seegel-systeme.de
 //SMD Stiftleisten 2-reihig RM 2.0
 ####################################################################################################
-87832-04:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:PHSMD_2MM_2X2(:SMD Stiftleiste 2,00MM Winkel:SMD Header 2,00MM Grid 90deg
-87832-06:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:PHSMD_2MM_2X3(:SMD Stiftleiste 2,00MM Winkel:SMD Header 2,00MM Grid 90deg
-87832-08:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:PHSMD_2MM_2X4(:SMD Stiftleiste 2,00MM Winkel:SMD Header 2,00MM Grid 90deg
-87832-10:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:PHSMD_2MM_2X5(:SMD Stiftleiste 2,00MM Winkel:SMD Header 2,00MM Grid 90deg
-87832-12:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:PHSMD_2MM_2X6(:SMD Stiftleiste 2,00MM Winkel:SMD Header 2,00MM Grid 90deg
-87832-14:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:PHSMD_2MM_2X7(:SMD Stiftleiste 2,00MM Winkel:SMD Header 2,00MM Grid 90deg
-87832-16:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:PHSMD_2MM_2X8(:SMD Stiftleiste 2,00MM Winkel:SMD Header 2,00MM Grid 90deg
-87832-18:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:PHSMD_2MM_2X9(:SMD Stiftleiste 2,00MM Winkel:SMD Header 2,00MM Grid 90deg
-87832-20:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:PHSMD_2MM_2X10(:SMD Stiftleiste 2,00MM Winkel:SMD Header 2,00MM Grid 90deg
-87832-22:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:PHSMD_2MM_2X11(:SMD Stiftleiste 2,00MM Winkel:SMD Header 2,00MM Grid 90deg
-87832-24:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:PHSMD_2MM_2X12(:SMD Stiftleiste 2,00MM Winkel:SMD Header 2,00MM Grid 90deg
-87832-26:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:PHSMD_2MM_2X13(:SMD Stiftleiste 2,00MM Winkel:SMD Header 2,00MM Grid 90deg
-87832-28:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:PHSMD_2MM_2X14(:SMD Stiftleiste 2,00MM Winkel:SMD Header 2,00MM Grid 90deg
-87832-30:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:PHSMD_2MM_2X15(:SMD Stiftleiste 2,00MM Winkel:SMD Header 2,00MM Grid 90deg
-87832-32:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:PHSMD_2MM_2X16(:SMD Stiftleiste 2,00MM Winkel:SMD Header 2,00MM Grid 90deg
+87832-04:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_PHSMD_2MM_2X2(:SMD Stiftleiste 2,00MM Winkel:SMD Header 2,00MM Grid 90deg
+87832-06:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_PHSMD_2MM_2X3(:SMD Stiftleiste 2,00MM Winkel:SMD Header 2,00MM Grid 90deg
+87832-08:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_PHSMD_2MM_2X4(:SMD Stiftleiste 2,00MM Winkel:SMD Header 2,00MM Grid 90deg
+87832-10:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_PHSMD_2MM_2X5(:SMD Stiftleiste 2,00MM Winkel:SMD Header 2,00MM Grid 90deg
+87832-12:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_PHSMD_2MM_2X6(:SMD Stiftleiste 2,00MM Winkel:SMD Header 2,00MM Grid 90deg
+87832-14:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_PHSMD_2MM_2X7(:SMD Stiftleiste 2,00MM Winkel:SMD Header 2,00MM Grid 90deg
+87832-16:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_PHSMD_2MM_2X8(:SMD Stiftleiste 2,00MM Winkel:SMD Header 2,00MM Grid 90deg
+87832-18:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_PHSMD_2MM_2X9(:SMD Stiftleiste 2,00MM Winkel:SMD Header 2,00MM Grid 90deg
+87832-20:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_PHSMD_2MM_2X10(:SMD Stiftleiste 2,00MM Winkel:SMD Header 2,00MM Grid 90deg
+87832-22:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_PHSMD_2MM_2X11(:SMD Stiftleiste 2,00MM Winkel:SMD Header 2,00MM Grid 90deg
+87832-24:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_PHSMD_2MM_2X12(:SMD Stiftleiste 2,00MM Winkel:SMD Header 2,00MM Grid 90deg
+87832-26:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_PHSMD_2MM_2X13(:SMD Stiftleiste 2,00MM Winkel:SMD Header 2,00MM Grid 90deg
+87832-28:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_PHSMD_2MM_2X14(:SMD Stiftleiste 2,00MM Winkel:SMD Header 2,00MM Grid 90deg
+87832-30:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_PHSMD_2MM_2X15(:SMD Stiftleiste 2,00MM Winkel:SMD Header 2,00MM Grid 90deg
+87832-32:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_PHSMD_2MM_2X16(:SMD Stiftleiste 2,00MM Winkel:SMD Header 2,00MM Grid 90deg
 ####################################################################################################
 CON_PH2SMD_2MM_GRND
 (Pins)
 ####################################################################################################
-PHSMD_2MM_2X2()
+CON_PHSMD_2MM_2X2()
 (2)
-PHSMD_2MM_2X3()
+CON_PHSMD_2MM_2X3()
 (3)
-PHSMD_2MM_2X4()
+CON_PHSMD_2MM_2X4()
 (4)
-PHSMD_2MM_2X5()
+CON_PHSMD_2MM_2X5()
 (5)
-PHSMD_2MM_2X6()
+CON_PHSMD_2MM_2X6()
 (6)
-PHSMD_2MM_2X7()
+CON_PHSMD_2MM_2X7()
 (7)
-PHSMD_2MM_2X8()
+CON_PHSMD_2MM_2X8()
 (8)
-PHSMD_2MM_2X9()
+CON_PHSMD_2MM_2X9()
 (9)
-PHSMD_2MM_2X10()
+CON_PHSMD_2MM_2X10()
 (10)
-PHSMD_2MM_2X11()
+CON_PHSMD_2MM_2X11()
 (11)
-PHSMD_2MM_2X12()
+CON_PHSMD_2MM_2X12()
 (12)
-PHSMD_2MM_2X13()
+CON_PHSMD_2MM_2X13()
 (13)
-PHSMD_2MM_2X14()
+CON_PHSMD_2MM_2X14()
 (14)
-PHSMD_2MM_2X15()
+CON_PHSMD_2MM_2X15()
 (15)
-PHSMD_2MM_2X16()
+CON_PHSMD_2MM_2X16()
 (16)
 ####################################################################################################
 ####################################################################################################

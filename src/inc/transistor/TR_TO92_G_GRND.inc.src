@@ -1,5 +1,5 @@
 TO92
-// Joerg Bredendiek <sprut(replace with at)sprut.de>  
+// Joerg Bredendiek <sprut(replace with at)sprut.de>
 // replacement for all TR_TO92 and DIODE_TO92 macros
 //
 //TO92 & SOT54 packages, vertical
@@ -51,17 +51,17 @@ SOT54D:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:TR_TO92_G(:TO
 TO92L:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:TR_TO92_G2(:TO92 gerade stehend:TO92 straight vertical
 SOT54AA:0:1:0:0:0:0:0:0:0:0:0:0:0:-90:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:TR_TO92_G2(:TO92 gerade stehend:TO92 straight vertical
 SOT54CA:0:1:0:0:0:0:0:0:0:0:0:0:0:-90:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:TR_TO92_G2(:TO92 gerade stehend:TO92 straight vertical
-SOT54BA:0:1:0:0:0:0:0:0:0:0:0:0:0:-90:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:TR_TO92_G2(:TO92 gerade stehend:TO92 straight vertical  
+SOT54BA:0:1:0:0:0:0:0:0:0:0:0:0:0:-90:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:TR_TO92_G2(:TO92 gerade stehend:TO92 straight vertical
 SOT54CB:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:TR_TO92_G3(:TO92 gerade stehend:TO92 straight vertical
 SOT54AB:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:TR_TO92_G3(:TO92 gerade stehend:TO92 straight vertical
-SOT54BB:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:TR_TO92_G3(:TO92 gerade stehend:TO92 straight vertical  
-TO92/:0:1:0:0:0:0:0:0:0:0:0:0:0:45:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:TR_TO92_G4(:TO92 gerade stehend:TO92 straight vertical 
-TO92C1:0:1:0:0:0:0:0:0:0:0:0:0:0:-45:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:TR_TO92_G4(:TO92 gerade stehend:TO92 straight vertical    
+SOT54BB:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:TR_TO92_G3(:TO92 gerade stehend:TO92 straight vertical
+TO92/:0:1:0:0:0:0:0:0:0:0:0:0:0:45:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:TR_TO92_G4(:TO92 gerade stehend:TO92 straight vertical
+TO92C1:0:1:0:0:0:0:0:0:0:0:0:0:0:-45:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:TR_TO92_G4(:TO92 gerade stehend:TO92 straight vertical
 SOT54DB:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:TR_TO92_G5(:TO92 gerade stehend:TO92 straight vertical
 SOT54DA:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:TR_TO92_G5(:TO92 gerade stehend:TO92 straight vertical
-TO92H:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:DIODE_TO92_2(:TO92 gerade stehend:TO92 straight vertical
-C182A:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:DIODE_TO92_2(:TO92 gerade stehend:TO92 straight vertical
-SOT54H:0:1:0:0:0:0:0:0:0:0:0:0:0:180:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:DIODE_TO92_2(:TO92 gerade stehend:TO92 straight vertical
+TO92H:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:TR_TO92_2(:TO92 gerade stehend:TO92 straight vertical
+C182A:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:TR_TO92_2(:TO92 gerade stehend:TO92 straight vertical
+SOT54H:0:1:0:0:0:0:0:0:0:0:0:0:0:180:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:TR_TO92_2(:TO92 gerade stehend:TO92 straight vertical
 ####################################################################################################
 TR_TO92_G_GRND
 (value, pin, L, M, R, D)
@@ -78,7 +78,7 @@ TR_TO92_G4(value)
 (value, 3, -1.80, 1.80, 1.80, 0)
 TR_TO92_G5(value)
 (value, 3, -2.18, 2.55, 2.18, 0)
-DIODE_TO92_2(value)
+TR_TO92_2(value)
 (value, 2, -1.27, 0.00, 1.27, 0)
 ####################################################################################################
 ####################################################################################################

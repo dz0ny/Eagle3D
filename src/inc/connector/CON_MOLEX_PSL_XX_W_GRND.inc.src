@@ -3,36 +3,36 @@ abgewinkelte Molex-Stiftleisten RM 2.54.
 // abgewinkelte Molex-Stiftleisten RM 2.54.
 // Bezugspunkt: Mitte der Pins auf PCB-Oberfläche
 ####################################################################################################
-NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:MOLEX_PSL2W(:PC mount header:
-NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:MOLEX_PSL3W(:PC mount header:
-NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:MOLEX_PSL4W(:PC mount header:
-NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:MOLEX_PSL5W(:PC mount header:
-NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:MOLEX_PSL6W(:PC mount header:
-NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:MOLEX_PSL7W(:PC mount header:
-NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:MOLEX_PSL8W(:PC mount header:
-NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:MOLEX_PSL9W(:PC mount header:
-NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:MOLEX_PSL10W(:PC mount header:
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_MOLEX_PSL2W(:PC mount header:
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_MOLEX_PSL3W(:PC mount header:
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_MOLEX_PSL4W(:PC mount header:
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_MOLEX_PSL5W(:PC mount header:
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_MOLEX_PSL6W(:PC mount header:
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_MOLEX_PSL7W(:PC mount header:
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_MOLEX_PSL8W(:PC mount header:
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_MOLEX_PSL9W(:PC mount header:
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_MOLEX_PSL10W(:PC mount header:
 ####################################################################################################
 CON_MOLEX_PSL_XX_W_GRND
 (Pins)
 ####################################################################################################
-MOLEX_PSL2W()
+CON_MOLEX_PSL2W()
 (2)
-MOLEX_PSL3W()
+CON_MOLEX_PSL3W()
 (3)
-MOLEX_PSL4W()
+CON_MOLEX_PSL4W()
 (4)
-MOLEX_PSL5W()
+CON_MOLEX_PSL5W()
 (5)
-MOLEX_PSL6W()
+CON_MOLEX_PSL6W()
 (6)
-MOLEX_PSL7W()
+CON_MOLEX_PSL7W()
 (7)
-MOLEX_PSL8W()
+CON_MOLEX_PSL8W()
 (8)
-MOLEX_PSL9W()
+CON_MOLEX_PSL9W()
 (9)
-MOLEX_PSL10W()
+CON_MOLEX_PSL10W()
 (10)
 ####################################################################################################
 ####################################################################################################

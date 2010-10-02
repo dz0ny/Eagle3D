@@ -1,26 +1,26 @@
 laser
 //dahamm(at)gmx.net
 ####################################################################################################
-NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:L_WE_PD_S(:Speicherdrossel WE-PD Wuerth Elektronik:Inductor WE-PD Wuerth Elektronik
-NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:L_WE_PD_M(:Speicherdrossel WE-PD Wuerth Elektronik:Inductor WE-PD Wuerth Elektronik
-NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:L_WE_PD_L(:Speicherdrossel WE-PD Wuerth Elektronik:Inductor WE-PD Wuerth Elektronik
-NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:L_WE_PD_XL(:Speicherdrossel WE-PD Wuerth Elektronik:Inductor WE-PD Wuerth Elektronik
-NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:L_WE_PD_XXL(:Speicherdrossel WE-PD Wuerth Elektronik:Inductor WE-PD Wuerth Elektronik
-WE-PD_S/M:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:L_WE_PD_M(:Speicherdrossel WE-PD Wuerth Elektronik:Inductor WE-PD Wuerth Elektronik
-WE-PD_L/XL/XXL:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:L_WE_PD_XL(:Speicherdrossel WE-PD Wuerth Elektronik:Inductor WE-PD Wuerth Elektronik
+NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SPC_L_WE_PD_S(:Speicherdrossel WE-PD Wuerth Elektronik:Inductor WE-PD Wuerth Elektronik
+NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SPC_L_WE_PD_M(:Speicherdrossel WE-PD Wuerth Elektronik:Inductor WE-PD Wuerth Elektronik
+NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SPC_L_WE_PD_L(:Speicherdrossel WE-PD Wuerth Elektronik:Inductor WE-PD Wuerth Elektronik
+NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SPC_L_WE_PD_XL(:Speicherdrossel WE-PD Wuerth Elektronik:Inductor WE-PD Wuerth Elektronik
+NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SPC_L_WE_PD_XXL(:Speicherdrossel WE-PD Wuerth Elektronik:Inductor WE-PD Wuerth Elektronik
+WE-PD_S/M:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SPC_L_WE_PD_M(:Speicherdrossel WE-PD Wuerth Elektronik:Inductor WE-PD Wuerth Elektronik
+WE-PD_L/XL/XXL:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:SPC_L_WE_PD_XL(:Speicherdrossel WE-PD Wuerth Elektronik:Inductor WE-PD Wuerth Elektronik
 ####################################################################################################
 SPC_L_WE_PD_GRND
 (value, A, B, C, D)
 ####################################################################################################
-L_WE_PD_S(value)
+SPC_L_WE_PD_S(value)
 (value, 7.3, 3.2, 1.5, 1.5)
-L_WE_PD_M(value)
+SPC_L_WE_PD_M(value)
 (value, 7.3, 4.5, 2.0, 1.5)
-L_WE_PD_L(value)
+SPC_L_WE_PD_L(value)
 (value, 12.0, 6.0, 8.0, 5.0)
-L_WE_PD_XL(value)
+SPC_L_WE_PD_XL(value)
 (value, 12.0, 8.0, 8.0, 5.0)
-L_WE_PD_XXL(value)
+SPC_L_WE_PD_XXL(value)
 (value, 12.0, 10.0, 7.6, 5.0)
 ####################################################################################################
 ####################################################################################################
