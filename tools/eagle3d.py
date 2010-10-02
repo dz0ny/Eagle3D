@@ -1670,7 +1670,7 @@ class _Worker:
 					if f in ["povpos.pov", "povpre.pov"]:
 						continue
 					target_render_filepath = os.path.join(render_outdir, f+img_extension)
-					if render_noclobber and os.path.exists(target_render_filepath):
+					if noclobber and os.path.exists(target_render_filepath):
 						logger.info("skipping %s, image exists."%(f+img_extension))
 						total_rendering_skipped = total_rendering_skipped+1
 						continue
@@ -1695,7 +1695,7 @@ class _Worker:
 			del pq
 
 		logger.info("a total of %d rendering processes were attempted."%(total_rendering_attempts))
-		if render_noclobber:
+		if noclobber:
 			logger.info("a total of %d rendering processes were skipped."%(total_rendering_skipped))
 
 		# removing empty fatal files
