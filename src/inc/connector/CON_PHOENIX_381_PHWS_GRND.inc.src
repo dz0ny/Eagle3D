@@ -1,0 +1,57 @@
+Phoenix Mini-Combicon 3.81mm Gegenstecker MC 1,5/xx-ST-381 (horizontal)
+//Macros fuer Phoenix Mini-Combicon 3.81mm Klemmen und Gegenstecker
+//Designed by Friedrich Bleikamp, Lenord, Bauer & Co. Gmbh <fbleikamp@lenord.de>
+//Privat: <fbleikamp@web.de>
+//Grundmacro fuer Phoenix Mini-Combicon 3.81mm Gegenstecker MC 1,5/xx-ST-381 (horizontal)
+####################################################################################################
+MC2-ST:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_PHOENIX_381_MC_2ST(:Phoenix MC 1,5/2-ST-381 horizontal 2pol. (con-phoenix-381.lib):Screw Terminal conn. 2Pin (con-phoenix-381.lib)
+MC3-ST:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_PHOENIX_381_MC_3ST(:Phoenix MC 1,5/3-ST-381 horizontal 3pol. (con-phoenix-381.lib):Screw Terminal conn. 3Pin (con-phoenix-381.lib)
+MC4-ST:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_PHOENIX_381_MC_4ST(:Phoenix MC 1,5/4-ST-381 horizontal 4pol. (con-phoenix-381.lib):Screw Terminal conn. 4Pin (con-phoenix-381.lib)
+MC5-ST:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_PHOENIX_381_MC_5ST(:Phoenix MC 1,5/5-ST-381 horizontal 5pol. (con-phoenix-381.lib):Screw Terminal conn. 5Pin (con-phoenix-381.lib)
+MC6-ST:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_PHOENIX_381_MC_6ST(:Phoenix MC 1,5/6-ST-381 horizontal 6pol. (con-phoenix-381.lib):Screw Terminal conn. 6Pin (con-phoenix-381.lib)
+MC7-ST:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_PHOENIX_381_MC_7ST(:Phoenix MC 1,5/7-ST-381 horizontal 7pol. (con-phoenix-381.lib):Screw Terminal conn. 7Pin (con-phoenix-381.lib)
+MC8-ST:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_PHOENIX_381_MC_8ST(:Phoenix MC 1,5/8-ST-381 horizontal 8pol. (con-phoenix-381.lib):Screw Terminal conn. 8Pin (con-phoenix-381.lib)
+MC9-ST:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_PHOENIX_381_MC_9ST(:Phoenix MC 1,5/9-ST-381 horizontal 9pol. (con-phoenix-381.lib):Screw Terminal conn. 9Pin (con-phoenix-381.lib)
+MC10-ST:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_PHOENIX_381_MC_10ST(:Phoenix MC 1,5/10-ST-381 horizontal 10pol. (con-phoenix-381.lib):Screw Terminal conn. 10Pin (con-phoenix-381.lib)
+MC11-ST:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_PHOENIX_381_MC_11ST(:Phoenix MC 1,5/11-ST-381 horizontal 11pol. (con-phoenix-381.lib):Screw Terminal conn. 11Pin (con-phoenix-381.lib)
+####################################################################################################
+CON_PHOENIX_381_PHWS_GRND
+(j)
+####################################################################################################
+CON_PHOENIX_381_MC_2ST()
+(2)
+CON_PHOENIX_381_MC_3ST()
+(3)
+CON_PHOENIX_381_MC_4ST()
+(4)
+CON_PHOENIX_381_MC_5ST()
+(5)
+CON_PHOENIX_381_MC_6ST()
+(6)
+CON_PHOENIX_381_MC_7ST()
+(7)
+CON_PHOENIX_381_MC_8ST()
+(8)
+CON_PHOENIX_381_MC_9ST()
+(9)
+CON_PHOENIX_381_MC_10ST()
+(10)
+CON_PHOENIX_381_MC_11ST()
+(11)
+CON_PHOENIX_381_MC_12ST()
+(12)
+CON_PHOENIX_381_MC_13ST()
+(13)
+####################################################################################################
+####################################################################################################
+union{
+	#local i = 0;
+	#while(i<j)
+		object {CON_PHOENIX_381_PHGSG() translate<8,-2.9,i*3.81>}
+		object {CON_PHOENIX_381_SCREWHEAD()rotate<0,i*75,0> translate<12,7.2,i*3.81> texture{col_silver}}
+		object {CON_PHOENIX_381_PHNR(i+1) rotate <78,0,0> translate <0,5.9,16.0> translate<-i*3.81,0,0> rotate<0,90,0> }
+		#local i=i+1;
+	#end
+	translate<0,0,-j*1.905+1.905> rotate<0,90,0>
+}
+#end

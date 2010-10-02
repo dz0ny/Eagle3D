@@ -1,0 +1,60 @@
+Anreiklemme 5mm
+//Grundmakro für Anreiklemme 5mm
+####################################################################################################
+AK500/2:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:ARK_5MM_2(:Anreihklemmen 2Pin (con-ptr500.lib):Screw Terminal conn. 2Pin (con-ptr500.lib)
+AK500/3:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:ARK_5MM_3(:Anreihklemmen 3Pin (con-ptr500.lib):Screw Terminal conn. 3Pin (con-ptr500.lib)
+AK500/4:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:ARK_5MM_4(:Anreihklemmen 4Pin (con-ptr500.lib):Screw Terminal conn. 4Pin (con-ptr500.lib)
+AK500/5:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:ARK_5MM_5(:Anreihklemmen 5Pin (con-ptr500.lib):Screw Terminal conn. 5Pin (con-ptr500.lib)
+AK500/6:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:ARK_5MM_6(:Anreihklemmen 6Pin (con-ptr500.lib):Screw Terminal conn. 6Pin (con-ptr500.lib)
+AK500/7:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:ARK_5MM_7(:Anreihklemmen 7Pin (con-ptr500.lib):Screw Terminal conn. 7Pin (con-ptr500.lib)
+AK500/8:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:ARK_5MM_8(:Anreihklemmen 8Pin (con-ptr500.lib):Screw Terminal conn. 8Pin (con-ptr500.lib)
+AK500/9:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:ARK_5MM_9(:Anreihklemmen 9Pin (con-ptr500.lib):Screw Terminal conn. 9Pin (con-ptr500.lib)
+AK500/10:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:ARK_5MM_10(:Anreihklemmen 10Pin (con-ptr500.lib):Screw Terminal conn. 10Pin (con-ptr500.lib)
+AK500/11:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:ARK_5MM_11(:Anreihklemmen 11Pin (con-ptr500.lib):Screw Terminal conn. 11Pin (con-ptr500.lib)
+AK500/12:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:ARK_5MM_12(:Anreihklemmen 12Pin (con-ptr500.lib):Screw Terminal conn. 12Pin (con-ptr500.lib)
+####################################################################################################
+CON_ARK_5MM_GRND
+(j)
+####################################################################################################
+ARK_5MM_2()
+(2)
+ARK_5MM_3()
+(3)
+ARK_5MM_4()
+(4)
+ARK_5MM_5()
+(5)
+ARK_5MM_6()
+(6)
+ARK_5MM_7()
+(7)
+ARK_5MM_8()
+(8)
+ARK_5MM_9()
+(9)
+ARK_5MM_10()
+(10)
+ARK_5MM_11()
+(11)
+ARK_5MM_12()
+(12)
+####################################################################################################
+####################################################################################################
+union{
+	#local i = 0;
+	#while(i<j)
+		object{ARK_PIN() translate<i*5.08,0,0>}
+		#local i=i+1;
+	#end
+
+	union{
+		#local i = 0;
+		#while(i<j)
+			text {ttf besch_font str(j-i,0,0) 0.2,0  scale<3,3,3> rotate<30,0,0> translate<-i*5.08-1.27,7.21,-4> translate<0,0.3,0.1> pigment{Black}}
+			#local i=i+1;
+		#end
+		translate<(i-1)*5.08,0,0>
+	}
+	translate<-j*2.54+2.54,0,0>
+}
+#end

@@ -1,0 +1,496 @@
+pin headers
+//Grundmakro Stiftleisten
+//a = Rows
+//b = Pins
+//j = (0=no Jumper, 1=open, 2=closed)
+//pitch = The space between two pins
+####################################################################################################
+JP1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:1:0:0:0:0:0:0:0:0:0:0:0:PH_2X1J(:Jumper 2,54mm Raster 2Pin 1Reihe (jumper.lib):Jumper 2,54mm Grid 2Pin 1Row (jumper.lib)
+JP1Y:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:1:0:0:0:0:0:0:0:0:0:0:0:PH_2X1J(:Jumper 2,54mm Raster 2Pin 1Reihe (jumper.lib):Jumper 2,54mm Grid 2Pin 1Row (jumper.lib)
+JP2:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:PH_1X3(:Jumper 2,54mm Raster 3Pin 1Reihe (jumper.lib):Jumper 2,54mm Grid 3Pin 1Row (jumper.lib)
+JP2Q:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:1:0:0:0:0:0:0:0:0:0:0:0:PH_2X2J(:Jumper 2,54mm Raster 2Pin 2Reihen (pinhead.lib):Jumper 2,54mm Grid 2Pin 2Row (jumper.lib)
+JP2Y:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:PH_1X3(:Jumper 2,54mm Raster 2Pin 2Reihen (pinhead.lib):Jumper 2,54mm Grid 2Pin 2Row (jumper.lib)
+JP3Q:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:1:0:0:0:0:0:0:0:0:0:0:0:PH_2X3J(:Jumper 2,54mm Raster 3Pin 2Reihen (pinhead.lib):Jumper 2,54mm Grid 3Pin 1Row (jumper.lib)
+JP4:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:PH_1X4(:Jumper 2,54mm Raster 4Pin 1Reihe (jumper.lib):Jumper 2,54mm Grid 4Pin 1Row (jumper.lib)
+JP4Q:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:1:0:0:0:0:0:0:0:0:0:0:0:PH_2X4J(:Jumper 2,54mm Raster 4Pin 2Reihen (pinhead.lib):Jumper 2,54mm Grid 4Pin 2Row (jumper.lib)
+JP5Q:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:1:0:0:0:0:0:0:0:0:0:0:0:PH_2X5J(:Jumper 2,54mm Raster 5Pin 2Reihen (pinhead.lib):Jumper 2,54mm Grid 5Pin 2Row (jumper.lib)
+JP6Q:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:1:0:0:0:0:0:0:0:0:0:0:0:PH_2X6J(:Jumper 2,54mm Raster 6Pin 2Reihen (pinhead.lib):Jumper 2,54mm Grid 6Pin 2Row (jumper.lib)
+JP7Q:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:1:0:0:0:0:0:0:0:0:0:0:0:PH_2X7J(:Jumper 2,54mm Raster 7Pin 2Reihen (pinhead.lib):Jumper 2,54mm Grid 7Pin 2Row (jumper.lib)
+JP8Q:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:1:0:0:0:0:0:0:0:0:0:0:0:PH_2X8J(:Jumper 2,54mm Raster 8Pin 2Reihen (pinhead.lib):Jumper 2,54mm Grid 8Pin 2Row (jumper.lib)
+JP9Q:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:1:0:0:0:0:0:0:0:0:0:0:0:PH_2X9J(:Jumper 2,54mm Raster 9Pin 2Reihen (pinhead.lib):Jumper 2,54mm Grid 9Pin 2Row (jumper.lib)
+JP10Q:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:1:0:0:0:0:0:0:0:0:0:0:0:PH_2X10J(:Jumper 2,54mm Raster 10Pin 2Reihen (pinhead.lib):Jumper 2,54mm Grid 10Pin 2Row (jumper.lib)
+1X01:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:PH_1X1(:Stiftleiste 2,54mm Raster 1Pin 1Reihe (pinhead.lib):Header 2,54mm Grid 1Pin 1Row (jumper.lib)
+1X02:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:PH_1X2(:Stiftleiste 2,54mm Raster 2Pin 1Reihe (pinhead.lib):Header 2,54mm Grid 2Pin 1Row (jumper.lib)
+1X03:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:PH_1X3(:Stiftleiste 2,54mm Raster 3Pin 1Reihe (pinhead.lib):Header 2,54mm Grid 3Pin 1Row (jumper.lib)
+1X04:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:PH_1X4(:Stiftleiste 2,54mm Raster 4Pin 1Reihe (pinhead.lib):Header 2,54mm Grid 4Pin 1Row (jumper.lib)
+1X05:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:PH_1X5(:Stiftleiste 2,54mm Raster 5Pin 1Reihe (pinhead.lib):Header 2,54mm Grid 5Pin 1Row (jumper.lib)
+1X06:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:PH_1X6(:Stiftleiste 2,54mm Raster 6Pin 1Reihe (pinhead.lib):Header 2,54mm Grid 6Pin 1Row (jumper.lib)
+1X07:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:PH_1X7(:Stiftleiste 2,54mm Raster 7Pin 1Reihe (pinhead.lib):Header 2,54mm Grid 7Pin 1Row (jumper.lib)
+1X08:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:PH_1X8(:Stiftleiste 2,54mm Raster 8Pin 1Reihe (pinhead.lib):Header 2,54mm Grid 8Pin 1Row (jumper.lib)
+1X09:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:PH_1X9(:Stiftleiste 2,54mm Raster 9Pin 1Reihe (pinhead.lib):Header 2,54mm Grid 9Pin 1Row (jumper.lib)
+1X10:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:PH_1X10(:Stiftleiste 2,54mm Raster 10Pin 1Reihe (pinhead.lib):Header 2,54mm Grid 10Pin 1Row (jumper.lib)
+1X11:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:PH_1X11(:Stiftleiste 2,54mm Raster 11Pin 1Reihe (pinhead.lib):Header 2,54mm Grid 11Pin 1Row (jumper.lib)
+1X12:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:PH_1X12(:Stiftleiste 2,54mm Raster 12Pin 1Reihe (pinhead.lib):Header 2,54mm Grid 12Pin 1Row (jumper.lib)
+1X13:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:PH_1X13(:Stiftleiste 2,54mm Raster 13Pin 1Reihe (pinhead.lib):Header 2,54mm Grid 13Pin 1Row (jumper.lib)
+1X14:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:PH_1X14(:Stiftleiste 2,54mm Raster 14Pin 1Reihe (pinhead.lib):Header 2,54mm Grid 14Pin 1Row (jumper.lib)
+1X15:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:PH_1X15(:Stiftleiste 2,54mm Raster 15Pin 1Reihe (pinhead.lib):Header 2,54mm Grid 15Pin 1Row (jumper.lib)
+1X16:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:PH_1X16(:Stiftleiste 2,54mm Raster 16Pin 1Reihe (pinhead.lib):Header 2,54mm Grid 16Pin 1Row (jumper.lib)
+1X17:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:PH_1X17(:Stiftleiste 2,54mm Raster 17Pin 1Reihe (pinhead.lib):Header 2,54mm Grid 17Pin 1Row (jumper.lib)
+1X18:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:PH_1X18(:Stiftleiste 2,54mm Raster 18Pin 1Reihe (pinhead.lib):Header 2,54mm Grid 18Pin 1Row (jumper.lib)
+1X19:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:PH_1X19(:Stiftleiste 2,54mm Raster 19Pin 1Reihe (pinhead.lib):Header 2,54mm Grid 19Pin 1Row (jumper.lib)
+1X20:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:PH_1X20(:Stiftleiste 2,54mm Raster 20Pin 1Reihe (pinhead.lib):Header 2,54mm Grid 20Pin 1Row (jumper.lib)
+1X21:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:PH_1X21(:Stiftleiste 2,54mm Raster 21Pin 1Reihe (pinhead.lib):Header 2,54mm Grid 21Pin 1Row (jumper.lib)
+1X22:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:PH_1X22(:Stiftleiste 2,54mm Raster 22Pin 1Reihe (pinhead.lib):Header 2,54mm Grid 22Pin 1Row (jumper.lib)
+1X23:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:PH_1X23(:Stiftleiste 2,54mm Raster 23Pin 1Reihe (pinhead.lib):Header 2,54mm Grid 23Pin 1Row (jumper.lib)
+1X24:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:PH_1X24(:Stiftleiste 2,54mm Raster 24Pin 1Reihe (pinhead.lib):Header 2,54mm Grid 24Pin 1Row (jumper.lib)
+1X25:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:PH_1X25(:Stiftleiste 2,54mm Raster 25Pin 1Reihe (pinhead.lib):Header 2,54mm Grid 25Pin 1Row (jumper.lib)
+1X26:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:PH_1X26(:Stiftleiste 2,54mm Raster 26Pin 1Reihe (pinhead.lib):Header 2,54mm Grid 26Pin 1Row (jumper.lib)
+1X27:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:PH_1X27(:Stiftleiste 2,54mm Raster 27Pin 1Reihe (pinhead.lib):Header 2,54mm Grid 27Pin 1Row (jumper.lib)
+1X28:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:PH_1X28(:Stiftleiste 2,54mm Raster 28Pin 1Reihe (pinhead.lib):Header 2,54mm Grid 28Pin 1Row (jumper.lib)
+1X29:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:PH_1X29(:Stiftleiste 2,54mm Raster 29Pin 1Reihe (pinhead.lib):Header 2,54mm Grid 29Pin 1Row (jumper.lib)
+1X30:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:PH_1X30(:Stiftleiste 2,54mm Raster 30Pin 1Reihe (pinhead.lib):Header 2,54mm Grid 30Pin 1Row (jumper.lib)
+2X02:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:PH_2X2(:Stiftleiste 2,54mm Raster 2Pin 2Reihen (pinhead.lib):Header 2,54mm Grid 2Pin 2Row (jumper.lib)
+2X03:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:PH_2X3(:Stiftleiste 2,54mm Raster 3Pin 2Reihen (pinhead.lib):Header 2,54mm Grid 3Pin 2Row (jumper.lib)
+2X04:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:PH_2X4(:Stiftleiste 2,54mm Raster 4Pin 2Reihen (pinhead.lib):Header 2,54mm Grid 4Pin 2Row (jumper.lib)
+2X05:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:PH_2X5(:Stiftleiste 2,54mm Raster 5Pin 2Reihen (pinhead.lib):Header 2,54mm Grid 5Pin 2Row (jumper.lib)
+2X06:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:PH_2X6(:Stiftleiste 2,54mm Raster 6Pin 2Reihen (pinhead.lib):Header 2,54mm Grid 6Pin 2Row (jumper.lib)
+2X07:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:PH_2X7(:Stiftleiste 2,54mm Raster 7Pin 2Reihen (pinhead.lib):Header 2,54mm Grid 7Pin 2Row (jumper.lib)
+2X08:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:PH_2X8(:Stiftleiste 2,54mm Raster 8Pin 2Reihen (pinhead.lib):Header 2,54mm Grid 8Pin 2Row (jumper.lib)
+2X09:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:PH_2X9(:Stiftleiste 2,54mm Raster 9Pin 2Reihen (pinhead.lib):Header 2,54mm Grid 9Pin 2Row (jumper.lib)
+2X10:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:PH_2X10(:Stiftleiste 2,54mm Raster 10Pin 2Reihen (pinhead.lib):Header 2,54mm Grid 10Pin 2Row (jumper.lib)
+2X11:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:PH_2X11(:Stiftleiste 2,54mm Raster 11Pin 2Reihen (pinhead.lib):Header 2,54mm Grid 11Pin 2Row (jumper.lib)
+2X12:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:PH_2X12(:Stiftleiste 2,54mm Raster 12Pin 2Reihen (pinhead.lib):Header 2,54mm Grid 12Pin 2Row (jumper.lib)
+2X13:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:PH_2X13(:Stiftleiste 2,54mm Raster 13Pin 2Reihen (pinhead.lib):Header 2,54mm Grid 13Pin 2Row (jumper.lib)
+2X14:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:PH_2X14(:Stiftleiste 2,54mm Raster 14Pin 2Reihen (pinhead.lib):Header 2,54mm Grid 14Pin 2Row (jumper.lib)
+2X15:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:PH_2X15(:Stiftleiste 2,54mm Raster 15Pin 2Reihen (pinhead.lib):Header 2,54mm Grid 15Pin 2Row (jumper.lib)
+2X16:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:PH_2X16(:Stiftleiste 2,54mm Raster 16Pin 2Reihen (pinhead.lib):Header 2,54mm Grid 16Pin 2Row (jumper.lib)
+2X17:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:PH_2X17(:Stiftleiste 2,54mm Raster 17Pin 2Reihen (pinhead.lib):Header 2,54mm Grid 17Pin 2Row (jumper.lib)
+2X18:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:PH_2X18(:Stiftleiste 2,54mm Raster 18Pin 2Reihen (pinhead.lib):Header 2,54mm Grid 18Pin 2Row (jumper.lib)
+2X19:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:PH_2X19(:Stiftleiste 2,54mm Raster 19Pin 2Reihen (pinhead.lib):Header 2,54mm Grid 19Pin 2Row (jumper.lib)
+2X20:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:PH_2X20(:Stiftleiste 2,54mm Raster 20Pin 2Reihen (pinhead.lib):Header 2,54mm Grid 20Pin 2Row (jumper.lib)
+2X21:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:PH_2X21(:Stiftleiste 2,54mm Raster 21Pin 2Reihen (pinhead.lib):Header 2,54mm Grid 21Pin 2Row (jumper.lib)
+2X22:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:PH_2X22(:Stiftleiste 2,54mm Raster 22Pin 2Reihen (pinhead.lib):Header 2,54mm Grid 22Pin 2Row (jumper.lib)
+2X23:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:PH_2X23(:Stiftleiste 2,54mm Raster 23Pin 2Reihen (pinhead.lib):Header 2,54mm Grid 23Pin 2Row (jumper.lib)
+2X24:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:PH_2X24(:Stiftleiste 2,54mm Raster 24Pin 2Reihen (pinhead.lib):Header 2,54mm Grid 24Pin 2Row (jumper.lib)
+2X25:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:PH_2X25(:Stiftleiste 2,54mm Raster 25Pin 2Reihen (pinhead.lib):Header 2,54mm Grid 25Pin 2Row (jumper.lib)
+2X26:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:PH_2X26(:Stiftleiste 2,54mm Raster 26Pin 2Reihen (pinhead.lib):Header 2,54mm Grid 26Pin 2Row (jumper.lib)
+2X27:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:PH_2X27(:Stiftleiste 2,54mm Raster 27Pin 2Reihen (pinhead.lib):Header 2,54mm Grid 27Pin 2Row (jumper.lib)
+2X28:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:PH_2X28(:Stiftleiste 2,54mm Raster 28Pin 2Reihen (pinhead.lib):Header 2,54mm Grid 28Pin 2Row (jumper.lib)
+2X29:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:PH_2X29(:Stiftleiste 2,54mm Raster 29Pin 2Reihen (pinhead.lib):Header 2,54mm Grid 29Pin 2Row (jumper.lib)
+2X30:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:PH_2X30(:Stiftleiste 2,54mm Raster 30Pin 2Reihen (pinhead.lib):Header 2,54mm Grid 30Pin 2Row (jumper.lib)
+MA03-1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:PH_1X3(:Stiftleiste 2,54mm Raster 3Pin 1Reihe (con-lstb.lib):Header 2,54mm Grid 3Pin 1Row (jumper.lib)
+MA04-1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:PH_1X4(:Stiftleiste 2,54mm Raster 4Pin 1Reihe (con-lstb.lib):Header 2,54mm Grid 4Pin 1Row (jumper.lib)
+MA05-1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:PH_1X5(:Stiftleiste 2,54mm Raster 5Pin 1Reihe (con-lstb.lib):Header 2,54mm Grid 5Pin 1Row (jumper.lib)
+MA06-1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:PH_1X6(:Stiftleiste 2,54mm Raster 6Pin 1Reihe (con-lstb.lib):Header 2,54mm Grid 6Pin 1Row (jumper.lib)
+MA07-1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:PH_1X7(:Stiftleiste 2,54mm Raster 7Pin 1Reihe (con-lstb.lib):Header 2,54mm Grid 7Pin 1Row (jumper.lib)
+MA08-1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:PH_1X8(:Stiftleiste 2,54mm Raster 8Pin 1Reihe (con-lstb.lib):Header 2,54mm Grid 8Pin 1Row (jumper.lib)
+MA09-1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:PH_1X9(:Stiftleiste 2,54mm Raster 9Pin 1Reihe (con-lstb.lib):Header 2,54mm Grid 9Pin 1Row (jumper.lib)
+MA10-1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:PH_1X10(:Stiftleiste 2,54mm Raster 10Pin 1Reihe (con-lstb.lib):Header 2,54mm Grid 10Pin 1Row (jumper.lib)
+MA12-1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:PH_1X12(:Stiftleiste 2,54mm Raster 12Pin 1Reihe (con-lstb.lib):Header 2,54mm Grid 12Pin 1Row (jumper.lib)
+MA13-1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:PH_1X13(:Stiftleiste 2,54mm Raster 13Pin 1Reihe (con-lstb.lib):Header 2,54mm Grid 13Pin 1Row (jumper.lib)
+MA17-1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:PH_1X17(:Stiftleiste 2,54mm Raster 17Pin 1Reihe (con-lstb.lib):Header 2,54mm Grid 17Pin 1Row (jumper.lib)
+MA18-1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:PH_1X18(:Stiftleiste 2,54mm Raster 18Pin 1Reihe (con-lstb.lib):Header 2,54mm Grid 18Pin 1Row (jumper.lib)
+MA20-1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:PH_1X20(:Stiftleiste 2,54mm Raster 20Pin 1Reihe (con-lstb.lib):Header 2,54mm Grid 20Pin 1Row (jumper.lib)
+MA03-2:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:PH_2X3(:Stiftleiste 2,54mm Raster 3Pin 2Reihen (con-lstb.lib):Header 2,54mm Grid 3Pin 2Row (jumper.lib)
+MA04-2:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:PH_2X4(:Stiftleiste 2,54mm Raster 4Pin 2Reihen (con-lstb.lib):Header 2,54mm Grid 4Pin 2Row (jumper.lib)
+MA05-2:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:PH_2X5(:Stiftleiste 2,54mm Raster 5Pin 2Reihen (con-lstb.lib):Header 2,54mm Grid 5Pin 2Row (jumper.lib)
+MA06-2:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:PH_2X6(:Stiftleiste 2,54mm Raster 6Pin 2Reihen (con-lstb.lib):Header 2,54mm Grid 6Pin 2Row (jumper.lib)
+MA07-2:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:PH_2X7(:Stiftleiste 2,54mm Raster 7Pin 2Reihen (con-lstb.lib):Header 2,54mm Grid 7Pin 2Row (jumper.lib)
+MA08-2:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:PH_2X8(:Stiftleiste 2,54mm Raster 8Pin 2Reihen (con-lstb.lib):Header 2,54mm Grid 8Pin 2Row (jumper.lib)
+MA09-2:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:PH_2X9(:Stiftleiste 2,54mm Raster 9Pin 2Reihen (con-lstb.lib):Header 2,54mm Grid 9Pin 2Row (jumper.lib)
+MA10-2:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:PH_2X10(:Stiftleiste 2,54mm Raster 10Pin 2Reihen (con-lstb.lib):Header 2,54mm Grid 10Pin 2Row (jumper.lib)
+MA12-2:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:PH_2X12(:Stiftleiste 2,54mm Raster 12Pin 2Reihen (con-lstb.lib):Header 2,54mm Grid 12Pin 2Row (jumper.lib)
+MA13-2:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:PH_2X13(:Stiftleiste 2,54mm Raster 13Pin 2Reihen (con-lstb.lib):Header 2,54mm Grid 13Pin 2Row (jumper.lib)
+MA17-2:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:PH_2X17(:Stiftleiste 2,54mm Raster 17Pin 2Reihen (con-lstb.lib):Header 2,54mm Grid 17Pin 2Row (jumper.lib)
+MA18-2:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:PH_2X18(:Stiftleiste 2,54mm Raster 18Pin 2Reihen (con-lstb.lib):Header 2,54mm Grid 18Pin 2Row (jumper.lib)
+MA20-2:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:PH_2X20(:Stiftleiste 2,54mm Raster 20Pin 2Reihen (con-lstb.lib):Header 2,54mm Grid 20Pin 2Row (jumper.lib)
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:PH_2MM_1X1(:2mm pinheader:
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:PH_2MM_1X2(:2mm pinheader:
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:PH_2MM_1X3(:2mm pinheader:
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:PH_2MM_1X4(:2mm pinheader:
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:PH_2MM_1X5(:2mm pinheader:
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:PH_2MM_1X6(:2mm pinheader:
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:PH_2MM_1X7(:2mm pinheader:
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:PH_2MM_1X8(:2mm pinheader:
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:PH_2MM_1X9(:2mm pinheader:
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:PH_2MM_1X10(:2mm pinheader:
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:PH_2MM_1X11(:2mm pinheader:
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:PH_2MM_1X12(:2mm pinheader:
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:PH_2MM_1X13(:2mm pinheader:
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:PH_2MM_1X14(:2mm pinheader:
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:PH_2MM_1X15(:2mm pinheader:
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:PH_2MM_1X16(:2mm pinheader:
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:PH_2MM_1X17(:2mm pinheader:
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:PH_2MM_1X18(:2mm pinheader:
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:PH_2MM_1X19(:2mm pinheader:
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:PH_2MM_1X20(:2mm pinheader:
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:PH_2MM_1X21(:2mm pinheader:
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:PH_2MM_1X22(:2mm pinheader:
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:PH_2MM_1X23(:2mm pinheader:
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:PH_2MM_1X24(:2mm pinheader:
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:PH_2MM_1X25(:2mm pinheader:
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:PH_2MM_1X26(:2mm pinheader:
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:PH_2MM_1X27(:2mm pinheader:
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:PH_2MM_1X28(:2mm pinheader:
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:PH_2MM_1X29(:2mm pinheader:
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:PH_2MM_1X30(:2mm pinheader:
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:PH_2MM_2X2(:2mm pinheader:
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:PH_2MM_2X3(:2mm pinheader:
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:PH_2MM_2X4(:2mm pinheader:
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:PH_2MM_2X5(:2mm pinheader:
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:PH_2MM_2X6(:2mm pinheader:
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:PH_2MM_2X7(:2mm pinheader:
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:PH_2MM_2X8(:2mm pinheader:
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:PH_2MM_2X9(:2mm pinheader:
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:PH_2MM_2X10(:2mm pinheader:
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:PH_2MM_2X11(:2mm pinheader:
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:PH_2MM_2X12(:2mm pinheader:
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:PH_2MM_2X13(:2mm pinheader:
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:PH_2MM_2X14(:2mm pinheader:
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:PH_2MM_2X15(:2mm pinheader:
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:PH_2MM_2X16(:2mm pinheader:
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:PH_2MM_2X17(:2mm pinheader:
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:PH_2MM_2X18(:2mm pinheader:
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:PH_2MM_2X19(:2mm pinheader:
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:PH_2MM_2X20(:2mm pinheader:
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:PH_2MM_2X21(:2mm pinheader:
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:PH_2MM_2X22(:2mm pinheader:
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:PH_2MM_2X23(:2mm pinheader:
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:PH_2MM_2X24(:2mm pinheader:
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:PH_2MM_2X25(:2mm pinheader:
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:PH_2MM_2X26(:2mm pinheader:
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:PH_2MM_2X27(:2mm pinheader:
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:PH_2MM_2X28(:2mm pinheader:
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:PH_2MM_2X29(:2mm pinheader:
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:PH_2MM_2X30(:2mm pinheader:
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:1:0:0:0:0:0:0:0:0:0:0:0:PH_2MM_2X1J(:2mm pinheader (with jumper):
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:1:0:0:0:0:0:0:0:0:0:0:0:PH_2MM_2X2J(:2mm pinheader (with jumper):
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:1:0:0:0:0:0:0:0:0:0:0:0:PH_2MM_2X3J(:2mm pinheader (with jumper):
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:1:0:0:0:0:0:0:0:0:0:0:0:PH_2MM_2X4J(:2mm pinheader (with jumper):
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:1:0:0:0:0:0:0:0:0:0:0:0:PH_2MM_2X5J(:2mm pinheader (with jumper):
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:1:0:0:0:0:0:0:0:0:0:0:0:PH_2MM_2X6J(:2mm pinheader (with jumper):
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:1:0:0:0:0:0:0:0:0:0:0:0:PH_2MM_2X7J(:2mm pinheader (with jumper):
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:1:0:0:0:0:0:0:0:0:0:0:0:PH_2MM_2X8J(:2mm pinheader (with jumper):
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:1:0:0:0:0:0:0:0:0:0:0:0:PH_2MM_2X9J(:2mm pinheader (with jumper):
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:1:0:0:0:0:0:0:0:0:0:0:0:PH_2MM_2X10J(:2mm pinheader (with jumper):
+####################################################################################################
+CON_PH_GRND
+(a,b,j,pitch)
+####################################################################################################
+//Stiftleisten (2,54mm)
+PH_1X1()
+(1,1,0,2.54)
+PH_1X2()
+(1,2,0,2.54)
+PH_1X3()
+(1,3,0,2.54)
+PH_1X4()
+(1,4,0,2.54)
+PH_1X5()
+(1,5,0,2.54)
+PH_1X6()
+(1,6,0,2.54)
+PH_1X7()
+(1,7,0,2.54)
+PH_1X8()
+(1,8,0,2.54)
+PH_1X9()
+(1,9,0,2.54)
+PH_1X10()
+(1,10,0,2.54)
+PH_1X11()
+(1,11,0,2.54)
+PH_1X12()
+(1,12,0,2.54)
+PH_1X13()
+(1,13,0,2.54)
+PH_1X14()
+(1,14,0,2.54)
+PH_1X15()
+(1,15,0,2.54)
+PH_1X16()
+(1,16,0,2.54)
+PH_1X17()
+(1,17,0,2.54)
+PH_1X18()
+(1,18,0,2.54)
+PH_1X19()
+(1,19,0,2.54)
+PH_1X20()
+(1,20,0,2.54)
+PH_1X21()
+(1,21,0,2.54)
+PH_1X22()
+(1,22,0,2.54)
+PH_1X23()
+(1,23,0,2.54)
+PH_1X24()
+(1,24,0,2.54)
+PH_1X25()
+(1,25,0,2.54)
+PH_1X26()
+(1,26,0,2.54)
+PH_1X27()
+(1,27,0,2.54)
+PH_1X28()
+(1,28,0,2.54)
+PH_1X29()
+(1,29,0,2.54)
+PH_1X30()
+(1,30,0,2.54)
+//Zweireihige Stiftleisten (2,54mm)
+PH_2X2()
+(2,2,0,2.54)
+PH_2X3()
+(2,3,0,2.54)
+PH_2X4()
+(2,4,0,2.54)
+PH_2X5()
+(2,5,0,2.54)
+PH_2X6()
+(2,6,0,2.54)
+PH_2X7()
+(2,7,0,2.54)
+PH_2X8()
+(2,8,0,2.54)
+PH_2X9()
+(2,9,0,2.54)
+PH_2X10()
+(2,10,0,2.54)
+PH_2X11()
+(2,11,0,2.54)
+PH_2X12()
+(2,12,0,2.54)
+PH_2X13()
+(2,13,0,2.54)
+PH_2X14()
+(2,14,0,2.54)
+PH_2X15()
+(2,15,0,2.54)
+PH_2X16()
+(2,16,0,2.54)
+PH_2X17()
+(2,17,0,2.54)
+PH_2X18()
+(2,18,0,2.54)
+PH_2X19()
+(2,19,0,2.54)
+PH_2X20()
+(2,20,0,2.54)
+PH_2X21()
+(2,21,0,2.54)
+PH_2X22()
+(2,22,0,2.54)
+PH_2X23()
+(2,23,0,2.54)
+PH_2X24()
+(2,24,0,2.54)
+PH_2X25()
+(2,25,0,2.54)
+PH_2X26()
+(2,26,0,2.54)
+PH_2X27()
+(2,27,0,2.54)
+PH_2X28()
+(2,28,0,2.54)
+PH_2X29()
+(2,29,0,2.54)
+PH_2X30()
+(2,30,0,2.54)
+//Zweireihige Stiftleisten (2,54) mit Jumper
+PH_2X1J(j)
+(2,1,j,2.54)
+PH_2X2J(j)
+(2,2,j,2.54)
+PH_2X3J(j)
+(2,3,j,2.54)
+PH_2X4J(j)
+(2,4,j,2.54)
+PH_2X5J(j)
+(2,5,j,2.54)
+PH_2X6J(j)
+(2,6,j,2.54)
+PH_2X7J(j)
+(2,7,j,2.54)
+PH_2X8J(j)
+(2,8,j,2.54)
+PH_2X9J(j)
+(2,9,j,2.54)
+PH_2X10J(j)
+(2,10,j,2.54)
+//one row pinheader (2mm)
+PH_2MM_1X1()
+(1,1,0,2.00)
+PH_2MM_1X2()
+(1,2,0,2.00)
+PH_2MM_1X3()
+(1,3,0,2.00)
+PH_2MM_1X4()
+(1,4,0,2.00)
+PH_2MM_1X5()
+(1,5,0,2.00)
+PH_2MM_1X6()
+(1,6,0,2.00)
+PH_2MM_1X7()
+(1,7,0,2.00)
+PH_2MM_1X8()
+(1,8,0,2.00)
+PH_2MM_1X9()
+(1,9,0,2.00)
+PH_2MM_1X10()
+(1,10,0,2.00)
+PH_2MM_1X11()
+(1,11,0,2.00)
+PH_2MM_1X12()
+(1,12,0,2.00)
+PH_2MM_1X13()
+(1,13,0,2.00)
+PH_2MM_1X14()
+(1,14,0,2.00)
+PH_2MM_1X15()
+(1,15,0,2.00)
+PH_2MM_1X16()
+(1,16,0,2.00)
+PH_2MM_1X17()
+(1,17,0,2.00)
+PH_2MM_1X18()
+(1,18,0,2.00)
+PH_2MM_1X19()
+(1,19,0,2.00)
+PH_2MM_1X20()
+(1,20,0,2.00)
+PH_2MM_1X21()
+(1,21,0,2.00)
+PH_2MM_1X22()
+(1,22,0,2.00)
+PH_2MM_1X23()
+(1,23,0,2.00)
+PH_2MM_1X24()
+(1,24,0,2.00)
+PH_2MM_1X25()
+(1,25,0,2.00)
+PH_2MM_1X26()
+(1,26,0,2.00)
+PH_2MM_1X27()
+(1,27,0,2.00)
+PH_2MM_1X28()
+(1,28,0,2.00)
+PH_2MM_1X29()
+(1,29,0,2.00)
+PH_2MM_1X30()
+(1,30,0,2.00)
+//two row pinheader (2mm)
+PH_2MM_2X2()
+(2,2,0,2.00)
+PH_2MM_2X3()
+(2,3,0,2.00)
+PH_2MM_2X4()
+(2,4,0,2.00)
+PH_2MM_2X5()
+(2,5,0,2.00)
+PH_2MM_2X6()
+(2,6,0,2.00)
+PH_2MM_2X7()
+(2,7,0,2.00)
+PH_2MM_2X8()
+(2,8,0,2.00)
+PH_2MM_2X9()
+(2,9,0,2.00)
+PH_2MM_2X10()
+(2,10,0,2.00)
+PH_2MM_2X11()
+(2,11,0,2.00)
+PH_2MM_2X12()
+(2,12,0,2.00)
+PH_2MM_2X13()
+(2,13,0,2.00)
+PH_2MM_2X14()
+(2,14,0,2.00)
+PH_2MM_2X15()
+(2,15,0,2.00)
+PH_2MM_2X16()
+(2,16,0,2.00)
+PH_2MM_2X17()
+(2,17,0,2.00)
+PH_2MM_2X18()
+(2,18,0,2.00)
+PH_2MM_2X19()
+(2,19,0,2.00)
+PH_2MM_2X20()
+(2,20,0,2.00)
+PH_2MM_2X21()
+(2,21,0,2.00)
+PH_2MM_2X22()
+(2,22,0,2.00)
+PH_2MM_2X23()
+(2,23,0,2.00)
+PH_2MM_2X24()
+(2,24,0,2.00)
+PH_2MM_2X25()
+(2,25,0,2.00)
+PH_2MM_2X26()
+(2,26,0,2.00)
+PH_2MM_2X27()
+(2,27,0,2.00)
+PH_2MM_2X28()
+(2,28,0,2.00)
+PH_2MM_2X29()
+(2,29,0,2.00)
+PH_2MM_2X30()
+(2,30,0,2.00)
+//two row pinheader (2mm) with jumper
+PH_2MM_2X1J(j)
+(2,1,j,2.00)
+PH_2MM_2X2J(j)
+(2,2,j,2.00)
+PH_2MM_2X3J(j)
+(2,3,j,2.00)
+PH_2MM_2X4J(j)
+(2,4,j,2.00)
+PH_2MM_2X5J(j)
+(2,5,j,2.00)
+PH_2MM_2X6J(j)
+(2,6,j,2.00)
+PH_2MM_2X7J(j)
+(2,7,j,2.00)
+PH_2MM_2X8J(j)
+(2,8,j,2.00)
+PH_2MM_2X9J(j)
+(2,9,j,2.00)
+PH_2MM_2X10J(j)
+(2,10,j,2.00)
+####################################################################################################
+####################################################################################################
+#if((a>1)|(b>1))
+union{
+#else
+object{
+#end
+#if(a=1)
+#local i=0;
+        #while(i<b)
+                object{PH() translate<i*2.54,0,0>}
+                #local i=i+1;
+        #end
+        translate<-(b-1)*(2.54/2),0,0>
+#else
+        #local i=0;
+        #while(i<b)
+                object{PH() translate<i*2.54,0,-(2.54/2)>}
+                object{PH() translate<i*2.54,0,(2.54/2)>}
+
+                #if(j=1)
+                object{CON_JUMPER() rotate<0,90,0> translate<i*2.54,0,(2.54)>}
+                #end
+
+                #if(j=2)
+                object{CON_JUMPER() rotate<0,90,0> translate<i*2.54,0,0>}
+                #end
+
+                #local i=i+1;
+        #end
+        translate<-(b-1)*(2.54/2),0,0>
+#end
+scale (pitch/2.54)
+}
+#end

@@ -1,0 +1,120 @@
+Eurocard Verbinder
+//Eurocard Verbinder
+//Duane Clark <dclark@akamail.com>
+####################################################################################################
+MABC96L:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_EUROCARD_96M_3_L(:Eurocard Connector:
+MAC64L:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:CON_EUROCARD_64M_2_L(:Eurocard Connector:
+####################################################################################################
+CON_EUROCARD_GRND
+(pins, rows)
+####################################################################################################
+CON_EUROCARD_96M_3_L()
+(96,3)
+CON_EUROCARD_64M_2_L()
+(64,2)
+####################################################################################################
+####################################################################################################
+union
+{
+  #local j = pins/rows;   // number of pins in row
+  #local hs = 2.54;       // horizontal pin spacing
+  #local hc = 0.9;        // horizontal centerline
+  #local vs = 2.54;       // vertical pin spacing
+  #local vc = 5.475;      // vertical centerline
+  #local po = 7.63;       // offset to first pin
+  #local ps = (j-1)*hs;   // total pin spacing
+  #local mo = 2.55;       // offset to first mounting hole
+  #local d = hc+10.1;     // overall body depth
+  #local id = 6.4;        // inside depth
+  #local w = ps+po*2;     // overall body width
+  #local h = 10.95;       // overall body height
+  #local io = 4.4;        // inner housing offset
+  #local r = 0.5;         // pin inner radius
+  #local pw = 0.60;       // pin width
+  #local ph = 0.60;       // pin height
+  #local pl = 8.5+vs;     // length of lower pins
+  #local pcb = 1.625;     // pc board cutout height
+  #local kh = 0.4;        // key height
+
+  difference
+  {
+    union {
+      box{<0,0,0><d,h,w> }
+      // mounting hole tabs
+      box{<d-12.5,0,0><0,7.125,5.1> }
+      box{<d-12.5,0,w><0,7.125,w-5.1> }
+    }
+    // mounting hole cutouts
+    box{<d-12.6,7.126,-0.1><d-7,h+0.1,5.1> }
+    box{<d-12.6,7.126,-0.1><d-7,h+0.1,5.1> translate<0,0,w-5> }
+    // mounting holes
+    cylinder{<hc,-0.1,mo><hc,h,mo>1.4 }
+    cylinder{<hc,-0.1,w-mo><hc,h,w-mo>1.4 }
+    // pc board cutout
+    box{<d-12.6,-0.1,-0.1><d-id-0.7,pcb,w+0.1> }
+    // pin area cutout
+    box{<d-id-0.001,1.125,io><d+0.1,h-3.625,w-io> }
+    box{<d-id,2,io+1><d+0.1,h-1.125,w-io-1> }
+    // upper side key outer cutouts
+    box{<d-5.601,8.45,-0.1><d+0.1,h+0.1,4.275> }
+    box{<d-5.601,8.45,-0.1><d+0.1,h+0.1,4.275> translate<0,0,w-4.175> }
+    // front side cutouts
+    box{<d-5.6,-0.1,-0.1><d+0.1,h+0.1,3.275> }
+    box{<d-5.6,-0.1,-0.1><d+0.1,h+0.1,3.275> translate<0,0,w-3.175> }
+    // front notches
+    box{<d-1,-0.1,po+hs*0.5><d+0.1,h+0.1,po+hs*2.5> }
+    box{<d-1,-0.1,po+hs*6.5><d+0.1,h+0.1,po+hs*8.5> }
+    box{<d-1,-0.1,po+hs*16.5><d+0.1,h+0.1,po+hs*18.5> }
+    box{<d-1,-0.1,po+ps-hs*6.5><d+0.1,h+0.1,po+ps-hs*8.5> }
+    box{<d-1,-0.1,po+ps-hs*0.5><d+0.1,h+0.1,po+ps-hs*2.5> }
+    // lower keys
+    box{<d-id,1.126,po+hs*1><d,1.125-kh,po+hs*2> }
+    box{<d-id,1.126,po+hs*7><d,1.125-kh,po+hs*8> }
+    box{<d-id,1.126,po+hs*17><d,1.125-kh,po+hs*18> }
+    box{<d-id,1.126,po+ps-hs*7><d,1.125-kh,po+ps-hs*8> }
+    box{<d-id,1.126,po+ps-hs*1><d,1.125-kh,po+ps-hs*2> }
+    // upper keys
+    box{<d-id,h-1.126,po+hs*1><d,h-1.125+kh,po+hs*2> }
+    box{<d-id,h-1.126,po+hs*7><d,h-1.125+kh,po+hs*8> }
+    box{<d-id,h-1.126,po+hs*17><d,h-1.125+kh,po+hs*18> }
+    box{<d-id,h-1.126,po+ps-hs*7><d,h-1.125+kh,po+ps-hs*8> }
+    box{<d-id,h-1.126,po+ps-hs*1><d,h-1.125+kh,po+ps-hs*2> }
+    pigment{Gray85}
+  }
+
+  // pins
+  union
+  {
+    #local k = 0;
+    #while(k<rows)
+      #if (rows<3)
+        #if (k>0)
+          // if only two rows, then the center row is the one that is missing
+          #local k = k+1;
+        #end
+      #end
+      #local i = 0;
+      #while(i<j)
+        // horizontal pin
+        box{<r+ph/2-pl-k*vs,0-ph/2,0-pw/2><0,ph/2,pw/2> translate<hc+8.5,vc+(k-1)*vs,po+i*hs>}
+        // pin radius
+        difference {
+          cylinder{<0,0,0><0,0,pw>r+ph}
+          cylinder{<0,0,-0.1><0,0,pw+0.1>r}
+          box{<0,-2,-0.1><2,2,pw+0.1>}
+          box{<-2,-2,-0.1><2,0,pw+0.1>}
+          translate<hc-(k+1)*vs+r+ph/2,vc+(k-1)*vs-r-ph/2,po+i*hs-pw/2>
+        }
+        // vertical pin
+        box{<-ph/2,-2,-pw/2><ph/2,vc+(k-1)*vs-r-ph/2,pw/2> translate<hc-(k+1)*vs,0,po+i*hs>}
+        #local i = i+1;
+      #end
+      #local k = k+1;
+    #end
+    texture{col_gold}
+  }
+
+  translate<0-hc,0-pcb,0-w/2>
+  translate<0,2,0>
+}
+#end

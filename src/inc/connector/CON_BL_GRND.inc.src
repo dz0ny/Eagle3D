@@ -1,0 +1,97 @@
+Buchsenleisten
+//Grundmakro für Buchsenleisten
+####################################################################################################
+FE05-1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:BL_1X5(:Buchsenleiste 5Pin 1Reihe (con-lsta.lib):Female Header  5Pin 1Row (con-lsta.lib)
+FE06:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:BL_1X6(:Buchsenleiste 6Pin 1Reihe (con-lsta.lib):Female Header  6Pin 1Row (con-lsta.lib)
+FE07:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:BL_1X7(:Buchsenleiste 7Pin 1Reihe (con-lsta.lib):Female Header  7Pin 1Row (con-lsta.lib)
+FE08:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:BL_1X8(:Buchsenleiste 8Pin 1Reihe (con-lsta.lib):Female Header  8Pin 1Row (con-lsta.lib)
+FE09:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:BL_1X9(:Buchsenleiste 9Pin 1Reihe (con-lsta.lib):Female Header  9Pin 1Row (con-lsta.lib)
+FE10:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:BL_1X10(:Buchsenleiste 10Pin 1Reihe (con-lsta.lib):Female Header  10Pin 1Row (con-lsta.lib)
+FE12:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:BL_1X12(:Buchsenleiste 12Pin 1Reihe (con-lsta.lib):Female Header  12Pin 1Row (con-lsta.lib)
+FE13:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:BL_1X13(:Buchsenleiste 13Pin 1Reihe (con-lsta.lib):Female Header  13Pin 1Row (con-lsta.lib)
+FE15:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:BL_1X15(:Buchsenleiste 15Pin 1Reihe (con-lsta.lib):Female Header  15Pin 1Row (con-lsta.lib)
+FE20:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:BL_1X20(:Buchsenleiste 20Pin 1Reihe (con-lsta.lib):Female Header  20Pin 1Row (con-lsta.lib)
+FE05-2:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:BL_2X5(:Buchsenleiste 5Pin 2Reihen (con-lsta.lib):Female Header  5Pin 2Rows (con-lsta.lib)
+FE06-2:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:BL_2X6(:Buchsenleiste 6Pin 2Reihen (con-lsta.lib):Female Header  6Pin 2Rows (con-lsta.lib)
+FE07-2:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:BL_2X7(:Buchsenleiste 7Pin 2Reihen (con-lsta.lib):Female Header  7Pin 2Rows (con-lsta.lib)
+FE08-2:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:BL_2X8(:Buchsenleiste 8Pin 2Reihen (con-lsta.lib):Female Header  8Pin 2Rows (con-lsta.lib)
+FE09-2:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:BL_2X9(:Buchsenleiste 9Pin 2Reihen (con-lsta.lib):Female Header  9Pin 2Rows (con-lsta.lib)
+FE10-2:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:BL_2X10(:Buchsenleiste 10Pin 2Reihen (con-lsta.lib):Female Header  10Pin 2Rows (con-lsta.lib)
+FE12-2:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:BL_2X12(:Buchsenleiste 12Pin 2Reihen (con-lsta.lib):Female Header  12Pin 2Rows (con-lsta.lib)
+FE13-2:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:BL_2X13(:Buchsenleiste 13Pin 2Reihen (con-lsta.lib):Female Header  13Pin 2Rows (con-lsta.lib)
+FE15-2:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:BL_2X15(:Buchsenleiste 15Pin 2Reihen (con-lsta.lib):Female Header  15Pin 2Rows (con-lsta.lib)
+FE17-2:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:BL_2X17(:Buchsenleiste 17Pin 2Reihen (con-lsta.lib):Female Header  17Pin 2Rows (con-lsta.lib)
+FE18-2:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:BL_2X18(:Buchsenleiste 18Pin 2Reihen (con-lsta.lib):Female Header  18Pin 2Rows (con-lsta.lib)
+FE20-2:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:BL_2X20(:Buchsenleiste 20Pin 2Reihen (con-lsta.lib):Female Header  20Pin 2Rows (con-lsta.lib)
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:BL_1X17(:Buchsenleiste 17Pin 1Reihe :Female Header  17Pin 1Row
+NOEAGLEPAC:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:BL_1X18(:Buchsenleiste 18Pin 1Reihe :Female Header  18Pin 1Row
+####################################################################################################
+CON_BL_GRND
+(pin,row)
+####################################################################################################
+BL_1X5()
+(5,1)
+BL_1X6()
+(6,1)
+BL_1X7()
+(7,1)
+BL_1X8()
+(8,1)
+BL_1X9()
+(9,1)
+BL_1X10()
+(10,1)
+BL_1X12()
+(12,1)
+BL_1X13()
+(13,1)
+BL_1X15()
+(15,1)
+BL_1X17()
+(17,1)
+BL_1X18()
+(18,1)
+BL_1X20()
+(20,1)
+BL_2X5()
+(5,2)
+BL_2X6()
+(6,2)
+BL_2X7()
+(7,2)
+BL_2X8()
+(8,2)
+BL_2X9()
+(9,2)
+BL_2X10()
+(10,2)
+BL_2X12()
+(12,2)
+BL_2X13()
+(13,2)
+BL_2X15()
+(15,2)
+BL_2X17()
+(17,2)
+BL_2X18()
+(18,2)
+BL_2X20()
+(20,2)
+####################################################################################################
+####################################################################################################
+union{
+#local i=0;
+#while(i<pin)
+object{PBL() translate<i*2.54,0,0>}
+#local i=i+1;
+#end
+#if(row=2)
+#local i=0;
+#while(i<pin)
+object{PBL() translate<i*2.54,0,-2.54>}
+#local i=i+1;
+#end
+translate<0,0,1.27>
+#end
+translate<pin*-1.27+1.27,0,0>}
+#end

@@ -1,0 +1,67 @@
+laser
+//dahamm(at)gmx.net
+####################################################################################################
+NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:L_WE_PD_S(:Speicherdrossel WE-PD Wuerth Elektronik:Inductor WE-PD Wuerth Elektronik
+NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:L_WE_PD_M(:Speicherdrossel WE-PD Wuerth Elektronik:Inductor WE-PD Wuerth Elektronik
+NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:L_WE_PD_L(:Speicherdrossel WE-PD Wuerth Elektronik:Inductor WE-PD Wuerth Elektronik
+NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:L_WE_PD_XL(:Speicherdrossel WE-PD Wuerth Elektronik:Inductor WE-PD Wuerth Elektronik
+NOEAGLEPAC:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:L_WE_PD_XXL(:Speicherdrossel WE-PD Wuerth Elektronik:Inductor WE-PD Wuerth Elektronik
+WE-PD_S/M:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:L_WE_PD_M(:Speicherdrossel WE-PD Wuerth Elektronik:Inductor WE-PD Wuerth Elektronik
+WE-PD_L/XL/XXL:0:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:L_WE_PD_XL(:Speicherdrossel WE-PD Wuerth Elektronik:Inductor WE-PD Wuerth Elektronik
+####################################################################################################
+SPC_L_WE_PD_GRND
+(value, A, B, C, D)
+####################################################################################################
+L_WE_PD_S(value)
+(value, 7.3, 3.2, 1.5, 1.5)
+L_WE_PD_M(value)
+(value, 7.3, 4.5, 2.0, 1.5)
+L_WE_PD_L(value)
+(value, 12.0, 6.0, 8.0, 5.0)
+L_WE_PD_XL(value)
+(value, 12.0, 8.0, 8.0, 5.0)
+L_WE_PD_XXL(value)
+(value, 12.0, 10.0, 7.6, 5.0)
+####################################################################################################
+####################################################################################################
+#local r = 2; //Kantenradius
+#local s = 0.5; //Gehäuseanhebung
+#local ri = A / 2 - 1; //Kernradius
+#local rx = A / 10;
+
+	union
+	{
+		difference
+		{
+			union
+			{
+				cylinder{<A/2 - r, s, A/2 - r><A/2 - r, s + B, A/2 - r> r}
+				cylinder{<-A/2 + r, s, A/2 - r><-A/2 + r, s + B, A/2 - r> r}
+				cylinder{<A/2 - r, s, -A/2 + r><A/2 - r, s + B, -A/2 + r> r}
+				cylinder{<-A/2 + r, s, -A/2 + r><-A/2 + r, s + B, -A/2 + r> r}
+				box{<A/2, s, A/2 - r><-A/2, s + B, -A/2 + r>}
+				box{<A/2 - r, s, A/2><-A/2 + r, s + B, -A/2>}
+			}
+
+			cylinder{<0.707 * ri, 0, 0.7 * ri><0.7 * ri, s + B + 1, 0.7 * ri> rx}
+			cylinder{<-0.707 * ri, 0, 0.7 * ri><-0.7 * ri, s + B + 1, 0.7 * ri> rx}
+			cylinder{<0.707 * ri, 0, -0.7 * ri><0.7 * ri, s + B + 1, -0.7 * ri> rx}
+			cylinder{<-0.707 * ri, 0, -0.7 * ri><-0.7 * ri, s + B + 1, -0.7 * ri> rx}
+		}
+
+		torus{ri - 0.5, 0.5 translate<0, s + B, 0>}
+		cylinder{<0, s + B, 0><0, s + B + 0.5, 0> ri - 0.5}
+
+		box{<-D/2, 0, A/2><D/2, s, A/2 - C/2> texture{col_silver}}
+		box{<-D/2, 0, -A/2><D/2, s, -A/2 + C/2> texture{col_silver}}
+
+		text {ttf besch_font value 1, 0 pigment{Gray80} scale 2  rotate<90,0,0> translate<-2,s + B + 0.8, 0>}
+
+
+		pigment{Gray20}
+		rotate<0, 90, 0>
+	}
+
+
+#end
+
