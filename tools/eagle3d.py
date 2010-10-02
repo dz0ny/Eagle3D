@@ -1124,8 +1124,6 @@ class _Worker:
 
 		return all_errors_found
 
-	#verify = Callable(verify)
-
 
 	########################################
 	#
@@ -1151,8 +1149,6 @@ class _Worker:
 				os.remove(filepath)
 			for filepath in glob.glob(os.path.join(env.ARCHIVE_OUTPUT_DIR, "partSize.dat")):
 				os.remove(filepath)
-
-	#clean = Callable(clean)
 
 
 	########################################
@@ -1796,7 +1792,6 @@ class _Worker:
 	########################################
 	#
 	def renderhtml(self):
-
 		import eagle3d_templates
 
 		quiet = config._get('quiet')
@@ -1906,6 +1901,8 @@ class _Worker:
 		                               eagle3d_templates.renderhtml_index_body_template,
 		                               eagle3d_templates.renderhtml_index_footer_template)
 
+		return 0
+
 
 ###############################################################################
 # entry
@@ -1937,6 +1934,8 @@ if __name__ == "__main__":
 	if not options.silent and not options.noconsole:
 		logger.addHandler(logging.StreamHandler())
 
+	time_start = datetime.datetime.now()
+	rc = 0
 	if options.debugmode:
 		import sys, trace
 		#_outfile = os.path.join(os.path.dirname(os.path.abspath(__file__)), "eagle3d-debug-"+action+".log")
@@ -1966,16 +1965,23 @@ if __name__ == "__main__":
 		r.write_results(show_missing=True, coverdir=os.path.dirname(os.path.abspath(__file__)))
 	else:
 		if action == "clean":
-			sys.exit(worker.clean())
+			rc = worker.clean()
 		elif action == "create":
-			sys.exit(worker.create())
+			rc = worker.create()
 		elif action == "env":
-			sys.exit(worker.dump())
+			rc = env.dump()
 		elif action == "release":
-			sys.exit(worker.release())
+			rc = worker.release()
 		elif action == "render":
-			sys.exit(worker.render())
+			rc = worker.render()
 		elif action == "renderhtml":
-			sys.exit(worker.renderhtml())
+			rc = worker.renderhtml()
 		elif action == "verify":
-			sys.exit(worker.verify())
+			rc = worker.verify()
+
+	time_stop = datetime.datetime.now()
+	time_elapsed = time_stop - time_start
+	logger.info("elapsed time: "+str(time_elapsed))
+	#time_elapsed_formatted = ':'.join(str(time_elapsed).split(':')[:2])
+	#logger.info("elapsed time: "+time_elapsed_formatted)
+	sys.exit(rc)
