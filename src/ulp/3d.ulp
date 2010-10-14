@@ -2014,7 +2014,7 @@ board(B)
                                         {
                                             dlgGridLayout
                                             {
-                                                dlgCell(0,0) dlgTextView("<center><img src="+mpd_show_pic[1]+"></center>");
+                                                dlgCell(0,0) dlgTextView("<center><img src=\""+mpd_show_pic[1]+"\"></center>");
                                                 dlgCell(1,0) dlgHBoxLayout{dlgSpacing(700);};
                                                 dlgCell(0,1) dlgVBoxLayout{dlgSpacing(520);};
                                                 dlgCell(2,0) dlgPushButton("OK") dlgAccept(1);
